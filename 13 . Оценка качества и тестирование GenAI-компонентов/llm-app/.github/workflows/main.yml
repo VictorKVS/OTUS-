@@ -1,0 +1,85 @@
+name: PR Quality Checks
+
+on:
+  pull_request:
+    branches: ["**"] 
+  push:
+    branches: ["main", "master"]  
+  workflow_dispatch:    
+
+jobs:
+  model-tests:
+    runs-on: self-hosted
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        model_name:
+          - ollama-qwen3-0.6b-q8
+          - ollama-qwen3-4b-q4
+          - ollama-qwen3-8b-q4
+          - yandexgpt-lite
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run pre-deploy test for ${{ matrix.model_name }}
+        env:
+          YC_API_KEY: ${{ secrets.YC_API_KEY }}
+          YC_FOLDER_ID: ${{ secrets.YC_FOLDER_ID }}
+          PROVIDER: ${{ vars.PROVIDER }}
+
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+          RAGAS_EMBEDDING_MODEL: ${{ vars.RAGAS_EMBEDDING_MODEL }}
+          OLLAMA_BASE_URL: "http://localhost:11434/v1"
+          OLLAMA_API_KEY: "ollama"
+          LANGFUSE_PUBLIC_KEY: ${{ secrets.LANGFUSE_PUBLIC_KEY }}
+          LANGFUSE_SECRET_KEY: ${{ secrets.LANGFUSE_SECRET_KEY }}
+          LANGFUSE_HOST: "http://localhost:3000"
+          PREDEPLOY_MODEL_NAME: ${{ matrix.model_name }}
+          USE_SIMPLE_AR: "1"
+
+          THRESH_FAITHFULNESS: "0.80"
+          THRESH_ANSWER_RELEVANCY: "0.50"
+          THRESH_CONTEXT_PRECISION: "0.50"
+          THRESH_CONTEXT_RECALL: "0.70"
+          THRESH_QA_SIM: "0.80"
+          THRESH_PASS_RATE: "0.85"
+        run: | 
+          python3 -m testing.pre_deploy_test
+
+      - name: Upload passed model placeholder to MinIO
+        if: success()
+        env:
+          MODEL_NAME: ${{ matrix.model_name }}
+        run: |
+          python3 -m testing.publish_model_placeholder
+
+  toxicity-test:
+    runs-on: self-hosted
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run toxicity test
+        env:
+          YC_API_KEY: ${{ secrets.YC_API_KEY }}
+          YC_FOLDER_ID: ${{ secrets.YC_FOLDER_ID }}
+          PROVIDER: ${{ vars.PROVIDER }}
+
+          TOX_MODEL: ${{ vars.TOX_MODEL }}
+          LANGFUSE_PUBLIC_KEY: ${{ secrets.LANGFUSE_PUBLIC_KEY }}
+          LANGFUSE_SECRET_KEY: ${{ secrets.LANGFUSE_SECRET_KEY }}
+          LANGFUSE_HOST: "http://localhost:3000"
+          TOX_THRESHOLD: "0.50"
+          RUDE_THRESHOLD: "0.50"
+        run: |
+          set -e
+          python3 -m testing.toxic_test | tee tox.out
+          if grep -E -q "ГЕЙТ:\s*ПРОВАЛ" tox.out; then
+            echo "::error::Toxicity gate failed"
+            exit 1
+          fi
