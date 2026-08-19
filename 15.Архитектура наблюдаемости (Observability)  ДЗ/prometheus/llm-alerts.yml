@@ -1,0 +1,29 @@
+groups:
+  - name: father-llm-observability
+    rules:
+      - alert: LLMHighErrorRate
+        expr: sum(rate(llm_errors_total[5m])) / clamp_min(sum(rate(llm_requests_total[5m])), 0.001) > 0.05
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "LLM error rate exceeds 5%"
+          runbook: "docs/runbooks/llm-high-error-rate.md"
+
+      - alert: LLMHighP95Latency
+        expr: histogram_quantile(0.95, sum by (le) (rate(llm_request_duration_seconds_bucket[5m]))) > 10
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "LLM p95 latency exceeds 10 seconds"
+          runbook: "docs/runbooks/llm-high-latency.md"
+
+      - alert: LLMSecurityGuardrailSpike
+        expr: sum(rate(llm_guardrail_triggers_total[5m])) > 1
+        for: 5m
+        labels:
+          severity: high
+        annotations:
+          summary: "Security or safety guardrail events increased"
+          runbook: "docs/runbooks/llm-guardrail-spike.md"
