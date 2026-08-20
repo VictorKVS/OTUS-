@@ -1,0 +1,36 @@
+course_id: OTUS-AI-ARCHITECT
+project: FATHER Architect OS
+mode: single_stream
+lessons_total: 31
+maturity_target: M1
+current_gate: G1
+traceability: BUS-REQ-NFR-RISK-ADR-CMP-CTRL-TEST-SLO-COST-REL
+gates:
+  - id: G1
+    lessons: [1, 2, 3]
+    title: Замысел и ценность
+    status: in_progress
+  - id: G2
+    lessons: [4, 5, 6, 7]
+    title: Проектирование решения
+    status: pending
+  - id: G3
+    lessons: [8, 9, 10]
+    title: Решения и контроль
+    status: pending
+  - id: G4
+    lessons: [11, 12, 13, 14, 15]
+    title: Данные, качество и безопасность
+    status: pending
+  - id: G5
+    lessons: [16, 17, 18, 19, 20]
+    title: Промышленная поставка
+    status: pending
+  - id: G6
+    lessons: [21, 22, 23, 24, 25, 26, 27]
+    title: Надёжность и масштаб
+    status: pending
+  - id: G7
+    lessons: [28, 29, 30, 31]
+    title: Экономика и управление
+    status: pending
