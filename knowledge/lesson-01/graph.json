@@ -1,0 +1,139 @@
+{
+  "version": "1.0",
+  "lesson": 1,
+  "title": "Пресейл, контракты и работа с требованиями",
+  "nodes": [
+    {
+      "id": "OTUS-L01-SRC-001",
+      "type": "SOURCE",
+      "title": "Описание урока 1 OTUS",
+      "status": "verified",
+      "source": "OTUS / Андрей Носов",
+      "confidence": 1,
+      "maturity": "M1",
+      "description": "Цели, содержание, практика и компетенции урока"
+    },
+    {
+      "id": "OTUS-L01-CON-001",
+      "type": "CONCEPT",
+      "title": "Пресейл",
+      "status": "reviewed",
+      "source": "OTUS-L01-SRC-001",
+      "confidence": 0.9,
+      "maturity": "M1",
+      "description": "Работа архитектора до заключения контракта"
+    },
+    {
+      "id": "OTUS-L01-CON-002",
+      "type": "CONTRACT_MODEL",
+      "title": "Fixed Price",
+      "status": "reviewed",
+      "source": "OTUS-L01-SRC-001",
+      "confidence": 0.9,
+      "maturity": "M1",
+      "description": "Фиксированные объём, срок и стоимость"
+    },
+    {
+      "id": "OTUS-L01-CON-003",
+      "type": "CONTRACT_MODEL",
+      "title": "Time & Materials",
+      "status": "reviewed",
+      "source": "OTUS-L01-SRC-001",
+      "confidence": 0.9,
+      "maturity": "M1",
+      "description": "Оплата фактически затраченных ресурсов"
+    },
+    {
+      "id": "OTUS-L01-CON-004",
+      "type": "CONTRACT_MODEL",
+      "title": "T&M with cap",
+      "status": "reviewed",
+      "source": "OTUS-L01-SRC-001",
+      "confidence": 0.9,
+      "maturity": "M1",
+      "description": "T&M с верхним пределом бюджета"
+    },
+    {
+      "id": "OTUS-L01-SKILL-001",
+      "type": "SKILL",
+      "title": "Анализ входного запроса",
+      "status": "draft",
+      "source": "OTUS-L01-SRC-001",
+      "confidence": 0.75,
+      "maturity": "M1",
+      "description": "Выявить цели, ограничения, пробелы и заинтересованных лиц"
+    },
+    {
+      "id": "OTUS-L01-SKILL-002",
+      "type": "SKILL",
+      "title": "Выбор модели контракта",
+      "status": "draft",
+      "source": "OTUS-L01-SRC-001",
+      "confidence": 0.75,
+      "maturity": "M1",
+      "description": "Выбрать FP, T&M или T&M with cap по неопределённости и рискам"
+    },
+    {
+      "id": "OTUS-L01-GATE-001",
+      "type": "GATE",
+      "title": "Допуск к оценке проекта",
+      "status": "draft",
+      "source": "FATHER-RULE-L01",
+      "confidence": 0.8,
+      "maturity": "M1",
+      "description": "Запрещает оценку до фиксации целей, границ и допущений"
+    },
+    {
+      "id": "OTUS-L01-TEST-001",
+      "type": "TEST",
+      "title": "Анализ трёх RFP",
+      "status": "planned",
+      "source": "FATHER-TEST-L01",
+      "confidence": 0.8,
+      "maturity": "M1",
+      "description": "Выбор и защита модели контракта для трёх кейсов"
+    }
+  ],
+  "edges": [
+    {
+      "from": "OTUS-L01-CON-001",
+      "relation": "DERIVED_FROM",
+      "to": "OTUS-L01-SRC-001"
+    },
+    {
+      "from": "OTUS-L01-SKILL-001",
+      "relation": "REQUIRES",
+      "to": "OTUS-L01-CON-001"
+    },
+    {
+      "from": "OTUS-L01-SKILL-002",
+      "relation": "COMPARES",
+      "to": "OTUS-L01-CON-002"
+    },
+    {
+      "from": "OTUS-L01-SKILL-002",
+      "relation": "COMPARES",
+      "to": "OTUS-L01-CON-003"
+    },
+    {
+      "from": "OTUS-L01-SKILL-002",
+      "relation": "COMPARES",
+      "to": "OTUS-L01-CON-004"
+    },
+    {
+      "from": "OTUS-L01-GATE-001",
+      "relation": "REQUIRES",
+      "to": "OTUS-L01-SKILL-001"
+    },
+    {
+      "from": "OTUS-L01-TEST-001",
+      "relation": "VERIFIES",
+      "to": "OTUS-L01-SKILL-001"
+    },
+    {
+      "from": "OTUS-L01-TEST-001",
+      "relation": "VERIFIES",
+      "to": "OTUS-L01-SKILL-002"
+    }
+  ]
+}
