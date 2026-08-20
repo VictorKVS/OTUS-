@@ -1,0 +1,452 @@
+{
+  "schema": "father-knowledge-graph/v1",
+  "artifact": {
+    "id": "OTUS-L01-HW-SUFLER-BFT-v1",
+    "lesson": 1,
+    "title": "БФТ голосового AI-ассистента «Суфлёр»",
+    "declared_status": "ready_for_design",
+    "evidence_status": "conditionally_ready",
+    "pages": 4
+  },
+  "counts": {
+    "nodes": 30,
+    "edges": 13,
+    "contradictions": 7
+  },
+  "nodes": [
+    {
+      "id": "L01-SRC-BFT-001",
+      "type": "SOURCE",
+      "title": "БФТ проекта «Суфлёр»",
+      "status": "provided",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.1 header",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-TERM-SYSTEM-001",
+      "type": "TERM",
+      "title": "Система/Бот",
+      "status": "defined",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.1 §1",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-TERM-B24-001",
+      "type": "EXTERNAL_SYSTEM",
+      "title": "Битрикс24",
+      "status": "defined",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.1 §1",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-ROLE-CC-001",
+      "type": "ROLE",
+      "title": "Контакт-центр",
+      "status": "defined",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.1 §1",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-TERM-INTENT-001",
+      "type": "TERM",
+      "title": "Интент",
+      "status": "defined",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.1 §1",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-BR-001",
+      "type": "BUSINESS_RULE",
+      "title": "Режим тишины 10:00–19:00",
+      "status": "approved_in_bft",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.1 §2 BR-01",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-BR-002",
+      "type": "BUSINESS_RULE",
+      "title": "Исключение B2B",
+      "status": "ambiguous",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.1 §2 BR-02",
+      "confidence": 0.8,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-BR-003",
+      "type": "BUSINESS_RULE",
+      "title": "Pre-flight проверка оплаты",
+      "status": "scope_conflict",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.1 §2 BR-03",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-BR-004",
+      "type": "BUSINESS_RULE",
+      "title": "Запрет ссылки при пустом payment_link",
+      "status": "approved_in_bft",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.1 §2 BR-04",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-FR-1.1",
+      "type": "FUNCTIONAL_REQUIREMENT",
+      "title": "Webhook Б24 и очередь обзвона",
+      "status": "specified",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.1 §3.1",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-FR-1.2",
+      "type": "FUNCTIONAL_REQUIREMENT",
+      "title": "SMS при недозвоне",
+      "status": "needs_legal_validation",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.2 §3.1",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-FR-2.1",
+      "type": "FUNCTIONAL_REQUIREMENT",
+      "title": "VAD: пауза ≥1.5 секунды",
+      "status": "specified",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.2 §3.2",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-FR-2.2",
+      "type": "FUNCTIONAL_REQUIREMENT",
+      "title": "TTS «Елена» и склонение переменных",
+      "status": "specified",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.2 §3.2",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-FR-2.3",
+      "type": "FUNCTIONAL_REQUIREMENT",
+      "title": "Один повтор NLU, затем КЦ",
+      "status": "specified",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.2 §3.2",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-FR-3.1",
+      "type": "FUNCTIONAL_REQUIREMENT",
+      "title": "Интент: согласие на оплату",
+      "status": "specified",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.2 §3.3",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-FR-3.2",
+      "type": "FUNCTIONAL_REQUIREMENT",
+      "title": "Интент: отсрочка",
+      "status": "needs_constraints",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.2 §3.3",
+      "confidence": 0.9,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-FR-3.3",
+      "type": "FUNCTIONAL_REQUIREMENT",
+      "title": "Интент: отмена брони",
+      "status": "needs_authorization_rule",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.2 §3.3",
+      "confidence": 0.9,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-FR-3.4",
+      "type": "FUNCTIONAL_REQUIREMENT",
+      "title": "Интент: за рулём",
+      "status": "time_rule_conflict",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.2 §3.3",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-FR-3.5",
+      "type": "FUNCTIONAL_REQUIREMENT",
+      "title": "Интент: дорого",
+      "status": "specified",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.2 §3.3",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-FR-3.6",
+      "type": "FUNCTIONAL_REQUIREMENT",
+      "title": "Интент: агрессия",
+      "status": "specified",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.2 §3.3",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-FR-3.7",
+      "type": "FUNCTIONAL_REQUIREMENT",
+      "title": "Запрос человека: SIP Transfer",
+      "status": "depends_on_pbx",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.3 §3.3",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-FR-4.1",
+      "type": "FUNCTIONAL_REQUIREMENT",
+      "title": "Транскрипт и аудиозапись в Б24",
+      "status": "needs_privacy_design",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.3 §3.4",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-FR-4.2",
+      "type": "FUNCTIONAL_REQUIREMENT",
+      "title": "Excel-отчёт в 08:00 МСК",
+      "status": "specified",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.3 §3.4",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-FR-4.3",
+      "type": "FUNCTIONAL_REQUIREMENT",
+      "title": "Метрика Hold Time",
+      "status": "specified",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.3 §3.4",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-NFR-PERF-001",
+      "type": "NFR",
+      "title": "30 линий, 5 CPS, STT <1000 мс",
+      "status": "needs_load_profile",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.3 §4.1",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-NFR-SLA-001",
+      "type": "NFR",
+      "title": "SLA 99.99%",
+      "status": "needs_measurement_definition",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.3 §4.2",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-NFR-TLS-001",
+      "type": "SECURITY_REQUIREMENT",
+      "title": "TLS 1.2+",
+      "status": "specified",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.3 §4.3",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-NFR-DATA-001",
+      "type": "LEGAL_SECURITY_REQUIREMENT",
+      "title": "Аудиозаписи на территории РФ",
+      "status": "needs_152fz_validation",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.3 §4.3",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-RISK-INT-001",
+      "type": "RISK",
+      "title": "1С против ограничения Scope",
+      "status": "open_critical",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.3 §4 risk 1",
+      "confidence": 1,
+      "maturity": "M1"
+    },
+    {
+      "id": "L01-RISK-PBX-001",
+      "type": "RISK",
+      "title": "Неизвестная конфигурация Asterisk/SIP REFER",
+      "status": "open_high",
+      "source": "Бизнес_функциональные_требования_Суфлер-252831-d02306.pdf",
+      "source_locator": "p.4 §4 risk 2",
+      "confidence": 1,
+      "maturity": "M1"
+    }
+  ],
+  "edges": [
+    {
+      "from": "L01-BR-003",
+      "relation": "CONFLICTS_WITH",
+      "to": "L01-RISK-INT-001"
+    },
+    {
+      "from": "L01-FR-1.1",
+      "relation": "INTEGRATES_WITH",
+      "to": "L01-TERM-B24-001"
+    },
+    {
+      "from": "L01-FR-1.2",
+      "relation": "REQUIRES",
+      "to": "L01-BR-004"
+    },
+    {
+      "from": "L01-FR-2.3",
+      "relation": "ESCALATES_TO",
+      "to": "L01-ROLE-CC-001"
+    },
+    {
+      "from": "L01-FR-3.5",
+      "relation": "ESCALATES_TO",
+      "to": "L01-ROLE-CC-001"
+    },
+    {
+      "from": "L01-FR-3.6",
+      "relation": "ESCALATES_TO",
+      "to": "L01-ROLE-CC-001"
+    },
+    {
+      "from": "L01-FR-3.7",
+      "relation": "ESCALATES_TO",
+      "to": "L01-ROLE-CC-001"
+    },
+    {
+      "from": "L01-FR-3.7",
+      "relation": "EXPOSED_TO",
+      "to": "L01-RISK-PBX-001"
+    },
+    {
+      "from": "L01-FR-4.1",
+      "relation": "CONSTRAINED_BY",
+      "to": "L01-NFR-DATA-001"
+    },
+    {
+      "from": "L01-FR-1.1",
+      "relation": "CONSTRAINED_BY",
+      "to": "L01-NFR-PERF-001"
+    },
+    {
+      "from": "L01-BR-001",
+      "relation": "CONSTRAINS",
+      "to": "L01-FR-1.1"
+    },
+    {
+      "from": "L01-BR-001",
+      "relation": "CONSTRAINS",
+      "to": "L01-FR-3.4"
+    },
+    {
+      "from": "L01-NFR-TLS-001",
+      "relation": "SECURES",
+      "to": "L01-FR-1.1"
+    }
+  ],
+  "contradictions": [
+    {
+      "id": "L01-CON-001",
+      "severity": "critical",
+      "statement": "Scope допускает только Б24, но BR-03 требует API 1С/Б24.",
+      "node_ids": [
+        "L01-BR-003",
+        "L01-RISK-INT-001"
+      ]
+    },
+    {
+      "id": "L01-CON-002",
+      "severity": "high",
+      "statement": "BR-02 задаёт два результата: игнорировать B2B или передавать менеджеру.",
+      "node_ids": [
+        "L01-BR-002"
+      ]
+    },
+    {
+      "id": "L01-CON-003",
+      "severity": "high",
+      "statement": "SMS требует payment_link, но ветка при пустой ссылке не описана.",
+      "node_ids": [
+        "L01-FR-1.2",
+        "L01-BR-004"
+      ]
+    },
+    {
+      "id": "L01-CON-004",
+      "severity": "high",
+      "statement": "Повтор через час может выйти за окно 10:00–19:00.",
+      "node_ids": [
+        "L01-FR-3.4",
+        "L01-BR-001"
+      ]
+    },
+    {
+      "id": "L01-CON-005",
+      "severity": "high",
+      "statement": "Не определены срок хранения аудио, удаление и правовое основание.",
+      "node_ids": [
+        "L01-FR-4.1",
+        "L01-NFR-DATA-001"
+      ]
+    },
+    {
+      "id": "L01-CON-006",
+      "severity": "medium",
+      "statement": "SLA не имеет точки измерения, исключений и периода расчёта.",
+      "node_ids": [
+        "L01-NFR-SLA-001"
+      ]
+    },
+    {
+      "id": "L01-CON-007",
+      "severity": "medium",
+      "statement": "Нет длительности звонка, профиля пика и политики очереди.",
+      "node_ids": [
+        "L01-NFR-PERF-001"
+      ]
+    }
+  ],
+  "blocking_gates": [
+    "L01-GATE-SCOPE",
+    "L01-GATE-LEGAL",
+    "L01-GATE-PBX"
+  ]
+}
