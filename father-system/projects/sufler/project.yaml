@@ -1,0 +1,44 @@
+schema: father-project/v1
+id: FATHER-PROJECT-SUFLER
+title: Голосовой AI-ассистент «Суфлёр»
+source:
+  course: OTUS
+  lesson: 1
+  artifact: OTUS-L01-HW-001
+separation:
+  otus_submission_path: "1. Пресейл, контракты и работа с требованиями закладываем фундамент проекта/HOMEWORK_OTUS"
+  father_project_path: father-system/projects/sufler
+  rule: "OTUS submission contains only requested deliverables; FATHER contains the extended professional lifecycle"
+status:
+  lifecycle: IN_PROGRESS
+  decision: CONDITIONAL_GO
+  maturity: M1
+  updated_at: "2026-08-20"
+metrics:
+  evidence_nodes: 30
+  relations: 13
+  contradictions: 7
+  open_questions: 16
+  gates: 8
+  tests: 24
+blocking_gates:
+  - L01-GATE-SCOPE
+  - L01-GATE-LEGAL
+  - L01-GATE-PBX
+next_artifacts:
+  - context_diagram
+  - container_diagram
+  - preflight_sequence
+  - dialog_state_machine
+  - data_retention_matrix
+  - ADR-001-integration-boundary
+  - ADR-002-sip-transfer
+  - load_model
+roles:
+  architect: accountable
+  business_analyst: responsible_requirements
+  system_analyst: responsible_integrations
+  security: required_review
+  legal: required_review
+  economist: required_cost_model
+  qa: responsible_traceability_tests
