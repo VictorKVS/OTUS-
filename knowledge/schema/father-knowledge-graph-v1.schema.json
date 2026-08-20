@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Father Architect Evidence Knowledge Graph v1",
+  "type": "object",
+  "required": [
+    "version",
+    "lesson",
+    "nodes",
+    "edges"
+  ],
+  "properties": {
+    "version": {
+      "const": "1.0"
+    },
+    "lesson": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "title",
+          "status",
+          "source",
+          "confidence",
+          "maturity",
+          "description"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "SOURCE",
+              "CONCEPT",
+              "CONTRACT_MODEL",
+              "REQUIREMENT",
+              "RISK",
+              "CONTROL",
+              "SKILL",
+              "TEST",
+              "GATE",
+              "DECISION_RULE"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "draft",
+              "planned",
+              "reviewed",
+              "verified",
+              "rejected"
+            ]
+          },
+          "source": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "maturity": {
+            "enum": [
+              "M0",
+              "M1",
+              "M2",
+              "M3"
+            ]
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "from",
+          "relation",
+          "to"
+        ],
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "relation": {
+            "enum": [
+              "DERIVED_FROM",
+              "REQUIRES",
+              "COMPARES",
+              "VERIFIES",
+              "MITIGATES",
+              "PRODUCES",
+              "BLOCKS",
+              "DEPENDS_ON"
+            ]
+          },
+          "to": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
