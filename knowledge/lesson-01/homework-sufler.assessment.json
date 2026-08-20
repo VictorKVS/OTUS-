@@ -1,0 +1,374 @@
+{
+  "schema": "father-lesson-assessment/v1",
+  "lesson": 1,
+  "artifact": "OTUS-L01-HW-SUFLER-BFT-v1",
+  "readiness": {
+    "declared": "ready_for_design",
+    "evidence_based": "conditionally_ready",
+    "blocking_gates": [
+      "L01-GATE-SCOPE",
+      "L01-GATE-LEGAL",
+      "L01-GATE-PBX"
+    ]
+  },
+  "open_questions": [
+    {
+      "id": "OQ-01",
+      "text": "Кто является источником истины по оплате: 1С или Б24?",
+      "status": "open"
+    },
+    {
+      "id": "OQ-02",
+      "text": "Разрешена ли вторая интеграция или Б24 агрегирует статус 1С?",
+      "status": "open"
+    },
+    {
+      "id": "OQ-03",
+      "text": "Что делать с B2B: игнорировать, менять стадию или создавать задачу?",
+      "status": "open"
+    },
+    {
+      "id": "OQ-04",
+      "text": "Как определяется часовой пояс отеля?",
+      "status": "open"
+    },
+    {
+      "id": "OQ-05",
+      "text": "Что делать с повторным звонком после 19:00?",
+      "status": "open"
+    },
+    {
+      "id": "OQ-06",
+      "text": "Каково правовое основание звонка, SMS, записи и транскрибации?",
+      "status": "open"
+    },
+    {
+      "id": "OQ-07",
+      "text": "Как обрабатывать недозвон при пустом payment_link?",
+      "status": "open"
+    },
+    {
+      "id": "OQ-08",
+      "text": "Какой SMS-провайдер, лимиты и retry?",
+      "status": "open"
+    },
+    {
+      "id": "OQ-09",
+      "text": "Какие даты отсрочки допустимы и кто их утверждает?",
+      "status": "open"
+    },
+    {
+      "id": "OQ-10",
+      "text": "Может ли бот аннулировать бронь без менеджера?",
+      "status": "open"
+    },
+    {
+      "id": "OQ-11",
+      "text": "Какова конфигурация АТС, SIP-транка и группы КЦ?",
+      "status": "open"
+    },
+    {
+      "id": "OQ-12",
+      "text": "Каков fallback при ошибке SIP Transfer?",
+      "status": "open"
+    },
+    {
+      "id": "OQ-13",
+      "text": "Где хранится аудио, кто имеет доступ и когда оно удаляется?",
+      "status": "open"
+    },
+    {
+      "id": "OQ-14",
+      "text": "Где измеряется STT delay и какой percentile применяется?",
+      "status": "open"
+    },
+    {
+      "id": "OQ-15",
+      "text": "Как рассчитывается SLA и какие окна исключаются?",
+      "status": "open"
+    },
+    {
+      "id": "OQ-16",
+      "text": "Как защищается и хранится ежедневный Excel-отчёт?",
+      "status": "open"
+    }
+  ],
+  "gates": [
+    {
+      "id": "L01-GATE-SCOPE",
+      "pass_if": "Зафиксирована схема: Б24 как агрегатор либо утверждён Scope Б24+1С.",
+      "owners": [
+        "architect",
+        "customer"
+      ],
+      "status": "open",
+      "evidence_required": true
+    },
+    {
+      "id": "L01-GATE-LEGAL",
+      "pass_if": "Юрист и ИБ подтвердили основания обзвона, SMS, записи, транскрибации, локализации и удаления.",
+      "owners": [
+        "legal",
+        "security"
+      ],
+      "status": "open",
+      "evidence_required": true
+    },
+    {
+      "id": "L01-GATE-PBX",
+      "pass_if": "Получена схема АТС; проверены SIP trunk, REFER и fallback.",
+      "owners": [
+        "architect",
+        "telephony"
+      ],
+      "status": "open",
+      "evidence_required": true
+    },
+    {
+      "id": "L01-GATE-DIALOG",
+      "pass_if": "Все интенты имеют однозначные состояния, переходы и результаты CRM.",
+      "owners": [
+        "business_analyst",
+        "architect"
+      ],
+      "status": "open",
+      "evidence_required": true
+    },
+    {
+      "id": "L01-GATE-DATA",
+      "pass_if": "Определены владельцы данных, доступ, сроки хранения, удаление, аудит и резервирование.",
+      "owners": [
+        "security",
+        "legal",
+        "data_owner"
+      ],
+      "status": "open",
+      "evidence_required": true
+    },
+    {
+      "id": "L01-GATE-PERF",
+      "pass_if": "Согласован профиль; проверены 30 линий, 5 CPS и STT p95/p99 <1000 мс.",
+      "owners": [
+        "architect",
+        "performance_engineer"
+      ],
+      "status": "open",
+      "evidence_required": true
+    },
+    {
+      "id": "L01-GATE-SLA",
+      "pass_if": "Согласованы SLI, точка измерения, exclusions, RTO/RPO и SLA-отчётность.",
+      "owners": [
+        "architect",
+        "operations",
+        "customer"
+      ],
+      "status": "open",
+      "evidence_required": true
+    },
+    {
+      "id": "L01-GATE-TRACE",
+      "pass_if": "Каждый BR/FR/NFR связан с компонентом, тестом, ответственным и источником.",
+      "owners": [
+        "architect",
+        "qa"
+      ],
+      "status": "open",
+      "evidence_required": true
+    }
+  ],
+  "tests": [
+    {
+      "id": "L01-T-01",
+      "type": "boundary",
+      "verifies": "L01-BR-001",
+      "case": "09:59 и 19:00 local",
+      "expected": "Вызов не выполняется вне окна",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-02",
+      "type": "negative",
+      "verifies": "L01-BR-002",
+      "case": "Company/Agent заполнено",
+      "expected": "Согласованный B2B outcome, вызова нет",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-03",
+      "type": "race",
+      "verifies": "L01-BR-003",
+      "case": "Оплата перед вызовом",
+      "expected": "Вызов отменён, CRM обновлена",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-04",
+      "type": "failure",
+      "verifies": "L01-BR-003",
+      "case": "Pre-flight API timeout",
+      "expected": "Fail-safe без ошибочного вызова",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-05",
+      "type": "negative",
+      "verifies": "L01-BR-004",
+      "case": "payment_link пуст",
+      "expected": "Нет обещания ссылки; оператор/задача",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-06",
+      "type": "integration",
+      "verifies": "L01-FR-1.1",
+      "case": "Повтор webhook",
+      "expected": "Один idempotent элемент очереди",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-07",
+      "type": "table",
+      "verifies": "L01-FR-1.2",
+      "case": "busy/no-answer/not-subscriber",
+      "expected": "SMS и запись Б24 по правилам",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-08",
+      "type": "audio",
+      "verifies": "L01-FR-2.1",
+      "case": "Шум и пауза 1.5с",
+      "expected": "Бот не перебивает",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-09",
+      "type": "speech",
+      "verifies": "L01-FR-2.2",
+      "case": "Корпус hotel/city/cost",
+      "expected": "Корректное произношение",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-10",
+      "type": "fallback",
+      "verifies": "L01-FR-2.3",
+      "case": "Два unknown intent",
+      "expected": "Один повтор, затем КЦ",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-11",
+      "type": "dialog",
+      "verifies": "L01-FR-3.1",
+      "case": "Обещание оплаты",
+      "expected": "Задача проверки на завтра",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-12",
+      "type": "dialog",
+      "verifies": "L01-FR-3.2",
+      "case": "Валидная/невалидная дата",
+      "expected": "CRM меняется только для разрешённой даты",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-13",
+      "type": "confirmation",
+      "verifies": "L01-FR-3.3",
+      "case": "Отмена yes/no",
+      "expected": "Аннуляция только после явного yes",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-14",
+      "type": "boundary",
+      "verifies": "L01-FR-3.4",
+      "case": "Ответ в 18:30",
+      "expected": "Перенос согласно BR-01",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-15",
+      "type": "dialog",
+      "verifies": "L01-FR-3.5",
+      "case": "Дорого: да/нет удержанию",
+      "expected": "Перевод или согласованный outcome",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-16",
+      "type": "safety",
+      "verifies": "L01-FR-3.6",
+      "case": "Агрессия",
+      "expected": "Немедленный перевод и high priority",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-17",
+      "type": "telephony",
+      "verifies": "L01-FR-3.7",
+      "case": "Оператор ответил/нет",
+      "expected": "Timeline и fallback",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-18",
+      "type": "data",
+      "verifies": "L01-FR-4.1",
+      "case": "Завершённый вызов",
+      "expected": "Транскрипт, защищённая ссылка, удаление",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-19",
+      "type": "schedule",
+      "verifies": "L01-FR-4.2",
+      "case": "08:00 и ошибка доставки",
+      "expected": "Отчёт, retry и alert",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-20",
+      "type": "metric",
+      "verifies": "L01-FR-4.3",
+      "case": "Известные timestamps",
+      "expected": "Hold Time равен answer-start",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-21",
+      "type": "load",
+      "verifies": "L01-NFR-PERF-001",
+      "case": "30 линий, 5 CPS",
+      "expected": "Нет деградации; STT target соблюдён",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-22",
+      "type": "resilience",
+      "verifies": "L01-NFR-SLA-001",
+      "case": "Отказ компонента",
+      "expected": "Согласованный SLI/SLA соблюдён",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-23",
+      "type": "security",
+      "verifies": "L01-NFR-TLS-001",
+      "case": "TLS scan",
+      "expected": "Только TLS1.2+",
+      "status": "planned"
+    },
+    {
+      "id": "L01-T-24",
+      "type": "compliance",
+      "verifies": "L01-NFR-DATA-001",
+      "case": "Аудит хранения и удаления",
+      "expected": "РФ-резидентность и проверяемый lifecycle",
+      "status": "planned"
+    }
+  ]
+}
