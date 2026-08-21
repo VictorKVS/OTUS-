@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-08-21",
+  "policy": "metadata-not-copyrighted-text",
+  "levels": {"P0":"core","P1":"working_shelf","P2":"reference"},
+  "collections": [
+    {"id":"course-start","title":"Стартовый список OTUS","items":31},
+    {"id":"lesson-04","title":"Литература урока 4","items":6},
+    {"id":"father-added","title":"Дополнения FATHER","items":10}
+  ],
+  "core": [
+    {"id":"BOOK-C4-BROWN","title":"Программная архитектура как код","authors":["Саймон Браун"],"priority":"P0","lessons":[4,5],"topics":["C4","Structurizr","architecture-as-code"]},
+    {"id":"BOOK-FSA-RF","title":"Основы программной архитектуры","authors":["Марк Ричардс","Нил Форд"],"priority":"P0","lessons":[1,2,3,4,5,8,9,10],"topics":["styles","quality-attributes","tradeoffs"]},
+    {"id":"BOOK-DDIA-2","title":"Designing Data-Intensive Applications, 2nd Edition","authors":["Martin Kleppmann","Chris Riccomini"],"priority":"P0","lessons":[12,21,23,24],"official_url":"https://www.oreilly.com/library/view/designing-data-intensive-applications/9781098119058/","topics":["data","distributed-systems","reliability"]},
+    {"id":"BOOK-DMLS","title":"Designing Machine Learning Systems","authors":["Chip Huyen"],"priority":"P0","lessons":[12,13,15,19,20],"official_url":"https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/","topics":["ml-system-design","monitoring","production"]},
+    {"id":"BOOK-TEAM-TOPOLOGIES","title":"Team Topologies","authors":["Matthew Skelton","Manuel Pais"],"priority":"P0","lessons":[4,10,29],"official_url":"https://www.oreilly.com/library/view/team-topologies/9781098157234/","topics":["teams","conway-law","cognitive-load"]}
+  ]
+}
