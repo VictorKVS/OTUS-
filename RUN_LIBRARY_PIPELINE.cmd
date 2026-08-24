@@ -5,19 +5,16 @@ cd /d "%~dp0"
 
 set "PRIVATE_ROOT=%~dp0_PRIVATE_BOOK_CORPUS"
 set "INVENTORY_OUT=%~dp0knowledge\library_inventory\generated"
+set "PY=python"
 
 echo ============================================================
 echo FATHER Architecture Library - local intake
 echo ============================================================
 echo Repo root: %~dp0
+echo Python:
+%PY% --version
+if errorlevel 1 goto :fail
 echo.
-
-where py >nul 2>nul
-if %errorlevel%==0 (
-    set "PY=py -3"
-) else (
-    set "PY=python"
-)
 
 echo [1/3] Scanning local library...
 rem Do not place the Cyrillic library folder name in this CMD file.
