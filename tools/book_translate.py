@@ -4,12 +4,15 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import sys
 import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
+
+from translation_model_policy import rank_model, reject_reason
 
 
 def utc_now() -> str:
@@ -66,6 +69,7 @@ def discover_endpoint_and_model(
     if api_key:
         headers["Authorization"] = f"Bearer {api_key}"
 
+    rejected: list[str] = []
     for base_url in candidates:
         if base_url in seen:
             continue
@@ -75,7 +79,7 @@ def discover_endpoint_and_model(
         except Exception:
             continue
 
-        available = []
+        available: list[str] = []
         for item in payload.get("data") or []:
             model_id = str(item.get("id") or "").strip()
             if model_id:
@@ -83,20 +87,32 @@ def discover_endpoint_and_model(
 
         if explicit_model.strip():
             model = explicit_model.strip()
+            reason = reject_reason(model)
+            if reason:
+                raise RuntimeError(f"Translation model rejected: {model} ({reason})")
             if not available or model in available:
                 return base_url, model
-            # Some servers accept aliases not advertised by /models.
             return base_url, model
 
-        if available:
-            return base_url, available[0]
+        suitable: list[str] = []
+        for model_id in available:
+            reason = reject_reason(model_id)
+            if reason:
+                rejected.append(f"{base_url}:{model_id}:{reason}")
+                continue
+            suitable.append(model_id)
 
-    if explicit_base_url.strip() and explicit_model.strip():
-        return explicit_base_url.strip().rstrip("/"), explicit_model.strip()
+        if suitable:
+            suitable.sort(key=rank_model, reverse=True)
+            return base_url, suitable[0]
 
+    details = "; ".join(rejected[:8])
+    suffix = f" Rejected models: {details}." if details else ""
     raise RuntimeError(
-        "No OpenAI-compatible local endpoint/model detected. "
-        "Start a local server or set BOOK_LLM_BASE_URL and BOOK_LLM_MODEL."
+        "No suitable text-generation model found on local OpenAI-compatible endpoints. "
+        "Start/expose a text instruct model (for example Qwen/GigaChat/Mistral/Llama) "
+        "or set BOOK_LLM_BASE_URL and BOOK_LLM_MODEL."
+        + suffix
     )
 
 
@@ -111,12 +127,13 @@ def chat_completion(
     endpoint = base_url.rstrip("/") + "/chat/completions"
     system = (
         "Ты профессиональный технический переводчик литературы по программной и системной архитектуре. "
-        "Переводи с английского на русский точно по смыслу. "
+        "Переведи весь переданный английский текст на естественный русский язык точно по смыслу. "
         "Не сокращай, не пересказывай и не добавляй объяснений. "
-        "Сохраняй термины, имена технологий, аббревиатуры, формулы, списки, заголовки и структуру. "
-        "Не удаляй примеры и оговорки. "
-        "Если термин принято оставлять на английском, сохрани английский термин и при первом уместном случае дай русский эквивалент. "
-        "Верни только перевод переданного фрагмента."
+        "Сохраняй имена собственные, названия технологий, аббревиатуры, формулы, списки, заголовки и структуру. "
+        "Английские архитектурные термины можно сохранить в скобках после русского эквивалента, "
+        "но основной текст должен быть на русском. "
+        "Не отвечай словом 'Перевод:' и не повторяй исходный английский текст вместо перевода. "
+        "Верни только полный русский перевод фрагмента."
     )
     payload = {
         "model": model,
@@ -142,6 +159,20 @@ def chat_completion(
     return content
 
 
+def alphabet_profile(text: str) -> tuple[int, int, int]:
+    cyrillic = sum(1 for char in text if ("а" <= char.casefold() <= "я") or char.casefold() == "ё")
+    latin = sum(1 for char in text if "a" <= char.casefold() <= "z")
+    return cyrillic, latin, cyrillic + latin
+
+
+def english_content_words(text: str) -> set[str]:
+    return {
+        word.casefold()
+        for word in re.findall(r"[A-Za-z]{4,}", text)
+        if word.casefold() not in {"this", "that", "with", "from", "have", "will", "your", "into", "when", "book"}
+    }
+
+
 def qc_translation(source_text: str, translated_text: str) -> tuple[str, list[str]]:
     flags: list[str] = []
     source = source_text.strip()
@@ -158,7 +189,28 @@ def qc_translation(source_text: str, translated_text: str) -> tuple[str, list[st
             flags.append("SUSPICIOUSLY_LONG")
     if "```" in source and source.count("```") != target.count("```"):
         flags.append("CODE_FENCE_COUNT_CHANGED")
-    return ("PASS" if not flags else "NEEDS_REVIEW"), flags
+
+    source_cyr, source_lat, source_letters = alphabet_profile(source)
+    target_cyr, target_lat, target_letters = alphabet_profile(target)
+    source_lat_share = source_lat / max(1, source_letters)
+    target_cyr_share = target_cyr / max(1, target_letters)
+    target_lat_share = target_lat / max(1, target_letters)
+
+    if source_lat_share >= 0.60 and target_letters >= 20:
+        if target_cyr_share < 0.35:
+            flags.append("LOW_CYRILLIC_SHARE")
+        if target_lat_share > 0.60:
+            flags.append("EXCESSIVE_LATIN_TEXT")
+
+        source_words = english_content_words(source)
+        target_words = english_content_words(target)
+        if source_words:
+            retained = len(source_words & target_words) / len(source_words)
+            if retained > 0.55 and target_cyr_share < 0.55:
+                flags.append("SOURCE_TEXT_LARGELY_RETAINED")
+
+    unique_flags = list(dict.fromkeys(flags))
+    return ("PASS" if not unique_flags else "NEEDS_REVIEW"), unique_flags
 
 
 def resolve_workspace(private_root: Path, explicit: str | None) -> Path:
@@ -174,6 +226,26 @@ def resolve_workspace(private_root: Path, explicit: str | None) -> Path:
     return manifests[0].parent
 
 
+def recheck_existing(units: list[dict]) -> int:
+    changed = 0
+    for unit in units:
+        target = str(unit.get("translated_text") or "").strip()
+        if not target:
+            continue
+        qc_status, qc_flags = qc_translation(str(unit.get("source_text") or ""), target)
+        old_qc = unit.get("translation_qc")
+        old_status = unit.get("translation_status")
+        unit["translation_qc"] = qc_status
+        unit["translation_qc_flags"] = qc_flags
+        if qc_status != "PASS" and old_status == "DONE":
+            unit["translation_status"] = "NEEDS_REVIEW"
+        elif qc_status == "PASS" and old_status == "NEEDS_REVIEW":
+            unit["translation_status"] = "DONE"
+        if old_qc != qc_status or old_status != unit.get("translation_status"):
+            changed += 1
+    return changed
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Translate prepared private book units with checkpointing.")
     parser.add_argument("workspace", nargs="?")
@@ -181,10 +253,13 @@ def main() -> int:
     parser.add_argument("--base-url", default=os.getenv("BOOK_LLM_BASE_URL", ""))
     parser.add_argument("--model", default=os.getenv("BOOK_LLM_MODEL", ""))
     parser.add_argument("--api-key", default=os.getenv("BOOK_LLM_API_KEY", ""))
-    parser.add_argument("--limit", type=int, default=0, help="0 = translate all remaining units")
-    parser.add_argument("--timeout", type=int, default=180)
+    parser.add_argument("--limit", type=int, default=0, help="0 = translate all remaining/review units")
+    parser.add_argument("--timeout", type=int, default=300)
+    parser.add_argument("--retries", type=int, default=2)
+    parser.add_argument("--retry-backoff", type=float, default=2.0)
     parser.add_argument("--sleep", type=float, default=0.0)
     parser.add_argument("--probe-only", action="store_true", help="Only detect endpoint/model and exit.")
+    parser.add_argument("--continue-on-qc-failure", action="store_true")
     args = parser.parse_args()
 
     try:
@@ -214,7 +289,15 @@ def main() -> int:
     units_path = Path(manifest["units_path"])
     units = load_jsonl(units_path)
 
-    remaining = [unit for unit in units if unit.get("translation_status") != "DONE"]
+    rechecked = recheck_existing(units)
+    if rechecked:
+        write_jsonl_atomic(units_path, units)
+        print(f"rechecked_existing={rechecked}")
+
+    remaining = [
+        unit for unit in units
+        if unit.get("translation_status") != "DONE" or unit.get("translation_qc") != "PASS"
+    ]
     if args.limit > 0:
         remaining = remaining[: args.limit]
 
@@ -232,45 +315,72 @@ def main() -> int:
             errors.append({"unit_id": unit.get("unit_id"), "error": "empty source_text"})
             continue
 
-        try:
-            translated = chat_completion(
-                base_url=base_url,
-                api_key=args.api_key,
-                model=model,
-                source_text=source_text,
-                timeout=args.timeout,
-            )
-            qc_status, qc_flags = qc_translation(source_text, translated)
-            unit["translated_text"] = translated
-            unit["translated_text_sha256"] = sha256_text(translated)
-            unit["translation_status"] = "DONE"
-            unit["translation_method"] = "OPENAI_COMPATIBLE_CHAT_COMPLETIONS"
-            unit["translation_model"] = model
-            unit["translated_at"] = utc_now()
-            unit["translation_review"] = "NOT_REVIEWED"
-            unit["translation_qc"] = qc_status
-            unit["translation_qc_flags"] = qc_flags
-            if qc_status != "PASS":
-                qc_review_count += 1
-            processed += 1
-            write_jsonl_atomic(units_path, units)
-            print(
-                f"translated {unit.get('order')} "
-                f"page={unit.get('source_page_start')} "
-                f"qc={qc_status} unit_id={unit.get('unit_id')}"
-            )
-        except (urllib.error.URLError, TimeoutError, RuntimeError, ValueError) as exc:
+        translated: str | None = None
+        last_error: Exception | None = None
+        for attempt in range(args.retries + 1):
+            try:
+                translated = chat_completion(
+                    base_url=base_url,
+                    api_key=args.api_key,
+                    model=model,
+                    source_text=source_text,
+                    timeout=args.timeout,
+                )
+                last_error = None
+                break
+            except (urllib.error.URLError, TimeoutError, RuntimeError, ValueError) as exc:
+                last_error = exc
+                if attempt < args.retries:
+                    delay = args.retry_backoff * (attempt + 1)
+                    print(
+                        f"RETRY unit_id={unit.get('unit_id')} attempt={attempt + 1}/{args.retries} "
+                        f"after={delay:.1f}s error={exc}",
+                        file=sys.stderr,
+                    )
+                    time.sleep(delay)
+
+        if translated is None:
+            assert last_error is not None
             unit["translation_status"] = "FAILED"
-            unit["translation_error"] = f"{type(exc).__name__}: {exc}"
+            unit["translation_error"] = f"{type(last_error).__name__}: {last_error}"
             errors.append({"unit_id": unit.get("unit_id"), "error": unit["translation_error"]})
             write_jsonl_atomic(units_path, units)
-            print(f"FAILED unit_id={unit.get('unit_id')}: {exc}", file=sys.stderr)
+            print(f"FAILED unit_id={unit.get('unit_id')}: {last_error}", file=sys.stderr)
+            break
+
+        qc_status, qc_flags = qc_translation(source_text, translated)
+        unit["translated_text"] = translated
+        unit["translated_text_sha256"] = sha256_text(translated)
+        unit["translation_status"] = "DONE" if qc_status == "PASS" else "NEEDS_REVIEW"
+        unit["translation_method"] = "OPENAI_COMPATIBLE_CHAT_COMPLETIONS"
+        unit["translation_model"] = model
+        unit["translated_at"] = utc_now()
+        unit["translation_review"] = "NOT_REVIEWED"
+        unit["translation_qc"] = qc_status
+        unit["translation_qc_flags"] = qc_flags
+        unit.pop("translation_error", None)
+        if qc_status != "PASS":
+            qc_review_count += 1
+        else:
+            processed += 1
+        write_jsonl_atomic(units_path, units)
+        print(
+            f"translated {unit.get('order')} "
+            f"page={unit.get('source_page_start')} "
+            f"qc={qc_status} flags={qc_flags} unit_id={unit.get('unit_id')}"
+        )
+
+        if qc_status != "PASS" and not args.continue_on_qc_failure:
+            print("STOP: translation QC failed; switch/improve the model before continuing.", file=sys.stderr)
             break
 
         if args.sleep > 0:
             time.sleep(args.sleep)
 
-    translated_total = sum(1 for unit in units if unit.get("translation_status") == "DONE")
+    translated_total = sum(
+        1 for unit in units
+        if unit.get("translation_status") == "DONE" and unit.get("translation_qc") == "PASS"
+    )
     failed_total = sum(1 for unit in units if unit.get("translation_status") == "FAILED")
     qc_review_total = sum(1 for unit in units if unit.get("translation_qc") == "NEEDS_REVIEW")
     total = len(units)
