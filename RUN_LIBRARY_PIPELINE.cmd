@@ -3,14 +3,13 @@ setlocal EnableExtensions
 
 cd /d "%~dp0"
 
-set "LIBRARY_ROOT=G:\1\OTUS\Библиотека"
-set "PRIVATE_ROOT=G:\1\OTUS\_PRIVATE_BOOK_CORPUS"
-set "INVENTORY_OUT=G:\1\OTUS\knowledge\library_inventory\generated"
+set "PRIVATE_ROOT=%~dp0_PRIVATE_BOOK_CORPUS"
+set "INVENTORY_OUT=%~dp0knowledge\library_inventory\generated"
 
 echo ============================================================
 echo FATHER Architecture Library - local intake
 echo ============================================================
-echo Library: %LIBRARY_ROOT%
+echo Repo root: %~dp0
 echo.
 
 where py >nul 2>nul
@@ -20,7 +19,10 @@ if %errorlevel%==0 (
     set "PY=python"
 )
 
-%PY% tools\library_scan.py "%LIBRARY_ROOT%" --output "%INVENTORY_OUT%"
+echo [1/3] Scanning local library...
+rem Do not place the Cyrillic library folder name in this CMD file.
+rem Python 3 reads its UTF-8 source correctly and owns the Unicode default path.
+%PY% tools\library_scan.py --output "%INVENTORY_OUT%"
 if errorlevel 1 goto :fail
 
 echo.
