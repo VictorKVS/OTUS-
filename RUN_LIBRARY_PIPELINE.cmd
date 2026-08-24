@@ -16,20 +16,25 @@ echo Python:
 if errorlevel 1 goto :fail
 echo.
 
-echo [1/3] Scanning local library...
+echo [1/4] Scanning local library...
 rem Do not place the Cyrillic library folder name in this CMD file.
 rem Python 3 reads its UTF-8 source correctly and owns the Unicode default path.
 %PY% tools\library_scan.py --output "%INVENTORY_OUT%"
 if errorlevel 1 goto :fail
 
 echo.
-echo [2/3] Extracting selected pilot book...
+echo [2/4] Canonicalizing duplicates and running inventory QC...
+%PY% tools\library_inventory_qc.py "%INVENTORY_OUT%\library_inventory.json"
+if errorlevel 1 goto :fail
+
+echo.
+echo [3/4] Extracting selected pilot book...
 %PY% tools\book_extract.py --private-root "%PRIVATE_ROOT%"
 if errorlevel 6 goto :ocr
 if errorlevel 1 goto :fail
 
 echo.
-echo [3/3] Preparing translation units...
+echo [4/4] Preparing translation units...
 %PY% tools\book_prepare_translation.py --private-root "%PRIVATE_ROOT%"
 if errorlevel 1 goto :fail
 
@@ -37,7 +42,7 @@ echo.
 echo DONE.
 echo Inventory: %INVENTORY_OUT%
 echo Private corpus: %PRIVATE_ROOT%
-echo Next: translate translation_units.jsonl and feed the aligned corpus to Knowledge Analyst.
+echo Next: run book_translate.py, then book_structure.py, then Knowledge Analyst.
 exit /b 0
 
 :ocr
