@@ -72,7 +72,11 @@ def main() -> int:
 
     temporary_files = [item for item in items if str(item.get("file_name", "")).startswith("~$")]
 
-    preferred_sha = args.prefer_sha.strip().lower()
+    # Preserve the already selected book hash by default. QC is allowed to repair
+    # the path of a byte-identical duplicate, but not silently switch the pilot to
+    # another book after extraction has begun.
+    original_pilot = payload.get("pilot_candidate") or {}
+    preferred_sha = (args.prefer_sha.strip() or str(original_pilot.get("sha256") or "")).lower()
     pilot = None
     if preferred_sha:
         pilot = next((item for item in canonical_items if str(item.get("sha256", "")).lower() == preferred_sha), None)
@@ -87,8 +91,30 @@ def main() -> int:
             reverse=True,
         )[0]
 
+    manifest_rewritten = False
+    manifest_path = None
+    if pilot:
+        source_root = Path(str(payload.get("source_root") or inventory_path.parents[3] / "Библиотека"))
+        private_root = source_root.parent / "_PRIVATE_BOOK_CORPUS"
+        manifest_path = private_root / str(pilot.get("item_id")) / "source_manifest.json"
+        if manifest_path.is_file():
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            before = str(manifest.get("source_path") or "")
+            canonical_source_path = str(source_root / str(pilot.get("relative_path")))
+            if before != canonical_source_path:
+                manifest["source_path_before_canonicalization"] = before
+                manifest["source_path"] = canonical_source_path
+                manifest["item"] = pilot
+                manifest["canonicalized_at"] = utc_now()
+                manifest["canonicalization_rule"] = "same SHA-256; prefer shortest/shallower non-temporary path"
+                manifest_path.write_text(
+                    json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+                    encoding="utf-8",
+                )
+                manifest_rewritten = True
+
     qc = {
-        "schema_version": "father-library-inventory-qc.v0.1",
+        "schema_version": "father-library-inventory-qc.v0.2",
         "generated_at": utc_now(),
         "inventory_path": str(inventory_path),
         "counters": {
@@ -99,6 +125,9 @@ def main() -> int:
             "temporary_files": len(temporary_files),
         },
         "canonical_pilot": pilot,
+        "preserved_pilot_sha256": preferred_sha or None,
+        "source_manifest_rewritten": manifest_rewritten,
+        "source_manifest_path": str(manifest_path) if manifest_path else None,
         "duplicate_groups": duplicate_groups,
         "temporary_files": [item.get("relative_path") for item in temporary_files],
     }
@@ -106,7 +135,7 @@ def main() -> int:
     out = inventory_path.with_name("library_inventory_qc.json")
     out.write_text(json.dumps(qc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    print(f"status=QC_READY")
+    print("status=QC_READY")
     print(f"files_seen={len(items)}")
     print(f"unique_sha256={len(groups)}")
     print(f"duplicate_groups={len(duplicate_groups)}")
@@ -115,6 +144,7 @@ def main() -> int:
     if pilot:
         print(f"canonical_pilot={pilot.get('relative_path')}")
         print(f"canonical_pilot_sha256={pilot.get('sha256')}")
+    print(f"source_manifest_rewritten={manifest_rewritten}")
     print(f"output={out}")
     return 0
 
