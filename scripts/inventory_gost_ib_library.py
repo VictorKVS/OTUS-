@@ -6,6 +6,7 @@ import hashlib
 import json
 import re
 import shutil
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,7 +15,15 @@ REPORT_ROOT = ROOT / "reports" / "gost_ib_inventory"
 DEFAULT_SOURCE = Path.home() / "Downloads"
 DEFAULT_TARGET = ROOT / "Библиотека" / "Архитектор" / "ИБ" / "ГОСТ"
 ALLOWED_EXT = {".pdf", ".doc", ".docx", ".odt", ".rtf", ".txt"}
-STANDARD_HINTS = ("гост", "gost", "iso", "iec", "исо", "мэк", "стандарт")
+TEXTISH_EXT = {".docx", ".odt", ".rtf", ".txt"}
+
+# Important: ISO/ИСО/GOST/ГОСТ must be lexical markers, not arbitrary substrings.
+# This prevents false positives such as HarrISO n, AddISO n and микросервИСОв.
+STANDARD_TOKEN_RE = re.compile(
+    r"(?<![0-9a-zа-я])(?:гост|gost|iso|iec|исо|мэк)(?=$|[^0-9a-zа-я]|\d)",
+    re.IGNORECASE,
+)
+STANDARD_WORD_RE = re.compile(r"(?<![0-9a-zа-я])стандарт[а-я]*", re.IGNORECASE)
 
 
 def norm(s: str) -> str:
@@ -23,7 +32,7 @@ def norm(s: str) -> str:
 
 
 def loose_norm(s: str) -> str:
-    """Normalization for filenames where spaces/underscores/dashes differ."""
+    """Normalization for filenames/text where spaces/underscores/dashes differ."""
     s = s.casefold().replace("ё", "е")
     return re.sub(r"[^0-9a-zа-я]+", "", s)
 
@@ -54,6 +63,16 @@ def load_seed() -> list[str]:
     ]
 
 
+def has_standard_hint(path: Path) -> bool:
+    stem = path.stem.casefold().replace("ё", "е")
+    return bool(STANDARD_TOKEN_RE.search(stem) or STANDARD_WORD_RE.search(stem))
+
+
+def is_reference_list(path: Path) -> bool:
+    compact = loose_norm(path.stem)
+    return "переченьнациональныхстандарт" in compact
+
+
 def match_seed(path: Path, seed: list[str]) -> tuple[str | None, str, str]:
     """Match by designation, not by exact local filename.
 
@@ -65,7 +84,7 @@ def match_seed(path: Path, seed: list[str]) -> tuple[str | None, str, str]:
     n = norm(stem)
     loose = loose_norm(stem)
     stem_digits = code_digits(stem)
-    has_standard_hint = any(token in stem.casefold() for token in STANDARD_HINTS)
+    has_hint = has_standard_hint(path)
 
     hits: list[tuple[int, str, str, str]] = []
     for designation in seed:
@@ -85,11 +104,9 @@ def match_seed(path: Path, seed: list[str]) -> tuple[str | None, str, str]:
             continue
 
         # Handles names such as "56939_2024.pdf" or "ГОСТ 56939 2024.pdf".
-        # Require a reasonably distinctive signature and either a standard hint
-        # or a filename dominated by the code digits.
         if len(digits) >= 7 and digits in stem_digits:
             dominated = len(stem_digits) <= len(digits) + 2
-            if has_standard_hint or dominated:
+            if has_hint or dominated:
                 hits.append((200 + len(digits), designation, "CODE_DIGITS_NORMALIZED", "MEDIUM"))
 
     if not hits:
@@ -98,38 +115,115 @@ def match_seed(path: Path, seed: list[str]) -> tuple[str | None, str, str]:
     return designation, basis, confidence
 
 
-def looks_like_standard(path: Path, seed_match: str | None) -> bool:
-    if seed_match:
-        return True
-    n = path.stem.casefold()
-    return any(t in n for t in STANDARD_HINTS)
+def read_text_prefix(path: Path, max_bytes: int = 1024 * 1024) -> str:
+    """Best-effort local inspection for text-like formats only.
+
+    It is deliberately bounded and dependency-free. PDF/DOC are not parsed here.
+    The purpose is only to surface a designation candidate for REVIEW, not to
+    assert document identity or currentness.
+    """
+    suffix = path.suffix.casefold()
+    if suffix not in TEXTISH_EXT:
+        return ""
+
+    try:
+        if suffix == ".docx":
+            with zipfile.ZipFile(path) as zf:
+                raw = zf.read("word/document.xml")[:max_bytes]
+            return raw.decode("utf-8", errors="ignore")
+        if suffix == ".odt":
+            with zipfile.ZipFile(path) as zf:
+                raw = zf.read("content.xml")[:max_bytes]
+            return raw.decode("utf-8", errors="ignore")
+
+        raw = path.read_bytes()[:max_bytes]
+        # Digits and ASCII separators survive these decoders; Russian text is a
+        # bonus and is not required for candidate extraction.
+        return "\n".join(
+            raw.decode(enc, errors="ignore") for enc in ("utf-8", "cp1251", "latin-1")
+        )
+    except (OSError, KeyError, zipfile.BadZipFile):
+        return ""
+
+
+def content_seed_candidate(path: Path, seed: list[str]) -> tuple[str | None, int, str]:
+    """Return earliest TK362 code seen in a bounded text-like file prefix.
+
+    This is REVIEW evidence only. A content candidate never becomes an automatic
+    copy action until exact identity/currentness is verified separately.
+    """
+    text = read_text_prefix(path)
+    if not text:
+        return None, 0, "NONE"
+    compact = loose_norm(text)
+    hits: list[tuple[int, str]] = []
+    seen: set[str] = set()
+    for designation in seed:
+        key = loose_norm(code_key(designation))
+        if not key:
+            continue
+        pos = compact.find(key)
+        if pos >= 0:
+            hits.append((pos, designation))
+            seen.add(designation)
+    if not hits:
+        return None, 0, "NONE"
+    hits.sort(key=lambda item: item[0])
+    return hits[0][1], len(seen), "CONTENT_CODE_PREFIX_REVIEW"
 
 
 def find_files(root: Path, seed: list[str]) -> list[dict]:
     out = []
     if not root.exists():
         return out
+
     for path in root.rglob("*"):
         if not path.is_file() or path.suffix.casefold() not in ALLOWED_EXT:
             continue
+
         matched, match_basis, match_confidence = match_seed(path, seed)
-        if not looks_like_standard(path, matched):
+        reference_list = is_reference_list(path)
+        hint = has_standard_hint(path)
+
+        content_candidate = None
+        content_candidate_count = 0
+        content_basis = "NONE"
+        if not matched and not reference_list and hint:
+            content_candidate, content_candidate_count, content_basis = content_seed_candidate(path, seed)
+
+        if matched:
+            record_kind = "TK362_MATCH"
+            tag = "ИБ"
+            current_status = "NEEDS_CURRENT_STATUS_VERIFICATION"
+        elif reference_list:
+            record_kind = "REFERENCE_LIST"
+            tag = "REFERENCE"
+            current_status = "REFERENCE_NOT_A_STANDARD"
+        elif hint:
+            record_kind = "REVIEW_STANDARD_LIKE"
+            tag = "REVIEW"
+            current_status = "IDENTITY_REVIEW_REQUIRED"
+        else:
+            # Ordinary books/documents are not GOST inventory candidates.
             continue
+
         out.append(
             {
                 "path": str(path),
                 "name": path.name,
                 "size_bytes": path.stat().st_size,
                 "sha256": sha256(path),
+                "record_kind": record_kind,
                 "designation": matched or "",
                 "tk362_seed_match": bool(matched),
                 "match_basis": match_basis,
                 "match_confidence": match_confidence,
-                "tag": "ИБ" if matched else "REVIEW",
+                "content_designation_candidate": content_candidate or "",
+                "content_candidate_distinct_codes": content_candidate_count,
+                "content_match_basis": content_basis,
+                "tag": tag,
                 "library_role": "ARCHITECT",
-                "current_status": (
-                    "NEEDS_CURRENT_STATUS_VERIFICATION" if matched else "NOT_IN_TK362_SEED_OR_FILENAME_AMBIGUOUS"
-                ),
+                "current_status": current_status,
             }
         )
     return out
@@ -163,7 +257,7 @@ def main() -> int:
 
     source_rows = find_files(source, seed)
     target_rows = find_files(target, seed)
-    target_hashes = {row["sha256"] for row in target_rows}
+    target_hashes = {row["sha256"] for row in target_rows if row["record_kind"] == "TK362_MATCH"}
 
     actions = []
     pending_dir = target / "_CURRENTNESS_PENDING"
@@ -192,40 +286,40 @@ def main() -> int:
     csv_path = REPORT_ROOT / "gost_ib_inventory.csv"
     with csv_path.open("w", encoding="utf-8-sig", newline="") as f:
         fields = [
-            "path",
-            "name",
-            "size_bytes",
-            "sha256",
-            "designation",
-            "tk362_seed_match",
-            "match_basis",
-            "match_confidence",
-            "tag",
-            "library_role",
-            "current_status",
+            "path", "name", "size_bytes", "sha256", "record_kind",
+            "designation", "tk362_seed_match", "match_basis", "match_confidence",
+            "content_designation_candidate", "content_candidate_distinct_codes", "content_match_basis",
+            "tag", "library_role", "current_status",
         ]
         writer = csv.DictWriter(f, fieldnames=fields)
         writer.writeheader()
         writer.writerows(all_rows)
 
     payload = {
-        "schema_version": "1.1",
+        "schema_version": "1.2",
         "mode": "APPLY" if args.apply else "PLAN",
         "source": str(source),
         "target": str(target),
         "seed_total": len(seed),
         "source_candidates_total": len(source_rows),
-        "source_tk362_matches_total": sum(1 for row in source_rows if row["tk362_seed_match"]),
+        "source_standard_like_total": sum(1 for row in source_rows if row["record_kind"] != "REFERENCE_LIST"),
+        "source_tk362_matches_total": sum(1 for row in source_rows if row["record_kind"] == "TK362_MATCH"),
         "source_high_confidence_matches_total": sum(1 for row in source_rows if row["match_confidence"] == "HIGH"),
         "source_medium_confidence_matches_total": sum(1 for row in source_rows if row["match_confidence"] == "MEDIUM"),
+        "source_content_review_candidates_total": sum(1 for row in source_rows if row["content_designation_candidate"]),
+        "source_reference_lists_total": sum(1 for row in source_rows if row["record_kind"] == "REFERENCE_LIST"),
+        "source_identity_review_total": sum(1 for row in source_rows if row["record_kind"] == "REVIEW_STANDARD_LIKE"),
         "target_candidates_total": len(target_rows),
         "copy_actions_total": sum(1 for action in actions if action["action"].startswith("COPY")),
         "already_present_exact_total": sum(1 for action in actions if action["action"] == "ALREADY_PRESENT_EXACT"),
-        "review_non_tk362_total": sum(1 for row in source_rows if not row["tk362_seed_match"]),
-        "actions": actions,
         "status": "APPLIED_COPY_ONLY_NO_DELETE" if args.apply else "PLAN_READY_NO_FILE_CHANGES",
-        "next_gate": "VERIFY_CURRENT_STATUS_AGAINST_ROSSTANDART",
-        "note": "Filename titles need not be identical. Matching prioritizes normalized designation/code; ambiguous GOST-like files stay in REVIEW and are not discarded.",
+        "next_gate": "VERIFY_IDENTITY_THEN_CURRENT_STATUS_AGAINST_ROSSTANDART",
+        "note": (
+            "Filename titles need not be identical. Matching prioritizes normalized designation/code. "
+            "ISO/ИСО/GOST/ГОСТ are lexical markers, not arbitrary substrings. Reference lists are separated. "
+            "Text-like content candidates are REVIEW-only and never auto-promoted or copied."
+        ),
+        "actions": actions,
     }
     json_path = REPORT_ROOT / "LATEST_GOST_IB_INVENTORY.json"
     json_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
