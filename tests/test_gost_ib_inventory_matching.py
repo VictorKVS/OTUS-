@@ -4,6 +4,7 @@ from pathlib import Path
 
 from scripts.inventory_gost_ib_library import (
     content_seed_candidate,
+    generic_content_codes,
     has_standard_hint,
     is_reference_list,
     match_seed,
@@ -53,14 +54,27 @@ class GostInventoryMatchingTests(unittest.TestCase):
     def test_national_standard_list_is_reference_not_standard(self):
         self.assertTrue(is_reference_list(Path("Перечень национальных стандартов.pdf")))
 
-    def test_rtf_content_surfaces_review_candidate_without_promoting(self):
+    def test_generic_codes_include_historical_edition(self):
+        self.assertEqual(generic_content_codes("ГОСТ Р 56939-2016 и 56939-2024"), ["56939-2016", "56939-2024"])
+
+    def test_rtf_content_surfaces_current_seed_candidate_without_promoting(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "Защита информации. Общие требования. ГОСТ Р.rtf"
             path.write_text(r"{\rtf1 Some header ГОСТ Р 56939-2024 safe software}", encoding="utf-8")
             designation, count, basis = content_seed_candidate(path, SEED)
             self.assertEqual(designation, "ГОСТ Р 56939-2024")
             self.assertEqual(count, 1)
-            self.assertEqual(basis, "CONTENT_CODE_PREFIX_REVIEW")
+            self.assertEqual(basis, "CONTENT_SEED_CODE_REVIEW")
+
+    def test_rtf_unicode_encoded_superseded_edition_is_recovered_for_review(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "Защита информации. Общие требования. ГОСТ Р.rtf"
+            rtf = r"{\rtf1\ansi\ansicpg1251 code=\u53?\u54?\u57?\u51?\u57?-\u50?\u48?\u49?\u54?}"
+            path.write_bytes(rtf.encode("ascii"))
+            designation, count, basis = content_seed_candidate(path, SEED)
+            self.assertEqual(designation, "56939-2016")
+            self.assertEqual(count, 1)
+            self.assertEqual(basis, "CONTENT_GENERIC_CODE_REVIEW")
 
 
 if __name__ == "__main__":
