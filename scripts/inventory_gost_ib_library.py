@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SEED = ROOT / "data" / "gost_ib_tk362_seed.txt"
 REPORT_ROOT = ROOT / "reports" / "gost_ib_inventory"
-DEFAULT_SOURCE = Path.home() / "Downloads"
+DEFAULT_SOURCE = ROOT / "Библиотека" / "разобрать"
 DEFAULT_TARGET = ROOT / "Библиотека" / "Архитектор" / "ИБ" / "ГОСТ"
 ALLOWED_EXT = {".pdf", ".doc", ".docx", ".odt", ".rtf", ".txt"}
 TEXTISH_EXT = {".docx", ".odt", ".rtf", ".txt"}
@@ -119,12 +119,7 @@ def match_seed(path: Path, seed: list[str]) -> tuple[str | None, str, str]:
 
 
 def _decode_rtf(raw: bytes) -> str:
-    """Best-effort RTF text recovery for designation discovery only.
-
-    This is not a general RTF renderer. It decodes common ANSI hex escapes and
-    RTF Unicode control words so standard numbers hidden by formatting remain
-    searchable. The result is REVIEW evidence only.
-    """
+    """Best-effort RTF text recovery for designation discovery only."""
     source = raw.decode("latin-1", errors="ignore")
     cp_match = re.search(r"\\ansicpg(\d+)", source, flags=re.IGNORECASE)
     encoding = f"cp{cp_match.group(1)}" if cp_match else "cp1251"
@@ -148,7 +143,6 @@ def _decode_rtf(raw: bytes) -> str:
         except ValueError:
             return " "
 
-    # The optional '?' is the common single-character ANSI fallback after \uN.
     source = re.sub(r"\\u(-?\d+)\??", unicode_char, source)
     source = source.replace(r"\{", "{").replace(r"\}", "}").replace(r"\\", "\\")
     source = re.sub(r"\\[A-Za-z]+-?\d* ?", " ", source)
@@ -157,12 +151,7 @@ def _decode_rtf(raw: bytes) -> str:
 
 
 def read_text_prefix(path: Path, max_bytes: int = 1024 * 1024) -> str:
-    """Best-effort local inspection for text-like formats only.
-
-    It is deliberately bounded and dependency-free. PDF/DOC are not parsed here.
-    The purpose is only to surface a designation candidate for REVIEW, not to
-    assert document identity or currentness.
-    """
+    """Best-effort local inspection for text-like formats only."""
     suffix = path.suffix.casefold()
     if suffix not in TEXTISH_EXT:
         return ""
@@ -201,13 +190,7 @@ def generic_content_codes(text: str) -> list[str]:
 
 
 def content_seed_candidate(path: Path, seed: list[str]) -> tuple[str | None, int, str]:
-    """Surface a content designation candidate for manual identity review.
-
-    First recover any generic code, including superseded editions not present in
-    the current TK362 seed. If that code resolves to the current seed, return the
-    canonical seed designation. Otherwise return the raw code as review evidence.
-    Nothing from this function is auto-promoted or auto-copied.
-    """
+    """Surface a content designation candidate for manual identity review."""
     text = read_text_prefix(path)
     if not text:
         return None, 0, "NONE"
@@ -220,7 +203,6 @@ def content_seed_candidate(path: Path, seed: list[str]) -> tuple[str | None, int
             return seed_by_code[first], len(generic_codes), "CONTENT_SEED_CODE_REVIEW"
         return first, len(generic_codes), "CONTENT_GENERIC_CODE_REVIEW"
 
-    # Fallback for separator-heavy markup where loose normalization helps.
     compact = loose_norm(text)
     hits: list[tuple[int, str]] = []
     seen: set[str] = set()
@@ -361,7 +343,7 @@ def main() -> int:
         writer.writerows(all_rows)
 
     payload = {
-        "schema_version": "1.3",
+        "schema_version": "1.4",
         "mode": "APPLY" if args.apply else "PLAN",
         "source": str(source),
         "target": str(target),
@@ -382,8 +364,8 @@ def main() -> int:
         "note": (
             "Filename titles need not be identical. Matching prioritizes normalized designation/code. "
             "ISO/ИСО/GOST/ГОСТ are lexical markers, not arbitrary substrings. Reference lists are separated. "
-            "RTF Unicode/ANSI escapes are decoded for REVIEW-only designation discovery. Generic historical "
-            "edition codes are surfaced even when absent from the current TK362 seed."
+            "Text-like content candidates are REVIEW-only and never auto-promoted or copied. "
+            "Default intake source is Библиотека/разобрать."
         ),
         "actions": actions,
     }
