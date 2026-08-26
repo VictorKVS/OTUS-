@@ -1,7 +1,13 @@
+import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.inventory_gost_ib_library import match_seed
+from scripts.inventory_gost_ib_library import (
+    content_seed_candidate,
+    has_standard_hint,
+    is_reference_list,
+    match_seed,
+)
 
 
 SEED = [
@@ -34,6 +40,27 @@ class GostInventoryMatchingTests(unittest.TestCase):
         match, basis, confidence = match_seed(Path("invoice_56939_2024_777.pdf"), SEED)
         self.assertIsNone(match)
         self.assertEqual(confidence, "NONE")
+
+    def test_iso_substring_inside_book_author_or_word_is_not_standard_hint(self):
+        self.assertFalse(has_standard_hint(Path("Dave_Harrison_Knox_Lively_Achieving.pdf")))
+        self.assertFalse(has_standard_hint(Path("David-Farley-Addison-Wesley.pdf")))
+        self.assertFalse(has_standard_hint(Path("Создание микросервисов.pdf")))
+
+    def test_real_standard_markers_are_detected(self):
+        self.assertTrue(has_standard_hint(Path("ISO_27001_security.pdf")))
+        self.assertTrue(has_standard_hint(Path("ГОСТ Р безопасная разработка.rtf")))
+
+    def test_national_standard_list_is_reference_not_standard(self):
+        self.assertTrue(is_reference_list(Path("Перечень национальных стандартов.pdf")))
+
+    def test_rtf_content_surfaces_review_candidate_without_promoting(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "Защита информации. Общие требования. ГОСТ Р.rtf"
+            path.write_text(r"{\rtf1 Some header ГОСТ Р 56939-2024 safe software}", encoding="utf-8")
+            designation, count, basis = content_seed_candidate(path, SEED)
+            self.assertEqual(designation, "ГОСТ Р 56939-2024")
+            self.assertEqual(count, 1)
+            self.assertEqual(basis, "CONTENT_CODE_PREFIX_REVIEW")
 
 
 if __name__ == "__main__":
