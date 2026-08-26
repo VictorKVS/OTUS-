@@ -5,7 +5,7 @@ cd /d "%~dp0"
 echo ============================================================
 echo OTUS ARCHITECT LIBRARY - GOST IB INVENTORY PLAN
 echo ============================================================
-echo Source: %%USERPROFILE%%\Downloads
+echo Source: .\Библиотека\разобрать
 echo Target: .\Библиотека\Архитектор\ИБ\ГОСТ
 echo Mode: READ ONLY for source/target files; reports only.
 echo.
