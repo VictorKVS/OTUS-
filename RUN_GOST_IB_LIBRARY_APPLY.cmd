@@ -5,7 +5,7 @@ cd /d "%~dp0"
 echo ============================================================
 echo OTUS ARCHITECT LIBRARY - GOST IB SAFE COPY
 echo ============================================================
-echo Source: %%USERPROFILE%%\Downloads
+echo Source: .\Библиотека\разобрать
 echo Target: .\Библиотека\Архитектор\ИБ\ГОСТ\_CURRENTNESS_PENDING
 echo Action: COPY ONLY, SHA-256 verified, no delete/move.
 echo Currentness is NOT asserted until Rosstandart verification.
