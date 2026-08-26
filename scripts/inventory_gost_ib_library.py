@@ -24,6 +24,9 @@ STANDARD_TOKEN_RE = re.compile(
     re.IGNORECASE,
 )
 STANDARD_WORD_RE = re.compile(r"(?<![0-9a-zа-я])стандарт[а-я]*", re.IGNORECASE)
+# Generic standard-code candidate used only for REVIEW. It intentionally allows
+# superseded years which may no longer be present in the current TK362 seed.
+GENERIC_CODE_RE = re.compile(r"(?<!\d)(\d{4,5}(?:\.\d+)*(?:-\d+)*-\d{4})(?!\d)")
 
 
 def norm(s: str) -> str:
@@ -115,6 +118,44 @@ def match_seed(path: Path, seed: list[str]) -> tuple[str | None, str, str]:
     return designation, basis, confidence
 
 
+def _decode_rtf(raw: bytes) -> str:
+    """Best-effort RTF text recovery for designation discovery only.
+
+    This is not a general RTF renderer. It decodes common ANSI hex escapes and
+    RTF Unicode control words so standard numbers hidden by formatting remain
+    searchable. The result is REVIEW evidence only.
+    """
+    source = raw.decode("latin-1", errors="ignore")
+    cp_match = re.search(r"\\ansicpg(\d+)", source, flags=re.IGNORECASE)
+    encoding = f"cp{cp_match.group(1)}" if cp_match else "cp1251"
+    try:
+        "".encode(encoding)
+    except LookupError:
+        encoding = "cp1251"
+
+    def hex_run(match: re.Match[str]) -> str:
+        values = bytes(int(value, 16) for value in re.findall(r"\\'([0-9a-fA-F]{2})", match.group(0)))
+        return values.decode(encoding, errors="replace")
+
+    source = re.sub(r"(?:\\'[0-9a-fA-F]{2})+", hex_run, source)
+
+    def unicode_char(match: re.Match[str]) -> str:
+        value = int(match.group(1))
+        if value < 0:
+            value += 65536
+        try:
+            return chr(value)
+        except ValueError:
+            return " "
+
+    # The optional '?' is the common single-character ANSI fallback after \uN.
+    source = re.sub(r"\\u(-?\d+)\??", unicode_char, source)
+    source = source.replace(r"\{", "{").replace(r"\}", "}").replace(r"\\", "\\")
+    source = re.sub(r"\\[A-Za-z]+-?\d* ?", " ", source)
+    source = re.sub(r"[{}]", " ", source)
+    return source
+
+
 def read_text_prefix(path: Path, max_bytes: int = 1024 * 1024) -> str:
     """Best-effort local inspection for text-like formats only.
 
@@ -137,8 +178,9 @@ def read_text_prefix(path: Path, max_bytes: int = 1024 * 1024) -> str:
             return raw.decode("utf-8", errors="ignore")
 
         raw = path.read_bytes()[:max_bytes]
-        # Digits and ASCII separators survive these decoders; Russian text is a
-        # bonus and is not required for candidate extraction.
+        if suffix == ".rtf":
+            return _decode_rtf(raw)
+
         return "\n".join(
             raw.decode(enc, errors="ignore") for enc in ("utf-8", "cp1251", "latin-1")
         )
@@ -146,15 +188,39 @@ def read_text_prefix(path: Path, max_bytes: int = 1024 * 1024) -> str:
         return ""
 
 
-def content_seed_candidate(path: Path, seed: list[str]) -> tuple[str | None, int, str]:
-    """Return earliest TK362 code seen in a bounded text-like file prefix.
+def generic_content_codes(text: str) -> list[str]:
+    """Return distinct generic standard-like codes in encounter order."""
+    seen: set[str] = set()
+    result: list[str] = []
+    for match in GENERIC_CODE_RE.finditer(text.replace("–", "-").replace("—", "-")):
+        code = match.group(1)
+        if code not in seen:
+            seen.add(code)
+            result.append(code)
+    return result
 
-    This is REVIEW evidence only. A content candidate never becomes an automatic
-    copy action until exact identity/currentness is verified separately.
+
+def content_seed_candidate(path: Path, seed: list[str]) -> tuple[str | None, int, str]:
+    """Surface a content designation candidate for manual identity review.
+
+    First recover any generic code, including superseded editions not present in
+    the current TK362 seed. If that code resolves to the current seed, return the
+    canonical seed designation. Otherwise return the raw code as review evidence.
+    Nothing from this function is auto-promoted or auto-copied.
     """
     text = read_text_prefix(path)
     if not text:
         return None, 0, "NONE"
+
+    generic_codes = generic_content_codes(text)
+    if generic_codes:
+        seed_by_code = {code_key(designation): designation for designation in seed}
+        first = generic_codes[0]
+        if first in seed_by_code:
+            return seed_by_code[first], len(generic_codes), "CONTENT_SEED_CODE_REVIEW"
+        return first, len(generic_codes), "CONTENT_GENERIC_CODE_REVIEW"
+
+    # Fallback for separator-heavy markup where loose normalization helps.
     compact = loose_norm(text)
     hits: list[tuple[int, str]] = []
     seen: set[str] = set()
@@ -204,7 +270,6 @@ def find_files(root: Path, seed: list[str]) -> list[dict]:
             tag = "REVIEW"
             current_status = "IDENTITY_REVIEW_REQUIRED"
         else:
-            # Ordinary books/documents are not GOST inventory candidates.
             continue
 
         out.append(
@@ -296,7 +361,7 @@ def main() -> int:
         writer.writerows(all_rows)
 
     payload = {
-        "schema_version": "1.2",
+        "schema_version": "1.3",
         "mode": "APPLY" if args.apply else "PLAN",
         "source": str(source),
         "target": str(target),
@@ -317,7 +382,8 @@ def main() -> int:
         "note": (
             "Filename titles need not be identical. Matching prioritizes normalized designation/code. "
             "ISO/ИСО/GOST/ГОСТ are lexical markers, not arbitrary substrings. Reference lists are separated. "
-            "Text-like content candidates are REVIEW-only and never auto-promoted or copied."
+            "RTF Unicode/ANSI escapes are decoded for REVIEW-only designation discovery. Generic historical "
+            "edition codes are surfaced even when absent from the current TK362 seed."
         ),
         "actions": actions,
     }
