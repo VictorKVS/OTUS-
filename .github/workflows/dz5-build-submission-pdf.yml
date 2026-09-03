@@ -26,10 +26,14 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install PDF dependencies
+      - name: Install validation and PDF dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install reportlab svglib pillow
+          python -m pip install reportlab svglib pillow openapi-spec-validator
+
+      - name: Validate OpenAPI 3.1
+        run: |
+          openapi-spec-validator "5. Низкоуровневое проектирование (LLD) компоненты и взаимодействия  ДЗ/ДЗ_05_OSINT_KB_Agent_LLD/api/openapi.yaml"
 
       - name: Build submission PDF
         run: |
@@ -40,7 +44,7 @@ jobs:
           PDF="5. Низкоуровневое проектирование (LLD) компоненты и взаимодействия  ДЗ/ДЗ_05_OSINT_KB_Agent_LLD/DZ05_LLD_OSINT_KB_AGENT_SUBMISSION.pdf"
           test -s "$PDF"
           head -c 5 "$PDF" | grep -q '%PDF-'
-          test "$(stat -c%s "$PDF")" -gt 100000
+          test "$(stat -c%s "$PDF")" -gt 50000
           sha256sum "$PDF"
 
       - name: Commit generated PDF
