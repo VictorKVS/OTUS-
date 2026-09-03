@@ -1,5 +1,12 @@
 # ДЗ 05 — LLD: OSINT Knowledge Base Filling Agent
 
+> ## 📄 Готовый PDF для сдачи
+>
+> **[Открыть DZ05_LLD_OSINT_KB_AGENT_SUBMISSION.pdf](./DZ05_LLD_OSINT_KB_AGENT_SUBMISSION.pdf)**
+>
+> Контрольная сумма: [`SHA256SUMS.txt`](./SHA256SUMS.txt)  
+> PDF автоматически пересобирается в GitHub Actions при изменении материалов ДЗ.
+
 ## 1. Что спроектировано
 
 Для домашнего задания выбран контейнер **Knowledge Base Filling Agent** из проектируемой OSINT / Due Diligence платформы.
@@ -186,6 +193,8 @@ CASE
 ДЗ_05_OSINT_KB_Agent_LLD/
 ├── README.md
 ├── УСЛОВИЕ_ДЗ.md
+├── DZ05_LLD_OSINT_KB_AGENT_SUBMISSION.pdf
+├── SHA256SUMS.txt
 ├── api/
 │   └── openapi.yaml
 ├── architecture/
@@ -194,16 +203,33 @@ CASE
 │   ├── SEQUENCE_EVIDENCE_TO_KB.md
 │   ├── BPMN/
 │   │   ├── OSINT_KB_AGENT_BPMN_V1.bpmn
-│   │   ├── OSINT_KB_AGENT_BPMN_V1_READABLE.svg
+│   │   └── OSINT_KB_AGENT_BPMN_V1_READABLE.svg
 │   └── DFD/
-│       ├── OSINT_KB_AGENT_DFD_V1_READABLE.svg
+│       └── OSINT_KB_AGENT_DFD_V1_READABLE.svg
 ├── docs/
 │   └── OSINT_KB_AGENT_INFORMATION_FLOW_V1.md
+├── tools/
+│   └── build_submission_pdf.py
 └── MANIFEST.json
 ```
 
 ---
 
-## 11. Итог
+## 11. Автоматическая сборка PDF
+
+PDF не загружается вручную. Workflow `.github/workflows/dz5-build-submission-pdf.yml` при изменении материалов ДЗ:
+
+1. разворачивает Python 3.12;
+2. устанавливает зависимости для PDF;
+3. собирает оформленный PDF из актуальных C3/BPMN/DFD и описания API;
+4. проверяет заголовок `%PDF-` и минимальный размер;
+5. рассчитывает SHA-256;
+6. коммитит PDF и `SHA256SUMS.txt` обратно в `main` от имени `github-actions[bot]`.
+
+Это делает итоговый пакет воспроизводимым и позволяет обновлять PDF автоматически вместе с архитектурой.
+
+---
+
+## 12. Итог
 
 LLD показывает один контейнер на уровне внутренних компонентов, их ответственности, API и последовательности взаимодействия. BPMN/DFD добавлены как поддерживающие артефакты и демонстрируют место контейнера в общем производственном процессе OSINT-платформы.
