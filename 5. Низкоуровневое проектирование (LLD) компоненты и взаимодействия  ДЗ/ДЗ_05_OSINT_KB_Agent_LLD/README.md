@@ -1,193 +1,233 @@
-# ДЗ 05 — LLD: OSINT Knowledge Base Filling Agent
+# ДЗ 05 — Многоуровневое проектирование: C4 → API
 
 > ## 📄 Готовый PDF для сдачи
 >
-> **[Открыть DZ05_LLD_OSINT_KB_AGENT_SUBMISSION.pdf](./DZ05_LLD_OSINT_KB_AGENT_SUBMISSION.pdf)**
->
+> **[Открыть DZ05_LLD_OSINT_KB_AGENT_SUBMISSION.pdf](./DZ05_LLD_OSINT_KB_AGENT_SUBMISSION.pdf)**  
 > Контрольная сумма: [`SHA256SUMS.txt`](./SHA256SUMS.txt)  
-> PDF автоматически пересобирается в GitHub Actions при изменении материалов ДЗ.
+> PDF автоматически пересобирается GitHub Actions при изменении материалов ДЗ.
 
-## 1. Что спроектировано
+## 1. Кейс
 
-Для домашнего задания выбран контейнер **Knowledge Base Filling Agent** из проектируемой OSINT / Due Diligence платформы.
+Для домашнего задания используется собственный кейс — **OSINT / Due Diligence AI Platform**.
 
-Его задача — принять доказательственный пакет от контура сбора, проверить целостность и допустимость, разбить материал на устойчивые фрагменты, извлечь сущности/утверждения/связи, привязать provenance, выявить противоречия, передать спорные объекты на human review и только после утверждения записать проверенные знания в Knowledge Base.
+Пользователь работает с делом проверки контрагента/объекта и запрашивает у AI Service рекомендацию, например: можно ли одобрить поставщика, требуется ли углублённая проверка или какие шаги расследования выполнить дальше.
 
-Ключевой принцип:
-
-```text
-SOURCE → CAPTURE → CHUNK → CLAIM/CANDIDATE → REVIEW → VERIFIED KNOWLEDGE
-```
-
-Автоматический компонент **не имеет права самостоятельно выполнять переход `CLAIM → FACT`**.
-
----
-
-## 2. Соответствие условию ДЗ
-
-| Требование | Реализация |
-|---|---|
-| Выбрать один контейнер | `Knowledge Base Filling Agent` |
-| C3 Component diagram | `architecture/C3_KB_AGENT_COMPONENTS.svg` / `.md` / `.dot` |
-| Спроектировать API | `api/openapi.yaml` (OpenAPI 3.1) |
-| Sequence diagram для ключевого сценария | `architecture/SEQUENCE_EVIDENCE_TO_KB.md` |
-| Детализация компонентов и взаимодействий | C3 + описание ниже |
-| Дополнительная визуализация потоков | BPMN и DFD в `architecture/BPMN` и `architecture/DFD` |
-
-Условие занятия вынесено в [`УСЛОВИЕ_ДЗ.md`](./УСЛОВИЕ_ДЗ.md).
-
----
-
-## 3. C3 — компоненты контейнера
-
-![C3 — Knowledge Base Filling Agent](./architecture/C3_KB_AGENT_COMPONENTS.svg)
-
-Основные компоненты:
-
-1. **Ingest API** — принимает `EvidencePackage` и команды обработки.
-2. **Policy & Admission Gate** — проверяет purpose, access class, legal basis и допустимость обработки.
-3. **Evidence Validator** — проверяет manifest, SHA-256, lineage и наличие оригинала.
-4. **Stable Chunk Builder** — формирует устойчивые `chunk_id` и локаторы на исходный материал.
-5. **Candidate Extractor** — извлекает `ENTITY / CLAIM / EVENT / RELATION / DEFINITION / REQUIREMENT` candidates.
-6. **Provenance Binder** — привязывает каждый кандидат к `source_id → capture_id → chunk_id`.
-7. **Entity Resolution** — exact match, aliases, candidates; без silent fuzzy merge.
-8. **Contradiction Engine** — сравнивает новое знание с существующими версиями и фиксирует `CONFLICT / SUPERSEDES / STALE`.
-9. **Review Queue** — передаёт существенные объекты главному аналитику.
-10. **Knowledge Publisher** — публикует только утверждённые объекты в KB/Graph/Operational DB.
-11. **Audit Writer** — append-only запись всех существенных переходов.
-
----
-
-## 4. Основной сценарий
+Основной сценарий задания:
 
 ```text
-OSINT Collector / Screening Factory
-          ↓ EvidencePackage
-       Ingest API
-          ↓
- Policy & Admission Gate
-          ↓
-   Evidence Validator
-          ↓
-     Evidence Vault
-          ↓
- Stable Chunk Builder
-          ↓
- Candidate Extractor
-          ↓
- Provenance Binder
-          ↓
- Entity Resolution
-          ↓
- Contradiction Engine
-          ↓
-      Review Queue
-          ↓
-     Main Analyst
-      ↙       ↘
- REWORK      APPROVE
-   ↓            ↓
-новый поиск  Knowledge Publisher
-                ↓
-     KB + Graph + Operational DB
-                ↓
-          Audit Journal
+Analyst → Frontend → Backend → AI Service → Vector DB / SQL DB → LLM
+                                           ↓
+                              recommendation + evidence refs
 ```
 
-Sequence diagram: [`architecture/SEQUENCE_EVIDENCE_TO_KB.md`](./architecture/SEQUENCE_EVIDENCE_TO_KB.md).
+AI Service возвращает рекомендацию с доказательствами, confidence и limitations; high-impact решение остаётся за человеком.
 
 ---
 
-## 5. API
+## 2. Проверка соответствия условию
 
-Спецификация: [`api/openapi.yaml`](./api/openapi.yaml).
+| Требование ДЗ | Реализация | Статус |
+|---|---|---|
+| C2 Container Diagram всей системы | [`architecture/C2_SYSTEM_CONTAINERS.svg`](./architecture/C2_SYSTEM_CONTAINERS.svg) + [`C2_SYSTEM_CONTAINERS.md`](./architecture/C2_SYSTEM_CONTAINERS.md) | ✅ |
+| На C2 выделить Frontend | `Frontend — React/TypeScript` | ✅ |
+| На C2 выделить Backend | `Backend / Case Service — FastAPI` | ✅ |
+| На C2 выделить AI Service | `Knowledge & Recommendation Agent` | ✅ |
+| На C2 выделить Vector DB | `Vector DB — pgvector/vector index` | ✅ |
+| На C2 выделить SQL DB | `SQL DB — PostgreSQL` | ✅ |
+| C3 внутри AI Service | [`architecture/C3_KB_AGENT_COMPONENTS.svg`](./architecture/C3_KB_AGENT_COMPONENTS.svg) + [`C3_KB_AGENT_COMPONENTS.md`](./architecture/C3_KB_AGENT_COMPONENTS.md) | ✅ |
+| Sequence «Пользователь запрашивает рекомендацию» | [`architecture/SEQUENCE_GET_RECOMMENDATION.md`](./architecture/SEQUENCE_GET_RECOMMENDATION.md) | ✅ |
+| API Backend ↔ AI Service | [`api/openapi.yaml`](./api/openapi.yaml) | ✅ |
+| Endpoint `/get_recommendation` | `POST /get_recommendation` | ✅ |
+| Типы данных | OpenAPI schemas | ✅ |
+| Пример request/response | OpenAPI examples | ✅ |
+| Коды ошибок | `400/401/404/422/429/500/503` | ✅ |
 
-Основные операции:
-
-| Endpoint | Назначение |
-|---|---|
-| `POST /v1/evidence-packages` | зарегистрировать доказательственный пакет |
-| `GET /v1/evidence-packages/{packageId}` | получить состояние пакета |
-| `POST /v1/evidence-packages/{packageId}/process` | запустить детерминированный pipeline |
-| `GET /v1/review-items` | очередь объектов на human review |
-| `POST /v1/review-items/{reviewItemId}/decision` | `APPROVE / REWORK / REJECT` |
-| `GET /v1/cases/{caseId}/coverage` | покрытие доказательствами и пробелы |
-| `GET /v1/cases/{caseId}/lineage/{objectId}` | трассировка объекта до оригинального evidence |
-
-API не предоставляет endpoint, позволяющий модели напрямую создать `FACT`.
+Точное условие зафиксировано в [`УСЛОВИЕ_ДЗ.md`](./УСЛОВИЕ_ДЗ.md).
 
 ---
 
-## 6. Модель данных
+## 3. C2 — Container Diagram
+
+![C2 — OSINT / Due Diligence AI Platform](./architecture/C2_SYSTEM_CONTAINERS.svg)
+
+### Контейнеры
+
+| Контейнер | Ответственность | Технология |
+|---|---|---|
+| Frontend | интерфейс аналитика, кейс, запрос и вывод рекомендации | React / TypeScript |
+| Backend / Case Service | API gateway, case orchestration, policy, structured data | FastAPI |
+| AI Service | RAG, prompt, LLM, citation validation, recommendation | Python / FastAPI |
+| Vector DB | semantic retrieval по chunks/knowledge | PostgreSQL + pgvector / vector index |
+| SQL DB | cases, entities, findings, sources, review state | PostgreSQL |
+| Evidence Vault | originals, evidence lineage, SHA-256 | object storage |
+
+Ключевая интеграция:
 
 ```text
-CASE
- ├─ SOURCE
- │   └─ SOURCE_CAPTURE
- │       └─ STABLE_CHUNK
- │           ├─ CLAIM_CANDIDATE
- │           ├─ ENTITY_CANDIDATE
- │           ├─ RELATION_CANDIDATE
- │           └─ EVENT_CANDIDATE
- │
- ├─ REVIEW_ITEM
- │   └─ REVIEW_DECISION
- │
- └─ VERIFIED_KNOWLEDGE
-     ├─ FACT
-     ├─ DEFINITION
-     ├─ REQUIREMENT
-     ├─ RELATION
-     └─ VERSION/SUPERSESSION
+Backend → POST /get_recommendation → AI Service
 ```
 
-Для каждого производного объекта хранятся `source_id`, `capture_id`, `chunk_id`, parser/model/tool version и ограничения вывода.
+---
+
+## 4. C3 — AI Service
+
+![C3 — AI Service](./architecture/C3_KB_AGENT_COMPONENTS.svg)
+
+Внутренние компоненты AI Service:
+
+1. **Recommendation Controller** — endpoint `/get_recommendation`, валидация и orchestration.
+2. **Query Normalizer** — нормализует query, language, case context.
+3. **RAG Manager** — получает semantic и structured context.
+4. **Prompt Template Factory** — формирует prompt нужного типа.
+5. **LLM Client** — вызывает LLM через контролируемый gateway.
+6. **Citation & Evidence Guard** — проверяет evidence refs и неподтверждённые утверждения.
+7. **Confidence Evaluator** — учитывает полноту и противоречия источников.
+8. **Recommendation Formatter** — возвращает стабильный JSON contract.
+9. **Audit Writer** — сохраняет model/prompt/retrieval versions и execution trail.
+
+### Проверка связности C3 ↔ Sequence
+
+Все основные участники AI Service на Sequence Diagram имеют прямой аналог на C3:
+
+```text
+Recommendation Controller
+→ Query Normalizer
+→ RAG Manager
+→ Prompt Template Factory
+→ LLM Client
+→ Citation & Evidence Guard
+→ Confidence Evaluator
+→ Recommendation Formatter
+```
+
+Это закрывает критерий «компоненты C3 соответствуют шагам Sequence Diagram».
 
 ---
 
-## 7. Хранилища
+## 5. Sequence Diagram — «Пользователь запрашивает рекомендацию»
 
-| Хранилище | Назначение |
-|---|---|
-| Evidence Vault | неизменяемые оригиналы и SHA-256 |
-| Operational DB | cases, jobs, sources, captures, claims, statuses |
-| Entity Graph | сущности, связи и timeline — производное представление |
-| Knowledge Base | только проверенные знания |
-| Audit Journal | append-only история изменений |
+Исходник и визуализация Mermaid: [`architecture/SEQUENCE_GET_RECOMMENDATION.md`](./architecture/SEQUENCE_GET_RECOMMENDATION.md).
 
-**Evidence Vault является доказательственным основанием. Graph и KB не заменяют первичный источник.**
+Основная последовательность:
+
+```text
+Analyst
+  ↓
+Frontend
+  ↓ POST /cases/{caseId}/recommendation
+Backend
+  ↓ POST /get_recommendation
+Recommendation Controller
+  ↓
+Query Normalizer
+  ↓
+RAG Manager
+  ├─ Vector DB
+  └─ SQL DB / Evidence context
+  ↓
+Prompt Template Factory
+  ↓
+LLM Client → LLM
+  ↓
+Citation & Evidence Guard
+  ↓
+Confidence Evaluator
+  ↓
+Recommendation Formatter
+  ↓
+Backend → Frontend → Analyst
+```
+
+При недостатке доказательств AI Service возвращает `422 INSUFFICIENT_EVIDENCE`, а не выдумывает недостающий факт.
 
 ---
 
-## 8. Дополнительные схемы
+## 6. OpenAPI 3.1 — Backend ↔ AI Service
 
-### BPMN
+Спецификация: **[`api/openapi.yaml`](./api/openapi.yaml)**.
 
-![BPMN](./architecture/BPMN/OSINT_KB_AGENT_BPMN_V1_READABLE.svg)
+Главный endpoint задания:
 
-Редактируемый BPMN 2.0 XML: [`OSINT_KB_AGENT_BPMN_V1.bpmn`](./architecture/BPMN/OSINT_KB_AGENT_BPMN_V1.bpmn).
+```http
+POST /get_recommendation
+Content-Type: application/json
+Authorization: Bearer <JWT>
+```
 
-### DFD Level 1
+Пример запроса:
 
-![DFD](./architecture/DFD/OSINT_KB_AGENT_DFD_V1_READABLE.svg)
+```json
+{
+  "request_id": "REQ-2026-00042",
+  "case_id": "CASE-RU-LEGAL-0042",
+  "query": "Should the supplier be approved for access to the corporate information system?",
+  "recommendation_type": "COUNTERPARTY_RISK",
+  "language": "ru",
+  "top_k": 8,
+  "include_evidence": true
+}
+```
 
-Подробное описание потоков: [`docs/OSINT_KB_AGENT_INFORMATION_FLOW_V1.md`](./docs/OSINT_KB_AGENT_INFORMATION_FLOW_V1.md).
+Пример ответа:
+
+```json
+{
+  "recommendation_id": "REC-2026-0042",
+  "request_id": "REQ-2026-00042",
+  "case_id": "CASE-RU-LEGAL-0042",
+  "recommendation": "APPROVE_WITH_CONDITIONS",
+  "confidence": 0.82,
+  "evidence_refs": [
+    {
+      "source_id": "SRC-FNS-0001",
+      "capture_id": "CAP-FNS-20260903-01",
+      "chunk_id": "CHK-FNS-17",
+      "source_type": "OFFICIAL_REGISTRY"
+    }
+  ],
+  "limitations": ["Beneficial ownership chain is not fully verified."],
+  "research_gaps": ["GAP-UBO-0003"]
+}
+```
+
+Ошибки описаны в OpenAPI:
+
+| HTTP | Код | Значение |
+|---:|---|---|
+| 400 | `INVALID_REQUEST` | неверный контракт |
+| 401 | `UNAUTHORIZED` | ошибка authentication |
+| 404 | `CASE_NOT_FOUND` | кейс не найден |
+| 422 | `INSUFFICIENT_EVIDENCE` | недостаточно доказательств |
+| 429 | `RATE_LIMITED` | превышен лимит |
+| 500 | `INTERNAL_ERROR` | ошибка AI Service |
+| 503 | `DEPENDENCY_UNAVAILABLE` | LLM/Vector DB недоступны |
 
 ---
 
-## 9. Архитектурные ограничения
+## 7. Дополнительные архитектурные материалы
+
+Они не заменяют обязательные C2/C3/Sequence/API, а дополняют решение:
+
+- BPMN: [`architecture/BPMN/OSINT_KB_AGENT_BPMN_V1_READABLE.svg`](./architecture/BPMN/OSINT_KB_AGENT_BPMN_V1_READABLE.svg)
+- BPMN 2.0 XML: [`architecture/BPMN/OSINT_KB_AGENT_BPMN_V1.bpmn`](./architecture/BPMN/OSINT_KB_AGENT_BPMN_V1.bpmn)
+- DFD: [`architecture/DFD/OSINT_KB_AGENT_DFD_V1_READABLE.svg`](./architecture/DFD/OSINT_KB_AGENT_DFD_V1_READABLE.svg)
+- Потоки информации: [`docs/OSINT_KB_AGENT_INFORMATION_FLOW_V1.md`](./docs/OSINT_KB_AGENT_INFORMATION_FLOW_V1.md)
+
+---
+
+## 8. Архитектурные ограничения AI Service
 
 - `SOURCE ≠ CLAIM ≠ FACT`.
-- LLM / extractor / graph algorithm не публикует `FACT` напрямую.
-- Fuzzy entity match не приводит к silent merge.
-- Любое существенное знание имеет evidence lineage.
-- `NO_HIT` не означает доказанное отсутствие факта.
-- Новая версия не стирает старую — используется supersession/versioning.
-- Restricted evidence не экспортируется в публичный контур.
+- recommendation не равна автоматическому управленческому решению.
+- LLM не публикует `FACT` напрямую.
+- существенные утверждения ответа должны иметь `evidence_refs`.
+- при недостатке доказательств возвращается research gap / `422`, а не выдуманный ответ.
+- model, prompt и retrieval profile версионируются.
+- restricted evidence не экспортируется в публичный контур.
 
 ---
 
-## 10. Структура папки
+## 9. Структура сдачи
 
 ```text
 ДЗ_05_OSINT_KB_Agent_LLD/
@@ -198,38 +238,42 @@ CASE
 ├── api/
 │   └── openapi.yaml
 ├── architecture/
+│   ├── C2_SYSTEM_CONTAINERS.md
+│   ├── C2_SYSTEM_CONTAINERS.svg
 │   ├── C3_KB_AGENT_COMPONENTS.md
 │   ├── C3_KB_AGENT_COMPONENTS.svg
-│   ├── SEQUENCE_EVIDENCE_TO_KB.md
+│   ├── SEQUENCE_GET_RECOMMENDATION.md
 │   ├── BPMN/
-│   │   ├── OSINT_KB_AGENT_BPMN_V1.bpmn
-│   │   └── OSINT_KB_AGENT_BPMN_V1_READABLE.svg
 │   └── DFD/
-│       └── OSINT_KB_AGENT_DFD_V1_READABLE.svg
 ├── docs/
-│   └── OSINT_KB_AGENT_INFORMATION_FLOW_V1.md
-├── tools/
-│   └── build_submission_pdf.py
-└── MANIFEST.json
+└── tools/
 ```
 
 ---
 
-## 11. Автоматическая сборка PDF
+## 10. Автоматическая сборка PDF
 
-PDF не загружается вручную. Workflow `.github/workflows/dz5-build-submission-pdf.yml` при изменении материалов ДЗ:
+Workflow `.github/workflows/dz5-build-submission-pdf.yml` автоматически:
 
-1. разворачивает Python 3.12;
-2. устанавливает зависимости для PDF;
-3. собирает оформленный PDF из актуальных C3/BPMN/DFD и описания API;
-4. проверяет заголовок `%PDF-` и минимальный размер;
-5. рассчитывает SHA-256;
-6. коммитит PDF и `SHA256SUMS.txt` обратно в `main` от имени `github-actions[bot]`.
-
-Это делает итоговый пакет воспроизводимым и позволяет обновлять PDF автоматически вместе с архитектурой.
+1. собирает PDF;
+2. проверяет `%PDF-` и размер;
+3. рассчитывает SHA-256;
+4. коммитит PDF и `SHA256SUMS.txt` обратно в `main`.
 
 ---
 
-## 12. Итог
+## 11. Итог
 
-LLD показывает один контейнер на уровне внутренних компонентов, их ответственности, API и последовательности взаимодействия. BPMN/DFD добавлены как поддерживающие артефакты и демонстрируют место контейнера в общем производственном процессе OSINT-платформы.
+Работа построена в требуемой последовательности:
+
+```text
+C2 SYSTEM
+   ↓
+C3 AI SERVICE
+   ↓
+SEQUENCE: USER REQUESTS RECOMMENDATION
+   ↓
+OPENAPI: POST /get_recommendation
+```
+
+Таким образом, архитектурные уровни связаны между собой одним сценарием и одним контрактом интеграции Backend ↔ AI Service.
