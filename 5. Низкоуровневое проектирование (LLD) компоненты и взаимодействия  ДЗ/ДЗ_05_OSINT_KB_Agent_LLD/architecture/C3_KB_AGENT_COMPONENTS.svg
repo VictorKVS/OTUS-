@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="760" viewBox="0 0 1500 760">
+  <style>
+    text{font-family:Arial,"DejaVu Sans",sans-serif;fill:#172033} .t{font-size:24px;font-weight:700}.h{font-size:16px;font-weight:700}.s{font-size:13px}.box{fill:#f8fafc;stroke:#64748b;stroke-width:1.5;rx:10}.ext{fill:#e8f1ff}.human{fill:#fff3d6}.store{fill:#ecfdf5;stroke:#059669;stroke-width:1.5}.boundary{fill:none;stroke:#2563eb;stroke-width:2.5;rx:16}.arrow{stroke:#64748b;stroke-width:1.6;fill:none;marker-end:url(#a)}
+  </style>
+  <defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#64748b"/></marker></defs>
+  <rect width="1500" height="760" fill="white"/>
+  <text x="750" y="38" text-anchor="middle" class="t">C3 — Knowledge Base Filling Agent</text>
+  <rect x="190" y="80" width="1120" height="430" class="boundary"/>
+  <text x="210" y="108" class="h">Container: Knowledge Base Filling Agent</text>
+  <rect x="20" y="180" width="140" height="66" class="box ext"/><text x="90" y="205" text-anchor="middle" class="h">OSINT Collectors</text><text x="90" y="226" text-anchor="middle" class="s">Screening Factory</text>
+  <rect x="20" y="360" width="140" height="66" class="box human"/><text x="90" y="387" text-anchor="middle" class="h">Main Analyst</text><text x="90" y="408" text-anchor="middle" class="s">human review</text>
+  <g>
+    <rect x="220" y="160" width="130" height="60" class="box"/><text x="285" y="196" text-anchor="middle" class="h">Ingest API</text>
+    <rect x="390" y="160" width="150" height="60" class="box"/><text x="465" y="187" text-anchor="middle" class="h">Policy &amp;</text><text x="465" y="206" text-anchor="middle" class="s">Admission Gate</text>
+    <rect x="580" y="160" width="150" height="60" class="box"/><text x="655" y="196" text-anchor="middle" class="h">Evidence Validator</text>
+    <rect x="770" y="160" width="150" height="60" class="box"/><text x="845" y="187" text-anchor="middle" class="h">Stable Chunk</text><text x="845" y="206" text-anchor="middle" class="s">Builder</text>
+    <rect x="960" y="160" width="150" height="60" class="box"/><text x="1035" y="187" text-anchor="middle" class="h">Candidate</text><text x="1035" y="206" text-anchor="middle" class="s">Extractor</text>
+    <rect x="1150" y="160" width="130" height="60" class="box"/><text x="1215" y="187" text-anchor="middle" class="h">Provenance</text><text x="1215" y="206" text-anchor="middle" class="s">Binder</text>
+    <rect x="250" y="300" width="150" height="60" class="box"/><text x="325" y="336" text-anchor="middle" class="h">Entity Resolution</text>
+    <rect x="450" y="300" width="170" height="60" class="box"/><text x="535" y="327" text-anchor="middle" class="h">Contradiction</text><text x="535" y="346" text-anchor="middle" class="s">Engine</text>
+    <rect x="670" y="300" width="140" height="60" class="box"/><text x="740" y="336" text-anchor="middle" class="h">Review Queue</text>
+    <rect x="860" y="300" width="170" height="60" class="box"/><text x="945" y="327" text-anchor="middle" class="h">Knowledge</text><text x="945" y="346" text-anchor="middle" class="s">Publisher</text>
+    <rect x="1090" y="300" width="140" height="60" class="box"/><text x="1160" y="336" text-anchor="middle" class="h">Audit Writer</text>
+  </g>
+  <path d="M160 213 H220" class="arrow"/><path d="M350 190 H390" class="arrow"/><path d="M540 190 H580" class="arrow"/><path d="M730 190 H770" class="arrow"/><path d="M920 190 H960" class="arrow"/><path d="M1110 190 H1150" class="arrow"/>
+  <path d="M1215 220 V260 H325 V300" class="arrow"/><path d="M400 330 H450" class="arrow"/><path d="M620 330 H670" class="arrow"/><path d="M810 330 H860" class="arrow"/><path d="M740 360 V393 H160" class="arrow"/><path d="M160 393 H670" class="arrow"/>
+  <rect x="250" y="570" width="180" height="70" class="store"/><text x="340" y="600" text-anchor="middle" class="h">Evidence Vault</text><text x="340" y="620" text-anchor="middle" class="s">originals + SHA-256</text>
+  <rect x="480" y="570" width="180" height="70" class="store"/><text x="570" y="611" text-anchor="middle" class="h">Operational DB</text>
+  <rect x="710" y="570" width="180" height="70" class="store"/><text x="800" y="611" text-anchor="middle" class="h">Entity Graph</text>
+  <rect x="940" y="570" width="180" height="70" class="store"/><text x="1030" y="611" text-anchor="middle" class="h">Knowledge Base</text>
+  <rect x="1170" y="570" width="180" height="70" class="store"/><text x="1260" y="611" text-anchor="middle" class="h">Audit Journal</text>
+  <path d="M655 220 V540 H340 V570" class="arrow"/><path d="M945 360 V540 H570 V570" class="arrow"/><path d="M945 360 V520 H800 V570" class="arrow"/><path d="M945 360 V500 H1030 V570" class="arrow"/><path d="M1160 360 V540 H1260 V570" class="arrow"/>
+  <text x="750" y="700" text-anchor="middle" class="h">Rule: CLAIM / CANDIDATE → human review → VERIFIED KNOWLEDGE</text>
+</svg>

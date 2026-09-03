@@ -1,0 +1,55 @@
+digraph C3 {
+  graph [rankdir=LR, bgcolor="white", pad="0.3", nodesep="0.45", ranksep="0.7", fontname="DejaVu Sans", label="C3 — Knowledge Base Filling Agent", labelloc=t, fontsize=20];
+  node [shape=box, style="rounded,filled", fillcolor="#F7F8FA", color="#4B5563", fontname="DejaVu Sans", fontsize=10, margin="0.12,0.08"];
+  edge [color="#64748B", fontname="DejaVu Sans", fontsize=8, arrowsize=0.7];
+
+  collector [label="OSINT Collectors /\nScreening Factory", fillcolor="#E8F1FF"];
+  analyst [label="Main Analyst\n(human review)", fillcolor="#FFF3D6"];
+
+  subgraph cluster_agent {
+    label="Container: Knowledge Base Filling Agent";
+    color="#2563EB"; penwidth=2; style="rounded"; fontname="DejaVu Sans"; fontsize=13;
+    api [label="Ingest API"];
+    policy [label="Policy &\nAdmission Gate"];
+    validator [label="Evidence Validator"];
+    chunk [label="Stable Chunk Builder"];
+    extractor [label="Candidate Extractor"];
+    prov [label="Provenance Binder"];
+    entity [label="Entity Resolution"];
+    contradiction [label="Contradiction Engine"];
+    review [label="Review Queue"];
+    publisher [label="Knowledge Publisher"];
+    audit [label="Audit Writer"];
+
+    api -> policy;
+    policy -> validator [label="admitted"];
+    validator -> chunk;
+    chunk -> extractor;
+    extractor -> prov;
+    prov -> entity;
+    entity -> contradiction;
+    contradiction -> review;
+    review -> publisher [label="approved only"];
+  }
+
+  ev [shape=cylinder, label="Evidence Vault", fillcolor="#ECFDF5"];
+  odb [shape=cylinder, label="Operational DB", fillcolor="#ECFDF5"];
+  graphdb [shape=cylinder, label="Entity Graph", fillcolor="#ECFDF5"];
+  kb [shape=cylinder, label="Knowledge Base", fillcolor="#ECFDF5"];
+  log [shape=cylinder, label="Audit Journal", fillcolor="#ECFDF5"];
+
+  collector -> api [label="EvidencePackage"];
+  validator -> ev [label="original + SHA-256"];
+  review -> analyst [label="ReviewItem"];
+  analyst -> review [label="APPROVE / REWORK / REJECT"];
+  publisher -> odb;
+  publisher -> graphdb;
+  publisher -> kb;
+  api -> audit [style=dashed];
+  policy -> audit [style=dashed];
+  validator -> audit [style=dashed];
+  contradiction -> audit [style=dashed];
+  review -> audit [style=dashed];
+  publisher -> audit [style=dashed];
+  audit -> log;
+}

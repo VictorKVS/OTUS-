@@ -1,0 +1,50 @@
+digraph BPMN {
+  graph [rankdir=LR, splines=ortho, bgcolor="white", fontname="DejaVu Sans", label="BPMN — агент заполнения БД и базы знаний", labelloc=t, fontsize=20];
+  node [shape=box, style="rounded", fontname="DejaVu Sans", fontsize=10];
+  edge [fontname="DejaVu Sans", fontsize=8, arrowsize=0.7];
+
+  start [shape=circle,label=""];
+  intake [label="Цель / scope / основание / доступ"];
+  scope [shape=diamond,label="Допустимо?"];
+  block [label="BLOCKED + audit"];
+  identify [label="Entity Resolution"];
+  identity [shape=diamond,label="Объект разрешён?"];
+  plan [label="Query Plan + Country Pack"];
+  fork [shape=diamond,label="5 потоков"];
+  a [label="A Entity / Registry"];
+  b [label="B Business / Finance / Logistics"];
+  c [label="C Digital Footprint"];
+  d [label="D Legal / Sanctions / Adverse"];
+  e [label="E Source Quality / Counter-search"];
+  join [shape=diamond,label="Join"];
+  capture [label="SOURCE_CAPTURE + SHA-256"];
+  chunks [label="Stable chunks"];
+  extract [label="Extract candidates"];
+  prov [label="Provenance binding"];
+  norm [label="Normalize + exact dedup"];
+  compare [label="Compare DB / KB"];
+  enough [shape=diamond,label="Достаточно evidence?"];
+  gap [label="RESEARCH_GAP"];
+  opinions [label="Independent ANALYSIS_OPINION"];
+  red [label="Red Team"];
+  human [shape=diamond,label="Human approve?"];
+  publish [label="Versioned publish: DB + Graph + KB"];
+  report [label="Report + Monitoring"];
+  end [shape=doublecircle,label=""];
+
+  start -> intake -> scope;
+  scope -> block [label="нет"];
+  scope -> identify [label="да"];
+  identify -> identity;
+  identity -> plan [label="да"];
+  identity -> intake [label="нет: нужны идентификаторы"];
+  plan -> fork;
+  fork -> a; fork -> b; fork -> c; fork -> d; fork -> e;
+  a -> join; b -> join; c -> join; d -> join; e -> join;
+  join -> capture -> chunks -> extract -> prov -> norm -> compare -> enough;
+  enough -> gap [label="нет"]; gap -> plan;
+  enough -> opinions [label="да"]; opinions -> red -> human;
+  human -> plan [label="REWORK"];
+  human -> publish [label="APPROVE"];
+  publish -> report -> end;
+}
