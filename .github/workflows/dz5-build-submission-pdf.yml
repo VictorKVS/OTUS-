@@ -33,7 +33,15 @@ jobs:
 
       - name: Build submission PDF
         run: |
-          python "5. Низкоуровневое проектирование (LLD) компоненты и взаимодействия  ДЗ/ДЗ_05_OSINT_KB_Agent_LLD/tools/build_submission_pdf.py"
+          SCRIPT="5. Низкоуровневое проектирование (LLD) компоненты и взаимодействия  ДЗ/ДЗ_05_OSINT_KB_Agent_LLD/tools/build_submission_pdf.py"
+          python - <<'PY'
+          from pathlib import Path
+          p = Path("5. Низкоуровневое проектирование (LLD) компоненты и взаимодействия  ДЗ/ДЗ_05_OSINT_KB_Agent_LLD/tools/build_submission_pdf.py")
+          text = p.read_text(encoding="utf-8")
+          text = text.replace("ROOT = Path(__file__).resolve().parents[1]", "ROOT = Path(__file__).resolve().parents[3]", 1)
+          p.write_text(text, encoding="utf-8")
+          PY
+          python "$SCRIPT"
 
       - name: Verify PDF
         run: |
