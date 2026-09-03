@@ -1,0 +1,26 @@
+{
+  "artifact": "OTUS DZ 05 — OSINT Knowledge Base Filling Agent LLD",
+  "version": "1.0",
+  "assignment": "LLD одного контейнера: C3 Component Diagram + OpenAPI; sequence/BPMN/DFD добавлены как supporting artifacts",
+  "repository_file_count": 14,
+  "files": [
+    "README.md",
+    "УСЛОВИЕ_ДЗ.md",
+    "api/openapi.yaml",
+    "architecture/C3_KB_AGENT_COMPONENTS.md",
+    "architecture/C3_KB_AGENT_COMPONENTS.dot",
+    "architecture/C3_KB_AGENT_COMPONENTS.svg",
+    "architecture/SEQUENCE_EVIDENCE_TO_KB.md",
+    "architecture/BPMN/OSINT_KB_AGENT_BPMN_V1.bpmn",
+    "architecture/BPMN/OSINT_KB_AGENT_BPMN_V1_READABLE.svg",
+    "architecture/BPMN/source/OSINT_KB_AGENT_BPMN_V1.dot",
+    "architecture/DFD/OSINT_KB_AGENT_DFD_V1_READABLE.svg",
+    "architecture/DFD/source/OSINT_KB_AGENT_DFD_V1.dot",
+    "docs/OSINT_KB_AGENT_INFORMATION_FLOW_V1.md",
+    "MANIFEST.json"
+  ],
+  "integrity": {
+    "primary": "Git commit history and Git blob identity",
+    "note": "The repository keeps text/vector sources so diagrams and contracts remain reviewable and version-controlled."
+  }
+}
