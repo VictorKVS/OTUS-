@@ -5,12 +5,12 @@
 
 ### «Умный помощник» для оформления командировок
 
-[![Architecture](https://img.shields.io/badge/ARCHITECTURE-MULTI--AGENT-2F6FED?style=for-the-badge)](./architecture/MULTI_AGENT_ARCHITECTURE.md)
+[![Architecture PDF](https://img.shields.io/badge/PDF-ARCHITECTURE-B42318?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](./architecture/DZ07_TRAVEL_MULTIAGENT_ARCHITECTURE.pdf)
 [![RAG](https://img.shields.io/badge/RAG-VECTOR%20DB-6BA539?style=for-the-badge)](./architecture/RAG_FLOW.md)
-[![Colab](https://img.shields.io/badge/COLAB-NOTEBOOK-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=white)](./notebooks/travel_multiagent_colab.ipynb)
+[![Open in Colab](https://img.shields.io/badge/OPEN%20IN-COLAB-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=white)](https://colab.research.google.com/github/VictorKVS/OTUS-/blob/main/7.%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B5%20AI-%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%D1%8B%20%D0%B8%20Multi-Agent%20Systems%20%20%D0%94%D0%97/%D0%94%D0%97_07_Travel_MultiAgent_RAG/notebooks/travel_multiagent_colab.ipynb)
 [![Code](https://img.shields.io/badge/LANGGRAPH-PROTOTYPE-7C3AED?style=for-the-badge)](./src/travel_multiagent_demo.py)
 
-[📝 Условие](./УСЛОВИЕ_ДЗ.md) · [🧩 Архитектура](./architecture/MULTI_AGENT_ARCHITECTURE.md) · [🧠 RAG Flow](./architecture/RAG_FLOW.md) · [💻 Код](./src/travel_multiagent_demo.py) · [📓 Notebook](./notebooks/travel_multiagent_colab.ipynb)
+[📝 Условие](./УСЛОВИЕ_ДЗ.md) · [📄 PDF схем](./architecture/DZ07_TRAVEL_MULTIAGENT_ARCHITECTURE.pdf) · [🧩 Архитектура](./architecture/MULTI_AGENT_ARCHITECTURE.md) · [🧠 RAG Flow](./architecture/RAG_FLOW.md) · [💻 Код](./src/travel_multiagent_demo.py) · [📓 Notebook](./notebooks/travel_multiagent_colab.ipynb) · [▶️ Open in Colab](https://colab.research.google.com/github/VictorKVS/OTUS-/blob/main/7.%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B5%20AI-%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%D1%8B%20%D0%B8%20Multi-Agent%20Systems%20%20%D0%94%D0%97/%D0%94%D0%97_07_Travel_MultiAgent_RAG/notebooks/travel_multiagent_colab.ipynb)
 
 </div>
 
@@ -42,13 +42,14 @@ Trip Recommendation + evidence_refs
 |---|---|:---:|
 | Определить агентов | Manager, Policy RAG, Flight Search, Hotel Search, Budget Analyst | ✅ |
 | Single Responsibility | ответственность и запреты описаны отдельно | ✅ |
-| Нарисовать взаимодействие агентов | [`MULTI_AGENT_ARCHITECTURE.md`](./architecture/MULTI_AGENT_ARCHITECTURE.md) | ✅ |
+| Схема архитектуры в PNG/PDF | [`DZ07_TRAVEL_MULTIAGENT_ARCHITECTURE.pdf`](./architecture/DZ07_TRAVEL_MULTIAGENT_ARCHITECTURE.pdf) | ✅ |
 | Показать источник политики командировок | `data/travel_policy.md` → chunks → Vector DB → Policy RAG Agent | ✅ |
 | Описать chunking | смысловые разделы + stable chunk IDs | ✅ |
 | Описать embeddings | production embedding model; offline hash-embedding для демо | ✅ |
 | Описать reranking | semantic score + business-term priority | ✅ |
 | Manager делегирует Searcher | LangGraph graph + trace/messages | ✅ |
 | Colab notebook / псевдокод | [`travel_multiagent_colab.ipynb`](./notebooks/travel_multiagent_colab.ipynb) | ✅ |
+| Прямая ссылка Open in Colab | badge и ссылка в начале README | ✅ |
 | Агенты обмениваются сообщениями | проверяется `tests/test_demo.py` | ✅ |
 | Vector DB учтена | отражена на architecture и RAG flow | ✅ |
 
@@ -79,6 +80,8 @@ flowchart LR
     R --> U
 ```
 
+**Формат сдачи:** готовая двухстраничная схема в PDF — [`architecture/DZ07_TRAVEL_MULTIAGENT_ARCHITECTURE.pdf`](./architecture/DZ07_TRAVEL_MULTIAGENT_ARCHITECTURE.pdf). Первая страница показывает Supervisor / Multi-Agent architecture, вторая — RAG Flow.
+
 Подробное описание: **[`architecture/MULTI_AGENT_ARCHITECTURE.md`](./architecture/MULTI_AGENT_ARCHITECTURE.md)**.
 
 ## Single Responsibility
@@ -90,6 +93,8 @@ flowchart LR
 | **Flight Search Agent** | подбирает перелёты | не интерпретирует политику |
 | **Hotel Search Agent** | подбирает проживание | не утверждает превышение лимита |
 | **Budget Analyst** | считает стоимость и проверяет ограничения | не меняет результаты поиска |
+
+Используется **Supervisor / иерархический паттерн**: Manager хранит общий контекст и координирует специализированных агентов. Это позволяет сохранять Single Responsibility и не перегружать один агент большим набором инструментов.
 
 ---
 
@@ -161,7 +166,9 @@ Manager: synthesized final recommendation from delegated results
 
 # 📓 Colab notebook
 
-[`notebooks/travel_multiagent_colab.ipynb`](./notebooks/travel_multiagent_colab.ipynb)
+**[▶️ Открыть notebook прямо в Google Colab](https://colab.research.google.com/github/VictorKVS/OTUS-/blob/main/7.%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B5%20AI-%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%D1%8B%20%D0%B8%20Multi-Agent%20Systems%20%20%D0%94%D0%97/%D0%94%D0%97_07_Travel_MultiAgent_RAG/notebooks/travel_multiagent_colab.ipynb)**
+
+Исходный файл: [`notebooks/travel_multiagent_colab.ipynb`](./notebooks/travel_multiagent_colab.ipynb).
 
 Минимальная демонстрация выполняет именно требование задания:
 
@@ -191,6 +198,8 @@ python src/travel_multiagent_demo.py
 4. расчёт бюджета;
 5. наличие delegation trace.
 
+CI уже запускал тот же deterministic demo и тест обмена сообщениями.
+
 ---
 
 # 📚 Учебная политика командировок
@@ -216,6 +225,7 @@ python src/travel_multiagent_demo.py
 ├── README.md
 ├── УСЛОВИЕ_ДЗ.md
 ├── architecture/
+│   ├── DZ07_TRAVEL_MULTIAGENT_ARCHITECTURE.pdf
 │   ├── MULTI_AGENT_ARCHITECTURE.md
 │   └── RAG_FLOW.md
 ├── data/
@@ -235,14 +245,11 @@ python src/travel_multiagent_demo.py
 
 **Основная ссылка:** эта папка в GitHub.
 
-В ней преподаватель сразу получает:
+**Формат задания закрыт буквально:**
 
-- архитектуру мультиагентной системы;
-- RAG Flow с Vector DB;
-- Colab-compatible notebook;
-- полный LangGraph-прототип;
-- тесты обмена сообщениями;
-- синтетическую политику командировок;
-- точную трассировку evidence.
+1. [`PDF схемы архитектуры`](./architecture/DZ07_TRAVEL_MULTIAGENT_ARCHITECTURE.pdf)
+2. [Google Colab notebook](https://colab.research.google.com/github/VictorKVS/OTUS-/blob/main/7.%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B5%20AI-%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%D1%8B%20%D0%B8%20Multi-Agent%20Systems%20%20%D0%94%D0%97/%D0%94%D0%97_07_Travel_MultiAgent_RAG/notebooks/travel_multiagent_colab.ipynb)
+
+Дополнительно преподаватель получает исходный LangGraph-код, тесты, RAG Flow и синтетическую политику командировок.
 
 > Итоговое финансовое согласование и реальное бронирование намеренно не автоматизированы в учебном прототипе. Демо показывает архитектуру, делегирование и обмен сообщениями, не выполняя реальные покупки.
