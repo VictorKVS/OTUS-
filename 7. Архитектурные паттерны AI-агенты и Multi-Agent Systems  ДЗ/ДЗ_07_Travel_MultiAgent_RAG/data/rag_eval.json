@@ -1,0 +1,22 @@
+[
+  {
+    "query": "Какой базовый класс перелета по России?",
+    "expected_chunk_id": "POLICY-FLIGHT-BASE-001"
+  },
+  {
+    "query": "Когда можно использовать бизнес класс и нужно согласование?",
+    "expected_chunk_id": "POLICY-FLIGHT-BUSINESS-001"
+  },
+  {
+    "query": "Какой базовый лимит гостиницы за ночь?",
+    "expected_chunk_id": "POLICY-HOTEL-BASE-001"
+  },
+  {
+    "query": "Какой лимит отеля в Москве?",
+    "expected_chunk_id": "POLICY-HOTEL-CAPITALS-001"
+  },
+  {
+    "query": "Сколько суточные по России?",
+    "expected_chunk_id": "POLICY-DAILY-001"
+  }
+]
