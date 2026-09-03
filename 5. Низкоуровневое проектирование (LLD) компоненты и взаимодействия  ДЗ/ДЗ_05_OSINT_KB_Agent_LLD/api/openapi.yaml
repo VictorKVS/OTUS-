@@ -1,303 +1,347 @@
 openapi: 3.1.0
 info:
-  title: OSINT Knowledge Base Filling Agent API
-  version: 1.0.0
+  title: OSINT AI Recommendation Service API
+  version: 2.0.0
   description: |
-    LLD API for the Knowledge Base Filling Agent container.
-    The API registers evidence packages, executes the processing pipeline,
-    exposes human-review queues, coverage and evidence lineage.
-    No endpoint allows an automated model to promote a claim directly to FACT.
+    LLD contract between Backend / Case Service and AI Service.
+    The main scenario is: analyst requests a recommendation for an OSINT case.
+    AI Service performs RAG over approved case context and returns a recommendation
+    with evidence references, confidence and limitations.
+
+    The response is an analytical recommendation, not an automatically approved FACT.
 servers:
-  - url: https://kb-agent.internal.example/v1
-    description: Internal service endpoint
+  - url: https://ai-service.internal.example/v1
+    description: Internal AI Service
 security:
   - bearerAuth: []
+
+tags:
+  - name: Recommendation
+    description: AI recommendation operations
+
 paths:
-  /evidence-packages:
+  /get_recommendation:
     post:
-      operationId: registerEvidencePackage
-      summary: Register an evidence package
+      tags: [Recommendation]
+      operationId: getRecommendation
+      summary: Get an evidence-backed recommendation for a case
+      description: |
+        Called by Backend / Case Service after the user requests a recommendation.
+        AI Service normalizes the query, retrieves semantic and structured context,
+        creates a prompt, invokes the configured LLM, validates citations and returns
+        a stable RecommendationResponse.
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/EvidencePackageInput'
-      responses:
-        '202':
-          description: Package accepted for validation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EvidencePackageStatus'
-        '400': {description: Invalid contract}
-        '403': {description: Policy or access class rejected}
-        '409': {description: Duplicate/idempotency conflict}
-  /evidence-packages/{packageId}:
-    get:
-      operationId: getEvidencePackage
-      summary: Get evidence package processing state
-      parameters:
-        - $ref: '#/components/parameters/PackageId'
+              $ref: '#/components/schemas/RecommendationRequest'
+            examples:
+              supplierRiskRecommendation:
+                summary: Recommendation for an OSINT due diligence case
+                value:
+                  request_id: REQ-2026-00042
+                  case_id: CASE-RU-LEGAL-0042
+                  query: Should the supplier be approved for access to the corporate information system?
+                  recommendation_type: COUNTERPARTY_RISK
+                  language: ru
+                  top_k: 8
+                  include_evidence: true
+                  constraints:
+                    require_verified_sources: true
+                    max_evidence_age_days: 90
       responses:
         '200':
-          description: Current package state
+          description: Recommendation generated successfully
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EvidencePackageStatus'
-        '404': {description: Package not found}
-  /evidence-packages/{packageId}/process:
-    post:
-      operationId: processEvidencePackage
-      summary: Start deterministic processing pipeline
-      parameters:
-        - $ref: '#/components/parameters/PackageId'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ProcessRequest'
-      responses:
-        '202':
-          description: Processing started
+                $ref: '#/components/schemas/RecommendationResponse'
+              examples:
+                approvedWithConditions:
+                  value:
+                    recommendation_id: REC-2026-0042
+                    request_id: REQ-2026-00042
+                    case_id: CASE-RU-LEGAL-0042
+                    recommendation: APPROVE_WITH_CONDITIONS
+                    rationale: >-
+                      The supplier is an active legal entity and no confirmed sanctions match
+                      was found in the checked official sources. Two material research gaps remain:
+                      beneficial ownership evidence is incomplete and the current license status
+                      should be rechecked before privileged access is granted.
+                    confidence: 0.82
+                    evidence_refs:
+                      - source_id: SRC-FNS-0001
+                        capture_id: CAP-FNS-20260903-01
+                        chunk_id: CHK-FNS-17
+                        source_type: OFFICIAL_REGISTRY
+                        locator: registration.status
+                      - source_id: SRC-SANCTIONS-0007
+                        capture_id: CAP-SANC-20260903-02
+                        chunk_id: CHK-SANC-03
+                        source_type: OFFICIAL_SANCTIONS
+                        locator: exact_match=false
+                    limitations:
+                      - Beneficial ownership chain is not fully verified.
+                      - License data should be refreshed before granting privileged access.
+                    research_gaps:
+                      - GAP-UBO-0003
+                      - GAP-LICENSE-0002
+                    model_info:
+                      provider: internal-llm-gateway
+                      model: approved-model-v1
+                      prompt_version: recommendation-v3
+                      retrieval_profile: case-rag-v2
+                    generated_at_utc: '2026-09-03T18:30:00Z'
+        '400':
+          description: Invalid request contract
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/ProcessingRun'
-        '409': {description: Package is not in a processable state}
-  /review-items:
-    get:
-      operationId: listReviewItems
-      summary: List objects waiting for human review
-      parameters:
-        - name: case_id
-          in: query
-          schema: {type: string}
-        - name: status
-          in: query
-          schema:
-            type: string
-            enum: [PENDING, APPROVED, REWORK, REJECTED]
-      responses:
-        '200':
-          description: Review queue
+              schema: {$ref: '#/components/schemas/ErrorResponse'}
+              example:
+                code: INVALID_REQUEST
+                message: query must contain at least 5 characters
+                request_id: REQ-2026-00042
+        '401':
+          description: Missing or invalid authentication token
           content:
             application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ReviewItem'
-  /review-items/{reviewItemId}/decision:
-    post:
-      operationId: decideReviewItem
-      summary: Apply human review decision
-      parameters:
-        - name: reviewItemId
-          in: path
-          required: true
-          schema: {type: string}
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ReviewDecision'
-      responses:
-        '200':
-          description: Review decision recorded
+              schema: {$ref: '#/components/schemas/ErrorResponse'}
+              example:
+                code: UNAUTHORIZED
+                message: Bearer token is missing or invalid
+                request_id: REQ-2026-00042
+        '404':
+          description: Case not found
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/ReviewItem'
-        '409': {description: Decision violates state transition}
-  /cases/{caseId}/coverage:
-    get:
-      operationId: getCaseCoverage
-      summary: Get evidence coverage and open research gaps
-      parameters:
-        - $ref: '#/components/parameters/CaseId'
-      responses:
-        '200':
-          description: Coverage state
+              schema: {$ref: '#/components/schemas/ErrorResponse'}
+              example:
+                code: CASE_NOT_FOUND
+                message: No case exists for CASE-RU-LEGAL-0042
+                request_id: REQ-2026-00042
+        '422':
+          description: Insufficient evidence for a recommendation
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Coverage'
-  /cases/{caseId}/lineage/{objectId}:
-    get:
-      operationId: getEvidenceLineage
-      summary: Trace a derived object back to source capture and stable chunks
-      parameters:
-        - $ref: '#/components/parameters/CaseId'
-        - name: objectId
-          in: path
-          required: true
-          schema: {type: string}
-      responses:
-        '200':
-          description: Evidence lineage
+              schema: {$ref: '#/components/schemas/ErrorResponse'}
+              example:
+                code: INSUFFICIENT_EVIDENCE
+                message: The available evidence does not satisfy the configured recommendation policy
+                request_id: REQ-2026-00042
+                details:
+                  research_gaps:
+                    - identity_resolution
+                    - sanctions_primary_source
+        '429':
+          description: AI Service rate limit exceeded
+          headers:
+            Retry-After:
+              schema: {type: integer, minimum: 1}
+              description: Seconds before a retry is allowed
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Lineage'
-        '404': {description: Object or lineage not found}
+              schema: {$ref: '#/components/schemas/ErrorResponse'}
+              example:
+                code: RATE_LIMITED
+                message: Too many recommendation requests
+                request_id: REQ-2026-00042
+        '500':
+          description: Internal AI Service error
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/ErrorResponse'}
+              example:
+                code: INTERNAL_ERROR
+                message: Recommendation processing failed
+                request_id: REQ-2026-00042
+        '503':
+          description: LLM or retrieval dependency is temporarily unavailable
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/ErrorResponse'}
+              example:
+                code: DEPENDENCY_UNAVAILABLE
+                message: Vector DB or LLM gateway is unavailable
+                request_id: REQ-2026-00042
+
 components:
   securitySchemes:
     bearerAuth:
       type: http
       scheme: bearer
       bearerFormat: JWT
-  parameters:
-    PackageId:
-      name: packageId
-      in: path
-      required: true
-      schema: {type: string, pattern: '^PKG-'}
-    CaseId:
-      name: caseId
-      in: path
-      required: true
-      schema: {type: string, pattern: '^CASE-'}
+
   schemas:
-    EvidencePackageInput:
+    RecommendationRequest:
       type: object
       additionalProperties: false
       required:
-        - package_id
+        - request_id
         - case_id
-        - source_id
-        - capture_id
-        - original_locator
-        - content_sha256
-        - captured_at_utc
-        - access_class
-        - legal_basis_note
+        - query
+        - recommendation_type
       properties:
-        package_id: {type: string, pattern: '^PKG-'}
-        case_id: {type: string, pattern: '^CASE-'}
-        run_id: {type: [string, 'null']}
-        job_id: {type: [string, 'null']}
-        source_id: {type: string, pattern: '^SRC-'}
-        capture_id: {type: string, pattern: '^CAP-'}
-        original_locator: {type: string, minLength: 1}
-        content_sha256: {type: string, pattern: '^[a-fA-F0-9]{64}$'}
-        captured_at_utc: {type: string, format: date-time}
-        access_class:
+        request_id:
           type: string
-          enum: [PUBLIC, PUBLIC_WITH_PERSONAL_DATA, AUTHORIZED_INTERNAL, RESTRICTED]
-        legal_basis_note: {type: string, minLength: 10}
-        collector_id: {type: [string, 'null']}
-        collector_version: {type: [string, 'null']}
-        raw_storage_uri: {type: string}
-        metadata:
-          type: object
-          additionalProperties: true
-    EvidencePackageStatus:
+          pattern: '^REQ-[A-Za-z0-9-]+$'
+          example: REQ-2026-00042
+        case_id:
+          type: string
+          pattern: '^CASE-[A-Za-z0-9-]+$'
+          example: CASE-RU-LEGAL-0042
+        query:
+          type: string
+          minLength: 5
+          maxLength: 4000
+          example: Should the supplier be approved for privileged access?
+        recommendation_type:
+          type: string
+          enum:
+            - COUNTERPARTY_RISK
+            - ACCESS_DECISION
+            - INVESTIGATION_NEXT_STEP
+            - SOURCE_SUFFICIENCY
+          example: COUNTERPARTY_RISK
+        language:
+          type: string
+          enum: [ru, en]
+          default: ru
+        top_k:
+          type: integer
+          minimum: 1
+          maximum: 30
+          default: 8
+        include_evidence:
+          type: boolean
+          default: true
+        constraints:
+          $ref: '#/components/schemas/RecommendationConstraints'
+
+    RecommendationConstraints:
       type: object
-      required: [package_id, state, integrity_verified, created_at_utc]
+      additionalProperties: false
       properties:
-        package_id: {type: string}
-        state:
-          type: string
-          enum: [REGISTERED, VALIDATING, READY, PROCESSING, REVIEW_REQUIRED, COMPLETED, BLOCKED, FAILED]
-        integrity_verified: {type: boolean}
-        blocking_reasons:
+        require_verified_sources:
+          type: boolean
+          default: true
+        max_evidence_age_days:
+          type: integer
+          minimum: 1
+          maximum: 3650
+          example: 90
+        allowed_access_classes:
           type: array
-          items: {type: string}
-        created_at_utc: {type: string, format: date-time}
-        updated_at_utc: {type: [string, 'null'], format: date-time}
-    ProcessRequest:
+          items:
+            type: string
+            enum:
+              - PUBLIC
+              - PUBLIC_WITH_PERSONAL_DATA
+              - AUTHORIZED_INTERNAL
+              - RESTRICTED
+
+    RecommendationResponse:
       type: object
+      additionalProperties: false
+      required:
+        - recommendation_id
+        - request_id
+        - case_id
+        - recommendation
+        - rationale
+        - confidence
+        - evidence_refs
+        - limitations
+        - research_gaps
+        - model_info
+        - generated_at_utc
       properties:
-        extractor_profile: {type: string, default: deterministic-v1}
-        run_entity_resolution: {type: boolean, default: true}
-        run_contradiction_check: {type: boolean, default: true}
-    ProcessingRun:
-      type: object
-      required: [processing_run_id, package_id, state]
-      properties:
-        processing_run_id: {type: string, pattern: '^PRUN-'}
-        package_id: {type: string}
-        state: {type: string, enum: [QUEUED, RUNNING, REVIEW_REQUIRED, COMPLETED, FAILED]}
-        stable_chunks_created: {type: integer, minimum: 0}
-        candidates_created: {type: integer, minimum: 0}
-        review_items_created: {type: integer, minimum: 0}
-    EvidenceRef:
-      type: object
-      required: [source_id, capture_id, chunk_id]
-      properties:
-        source_id: {type: string}
-        capture_id: {type: string}
-        chunk_id: {type: string}
-        exact_text_sha256: {type: [string, 'null']}
-        locator: {type: [string, 'null']}
-    ReviewItem:
-      type: object
-      required: [review_item_id, case_id, candidate_type, statement, status, evidence_refs]
-      properties:
-        review_item_id: {type: string, pattern: '^REV-'}
-        case_id: {type: string}
-        candidate_type:
+        recommendation_id:
           type: string
-          enum: [ENTITY, CLAIM, EVENT, RELATION, DEFINITION, REQUIREMENT, VERSION]
-        statement: {type: string}
-        status: {type: string, enum: [PENDING, APPROVED, REWORK, REJECTED]}
+          pattern: '^REC-[A-Za-z0-9-]+$'
+        request_id:
+          type: string
+        case_id:
+          type: string
+        recommendation:
+          type: string
+          enum:
+            - APPROVE
+            - APPROVE_WITH_CONDITIONS
+            - EDD_REQUIRED
+            - HOLD
+            - ESCALATE
+            - MONITOR
+        rationale:
+          type: string
+          minLength: 1
+        confidence:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          example: 0.82
         evidence_refs:
           type: array
-          minItems: 1
-          items: {$ref: '#/components/schemas/EvidenceRef'}
-        contradictions:
-          type: array
-          items: {type: string}
+          items:
+            $ref: '#/components/schemas/EvidenceRef'
         limitations:
           type: array
           items: {type: string}
-    ReviewDecision:
-      type: object
-      additionalProperties: false
-      required: [decision, reviewer, rationale]
-      properties:
-        decision: {type: string, enum: [APPROVE, REWORK, REJECT]}
-        reviewer: {type: string, minLength: 2}
-        rationale: {type: string, minLength: 5}
-        requested_evidence:
-          type: array
-          items: {type: string}
-    Coverage:
-      type: object
-      required: [case_id, review_pending, research_gaps]
-      properties:
-        case_id: {type: string}
-        verified_objects: {type: integer, minimum: 0}
-        review_pending: {type: integer, minimum: 0}
-        conflicts_open: {type: integer, minimum: 0}
         research_gaps:
           type: array
-          items:
-            type: object
-            required: [gap_id, question, status]
-            properties:
-              gap_id: {type: string}
-              question: {type: string}
-              status: {type: string, enum: [OPEN, RESOLVED, BLOCKED]}
-              blocking_report: {type: boolean}
-    Lineage:
+          items: {type: string}
+        model_info:
+          $ref: '#/components/schemas/ModelInfo'
+        generated_at_utc:
+          type: string
+          format: date-time
+
+    EvidenceRef:
       type: object
-      required: [case_id, object_id, evidence_path]
+      additionalProperties: false
+      required: [source_id, capture_id, chunk_id, source_type]
       properties:
-        case_id: {type: string}
-        object_id: {type: string}
-        evidence_path:
-          type: array
-          minItems: 1
-          items:
-            type: object
-            required: [type, id]
-            properties:
-              type:
-                type: string
-                enum: [SOURCE, CAPTURE, CHUNK, CANDIDATE, REVIEW, KNOWLEDGE_OBJECT]
-              id: {type: string}
-              locator: {type: [string, 'null']}
-              sha256: {type: [string, 'null']}
+        source_id: {type: string, example: SRC-FNS-0001}
+        capture_id: {type: string, example: CAP-FNS-20260903-01}
+        chunk_id: {type: string, example: CHK-FNS-17}
+        source_type:
+          type: string
+          enum:
+            - OFFICIAL_REGISTRY
+            - OFFICIAL_SANCTIONS
+            - COURT
+            - REGULATOR
+            - PUBLIC_WEB
+            - INTERNAL_AUTHORIZED
+        locator:
+          type: [string, 'null']
+          example: registration.status
+
+    ModelInfo:
+      type: object
+      additionalProperties: false
+      required: [provider, model, prompt_version, retrieval_profile]
+      properties:
+        provider: {type: string, example: internal-llm-gateway}
+        model: {type: string, example: approved-model-v1}
+        prompt_version: {type: string, example: recommendation-v3}
+        retrieval_profile: {type: string, example: case-rag-v2}
+
+    ErrorResponse:
+      type: object
+      additionalProperties: false
+      required: [code, message]
+      properties:
+        code:
+          type: string
+          example: INSUFFICIENT_EVIDENCE
+        message:
+          type: string
+          example: The available evidence does not satisfy the configured recommendation policy
+        request_id:
+          type: [string, 'null']
+          example: REQ-2026-00042
+        details:
+          type: object
+          additionalProperties: true
