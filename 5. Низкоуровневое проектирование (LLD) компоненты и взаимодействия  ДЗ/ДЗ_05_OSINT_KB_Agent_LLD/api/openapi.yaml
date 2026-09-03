@@ -1,0 +1,303 @@
+openapi: 3.1.0
+info:
+  title: OSINT Knowledge Base Filling Agent API
+  version: 1.0.0
+  description: |
+    LLD API for the Knowledge Base Filling Agent container.
+    The API registers evidence packages, executes the processing pipeline,
+    exposes human-review queues, coverage and evidence lineage.
+    No endpoint allows an automated model to promote a claim directly to FACT.
+servers:
+  - url: https://kb-agent.internal.example/v1
+    description: Internal service endpoint
+security:
+  - bearerAuth: []
+paths:
+  /evidence-packages:
+    post:
+      operationId: registerEvidencePackage
+      summary: Register an evidence package
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EvidencePackageInput'
+      responses:
+        '202':
+          description: Package accepted for validation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EvidencePackageStatus'
+        '400': {description: Invalid contract}
+        '403': {description: Policy or access class rejected}
+        '409': {description: Duplicate/idempotency conflict}
+  /evidence-packages/{packageId}:
+    get:
+      operationId: getEvidencePackage
+      summary: Get evidence package processing state
+      parameters:
+        - $ref: '#/components/parameters/PackageId'
+      responses:
+        '200':
+          description: Current package state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EvidencePackageStatus'
+        '404': {description: Package not found}
+  /evidence-packages/{packageId}/process:
+    post:
+      operationId: processEvidencePackage
+      summary: Start deterministic processing pipeline
+      parameters:
+        - $ref: '#/components/parameters/PackageId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessRequest'
+      responses:
+        '202':
+          description: Processing started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessingRun'
+        '409': {description: Package is not in a processable state}
+  /review-items:
+    get:
+      operationId: listReviewItems
+      summary: List objects waiting for human review
+      parameters:
+        - name: case_id
+          in: query
+          schema: {type: string}
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [PENDING, APPROVED, REWORK, REJECTED]
+      responses:
+        '200':
+          description: Review queue
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReviewItem'
+  /review-items/{reviewItemId}/decision:
+    post:
+      operationId: decideReviewItem
+      summary: Apply human review decision
+      parameters:
+        - name: reviewItemId
+          in: path
+          required: true
+          schema: {type: string}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewDecision'
+      responses:
+        '200':
+          description: Review decision recorded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewItem'
+        '409': {description: Decision violates state transition}
+  /cases/{caseId}/coverage:
+    get:
+      operationId: getCaseCoverage
+      summary: Get evidence coverage and open research gaps
+      parameters:
+        - $ref: '#/components/parameters/CaseId'
+      responses:
+        '200':
+          description: Coverage state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Coverage'
+  /cases/{caseId}/lineage/{objectId}:
+    get:
+      operationId: getEvidenceLineage
+      summary: Trace a derived object back to source capture and stable chunks
+      parameters:
+        - $ref: '#/components/parameters/CaseId'
+        - name: objectId
+          in: path
+          required: true
+          schema: {type: string}
+      responses:
+        '200':
+          description: Evidence lineage
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lineage'
+        '404': {description: Object or lineage not found}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    PackageId:
+      name: packageId
+      in: path
+      required: true
+      schema: {type: string, pattern: '^PKG-'}
+    CaseId:
+      name: caseId
+      in: path
+      required: true
+      schema: {type: string, pattern: '^CASE-'}
+  schemas:
+    EvidencePackageInput:
+      type: object
+      additionalProperties: false
+      required:
+        - package_id
+        - case_id
+        - source_id
+        - capture_id
+        - original_locator
+        - content_sha256
+        - captured_at_utc
+        - access_class
+        - legal_basis_note
+      properties:
+        package_id: {type: string, pattern: '^PKG-'}
+        case_id: {type: string, pattern: '^CASE-'}
+        run_id: {type: [string, 'null']}
+        job_id: {type: [string, 'null']}
+        source_id: {type: string, pattern: '^SRC-'}
+        capture_id: {type: string, pattern: '^CAP-'}
+        original_locator: {type: string, minLength: 1}
+        content_sha256: {type: string, pattern: '^[a-fA-F0-9]{64}$'}
+        captured_at_utc: {type: string, format: date-time}
+        access_class:
+          type: string
+          enum: [PUBLIC, PUBLIC_WITH_PERSONAL_DATA, AUTHORIZED_INTERNAL, RESTRICTED]
+        legal_basis_note: {type: string, minLength: 10}
+        collector_id: {type: [string, 'null']}
+        collector_version: {type: [string, 'null']}
+        raw_storage_uri: {type: string}
+        metadata:
+          type: object
+          additionalProperties: true
+    EvidencePackageStatus:
+      type: object
+      required: [package_id, state, integrity_verified, created_at_utc]
+      properties:
+        package_id: {type: string}
+        state:
+          type: string
+          enum: [REGISTERED, VALIDATING, READY, PROCESSING, REVIEW_REQUIRED, COMPLETED, BLOCKED, FAILED]
+        integrity_verified: {type: boolean}
+        blocking_reasons:
+          type: array
+          items: {type: string}
+        created_at_utc: {type: string, format: date-time}
+        updated_at_utc: {type: [string, 'null'], format: date-time}
+    ProcessRequest:
+      type: object
+      properties:
+        extractor_profile: {type: string, default: deterministic-v1}
+        run_entity_resolution: {type: boolean, default: true}
+        run_contradiction_check: {type: boolean, default: true}
+    ProcessingRun:
+      type: object
+      required: [processing_run_id, package_id, state]
+      properties:
+        processing_run_id: {type: string, pattern: '^PRUN-'}
+        package_id: {type: string}
+        state: {type: string, enum: [QUEUED, RUNNING, REVIEW_REQUIRED, COMPLETED, FAILED]}
+        stable_chunks_created: {type: integer, minimum: 0}
+        candidates_created: {type: integer, minimum: 0}
+        review_items_created: {type: integer, minimum: 0}
+    EvidenceRef:
+      type: object
+      required: [source_id, capture_id, chunk_id]
+      properties:
+        source_id: {type: string}
+        capture_id: {type: string}
+        chunk_id: {type: string}
+        exact_text_sha256: {type: [string, 'null']}
+        locator: {type: [string, 'null']}
+    ReviewItem:
+      type: object
+      required: [review_item_id, case_id, candidate_type, statement, status, evidence_refs]
+      properties:
+        review_item_id: {type: string, pattern: '^REV-'}
+        case_id: {type: string}
+        candidate_type:
+          type: string
+          enum: [ENTITY, CLAIM, EVENT, RELATION, DEFINITION, REQUIREMENT, VERSION]
+        statement: {type: string}
+        status: {type: string, enum: [PENDING, APPROVED, REWORK, REJECTED]}
+        evidence_refs:
+          type: array
+          minItems: 1
+          items: {$ref: '#/components/schemas/EvidenceRef'}
+        contradictions:
+          type: array
+          items: {type: string}
+        limitations:
+          type: array
+          items: {type: string}
+    ReviewDecision:
+      type: object
+      additionalProperties: false
+      required: [decision, reviewer, rationale]
+      properties:
+        decision: {type: string, enum: [APPROVE, REWORK, REJECT]}
+        reviewer: {type: string, minLength: 2}
+        rationale: {type: string, minLength: 5}
+        requested_evidence:
+          type: array
+          items: {type: string}
+    Coverage:
+      type: object
+      required: [case_id, review_pending, research_gaps]
+      properties:
+        case_id: {type: string}
+        verified_objects: {type: integer, minimum: 0}
+        review_pending: {type: integer, minimum: 0}
+        conflicts_open: {type: integer, minimum: 0}
+        research_gaps:
+          type: array
+          items:
+            type: object
+            required: [gap_id, question, status]
+            properties:
+              gap_id: {type: string}
+              question: {type: string}
+              status: {type: string, enum: [OPEN, RESOLVED, BLOCKED]}
+              blocking_report: {type: boolean}
+    Lineage:
+      type: object
+      required: [case_id, object_id, evidence_path]
+      properties:
+        case_id: {type: string}
+        object_id: {type: string}
+        evidence_path:
+          type: array
+          minItems: 1
+          items:
+            type: object
+            required: [type, id]
+            properties:
+              type:
+                type: string
+                enum: [SOURCE, CAPTURE, CHUNK, CANDIDATE, REVIEW, KNOWLEDGE_OBJECT]
+              id: {type: string}
+              locator: {type: [string, 'null']}
+              sha256: {type: [string, 'null']}
