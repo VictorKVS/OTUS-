@@ -27,9 +27,21 @@ jobs:
       - name: Compile
         working-directory: '7. Архитектурные паттерны AI-агенты и Multi-Agent Systems  ДЗ/ДЗ_07_Travel_MultiAgent_RAG'
         run: python -m compileall -q src tests
-      - name: Test agent exchange
+      - name: Test typed messages, handoffs and RAG
         working-directory: '7. Архитектурные паттерны AI-агенты и Multi-Agent Systems  ДЗ/ДЗ_07_Travel_MultiAgent_RAG'
         run: python -m pytest -q
+      - name: Retrieval quality report
+        working-directory: '7. Архитектурные паттерны AI-агенты и Multi-Agent Systems  ДЗ/ДЗ_07_Travel_MultiAgent_RAG'
+        run: |
+          python - <<'PY'
+          import sys
+          sys.path.insert(0, 'src')
+          from travel_multiagent_demo import evaluate_retrieval
+          metrics = evaluate_retrieval(top_k=2)
+          print(metrics)
+          assert metrics['hit_rate_at_k'] >= 0.80
+          assert metrics['mrr_at_k'] >= 0.70
+          PY
       - name: Run demo
         working-directory: '7. Архитектурные паттерны AI-агенты и Multi-Agent Systems  ДЗ/ДЗ_07_Travel_MultiAgent_RAG'
         run: python src/travel_multiagent_demo.py
