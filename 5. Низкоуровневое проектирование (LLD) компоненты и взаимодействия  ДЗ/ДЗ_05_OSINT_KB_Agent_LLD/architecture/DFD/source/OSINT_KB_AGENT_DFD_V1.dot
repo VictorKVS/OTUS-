@@ -1,0 +1,51 @@
+digraph DFD {
+  graph [rankdir=LR, splines=ortho, bgcolor="white", fontname="DejaVu Sans", label="DFD Level 1 — потоки информации агента заполнения БД / базы знаний", labelloc=t, fontsize=20];
+  node [fontname="DejaVu Sans", fontsize=10];
+  edge [fontname="DejaVu Sans", fontsize=8, arrowsize=0.7];
+
+  analyst [shape=box, label="E1. Постановщик /\nглавный аналитик"];
+  sources [shape=box, label="E2. Официальные и\nоткрытые источники"];
+  tools [shape=box, label="E3. Kali / API / браузер /\nдокументальные адаптеры"];
+  reviewer [shape=box, label="E4. Red Team /\nэксперт-рецензент"];
+  consumer [shape=box, label="E5. Руководитель /\nдоменный агент / мониторинг"];
+  p1 [shape=circle, label="P1\nПриём"];
+  p2 [shape=circle, label="P2\nПланирование"];
+  p3 [shape=circle, label="P3\nCapture"];
+  p4 [shape=circle, label="P4\nParse / Normalize"];
+  p5 [shape=circle, label="P5\nExtract / Resolve"];
+  p6 [shape=circle, label="P6\nVerify / Red Team"];
+  p7 [shape=circle, label="P7\nPublish / Report"];
+  d1 [shape=cylinder, label="D1. Source / Tool Registry"];
+  d2 [shape=cylinder, label="D2. Case + Job + Audit DB"];
+  d3 [shape=cylinder, label="D3. Evidence Vault"];
+  d4 [shape=cylinder, label="D4. Operational DB"];
+  d5 [shape=cylinder, label="D5. Entity / Relation Graph"];
+  d6 [shape=cylinder, label="D6. Knowledge Base"];
+  d7 [shape=cylinder, label="D7. Reports / Monitoring"];
+
+  analyst -> p1 [label="задача, цель, seed"];
+  p1 -> d2 [label="case, scope, access"];
+  p1 -> p2;
+  d1 -> p2;
+  p2 -> tools [label="typed jobs"];
+  tools -> sources [label="passive requests"];
+  sources -> tools [label="pages / files / responses"];
+  tools -> p3 [label="raw output + manifest"];
+  p3 -> d3 [label="original + SHA-256"];
+  p3 -> d2 [label="status + audit"];
+  p3 -> p4;
+  p4 -> d4 [label="chunks + canonical fields"];
+  p4 -> p5;
+  p5 -> d5 [label="entity / relation candidates"];
+  p5 -> p6 [label="knowledge candidates + provenance"];
+  d3 -> p6 [label="primary evidence"];
+  d5 -> p6 [label="graph context"];
+  reviewer -> p6 [label="challenge / review"];
+  p6 -> p2 [label="research gaps"];
+  p6 -> p7 [label="approved finding"];
+  p7 -> d6 [label="verified knowledge"];
+  p7 -> d7 [label="report + monitoring"];
+  p7 -> d2 [label="audit event"];
+  d7 -> consumer;
+  consumer -> p1 [label="recheck event"];
+}
