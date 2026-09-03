@@ -62,13 +62,32 @@ POLICY_CHUNKS = [
     },
 ]
 
+TOKEN_ALIASES = {
+    "москве": "москва",
+    "москвы": "москва",
+    "отеля": "гостиница",
+    "отель": "гостиница",
+    "отеле": "гостиница",
+    "отели": "гостиница",
+    "гостиницы": "гостиница",
+    "гостинице": "гостиница",
+    "гостиницу": "гостиница",
+    "перелета": "перелёт",
+    "перелёта": "перелёт",
+    "перелет": "перелёт",
+    "суточных": "суточные",
+    "лимита": "лимит",
+    "согласования": "согласование",
+    "петербурга": "петербург",
+    "петербурге": "петербург",
+}
+
 BUSINESS_TERMS = {
     "перелёт",
     "билет",
     "эконом",
     "бизнес",
     "гостиница",
-    "отель",
     "москва",
     "санкт",
     "суточные",
@@ -90,7 +109,8 @@ class TravelState(MessagesState):
 
 
 def _tokens(text: str) -> list[str]:
-    return re.findall(r"[a-zA-Zа-яА-ЯёЁ0-9]+", text.lower())
+    raw = re.findall(r"[a-zA-Zа-яА-ЯёЁ0-9]+", text.lower())
+    return [TOKEN_ALIASES.get(token, token) for token in raw]
 
 
 def _hash_embedding(text: str, dims: int = 96) -> list[float]:
@@ -135,7 +155,6 @@ def _hybrid_candidates(query: str) -> list[dict[str, Any]]:
         dense = _dense_score(query, chunk["text"])
         lexical = _lexical_score(query, chunk["text"])
         business = _business_term_bonus(query, chunk["text"])
-        # Offline approximation of dense+sparse hybrid retrieval followed by reranking.
         hybrid = 0.55 * dense + 0.35 * lexical + 0.10 * business
         candidates.append(
             {
@@ -238,10 +257,7 @@ def manager_agent(state: TravelState) -> Command:
                     name="manager",
                 )
             ],
-            "trace": _trace(
-                state,
-                "Manager -> PolicyRAG: explicit handoff via Command",
-            ),
+            "trace": _trace(state, "Manager -> PolicyRAG: explicit handoff via Command"),
         },
     )
 
@@ -388,9 +404,7 @@ def manager_finalize(state: TravelState) -> dict[str, Any]:
         "hotel_id": budget["selected_hotel"]["id"],
         "evidence_refs": evidence_refs,
         "retrieval_metrics": state["retrieval_metrics"],
-        "expanded_context_chunk_ids": [
-            chunk["chunk_id"] for chunk in state["expanded_policy_chunks"]
-        ],
+        "expanded_context_chunk_ids": [chunk["chunk_id"] for chunk in state["expanded_policy_chunks"]],
         "note": (
             "Учебная рекомендация; фактическое бронирование и финансовое "
             "одобрение не выполняются."
