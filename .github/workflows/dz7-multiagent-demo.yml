@@ -1,0 +1,35 @@
+name: DZ07 Multi-Agent Demo Verification
+
+on:
+  pull_request:
+    paths:
+      - '7. Архитектурные паттерны AI-агенты и Multi-Agent Systems  ДЗ/ДЗ_07_Travel_MultiAgent_RAG/**'
+      - '.github/workflows/dz7-multiagent-demo.yml'
+  push:
+    branches: [main]
+    paths:
+      - '7. Архитектурные паттерны AI-агенты и Multi-Agent Systems  ДЗ/ДЗ_07_Travel_MultiAgent_RAG/**'
+      - '.github/workflows/dz7-multiagent-demo.yml'
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install
+        working-directory: '7. Архитектурные паттерны AI-агенты и Multi-Agent Systems  ДЗ/ДЗ_07_Travel_MultiAgent_RAG'
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt pytest
+      - name: Compile
+        working-directory: '7. Архитектурные паттерны AI-агенты и Multi-Agent Systems  ДЗ/ДЗ_07_Travel_MultiAgent_RAG'
+        run: python -m compileall -q src tests
+      - name: Test agent exchange
+        working-directory: '7. Архитектурные паттерны AI-агенты и Multi-Agent Systems  ДЗ/ДЗ_07_Travel_MultiAgent_RAG'
+        run: python -m pytest -q
+      - name: Run demo
+        working-directory: '7. Архитектурные паттерны AI-агенты и Multi-Agent Systems  ДЗ/ДЗ_07_Travel_MultiAgent_RAG'
+        run: python src/travel_multiagent_demo.py
