@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+ xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+ xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+ xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+ id="Definitions_OSINT_KB_Agent" targetNamespace="https://father.example/bpmn/osint-kb-agent">
+  <bpmn:process id="Process_OSINT_KB_Agent" name="Агент заполнения БД и базы знаний" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_Analyst" name="Постановщик / главный аналитик"><bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Intake</bpmn:flowNodeRef><bpmn:flowNodeRef>Gateway_Scope</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Block</bpmn:flowNodeRef><bpmn:flowNodeRef>EndEvent_Block</bpmn:flowNodeRef><bpmn:flowNodeRef>Gateway_Human</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Approve</bpmn:flowNodeRef><bpmn:flowNodeRef>EndEvent_1</bpmn:flowNodeRef></bpmn:lane>
+      <bpmn:lane id="Lane_Collector" name="OSINT Collector / планировщик"><bpmn:flowNodeRef>Task_Identify</bpmn:flowNodeRef><bpmn:flowNodeRef>Gateway_Identity</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_AskIdentifiers</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Plan</bpmn:flowNodeRef><bpmn:flowNodeRef>Gateway_Fork</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_StreamA</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_StreamB</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_StreamC</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_StreamD</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_StreamE</bpmn:flowNodeRef><bpmn:flowNodeRef>Gateway_Join</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Capture</bpmn:flowNodeRef></bpmn:lane>
+      <bpmn:lane id="Lane_Knowledge" name="Агент заполнения БД / базы знаний"><bpmn:flowNodeRef>Task_Parse</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Extract</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Provenance</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Normalize</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Compare</bpmn:flowNodeRef><bpmn:flowNodeRef>Gateway_Sufficient</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Gaps</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Zoo</bpmn:flowNodeRef></bpmn:lane>
+      <bpmn:lane id="Lane_Review" name="Red Team / экспертная проверка"><bpmn:flowNodeRef>Task_RedTeam</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Rework</bpmn:flowNodeRef></bpmn:lane>
+      <bpmn:lane id="Lane_Publish" name="Публикация / мониторинг"><bpmn:flowNodeRef>Task_Publish</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Report</bpmn:flowNodeRef></bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_1" name="Получено задание"/>
+    <bpmn:task id="Task_Intake" name="Зафиксировать цель, scope, основание и класс доступа"/>
+    <bpmn:exclusiveGateway id="Gateway_Scope" name="Допустимо?"/>
+    <bpmn:task id="Task_Block" name="Заблокировать и журналировать причину"/>
+    <bpmn:endEvent id="EndEvent_Block" name="Задание отклонено"/>
+    <bpmn:task id="Task_Identify" name="Entity Resolution"/>
+    <bpmn:exclusiveGateway id="Gateway_Identity" name="Объект разрешён?"/>
+    <bpmn:task id="Task_AskIdentifiers" name="Создать запрос недостающих идентификаторов"/>
+    <bpmn:task id="Task_Plan" name="Query Plan + Country Pack + stop conditions"/>
+    <bpmn:parallelGateway id="Gateway_Fork" name="Пять потоков"/>
+    <bpmn:task id="Task_StreamA" name="A Entity / Registry"/>
+    <bpmn:task id="Task_StreamB" name="B Business / Finance / Logistics"/>
+    <bpmn:task id="Task_StreamC" name="C Digital Footprint"/>
+    <bpmn:task id="Task_StreamD" name="D Legal / Sanctions / Adverse"/>
+    <bpmn:task id="Task_StreamE" name="E Source Quality / Counter-search"/>
+    <bpmn:parallelGateway id="Gateway_Join" name="Сведение потоков"/>
+    <bpmn:task id="Task_Capture" name="SOURCE_CAPTURE: оригинал, metadata, SHA-256"/>
+    <bpmn:task id="Task_Parse" name="Разбор и stable chunks"/>
+    <bpmn:task id="Task_Extract" name="Извлечь ENTITY / EVENT / CLAIM / DEFINITION / REQUIREMENT / RELATION"/>
+    <bpmn:task id="Task_Provenance" name="Привязать provenance и версии анализаторов"/>
+    <bpmn:task id="Task_Normalize" name="Нормализация, exact dedup, entity resolution"/>
+    <bpmn:task id="Task_Compare" name="Сравнить с БД/KB: изменения, противоречия, supersession"/>
+    <bpmn:exclusiveGateway id="Gateway_Sufficient" name="Достаточно доказательств?"/>
+    <bpmn:task id="Task_Gaps" name="Создать RESEARCH_GAP и новый план"/>
+    <bpmn:task id="Task_Zoo" name="Независимые ANALYSIS_OPINION без права создать FACT"/>
+    <bpmn:task id="Task_RedTeam" name="Red Team: альтернативы, хронология, overclaiming"/>
+    <bpmn:exclusiveGateway id="Gateway_Human" name="Утвердить?"/>
+    <bpmn:task id="Task_Rework" name="Вернуть на сбор / нормализацию"/>
+    <bpmn:task id="Task_Approve" name="Подписать finding / решение / ограничения"/>
+    <bpmn:task id="Task_Publish" name="Записать в Operational DB, Graph и Knowledge Base"/>
+    <bpmn:task id="Task_Report" name="Сформировать отчёт и monitoring profile"/>
+    <bpmn:endEvent id="EndEvent_1" name="Цикл завершён"/>
+    <bpmn:sequenceFlow id="F1" sourceRef="StartEvent_1" targetRef="Task_Intake"/><bpmn:sequenceFlow id="F2" sourceRef="Task_Intake" targetRef="Gateway_Scope"/><bpmn:sequenceFlow id="F3" name="нет" sourceRef="Gateway_Scope" targetRef="Task_Block"/><bpmn:sequenceFlow id="F4" sourceRef="Task_Block" targetRef="EndEvent_Block"/><bpmn:sequenceFlow id="F5" name="да" sourceRef="Gateway_Scope" targetRef="Task_Identify"/><bpmn:sequenceFlow id="F6" sourceRef="Task_Identify" targetRef="Gateway_Identity"/><bpmn:sequenceFlow id="F7" name="нет" sourceRef="Gateway_Identity" targetRef="Task_AskIdentifiers"/><bpmn:sequenceFlow id="F8" name="да" sourceRef="Gateway_Identity" targetRef="Task_Plan"/><bpmn:sequenceFlow id="F9" sourceRef="Task_Plan" targetRef="Gateway_Fork"/>
+    <bpmn:sequenceFlow id="F10" sourceRef="Gateway_Fork" targetRef="Task_StreamA"/><bpmn:sequenceFlow id="F11" sourceRef="Gateway_Fork" targetRef="Task_StreamB"/><bpmn:sequenceFlow id="F12" sourceRef="Gateway_Fork" targetRef="Task_StreamC"/><bpmn:sequenceFlow id="F13" sourceRef="Gateway_Fork" targetRef="Task_StreamD"/><bpmn:sequenceFlow id="F14" sourceRef="Gateway_Fork" targetRef="Task_StreamE"/><bpmn:sequenceFlow id="F15" sourceRef="Task_StreamA" targetRef="Gateway_Join"/><bpmn:sequenceFlow id="F16" sourceRef="Task_StreamB" targetRef="Gateway_Join"/><bpmn:sequenceFlow id="F17" sourceRef="Task_StreamC" targetRef="Gateway_Join"/><bpmn:sequenceFlow id="F18" sourceRef="Task_StreamD" targetRef="Gateway_Join"/><bpmn:sequenceFlow id="F19" sourceRef="Task_StreamE" targetRef="Gateway_Join"/>
+    <bpmn:sequenceFlow id="F20" sourceRef="Gateway_Join" targetRef="Task_Capture"/><bpmn:sequenceFlow id="F21" sourceRef="Task_Capture" targetRef="Task_Parse"/><bpmn:sequenceFlow id="F22" sourceRef="Task_Parse" targetRef="Task_Extract"/><bpmn:sequenceFlow id="F23" sourceRef="Task_Extract" targetRef="Task_Provenance"/><bpmn:sequenceFlow id="F24" sourceRef="Task_Provenance" targetRef="Task_Normalize"/><bpmn:sequenceFlow id="F25" sourceRef="Task_Normalize" targetRef="Task_Compare"/><bpmn:sequenceFlow id="F26" sourceRef="Task_Compare" targetRef="Gateway_Sufficient"/><bpmn:sequenceFlow id="F27" name="нет" sourceRef="Gateway_Sufficient" targetRef="Task_Gaps"/><bpmn:sequenceFlow id="F28" sourceRef="Task_Gaps" targetRef="Task_Plan"/><bpmn:sequenceFlow id="F29" name="да" sourceRef="Gateway_Sufficient" targetRef="Task_Zoo"/><bpmn:sequenceFlow id="F30" sourceRef="Task_Zoo" targetRef="Task_RedTeam"/><bpmn:sequenceFlow id="F31" sourceRef="Task_RedTeam" targetRef="Gateway_Human"/><bpmn:sequenceFlow id="F32" name="нет" sourceRef="Gateway_Human" targetRef="Task_Rework"/><bpmn:sequenceFlow id="F33" sourceRef="Task_Rework" targetRef="Task_Plan"/><bpmn:sequenceFlow id="F34" name="да" sourceRef="Gateway_Human" targetRef="Task_Approve"/><bpmn:sequenceFlow id="F35" sourceRef="Task_Approve" targetRef="Task_Publish"/><bpmn:sequenceFlow id="F36" sourceRef="Task_Publish" targetRef="Task_Report"/><bpmn:sequenceFlow id="F37" sourceRef="Task_Report" targetRef="EndEvent_1"/>
+  </bpmn:process>
+</bpmn:definitions>
