@@ -1,0 +1,486 @@
+openapi: 3.1.0
+info:
+  title: Travel Intelligence API - continuation of DZ05
+  version: 2.1.0
+  description: |
+    DZ07 continues the API contract designed in DZ05.
+
+    DZ05 established the internal Backend -> AI Service endpoint:
+      POST /get_recommendation
+
+    DZ07 preserves that endpoint and extends it for the travel domain by adding:
+      - recommendation_type = TRAVEL_PLAN
+      - optional travel_context in RecommendationRequest
+      - optional domain_result = TripPlanResult in RecommendationResponse
+
+    Existing DZ05 clients remain compatible because the new fields are optional and the
+    original recommendation/evidence/confidence contract is preserved.
+servers:
+  - url: https://backend.internal.example/v1
+    description: Backend / Case & Travel Service
+  - url: https://ai-service.internal.example/v1
+    description: Internal AI Service
+security:
+  - bearerAuth: []
+
+tags:
+  - name: Trip Mission
+  - name: Recommendation
+  - name: Approval
+
+paths:
+  /trip-missions:
+    post:
+      tags: [Trip Mission]
+      operationId: createTripMission
+      summary: Create a business-trip mission
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TripMissionCreateRequest'
+      responses:
+        '201':
+          description: Trip mission created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TripMission'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /trip-missions/{mission_id}/plan:
+    post:
+      tags: [Trip Mission]
+      operationId: planTripMission
+      summary: Build plans for a trip mission
+      description: |
+        Backend loads the TripMission, creates a RecommendationRequest and calls the inherited
+        internal AI endpoint POST /get_recommendation with recommendation_type=TRAVEL_PLAN.
+      parameters:
+        - $ref: '#/components/parameters/MissionId'
+      responses:
+        '200':
+          description: Travel plans generated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TripPlanResult'
+        '404':
+          description: Mission not found
+        '409':
+          description: Schedule conflict prevents a feasible plan
+        '422':
+          description: Insufficient evidence or mandatory mission data missing
+        '503':
+          description: Travel provider, Vector DB or AI dependency unavailable
+
+  /get_recommendation:
+    post:
+      tags: [Recommendation]
+      operationId: getRecommendation
+      summary: Get an evidence-backed recommendation - inherited from DZ05
+      description: |
+        Stable internal Backend -> AI Service contract from DZ05.
+        DZ07 adds the TRAVEL_PLAN recommendation type and optional travel_context/domain_result.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecommendationRequest'
+            examples:
+              travelPlan:
+                value:
+                  request_id: REQ-TRAVEL-2026-0042
+                  case_id: TRIP-MISSION-2026-0042
+                  query: Build feasible travel plans for the mission and explain trade-offs.
+                  recommendation_type: TRAVEL_PLAN
+                  language: ru
+                  top_k: 8
+                  include_evidence: true
+                  constraints:
+                    require_verified_sources: true
+                    allowed_access_classes: [AUTHORIZED_INTERNAL]
+                  travel_context:
+                    mission_id: TM-2026-0042
+                    origin: Санкт-Петербург
+                    destination: Москва
+                    host_institution: Учреждение X
+                    participants: 1
+                    venues:
+                      - venue_id: VENUE-A
+                        name: Конференц-зал A
+                        starts_at: '2026-10-12T10:00:00+03:00'
+                      - venue_id: VENUE-B
+                        name: Конференц-зал B
+                        starts_at: '2026-10-13T09:30:00+03:00'
+                    preferences:
+                      check_department_hotel_first: true
+      responses:
+        '200':
+          description: Recommendation generated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecommendationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          description: Insufficient evidence for a recommendation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: AI Service rate limit exceeded
+        '500':
+          description: Internal AI Service error
+        '503':
+          description: LLM, Vector DB or provider dependency unavailable
+
+  /trip-missions/{mission_id}/approval:
+    post:
+      tags: [Approval]
+      operationId: approveTripPlan
+      summary: Human approval of the selected plan
+      parameters:
+        - $ref: '#/components/parameters/MissionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApprovalRequest'
+      responses:
+        '200':
+          description: Approval recorded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApprovalResponse'
+        '409':
+          description: Plan version changed and must be reviewed again
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  parameters:
+    MissionId:
+      name: mission_id
+      in: path
+      required: true
+      schema:
+        type: string
+        pattern: '^TM-[A-Za-z0-9-]+$'
+
+  responses:
+    BadRequest:
+      description: Invalid request contract
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Missing or invalid authentication token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+  schemas:
+    TripMissionCreateRequest:
+      type: object
+      additionalProperties: false
+      required: [employee_ref, origin, destination, purpose, starts_at, ends_at]
+      properties:
+        employee_ref:
+          type: string
+          description: Pseudonymous employee reference; raw passport/payment data is not sent to AI.
+        origin:
+          type: string
+        destination:
+          type: string
+        purpose:
+          type: string
+        host_institution:
+          type: [string, 'null']
+        starts_at:
+          type: string
+          format: date-time
+        ends_at:
+          type: string
+          format: date-time
+        venues:
+          type: array
+          items:
+            $ref: '#/components/schemas/Venue'
+        preferences:
+          $ref: '#/components/schemas/TravelPreferences'
+
+    TripMission:
+      allOf:
+        - $ref: '#/components/schemas/TripMissionCreateRequest'
+        - type: object
+          required: [mission_id, status, version]
+          properties:
+            mission_id:
+              type: string
+              example: TM-2026-0042
+            status:
+              type: string
+              enum: [DRAFT, PLANNING, READY_FOR_APPROVAL, APPROVED, BOOKED, CLOSED]
+            version:
+              type: integer
+              minimum: 1
+
+    Venue:
+      type: object
+      additionalProperties: false
+      required: [venue_id, name]
+      properties:
+        venue_id: {type: string}
+        name: {type: string}
+        address: {type: [string, 'null']}
+        starts_at: {type: [string, 'null'], format: date-time}
+        ends_at: {type: [string, 'null'], format: date-time}
+        access_buffer_min: {type: integer, minimum: 0, default: 15}
+
+    TravelPreferences:
+      type: object
+      additionalProperties: false
+      properties:
+        check_department_hotel_first: {type: boolean, default: true}
+        prefer_refundable: {type: boolean, default: true}
+        max_walk_minutes: {type: integer, minimum: 0, maximum: 180, default: 20}
+
+    RecommendationRequest:
+      type: object
+      additionalProperties: false
+      required: [request_id, case_id, query, recommendation_type]
+      properties:
+        request_id:
+          type: string
+          pattern: '^REQ-[A-Za-z0-9-]+$'
+        case_id:
+          type: string
+        query:
+          type: string
+          minLength: 5
+          maxLength: 4000
+        recommendation_type:
+          type: string
+          enum:
+            - COUNTERPARTY_RISK
+            - ACCESS_DECISION
+            - INVESTIGATION_NEXT_STEP
+            - SOURCE_SUFFICIENCY
+            - TRAVEL_PLAN
+        language:
+          type: string
+          enum: [ru, en]
+          default: ru
+        top_k:
+          type: integer
+          minimum: 1
+          maximum: 30
+          default: 8
+        include_evidence:
+          type: boolean
+          default: true
+        constraints:
+          $ref: '#/components/schemas/RecommendationConstraints'
+        travel_context:
+          oneOf:
+            - $ref: '#/components/schemas/TravelContext'
+            - type: 'null'
+
+    RecommendationConstraints:
+      type: object
+      additionalProperties: false
+      properties:
+        require_verified_sources:
+          type: boolean
+          default: true
+        max_evidence_age_days:
+          type: integer
+          minimum: 1
+          maximum: 3650
+        allowed_access_classes:
+          type: array
+          items:
+            type: string
+            enum: [PUBLIC, PUBLIC_WITH_PERSONAL_DATA, AUTHORIZED_INTERNAL, RESTRICTED]
+
+    TravelContext:
+      type: object
+      additionalProperties: false
+      required: [mission_id, origin, destination]
+      properties:
+        mission_id: {type: string}
+        origin: {type: string}
+        destination: {type: string}
+        host_institution: {type: [string, 'null']}
+        participants: {type: integer, minimum: 1, default: 1}
+        venues:
+          type: array
+          items:
+            $ref: '#/components/schemas/Venue'
+        preferences:
+          $ref: '#/components/schemas/TravelPreferences'
+
+    RecommendationResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - recommendation_id
+        - request_id
+        - case_id
+        - recommendation
+        - rationale
+        - confidence
+        - evidence_refs
+        - limitations
+        - research_gaps
+        - model_info
+        - generated_at_utc
+      properties:
+        recommendation_id: {type: string}
+        request_id: {type: string}
+        case_id: {type: string}
+        recommendation:
+          type: string
+          enum: [APPROVE, APPROVE_WITH_CONDITIONS, EDD_REQUIRED, HOLD, ESCALATE, MONITOR]
+        rationale: {type: string, minLength: 1}
+        confidence: {type: number, format: float, minimum: 0, maximum: 1}
+        evidence_refs:
+          type: array
+          items:
+            $ref: '#/components/schemas/EvidenceRef'
+        limitations:
+          type: array
+          items: {type: string}
+        research_gaps:
+          type: array
+          items: {type: string}
+        model_info:
+          $ref: '#/components/schemas/ModelInfo'
+        domain_result:
+          oneOf:
+            - $ref: '#/components/schemas/TripPlanResult'
+            - type: 'null'
+        generated_at_utc:
+          type: string
+          format: date-time
+
+    TripPlanResult:
+      type: object
+      additionalProperties: false
+      required: [mission_id, plans, policy_status]
+      properties:
+        mission_id: {type: string}
+        selected_plan_id: {type: [string, 'null']}
+        policy_status:
+          type: string
+          enum: [PASS, PASS_WITH_CONDITIONS, REQUIRES_APPROVAL, POLICY_GAP]
+        plans:
+          type: array
+          minItems: 1
+          maxItems: 5
+          items:
+            $ref: '#/components/schemas/TripPlan'
+        risks:
+          type: array
+          items: {type: string}
+
+    TripPlan:
+      type: object
+      additionalProperties: false
+      required: [plan_id, estimated_total_rub, route_feasible, transport_legs]
+      properties:
+        plan_id: {type: string}
+        estimated_total_rub: {type: number, minimum: 0}
+        route_feasible: {type: boolean}
+        lodging:
+          type: object
+          additionalProperties: true
+        transport_legs:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        review_summary:
+          type: [string, 'null']
+        market_position:
+          type: [string, 'null']
+        evidence_refs:
+          type: array
+          items:
+            $ref: '#/components/schemas/EvidenceRef'
+
+    EvidenceRef:
+      type: object
+      additionalProperties: false
+      required: [source_id, chunk_id, source_type]
+      properties:
+        source_id: {type: string}
+        capture_id: {type: [string, 'null']}
+        chunk_id: {type: string}
+        source_type:
+          type: string
+          enum: [OFFICIAL_REGISTRY, OFFICIAL_SANCTIONS, COURT, REGULATOR, PUBLIC_WEB, INTERNAL_AUTHORIZED, TRAVEL_PROVIDER, INSTITUTION_SOURCE]
+        locator: {type: [string, 'null']}
+        score: {type: [number, 'null'], format: float}
+
+    ModelInfo:
+      type: object
+      additionalProperties: false
+      required: [provider, model, prompt_version, retrieval_profile]
+      properties:
+        provider: {type: string}
+        model: {type: string}
+        prompt_version: {type: string}
+        retrieval_profile: {type: string}
+
+    ApprovalRequest:
+      type: object
+      additionalProperties: false
+      required: [plan_id, mission_version, decision]
+      properties:
+        plan_id: {type: string}
+        mission_version: {type: integer, minimum: 1}
+        decision:
+          type: string
+          enum: [APPROVE, REJECT, REQUEST_CHANGES]
+        comment: {type: [string, 'null']}
+
+    ApprovalResponse:
+      type: object
+      required: [mission_id, plan_id, decision, approved_at]
+      properties:
+        mission_id: {type: string}
+        plan_id: {type: string}
+        decision: {type: string}
+        approved_at: {type: string, format: date-time}
+
+    ErrorResponse:
+      type: object
+      additionalProperties: false
+      required: [code, message]
+      properties:
+        code: {type: string}
+        message: {type: string}
+        request_id: {type: [string, 'null']}
+        trace_id: {type: [string, 'null']}
+        details:
+          type: object
+          additionalProperties: true
