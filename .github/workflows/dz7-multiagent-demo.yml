@@ -29,10 +29,13 @@ jobs:
         working-directory: '7. Архитектурные паттерны AI-агенты и Multi-Agent Systems  ДЗ/ДЗ_07_Travel_MultiAgent_RAG'
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -r requirements.txt pytest
+          python -m pip install -r requirements.txt pytest openapi-spec-validator
       - name: Compile
         working-directory: '7. Архитектурные паттерны AI-агенты и Multi-Agent Systems  ДЗ/ДЗ_07_Travel_MultiAgent_RAG'
         run: python -m compileall -q src tests tools
+      - name: Validate OpenAPI continuation from DZ05
+        working-directory: '7. Архитектурные паттерны AI-агенты и Multi-Agent Systems  ДЗ/ДЗ_07_Travel_MultiAgent_RAG'
+        run: openapi-spec-validator api/openapi-travel.yaml
       - name: Test typed messages, handoffs and RAG
         working-directory: '7. Архитектурные паттерны AI-агенты и Multi-Agent Systems  ДЗ/ДЗ_07_Travel_MultiAgent_RAG'
         run: python -m pytest -q
