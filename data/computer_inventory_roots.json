@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "database": "Библиотека\\_inventory\\storage_inventory.sqlite",
+  "report_dir": "Библиотека\\_inventory\\reports",
+  "roots": [
+    {"id": "G_TELEGRAM_DESKTOP", "path": "G:\\Telegram Desktop", "purpose": "library_intake"},
+    {"id": "E_GPT_BOOKS", "path": "E:\\все\\1\\GPT\\Книги", "purpose": "library"},
+    {"id": "G_500_CONSTRUCTION", "path": "G:\\cxtyj\\500 книг о строительстве и ремонте", "purpose": "library"},
+    {"id": "E_BOOKS_TO_SORT", "path": "E:\\книги разобрать", "purpose": "library_intake"},
+    {"id": "G_OTUS_LIBRARY", "path": "G:\\1\\OTUS\\Библиотека", "purpose": "library"},
+    {"id": "G_444_TELEGRAM", "path": "G:\\444\\Telegram Desktop", "purpose": "library_intake"},
+    {"id": "G_CONSTRUCTION_BOOKS", "path": "G:\\cxtyj\\Книги по строительству", "purpose": "library"},
+    {"id": "F_IB_COURSES", "path": "F:\\курсы\\ИБ", "purpose": "courses"},
+    {"id": "OSINT_TEAM_ROLE_TELEGRAM", "path": "G:\\1\\OSINT_deepseek\\data\\team_role_telegram", "purpose": "project_data"},
+    {"id": "OSINT_ARCHITECT_TELEGRAM", "path": "G:\\1\\OSINT_deepseek\\data\\architect_telegram_downloads", "purpose": "project_data"}
+  ]
+}
