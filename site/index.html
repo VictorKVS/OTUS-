@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="FATHER Architect OS — сквозная витрина курса OTUS AI Architect: 31 урок, архитектурные решения, доказательства, тесты и roadmap." />
+  <title>FATHER Architect OS · OTUS Architecture Cockpit</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="FATHER Architect OS">
+      <span class="brand-mark">FA</span>
+      <span><strong>FATHER Architect OS</strong><small>OTUS · Architecture Cockpit</small></span>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#dashboard">Обзор</a>
+      <a href="#course">Курс 1–31</a>
+      <a href="#trace">Трассировка</a>
+      <a href="#decisions">ADR</a>
+      <a href="#evidence">Доказательства</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему">◐</button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">OTUS · Архитектор AI-систем · единый учебный проект</p>
+        <h1>Архитектура как <span>проверяемая система решений</span></h1>
+        <p class="hero-text">Сайт связывает все домашние задания курса в один сквозной проект: от бизнес-цели и требований до ADR, тестов, SLO, стоимости и релиза.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#course">Открыть карту курса</a>
+          <a class="btn" href="#decisions">Текущие решения</a>
+        </div>
+      </div>
+      <div class="hero-panel" aria-label="Сквозная архитектурная цепочка">
+        <div class="chain compact" id="heroChain"></div>
+      </div>
+    </section>
+
+    <section class="section" id="dashboard">
+      <div class="section-head">
+        <div><p class="eyebrow">Dashboard</p><h2>Состояние проекта</h2></div>
+        <p class="muted">Статусы показывают только подтверждённые артефакты в GitHub. Неизвестное не считается выполненным.</p>
+      </div>
+      <div class="stats" id="stats"></div>
+      <div class="gate-grid" id="gateGrid"></div>
+    </section>
+
+    <section class="section" id="course">
+      <div class="section-head course-head">
+        <div><p class="eyebrow">Course map</p><h2>31 архитектурный урок</h2></div>
+        <div class="filters">
+          <input id="lessonSearch" type="search" placeholder="Поиск: ADR, RAG, Security…" aria-label="Поиск по урокам" />
+          <select id="statusFilter" aria-label="Фильтр по статусу">
+            <option value="all">Все статусы</option>
+            <option value="done">Готово</option>
+            <option value="review">На review</option>
+            <option value="draft">Draft</option>
+            <option value="lab">Есть рабочий lab</option>
+            <option value="materials">Только материалы</option>
+          </select>
+        </div>
+      </div>
+      <div class="lesson-grid" id="lessonGrid"></div>
+    </section>
+
+    <section class="section split" id="trace">
+      <div>
+        <p class="eyebrow">Traceability</p>
+        <h2>Сквозная доказательность</h2>
+        <p>Для критического архитектурного элемента сайт должен уметь показать путь от бизнес-мотива до релиза. Это не презентационная схема, а контракт курса.</p>
+        <div class="chain" id="traceChain"></div>
+      </div>
+      <aside class="panel">
+        <h3>Definition of Done элемента</h3>
+        <ul class="check-list">
+          <li>Есть исходное требование или NFR.</li>
+          <li>Зафиксирован риск и владелец.</li>
+          <li>Архитектурное решение имеет ADR.</li>
+          <li>Компонент связан с контролем и тестом.</li>
+          <li>SLO измерим, а не описан словами.</li>
+          <li>Стоимость/TCO имеет допущения и дату.</li>
+          <li>Релиз воспроизводим и имеет rollback.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="section" id="decisions">
+      <div class="section-head">
+        <div><p class="eyebrow">Architecture decisions</p><h2>ADR и CTO Challenge</h2></div>
+        <span class="status-note">ADR меняется через supersede, история решения сохраняется.</span>
+      </div>
+      <div class="decision-grid">
+        <article class="decision-card featured">
+          <div class="decision-meta"><span>ADR-001</span><span class="badge review">REVIEW</span></div>
+          <h3>Хостинг LLM: SaaS vs Self-hosted</h3>
+          <p>Сравнение стоимости, Privacy, качества, latency и сложности эксплуатации. Включены TCO-модель, trade-offs и вопросы для CTO Challenge.</p>
+          <div class="metric-row"><span>API scenario <b>$800/mo</b></span><span>On-prem scenario <b>$348/mo</b></span></div>
+          <p class="warning">Учебный сценарий: значения не являются текущими рыночными ценами и требуют актуализации перед реальным решением.</p>
+          <a class="inline-link" data-repo-path="8. Документирование решений Architecture Decision Records (ADR)/ADR-001-LLM-HOSTING.md" href="#">Открыть ADR →</a>
+        </article>
+        <article class="decision-card">
+          <div class="decision-meta"><span>QUALITY GATE</span><span class="badge lab">RULE</span></div>
+          <h3>Цена сравнивается только при одинаковом качестве</h3>
+          <p>Дешёвая локальная модель не считается победителем, если не проходит тот же evaluation set и SLO, что и облачный backend.</p>
+        </article>
+        <article class="decision-card">
+          <div class="decision-meta"><span>MODEL GATEWAY</span><span class="badge draft">TARGET</span></div>
+          <h3>Бизнес-код не зависит от провайдера модели</h3>
+          <p>Hosted API, cloud GPU и локальная модель подключаются через единый Model Gateway. Это позволяет менять backend по измеримым триггерам.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="evidence">
+      <div class="section-head">
+        <div><p class="eyebrow">Evidence</p><h2>Что считается доказательством</h2></div>
+      </div>
+      <div class="evidence-grid">
+        <div class="panel"><h3>Документы</h3><p>README сдачи, ADR, C4/C3, DFD/BPMN, OpenAPI, runbook, threat model.</p></div>
+        <div class="panel"><h3>Код</h3><p>Демонстрационный runtime, локальные агенты, RAG, калькуляторы, схемы данных и tooling.</p></div>
+        <div class="panel"><h3>Тесты</h3><p>pytest, retrieval quality gates, PDF build verification, pre-deploy GenAI tests, CI checks.</p></div>
+        <div class="panel"><h3>Эксплуатация</h3><p>MLflow/Langfuse, latency, error rate, токены, TCO, capacity и последующие SLO/FinOps метрики.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>FATHER Architect OS · OTUS AI Architect</span>
+    <a id="repoLink" href="https://github.com/VictorKVS/OTUS-">GitHub repository ↗</a>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
