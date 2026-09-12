@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Урок 1 OTUS: живой словарь архитектора — presales, requirements, scope, contracts, RFP, FP, T&M, риски, SLA/SLO и другие термины с примерами и источниками." />
-  <title>Урок 1 · Словарь архитектора · FATHER Architect OS</title>
+  <meta name="description" content="Урок 1 OTUS: вход архитектора, живой словарь — presales, requirements, scope, contracts, RFP, FP, T&M, риски, SLA/SLO и другие термины с примерами и источниками." />
+  <title>Урок 1 · Вход и словарь архитектора · FATHER Architect OS</title>
   <link rel="stylesheet" href="./styles.css" />
   <link rel="stylesheet" href="./lesson.css" />
 </head>
@@ -16,6 +16,7 @@
     </a>
     <nav class="nav" aria-label="Навигация урока">
       <a href="#start">Урок 1</a>
+      <a href="./lesson-01-intake.html">Вход архитектора</a>
       <a href="#dictionary">Словарь</a>
       <a href="#phrases">Фразы</a>
       <a href="#sources">Источники</a>
@@ -28,19 +29,31 @@
     <section class="lesson-hero">
       <div>
         <p class="eyebrow">Lesson 01 · Expert mode</p>
-        <h1>Словарь архитектора:<br><span>понимать, что говорят на созвоне</span></h1>
-        <p class="hero-text">Не зубрим англицизмы. Для каждого понятия разбираем: что это по-русски, зачем архитектору, как термин звучит в живой речи, какой артефакт с ним связан и где проверить определение.</p>
+        <h1>Сначала — <span>что попало в руки архитектору</span>.<br>Потом — термины и решения.</h1>
+        <p class="hero-text">Архитектор не начинает с картинки системы. Он сначала проверяет вход: бизнес-цели, stakeholders, scope, требования, данные, интеграции, безопасность, нагрузку, бюджет, сроки и историю решений. Если чего-то нет — фиксирует GAP и организует получение или создаёт согласуемый черновик.</p>
         <div class="hero-actions">
-          <a class="btn primary" href="#dictionary">Начать со словаря</a>
-          <a class="btn" href="#phrases">Разобрать фразы</a>
+          <a class="btn primary" href="./lesson-01-intake.html">1. Что должен получить архитектор</a>
+          <a class="btn" href="#dictionary">2. Словарь архитектора</a>
+          <a class="btn" href="#phrases">3. Разобрать фразы</a>
         </div>
       </div>
       <aside class="lesson-summary">
+        <div><b>31</b><span>входной артефакт</span></div>
         <div><b id="termCount">0</b><span>терминов</span></div>
-        <div><b>6</b><span>групп</span></div>
         <div><b>2</b><span>слоя: урок + эксперт</span></div>
-        <p>Термины из материалов OTUS помечены <strong>ИЗ УРОКА</strong>. Понятия, добавленные для профессиональной речи, помечены <strong>РАСШИРЕНИЕ</strong>.</p>
+        <p>Первый обязательный шаг — <strong>Architect Intake Pack</strong>. Термины из OTUS помечены <strong>ИЗ УРОКА</strong>, профессиональное расширение — <strong>РАСШИРЕНИЕ</strong>.</p>
       </aside>
+    </section>
+
+    <section class="section lesson-source-note">
+      <p class="eyebrow">Шаг 1 · Architect Intake</p>
+      <h2>Идеальный продукт приходит пакетом, а не одним ТЗ</h2>
+      <p>Мы спроектировали реестр из 31 входного артефакта: Product Vision, Business Case, Stakeholder Register, Scope, требования, NFR, процессы, AS-IS, integrations, data, security, IAM, SLA/SLO, load profile, platform constraints, roadmap, budget, contracts, risks, assumptions, ADR history, incidents и PoC/benchmark evidence.</p>
+      <p>Для каждого определены владелец, способ получения, критерии проверки и fallback. Если артефакта нет, архитектор не выдумывает его содержимое: фиксирует <code>GAP</code>, проводит interview/workshop/reverse engineering, создаёт черновик и получает подтверждение владельца.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="./lesson-01-intake.html">Открыть Architect Intake Pack →</a>
+        <a class="btn" href="https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/1.%20%D0%9F%D1%80%D0%B5%D1%81%D0%B5%D0%B9%D0%BB,%20%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%B0%D0%BA%D1%82%D1%8B%20%D0%B8%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D1%82%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%D0%BC%D0%B8%20%D0%B7%D0%B0%D0%BA%D0%BB%D0%B0%D0%B4%D1%8B%D0%B2%D0%B0%D0%B5%D0%BC%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/ARCHITECT_INTAKE_PACK.md" target="_blank" rel="noopener">Методика в GitHub ↗</a>
+      </div>
     </section>
 
     <section class="section lesson-source-note">
@@ -52,61 +65,41 @@
 
     <section class="section" id="dictionary">
       <div class="section-head glossary-head">
-        <div>
-          <p class="eyebrow">Architect vocabulary</p>
-          <h2>Понятия и определения</h2>
-        </div>
+        <div><p class="eyebrow">Architect vocabulary</p><h2>Понятия и определения</h2></div>
         <p class="muted">Ищи как по английскому слову, так и по русскому смыслу. Например: <code>скоуп</code>, <code>приёмка</code>, <code>RFP</code>, <code>стоимость</code>.</p>
       </div>
       <div class="glossary-controls">
         <input id="termSearch" type="search" placeholder="Поиск по терминам, русским словам и примерам…" aria-label="Поиск по словарю" />
-        <select id="categoryFilter" aria-label="Категория">
-          <option value="all">Все группы</option>
-        </select>
-        <select id="originFilter" aria-label="Источник термина">
-          <option value="all">Урок + расширение</option>
-          <option value="lesson">Только из урока 1</option>
-          <option value="expert">Только расширение эксперта</option>
-        </select>
+        <select id="categoryFilter" aria-label="Категория"><option value="all">Все группы</option></select>
+        <select id="originFilter" aria-label="Источник термина"><option value="all">Урок + расширение</option><option value="lesson">Только из урока 1</option><option value="expert">Только расширение эксперта</option></select>
       </div>
       <div class="glossary-grid" id="glossaryGrid"></div>
     </section>
 
     <section class="section" id="phrases">
-      <div class="section-head">
-        <div><p class="eyebrow">Meeting decoder</p><h2>Перевод с «архитекторского» на русский</h2></div>
-      </div>
+      <div class="section-head"><div><p class="eyebrow">Meeting decoder</p><h2>Перевод с «архитекторского» на русский</h2></div></div>
       <div class="phrase-grid" id="phraseGrid"></div>
     </section>
 
     <section class="section architect-thinking">
-      <div>
-        <p class="eyebrow">Как думает архитектор</p>
-        <h2>Пять вопросов первого урока</h2>
-      </div>
+      <div><p class="eyebrow">Как думает архитектор</p><h2>Пять вопросов первого урока</h2></div>
       <ol class="thinking-list">
         <li><b>Какую проблему бизнеса мы решаем?</b><span>Не «какую технологию хотим внедрить», а что должно измениться для бизнеса или пользователя.</span></li>
         <li><b>Кто заинтересованные стороны?</b><span>Кто платит, использует, эксплуатирует, регулирует, принимает и может заблокировать решение.</span></li>
         <li><b>Что входит и не входит в scope?</b><span>Без границ невозможно нормально оценить стоимость, сроки и риски.</span></li>
         <li><b>Что мы знаем, а что только предполагаем?</b><span>Assumption не должен незаметно превращаться в «факт проекта».</span></li>
-        <li><b>Как контракт распределяет риск?</b><span>Fixed Price, T&M и cap — не бухгалтерские детали: они меняют требования к детализации архитектуры и управлению изменениями.</span></li>
+        <li><b>Как контракт распределяет риск?</b><span>Fixed Price, T&M и cap меняют требования к детализации архитектуры и управлению изменениями.</span></li>
       </ol>
     </section>
 
     <section class="section" id="sources">
-      <div class="section-head">
-        <div><p class="eyebrow">Authoritative references</p><h2>Где проверять определения</h2></div>
-      </div>
+      <div class="section-head"><div><p class="eyebrow">Authoritative references</p><h2>Где проверять определения</h2></div></div>
       <div class="source-grid" id="sourceGrid"></div>
       <p class="source-note">Определения на этой странице написаны своими словами для обучения. Ссылки ведут на материалы урока, стандарты, профессиональные глоссарии и справочные публикации. Если термин в разных школах трактуется по-разному, на странице это отмечается.</p>
     </section>
   </main>
 
-  <footer>
-    <span>FATHER Architect OS · Урок 1 · словарь архитектора</span>
-    <a href="./index.html">← Вернуться в Architecture Cockpit</a>
-  </footer>
-
+  <footer><span>FATHER Architect OS · Урок 1 · вход и словарь архитектора</span><a href="./index.html">← Architecture Cockpit</a></footer>
   <script src="./lesson-01-v2.js"></script>
 </body>
 </html>
