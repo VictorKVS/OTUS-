@@ -1,112 +1,143 @@
-# OTUS Lesson 12 — FATHER OSINT Agent / Data Architecture for AI Systems
+# OTUS Lesson 12 — FATHER OSINT Agent / Data Pipelines и интеграционные шлюзы
 
-**Project:** `VictorKVS/OSINT_deepseek`  
-**Status:** `CONDITIONAL_PASS / DOCUMENTATION LAYER`
+**Проект:** `VictorKVS/OSINT_deepseek`  
+**Статус:** `READY FOR HOMEWORK REVIEW`  
+**Формат:** схема + компактное описание целевой архитектуры. Реализация проекта в этом проходе не менялась.
 
-## What the lesson asks
+## 1. Data Sources
 
-Design an end-to-end AI data pipeline, distinguish stream vs batch sources, choose storage classes appropriately, explain Feature Store and prevent training-serving skew.
+Вместо отдельного учебного ритейл-кейса используется тот же сквозной FATHER OSINT Agent.
 
-## OSINT/Knowledge Factory pipeline
+| Источник | Тип | Роль |
+|---|---|---|
+| Telegram / live feeds | **streaming** | новые сообщения и обновления почти в реальном времени |
+| GitHub / Web / RSS | **micro-batch / polling** | периодическое получение новых/изменённых материалов |
+| PDF / DOCX / media / uploads | **batch/event** | документы и исходные файлы с сохранением оригинала |
+| Eval / Golden datasets | **batch** | воспроизводимое обучение/оценка retrieval, ranking и LLM-компонентов |
+
+## 2. Pipeline Design
+
+Для целевой Production-кандидатной архитектуры используется **hybrid Lambda/Kappa**: streaming-ветка строится вокруг append-only event log и replay, batch/historical ветка — вокруг Data Lake. Оба пути сходятся в единую raw/curated модель.
 
 ```mermaid
 flowchart LR
-    S1[Telegram / Stream] --> A[Acquisition]
-    S2[Git/Web/Files / Batch] --> A
-    A --> O[Source Observation + Provenance]
-    O --> RAW[(Raw / Data Lake candidate)]
-    O --> META[(Metadata Catalog)]
-    RAW --> P[Parse / Normalize]
-    P --> C[Chunk / Enrich]
-    C --> L[(Lexical Index)]
-    C --> V[(Vector Index - conditional)]
-    C --> G[(Graph - conditional)]
-    L --> R[Retrieval]
-    V --> R
-    G --> R
-    R --> AN[Analyst]
-    AN --> RV[Reviewer]
-    RV --> K[Knowledge Candidate]
+    TG[Telegram / live] --> K[Apache Kafka\nsource_observation.v1]
+    B[GitHub / Web / Files] --> AF[Apache Airflow]
+
+    K --> SS[Spark Structured Streaming]
+    AF --> SB[Spark Batch]
+
+    SS --> RAW[(MinIO / S3\nRaw Data Lake)]
+    SB --> RAW
+
+    RAW --> CL[Validate / Clean / Normalize]
+    CL --> CUR[(Parquet + Iceberg\nCurated Layer)]
+    CL --> META[(PostgreSQL\nMetadata + Lineage)]
+
+    CUR --> CH[Chunk / Enrich]
+    CH --> EMB[Embedding Service]
+    EMB --> V[(PostgreSQL + pgvector)]
+
+    CH --> FD[Feature Definitions]
+    FD --> FO[(Feast Offline)]
+    FD --> FI[(Feast Online / Redis)]
+
+    V --> RET[Retrieval / Ranking]
+    FI --> RET
+    RET --> INF[Analyst / Model Inference]
 ```
 
-The design is raw-first: preserve original evidence and integrity/provenance before semantic transformation. Derivatives remain rebuildable and versioned.
+### Где очистка
 
-## Data zones
+Очистка выполняется **после raw landing**. Оригинал сохраняется неизменяемым вместе с hash/provenance, а уже затем создаётся normalized/curated representation. Это позволяет повторно обработать исходник новым parser/cleaner без потери evidence.
 
-- **Raw/Bronze:** original bytes/text + source observation + hash/provenance.
-- **Curated/Silver:** parsed, normalized and chunked content with transformation versions.
-- **Semantic/Gold candidate:** embeddings, entities, claims, relations and reviewed candidates. “Gold” does not automatically mean truth.
+### Где создаются embeddings
 
-## Storage selection
+После цепочки:
 
-| Role | Candidate storage class |
-|---|---|
-| original/raw evidence | object storage / Data Lake raw zone |
-| task/observation/version metadata | relational DB / metadata catalog |
-| lexical retrieval | search index |
-| semantic retrieval | Vector DB/index only after eval proves value |
-| relationship traversal | graph store only if graph use cases justify it |
-| eval/training datasets | versioned object/lakehouse dataset registry |
-| telemetry/analytics | warehouse/lakehouse when scale justifies it |
-| shared offline/online ML features | Feature Store, conditionally |
+`raw → validate → normalize → chunk → enrich → embedding`.
 
-No concrete product such as Kafka/S3/Pinecone/Neo4j is selected without workload and operational evidence.
+Для embedding фиксируются `chunk_id`, `embedding_model/version`, `transform_version` и ссылка на исходный raw object. Vector index является производным и может быть перестроен.
 
-## Feature Store and Training–Serving Skew
+## 3. Storage Selection
 
-Current core decision:
+| Задача | Выбор | Обоснование |
+|---|---|---|
+| Streaming ingress | **Apache Kafka** | durable log, partitioning, replay, consumer groups |
+| Batch orchestration | **Apache Airflow** | DAG, retries, schedule, прозрачность зависимостей |
+| Stream + batch ETL | **Apache Spark / Structured Streaming** | общий processing stack для stream и batch |
+| Raw Data Lake | **MinIO / S3 API** | immutable originals, object storage, on-prem/cloud portability |
+| Curated datasets | **Parquet + Apache Iceberg** | snapshots, schema evolution, versioned tables |
+| Metadata / lineage | **PostgreSQL** | транзакционные метаданные и удобные связи версий/объектов |
+| Vector retrieval | **PostgreSQL + pgvector** | минимальный operational sprawl; metadata и vectors рядом |
+| Scale-out Vector DB | **Qdrant — только после benchmark** | отдельный сервис вводится, если pgvector не выполняет latency/scale NFR |
+| Feature Store | **Feast** | единые feature definitions, offline/online materialization |
+| Online feature serving | **Redis** | low-latency lookup для online ranking/inference |
 
-`FEATURE_STORE = NOT_REQUIRED_FOR_CURRENT_CORE`
+Для streaming-ветки используются идеи Kappa: append-only log, replay и rebuildable derived views. Но весь проект не делается pure Kappa, потому что OSINT/Knowledge Factory имеет значимый batch/history слой: документы, переобработку корпуса и versioned eval datasets.
 
-Reason: current verified OSINT core is evidence collection/provenance, not online supervised feature serving.
+## 4. Data Governance и Training–Serving Skew
 
-Feature Store becomes justified when an approved model uses the same engineered features offline for training/evaluation and online for inference/ranking.
+### Feature Store
 
-Skew examples:
+В текущем DEV core Feature Store не нужен: verified core занимается evidence/provenance, а не обученным online ranking model.
 
-- different time windows offline/online;
-- different null/default logic;
-- different entity mapping/version;
-- future data accidentally leaking into offline training;
-- duplicated feature code drifting between pipelines.
+В целевой AI-архитектуре Feature Store включается при появлении learned relevance/ranking model. Возможные признаки:
 
-Control:
+- source trust class;
+- recency;
+- document/content length;
+- duplicate/repost signals;
+- entity/topic signals;
+- source coverage;
+- quality flags.
 
-`one canonical feature definition → versioned transform → point-in-time correct offline values → same online definition → monitor drift/skew`.
+### Как исключаем skew
 
-## RAG consistency
+```text
+ONE FEATURE DEFINITION
+        ↓
+versioned transform code
+        ↓
+point-in-time correct offline materialization
+        ↓
+Feast Offline Store → train/eval
+        ↓
+same definition
+        ↓
+Feast Online Store / Redis → online inference
+```
 
-RAG has a related consistency problem even without Feature Store: chunking version, embedding model/version, metadata schema and index generation must be aligned between evaluation and Production serving.
+Контроли:
 
-## Data Governance
+1. обязательные `event_time` / `feature_timestamp`;
+2. point-in-time correct training set без future leakage;
+3. один registry feature definitions для offline и online;
+4. feature/schema version закрепляется вместе с model version;
+5. перед release выполняется offline↔online parity test;
+6. несовместимое изменение создаёт новую версию feature, а не тихо перезаписывает старую;
+7. drift/skew telemetry сохраняется в эксплуатации.
 
-Every material derivative should preserve lineage:
+## 5. Lineage и отказоустойчивость
 
-`source → observation → raw hash/file → parser version → chunk → model/index version → retrieval → claim/relation → review → knowledge gate`.
+Трасса данных:
 
-Production readiness also requires owner, data class, retention/deletion policy, external-processing policy, version state and audit.
+`source → observation → raw/hash → parser version → curated record → chunk → embedding/feature version → retrieval/inference → finding/claim → review`.
 
-## What remains UNKNOWN
+Kafka checkpoint/offset продвигается только после durable persistence. Consumers должны быть idempotent; poison events уходят в DLQ. Derived stores — vector index, online Feature Store, search index — перестраиваемы из canonical raw/curated layers.
 
-- Production data volume/growth;
-- retention/deletion periods by class;
-- storage/index SLO;
-- chosen vector/graph technology;
-- data residency constraints;
-- first trained model that would actually require Feature Store.
+## Итог
 
-## Result
+Для ДЗ выбран стек:
 
-`LESSON_12_DATA_ARCHITECTURE = CONDITIONAL_PASS`
+**Kafka + Airflow + Spark → MinIO/S3 → Parquet/Iceberg → PostgreSQL → pgvector → Feast/Redis (если появляется trained ranking model).**
 
-## What should be improved
+Он удовлетворяет трём критериям проверки:
 
-| Priority | Improvement |
-|---|---|
-| P0 | complete Production data classification/retention/deletion/external-processing matrix |
-| P1 | introduce dataset/index version registry and rebuild/migration procedure |
-| P1 | validate lineage raw→chunk→embedding/claim→review→knowledge |
-| P1 | add per-stage data-quality telemetry |
-| P1 | benchmark retrieval/storage layers before selecting technologies |
+- Stream и Batch разведены по подходящим механизмам;
+- путь прослеживается от источника до AI inference;
+- Feature Store используется именно для единого offline/online определения признаков и предотвращения Training–Serving Skew.
 
-Canonical pack: `OSINT_deepseek/docs/course_live_reproduction/12_data_architecture/`.
+**Что пока UNKNOWN до реального Production:** events/sec, batch volume, retention, p95/p99, vector-index size, embedding throughput и необходимость отдельного Vector DB. Эти значения должны быть измерены, а не взяты из учебного примера.
+
+Canonical detailed pack: `OSINT_deepseek/docs/course_live_reproduction/12_data_architecture/`.
