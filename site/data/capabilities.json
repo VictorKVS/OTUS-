@@ -1,0 +1,383 @@
+{
+  "schema_version": "father-architect-capabilities.v1",
+  "step": "STEP-01",
+  "title": "FATHER Architect OS Capability Map",
+  "layers": [
+    "OTUS Curriculum",
+    "Architect Pro",
+    "FATHER Production"
+  ],
+  "maturity": {
+    "M0": "materials",
+    "M1": "design",
+    "M2": "professional",
+    "M3": "production"
+  },
+  "traceability": [
+    "BUS",
+    "REQ/NFR",
+    "RISK",
+    "ADR",
+    "CMP/INT/DATA",
+    "CTRL/SAFE",
+    "TEST/EVAL",
+    "SLO/OBS",
+    "COST/FIN",
+    "DEPLOY/RUN",
+    "REL"
+  ],
+  "components": [
+    {
+      "id": "FTH-HARNESS-001",
+      "name": "AI Harness",
+      "domain": "Runtime",
+      "capabilities": [
+        "Harness",
+        "Execution Runtime"
+      ],
+      "lessons": [
+        7,
+        11,
+        13,
+        14,
+        15,
+        18,
+        19,
+        20
+      ],
+      "maturity": "M1"
+    },
+    {
+      "id": "FTH-CTX-001",
+      "name": "Context Builder",
+      "domain": "Context",
+      "capabilities": [
+        "Context Engineering"
+      ],
+      "lessons": [
+        1,
+        6,
+        7,
+        11,
+        12
+      ],
+      "maturity": "M1"
+    },
+    {
+      "id": "FTH-PRM-001",
+      "name": "Prompt Registry",
+      "domain": "Context",
+      "capabilities": [
+        "Prompt Optimization"
+      ],
+      "lessons": [
+        6,
+        7,
+        13
+      ],
+      "maturity": "M1"
+    },
+    {
+      "id": "FTH-KNW-001",
+      "name": "Knowledge Service",
+      "domain": "Knowledge",
+      "capabilities": [
+        "RAG 2.0",
+        "Knowledge Provenance"
+      ],
+      "lessons": [
+        6,
+        12,
+        13,
+        14
+      ],
+      "maturity": "M1"
+    },
+    {
+      "id": "FTH-RAG-001",
+      "name": "Retrieval Gateway",
+      "domain": "Knowledge",
+      "capabilities": [
+        "Hybrid Retrieval",
+        "Vector DB",
+        "Reranking"
+      ],
+      "lessons": [
+        6,
+        12,
+        13
+      ],
+      "maturity": "M1"
+    },
+    {
+      "id": "FTH-MEM-001",
+      "name": "Memory Service",
+      "domain": "Memory",
+      "capabilities": [
+        "Memory Layers"
+      ],
+      "lessons": [
+        6,
+        7,
+        12,
+        14
+      ],
+      "maturity": "M0"
+    },
+    {
+      "id": "FTH-MDL-001",
+      "name": "Model Zoo",
+      "domain": "Models",
+      "capabilities": [
+        "Local Models",
+        "Cloud Models",
+        "Fine-tuning",
+        "Distillation"
+      ],
+      "lessons": [
+        13,
+        17,
+        19,
+        29,
+        30
+      ],
+      "maturity": "M1"
+    },
+    {
+      "id": "FTH-MRG-001",
+      "name": "Model Registry",
+      "domain": "Models",
+      "capabilities": [
+        "Model Lifecycle",
+        "Artifact Registry"
+      ],
+      "lessons": [
+        19,
+        20,
+        30
+      ],
+      "maturity": "M0"
+    },
+    {
+      "id": "FTH-TOL-001",
+      "name": "Tool Registry",
+      "domain": "Tools",
+      "capabilities": [
+        "Tool Use",
+        "Function Calling"
+      ],
+      "lessons": [
+        7,
+        11,
+        14
+      ],
+      "maturity": "M1"
+    },
+    {
+      "id": "FTH-MCP-001",
+      "name": "MCP Gateway",
+      "domain": "Tools",
+      "capabilities": [
+        "MCP",
+        "Stateless MCP"
+      ],
+      "lessons": [
+        7,
+        11,
+        14,
+        15
+      ],
+      "maturity": "M0"
+    },
+    {
+      "id": "FTH-WFG-001",
+      "name": "Workflow / Graph Engine",
+      "domain": "Orchestration",
+      "capabilities": [
+        "Loop Engineering",
+        "Graph Engineering"
+      ],
+      "lessons": [
+        7,
+        18,
+        22,
+        23
+      ],
+      "maturity": "M1"
+    },
+    {
+      "id": "FTH-AGT-001",
+      "name": "Agent Zoo",
+      "domain": "Agents",
+      "capabilities": [
+        "Agentic AI",
+        "Multi-Agent Systems"
+      ],
+      "lessons": [
+        7,
+        13,
+        14,
+        15
+      ],
+      "maturity": "M1"
+    },
+    {
+      "id": "FTH-SUP-001",
+      "name": "Supervisor / Handoff",
+      "domain": "Agents",
+      "capabilities": [
+        "Agent Routing",
+        "Handoff"
+      ],
+      "lessons": [
+        7,
+        13,
+        15
+      ],
+      "maturity": "M1"
+    },
+    {
+      "id": "FTH-EVL-001",
+      "name": "Evaluation Service",
+      "domain": "Quality",
+      "capabilities": [
+        "Evaluation Frameworks",
+        "Golden Sets"
+      ],
+      "lessons": [
+        9,
+        13,
+        15,
+        30
+      ],
+      "maturity": "M1"
+    },
+    {
+      "id": "FTH-POL-001",
+      "name": "Policy & Security Plane",
+      "domain": "Safety",
+      "capabilities": [
+        "Guardrails",
+        "IAM",
+        "Secrets",
+        "Policy Engine",
+        "Threat Modeling"
+      ],
+      "lessons": [
+        14,
+        26,
+        27,
+        30
+      ],
+      "maturity": "M0"
+    },
+    {
+      "id": "FTH-OBS-001",
+      "name": "Observability & Audit Plane",
+      "domain": "Operations",
+      "capabilities": [
+        "Observability",
+        "Audit Trail",
+        "Incident Lifecycle"
+      ],
+      "lessons": [
+        15,
+        20,
+        21,
+        30
+      ],
+      "maturity": "M1"
+    },
+    {
+      "id": "FTH-GTW-001",
+      "name": "AI Gateway",
+      "domain": "Platform",
+      "capabilities": [
+        "AI Gateways",
+        "Routing",
+        "Fallback",
+        "Quotas"
+      ],
+      "lessons": [
+        11,
+        17,
+        20,
+        22,
+        25,
+        26,
+        31
+      ],
+      "maturity": "M0"
+    },
+    {
+      "id": "FTH-FIN-001",
+      "name": "FinOps / Cost Control",
+      "domain": "Economics",
+      "capabilities": [
+        "Cost Optimization",
+        "Budgets",
+        "Unit Economics"
+      ],
+      "lessons": [
+        2,
+        9,
+        16,
+        17,
+        28
+      ],
+      "maturity": "M1"
+    },
+    {
+      "id": "FTH-SYN-001",
+      "name": "Synthetic / Eval Data Factory",
+      "domain": "Data Factory",
+      "capabilities": [
+        "Synthetic Data"
+      ],
+      "lessons": [
+        13,
+        19,
+        30
+      ],
+      "maturity": "M0"
+    },
+    {
+      "id": "FTH-DLV-001",
+      "name": "Delivery Plane",
+      "domain": "Delivery",
+      "capabilities": [
+        "CI/CD",
+        "IaC",
+        "Deployment",
+        "Rollback"
+      ],
+      "lessons": [
+        18,
+        19,
+        20
+      ],
+      "maturity": "M1"
+    },
+    {
+      "id": "FTH-REL-001",
+      "name": "Reliability Plane",
+      "domain": "Reliability",
+      "capabilities": [
+        "HA/DR",
+        "Sizing",
+        "Capacity",
+        "High Load"
+      ],
+      "lessons": [
+        16,
+        17,
+        21,
+        22,
+        24,
+        25,
+        26
+      ],
+      "maturity": "M0"
+    }
+  ]
+}
