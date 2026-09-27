@@ -196,3 +196,50 @@ STEP 01 пока не закрыт: отсутствует отдельный в
 ### Следующий шаг
 
 **STEP 02 — Machine-readable Course Manifest.**
+
+
+---
+
+## 2026-09-27 — STEP 02 completed
+
+**Статус:** DONE v1.
+
+### Сделано
+
+- создан `site/data/course-manifest.json`;
+- 31 урок и 7 gates вынесены в manifest;
+- каждый урок связан с maturity и FATHER capability IDs;
+- `site/app.js` переведён на загрузку manifest;
+- создан визуальный poster `site/assets/step-02-course-manifest.svg`;
+- создана страница `site/step-02-course-manifest.html`.
+
+### Validation
+
+- lessons = 31;
+- gates = 7;
+- gate/maturity/production mapping присутствует у каждого урока;
+- hardcoded lesson registry отсутствует.
+
+### Что стоит улучшить
+
+- добавить JSON Schema и CI validation;
+- позже получать часть статусов автоматически из evidence/CI;
+- отделить lesson-specific detail data от общего manifest.
+
+### Следующий шаг
+
+**STEP 03 — Universal Lesson Template.**
+
+---
+
+## 2026-09-27 — STEP 03 started
+
+**Статус:** IN PROGRESS.
+
+### Цель
+
+Создать единый visual-first шаблон для всех 31 уроков.
+
+### Первый контрольный пример
+
+Lesson 01: сохранить Architect Intake Pack, но привести страницу к общей структуре `Schema → Visual → OTUS → Architect Pro → FATHER Production → Evidence → Maturity`.
