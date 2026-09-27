@@ -1,6 +1,6 @@
 # STEP 02 — Machine-readable Course Manifest
 
-Статус: **IN PROGRESS**
+Статус: **DONE v1**
 
 ## 1. Цель
 
@@ -62,3 +62,24 @@ Course Manifest ссылается на component/capability IDs из `site/data
 - создан визуальный poster;
 - создана страница STEP 02;
 - запись добавлена в дневник.
+
+
+## 7. Validation
+
+Проверено после интеграции:
+
+- lessons: **31**;
+- gates: **7**;
+- каждый урок имеет `gate`;
+- каждый урок имеет `maturity`;
+- каждый урок имеет `father_production.capability_ids`;
+- hardcoded registry в `site/app.js` отсутствует.
+
+## 8. Evidence
+
+- `site/data/course-manifest.json`
+- `site/app.js`
+- `site/step-02-course-manifest.html`
+- `site/assets/step-02-course-manifest.svg`
+
+Следующий шаг: **STEP 03 — Universal Lesson Template**.
