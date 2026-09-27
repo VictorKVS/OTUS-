@@ -67,3 +67,25 @@ http://127.0.0.1:8088/
 - добавить матрицу `requirement → decision → component → test`;
 - добавить quality/SLO/FinOps dashboards по мере появления измерений;
 - подготовить безопасную публикацию через GitHub Pages или отдельный static hosting после review.
+
+
+## Visual-first engineering standard
+
+Для каждой темы, урока и capability действует единый порядок:
+
+`Schema → Visual → Meaning → Artifacts → Evidence → FATHER Mapping → Maturity`
+
+Каждая страница должна показывать три слоя:
+
+1. **OTUS Curriculum** — исходная программа и требования урока.
+2. **Architect Pro** — профессиональная методика, trade-offs, стандарты и инструменты.
+3. **FATHER Production** — рабочий компонент/контур боевой платформы.
+
+Нотация, maturity levels и capability vocabulary закреплены в:
+[`docs/STEP_00_NOTATION_AND_VISUAL_LANGUAGE.md`](../docs/STEP_00_NOTATION_AND_VISUAL_LANGUAGE.md).
+
+Пошаговый план:
+[`docs/FATHER_ARCHITECT_OS_BUILD_PLAN.md`](../docs/FATHER_ARCHITECT_OS_BUILD_PLAN.md).
+
+Дневник:
+[`docs/DEVELOPMENT_JOURNAL.md`](../docs/DEVELOPMENT_JOURNAL.md).
