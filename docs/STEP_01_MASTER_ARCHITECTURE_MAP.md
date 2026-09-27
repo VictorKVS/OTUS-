@@ -1,6 +1,6 @@
 # STEP 01 — Master Architecture Map
 
-Статус: **IN PROGRESS**  
+Статус: **DONE v1**  
 Основание: [STEP 00](STEP_00_NOTATION_AND_VISUAL_LANGUAGE.md)
 
 ## 1. Цель
