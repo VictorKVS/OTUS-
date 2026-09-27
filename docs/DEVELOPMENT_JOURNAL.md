@@ -155,3 +155,44 @@ STEP 01 пока не закрыт: отсутствует отдельный в
 ### Следующий шаг
 
 Завершить STEP 01: visual poster + component IDs + capability manifest.
+
+
+---
+
+## 2026-09-27 — STEP 01 completed
+
+**Статус:** DONE v1.
+
+### Сделано
+
+- опубликована страница `site/step-01-master-map.html`;
+- создан визуальный poster `site/assets/step-01-master-architecture.svg`;
+- создан machine-readable `site/data/capabilities.json`;
+- введены component IDs для ключевых production domains;
+- capability ↔ lesson mapping включён в manifest;
+- Master Map добавляется в основную навигацию Cockpit.
+
+### Evidence
+
+- `site/step-01-master-map.html`
+- `site/assets/step-01-master-architecture.svg`
+- `site/data/capabilities.json`
+- `docs/STEP_01_MASTER_ARCHITECTURE_MAP.md`
+
+### Что стоит улучшить
+
+- назначить owners для capability domains;
+- довести mapping до evidence-level;
+- добавить автоматическую валидацию manifest/IDs.
+
+### Как улучшить
+
+В M2 добавить owners/reviewers и JSON Schema/CI validation.
+
+### Приоритет
+
+**P1 после STEP 02–03.**
+
+### Следующий шаг
+
+**STEP 02 — Machine-readable Course Manifest.**
