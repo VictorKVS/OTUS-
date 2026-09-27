@@ -89,3 +89,14 @@ http://127.0.0.1:8088/
 
 Дневник:
 [`docs/DEVELOPMENT_JOURNAL.md`](../docs/DEVELOPMENT_JOURNAL.md).
+
+
+## STEP 01 — Master Architecture Map
+
+Готова первая production-oriented master map:
+
+- [Master Architecture Map](./step-01-master-map.html)
+- [Capability manifest](./data/capabilities.json)
+- [SVG poster](./assets/step-01-master-architecture.svg)
+
+STEP 01 связывает OTUS Curriculum → Architect Pro → FATHER Production и вводит постоянные component IDs.
