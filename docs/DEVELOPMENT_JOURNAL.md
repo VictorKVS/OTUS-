@@ -116,3 +116,42 @@ IAM, secrets, policy, governance/provenance, human review, artifact registry, CI
 ### Следующий шаг
 
 **STEP 01 — Master Architecture Map.**
+
+
+---
+
+## 2026-09-27 — STEP 01 started
+
+**Статус:** IN PROGRESS.
+
+### Сделано
+
+- создан `docs/STEP_01_MASTER_ARCHITECTURE_MAP.md`;
+- сформирована первая master schema;
+- сформирована сквозная traceability schema;
+- capabilities сгруппированы по доменам;
+- создана первичная матрица capability ↔ OTUS lessons;
+- в roadmap и site README закреплён visual-first стандарт.
+
+### Evidence
+
+- `docs/STEP_01_MASTER_ARCHITECTURE_MAP.md`
+- `docs/STEP_00_NOTATION_AND_VISUAL_LANGUAGE.md`
+- `ARCHITECTURE_ROADMAP.md`
+- `site/README.md`
+
+### Что стоит улучшить
+
+STEP 01 пока не закрыт: отсутствует отдельный визуальный poster и machine-readable capability manifest.
+
+### Как улучшить
+
+Следующим проходом сделать визуальный poster строго по master schema, затем перенести capability mapping в JSON/YAML для сайта.
+
+### Приоритет
+
+**P0.**
+
+### Следующий шаг
+
+Завершить STEP 01: visual poster + component IDs + capability manifest.
