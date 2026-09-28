@@ -408,3 +408,32 @@ Context Builder не владеет требованиями. Intake/Requirement
 ### Следующий шаг
 
 **Interview Lab v2 — Question Bank + Mock Interview + Evidence Links.**
+
+
+---
+
+## 2026-09-29 — AI Capability Stack 2026 — Deep Dive
+
+**Ветка:** `feature/interview-prep-lab`  
+**Статус:** IMPLEMENTED v1.
+
+### Основа
+
+Пользовательская визуальная схема 2023→2026 с набором: Harness, Context Engineering, Loop/Graph Engineering, MCP, Stateless MCP, Agentic/Multi-Agent, RAG 2.0, Memory, Tool Use, Function Calling, Vector DB, Fine-tuning, Evaluation, Guardrails, Observability, Prompt Optimization, Synthetic Data, Distillation, AI Gateways, Cost Optimization.
+
+### Сделано
+
+- создан `docs/AI_CAPABILITY_STACK_2026_DEEP_DIVE.md`;
+- создан `site/data/ai-capability-stack-2026.json`;
+- создана интерактивная страница `site/ai-capability-stack-2026.html`;
+- 22 capability классифицированы по типу;
+- для каждого заданы purpose, flow, inputs/outputs, risks, component mapping и interview question;
+- capability deep-dive встроен в Interview Lab и Master Map.
+
+### Важное уточнение
+
+`RAG 2.0`, `Harness`, `Loop Engineering`, `Graph Engineering`, `Stateless MCP` не трактуются как единые формальные стандарты. На сайте они раскрываются через конкретные механизмы, чтобы не превращать резюме и подготовку в набор buzzwords.
+
+### Следующий шаг
+
+Добавить для каждого capability visual poster + практический LAB/evidence link.
