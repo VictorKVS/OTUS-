@@ -367,3 +367,44 @@ Context Builder не владеет требованиями. Intake/Requirement
 ## 2026-09-28 — STEP 06 started
 
 **Статус:** IN PROGRESS.
+
+
+---
+
+## 2026-09-29 — Interview Preparation Lab
+
+**Ветка:** `feature/interview-prep-lab`  
+**Статус:** IMPLEMENTED v1.
+
+### Цель
+
+Связать профессиональное позиционирование AI Systems / LLM / RAG с фактической программой подготовки к собеседованию и evidence-first правилами резюме.
+
+### Сделано
+
+- создан `docs/INTERVIEW_PREP_INDEX.md`;
+- создана `docs/INTERVIEW_COMPETENCY_MATRIX.md`;
+- добавлены отдельные playbooks по LLM/RAG, Agents/Secure AI, Backend/AI-assisted Engineering, Security Requirements/Compliance;
+- создана `docs/INTERVIEW_EVIDENCE_AND_CLAIMS_POLICY.md`;
+- создан machine-readable `site/data/interview-prep.json`;
+- создана интерактивная страница `site/interview-prep.html`;
+- добавлены статусы `LEARN / PRACTICE / READY` с localStorage;
+- Interview Lab встроен в основной Architecture Cockpit.
+
+### Архитектурный принцип
+
+`CV Claim → Competency → 60-sec Answer → Diagram → Practical Example → Trap Questions → Evidence`.
+
+Внутренние имена проектов не используются в публичной формулировке компетенций; PROJECT и WORK не смешиваются.
+
+### Что стоит улучшить
+
+- добавить режим quiz/exam;
+- добавить 20 вопросов на каждый блок;
+- связать READY с evidence registry, не только с локальным самоотмечанием;
+- добавить карточки типовых архитектурных задач и mock interview;
+- позже связать компетенции с реальными вакансиями и частотностью требований рынка.
+
+### Следующий шаг
+
+**Interview Lab v2 — Question Bank + Mock Interview + Evidence Links.**
