@@ -79,21 +79,23 @@
       "id": 1,
       "title": "Пресейл, контракты и работа с требованиями",
       "gate": "G1",
-      "status": "materials",
+      "status": "draft",
       "evidence": "BUS · REQ · границы проекта",
       "path": "1. Пресейл, контракты и работа с требованиями закладываем фундамент проекта",
-      "expertPath": "./lesson-01.html",
-      "maturity": "M0",
+      "expertPath": "./lesson-template.html?id=1",
+      "maturity": "M1",
       "curriculum": {
         "source_path": "1. Пресейл, контракты и работа с требованиями закладываем фундамент проекта",
         "status": "materials"
       },
       "architect_pro": {
-        "page": "./lesson-01.html",
+        "page": "./lesson-template.html?id=1",
         "status": "active"
       },
       "father_production": {
         "capability_ids": [
+          "FTH-INT-001",
+          "FTH-REQ-001",
           "FTH-CTX-001"
         ]
       }
