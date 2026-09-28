@@ -30,3 +30,7 @@ AI: `Requirement → Data → Retrieval/Context → Model → Tool/Agent → Val
 Security / Compliance: `Source → Requirement → Applicability → Gap → Control → Architecture → Implementation → Test → Evidence`
 
 Страница `site/interview-prep.html` показывает этот набор как интерактивную карту подготовки.
+
+## Visual Reference Library
+
+Для визуальных паттернов, алгоритмов, архитектурных схем и источников с учётом reuse/licensing используем `VISUAL_REFERENCE_LIBRARY.md` и machine-readable `site/data/visual-source-library.json`.
