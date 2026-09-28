@@ -68,6 +68,49 @@
       "maturity": "M0"
     },
     {
+      "id": "FTH-EST-001",
+      "name": "Estimation & Planning Service",
+      "domain": "Planning",
+      "capabilities": [
+        "WBS",
+        "Analogous / Parametric / PERT / Bottom-Up",
+        "Schedule & Resource Estimation"
+      ],
+      "lessons": [
+        2,
+        3,
+        16,
+        17,
+        18,
+        20,
+        28
+      ],
+      "maturity": "M1"
+    },
+    {
+      "id": "FTH-RSK-001",
+      "name": "Risk & Change Control Service",
+      "domain": "Governance",
+      "capabilities": [
+        "Risk Register",
+        "Risk Buffer",
+        "Scope Creep Control",
+        "Change Request"
+      ],
+      "lessons": [
+        2,
+        3,
+        8,
+        9,
+        10,
+        14,
+        20,
+        28,
+        30
+      ],
+      "maturity": "M1"
+    },
+    {
       "id": "FTH-HARNESS-001",
       "name": "AI Harness",
       "domain": "Runtime",
