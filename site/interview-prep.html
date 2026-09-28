@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Interview Preparation Lab — карта подготовки по LLM, RAG, AI Agents, Secure AI, Backend и Security Architecture." />
+  <title>Interview Preparation Lab · OTUS Architecture Cockpit</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./interview-prep.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./index.html"><span class="brand-mark">IP</span><span><strong>Interview Preparation Lab</strong><small>OTUS · Architecture Cockpit</small></span></a>
+    <nav class="nav" aria-label="Навигация">
+      <a href="./index.html">Cockpit</a>
+      <a href="#tracks">Компетенции</a>
+      <a href="#workflow">Метод</a>
+      <a href="../docs/INTERVIEW_PREP_INDEX.md">Документы</a>
+      <a href="../docs/VISUAL_REFERENCE_LIBRARY.md">Reference Library</a>
+      <a href="./ai-capability-stack-2026.html">AI Stack 2026</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему">◐</button>
+  </header>
+
+  <main>
+    <section class="hero prep-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Interview Lab · evidence-first</p>
+        <h1>Каждая строка резюме должна быть <span>защищаемой на собеседовании</span></h1>
+        <p class="hero-text">Практическая карта подготовки для профиля AI Systems / LLM / RAG с Secure AI, compliance и архитектурой корпоративной безопасности.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#tracks">Начать подготовку</a>
+          <a class="btn" href="../docs/INTERVIEW_COMPETENCY_MATRIX.md">Открыть матрицу</a>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <p class="eyebrow">Progress</p>
+        <div class="prep-progress"><b id="readyCount">0</b><span>/ <span id="totalCount">0</span> READY</span></div>
+        <div class="progress large"><i id="totalProgress" style="width:0%"></i></div>
+        <p class="muted">Прогресс хранится только в localStorage браузера. Evidence — только реальные артефакты, тесты и опыт.</p>
+      </div>
+    </section>
+
+    <section class="section" id="workflow">
+      <div class="section-head"><div><p class="eyebrow">Method</p><h2>Единый цикл подготовки</h2></div></div>
+      <div class="chain" id="prepChain"></div>
+    </section>
+
+    <section class="section split" id="capability-stack">
+      <div>
+        <p class="eyebrow">Capability Stack 2026</p>
+        <h2>От prompt к полноценной AI-платформе</h2>
+        <p>Отдельный deep-dive разбирает Harness, Context/Loop/Graph Engineering, MCP, Agentic AI, RAG 2.0, Memory, Tool Use, Vector DB, Fine-tuning, Evaluation, Guardrails, Observability, Synthetic Data, Distillation, AI Gateway и AI FinOps.</p>
+        <div class="hero-actions"><a class="btn primary" href="./ai-capability-stack-2026.html">Открыть 22 capability</a><a class="btn" href="../docs/AI_CAPABILITY_STACK_2026_DEEP_DIVE.md">Документ</a></div>
+      </div>
+      <aside class="panel"><h3>Правило</h3><p>Не учим buzzwords. Для каждого термина: тип → назначение → pipeline → входы/выходы → риски → mapping → вопрос собеседования.</p></aside>
+    </section>
+
+    <section class="section" id="tracks">
+      <div class="section-head course-head">
+        <div><p class="eyebrow">Competency map</p><h2>9 блоков собеседования</h2></div>
+        <div class="filters"><input id="trackSearch" type="search" placeholder="Поиск: RAG, MCP, RBAC…" /><select id="trackFilter"><option value="all">Все</option><option value="learn">LEARN</option><option value="practice">PRACTICE</option><option value="ready">READY</option></select></div>
+      </div>
+      <div class="prep-grid" id="trackGrid"></div>
+    </section>
+
+    <section class="section split">
+      <div>
+        <p class="eyebrow">Interview rule</p>
+        <h2>Не учим слова — защищаем решения</h2>
+        <p>Для каждого навыка готовим четыре вещи: объяснение за 60 секунд, схему, реальный пример и ответ на каверзный вопрос. Если этого нет, навык остаётся в PRACTICE.</p>
+      </div>
+      <aside class="panel">
+        <h3>Evidence policy</h3>
+        <p>WORK ≠ PROJECT ≠ LAB ≠ KNOWLEDGE. Внутренние имена проектов в публичном резюме заменяются функциональными названиями, а неподтверждённые метрики не публикуются.</p>
+        <a class="inline-link" href="../docs/INTERVIEW_EVIDENCE_AND_CLAIMS_POLICY.md">Открыть правила →</a>
+      </aside>
+    </section>
+  </main>
+
+  <footer><span>OTUS Architecture Cockpit · Interview Preparation Lab</span><a href="../docs/INTERVIEW_PREP_INDEX.md">Preparation Pack ↗</a></footer>
+  <script src="./interview-prep.js"></script>
+</body>
+</html>

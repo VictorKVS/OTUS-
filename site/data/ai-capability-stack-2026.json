@@ -1,0 +1,693 @@
+{
+  "schema_version": "ai-capability-stack-2026.v1",
+  "source_basis": "user-provided 2023 vs 2026 capability image; expanded into engineering definitions",
+  "updated": "2026-09-29",
+  "items": [
+    {
+      "id": "harness",
+      "name": "AI Harness",
+      "kind": "Platform runtime pattern",
+      "std": false,
+      "level": "L2–L3",
+      "short": "Общий runtime-контур, который оборачивает вызовы моделей, tools, retrieval, policies, tracing и retries в единый управляемый слой.",
+      "purpose": "Не давать каждому AI-сервису самостоятельно реализовывать одинаковые integration/security/observability механизмы.",
+      "flow": "App → Harness → Context/RAG → Model/Agent → Tool → Validation/Trace",
+      "inputs": [
+        "request",
+        "identity/claims",
+        "context",
+        "policy",
+        "model/tool config"
+      ],
+      "outputs": [
+        "validated response",
+        "tool results",
+        "trace",
+        "metrics",
+        "audit events"
+      ],
+      "risks": [
+        "монолитный mega-wrapper",
+        "скрытая магия без прозрачных контрактов",
+        "single point of failure"
+      ],
+      "father": [
+        "FTH-HARNESS-001",
+        "FTH-GTW-001",
+        "FTH-OBS-001"
+      ],
+      "interview": "Что должен делать AI Harness, а что нужно оставить бизнес-сервису?"
+    },
+    {
+      "id": "context-engineering",
+      "name": "Context Engineering",
+      "kind": "Engineering discipline",
+      "std": false,
+      "level": "L3",
+      "short": "Проектирование полного контекста модели: instructions, retrieved knowledge, memory, tool results, user state и ограничения.",
+      "purpose": "Повысить качество и управляемость ответа без попытки решить всё одним prompt.",
+      "flow": "Intent → Context selection → Retrieval/Memory → Compression/Ordering → Prompt assembly → Model",
+      "inputs": [
+        "user intent",
+        "system policy",
+        "retrieved chunks",
+        "memory",
+        "tool outputs"
+      ],
+      "outputs": [
+        "bounded context package",
+        "provenance metadata"
+      ],
+      "risks": [
+        "context overflow",
+        "conflicting instructions",
+        "stale memory",
+        "data leakage"
+      ],
+      "father": [
+        "FTH-CTX-001",
+        "FTH-PRM-001",
+        "FTH-KNW-001",
+        "FTH-MEM-001"
+      ],
+      "interview": "Чем context engineering отличается от prompt engineering?"
+    },
+    {
+      "id": "loop-engineering",
+      "name": "Loop Engineering",
+      "kind": "Agent/workflow practice",
+      "std": false,
+      "level": "L2",
+      "short": "Проектирование повторяющегося цикла perceive/decide/act/observe с явными условиями остановки, retries и budget limits.",
+      "purpose": "Сделать агентный цикл предсказуемым и не допустить бесконечных или дорогостоящих проходов.",
+      "flow": "Observe → Decide → Act → Validate → Update state → Stop/Repeat",
+      "inputs": [
+        "goal",
+        "state",
+        "tool results",
+        "budgets"
+      ],
+      "outputs": [
+        "next action",
+        "updated state",
+        "final result"
+      ],
+      "risks": [
+        "infinite loops",
+        "tool thrashing",
+        "cost explosion",
+        "state drift"
+      ],
+      "father": [
+        "FTH-WFG-001",
+        "FTH-AGT-001",
+        "FTH-FIN-001"
+      ],
+      "interview": "Какие stop conditions и budgets должны быть у agent loop?"
+    },
+    {
+      "id": "graph-engineering",
+      "name": "Graph Engineering",
+      "kind": "Workflow/state-machine practice",
+      "std": false,
+      "level": "L2–L3",
+      "short": "Представление AI-workflow как графа узлов, переходов, условий, состояния и error paths.",
+      "purpose": "Делать сложный workflow наблюдаемым, тестируемым и управляемым вместо неявной цепочки prompts.",
+      "flow": "State → Node → Conditional edge → Node/Tool → State update → End",
+      "inputs": [
+        "workflow state",
+        "events",
+        "policies"
+      ],
+      "outputs": [
+        "state transitions",
+        "execution trace"
+      ],
+      "risks": [
+        "слишком сложный граф",
+        "неявные side effects",
+        "трудная отладка циклов"
+      ],
+      "father": [
+        "FTH-WFG-001",
+        "FTH-SUP-001",
+        "FTH-OBS-001"
+      ],
+      "interview": "Когда graph/state-machine лучше свободного agent loop?"
+    },
+    {
+      "id": "mcp",
+      "name": "MCP",
+      "kind": "Open protocol / integration standard",
+      "std": true,
+      "level": "L1–L2",
+      "short": "Протокол унифицированного подключения AI-приложений к tools/resources/prompts через MCP client/server.",
+      "purpose": "Снизить количество bespoke-интеграций между агентами и внешними системами.",
+      "flow": "Host → MCP Client → MCP Server → Tool / Resource / Prompt",
+      "inputs": [
+        "capabilities",
+        "tool/resource requests",
+        "auth context"
+      ],
+      "outputs": [
+        "tool/resource results",
+        "protocol events"
+      ],
+      "risks": [
+        "ошибка считать MCP security boundary",
+        "избыточные permissions",
+        "непроверенные servers/tools"
+      ],
+      "father": [
+        "FTH-MCP-001",
+        "FTH-TOL-001",
+        "FTH-POL-001"
+      ],
+      "interview": "Что MCP стандартизирует, а что он не решает автоматически?"
+    },
+    {
+      "id": "stateless-mcp",
+      "name": "Stateless MCP",
+      "kind": "Deployment pattern, not separate standard",
+      "std": false,
+      "level": "L1–L2",
+      "short": "Архитектурный вариант MCP-сервиса, где критичное состояние не хранится в локальной session memory сервера между запросами.",
+      "purpose": "Упростить горизонтальное масштабирование, recovery и cloud/serverless deployment.",
+      "flow": "Request + identity + explicit state → MCP server → Tool → Response",
+      "inputs": [
+        "self-contained request",
+        "external/shared state reference"
+      ],
+      "outputs": [
+        "response without hidden local session dependency"
+      ],
+      "risks": [
+        "потеря полезного session context",
+        "перенос state complexity во внешнее хранилище",
+        "ошибки idempotency"
+      ],
+      "father": [
+        "FTH-MCP-001",
+        "FTH-REL-001"
+      ],
+      "interview": "Почему stateless MCP удобнее масштабировать и где всё равно живёт state?"
+    },
+    {
+      "id": "agentic-ai",
+      "name": "Agentic AI",
+      "kind": "Architecture pattern",
+      "std": false,
+      "level": "L2–L3",
+      "short": "AI-система, где модель участвует в выборе действий и может использовать tools в цикле до достижения цели.",
+      "purpose": "Решать задачи, где заранее нельзя полностью прописать последовательность шагов.",
+      "flow": "Goal → Observe → Decide → Tool/Action → Result → Replan/Finish",
+      "inputs": [
+        "goal",
+        "state",
+        "tools",
+        "policies"
+      ],
+      "outputs": [
+        "actions",
+        "artifacts",
+        "final answer"
+      ],
+      "risks": [
+        "excessive agency",
+        "unsafe tool use",
+        "nondeterminism",
+        "unbounded cost"
+      ],
+      "father": [
+        "FTH-AGT-001",
+        "FTH-TOL-001",
+        "FTH-POL-001"
+      ],
+      "interview": "Чем agent отличается от deterministic workflow?"
+    },
+    {
+      "id": "multi-agent",
+      "name": "Multi-Agent Systems",
+      "kind": "Architecture pattern",
+      "std": false,
+      "level": "L2",
+      "short": "Несколько агентов с разделёнными ролями, контекстами, tools или зонами ответственности.",
+      "purpose": "Разделять сложные задачи и ограничения, когда один агент становится слишком перегруженным.",
+      "flow": "Supervisor/Router → Specialist agents → Review/Aggregation → Result",
+      "inputs": [
+        "task decomposition",
+        "agent roles",
+        "shared or isolated state"
+      ],
+      "outputs": [
+        "specialist results",
+        "handoffs",
+        "aggregated result"
+      ],
+      "risks": [
+        "coordination overhead",
+        "контекстные конфликты",
+        "дорогие лишние вызовы",
+        "сложная трассировка"
+      ],
+      "father": [
+        "FTH-AGT-001",
+        "FTH-SUP-001",
+        "FTH-WFG-001"
+      ],
+      "interview": "Когда multi-agent хуже одного агента или обычного workflow?"
+    },
+    {
+      "id": "rag-2",
+      "name": "RAG 2.0",
+      "kind": "Umbrella term, not formal standard",
+      "std": false,
+      "level": "L2–L3",
+      "short": "Условное название production-RAG: hybrid retrieval, reranking, query rewriting/routing, metadata/ACL, GraphRAG, eval и provenance.",
+      "purpose": "Уйти от простого 'embedding → top-k → prompt' к управляемой retrieval-системе.",
+      "flow": "Query → Rewrite/Route → Dense+Sparse/Graph → Fusion → Rerank → ACL/Context → LLM → Citation/Eval",
+      "inputs": [
+        "query",
+        "identity",
+        "indexes",
+        "metadata",
+        "graph"
+      ],
+      "outputs": [
+        "ranked authorized context",
+        "grounded answer",
+        "citations"
+      ],
+      "risks": [
+        "маркетинговая неопределённость термина",
+        "сложность без измеримого выигрыша",
+        "retrieval leakage"
+      ],
+      "father": [
+        "FTH-KNW-001",
+        "FTH-RAG-001",
+        "FTH-EVL-001"
+      ],
+      "interview": "Что вы называете RAG 2.0 и какие улучшения должны подтверждаться метриками?"
+    },
+    {
+      "id": "memory-layers",
+      "name": "Memory Layers",
+      "kind": "Architecture pattern",
+      "std": false,
+      "level": "L2",
+      "short": "Разделение памяти на short-term context, working state, episodic/history, semantic/knowledge и long-term profile.",
+      "purpose": "Не смешивать текущую задачу, историю пользователя и постоянные знания в одном бесконтрольном prompt.",
+      "flow": "Event → Memory policy → Short/Working/Long-term store → Retrieval → Context",
+      "inputs": [
+        "conversation events",
+        "workflow state",
+        "facts",
+        "retention policy"
+      ],
+      "outputs": [
+        "selected memory context",
+        "updated durable memory"
+      ],
+      "risks": [
+        "privacy",
+        "stale/false memories",
+        "неограниченный retention",
+        "cross-user leakage"
+      ],
+      "father": [
+        "FTH-MEM-001",
+        "FTH-CTX-001",
+        "FTH-POL-001"
+      ],
+      "interview": "Какие типы memory вы бы разделили и кто решает, что записывать навсегда?"
+    },
+    {
+      "id": "tool-use",
+      "name": "Tool Use",
+      "kind": "Agent capability",
+      "std": false,
+      "level": "L2–L3",
+      "short": "Возможность модели/агента выбирать разрешённый внешний инструмент для получения данных или выполнения действия.",
+      "purpose": "Расширить систему за пределы генерации текста.",
+      "flow": "Model proposes tool → Policy/Validation → Execute → Result → Model",
+      "inputs": [
+        "tool registry",
+        "schemas",
+        "permissions",
+        "model decision"
+      ],
+      "outputs": [
+        "tool call",
+        "validated tool result"
+      ],
+      "risks": [
+        "over-permission",
+        "prompt injection to tool",
+        "side effects",
+        "bad arguments"
+      ],
+      "father": [
+        "FTH-TOL-001",
+        "FTH-POL-001",
+        "FTH-OBS-001"
+      ],
+      "interview": "Почему tool execution нельзя доверять одной только LLM?"
+    },
+    {
+      "id": "function-calling",
+      "name": "Function Calling",
+      "kind": "Model/API capability",
+      "std": false,
+      "level": "L2",
+      "short": "Структурированный способ, при котором модель формирует имя функции/tool и аргументы по заданной schema.",
+      "purpose": "Связать natural language decision с программным интерфейсом без парсинга свободного текста.",
+      "flow": "Tool schema → Model → {name,args} → Validation → Function → Result",
+      "inputs": [
+        "tool schema",
+        "user/context"
+      ],
+      "outputs": [
+        "structured tool invocation"
+      ],
+      "risks": [
+        "schema-valid ≠ business-valid",
+        "hallucinated/unsafe args",
+        "неверный tool selection"
+      ],
+      "father": [
+        "FTH-TOL-001",
+        "FTH-HARNESS-001"
+      ],
+      "interview": "Чем function calling отличается от фактического выполнения функции?"
+    },
+    {
+      "id": "vector-db",
+      "name": "Vector Databases",
+      "kind": "Data infrastructure",
+      "std": false,
+      "level": "L2",
+      "short": "Хранилища/индексы для embeddings и similarity search; могут быть специализированными или расширением обычной БД.",
+      "purpose": "Быстро находить семантически близкие chunks/items.",
+      "flow": "Text → Embedding → Vector index; Query → Embedding → ANN search → candidates",
+      "inputs": [
+        "vectors",
+        "metadata",
+        "filters"
+      ],
+      "outputs": [
+        "nearest candidates",
+        "scores"
+      ],
+      "risks": [
+        "игнорирование lexical search",
+        "неправильная distance metric",
+        "ACL/metadata filtering after retrieval"
+      ],
+      "father": [
+        "FTH-RAG-001",
+        "FTH-KNW-001"
+      ],
+      "interview": "Когда pgvector достаточно, а когда нужен отдельный vector database?"
+    },
+    {
+      "id": "fine-tuning",
+      "name": "Fine-tuning",
+      "kind": "Model adaptation technique",
+      "std": true,
+      "level": "L1–L2",
+      "short": "Дополнительное обучение базовой модели на специализированных данных для изменения поведения/стиля/способности решать определённый класс задач.",
+      "purpose": "Когда prompt/RAG недостаточно для устойчивого поведения или specialized task.",
+      "flow": "Curated dataset → Train/adapt → Evaluate → Register → Deploy",
+      "inputs": [
+        "training examples",
+        "base model",
+        "evaluation set"
+      ],
+      "outputs": [
+        "adapted model/checkpoint"
+      ],
+      "risks": [
+        "data quality",
+        "overfitting",
+        "forgetting",
+        "training cost",
+        "license/privacy"
+      ],
+      "father": [
+        "FTH-MDL-001",
+        "FTH-MRG-001",
+        "FTH-EVL-001"
+      ],
+      "interview": "Когда fine-tuning оправдан, а когда лучше RAG?"
+    },
+    {
+      "id": "evaluation",
+      "name": "Evaluation Frameworks",
+      "kind": "Quality engineering",
+      "std": false,
+      "level": "L2–L3",
+      "short": "Система тестовых datasets, evaluators, experiments и regression gates для измерения AI-качества.",
+      "purpose": "Заменить 'кажется, стало лучше' воспроизводимым сравнением.",
+      "flow": "Golden set → Run → Deterministic/LLM/Human eval → Metrics → Compare → Gate",
+      "inputs": [
+        "test cases",
+        "expected outputs/sources",
+        "traces"
+      ],
+      "outputs": [
+        "metrics",
+        "failures",
+        "regression decision"
+      ],
+      "risks": [
+        "метрики не отражают бизнес-ценность",
+        "judge bias",
+        "test leakage",
+        "малый dataset"
+      ],
+      "father": [
+        "FTH-EVL-001",
+        "FTH-OBS-001"
+      ],
+      "interview": "Какие проверки AI-системы можно сделать детерминированно, а где нужен human/LLM judge?"
+    },
+    {
+      "id": "guardrails",
+      "name": "Guardrails",
+      "kind": "Safety/security control layer",
+      "std": false,
+      "level": "L2",
+      "short": "Совокупность ограничений вокруг input, retrieval, model output и tool actions.",
+      "purpose": "Не считать prompt единственной линией защиты.",
+      "flow": "Input policy → Retrieval ACL → Model → Output/schema policy → Tool policy → Audit",
+      "inputs": [
+        "policy",
+        "identity",
+        "content",
+        "tool calls"
+      ],
+      "outputs": [
+        "allow/deny/transform/escalate decisions"
+      ],
+      "risks": [
+        "ложное чувство безопасности",
+        "обходы",
+        "слишком жёсткие false positives"
+      ],
+      "father": [
+        "FTH-POL-001",
+        "FTH-HARNESS-001"
+      ],
+      "interview": "Что такое guardrails без маркетинга и почему это не одна библиотека?"
+    },
+    {
+      "id": "observability",
+      "name": "Observability",
+      "kind": "Operations discipline",
+      "std": true,
+      "level": "L2–L3",
+      "short": "Трассировка и измерение prompts, retrieval, tool calls, model usage, latency, cost, errors и outcomes.",
+      "purpose": "Понимать, почему AI-система дала конкретный результат и где возник сбой.",
+      "flow": "Request → Spans/Traces/Metrics/Logs → Correlation → Dashboard/Alert → Investigation",
+      "inputs": [
+        "runtime events",
+        "trace IDs",
+        "model/tool metadata"
+      ],
+      "outputs": [
+        "traces",
+        "metrics",
+        "alerts",
+        "audit evidence"
+      ],
+      "risks": [
+        "логирование чувствительных данных",
+        "дорогая телеметрия",
+        "нет корреляции end-to-end"
+      ],
+      "father": [
+        "FTH-OBS-001",
+        "FTH-EVL-001",
+        "FTH-FIN-001"
+      ],
+      "interview": "Что логировать в RAG/agent trace и что нельзя писать в лог бездумно?"
+    },
+    {
+      "id": "prompt-optimization",
+      "name": "Prompt Optimization",
+      "kind": "Optimization practice",
+      "std": false,
+      "level": "L2",
+      "short": "Систематическое улучшение prompt/templates по eval-набору, а не ручная правка на отдельных примерах.",
+      "purpose": "Повышать task success/format adherence/robustness с контролем регрессий.",
+      "flow": "Prompt version → Eval run → Error analysis → Candidate change → A/B/Regression → Promote",
+      "inputs": [
+        "prompt versions",
+        "eval set",
+        "metrics"
+      ],
+      "outputs": [
+        "versioned prompt",
+        "comparison report"
+      ],
+      "risks": [
+        "overfit to eval set",
+        "prompt bloat",
+        "скрытая зависимость от одной модели"
+      ],
+      "father": [
+        "FTH-PRM-001",
+        "FTH-EVL-001"
+      ],
+      "interview": "Как вы докажете, что новый prompt лучше старого?"
+    },
+    {
+      "id": "synthetic-data",
+      "name": "Synthetic Data",
+      "kind": "Data engineering technique",
+      "std": false,
+      "level": "L1–L2",
+      "short": "Искусственно сгенерированные примеры для training/eval/stress/security scenarios, прошедшие quality checks.",
+      "purpose": "Расширять редкие сценарии и тестировать систему без раскрытия части реальных данных.",
+      "flow": "Scenario/spec → Generate → Filter/Validate → Deduplicate → Human sample review → Dataset",
+      "inputs": [
+        "scenario taxonomy",
+        "generation model/rules",
+        "quality criteria"
+      ],
+      "outputs": [
+        "synthetic examples",
+        "labels",
+        "provenance"
+      ],
+      "risks": [
+        "model bias copied into dataset",
+        "duplicates",
+        "synthetic artifacts",
+        "false confidence"
+      ],
+      "father": [
+        "FTH-SYN-001",
+        "FTH-EVL-001"
+      ],
+      "interview": "Как убедиться, что synthetic dataset не ухудшает evaluation?"
+    },
+    {
+      "id": "distillation",
+      "name": "Distillation",
+      "kind": "Model compression/adaptation technique",
+      "std": true,
+      "level": "L1",
+      "short": "Обучение меньшей student-модели воспроизводить поведение/распределения более сильной teacher-модели.",
+      "purpose": "Снизить latency/cost и получить компактную специализированную модель.",
+      "flow": "Teacher outputs/logits → Training data → Student → Evaluation → Deploy",
+      "inputs": [
+        "teacher",
+        "student",
+        "task data",
+        "eval set"
+      ],
+      "outputs": [
+        "smaller adapted model"
+      ],
+      "risks": [
+        "потеря качества",
+        "наследование ошибок teacher",
+        "дорогая подготовка данных"
+      ],
+      "father": [
+        "FTH-MDL-001",
+        "FTH-EVL-001",
+        "FTH-FIN-001"
+      ],
+      "interview": "Чем distillation отличается от обычного fine-tuning?"
+    },
+    {
+      "id": "ai-gateway",
+      "name": "AI Gateways",
+      "kind": "Platform infrastructure pattern",
+      "std": false,
+      "level": "L2–L3",
+      "short": "Единая точка доступа к нескольким model providers/backends с routing, quotas, auth, fallback, logging и cost control.",
+      "purpose": "Не связывать бизнес-код напрямую с конкретным LLM provider.",
+      "flow": "App → AI Gateway → Policy/Route → Model A/B/Local → Response/Trace",
+      "inputs": [
+        "request",
+        "identity",
+        "routing policy",
+        "provider configs"
+      ],
+      "outputs": [
+        "provider response",
+        "usage/cost telemetry",
+        "fallback result"
+      ],
+      "risks": [
+        "gateway bottleneck",
+        "provider-specific features leak",
+        "centralized secret exposure"
+      ],
+      "father": [
+        "FTH-GTW-001",
+        "FTH-FIN-001",
+        "FTH-OBS-001"
+      ],
+      "interview": "Что должен делать AI Gateway и почему это не просто reverse proxy?"
+    },
+    {
+      "id": "cost-optimization",
+      "name": "Cost Optimization / AI FinOps",
+      "kind": "Economics/operations discipline",
+      "std": false,
+      "level": "L2",
+      "short": "Управление затратами на tokens, model choice, caching, retrieval, batching, GPU capacity и agent steps при сохранении SLO/quality.",
+      "purpose": "Оптимизировать unit economics AI-системы, а не просто выбирать самую дешёвую модель.",
+      "flow": "Measure usage → Attribute cost → Compare quality/SLO → Optimize → Budget/Alert → Re-evaluate",
+      "inputs": [
+        "tokens",
+        "latency",
+        "GPU/API usage",
+        "quality metrics",
+        "business volume"
+      ],
+      "outputs": [
+        "unit cost",
+        "budgets",
+        "routing rules",
+        "savings experiments"
+      ],
+      "risks": [
+        "экономия ценой качества",
+        "неучтённый retrieval/tool cost",
+        "agent loop explosion"
+      ],
+      "father": [
+        "FTH-FIN-001",
+        "FTH-GTW-001",
+        "FTH-EVL-001"
+      ],
+      "interview": "Какие оптимизации стоимости вы примените до перехода на более дешёвую модель?"
+    }
+  ]
+}

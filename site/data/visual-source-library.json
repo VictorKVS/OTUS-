@@ -1,0 +1,186 @@
+{
+  "version": "1.0",
+  "updated": "2026-09-29",
+  "sources": [
+    {
+      "id": "nist-ai-rmf",
+      "priority": "P0",
+      "category": "governance",
+      "title": "NIST AI RMF Playbook",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook",
+      "usage": "Govern/Map/Measure/Manage; risk lifecycle; evidence mapping",
+      "reuse": "REUSE_OK_WITH_CREDIT"
+    },
+    {
+      "id": "owasp-genai",
+      "priority": "P0",
+      "category": "secure-ai",
+      "title": "OWASP GenAI Top 10",
+      "url": "https://genai.owasp.org/llm-top-10/",
+      "usage": "LLM/GenAI risks and mitigations",
+      "reuse": "CHECK_PROJECT_CC_LICENSE"
+    },
+    {
+      "id": "owasp-agentic",
+      "priority": "P0",
+      "category": "secure-ai",
+      "title": "OWASP Agentic AI Threats and Mitigations",
+      "url": "https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/",
+      "usage": "agent threats, autonomy, tool/identity risks",
+      "reuse": "CHECK_PROJECT_CC_LICENSE"
+    },
+    {
+      "id": "mitre-atlas",
+      "priority": "P0",
+      "category": "secure-ai",
+      "title": "MITRE ATLAS",
+      "url": "https://atlas.mitre.org/",
+      "usage": "AI tactics, techniques, mitigations, cases",
+      "reuse": "REDRAW_CITE_CHECK_LICENSE"
+    },
+    {
+      "id": "gcp-rag",
+      "priority": "P0",
+      "category": "rag",
+      "title": "Google Cloud RAG Reference Architectures",
+      "url": "https://docs.cloud.google.com/architecture/rag-reference-architectures",
+      "usage": "ingestion/serving/evaluation/GraphRAG/CI-CD",
+      "reuse": "CC_BY_4_WHERE_NOTED"
+    },
+    {
+      "id": "azure-ai",
+      "priority": "P0",
+      "category": "architecture",
+      "title": "Azure Architecture Center — AI Overview",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/ai-overview",
+      "usage": "RAG architecture and context engineering",
+      "reuse": "REDRAW_CITE_CHECK_ASSET_LICENSE"
+    },
+    {
+      "id": "aws-genai",
+      "priority": "P0",
+      "category": "architecture",
+      "title": "AWS Generative AI Application Builder Architecture",
+      "url": "https://docs.aws.amazon.com/solutions/latest/generative-ai-application-builder-on-aws/architecture-overview.html",
+      "usage": "reference deployment patterns",
+      "reuse": "REDRAW_CITE_AWS_TERMS"
+    },
+    {
+      "id": "anthropic-agents",
+      "priority": "P0",
+      "category": "agents",
+      "title": "Anthropic — Building Effective AI Agents",
+      "url": "https://resources.anthropic.com/building-effective-ai-agents",
+      "usage": "workflow/agent patterns and orchestration",
+      "reuse": "INSPIRE_REDRAW"
+    },
+    {
+      "id": "hf-agents",
+      "priority": "P0",
+      "category": "agents",
+      "title": "Hugging Face AI Agents Course",
+      "url": "https://huggingface.co/learn/agents-course/",
+      "usage": "agent fundamentals, frameworks, agentic RAG, eval",
+      "reuse": "REDRAW_CITE_CHECK_ASSET_LICENSE"
+    },
+    {
+      "id": "langchain-learn",
+      "priority": "P0",
+      "category": "agents",
+      "title": "LangChain / LangGraph Learn",
+      "url": "https://docs.langchain.com/oss/python/learn",
+      "usage": "RAG agents, routers, subagents, memory, context engineering",
+      "reuse": "REDRAW_CITE"
+    },
+    {
+      "id": "mcp",
+      "priority": "P0",
+      "category": "agents",
+      "title": "Model Context Protocol — Official Spec",
+      "url": "https://modelcontextprotocol.io/specification/draft/server/index",
+      "usage": "prompts/resources/tools, client-server boundaries",
+      "reuse": "REDRAW_CITE_CHECK_LICENSE"
+    },
+    {
+      "id": "qdrant-hybrid",
+      "priority": "P0",
+      "category": "retrieval",
+      "title": "Qdrant Hybrid Search with Reranking",
+      "url": "https://qdrant.tech/documentation/tutorials-basics/reranking-hybrid-search/",
+      "usage": "dense+sparse+late interaction pipeline",
+      "reuse": "REDRAW_CITE"
+    },
+    {
+      "id": "weaviate-hybrid",
+      "priority": "P0",
+      "category": "retrieval",
+      "title": "Weaviate Hybrid Search",
+      "url": "https://weaviate.io/developers/weaviate/concepts/search/hybrid-search",
+      "usage": "vector+BM25 fusion and weighting",
+      "reuse": "REDRAW_CITE"
+    },
+    {
+      "id": "pinecone-rag",
+      "priority": "P0",
+      "category": "retrieval",
+      "title": "Pinecone RAG Series",
+      "url": "https://www.pinecone.io/learn/series/rag/",
+      "usage": "reranking, embeddings, retrieval patterns",
+      "reuse": "REDRAW_CITE"
+    },
+    {
+      "id": "neo4j-graphrag",
+      "priority": "P0",
+      "category": "graph",
+      "title": "Neo4j GraphRAG Developer Guide",
+      "url": "https://neo4j.com/developer/genai-ecosystem/",
+      "usage": "knowledge graph and GraphRAG patterns",
+      "reuse": "REDRAW_CITE"
+    },
+    {
+      "id": "phoenix",
+      "priority": "P1",
+      "category": "evaluation",
+      "title": "Arize Phoenix",
+      "url": "https://arize.com/docs/phoenix/",
+      "usage": "tracing, evals, datasets, experiments",
+      "reuse": "INSPIRE_REDRAW"
+    },
+    {
+      "id": "c4",
+      "priority": "P1",
+      "category": "visualization",
+      "title": "C4 Model",
+      "url": "https://c4model.com/",
+      "usage": "architecture zoom levels and notation",
+      "reuse": "INSPIRE_REDRAW"
+    },
+    {
+      "id": "structurizr",
+      "priority": "P1",
+      "category": "visualization",
+      "title": "Structurizr",
+      "url": "https://docs.structurizr.com/",
+      "usage": "models-as-code and interactive architecture",
+      "reuse": "TOOLING_OWN_MODELS"
+    },
+    {
+      "id": "mermaid",
+      "priority": "P1",
+      "category": "visualization",
+      "title": "Mermaid Architecture Diagrams",
+      "url": "https://mermaid.js.org/syntax/architecture",
+      "usage": "diagram-as-code",
+      "reuse": "TOOLING_OWN_DIAGRAMS"
+    },
+    {
+      "id": "bytebytego",
+      "priority": "P1",
+      "category": "visualization",
+      "title": "ByteByteGo System Design Visuals",
+      "url": "https://bytebytego.com/guides/a-cheat-sheet-for-system-designs/",
+      "usage": "visual storytelling and poster density",
+      "reuse": "INSPIRE_ONLY"
+    }
+  ]
+}

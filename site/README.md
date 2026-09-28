@@ -118,3 +118,22 @@ Lesson 01 теперь служит эталоном: schema + visual + OTUS + A
 - data: `data/lesson-details/02.json`
 
 Production mapping: Requirements → Estimation/Planning → Risk/Change Control → FinOps.
+
+
+## Interview Preparation Lab
+
+Добавлен отдельный контур подготовки к техническим собеседованиям:
+
+- [Interview Preparation Lab](./interview-prep.html)
+- [Preparation Pack](../docs/INTERVIEW_PREP_INDEX.md)
+- [Competency Matrix](../docs/INTERVIEW_COMPETENCY_MATRIX.md)
+- LLM/RAG, Agents/Secure AI, Backend/AI-assisted Engineering, Security Requirements/Compliance playbooks;
+- интерактивные статусы `LEARN / PRACTICE / READY`, сохраняемые локально в браузере;
+- evidence policy: `WORK / PROJECT / LAB / KNOWLEDGE / VERIFY`.
+
+Interview Lab не меняет статусы уроков OTUS и не подменяет evidence. Это отдельный слой профессиональной подготовки поверх архитектурного проекта.
+
+
+## AI Capability Stack 2026
+
+Добавлена отдельная страница [AI Capability Stack 2026](./ai-capability-stack-2026.html) с инженерным разбором 22 capability из схемы 2023→2026. Для каждого capability фиксируются тип, назначение, pipeline, входы/выходы, риски, component mapping и вопрос собеседования.
