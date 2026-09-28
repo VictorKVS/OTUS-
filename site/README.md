@@ -132,3 +132,8 @@ Production mapping: Requirements → Estimation/Planning → Risk/Change Control
 - evidence policy: `WORK / PROJECT / LAB / KNOWLEDGE / VERIFY`.
 
 Interview Lab не меняет статусы уроков OTUS и не подменяет evidence. Это отдельный слой профессиональной подготовки поверх архитектурного проекта.
+
+
+## AI Capability Stack 2026
+
+Добавлена отдельная страница [AI Capability Stack 2026](./ai-capability-stack-2026.html) с инженерным разбором 22 capability из схемы 2023→2026. Для каждого capability фиксируются тип, назначение, pipeline, входы/выходы, риски, component mapping и вопрос собеседования.
