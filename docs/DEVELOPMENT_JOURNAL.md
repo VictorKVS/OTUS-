@@ -331,3 +331,39 @@ Context Builder не владеет требованиями. Intake/Requirement
 ### Цель
 
 Разобрать Lesson 02 по фактическим материалам и построить schema + visual + professional + production mapping.
+
+
+---
+
+## 2026-09-28 — STEP 05 completed
+
+**Статус:** DONE v1.
+
+### Сделано
+
+- создан `site/data/lesson-details/02.json`;
+- создан `site/assets/lesson-02-estimation-risk-cost.svg`;
+- Lesson 02 подключён к universal template;
+- добавлены `FTH-EST-001` и `FTH-RSK-001`;
+- Lesson 02 = `draft / M1`.
+
+### Source-derived scope
+
+Нормализованы: SRS/NFR, Analogous/Parametric/PERT/Bottom-Up, WBS, Risk Register, Change Request, TCO, unit economics, effort estimation.
+
+### Validation
+
+- 4/4 production IDs;
+- 11 artifacts;
+- 4 evidence;
+- 3 GAP.
+
+### Следующий шаг
+
+**STEP 06 — Lesson 03: PoC → Production.**
+
+---
+
+## 2026-09-28 — STEP 06 started
+
+**Статус:** IN PROGRESS.
