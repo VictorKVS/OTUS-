@@ -28,6 +28,46 @@
   ],
   "components": [
     {
+      "id": "FTH-INT-001",
+      "name": "Architect Intake Workspace",
+      "domain": "Requirements",
+      "capabilities": [
+        "Intake Pack",
+        "GAP Management",
+        "Stakeholder / Scope / Assumption Registers"
+      ],
+      "lessons": [
+        1,
+        2,
+        3
+      ],
+      "maturity": "M1"
+    },
+    {
+      "id": "FTH-REQ-001",
+      "name": "Requirements & Traceability Service",
+      "domain": "Requirements",
+      "capabilities": [
+        "Requirements Management",
+        "NFR Catalogue",
+        "Risk / Constraint Links",
+        "Decision Traceability"
+      ],
+      "lessons": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10,
+        14,
+        31
+      ],
+      "maturity": "M0"
+    },
+    {
       "id": "FTH-HARNESS-001",
       "name": "AI Harness",
       "domain": "Runtime",
