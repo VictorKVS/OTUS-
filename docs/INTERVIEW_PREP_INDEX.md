@@ -34,3 +34,8 @@ Security / Compliance: `Source → Requirement → Applicability → Gap → Con
 ## Visual Reference Library
 
 Для визуальных паттернов, алгоритмов, архитектурных схем и источников с учётом reuse/licensing используем `VISUAL_REFERENCE_LIBRARY.md` и machine-readable `site/data/visual-source-library.json`.
+
+
+## AI Capability Stack 2026
+
+Полный разбор терминов из capability stack 2026 находится в `AI_CAPABILITY_STACK_2026_DEEP_DIVE.md`. Machine-readable registry: `site/data/ai-capability-stack-2026.json`.
