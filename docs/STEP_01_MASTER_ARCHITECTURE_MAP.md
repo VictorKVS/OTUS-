@@ -150,3 +150,13 @@ STEP 01 считается закрытым только после двух о�
 - `FTH-REQ-001` — Requirements & Traceability Service.
 
 Причина: `FTH-CTX-001 Context Builder` не должен одновременно владеть жизненным циклом входных документов, GAP, требований, рисков и traceability. Контекст для AI строится поверх уже проверенного requirement/intake слоя.
+
+
+## Amendment v1.2 — Planning / Risk domain
+
+При нормализации Lesson 02 добавлены:
+
+- `FTH-EST-001` — Estimation & Planning Service;
+- `FTH-RSK-001` — Risk & Change Control Service.
+
+Оценка, risk/change lifecycle и FinOps разделены на разные ответственности: estimate строит план, risk service управляет неопределённостью/изменениями, FinOps — стоимостью и unit economics.
