@@ -21,9 +21,9 @@ async function init(){
  const poster=detail?.visual?.poster;
  document.querySelector("#posterWrap").innerHTML=poster?'<img src="'+escapeHtml(poster)+'" alt="'+escapeHtml(detail?.visual?.alt||lesson.title)+'"/>':'<div class="empty">GAP · visual poster будет создан при нормализации урока.</div>';
  document.querySelector("#curriculum").innerHTML='<p>'+escapeHtml(detail?.curriculum?.summary||lesson.evidence)+'</p>'+list(detail?.curriculum?.requirements||[]);
- document.querySelector("#architectPro").innerHTML='<p>'+escapeHtml(detail?.architect_pro?.summary||"Профессиональное расширение пока не нормализовано.")+'</p>'+list(detail?.architect_pro?.methods||[]);
+ document.querySelector("#architectPro").innerHTML='<p>'+escapeHtml(detail?.architect_pro?.summary||"Профессиональное расширение пока не нормализовано.")+'</p><b>Методы</b>'+list(detail?.architect_pro?.methods||[])+'<b>Шаблоны</b>'+list(detail?.architect_pro?.templates||[])+'<b>Red flags</b>'+list(detail?.architect_pro?.anti_patterns||[]);
  const ids=lesson.father_production?.capability_ids||[];const related=caps.components.filter(c=>ids.includes(c.id));
- document.querySelector("#fatherProduction").innerHTML='<p>'+escapeHtml(detail?.father_production?.summary||"Production mapping взят из capability manifest.")+'</p>'+list(related.map(c=>c.id+" · "+c.name));
+ document.querySelector("#fatherProduction").innerHTML='<p>'+escapeHtml(detail?.father_production?.summary||"Production mapping взят из capability manifest.")+'</p><b>Capabilities</b>'+list(related.map(c=>c.id+" · "+c.name))+'<b>Runtime notes</b>'+list(detail?.father_production?.runtime_notes||[]);
  document.querySelector("#artifacts").innerHTML=list(detail?.artifacts||[]);
  document.querySelector("#evidenceList").innerHTML=list(detail?.evidence||[]);
  document.querySelector("#traceability").innerHTML=list(detail?.traceability||[]);
