@@ -243,3 +243,48 @@ STEP 01 пока не закрыт: отсутствует отдельный в
 ### Первый контрольный пример
 
 Lesson 01: сохранить Architect Intake Pack, но привести страницу к общей структуре `Schema → Visual → OTUS → Architect Pro → FATHER Production → Evidence → Maturity`.
+
+
+---
+
+## 2026-09-28 — STEP 03 completed
+
+**Статус:** DONE v1.
+
+### Сделано
+
+- создан reusable lesson shell `site/lesson-template.html`;
+- создан manifest-driven runtime `site/lesson-template.js`;
+- создан общий responsive layout `site/lesson-template.css`;
+- создан detail-contract `site/data/lesson-detail-template.json`;
+- создан visual poster `site/assets/step-03-universal-lesson-template.svg`;
+- создана отдельная страница STEP 03;
+- fallback показывает GAP вместо выдуманных данных.
+
+### Validation
+
+- course facts загружаются из manifests;
+- layout отделён от lesson-specific content;
+- capability IDs подтягиваются из production mapping;
+- отсутствующий detail manifest не ломает страницу;
+- структура Schema → Visual → OTUS → Architect Pro → FATHER → Evidence → Maturity соблюдается.
+
+### Что стоит улучшить
+
+- добавить schema validation для detail manifests;
+- добавить prev/next lesson navigation;
+- добавить автоматический visual registry.
+
+### Следующий шаг
+
+**STEP 04 — Lesson 01 normalization.**
+
+---
+
+## 2026-09-28 — STEP 04 started
+
+**Статус:** IN PROGRESS.
+
+### Цель
+
+Перевести Lesson 01 на универсальный visual-first template без потери Architect Intake Pack, словаря и существующих evidence.
