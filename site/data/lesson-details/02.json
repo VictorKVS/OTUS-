@@ -1,0 +1,181 @@
+{
+  "schema_version": "father-architect-lesson-detail.v1",
+  "lesson_id": 2,
+  "purpose": "Преобразовать бизнес-требования в технический план: формализовать SRS/NFR, декомпозировать работу, оценить сроки и трудозатраты несколькими методами, выявить риски до разработки и связать изменения scope с Change Request, стоимостью и планом поставки.",
+  "schema": {
+    "notation": "PRD/USER STORY → SRS/NFR → WBS → ESTIMATE → RISK → BUFFER/CHANGE REQUEST → COST/TCO → PLAN/GATE",
+    "description": "Схема следует целям Lesson 02: требования формализуются, затем работа декомпозируется и оценивается, неопределённость переводится в риски/буфер, а изменения управляются через Change Request и влияют на стоимость и план.",
+    "nodes": [
+      "PRD/USER STORY",
+      "SRS/NFR",
+      "WBS",
+      "ESTIMATE",
+      "RISK",
+      "BUFFER/CHANGE REQUEST",
+      "COST/TCO",
+      "PLAN/GATE"
+    ],
+    "edges": [
+      [
+        "PRD/USER STORY",
+        "SRS/NFR"
+      ],
+      [
+        "SRS/NFR",
+        "WBS"
+      ],
+      [
+        "WBS",
+        "ESTIMATE"
+      ],
+      [
+        "ESTIMATE",
+        "RISK"
+      ],
+      [
+        "RISK",
+        "BUFFER/CHANGE REQUEST"
+      ],
+      [
+        "BUFFER/CHANGE REQUEST",
+        "COST/TCO"
+      ],
+      [
+        "COST/TCO",
+        "PLAN/GATE"
+      ]
+    ]
+  },
+  "visual": {
+    "poster": "./assets/lesson-02-estimation-risk-cost.svg",
+    "alt": "Lesson 02: бизнес-требования преобразуются в SRS и NFR, затем WBS и оценку, после чего риски и Change Request влияют на буфер, TCO и план."
+  },
+  "curriculum": {
+    "summary": "Урок рассматривает жизненный цикл и формализацию требований, перевод PRD/User Stories в SRS/NFR, методы Analogous, Parametric, PERT и Bottom-Up, специфику оценки AI/R&D, риски Fixed Price, Scope Creep и Change Management.",
+    "requirements": [
+      "Понимать роль архитектора и артефактов на стадиях SDLC",
+      "Преобразовывать бизнес-требования в технические спецификации SRS",
+      "Формализовать измеримые NFR",
+      "Использовать Analogous, Parametric, PERT и Bottom-Up",
+      "Учитывать высокую неопределённость AI/R&D",
+      "Выявлять риски Fixed Price: Scope Creep, неточная оценка, зависимость от клиента",
+      "Формировать Risk Matrix и Change Request",
+      "Оценивать AI-модуль через Bottom-Up и PERT"
+    ],
+    "homework": [
+      "Декомпозиция User Story из PRD в измеримые NFR",
+      "Оценка реализации AI-модуля методами Bottom-Up и PERT",
+      "Создание матрицы рисков",
+      "Черновик Change Request для FP-контракта"
+    ],
+    "sources": [
+      "Основной конспект Lesson 02",
+      "Приложения к семинару 2"
+    ]
+  },
+  "architect_pro": {
+    "summary": "Материалы семинара уже содержат практический набор архитектора: NFR template, Presale AI Questionnaire, PERT, WBS, Risk Register, Change Request, TCO/unit economics, калькулятор трудозатрат и формулы sizing/TCO.",
+    "methods": [
+      "NFR specification с метрикой, KPI, MoSCoW и способом проверки",
+      "Presale questionnaire по бизнесу, данным, инфраструктуре, интеграциям и приемке",
+      "WBS для декомпозиции работ и критического пути",
+      "Analogous estimation",
+      "Parametric estimation",
+      "PERT",
+      "Bottom-Up estimation",
+      "Risk Register с probability × impact, mitigation и trigger",
+      "Risk Buffer",
+      "Change Request для изменения scope",
+      "TCO / unit economics",
+      "Разделение CapEx и OpEx",
+      "Коэффициентный учет management / supervision overhead"
+    ],
+    "standards": [],
+    "anti_patterns": [
+      "Давать точную дату до снижения неопределённости Discovery",
+      "Пропускать PoC в R&D/AI без проверки гипотезы",
+      "Сравнивать enterprise-проект с демонстрационным ботом",
+      "Игнорировать OpEx и поддержку после релиза",
+      "Допускать Scope Creep без Change Request",
+      "Фиксировать NFR без измеримой метрики и способа проверки",
+      "Закладывать риски заказчика как свою работу вместо контрактного ограничения"
+    ],
+    "templates": [
+      "A1 · AI NFR Template",
+      "A2 · Presale AI Questionnaire",
+      "A3 · PERT Calculator",
+      "A4 · GenAI WBS Template",
+      "A5 · AI Risk Register",
+      "A6 · Change Request Form",
+      "A7 · TCO & Unit Economics Calculator",
+      "A8 · Defense Cheat Sheet",
+      "A9 · Effort & Cost Estimator",
+      "A10 · TCO / Sizing formulas"
+    ]
+  },
+  "father_production": {
+    "summary": "Lesson 02 формирует production-контур проектной оценки: Requirements Service отдаёт измеримые NFR, Estimation Service строит WBS/estimate, Risk & Change Control ведёт risk/change lifecycle, FinOps связывает оценку с TCO и бюджетом.",
+    "capability_ids": [
+      "FTH-REQ-001",
+      "FTH-EST-001",
+      "FTH-RSK-001",
+      "FTH-FIN-001"
+    ],
+    "components": [
+      "FTH-REQ-001 · Requirements & Traceability Service",
+      "FTH-EST-001 · Estimation & Planning Service",
+      "FTH-RSK-001 · Risk & Change Control Service",
+      "FTH-FIN-001 · FinOps / Cost Control"
+    ],
+    "runtime_notes": [
+      "Оценка должна хранить метод и assumptions",
+      "NFR должны иметь измеримые target и verification method",
+      "Risk должен иметь probability, impact, owner/mitigation и trigger",
+      "Изменение scope должно порождать Change Request и пересчёт сроков/стоимости",
+      "Учебные числовые примеры не считаются текущими рыночными ценами без актуализации"
+    ]
+  },
+  "artifacts": [
+    "Lesson 02 outline / конспект",
+    "A1 · AI NFR Template",
+    "A2 · Presale AI Questionnaire",
+    "A3 · PERT Calculator",
+    "A4 · GenAI WBS Template",
+    "A5 · AI Risk Register",
+    "A6 · Change Request Form",
+    "A7 · TCO & Unit Economics Calculator",
+    "A8 · Defense Cheat Sheet",
+    "A9 · Effort & Cost Estimator",
+    "A10 · TCO / Sizing formulas"
+  ],
+  "evidence": [
+    "В основном конспекте явно перечислены SRS/NFR, Analogous, Parametric, PERT, Bottom-Up, FP risks и Change Management",
+    "В приложениях описаны A1–A10: NFR, Presale Questionnaire, PERT, WBS, Risk Register, Change Request, TCO и estimator",
+    "В репозитории присутствуют основной текст Lesson 02, приложения TXT и исходные PDF/DOCX",
+    "Lesson 02 подключён к universal lesson runtime через detail manifest"
+  ],
+  "traceability": [
+    "BUS/PRD → SRS/NFR",
+    "SRS/NFR → WBS",
+    "WBS → ESTIMATE",
+    "ESTIMATE → RISK",
+    "RISK → BUFFER / CHANGE REQUEST",
+    "CHANGE REQUEST → COST / SCHEDULE",
+    "COST/TCO → PLAN / DELIVERY GATE"
+  ],
+  "gaps": [
+    "FTH-EST-001 и FTH-RSK-001 пока являются архитектурными target services, а не подтверждённым production deployment.",
+    "Калькуляторы из приложений пока не встроены как интерактивные runtime-модули сайта.",
+    "Числовые учебные примеры TCO/стоимости требуют актуализации перед реальным коммерческим решением."
+  ],
+  "sources": [
+    {
+      "title": "Lesson 02 outline",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/2.%20%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B8%20%D0%BE%D1%86%D0%B5%D0%BD%D0%BA%D0%B0%20%D0%BE%D1%82%20%D1%82%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9%20%D0%BA%20%D0%BF%D0%BB%D0%B0%D0%BD%D1%83,%20%D1%80%D0%B8%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B8%20%D1%81%D0%BC%D0%B5%D1%82%D0%B5/2.%20%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B8%20%D0%BE%D1%86%D0%B5%D0%BD%D0%BA%D0%B0%20%D0%BE%D1%82%20%D1%82%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9%20%D0%BA%20%D0%BF%D0%BB%D0%B0%D0%BD%D1%83,%20%D1%80%D0%B8%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B8%20%D1%81%D0%BC%D0%B5%D1%82%D0%B5.txt"
+    },
+    {
+      "title": "Lesson 02 seminar appendices",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/2.%20%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B8%20%D0%BE%D1%86%D0%B5%D0%BD%D0%BA%D0%B0%20%D0%BE%D1%82%20%D1%82%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9%20%D0%BA%20%D0%BF%D0%BB%D0%B0%D0%BD%D1%83,%20%D1%80%D0%B8%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B8%20%D1%81%D0%BC%D0%B5%D1%82%D0%B5/%D0%9F%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BA%20%D1%81%D0%B5%D0%BC%D0%B8%D0%BD%D0%B0%D1%80%D1%83%202_%20AI-%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D0%BE%D1%80%20(1).txt"
+    }
+  ]
+}
