@@ -1,6 +1,6 @@
 # STEP 03 — Universal Lesson Template
 
-Статус: **IN PROGRESS**
+Статус: **DONE v1**
 
 ## 1. Цель
 
@@ -65,7 +65,7 @@ flowchart TB
 - создан reusable template;
 - создан visual poster template;
 - данные отделены от layout;
-- Lesson 01 мигрирован без потери Intake Pack;
+- reusable shell проверен на Lesson 01 в fallback-режиме;\n- фактическая миграция Lesson 01 выполняется отдельным STEP 04;
 - responsive layout;
 - dark/light theme;
 - ссылки на Git evidence;
@@ -74,3 +74,26 @@ flowchart TB
 ## 8. Первый потребитель
 
 **Lesson 01** используется как эталон миграции в STEP 04.
+
+
+## 9. Реализация
+
+Созданы:
+
+- `site/lesson-template.html` — reusable shell;
+- `site/lesson-template.js` — manifest-driven runtime;
+- `site/lesson-template.css` — общий layout;
+- `site/data/lesson-detail-template.json` — detail contract;
+- `site/assets/step-03-universal-lesson-template.svg` — visual poster;
+- `site/step-03-lesson-template.html` — страница STEP 03.
+
+## 10. Validation
+
+- layout не содержит реестр конкретных уроков;
+- заголовок/status/maturity/capabilities загружаются из course/capability manifests;
+- lesson-specific data ищутся в `site/data/lesson-details/NN.json`;
+- отсутствующие данные отображаются как `GAP`;
+- dark/light theme сохранена;
+- структура соответствует STEP 00.
+
+Следующий шаг: **STEP 04 — Lesson 01 normalization**.
