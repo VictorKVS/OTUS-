@@ -100,3 +100,12 @@ http://127.0.0.1:8088/
 - [SVG poster](./assets/step-01-master-architecture.svg)
 
 STEP 01 связывает OTUS Curriculum → Architect Pro → FATHER Production и вводит постоянные component IDs.
+
+
+## STEP 02–04
+
+- [STEP 02 · Course Manifest](./step-02-course-manifest.html)
+- [STEP 03 · Universal Lesson Template](./step-03-lesson-template.html)
+- [Lesson 01 · normalized view](./lesson-template.html?id=1)
+
+Lesson 01 теперь служит эталоном: schema + visual + OTUS + Architect Pro + FATHER Production + evidence + maturity.
