@@ -104,21 +104,24 @@
       "id": 2,
       "title": "Проектирование и оценка: план, риски и смета",
       "gate": "G1",
-      "status": "materials",
+      "status": "draft",
       "evidence": "RISK · COST · планирование",
       "path": "2. Проектирование и оценка от требований к плану, рискам и смете",
-      "expertPath": null,
-      "maturity": "M0",
+      "expertPath": "./lesson-template.html?id=2",
+      "maturity": "M1",
       "curriculum": {
         "source_path": "2. Проектирование и оценка от требований к плану, рискам и смете",
         "status": "materials"
       },
       "architect_pro": {
-        "page": null,
-        "status": "planned"
+        "page": "./lesson-template.html?id=2",
+        "status": "active"
       },
       "father_production": {
         "capability_ids": [
+          "FTH-REQ-001",
+          "FTH-EST-001",
+          "FTH-RSK-001",
           "FTH-FIN-001"
         ]
       }
