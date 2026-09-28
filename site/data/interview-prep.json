@@ -1,0 +1,189 @@
+{
+  "title": "Interview Preparation Lab",
+  "profile": "AI Systems Engineer / LLM & RAG Engineer",
+  "method": "Concept → 60-sec answer → Diagram → Practical example → Trap questions → Evidence → Ready",
+  "tracks": [
+    {
+      "id": "llm",
+      "title": "LLM / Generative AI",
+      "level": "L2–L3",
+      "doc": "../docs/LLM_RAG_INTERVIEW_PLAYBOOK.md",
+      "topics": [
+        "LLM integration",
+        "Prompt engineering",
+        "Structured output",
+        "JSON Schema / validation",
+        "Tool calling",
+        "Local vs API models"
+      ],
+      "questions": [
+        "Как выбираете модель?",
+        "Почему structured output важнее свободного текста в интеграции?",
+        "Где заканчивается ответственность модели и начинается приложение?"
+      ]
+    },
+    {
+      "id": "rag",
+      "title": "RAG / Knowledge Systems",
+      "level": "L2–L3",
+      "doc": "../docs/LLM_RAG_INTERVIEW_PLAYBOOK.md",
+      "topics": [
+        "Ingestion",
+        "Parsing",
+        "Chunking",
+        "Metadata",
+        "Embeddings",
+        "Hybrid retrieval",
+        "Reranking",
+        "Grounding / traceability",
+        "GraphRAG concepts"
+      ],
+      "questions": [
+        "Как выбираете chunking?",
+        "Когда нужен hybrid search?",
+        "Как доказать качество retrieval?"
+      ]
+    },
+    {
+      "id": "agents",
+      "title": "AI Agents / MCP",
+      "level": "L2",
+      "doc": "../docs/AGENTS_SECURE_AI_INTERVIEW_PLAYBOOK.md",
+      "topics": [
+        "Agent loop",
+        "Multi-agent",
+        "Orchestration",
+        "Memory",
+        "MCP",
+        "Human-in-the-loop"
+      ],
+      "questions": [
+        "Когда multi-agent хуже workflow?",
+        "Что должен контролировать orchestrator?",
+        "Почему MCP не решает безопасность автоматически?"
+      ]
+    },
+    {
+      "id": "quality",
+      "title": "LLM Quality / Evaluation",
+      "level": "L2–L3",
+      "doc": "../docs/INTERVIEW_COMPETENCY_MATRIX.md",
+      "topics": [
+        "Golden dataset",
+        "Regression testing",
+        "RAG metrics",
+        "Structured output validation",
+        "Tracing",
+        "LLM-as-a-judge concepts"
+      ],
+      "questions": [
+        "Что меняется после смены embedding model?",
+        "Как сравнить два RAG pipeline?",
+        "Какие проверки детерминированные?"
+      ]
+    },
+    {
+      "id": "secure-ai",
+      "title": "Secure AI",
+      "level": "L2–L3",
+      "doc": "../docs/AGENTS_SECURE_AI_INTERVIEW_PLAYBOOK.md",
+      "topics": [
+        "Prompt injection",
+        "Indirect injection",
+        "Data leakage",
+        "Retrieval authorization",
+        "Tool security",
+        "Guardrails",
+        "Audit"
+      ],
+      "questions": [
+        "Где должна стоять authorization?",
+        "Как ограничить destructive tools?",
+        "Почему prompt не является security boundary?"
+      ]
+    },
+    {
+      "id": "backend",
+      "title": "Python / Backend",
+      "level": "L2–L3",
+      "doc": "../docs/BACKEND_AI_ASSISTED_ENGINEERING_PLAYBOOK.md",
+      "topics": [
+        "Python",
+        "asyncio",
+        "FastAPI",
+        "REST",
+        "PostgreSQL",
+        "pgvector",
+        "Docker",
+        "Git",
+        "pytest",
+        "CI/CD"
+      ],
+      "questions": [
+        "Когда asyncio полезен?",
+        "Где держать business logic?",
+        "Как тестировать LLM integration?"
+      ]
+    },
+    {
+      "id": "ai-assisted",
+      "title": "AI-Assisted Engineering",
+      "level": "Working method",
+      "doc": "../docs/BACKEND_AI_ASSISTED_ENGINEERING_PLAYBOOK.md",
+      "topics": [
+        "Requirements decomposition",
+        "Coding agents",
+        "Prototype",
+        "Review",
+        "Tests",
+        "Security check",
+        "Documentation"
+      ],
+      "questions": [
+        "Что вы отдаёте coding agent?",
+        "Как проверяете сгенерированный код?",
+        "Где vibe coding становится риском?"
+      ]
+    },
+    {
+      "id": "compliance",
+      "title": "Security Requirements & Compliance",
+      "level": "L2–L3",
+      "doc": "../docs/SECURITY_COMPLIANCE_ARCHITECTURE_PLAYBOOK.md",
+      "topics": [
+        "Requirements collection",
+        "Decomposition",
+        "Applicability",
+        "Gap analysis",
+        "Control mapping",
+        "Traceability",
+        "Evidence"
+      ],
+      "questions": [
+        "Как перевести нормативное требование в задачу?",
+        "Что такое applicability?",
+        "Как строится traceability?"
+      ]
+    },
+    {
+      "id": "security-architecture",
+      "title": "Corporate Security Architecture",
+      "level": "L2 architecture",
+      "doc": "../docs/SECURITY_COMPLIANCE_ARCHITECTURE_PLAYBOOK.md",
+      "topics": [
+        "Assets / data flows",
+        "Access matrix",
+        "RBAC / least privilege / SoD",
+        "Segmentation",
+        "Backup / RPO / RTO",
+        "DLP / SIEM / EDR / WAF",
+        "Vulnerability vs risk"
+      ],
+      "questions": [
+        "С чего начать ИБ с нуля?",
+        "DLP vs SIEM?",
+        "Почему CVSS не равен бизнес-приоритету?"
+      ]
+    }
+  ]
+}
