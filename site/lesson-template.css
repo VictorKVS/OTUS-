@@ -1,0 +1,16 @@
+.lesson-shell{max-width:1500px;margin:auto;padding:0 clamp(16px,4vw,56px) 80px}
+.lesson-shell-hero{padding:58px 0 34px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:28px;align-items:start}
+.lesson-shell-hero h1{font-size:clamp(40px,5vw,72px);line-height:1.03;margin:0;letter-spacing:-.04em}
+.lesson-shell-hero h1 span{color:var(--cyan)}
+.lesson-meta{padding:18px;border:1px solid var(--line);border-radius:15px;background:var(--panel)}
+.lesson-meta-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.lesson-meta-grid div{padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--panel2)}
+.lesson-meta-grid b{display:block;font:10px Consolas,monospace;color:var(--cyan)}.lesson-meta-grid span{font-size:11px}
+.lesson-poster{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel);box-shadow:var(--shadow)}.lesson-poster img{display:block;width:100%;height:auto}
+.lesson-layer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.lesson-layer{padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+.lesson-layer h3{margin:0 0 8px}.lesson-layer p,.lesson-layer li{font-size:11px;color:var(--muted)}
+.lesson-flow{display:flex;flex-wrap:wrap;gap:8px}.lesson-flow span{padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel);font:10px Consolas,monospace}
+.lesson-flow span:not(:last-child)::after{content:"→";color:var(--cyan);margin-left:12px}
+.lesson-card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.lesson-small-card{padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.lesson-small-card b{display:block;margin-bottom:6px;font-size:12px}.lesson-small-card p,.lesson-small-card li{font-size:10px;color:var(--muted)}
+.gap{border-left:3px solid var(--amber);padding-left:12px;color:var(--muted);font-size:11px}
+@media(max-width:1000px){.lesson-shell-hero{grid-template-columns:1fr}.lesson-layer-grid{grid-template-columns:1fr}.lesson-card-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.lesson-card-grid,.lesson-meta-grid{grid-template-columns:1fr}}
