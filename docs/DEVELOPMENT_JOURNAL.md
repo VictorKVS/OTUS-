@@ -288,3 +288,46 @@ Lesson 01: сохранить Architect Intake Pack, но привести ст�
 ### Цель
 
 Перевести Lesson 01 на универсальный visual-first template без потери Architect Intake Pack, словаря и существующих evidence.
+
+
+---
+
+## 2026-09-28 — STEP 04 completed
+
+**Статус:** DONE v1.
+
+### Сделано
+
+- создан `site/data/lesson-details/01.json`;
+- создан visual poster `site/assets/lesson-01-architect-intake.svg`;
+- Lesson 01 подключён к `lesson-template.html?id=1`;
+- сохранены legacy expert/intake pages;
+- добавлены `FTH-INT-001` и `FTH-REQ-001`;
+- Lesson 01 переведён в `draft / M1`;
+- universal runtime расширен templates / red flags / runtime notes.
+
+### Validation
+
+- 3/3 capability IDs существуют;
+- 13 artifacts;
+- 4 evidence;
+- 3 GAP;
+- schema и poster присутствуют.
+
+### Архитектурный вывод
+
+Context Builder не владеет требованиями. Intake/Requirements/Traceability выделены в отдельный production-domain.
+
+### Следующий шаг
+
+**STEP 05 — Lesson 02: проектирование и оценка, риски и смета.**
+
+---
+
+## 2026-09-28 — STEP 05 started
+
+**Статус:** IN PROGRESS.
+
+### Цель
+
+Разобрать Lesson 02 по фактическим материалам и построить schema + visual + professional + production mapping.
