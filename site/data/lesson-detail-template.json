@@ -1,0 +1,39 @@
+{
+  "schema_version": "father-architect-lesson-detail.v1",
+  "lesson_id": 0,
+  "purpose": "",
+  "schema": {
+    "notation": "",
+    "description": "",
+    "nodes": [],
+    "edges": []
+  },
+  "visual": {
+    "poster": "",
+    "alt": ""
+  },
+  "curriculum": {
+    "summary": "",
+    "requirements": [],
+    "homework": [],
+    "sources": []
+  },
+  "architect_pro": {
+    "summary": "",
+    "methods": [],
+    "standards": [],
+    "anti_patterns": [],
+    "templates": []
+  },
+  "father_production": {
+    "summary": "",
+    "capability_ids": [],
+    "components": [],
+    "runtime_notes": []
+  },
+  "artifacts": [],
+  "evidence": [],
+  "traceability": [],
+  "gaps": [],
+  "sources": []
+}
