@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>AI Capability Stack 2026 · OTUS Architecture Cockpit</title>
+<link rel="stylesheet" href="./styles.css"/>
+<style>
+.stack-main{max-width:1500px;margin:auto;padding:0 clamp(16px,4vw,56px) 80px}
+.stack-hero{padding:60px 0 24px}.stack-hero h1{font-size:clamp(40px,5vw,72px);line-height:1.02;margin:0;letter-spacing:-.04em}
+.stack-hero h1 span{color:var(--cyan)}
+.stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stack-card{padding:17px;border:1px solid var(--line);border-radius:14px;background:var(--panel);display:flex;flex-direction:column;gap:10px}
+.stack-card h3{margin:0;font-size:17px}.stack-kind{font:9px Consolas,monospace;color:var(--cyan)}
+.stack-card p{margin:0;color:var(--muted);font-size:10px}.stack-flow{padding:9px;border:1px solid var(--line);border-radius:9px;background:var(--panel2);font:9px Consolas,monospace;color:var(--text)}
+.stack-tags{display:flex;flex-wrap:wrap;gap:5px}.stack-tags span{font-size:8px;border:1px solid var(--line);border-radius:999px;padding:4px 6px;color:var(--muted)}
+.stack-q{border-left:2px solid var(--amber);padding-left:9px}
+.note{border:1px solid color-mix(in srgb,var(--amber) 45%,var(--line));background:color-mix(in srgb,var(--amber) 6%,var(--panel));padding:16px;border-radius:13px}
+@media(max-width:1050px){.stack-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:700px){.stack-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="topbar">
+<a class="brand" href="./index.html"><span class="brand-mark">26</span><span><strong>AI Capability Stack 2026</strong><small>Architect Pro · Deep Dive</small></span></a>
+<nav class="nav"><a href="./step-01-master-map.html">Master Map</a><a href="./interview-prep.html">Interview Lab</a><a href="../docs/AI_CAPABILITY_STACK_2026_DEEP_DIVE.md">Документ</a></nav>
+<button class="theme-toggle" id="themeToggle" type="button">◐</button>
+</header>
+<main class="stack-main">
+<section class="stack-hero">
+<p class="eyebrow">2023 → 2026 · from prompts to AI systems engineering</p>
+<h1>Не список buzzwords, а <span>карта инженерных capability</span></h1>
+<p class="hero-text">Каждый термин из исходной схемы разобран по назначению, pipeline, входам/выходам, рискам, mapping к платформе и вопросу собеседования.</p>
+<div class="hero-actions"><a class="btn primary" href="#stack">Открыть разбор</a><a class="btn" href="./data/ai-capability-stack-2026.json">Machine-readable JSON</a></div>
+</section>
+<section class="section"><div class="note"><b>Важно.</b> Harness, RAG 2.0, Loop Engineering, Graph Engineering и Stateless MCP — не единые формальные стандарты. На собеседовании их раскрываем через конкретную архитектуру и механизмы.</div></section>
+<section class="section" id="stack">
+<div class="section-head course-head"><div><p class="eyebrow">Capability deep dive</p><h2 id="countTitle">22 capability</h2></div>
+<div class="filters"><input id="stackSearch" type="search" placeholder="Поиск: MCP, RAG, cost…"/><select id="kindFilter"><option value="all">Все типы</option></select></div></div>
+<div class="stack-grid" id="stackGrid"></div>
+</section>
+</main>
+<footer><span>OTUS Architecture Cockpit · AI Capability Stack 2026</span><a href="./index.html">← Cockpit</a></footer>
+<script src="./ai-capability-stack-2026.js"></script>
+</body></html>
