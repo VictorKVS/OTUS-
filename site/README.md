@@ -109,3 +109,12 @@ STEP 01 связывает OTUS Curriculum → Architect Pro → FATHER Producti
 - [Lesson 01 · normalized view](./lesson-template.html?id=1)
 
 Lesson 01 теперь служит эталоном: schema + visual + OTUS + Architect Pro + FATHER Production + evidence + maturity.
+
+
+## Lesson 02 normalized
+
+- [Lesson 02 · Estimation / Risk / Cost](./lesson-template.html?id=2)
+- visual: `assets/lesson-02-estimation-risk-cost.svg`
+- data: `data/lesson-details/02.json`
+
+Production mapping: Requirements → Estimation/Planning → Risk/Change Control → FinOps.
