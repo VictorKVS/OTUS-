@@ -140,3 +140,13 @@ STEP 01 считается закрытым только после двух о�
 3. Ввести component IDs.
 4. Выпустить machine-readable capability manifest.
 5. После evidence закрыть STEP 01 и перейти к STEP 02.
+
+
+## Amendment v1.1 — Requirements domain
+
+При нормализации Lesson 01 выявлен недостающий production-domain. В capability manifest добавлены:
+
+- `FTH-INT-001` — Architect Intake Workspace;
+- `FTH-REQ-001` — Requirements & Traceability Service.
+
+Причина: `FTH-CTX-001 Context Builder` не должен одновременно владеть жизненным циклом входных документов, GAP, требований, рисков и traceability. Контекст для AI строится поверх уже проверенного requirement/intake слоя.
