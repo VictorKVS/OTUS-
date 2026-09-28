@@ -1,6 +1,6 @@
 # STEP 04 — Lesson 01 normalization
 
-Статус: **IN PROGRESS**
+Статус: **DONE v1**
 
 ## 1. Цель
 
@@ -73,3 +73,18 @@ Lesson 01 переведён из `materials / M0` в `draft / M1` на осно
 - production mapping обновлён;
 - GAP явно указаны;
 - journal обновлён.
+
+
+## 8. Validation
+
+Проверено:
+
+- Lesson 01 = `draft / M1`;
+- `expertPath = ./lesson-template.html?id=1`;
+- `FTH-INT-001`, `FTH-REQ-001`, `FTH-CTX-001` существуют;
+- detail manifest загружается;
+- poster указан;
+- legacy pages сохранены;
+- 13 артефактов, 4 evidence и 3 GAP отражены явно.
+
+Следующий шаг: **STEP 05 — Lesson 02: проектирование и оценка, риски и смета**.
