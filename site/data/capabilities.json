@@ -68,6 +68,25 @@
       "maturity": "M0"
     },
     {
+      "id": "FTH-VAL-001",
+      "name": "Value Delivery & Stage Gate Service",
+      "domain": "Delivery Strategy",
+      "capabilities": [
+        "Demo / PoC / MVP / Production Roadmap",
+        "Success Criteria / DoD",
+        "Stage Gates",
+        "Value & Risk Burn-down"
+      ],
+      "lessons": [
+        3,
+        9,
+        20,
+        28,
+        31
+      ],
+      "maturity": "M1"
+    },
+    {
       "id": "FTH-EST-001",
       "name": "Estimation & Planning Service",
       "domain": "Planning",
