@@ -1,0 +1,229 @@
+{
+  "schema_version": "father-architect-lesson-detail.v1",
+  "lesson_id": 15,
+  "purpose": "Связать метрики, логи и трейсы AI-системы с SLO, качеством RAG/LLM, безопасностью, стоимостью и действиями реагирования так, чтобы отклонение превращалось не просто в график, а в алерт, runbook, расследование и архитектурное улучшение.",
+  "schema": {
+    "notation": "REQUEST → APP/AGENT/RAG/LLM → METRICS/LOGS/TRACES → PROMETHEUS/LOKI/TEMPO-JAEGER → GRAFANA → SLO/EVAL/SECURITY/COST → ALERT → RUNBOOK/RCA → CHANGE",
+    "description": "OTUS задаёт три столпа observability, Prometheus/Grafana/Jaeger и dashboard по SLO AI-сервиса. Материалы проекта расширяют контур до LLM/RAG/agent/security/cost telemetry, correlation trace ID, alert routing и runbooks.",
+    "nodes": [
+      "REQUEST",
+      "APP/AGENT/RAG/LLM",
+      "METRICS/LOGS/TRACES",
+      "PROMETHEUS/LOKI/TEMPO-JAEGER",
+      "GRAFANA",
+      "SLO/EVAL/SECURITY/COST",
+      "ALERT",
+      "RUNBOOK/RCA",
+      "CHANGE"
+    ],
+    "edges": [
+      [
+        "REQUEST",
+        "APP/AGENT/RAG/LLM"
+      ],
+      [
+        "APP/AGENT/RAG/LLM",
+        "METRICS/LOGS/TRACES"
+      ],
+      [
+        "METRICS/LOGS/TRACES",
+        "PROMETHEUS/LOKI/TEMPO-JAEGER"
+      ],
+      [
+        "PROMETHEUS/LOKI/TEMPO-JAEGER",
+        "GRAFANA"
+      ],
+      [
+        "GRAFANA",
+        "SLO/EVAL/SECURITY/COST"
+      ],
+      [
+        "SLO/EVAL/SECURITY/COST",
+        "ALERT"
+      ],
+      [
+        "ALERT",
+        "RUNBOOK/RCA"
+      ],
+      [
+        "RUNBOOK/RCA",
+        "CHANGE"
+      ]
+    ]
+  },
+  "visual": {
+    "poster": "./assets/lesson-15-observability-ai.svg",
+    "alt": "Lesson 15 Observability: AI request produces metrics logs and traces collected by Prometheus, Loki and Tempo or Jaeger, visualized in Grafana, evaluated against SLO quality security and cost, then routed to alerts, runbooks and root-cause analysis."
+  },
+  "curriculum": {
+    "summary": "Урок требует проектировать сбор и анализ логов, метрик и трейсов для AI-решения, использовать Prometheus, Grafana и Jaeger, а в домашнем задании совместить Security Layer, RAG testing strategy и Grafana dashboard с Golden Signals и AI-метриками.",
+    "requirements": [
+      "Проектировать Metrics / Logs / Traces для всех компонентов AI-решения",
+      "Использовать observability для производительности, стоимости и качества моделей",
+      "Работать с Prometheus, Grafana и Jaeger на уровне курса",
+      "Проектировать dashboard по SLO AI-сервиса: latency, error rate, RPS",
+      "Добавить PII Sanitizer и Guardrails на security layer",
+      "Оценивать RAG через Faithfulness и Answer Relevancy",
+      "Выбрать Ragas или DeepEval как инструмент evaluation",
+      "Показать Golden Signals: Latency, Traffic, Errors, Saturation",
+      "Добавить AI-метрики: Token usage и Average Cost per Request",
+      "Учитывать Prompt Injection / data leakage",
+      "Связать alerting с бизнес-метриками и RCA"
+    ],
+    "homework": [
+      "Security Layer: PII Sanitizer + Guardrails",
+      "Testing Strategy: RAG quality metrics Faithfulness / Answer Relevancy",
+      "Observability: Grafana dashboard с 4–5 ключевыми графиками",
+      "Документ со схемой Security, testing plan и dashboard mockup/widgets"
+    ],
+    "sources": [
+      "OTUS Lesson 15 source",
+      "Grafana dashboard guidance",
+      "LLM observability matrix",
+      "OWASP GenAI LLM Top 10 2026",
+      "Alerting lab archive"
+    ]
+  },
+  "architect_pro": {
+    "summary": "Профессиональный observability-контур объединяет RED + USE + AI telemetry. Dashboard делится по пользовательскому вопросу: Executive/SLO, LLM runtime, RAG, Agents, Security. Метрика, лог, trace span и alert рассматриваются как единый наблюдаемый контракт, связанный trace_id и release context.",
+    "methods": [
+      "RED: Rate / Errors / Duration",
+      "USE: Utilization / Saturation / Errors",
+      "AI telemetry: Tokens / Cost / Quality / Retrieval / Safety / Agency",
+      "SLI / SLO / Error Budget",
+      "Golden Signals",
+      "Distributed tracing with correlation/trace ID",
+      "RAG quality monitoring: retrieval latency, Recall@k, Precision@k, citation validity, groundedness",
+      "Agent observability: tool calls, denied actions, loops, human approvals",
+      "Security observability: prompt injection, sensitive data, unsafe output, supply-chain changes",
+      "Cost anomaly detection",
+      "Drift and pipeline quality monitoring",
+      "Alert owner + runbook",
+      "RCA / 5 Whys",
+      "Release-to-incident correlation"
+    ],
+    "standards": [
+      "Prometheus",
+      "Grafana",
+      "Loki",
+      "Tempo / Jaeger",
+      "Ragas / DeepEval",
+      "OWASP GenAI LLM Top 10 2026"
+    ],
+    "anti_patterns": [
+      "Dashboard из случайных доступных графиков без вопроса пользователя",
+      "Считать CPU load достаточной AI observability",
+      "Хранить prompt/response как metric label",
+      "Логировать PII, секреты или system prompt без необходимости",
+      "Alert без owner и runbook",
+      "Alert на каждое событие без подавления шума",
+      "Высокая cardinality labels",
+      "Метрика качества без eval dataset или проверяемой методики",
+      "Dashboard без теста на normal / degraded / failure scenarios",
+      "Считать community dashboard production-ready без проверки"
+    ],
+    "templates": [
+      "Executive / SLO dashboard",
+      "LLM Runtime dashboard",
+      "RAG dashboard",
+      "Agents dashboard",
+      "Security dashboard",
+      "LLM Observability Matrix",
+      "Alert Rule",
+      "Runbook",
+      "Incident / RCA record",
+      "SLO / Error Budget record"
+    ]
+  },
+  "father_production": {
+    "summary": "В FATHER Observability Plane собирает и коррелирует telemetry; SLO/Alerting Service владеет SLI/SLO, error budgets, alert rules и runbooks; Evaluation Service поставляет quality signals; Policy plane — security/safety events; FinOps — cost; RAG и Agent domains экспортируют специализированные spans and metrics.",
+    "capability_ids": [
+      "FTH-OBS-001",
+      "FTH-SLO-001",
+      "FTH-EVL-001",
+      "FTH-POL-001",
+      "FTH-FIN-001",
+      "FTH-RAG-001",
+      "FTH-AGT-001",
+      "FTH-REL-001"
+    ],
+    "components": [
+      "FTH-OBS-001 · Observability & Audit Plane",
+      "FTH-SLO-001 · SLO, Alerting & Incident Response Service",
+      "FTH-EVL-001 · Evaluation Service",
+      "FTH-POL-001 · Policy & Security Plane",
+      "FTH-FIN-001 · FinOps / Cost Control",
+      "FTH-RAG-001 · Retrieval Gateway",
+      "FTH-AGT-001 · Agent Zoo",
+      "FTH-REL-001 · Reliability Plane"
+    ],
+    "runtime_notes": [
+      "Technical metrics and protected audit are separated",
+      "Prompts, secrets and PII are not metric labels",
+      "All major spans carry correlation/trace ID",
+      "Model, prompt, index and policy versions are attached to traces/events where applicable",
+      "Alerts point to runbooks and owners",
+      "SLO breach, quality degradation, safety incident and cost anomaly are separate alert classes",
+      "RAG and agent telemetry are first-class, not generic HTTP-only metrics",
+      "Release/version context must be queryable during incident analysis"
+    ]
+  },
+  "artifacts": [
+    "README.md — telemetry flow and quality gate",
+    "LLM_OBSERVABILITY_MATRIX.md",
+    "GRAFANA_DASHBOARDS.md",
+    "OWASP_LLM_TOP10_2026.md",
+    "SOURCES.md",
+    "grafana/llm-observability-dashboard.json",
+    "prometheus/llm-alerts.yml",
+    "alerting-373402-178176.tgz — Kubernetes/Prometheus/Grafana demo lab",
+    "docs/runbooks/llm-high-error-rate.md",
+    "docs/runbooks/llm-high-latency.md",
+    "docs/runbooks/llm-guardrail-spike.md"
+  ],
+  "evidence": [
+    "Grafana JSON содержит панели request rate, error rate, p95 latency, token rate и security/safety events",
+    "Prometheus rules содержат LLMHighErrorRate, LLMHighP95Latency и LLMSecurityGuardrailSpike",
+    "LLM observability matrix связывает metric + log/event + trace span + alert",
+    "README фиксирует pipeline LLM/Agent → Metrics/Logs/Traces → Prometheus/Loki/Tempo → Grafana → Alerts",
+    "OWASP mapping задаёт наблюдаемые сигналы для Prompt Injection, Sensitive Information Disclosure, Excessive Agency и других GenAI risks",
+    "Alerting archive содержит FastAPI ML demo, K8s manifests, ServiceMonitor, Grafana dashboard, load test и topology/dataflow diagrams"
+  ],
+  "traceability": [
+    "REQ/NFR → SLI/SLO",
+    "SLI/SLO → METRIC/LOG/TRACE",
+    "AI RISK → SECURITY/EVAL SIGNAL",
+    "SIGNAL → DASHBOARD PANEL",
+    "THRESHOLD/SLO → ALERT RULE",
+    "ALERT → RUNBOOK/OWNER",
+    "INCIDENT → RCA",
+    "RCA → ADR/CHANGE/TECH DEBT",
+    "COST SIGNAL → FINOPS ACTION"
+  ],
+  "gaps": [
+    "Учебный статус в источнике: «не сдано»; инженерный статус lab/M1 не означает сдачу домашнего задания.",
+    "Runbooks отсутствовали и добавляются в этом STEP.",
+    "Текущий LLM Grafana dashboard — стартовый, а не production-complete: нет отдельных RAG/agent/cost/SLO panels в одном JSON.",
+    "Alert thresholds 5% error rate, 10s p95 и guardrail rate > 1 являются учебными примерами и требуют привязки к реальным SLO.",
+    "Archive lab демонстрирует классический ML inference, а не полный LLM/RAG/agent stack.",
+    "Автоматический eval-to-alert feedback loop пока не подтверждён runtime evidence."
+  ],
+  "sources": [
+    {
+      "title": "Lesson 15 README",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/15.%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BD%D0%B0%D0%B1%D0%BB%D1%8E%D0%B4%D0%B0%D0%B5%D0%BC%D0%BE%D1%81%D1%82%D0%B8%20(Observability)%20%20%D0%94%D0%97/README.md"
+    },
+    {
+      "title": "LLM Observability Matrix",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/15.%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BD%D0%B0%D0%B1%D0%BB%D1%8E%D0%B4%D0%B0%D0%B5%D0%BC%D0%BE%D1%81%D1%82%D0%B8%20(Observability)%20%20%D0%94%D0%97/LLM_OBSERVABILITY_MATRIX.md"
+    },
+    {
+      "title": "Grafana Dashboards",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/15.%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BD%D0%B0%D0%B1%D0%BB%D1%8E%D0%B4%D0%B0%D0%B5%D0%BC%D0%BE%D1%81%D1%82%D0%B8%20(Observability)%20%20%D0%94%D0%97/GRAFANA_DASHBOARDS.md"
+    },
+    {
+      "title": "OWASP LLM Top 10 2026 mapping",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/15.%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BD%D0%B0%D0%B1%D0%BB%D1%8E%D0%B4%D0%B0%D0%B5%D0%BC%D0%BE%D1%81%D1%82%D0%B8%20(Observability)%20%20%D0%94%D0%97/OWASP_LLM_TOP10_2026.md"
+    }
+  ]
+}
