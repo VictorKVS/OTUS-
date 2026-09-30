@@ -68,6 +68,36 @@
       "maturity": "M0"
     },
     {
+      "id": "FTH-ARC-001",
+      "name": "Architecture Model & View Registry",
+      "domain": "Architecture",
+      "capabilities": [
+        "C4 Context / Container / Component / Deployment",
+        "Architecture-as-Code",
+        "View Generation",
+        "Architecture Traceability"
+      ],
+      "lessons": [
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        20,
+        21,
+        22,
+        23,
+        25,
+        26,
+        31
+      ],
+      "maturity": "M1"
+    },
+    {
       "id": "FTH-VAL-001",
       "name": "Value Delivery & Stage Gate Service",
       "domain": "Delivery Strategy",
