@@ -358,7 +358,7 @@
       "status": "materials",
       "evidence": "API · Broker · A2A · MCP",
       "path": "11 Проектирование интеграций от классики до AI-стандартов",
-      "expertPath": null,
+      "expertPath": "./lesson-template.html?id=11",
       "maturity": "M0",
       "curriculum": {
         "source_path": "11 Проектирование интеграций от классики до AI-стандартов",
@@ -366,16 +366,18 @@
         "submission_status": "unknown"
       },
       "architect_pro": {
-        "page": null,
-        "status": "planned"
+        "page": "./lesson-template.html?id=11",
+        "status": "active"
       },
       "father_production": {
         "capability_ids": [
-          "FTH-HARNESS-001",
-          "FTH-CTX-001",
-          "FTH-TOL-001",
+          "FTH-API-001",
+          "FTH-IGR-001",
           "FTH-MCP-001",
-          "FTH-GTW-001"
+          "FTH-GTW-001",
+          "FTH-OBS-001",
+          "FTH-POL-001",
+          "FTH-MDL-001"
         ]
       }
     },
