@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Lesson 05 — LLD and API Contracts</title>
+<desc id="desc">C2 architecture is decomposed into C3 AI Service components, traced through a sequence to the OpenAPI contract and automated validation.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061018"/><stop offset="1" stop-color="#17152d"/></linearGradient>
+  <style>.t{font-family:Segoe UI,Arial,sans-serif;fill:#eef7ff}.m{fill:#91a9ba}.h{font-weight:700}.box{fill:#0d1a25;stroke:#29495d;stroke-width:2}.cyan{stroke:#4ed9ff}.vio{stroke:#9b83ff}.green{stroke:#63e6a5}.amber{stroke:#ffbd65}.red{stroke:#ff7474}.mono{font-family:Consolas,monospace}</style>
+</defs>
+<rect width="1600" height="1000" rx="28" fill="url(#bg)"/>
+<text x="70" y="70" class="t h" font-size="34">LESSON 05 · LLD / Components / Contracts</text>
+<text x="70" y="108" class="m mono" font-size="15">C2 → C3 → SEQUENCE → OPENAPI → VALIDATION → EVIDENCE</text>
+
+<rect x="70" y="165" width="270" height="180" rx="20" class="box cyan"/>
+<text x="100" y="205" class="t h" font-size="18">C2 · SYSTEM</text>
+<text x="100" y="240" class="m" font-size="13">Frontend</text><text x="100" y="266" class="m" font-size="13">Backend / Case Service</text><text x="100" y="292" class="m" font-size="13">AI Service · DBs · Vault</text>
+
+<rect x="390" y="165" width="330" height="180" rx="20" class="box vio"/>
+<text x="420" y="205" class="t h" font-size="18">C3 · AI SERVICE</text>
+<text x="420" y="240" class="m" font-size="13">Controller → Normalizer → RAG</text><text x="420" y="266" class="m" font-size="13">Prompt → LLM → Evidence Guard</text><text x="420" y="292" class="m" font-size="13">Confidence → Formatter → Audit</text>
+
+<rect x="770" y="165" width="330" height="180" rx="20" class="box amber"/>
+<text x="800" y="205" class="t h" font-size="18">SEQUENCE</text>
+<text x="800" y="240" class="m" font-size="13">Analyst → Frontend → Backend</text><text x="800" y="266" class="m" font-size="13">→ C3 components → LLM</text><text x="800" y="292" class="m" font-size="13">→ evidence / response</text>
+
+<rect x="1150" y="165" width="380" height="180" rx="20" class="box green"/>
+<text x="1180" y="205" class="t h" font-size="18">OPENAPI 3.1</text>
+<text x="1180" y="240" class="m" font-size="13">POST /get_recommendation</text><text x="1180" y="266" class="m" font-size="13">schemas · examples</text><text x="1180" y="292" class="m" font-size="13">400/401/404/422/429/500/503</text>
+
+<path d="M340 255H390M720 255H770M1100 255H1150" stroke="#4ed9ff" stroke-width="5"/>
+
+<text x="70" y="420" class="t h" font-size="20">EVIDENCE-AWARE RESPONSE CONTRACT</text>
+
+<rect x="70" y="460" width="310" height="165" rx="18" class="box green"/>
+<text x="100" y="500" class="t h" font-size="16">RECOMMENDATION</text>
+<text x="100" y="535" class="m" font-size="13">recommendation + confidence</text><text x="100" y="562" class="m" font-size="13">limitations</text>
+
+<rect x="430" y="460" width="310" height="165" rx="18" class="box cyan"/>
+<text x="460" y="500" class="t h" font-size="16">EVIDENCE REFS</text>
+<text x="460" y="535" class="m" font-size="13">source_id · capture_id</text><text x="460" y="562" class="m" font-size="13">chunk_id · source_type</text>
+
+<rect x="790" y="460" width="310" height="165" rx="18" class="box amber"/>
+<text x="820" y="500" class="t h" font-size="16">RESEARCH GAPS</text>
+<text x="820" y="535" class="m" font-size="13">explicit uncertainty</text><text x="820" y="562" class="m" font-size="13">422 insufficient evidence</text>
+
+<rect x="1150" y="460" width="380" height="165" rx="18" class="box vio"/>
+<text x="1180" y="500" class="t h" font-size="16">HUMAN GATE</text>
+<text x="1180" y="535" class="m" font-size="13">AI recommends / explains</text><text x="1180" y="562" class="m" font-size="13">high-impact decision stays human</text>
+
+<text x="70" y="700" class="t h" font-size="20">FATHER PRODUCTION</text>
+
+<rect x="70" y="740" width="450" height="145" rx="18" class="box cyan"/>
+<text x="100" y="782" class="t h" font-size="17">FTH-ARC-001</text><text x="100" y="814" class="m" font-size="13">Architecture Model &amp; View Registry</text><text x="100" y="842" class="m" font-size="13">C2 / C3 / Sequence / BPMN / DFD</text>
+
+<rect x="575" y="740" width="450" height="145" rx="18" class="box green"/>
+<text x="605" y="782" class="t h" font-size="17">FTH-API-001</text><text x="605" y="814" class="m" font-size="13">Interface Contract &amp; API Registry</text><text x="605" y="842" class="m" font-size="13">OpenAPI · schemas · errors · versions</text>
+
+<rect x="1080" y="740" width="450" height="145" rx="18" class="box vio"/>
+<text x="1110" y="782" class="t h" font-size="17">FTH-EVL-001</text><text x="1110" y="814" class="m" font-size="13">Evaluation / Contract Validation</text><text x="1110" y="842" class="m" font-size="13">CI evidence · consistency checks</text>
+
+<text x="70" y="950" class="m" font-size="14">RULE: C3 participants, Sequence calls and OpenAPI operations must tell the same story.</text>
+</svg>
