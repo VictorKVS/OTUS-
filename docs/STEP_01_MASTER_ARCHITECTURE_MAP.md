@@ -214,3 +214,12 @@ Decision Registry владеет lifecycle ADR, alternatives/trade-offs, immutab
 - `FTH-REV-001` — Architecture Review & Challenge Service.
 
 Review Service владеет review sessions, quality-attribute scenarios, challenge questions, findings, dispositions and evidence snapshots. Подготовленный ADR/pitch не считается завершённым review без session evidence.
+
+
+## Amendment v1.9 — Architecture Governance / Technical Debt
+
+При нормализации Lesson 10 добавлен:
+
+- `FTH-GOV-001` — Architecture Governance & Technical Debt Service.
+
+Governance Service сравнивает change/PR с target architecture and ADR, фиксирует explainable review findings, разделяет debt и waiver, ведёт owner/priority/remediation и требует evidence для закрытия.
