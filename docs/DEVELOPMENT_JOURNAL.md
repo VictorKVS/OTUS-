@@ -413,3 +413,40 @@ Context Builder не владеет требованиями. Intake/Requirement
 ### Цель
 
 Нормализовать HLD и C4 как следующий слой после G1: от бизнес-контекста и требований к границам системы, контейнерам, внешним акторам и архитектурным решениям.
+
+
+---
+
+## 2026-09-30 — STEP 07 completed
+
+**Статус:** DONE v1.
+
+### Сделано
+
+- создан `site/data/lesson-details/04.json`;
+- создан `site/assets/lesson-04-hld-c4.svg`;
+- Lesson 04 подключён к universal template;
+- добавлен `FTH-ARC-001 · Architecture Model & View Registry`;
+- Lesson 04 = `draft / M1`.
+
+### Source-derived distinction
+
+OTUS требует C1/C2. Существующий Structurizr DSL дополнительно содержит C3, Deployment и AI-specific actors — это отделено как Architect Pro.
+
+### Validation
+
+- 2/2 production IDs;
+- 9 artifacts;
+- 5 evidence;
+- 4 GAP;
+- 6 traceability links.
+
+### Следующий шаг
+
+**STEP 08 — Lesson 05: LLD, компоненты и взаимодействия.**
+
+---
+
+## 2026-09-30 — STEP 08 started
+
+**Статус:** IN PROGRESS.
