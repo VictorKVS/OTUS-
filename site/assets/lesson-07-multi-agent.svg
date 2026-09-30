@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Lesson 07 — Multi-Agent Systems</title>
+<desc id="desc">Employee request enters Manager Supervisor, which performs explicit LangGraph handoffs to Policy RAG, Flight Search, Hotel Search and Budget Analyst before final grounded draft recommendation.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061018"/><stop offset="1" stop-color="#1a1431"/></linearGradient>
+  <style>.t{font-family:Segoe UI,Arial,sans-serif;fill:#eef7ff}.m{fill:#91a9ba}.h{font-weight:700}.box{fill:#0d1a25;stroke:#29495d;stroke-width:2}.cyan{stroke:#4ed9ff}.vio{stroke:#9b83ff}.green{stroke:#63e6a5}.amber{stroke:#ffbd65}.red{stroke:#ff7474}.mono{font-family:Consolas,monospace}</style>
+</defs>
+<rect width="1600" height="1000" rx="28" fill="url(#bg)"/>
+<text x="70" y="70" class="t h" font-size="34">LESSON 07 · AI Agents &amp; Multi-Agent Systems</text>
+<text x="70" y="108" class="m mono" font-size="15">SUPERVISOR · TYPED STATE · EXPLICIT HANDOFF · GROUNDED SPECIALISTS</text>
+
+<rect x="70" y="180" width="220" height="140" rx="20" class="box cyan"/>
+<text x="100" y="222" class="t h" font-size="17">EMPLOYEE</text><text x="100" y="255" class="m" font-size="13">HumanMessage</text><text x="100" y="282" class="m" font-size="13">trip request</text>
+
+<rect x="350" y="160" width="300" height="180" rx="22" class="box vio"/>
+<text x="380" y="205" class="t h" font-size="18">MANAGER / SUPERVISOR</text><text x="380" y="240" class="m" font-size="13">decompose · route · synthesize</text><text x="380" y="268" class="m" font-size="13">MessagesState + Command</text><text x="380" y="296" class="m" font-size="13">shared context / trace</text>
+
+<rect x="710" y="160" width="250" height="180" rx="22" class="box green"/>
+<text x="740" y="205" class="t h" font-size="18">POLICY RAG</text><text x="740" y="240" class="m" font-size="13">hybrid retrieval</text><text x="740" y="268" class="m" font-size="13">rerank · evidence refs</text><text x="740" y="296" class="m" font-size="13">POLICY_GAP</text>
+
+<rect x="1020" y="160" width="220" height="180" rx="22" class="box cyan"/>
+<text x="1050" y="205" class="t h" font-size="18">FLIGHT</text><text x="1050" y="240" class="m" font-size="13">read-only options</text><text x="1050" y="268" class="m" font-size="13">single responsibility</text>
+
+<rect x="1300" y="160" width="230" height="180" rx="22" class="box cyan"/>
+<text x="1330" y="205" class="t h" font-size="18">HOTEL</text><text x="1330" y="240" class="m" font-size="13">read-only options</text><text x="1330" y="268" class="m" font-size="13">single responsibility</text>
+
+<path d="M290 250H350M650 250H710M960 250H1020M1240 250H1300" stroke="#9b83ff" stroke-width="5"/>
+<text x="670" y="235" class="m mono" font-size="11">Command(goto)</text>
+
+<rect x="520" y="420" width="340" height="170" rx="22" class="box amber"/>
+<text x="550" y="462" class="t h" font-size="18">BUDGET ANALYST</text><text x="550" y="497" class="m" font-size="13">cost calculation</text><text x="550" y="525" class="m" font-size="13">policy limits</text><text x="550" y="553" class="m" font-size="13">APPROVE_DRAFT / APPROVAL</text>
+
+<rect x="940" y="420" width="380" height="170" rx="22" class="box green"/>
+<text x="970" y="462" class="t h" font-size="18">MANAGER / FINALIZE</text><text x="970" y="497" class="m" font-size="13">specialist results + evidence</text><text x="970" y="525" class="m" font-size="13">grounded recommendation</text><text x="970" y="553" class="m" font-size="13">NO real booking / approval</text>
+
+<path d="M1415 340 C1415 390 790 390 690 420" fill="none" stroke="#ffbd65" stroke-width="4"/>
+<path d="M860 505H940" stroke="#63e6a5" stroke-width="5"/>
+
+<text x="70" y="675" class="t h" font-size="20">EVIDENCE / QUALITY</text>
+<rect x="70" y="715" width="300" height="130" rx="18" class="box green"/><text x="100" y="757" class="t h" font-size="16">TYPED MESSAGES</text><text x="100" y="788" class="m" font-size="12">System · Human · AI</text>
+<rect x="410" y="715" width="300" height="130" rx="18" class="box vio"/><text x="440" y="757" class="t h" font-size="16">HANDOFF TRACE</text><text x="440" y="788" class="m" font-size="12">Command → state delta → event</text>
+<rect x="750" y="715" width="300" height="130" rx="18" class="box cyan"/><text x="780" y="757" class="t h" font-size="16">RAG GATE</text><text x="780" y="788" class="m" font-size="12">HitRate@2 · MRR@2</text>
+<rect x="1090" y="715" width="440" height="130" rx="18" class="box amber"/><text x="1120" y="757" class="t h" font-size="16">CI DEFINITION</text><text x="1120" y="788" class="m" font-size="12">compile · OpenAPI · pytest · eval · demo · PDF</text>
+
+<text x="70" y="905" class="t h" font-size="18">FATHER: HARNESS → GRAPH → AGENT ZOO → SUPERVISOR ↔ KNOWLEDGE/RAG → EVAL</text>
+<text x="70" y="950" class="m" font-size="14">RULE: an agent handoff is a traced contract. MCP and persistent memory are not assumed without evidence.</text>
+</svg>
