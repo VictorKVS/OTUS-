@@ -172,3 +172,12 @@ Lesson pages now show two independent states:
 - OTUS course submission status.
 
 A completed Git artifact is not automatically treated as teacher acceptance.
+
+
+## Lesson 08 normalized
+
+- [Lesson 08 · Architecture Decision Records](./lesson-template.html?id=8)
+- visual: `assets/lesson-08-adr-lifecycle.svg`
+- data: `data/lesson-details/08.json`
+
+Decision lifecycle: context → options → trade-offs → review → accepted → fitness evidence → review trigger → supersede.
