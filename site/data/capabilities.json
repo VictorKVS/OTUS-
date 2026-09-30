@@ -262,6 +262,23 @@
       "maturity": "M1"
     },
     {
+      "id": "FTH-KGR-001",
+      "name": "Knowledge Graph Service",
+      "domain": "Knowledge",
+      "capabilities": [
+        "Entities / Relations",
+        "Graph Retrieval",
+        "Graph-Augmented RAG",
+        "Knowledge Linking"
+      ],
+      "lessons": [
+        6,
+        12,
+        23
+      ],
+      "maturity": "M0"
+    },
+    {
       "id": "FTH-MEM-001",
       "name": "Memory Service",
       "domain": "Memory",
