@@ -301,19 +301,23 @@
       "status": "review",
       "evidence": "ATAM · ADR · TCO · pitch",
       "path": "9. Верификация архитектуры и CTO Challenge  ДЗ",
-      "expertPath": null,
+      "expertPath": "./lesson-template.html?id=9",
       "maturity": "M1",
       "curriculum": {
         "source_path": "9. Верификация архитектуры и CTO Challenge  ДЗ",
         "status": "review",
-        "submission_status": "unknown"
+        "submission_status": "not_submitted_in_source"
       },
       "architect_pro": {
-        "page": null,
-        "status": "planned"
+        "page": "./lesson-template.html?id=9",
+        "status": "active"
       },
       "father_production": {
         "capability_ids": [
+          "FTH-REV-001",
+          "FTH-ADR-001",
+          "FTH-RSK-001",
+          "FTH-ARC-001",
           "FTH-EVL-001",
           "FTH-FIN-001"
         ]
