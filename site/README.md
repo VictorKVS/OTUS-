@@ -127,3 +127,12 @@ Production mapping: Requirements → Estimation/Planning → Risk/Change Control
 - data: `data/lesson-details/03.json`
 
 Production mapping: Value Delivery / Stage Gates → Estimation → Risk/Change → FinOps → Delivery.
+
+
+## Lesson 04 normalized
+
+- [Lesson 04 · HLD / C4](./lesson-template.html?id=4)
+- visual: `assets/lesson-04-hld-c4.svg`
+- data: `data/lesson-details/04.json`
+
+OTUS C1/C2 отделены от существующего Architect Pro extension: C3 + Deployment + richer AI roles.
