@@ -474,28 +474,30 @@
       "id": 15,
       "title": "Observability",
       "gate": "G4",
-      "status": "materials",
+      "status": "lab",
       "evidence": "Metrics · traces · logs · SLO",
       "path": "15.Архитектура наблюдаемости (Observability)  ДЗ",
-      "expertPath": null,
-      "maturity": "M0",
+      "expertPath": "./lesson-template.html?id=15",
+      "maturity": "M1",
       "curriculum": {
         "source_path": "15.Архитектура наблюдаемости (Observability)  ДЗ",
         "status": "materials",
-        "submission_status": "unknown"
+        "submission_status": "not_submitted_in_source"
       },
       "architect_pro": {
-        "page": null,
-        "status": "planned"
+        "page": "./lesson-template.html?id=15",
+        "status": "active"
       },
       "father_production": {
         "capability_ids": [
-          "FTH-HARNESS-001",
-          "FTH-MCP-001",
-          "FTH-AGT-001",
-          "FTH-SUP-001",
+          "FTH-OBS-001",
+          "FTH-SLO-001",
           "FTH-EVL-001",
-          "FTH-OBS-001"
+          "FTH-POL-001",
+          "FTH-FIN-001",
+          "FTH-RAG-001",
+          "FTH-AGT-001",
+          "FTH-REL-001"
         ]
       }
     },
