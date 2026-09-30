@@ -205,3 +205,12 @@ Vector/hybrid retrieval и graph retrieval разделены: `FTH-RAG-001` о�
 - `FTH-ADR-001` — Architecture Decision Registry.
 
 Decision Registry владеет lifecycle ADR, alternatives/trade-offs, immutable history, supersede links и fitness evidence. Markdown/Git остаётся экспортируемым и аудируемым представлением.
+
+
+## Amendment v1.8 — Architecture Review & Challenge
+
+При нормализации Lesson 09 добавлен:
+
+- `FTH-REV-001` — Architecture Review & Challenge Service.
+
+Review Service владеет review sessions, quality-attribute scenarios, challenge questions, findings, dispositions and evidence snapshots. Подготовленный ADR/pitch не считается завершённым review без session evidence.
