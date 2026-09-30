@@ -130,21 +130,27 @@
       "id": 3,
       "title": "Стратегия поставки ценности: PoC → Production",
       "gate": "G1",
-      "status": "materials",
+      "status": "draft",
       "evidence": "Value · roadmap · delivery",
       "path": "3. Стратегия поставки ценности от PoC до Production  ДЗ",
-      "expertPath": null,
-      "maturity": "M0",
+      "expertPath": "./lesson-template.html?id=3",
+      "maturity": "M1",
       "curriculum": {
         "source_path": "3. Стратегия поставки ценности от PoC до Production  ДЗ",
         "status": "materials"
       },
       "architect_pro": {
-        "page": null,
-        "status": "planned"
+        "page": "./lesson-template.html?id=3",
+        "status": "active"
       },
       "father_production": {
-        "capability_ids": []
+        "capability_ids": [
+          "FTH-VAL-001",
+          "FTH-EST-001",
+          "FTH-RSK-001",
+          "FTH-FIN-001",
+          "FTH-DLV-001"
+        ]
       }
     },
     {
