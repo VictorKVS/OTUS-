@@ -118,6 +118,28 @@
       "maturity": "M1"
     },
     {
+      "id": "FTH-REV-001",
+      "name": "Architecture Review & Challenge Service",
+      "domain": "Architecture Governance",
+      "capabilities": [
+        "Architecture Review Sessions",
+        "Quality Attribute Scenarios",
+        "Trade-off / Risk Findings",
+        "Challenge Backlog",
+        "Review Evidence"
+      ],
+      "lessons": [
+        9,
+        10,
+        13,
+        14,
+        15,
+        29,
+        30
+      ],
+      "maturity": "M0"
+    },
+    {
       "id": "FTH-API-001",
       "name": "Interface Contract & API Registry",
       "domain": "Integration",
