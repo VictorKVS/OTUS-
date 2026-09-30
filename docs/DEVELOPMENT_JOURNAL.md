@@ -487,3 +487,41 @@ C3, Sequence и OpenAPI должны описывать один и тот же 
 ## 2026-09-30 — STEP 09 started
 
 **Статус:** IN PROGRESS.
+
+
+---
+
+## 2026-09-30 — STEP 09 completed
+
+**Статус:** DONE v1.
+
+### Сделано
+
+- создан `site/data/lesson-details/06.json`;
+- создан `site/assets/lesson-06-rag-patterns.svg`;
+- Lesson 06 подключён к universal template;
+- добавлен `FTH-KGR-001 · Knowledge Graph Service`;
+- Memory Layer удалён из прямого Lesson 06 mapping;
+- Lesson 06 = `draft / M1`.
+
+### Validation
+
+- 5/5 production IDs;
+- 8 artifacts;
+- 7 evidence;
+- 5 GAP;
+- 8 traceability links.
+
+### Важный GAP
+
+Notebook содержит RAG/hybrid/rerank code, но не имеет сохранённых execution outputs. Папка `lesson-06-c4-model` не относится к RAG и должна быть перенесена/переименована.
+
+### Следующий шаг
+
+**STEP 10 — Lesson 07: AI Agents & Multi-Agent Systems.**
+
+---
+
+## 2026-09-30 — STEP 10 started
+
+**Статус:** IN PROGRESS.
