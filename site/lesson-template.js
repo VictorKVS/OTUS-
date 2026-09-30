@@ -9,8 +9,8 @@ async function init(){
  const [course,caps]=await Promise.all([getJson("./data/course-manifest.json"),getJson("./data/capabilities.json")]);
  const lesson=course.lessons.find(x=>x.id===id);if(!lesson)throw new Error("Lesson "+id+" not found");
  const ordered=[...course.lessons].sort((a,b)=>a.id-b.id);const pos=ordered.findIndex(x=>x.id===id);
- document.querySelectorAll("#prevLesson").forEach(a=>{const p=pos>0?ordered[pos-1]:null;if(p){a.href="./lesson-template.html?id="+p.id;a.textContent="← Lesson "+String(p.id).padStart(2,"0")}else{a.classList.add("is-disabled");a.removeAttribute("href")}});
- document.querySelectorAll("#nextLesson").forEach(a=>{const n=pos>=0&&pos<ordered.length-1?ordered[pos+1]:null;if(n){a.href="./lesson-template.html?id="+n.id;a.textContent="Lesson "+String(n.id).padStart(2,"0")+" →"}else{a.classList.add("is-disabled");a.removeAttribute("href")}});
+ document.querySelectorAll(".prevLesson").forEach(a=>{const p=pos>0?ordered[pos-1]:null;if(p){a.href="./lesson-template.html?id="+p.id;a.textContent="← Lesson "+String(p.id).padStart(2,"0")}else{a.classList.add("is-disabled");a.removeAttribute("href")}});
+ document.querySelectorAll(".nextLesson").forEach(a=>{const n=pos>=0&&pos<ordered.length-1?ordered[pos+1]:null;if(n){a.href="./lesson-template.html?id="+n.id;a.textContent="Lesson "+String(n.id).padStart(2,"0")+" →"}else{a.classList.add("is-disabled");a.removeAttribute("href")}});
 
  let detail=null;try{detail=await getJson("./data/lesson-details/"+String(id).padStart(2,"0")+".json")}catch(_){detail=null}
  document.title="Lesson "+String(id).padStart(2,"0")+" · "+lesson.title+" · FATHER Architect OS";
