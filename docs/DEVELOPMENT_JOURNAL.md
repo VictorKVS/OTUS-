@@ -638,3 +638,46 @@ Accepted ADR не переписывается задним числом. Изм
 ## 2026-09-30 — STEP 13 started
 
 **Статус:** IN PROGRESS.
+
+
+---
+
+## 2026-09-30 — STEP 13 completed
+
+**Статус:** DONE v1.
+
+### Сделано
+
+- создан `site/data/lesson-details/10.json`;
+- создан `site/assets/lesson-10-governance-tech-debt.svg`;
+- добавлен `FTH-GOV-001 · Architecture Governance & Technical Debt Service`;
+- Lesson 10 подключён к universal template.
+
+### Evidence boundary
+
+В папке урока обнаружен только source lesson text. Завершённый PR-review / Debt Register отсутствует.
+
+Поэтому статус честно сохранён как `materials / M0`.
+
+### Validation
+
+- 5/5 production IDs;
+- 6 artifact/target entries;
+- 4 source evidence statements;
+- 5 GAP;
+- 7 traceability links.
+
+### Milestone
+
+Lessons **01–10** теперь имеют единый visual-first representation:
+Schema → Visual → OTUS → Architect Pro → FATHER Production → Evidence → Maturity.
+
+### Следующий шаг
+
+**STEP 14 — Lesson 11: Integrations from classic API to AI standards.**
+
+---
+
+## 2026-09-30 — STEP 14 started
+
+**Статус:** IN PROGRESS.
