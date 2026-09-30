@@ -196,3 +196,12 @@ OpenAPI/AsyncAPI, schemas, examples, error models и contract versions явля�
 - `FTH-KGR-001` — Knowledge Graph Service.
 
 Vector/hybrid retrieval и graph retrieval разделены: `FTH-RAG-001` отвечает за retrieval/rerank pipeline, `FTH-KGR-001` — entities/relations/graph traversal и graph-augmented context.
+
+
+## Amendment v1.7 — Decision Registry
+
+При нормализации Lesson 08 добавлен:
+
+- `FTH-ADR-001` — Architecture Decision Registry.
+
+Decision Registry владеет lifecycle ADR, alternatives/trade-offs, immutable history, supersede links и fitness evidence. Markdown/Git остаётся экспортируемым и аудируемым представлением.
