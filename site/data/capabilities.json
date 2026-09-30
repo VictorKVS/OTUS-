@@ -140,6 +140,26 @@
       "maturity": "M0"
     },
     {
+      "id": "FTH-GOV-001",
+      "name": "Architecture Governance & Technical Debt Service",
+      "domain": "Architecture Governance",
+      "capabilities": [
+        "Architecture Compliance",
+        "PR Architecture Review",
+        "Technical Debt Register",
+        "Exceptions / Waivers",
+        "Remediation Lifecycle"
+      ],
+      "lessons": [
+        10,
+        18,
+        20,
+        29,
+        30
+      ],
+      "maturity": "M0"
+    },
+    {
       "id": "FTH-API-001",
       "name": "Interface Contract & API Registry",
       "domain": "Integration",
