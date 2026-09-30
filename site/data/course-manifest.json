@@ -330,7 +330,7 @@
       "status": "materials",
       "evidence": "Governance · review · debt",
       "path": "10 .Архитектурный надзор и управление техническим долгом",
-      "expertPath": null,
+      "expertPath": "./lesson-template.html?id=10",
       "maturity": "M0",
       "curriculum": {
         "source_path": "10 .Архитектурный надзор и управление техническим долгом",
@@ -338,11 +338,17 @@
         "submission_status": "unknown"
       },
       "architect_pro": {
-        "page": null,
-        "status": "planned"
+        "page": "./lesson-template.html?id=10",
+        "status": "designed"
       },
       "father_production": {
-        "capability_ids": []
+        "capability_ids": [
+          "FTH-GOV-001",
+          "FTH-ADR-001",
+          "FTH-ARC-001",
+          "FTH-REV-001",
+          "FTH-EVL-001"
+        ]
       }
     },
     {
