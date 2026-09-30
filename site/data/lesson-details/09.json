@@ -1,0 +1,193 @@
+{
+  "schema_version": "father-architect-lesson-detail.v1",
+  "lesson_id": 9,
+  "purpose": "Проверить архитектуру до дорогой реализации: подвергнуть ключевые решения challenge по quality attributes, рискам, стоимости и последствиям, отделить факты от предположений и превратить замечания ревью в управляемые findings, actions и при необходимости новые ADR.",
+  "schema": {
+    "notation": "REQ/NFR + ADR + ARCH + RISK → REVIEW SCENARIOS → CTO CHALLENGE → EVIDENCE CHECK → FINDINGS/TRADE-OFFS → DECISION → ACTIONS/NEW ADR → RE-VERIFY",
+    "description": "Программа Lesson 09 прямо называет ATAM и CTO Challenge. В проекте есть ADR/TCO/risk/pitch preparation, но завершённая recorded ATAM review session не обнаружена; поэтому страница отражает preparation/review state, а не закрытый gate.",
+    "nodes": [
+      "REQ/NFR + ADR + ARCH + RISK",
+      "REVIEW SCENARIOS",
+      "CTO CHALLENGE",
+      "EVIDENCE CHECK",
+      "FINDINGS/TRADE-OFFS",
+      "DECISION",
+      "ACTIONS/NEW ADR",
+      "RE-VERIFY"
+    ],
+    "edges": [
+      [
+        "REQ/NFR + ADR + ARCH + RISK",
+        "REVIEW SCENARIOS"
+      ],
+      [
+        "REVIEW SCENARIOS",
+        "CTO CHALLENGE"
+      ],
+      [
+        "CTO CHALLENGE",
+        "EVIDENCE CHECK"
+      ],
+      [
+        "EVIDENCE CHECK",
+        "FINDINGS/TRADE-OFFS"
+      ],
+      [
+        "FINDINGS/TRADE-OFFS",
+        "DECISION"
+      ],
+      [
+        "DECISION",
+        "ACTIONS/NEW ADR"
+      ],
+      [
+        "ACTIONS/NEW ADR",
+        "RE-VERIFY"
+      ]
+    ]
+  },
+  "visual": {
+    "poster": "./assets/lesson-09-architecture-verification.svg",
+    "alt": "Lesson 09 architecture verification: requirements, ADRs, architecture, risks and TCO enter quality-attribute scenarios and CTO Challenge; evidence produces findings and trade-offs, actions or a new ADR, then architecture is re-verified."
+  },
+  "curriculum": {
+    "summary": "Lesson 09 teaches architecture verification using ATAM and an internal CTO Challenge: architecture is reviewed by a defense team and challengers, with emphasis on quality, trade-offs and the ability to defend decisions with facts.",
+    "requirements": [
+      "Применять Architecture Tradeoff Analysis Method (ATAM)",
+      "Оценивать качество архитектуры",
+      "Проводить CTO Challenge как внутренний аудит",
+      "Аргументированно защищать решения перед техническим руководством и стейкхолдерами",
+      "Проводить architecture review session"
+    ],
+    "homework": [
+      "Сравнить SaaS и Self-hosted LLM по cost/privacy/quality/latency/support",
+      "Оформить ADR",
+      "Честно зафиксировать pros/cons",
+      "Подготовить короткий CTO pitch"
+    ],
+    "sources": [
+      "Lesson 09 source file",
+      "Risk Matrix Example",
+      "Cloud vs On-prem / ADR materials"
+    ]
+  },
+  "architect_pro": {
+    "summary": "Существующая подготовка к CTO Challenge уже включает сильные элементы: Accepted ADR, trade-off comparison, reproducible TCO, risk matrix, quality gate, review triggers и набор challenge questions. Но для полноценного review evidence нужен отдельный протокол с quality scenarios, findings, owners and dispositions.",
+    "methods": [
+      "Quality Attribute Scenarios: stimulus → environment → artifact → response → measure",
+      "Challenge assumptions, not people",
+      "Проверка decision evidence и источников",
+      "Сопоставление cost только при одинаковом quality/SLO",
+      "Выявление risk points и sensitivity points",
+      "Выявление trade-off points",
+      "Проверка operational consequences",
+      "CTO adversarial questions",
+      "Finding classification: blocker / high / medium / observation",
+      "Owner + due date + disposition для каждого finding",
+      "New ADR / supersede при изменении решения",
+      "Re-review после критических изменений"
+    ],
+    "standards": [
+      "ATAM-oriented review",
+      "ADR review",
+      "Evidence-based challenge"
+    ],
+    "anti_patterns": [
+      "Review сводится к презентации без challenge",
+      "Архитектор защищает решение авторитетом вместо evidence",
+      "Качество, стоимость и latency сравниваются на разных workloads",
+      "Risk matrix существует отдельно и не влияет на решение",
+      "Замечания review не имеют owner/due date",
+      "Challenge смешивает факты и предположения",
+      "После изменения решения старый ADR тихо редактируется",
+      "Подготовленный pitch выдаётся за проведённую review session"
+    ],
+    "templates": [
+      "Review Intake Pack",
+      "Quality Attribute Scenario",
+      "CTO Challenge Question Set",
+      "Risk / Sensitivity / Trade-off Findings",
+      "Review Decision Record",
+      "Action / Owner / Due Date Register",
+      "Re-verification Checklist"
+    ]
+  },
+  "father_production": {
+    "summary": "FATHER получает отдельный Architecture Review & Challenge Service. Он собирает review pack из требований, архитектурной модели, ADR, risks, cost/eval evidence; ведёт сценарии и challenge session; фиксирует findings и dispositions; блокирующие результаты возвращаются в Decision/Risk/Architecture registries.",
+    "capability_ids": [
+      "FTH-REV-001",
+      "FTH-ADR-001",
+      "FTH-RSK-001",
+      "FTH-ARC-001",
+      "FTH-EVL-001",
+      "FTH-FIN-001"
+    ],
+    "components": [
+      "FTH-REV-001 · Architecture Review & Challenge Service",
+      "FTH-ADR-001 · Architecture Decision Registry",
+      "FTH-RSK-001 · Risk & Change Control Service",
+      "FTH-ARC-001 · Architecture Model & View Registry",
+      "FTH-EVL-001 · Evaluation Service",
+      "FTH-FIN-001 · FinOps / Cost Control"
+    ],
+    "runtime_notes": [
+      "Review session имеет stable ID, scope, participants, inputs and timestamp",
+      "Каждый challenge question связан с concern/quality attribute",
+      "Каждый finding имеет severity, evidence, owner, disposition and due date",
+      "Blocker не закрывается текстом «принято к сведению»",
+      "Review result может approve, approve-with-actions, reject or request new ADR",
+      "Evidence snapshot сохраняется, чтобы последующий review был воспроизводим",
+      "Gate G3 закрывается не наличием ADR, а ADR + review evidence + resolved critical findings"
+    ]
+  },
+  "artifacts": [
+    "Lesson 09 source: 9 Верификация архитектуры и «CTO Challenge».md",
+    "9.../README.md",
+    "adr/ADR-TEMPLATE.md",
+    "adr/ADR-MINIMAL.md",
+    "adr/0001-cloud-vs-onprem-llm.md",
+    "CLOUD_VS_ONPREM.md",
+    "ADR_TOOLING.md",
+    "llm_tco_calculator.py",
+    "Risk_Matrix_Example.xlsx",
+    "калькулятор_рисков.xlsx",
+    "Учебный_Калькулятор_ConfluBot.xlsx",
+    "PRD Confluence Bot"
+  ],
+  "evidence": [
+    "Lesson source explicitly names ATAM and CTO Challenge",
+    "Lesson source requires factual argumentation and honest trade-offs",
+    "Repository contains ADR templates and concrete cloud-vs-onprem ADR",
+    "Repository contains TCO model/calculator and risk spreadsheets",
+    "ADR-001 contains challenge questions and review triggers",
+    "Repository README defines immutable ADR history / supersede process"
+  ],
+  "traceability": [
+    "REQ/NFR → REVIEW CONCERN",
+    "ADR / ARCH → REVIEW INPUT",
+    "QUALITY ATTRIBUTE → SCENARIO",
+    "SCENARIO → CHALLENGE QUESTION",
+    "QUESTION → EVIDENCE",
+    "EVIDENCE → FINDING / TRADE-OFF",
+    "FINDING → ACTION / OWNER / DUE DATE",
+    "CRITICAL FINDING → NEW ADR / ARCH CHANGE → RE-VERIFY"
+  ],
+  "gaps": [
+    "Исходный текст Lesson 09 находится в папке Lesson 08, что требует нормализации структуры репозитория.",
+    "Исходный текст указывает «Статус: не сдано»; teacher acceptance не подтверждён.",
+    "Не найден отдельный протокол реально проведённой ATAM/CTO Challenge session с participants, scenarios, findings and dispositions.",
+    "Папка Lesson 09 в основном содержит ADR/TCO preparation, поэтому engineering status остаётся review, а не done.",
+    "FTH-REV-001 пока target capability, не production runtime.",
+    "Содержимое бинарных DOC/XLSX в этом проходе не использовалось как детальная фактическая основа; учтено только их наличие и назначение из surrounding materials."
+  ],
+  "sources": [
+    {
+      "title": "Lesson 09 source",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/8.%20%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B9%20Architecture%20Decision%20Records%20(ADR)/9%20%D0%92%D0%B5%D1%80%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D1%8B%20%D0%B8%20%C2%ABCTO%20Challeng.md"
+    },
+    {
+      "title": "Lesson 09 repository README",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/9.%20%D0%92%D0%B5%D1%80%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D1%8B%20%D0%B8%20CTO%20Challenge%20%20%D0%94%D0%97/README.md"
+    }
+  ]
+}
