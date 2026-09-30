@@ -145,3 +145,12 @@ OTUS C1/C2 отделены от существующего Architect Pro extens
 - data: `data/lesson-details/05.json`
 
 Completed evidence package: C2 → C3 → Sequence → OpenAPI → CI/evidence.
+
+
+## Lesson 06 normalized
+
+- [Lesson 06 · RAG Patterns](./lesson-template.html?id=6)
+- visual: `assets/lesson-06-rag-patterns.svg`
+- data: `data/lesson-details/06.json`
+
+Notebook evidence: vector retrieval + BM25 hybrid + reranking code; no saved execution outputs, so status remains `draft / M1`.
