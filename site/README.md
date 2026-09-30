@@ -181,3 +181,12 @@ A completed Git artifact is not automatically treated as teacher acceptance.
 - data: `data/lesson-details/08.json`
 
 Decision lifecycle: context → options → trade-offs → review → accepted → fitness evidence → review trigger → supersede.
+
+
+## Lesson 09 normalized
+
+- [Lesson 09 · Architecture Verification / CTO Challenge](./lesson-template.html?id=9)
+- visual: `assets/lesson-09-architecture-verification.svg`
+- data: `data/lesson-details/09.json`
+
+Engineering status remains `review / M1`: challenge preparation exists, but a completed ATAM/CTO review session is not evidenced.
