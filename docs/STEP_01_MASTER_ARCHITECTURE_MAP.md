@@ -169,3 +169,12 @@ STEP 01 считается закрытым только после двух о�
 - `FTH-VAL-001` — Value Delivery & Stage Gate Service.
 
 Причина: CI/CD и Delivery Plane отвечают за техническую поставку, но не владеют бизнес-логикой переходов Demo → PoC → MVP → Production. Stage Gate Service хранит hypothesis, success criteria, evidence и решение `GO / CHANGE / STOP`.
+
+
+## Amendment v1.4 — Architecture model domain
+
+При нормализации Lesson 04 добавлен:
+
+- `FTH-ARC-001` — Architecture Model & View Registry.
+
+Модель хранит actors, systems, containers, components, deployment nodes и relationships. C1/C2/C3/Deployment являются views одной модели, а не независимыми картинками.
