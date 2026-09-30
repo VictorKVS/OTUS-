@@ -187,3 +187,12 @@ STEP 01 считается закрытым только после двух о�
 - `FTH-API-001` — Interface Contract & API Registry.
 
 OpenAPI/AsyncAPI, schemas, examples, error models и contract versions являются самостоятельными архитектурными артефактами и должны проходить автоматическую валидацию.
+
+
+## Amendment v1.6 — Knowledge Graph domain
+
+При нормализации Lesson 06 добавлен:
+
+- `FTH-KGR-001` — Knowledge Graph Service.
+
+Vector/hybrid retrieval и graph retrieval разделены: `FTH-RAG-001` отвечает за retrieval/rerank pipeline, `FTH-KGR-001` — entities/relations/graph traversal и graph-augmented context.
