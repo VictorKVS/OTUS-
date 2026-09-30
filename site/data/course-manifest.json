@@ -269,10 +269,10 @@
       "id": 8,
       "title": "Architecture Decision Records",
       "gate": "G3",
-      "status": "lab",
+      "status": "done",
       "evidence": "ADR · lifecycle · supersede",
       "path": "8. Документирование решений Architecture Decision Records (ADR)",
-      "expertPath": null,
+      "expertPath": "./lesson-template.html?id=8",
       "maturity": "M1",
       "curriculum": {
         "source_path": "8. Документирование решений Architecture Decision Records (ADR)",
@@ -280,11 +280,18 @@
         "submission_status": "unknown"
       },
       "architect_pro": {
-        "page": null,
-        "status": "planned"
+        "page": "./lesson-template.html?id=8",
+        "status": "active"
       },
       "father_production": {
-        "capability_ids": []
+        "capability_ids": [
+          "FTH-REQ-001",
+          "FTH-RSK-001",
+          "FTH-ADR-001",
+          "FTH-ARC-001",
+          "FTH-EVL-001",
+          "FTH-FIN-001"
+        ]
       }
     },
     {
