@@ -136,3 +136,12 @@ Production mapping: Value Delivery / Stage Gates → Estimation → Risk/Change 
 - data: `data/lesson-details/04.json`
 
 OTUS C1/C2 отделены от существующего Architect Pro extension: C3 + Deployment + richer AI roles.
+
+
+## Lesson 05 normalized
+
+- [Lesson 05 · LLD / Components / Contracts](./lesson-template.html?id=5)
+- visual: `assets/lesson-05-lld-contracts.svg`
+- data: `data/lesson-details/05.json`
+
+Completed evidence package: C2 → C3 → Sequence → OpenAPI → CI/evidence.
