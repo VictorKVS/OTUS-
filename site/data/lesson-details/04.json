@@ -1,0 +1,161 @@
+{
+  "schema_version": "father-architect-lesson-detail.v1",
+  "lesson_id": 4,
+  "purpose": "Перевести требования и архитектурные драйверы в понятную высокоуровневую модель системы: показать контекст, границы, пользователей и внешние системы на C1, затем ключевые контейнеры и их взаимодействия на C2; существующий Structurizr DSL расширяет это до C3 и Deployment.",
+  "schema": {
+    "notation": "REQ/NFR → SYSTEM BOUNDARY → C1 CONTEXT → C2 CONTAINERS → C3 COMPONENTS → DEPLOYMENT → REVIEW/EVIDENCE",
+    "description": "OTUS-слой требует C1 и C2. Существующий DSL уже содержит C3 и Deployment, поэтому профессиональное расширение отделяется от минимального требования урока.",
+    "nodes": [
+      "REQ/NFR",
+      "SYSTEM BOUNDARY",
+      "C1 CONTEXT",
+      "C2 CONTAINERS",
+      "C3 COMPONENTS",
+      "DEPLOYMENT",
+      "REVIEW/EVIDENCE"
+    ],
+    "edges": [
+      [
+        "REQ/NFR",
+        "SYSTEM BOUNDARY"
+      ],
+      [
+        "SYSTEM BOUNDARY",
+        "C1 CONTEXT"
+      ],
+      [
+        "C1 CONTEXT",
+        "C2 CONTAINERS"
+      ],
+      [
+        "C2 CONTAINERS",
+        "C3 COMPONENTS"
+      ],
+      [
+        "C3 COMPONENTS",
+        "DEPLOYMENT"
+      ],
+      [
+        "DEPLOYMENT",
+        "REVIEW/EVIDENCE"
+      ]
+    ]
+  },
+  "visual": {
+    "poster": "./assets/lesson-04-hld-c4.svg",
+    "alt": "Lesson 04 C4: требования определяют границу системы; C1 показывает людей и внешние системы, C2 контейнеры, C3 компоненты ETL Worker, Deployment размещение контейнеров."
+  },
+  "curriculum": {
+    "summary": "Цели урока: применять C4 на разных уровнях абстракции, создавать диаграммы контекста и контейнеров для AI-решений и доносить архитектурные решения техническим и бизнес-командам. Практика — C1 и C2 в Miro или Structurizr.",
+    "requirements": [
+      "Применять C4 для описания архитектуры на разных уровнях абстракции",
+      "Создавать C1 System Context",
+      "Создавать C2 Container",
+      "Показывать архитектуру AI-решения понятным бизнес- и техническим аудиториям",
+      "Использовать Draw.io или Structurizr"
+    ],
+    "homework": [
+      "Создать C1 для учебного AI-проекта",
+      "Создать C2 для учебного AI-проекта"
+    ],
+    "sources": [
+      "Lesson 04 outline",
+      "Structurizr DSL workspace"
+    ]
+  },
+  "architect_pro": {
+    "summary": "Существующий Structurizr DSL уже расширяет учебный минимум: описывает AI RAG Assistant как модель-as-code, добавляет C3 для ETL Worker, Deployment View, AI-роли Data Scientist/Annotator, user/inference/ingestion flows и инфраструктурные характеристики.",
+    "methods": [
+      "Architecture-as-Code через Structurizr DSL",
+      "Явное моделирование system boundary",
+      "C1: actors + target system + external systems",
+      "C2: SPA, Backend, LLM Gateway, Vector DB, ETL Worker",
+      "C3: Document Reader → Text Splitter → Embedding Client → Vector DB Client",
+      "Отдельный synchronous inference flow",
+      "Отдельный asynchronous ingestion flow",
+      "Deployment model для user device, K8s, data infrastructure и external SaaS",
+      "AI-specific actors: Data Scientist и Annotator",
+      "Теги для GPU / High Memory / external systems"
+    ],
+    "standards": [],
+    "anti_patterns": [
+      "Рисовать C1, C2 и C3 на одной перегруженной диаграмме",
+      "Смешивать logical containers и deployment nodes",
+      "Показывать технологии без назначения компонента",
+      "Не обозначать system boundary",
+      "Рисовать внешние системы как внутренние контейнеры",
+      "Не показывать направление и смысл отношений",
+      "Использовать схему, не совпадающую с реальной архитектурной моделью",
+      "Зависеть от внешних иконок/картинок без контроля лицензии и доступности"
+    ],
+    "templates": [
+      "C1 System Context",
+      "C2 Container View",
+      "C3 Component View",
+      "Deployment View",
+      "Structurizr DSL workspace",
+      "Architecture Review Checklist"
+    ]
+  },
+  "father_production": {
+    "summary": "Lesson 04 превращается в Architecture Model & View Registry: единая модель архитектуры хранит actors, systems, containers, components, deployment nodes и relations, а разные представления сайта генерируются из одной модели и связываются с требованиями.",
+    "capability_ids": [
+      "FTH-REQ-001",
+      "FTH-ARC-001"
+    ],
+    "components": [
+      "FTH-REQ-001 · Requirements & Traceability Service",
+      "FTH-ARC-001 · Architecture Model & View Registry"
+    ],
+    "runtime_notes": [
+      "C1/C2/C3/Deployment должны быть разными views одной модели",
+      "Каждый архитектурный элемент получает стабильный ID",
+      "Отношения хранят смысл, протокол и направление",
+      "View не является источником истины — источником истины является модель",
+      "Требования/NFR должны трассироваться к затронутым архитектурным элементам",
+      "Архитектурная модель должна позволять сравнивать версии и review changes"
+    ]
+  },
+  "artifacts": [
+    "Lesson 04 outline",
+    "workspace-373402-1d9471.dsl",
+    "C1 System Context",
+    "C2 Container Diagram",
+    "C3 ETL Worker Component View",
+    "Production Deployment View",
+    "AI actors: Employee / Data Scientist / Annotator",
+    "Inference flow",
+    "Data ingestion flow"
+  ],
+  "evidence": [
+    "Lesson 04 source explicitly requires C1 and C2",
+    "Structurizr DSL contains System Context and Container views",
+    "Structurizr DSL contains C3 ETL Worker component view",
+    "Structurizr DSL contains Production Deployment view",
+    "DSL contains explicit actors, external systems, containers, components and relationships"
+  ],
+  "traceability": [
+    "REQ/NFR → SYSTEM BOUNDARY",
+    "SYSTEM BOUNDARY → C1 ACTORS / EXTERNAL SYSTEMS",
+    "C1 → C2 CONTAINERS",
+    "C2 ETL WORKER → C3 COMPONENTS",
+    "C2/C3 → DEPLOYMENT",
+    "ARCHITECTURE MODEL → GENERATED VIEWS → REVIEW"
+  ],
+  "gaps": [
+    "Учебный текст подтверждает C1/C2, но не требует C3/Deployment; эти уровни являются существующим профессиональным расширением.",
+    "Не подтверждено автоматическое генерирование C4 views на сайте из DSL.",
+    "Нет CI-проверки Structurizr DSL и архитектурных правил.",
+    "В DSL присутствуют ссылки на внешние Shutterstock icons; для боевого сайта их следует заменить контролируемыми локальными/licensed assets."
+  ],
+  "sources": [
+    {
+      "title": "Lesson 04 outline",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/4.%20%D0%92%D1%8B%D1%81%D0%BE%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20(HLD)%20%D1%81%20%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%D0%BC%20C4%20Model/4.%20%D0%92%D1%8B%D1%81%D0%BE%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20(HLD)%20%D1%81%20%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%D0%BC%20C4%20Model.txt"
+    },
+    {
+      "title": "Structurizr DSL workspace",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/4.%20%D0%92%D1%8B%D1%81%D0%BE%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20(HLD)%20%D1%81%20%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%D0%BC%20C4%20Model/workspace-373402-1d9471.dsl"
+    }
+  ]
+}
