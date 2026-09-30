@@ -160,3 +160,12 @@ STEP 01 считается закрытым только после двух о�
 - `FTH-RSK-001` — Risk & Change Control Service.
 
 Оценка, risk/change lifecycle и FinOps разделены на разные ответственности: estimate строит план, risk service управляет неопределённостью/изменениями, FinOps — стоимостью и unit economics.
+
+
+## Amendment v1.3 — Value delivery / Stage Gates
+
+При нормализации Lesson 03 добавлен:
+
+- `FTH-VAL-001` — Value Delivery & Stage Gate Service.
+
+Причина: CI/CD и Delivery Plane отвечают за техническую поставку, но не владеют бизнес-логикой переходов Demo → PoC → MVP → Production. Stage Gate Service хранит hypothesis, success criteria, evidence и решение `GO / CHANGE / STOP`.
