@@ -206,18 +206,18 @@
       "id": 6,
       "title": "Архитектурные паттерны RAG",
       "gate": "G2",
-      "status": "materials",
+      "status": "draft",
       "evidence": "Retrieval · embeddings · Vector DB",
       "path": "6. Архитектурные паттерны RAG и его продвинутые вариации",
-      "expertPath": null,
-      "maturity": "M0",
+      "expertPath": "./lesson-template.html?id=6",
+      "maturity": "M1",
       "curriculum": {
         "source_path": "6. Архитектурные паттерны RAG и его продвинутые вариации",
         "status": "materials"
       },
       "architect_pro": {
-        "page": null,
-        "status": "planned"
+        "page": "./lesson-template.html?id=6",
+        "status": "active"
       },
       "father_production": {
         "capability_ids": [
@@ -225,7 +225,7 @@
           "FTH-PRM-001",
           "FTH-KNW-001",
           "FTH-RAG-001",
-          "FTH-MEM-001"
+          "FTH-KGR-001"
         ]
       }
     },
