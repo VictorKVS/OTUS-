@@ -723,3 +723,60 @@ ONNX сохранён как термин из курса, но professional lay
 ## 2026-09-30 — STEP 15 started
 
 **Статус:** IN PROGRESS.
+
+
+---
+
+## 2026-09-30 — priority jump to STEP 18 / Lesson 15
+
+**Причина:** пользователь передал полный пакет Lesson 15 и запросил продолжить именно его.
+
+STEP 16–17 остаются pending; нумерация не переписывается.
+
+---
+
+## 2026-09-30 — STEP 18 completed
+
+**Статус:** DONE v1.  
+**Lesson:** 15 · Observability.  
+**Engineering maturity:** LAB / M1.  
+**Course submission:** not submitted.
+
+### Сделано
+
+- создан `site/data/lesson-details/15.json`;
+- создан `site/assets/lesson-15-observability-ai.svg`;
+- Lesson 15 подключён к `lesson-template.html?id=15`;
+- добавлен `FTH-SLO-001 · SLO, Alerting & Incident Response Service`;
+- расширен `FTH-OBS-001` LLM/RAG/agent telemetry semantics;
+- проверены Grafana dashboard JSON и Prometheus alert rules;
+- проверен `alerting-373402-178176.tgz` как lab evidence;
+- создан `LAB_EVIDENCE.md`;
+- созданы три runbook-а для текущих alerts.
+
+### Evidence
+
+- Grafana dashboard: request rate, error rate, p95 latency, token rate, security/safety events;
+- Prometheus alerts: high error rate, high p95 latency, guardrail spike;
+- observability matrix: metric + log/event + trace + alert;
+- OWASP observability mapping;
+- archive lab: FastAPI + K8s + ServiceMonitor + Prometheus + Grafana + load test.
+
+### Архитектурный вывод
+
+`OBSERVABILITY != ALERTING`.
+
+Telemetry collection/correlation и operational decision/response разделены:
+`FTH-OBS-001 → FTH-SLO-001 → RUNBOOK → INCIDENT/RCA → CHANGE`.
+
+### Что стоит улучшить
+
+- добавить Grafana panels для RAG, Agents, Cost и SLO/error budget в единый dashboard;
+- сделать alert thresholds configuration-driven;
+- добавить protected audit store;
+- связать alerts с release/model/prompt/index versions;
+- подключить automatic eval results к quality alerts.
+
+### Следующий последовательный шаг
+
+**STEP 16 — Lesson 13**, поскольку STEP 18 выполнен вне очереди.
