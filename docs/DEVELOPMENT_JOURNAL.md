@@ -450,3 +450,40 @@ OTUS требует C1/C2. Существующий Structurizr DSL дополн
 ## 2026-09-30 — STEP 08 started
 
 **Статус:** IN PROGRESS.
+
+
+---
+
+## 2026-09-30 — STEP 08 completed
+
+**Статус:** DONE v1.
+
+### Сделано
+
+- создан `site/data/lesson-details/05.json`;
+- создан `site/assets/lesson-05-lld-contracts.svg`;
+- Lesson 05 подключён к universal template;
+- добавлен `FTH-API-001 · Interface Contract & API Registry`;
+- Lesson 05 сохранён как `done / M1`.
+
+### Validation
+
+- 3/3 production IDs;
+- 14 artifacts;
+- 6 evidence;
+- 3 GAP;
+- 7 traceability links.
+
+### Архитектурный вывод
+
+C3, Sequence и OpenAPI должны описывать один и тот же контракт взаимодействия. API contract становится first-class versioned artifact.
+
+### Следующий шаг
+
+**STEP 09 — Lesson 06: RAG patterns.**
+
+---
+
+## 2026-09-30 — STEP 09 started
+
+**Статус:** IN PROGRESS.
