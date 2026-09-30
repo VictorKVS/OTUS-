@@ -1,0 +1,181 @@
+{
+  "schema_version": "father-architect-lesson-detail.v1",
+  "lesson_id": 11,
+  "purpose": "Спроектировать интеграцию между AI-компонентами и традиционными системами так, чтобы транспорт, контракт, надёжность, безопасность и наблюдаемость были явными архитектурными решениями, а не скрытыми деталями реализации.",
+  "schema": {
+    "notation": "PRODUCER → CONTRACT → SYNC API / BROKER / ETL → ADAPTER → AI/LEGACY SYSTEM → RETRY/DLQ/IDEMPOTENCY → OBS/SECURITY",
+    "description": "Источник Lesson 11 требует выбора API Gateway, Message Broker и ETL по сценарию, знание HTTP/SMTP/gRPC, современных A2A/MCP и практику отказоустойчивой интеграции с legacy через broker. Профессиональный слой добавляет обязательные reliability/security/observability contracts.",
+    "nodes": [
+      "PRODUCER",
+      "CONTRACT",
+      "SYNC API / BROKER / ETL",
+      "ADAPTER",
+      "AI/LEGACY SYSTEM",
+      "RETRY/DLQ/IDEMPOTENCY",
+      "OBS/SECURITY"
+    ],
+    "edges": [
+      [
+        "PRODUCER",
+        "CONTRACT"
+      ],
+      [
+        "CONTRACT",
+        "SYNC API / BROKER / ETL"
+      ],
+      [
+        "SYNC API / BROKER / ETL",
+        "ADAPTER"
+      ],
+      [
+        "ADAPTER",
+        "AI/LEGACY SYSTEM"
+      ],
+      [
+        "AI/LEGACY SYSTEM",
+        "RETRY/DLQ/IDEMPOTENCY"
+      ],
+      [
+        "RETRY/DLQ/IDEMPOTENCY",
+        "OBS/SECURITY"
+      ]
+    ]
+  },
+  "visual": {
+    "poster": "./assets/lesson-11-integrations-ai-standards.svg",
+    "alt": "Lesson 11 integration architecture: contracts route calls through synchronous API, message broker or ETL; adapters connect AI and legacy systems; reliability uses retry, DLQ and idempotency; security and observability span all flows."
+  },
+  "curriculum": {
+    "summary": "Lesson 11 teaches choosing integration patterns such as API Gateway, Message Broker and ETL, classifying HTTP/SMTP/gRPC, using asynchronous broker patterns, discussing A2A/MCP and designing fault-tolerant integration with a legacy system through a message broker. Source also mentions ONNX in the context of AI/traditional-system exchange.",
+    "requirements": [
+      "Выбирать API Gateway, Message Broker или ETL по сценарию",
+      "Понимать HTTP, SMTP и gRPC",
+      "Проектировать асинхронную интеграцию через Message Broker",
+      "Знать современные A2A и MCP на уровне курса",
+      "Проектировать отказоустойчивую интеграцию с legacy через broker",
+      "Учитывать QA, fault tolerance и security в интеграционной архитектуре",
+      "Понимать ONNX как упомянутый в источнике стандарт для AI-компонентов"
+    ],
+    "homework": [
+      "Практика: спроектировать отказоустойчивую интеграцию с унаследованной системой через брокер сообщений"
+    ],
+    "sources": [
+      "Lesson 11 course text"
+    ]
+  },
+  "architect_pro": {
+    "summary": "Профессиональная интеграционная модель разделяет пять вещей: interface contract, transport/runtime, adapter boundary, reliability policy и cross-cutting controls. A2A/MCP рассматриваются только там, где действительно есть agent/tool semantics. ONNX рассматривается отдельно как model portability/exchange artifact, а не как transport protocol.",
+    "methods": [
+      "Contract-first integration",
+      "Sync vs async decision matrix",
+      "Broker for temporal decoupling",
+      "Retry with bounded policy",
+      "Dead Letter Queue",
+      "Idempotency key / duplicate suppression",
+      "Timeout / circuit breaker",
+      "Schema/version compatibility",
+      "Legacy anti-corruption adapter",
+      "Correlation ID / distributed tracing",
+      "AuthN/AuthZ per integration boundary",
+      "MCP only for tool/resource interaction where semantics fit",
+      "A2A only for agent-to-agent interaction where semantics fit"
+    ],
+    "standards": [
+      "HTTP / REST",
+      "gRPC",
+      "Message Broker semantics",
+      "MCP",
+      "A2A",
+      "ONNX as model exchange/portability artifact"
+    ],
+    "anti_patterns": [
+      "Использовать broker там, где нужен простой synchronous request/response",
+      "Вызывать legacy напрямую из бизнес-кода без adapter boundary",
+      "Retry без limit/backoff",
+      "Повторная обработка без idempotency",
+      "Отсутствие DLQ для необрабатываемых сообщений",
+      "Версионировать endpoint без версионирования schema/contract",
+      "Считать MCP универсальной заменой всех API",
+      "Смешивать ONNX с transport protocol",
+      "Не логировать correlation ID и integration outcome"
+    ],
+    "templates": [
+      "Integration Decision Matrix",
+      "Interface Contract",
+      "Message Contract",
+      "Retry / Timeout Policy",
+      "DLQ Policy",
+      "Idempotency Policy",
+      "Adapter Responsibility Card",
+      "Integration Threat Checklist",
+      "Integration Observability Checklist"
+    ]
+  },
+  "father_production": {
+    "summary": "В FATHER integration domain разделён на Contract Registry, Integration Runtime & Messaging, MCP Gateway и AI Gateway. Policy/Security и Observability пересекают все интеграции; Model Zoo отвечает за model artifacts вроде ONNX.",
+    "capability_ids": [
+      "FTH-API-001",
+      "FTH-IGR-001",
+      "FTH-MCP-001",
+      "FTH-GTW-001",
+      "FTH-OBS-001",
+      "FTH-POL-001",
+      "FTH-MDL-001"
+    ],
+    "components": [
+      "FTH-API-001 · Interface Contract & API Registry",
+      "FTH-IGR-001 · Integration Runtime & Messaging",
+      "FTH-MCP-001 · MCP Gateway",
+      "FTH-GTW-001 · AI Gateway",
+      "FTH-OBS-001 · Observability & Audit Plane",
+      "FTH-POL-001 · Policy & Security Plane",
+      "FTH-MDL-001 · Model Zoo"
+    ],
+    "runtime_notes": [
+      "Contract registry stores API/message schemas independently of runtime",
+      "Integration runtime owns transport, broker, retry, DLQ and idempotency",
+      "MCP Gateway is not a generic replacement for business APIs",
+      "AI Gateway owns model/provider routing, not enterprise integration routing",
+      "Security policy is enforced per boundary and identity",
+      "Every call/message must be traceable with correlation identifiers",
+      "ONNX belongs to model artifact lifecycle, not network transport"
+    ]
+  },
+  "artifacts": [
+    "Lesson 11 source text",
+    "Integration Decision Matrix (target)",
+    "API / Message Contract (target)",
+    "Legacy Adapter design (target)",
+    "Retry / DLQ / Idempotency policy (target)",
+    "Integration security checklist (target)",
+    "Integration observability checklist (target)"
+  ],
+  "evidence": [
+    "Source explicitly names API Gateway, Message Broker and ETL",
+    "Source explicitly lists HTTP, SMTP and gRPC",
+    "Source explicitly lists A2A and MCP",
+    "Source requires fault-tolerant legacy integration through a message broker",
+    "No completed practical artifact was found in the Lesson 11 folder"
+  ],
+  "traceability": [
+    "REQ/NFR → INTEGRATION SCENARIO",
+    "SCENARIO → CONTRACT",
+    "CONTRACT → TRANSPORT/PATTERN",
+    "PATTERN → ADAPTER",
+    "ADAPTER → RELIABILITY POLICY",
+    "RELIABILITY → OBSERVABILITY",
+    "BOUNDARY → SECURITY POLICY"
+  ],
+  "gaps": [
+    "Lesson 11 folder contains only source material; completed practical submission was not found.",
+    "FTH-IGR-001 is a target capability, not confirmed production deployment.",
+    "A2A/MCP source coverage is high-level; deeper protocol semantics require later external/source-specific study.",
+    "ONNX is mentioned by the course, but no source artifact in this lesson demonstrates its practical integration use."
+  ],
+  "sources": [
+    {
+      "title": "Lesson 11 source",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/11%20%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B8%D0%BD%D1%82%D0%B5%D0%B3%D1%80%D0%B0%D1%86%D0%B8%D0%B9%20%D0%BE%D1%82%20%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D0%B8%D0%BA%D0%B8%20%D0%B4%D0%BE%20AI-%D1%81%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BE%D0%B2/11%20%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B8%D0%BD%D1%82%D0%B5%D0%B3%D1%80%D0%B0%D1%86%D0%B8%D0%B9%20%20%D0%BE%D1%82%20%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D0%B8%D0%BA%D0%B8%20%D0%B4%D0%BE%20AI-%D1%81%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BE%D0%B2.txt"
+    }
+  ]
+}
