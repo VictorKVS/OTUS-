@@ -24,7 +24,20 @@ async function init(){
  document.querySelector("#schemaNote").textContent=detail?.schema?.description||"GAP · lesson-specific engineering schema ещё не опубликована.";
  const poster=detail?.visual?.poster;
  document.querySelector("#posterWrap").innerHTML=poster?'<img src="'+escapeHtml(poster)+'" alt="'+escapeHtml(detail?.visual?.alt||lesson.title)+'"/>':'<div class="empty">GAP · visual poster будет создан при нормализации урока.</div>';
- document.querySelector("#curriculum").innerHTML='<p>'+escapeHtml(detail?.curriculum?.summary||lesson.evidence)+'</p>'+list(detail?.curriculum?.requirements||[]);
+ {
+ const c=detail?.curriculum||{};
+ const meta=[
+   c.teacher?'<b>Преподаватель</b><p>'+escapeHtml(c.teacher)+'</p>':'',
+   c.lesson_date?'<b>Дата занятия</b><p>'+escapeHtml(c.lesson_date)+(c.duration_minutes?' · '+escapeHtml(c.duration_minutes)+' мин':'')+'</p>':'',
+   c.recommended_due?'<b>Рекомендуемый срок сдачи</b><p>'+escapeHtml(c.recommended_due)+'</p>':''
+ ].join('');
+ document.querySelector("#curriculum").innerHTML=
+   '<p>'+escapeHtml(c.summary||lesson.evidence)+'</p>'+
+   meta+
+   '<b>Требования / цели</b>'+list(c.requirements||[])+
+   '<b>Домашнее задание</b>'+list(c.homework||[])+
+   '<b>Критерии принятия</b>'+list(c.acceptance_criteria||[]);
+}
  document.querySelector("#architectPro").innerHTML='<p>'+escapeHtml(detail?.architect_pro?.summary||"Профессиональное расширение пока не нормализовано.")+'</p><b>Методы</b>'+list(detail?.architect_pro?.methods||[])+'<b>Шаблоны</b>'+list(detail?.architect_pro?.templates||[])+'<b>Red flags</b>'+list(detail?.architect_pro?.anti_patterns||[]);
  const ids=lesson.father_production?.capability_ids||[];const related=caps.components.filter(c=>ids.includes(c.id));
  document.querySelector("#fatherProduction").innerHTML='<p>'+escapeHtml(detail?.father_production?.summary||"Production mapping взят из capability manifest.")+'</p><b>Capabilities</b>'+list(related.map(c=>c.id+" · "+c.name))+'<b>Runtime notes</b>'+list(detail?.father_production?.runtime_notes||[]);
