@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Lesson 04 — HLD with C4</title>
+<desc id="desc">C4 progression from requirements and system boundary through C1 context, C2 containers, C3 ETL components and deployment, backed by a single architecture model.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061018"/><stop offset="1" stop-color="#17152d"/></linearGradient>
+  <style>.t{font-family:Segoe UI,Arial,sans-serif;fill:#eef7ff}.m{fill:#91a9ba}.h{font-weight:700}.box{fill:#0d1a25;stroke:#29495d;stroke-width:2}.cyan{stroke:#4ed9ff}.vio{stroke:#9b83ff}.green{stroke:#63e6a5}.amber{stroke:#ffbd65}.mono{font-family:Consolas,monospace}</style>
+</defs>
+<rect width="1600" height="1000" rx="28" fill="url(#bg)"/>
+<text x="70" y="70" class="t h" font-size="34">LESSON 04 · HLD with C4</text>
+<text x="70" y="108" class="m mono" font-size="15">ONE MODEL · MULTIPLE LEVELS · DIFFERENT AUDIENCES</text>
+
+<rect x="70" y="160" width="300" height="150" rx="20" class="box cyan"/>
+<text x="100" y="202" class="t h" font-size="18">REQ / NFR</text><text x="100" y="238" class="m" font-size="13">drivers · constraints</text><text x="100" y="266" class="m" font-size="13">scope · integrations</text>
+
+<rect x="430" y="160" width="300" height="150" rx="20" class="box cyan"/>
+<text x="460" y="202" class="t h" font-size="18">SYSTEM BOUNDARY</text><text x="460" y="238" class="m" font-size="13">target system</text><text x="460" y="266" class="m" font-size="13">inside / outside</text>
+
+<rect x="790" y="160" width="300" height="150" rx="20" class="box vio"/>
+<text x="820" y="202" class="t h" font-size="18">C1 · CONTEXT</text><text x="820" y="238" class="m" font-size="13">people · external systems</text><text x="820" y="266" class="m" font-size="13">business-readable view</text>
+
+<rect x="1150" y="160" width="380" height="150" rx="20" class="box vio"/>
+<text x="1180" y="202" class="t h" font-size="18">C2 · CONTAINERS</text><text x="1180" y="238" class="m" font-size="13">SPA · Backend · LLM Gateway</text><text x="1180" y="266" class="m" font-size="13">Vector DB · ETL Worker</text>
+
+<path d="M370 235H430M730 235H790M1090 235H1150" stroke="#4ed9ff" stroke-width="5"/>
+
+<text x="70" y="385" class="t h" font-size="20">EXISTING PROFESSIONAL EXTENSION IN STRUCTURIZR DSL</text>
+
+<rect x="70" y="425" width="420" height="210" rx="22" class="box green"/>
+<text x="100" y="468" class="t h" font-size="18">C3 · ETL WORKER</text>
+<text x="100" y="505" class="m" font-size="13">Document Reader</text><text x="100" y="533" class="m" font-size="13">→ Text Splitter</text><text x="100" y="561" class="m" font-size="13">→ Embedding Client</text><text x="100" y="589" class="m" font-size="13">→ Vector DB Client</text>
+
+<rect x="555" y="425" width="420" height="210" rx="22" class="box amber"/>
+<text x="585" y="468" class="t h" font-size="18">DEPLOYMENT</text>
+<text x="585" y="505" class="m" font-size="13">User Device / Browser</text><text x="585" y="533" class="m" font-size="13">K8s Services Namespace</text><text x="585" y="561" class="m" font-size="13">Data Processing Namespace</text><text x="585" y="589" class="m" font-size="13">Managed Vector Search / SaaS</text>
+
+<rect x="1040" y="425" width="490" height="210" rx="22" class="box vio"/>
+<text x="1070" y="468" class="t h" font-size="18">AI-SPECIFIC CONTEXT</text>
+<text x="1070" y="505" class="m" font-size="13">Employee · Data Scientist · Annotator</text><text x="1070" y="533" class="m" font-size="13">Inference flow</text><text x="1070" y="561" class="m" font-size="13">Async ingestion flow</text><text x="1070" y="589" class="m" font-size="13">GPU / HighMem tags</text>
+
+<text x="70" y="710" class="t h" font-size="20">FATHER PRODUCTION</text>
+
+<rect x="70" y="750" width="560" height="150" rx="20" class="box cyan"/>
+<text x="100" y="793" class="t h" font-size="18">FTH-REQ-001</text><text x="100" y="826" class="m" font-size="13">Requirements &amp; Traceability</text><text x="100" y="854" class="m" font-size="13">REQ/NFR → architecture drivers</text>
+
+<rect x="700" y="750" width="830" height="150" rx="20" class="box green"/>
+<text x="730" y="793" class="t h" font-size="18">FTH-ARC-001 · ARCHITECTURE MODEL &amp; VIEW REGISTRY</text><text x="730" y="826" class="m" font-size="13">actors · systems · containers · components · deployment nodes · relations</text><text x="730" y="854" class="m" font-size="13">single model → C1 / C2 / C3 / Deployment views → review / version diff</text>
+
+<text x="70" y="955" class="m" font-size="14">RULE: views are projections. The model is the source of truth. C1 ≠ C2 ≠ C3 ≠ Deployment.</text>
+</svg>
