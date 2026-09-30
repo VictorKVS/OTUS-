@@ -367,3 +367,49 @@ Context Builder не владеет требованиями. Intake/Requirement
 ## 2026-09-28 — STEP 06 started
 
 **Статус:** IN PROGRESS.
+
+
+---
+
+## 2026-09-30 — STEP 06 completed
+
+**Статус:** DONE v1.
+
+### Сделано
+
+- создан `site/data/lesson-details/03.json`;
+- создан `site/assets/lesson-03-poc-to-production.svg`;
+- Lesson 03 подключён к `lesson-template.html?id=3`;
+- добавлен `FTH-VAL-001 · Value Delivery & Stage Gate Service`;
+- Lesson 03 = `draft / M1`.
+
+### Source-derived scope
+
+Из материалов подтверждены: Demo, PoC, MVP, Production, staged delivery, contract strategy, Roadmap с DoD, risk matrix и количественный risk register.
+
+### Validation
+
+- 5/5 production IDs существуют;
+- 10 artifacts;
+- 4 evidence;
+- 4 GAP;
+- 7 traceability links;
+- visual poster присутствует.
+
+### Важное ограничение
+
+Исходный текст Lesson 03 содержит статус `не сдано`. Нормализация сайта не считается подтверждением сдачи учебного ДЗ.
+
+### Следующий шаг
+
+**STEP 07 — Lesson 04: HLD / C4 Model.**
+
+---
+
+## 2026-09-30 — STEP 07 started
+
+**Статус:** IN PROGRESS.
+
+### Цель
+
+Нормализовать HLD и C4 как следующий слой после G1: от бизнес-контекста и требований к границам системы, контейнерам, внешним акторам и архитектурным решениям.
