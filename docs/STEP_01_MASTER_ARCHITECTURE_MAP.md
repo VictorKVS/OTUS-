@@ -178,3 +178,12 @@ STEP 01 считается закрытым только после двух о�
 - `FTH-ARC-001` — Architecture Model & View Registry.
 
 Модель хранит actors, systems, containers, components, deployment nodes и relationships. C1/C2/C3/Deployment являются views одной модели, а не независимыми картинками.
+
+
+## Amendment v1.5 — Interface contract domain
+
+При нормализации Lesson 05 добавлен:
+
+- `FTH-API-001` — Interface Contract & API Registry.
+
+OpenAPI/AsyncAPI, schemas, examples, error models и contract versions являются самостоятельными архитектурными артефактами и должны проходить автоматическую валидацию.
