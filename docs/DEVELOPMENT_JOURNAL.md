@@ -565,3 +565,39 @@ Engineering `done` ≠ OTUS `accepted`. Сайт теперь показывае
 ## 2026-09-30 — STEP 11 started
 
 **Статус:** IN PROGRESS.
+
+
+---
+
+## 2026-09-30 — STEP 11 completed
+
+**Статус:** DONE v1.
+
+### Сделано
+
+- создан `site/data/lesson-details/08.json`;
+- создан `site/assets/lesson-08-adr-lifecycle.svg`;
+- добавлен `FTH-ADR-001 · Architecture Decision Registry`;
+- Lesson 08 = engineering `done / M1`.
+
+### Validation
+
+- 6/6 production IDs;
+- 8 artifacts;
+- 7 evidence;
+- 5 GAP;
+- 8 traceability links.
+
+### Архитектурный вывод
+
+Accepted ADR не переписывается задним числом. Изменение условий ведёт к review и новому superseding ADR.
+
+### Следующий шаг
+
+**STEP 12 — Lesson 09: Architecture Verification / CTO Challenge.**
+
+---
+
+## 2026-09-30 — STEP 12 started
+
+**Статус:** IN PROGRESS.
