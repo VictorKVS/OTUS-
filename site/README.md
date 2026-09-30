@@ -190,3 +190,18 @@ Decision lifecycle: context → options → trade-offs → review → accepted �
 - data: `data/lesson-details/09.json`
 
 Engineering status remains `review / M1`: challenge preparation exists, but a completed ATAM/CTO review session is not evidenced.
+
+
+## Lesson 10 normalized
+
+- [Lesson 10 · Architecture Governance / Technical Debt](./lesson-template.html?id=10)
+- visual: `assets/lesson-10-governance-tech-debt.svg`
+- data: `data/lesson-details/10.json`
+
+Source evidence is limited to lesson material, so engineering status remains `materials / M0`.
+
+## Milestone: Lessons 01–10
+
+The first ten lessons now use one visual-first contract:
+
+`Schema → Visual → OTUS Curriculum → Architect Pro → FATHER Production → Artifacts/Evidence → Traceability → Maturity`.
