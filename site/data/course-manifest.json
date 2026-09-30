@@ -157,21 +157,24 @@
       "id": 4,
       "title": "Высокоуровневое проектирование с C4",
       "gate": "G2",
-      "status": "materials",
+      "status": "draft",
       "evidence": "HLD · C4 · контексты",
       "path": "4. Высокоуровневое проектирование (HLD) с использованием C4 Model",
-      "expertPath": null,
-      "maturity": "M0",
+      "expertPath": "./lesson-template.html?id=4",
+      "maturity": "M1",
       "curriculum": {
         "source_path": "4. Высокоуровневое проектирование (HLD) с использованием C4 Model",
         "status": "materials"
       },
       "architect_pro": {
-        "page": null,
-        "status": "planned"
+        "page": "./lesson-template.html?id=4",
+        "status": "active"
       },
       "father_production": {
-        "capability_ids": []
+        "capability_ids": [
+          "FTH-REQ-001",
+          "FTH-ARC-001"
+        ]
       }
     },
     {
