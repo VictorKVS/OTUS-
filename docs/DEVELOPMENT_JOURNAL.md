@@ -601,3 +601,40 @@ Accepted ADR не переписывается задним числом. Изм
 ## 2026-09-30 — STEP 12 started
 
 **Статус:** IN PROGRESS.
+
+
+---
+
+## 2026-09-30 — STEP 12 completed
+
+**Статус:** DONE v1.
+
+### Сделано
+
+- создан `site/data/lesson-details/09.json`;
+- создан `site/assets/lesson-09-architecture-verification.svg`;
+- добавлен `FTH-REV-001 · Architecture Review & Challenge Service`;
+- Lesson 09 сохранён как `review / M1`;
+- curriculum status = `not_submitted_in_source`.
+
+### Validation
+
+- 6/6 production IDs;
+- 12 artifacts;
+- 6 evidence;
+- 6 GAP;
+- 8 traceability links.
+
+### Ключевой вывод
+
+Подготовленный pitch/ADR не равен завершённой CTO Challenge session. Для закрытия G3 требуется review evidence и разрешение critical findings.
+
+### Следующий шаг
+
+**STEP 13 — Lesson 10: Architecture Governance / Technical Debt.**
+
+---
+
+## 2026-09-30 — STEP 13 started
+
+**Статус:** IN PROGRESS.
