@@ -98,6 +98,26 @@
       "maturity": "M1"
     },
     {
+      "id": "FTH-ADR-001",
+      "name": "Architecture Decision Registry",
+      "domain": "Architecture Governance",
+      "capabilities": [
+        "ADR Lifecycle",
+        "Options / Trade-offs",
+        "Decision History / Supersede",
+        "Decision Traceability",
+        "Fitness Evidence"
+      ],
+      "lessons": [
+        8,
+        9,
+        10,
+        29,
+        30
+      ],
+      "maturity": "M1"
+    },
+    {
       "id": "FTH-API-001",
       "name": "Interface Contract & API Registry",
       "domain": "Integration",
