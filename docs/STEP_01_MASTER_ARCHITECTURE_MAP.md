@@ -236,3 +236,16 @@ Governance Service сравнивает change/PR с target architecture and ADR
 - `FTH-IGR-001` исполняет sync/async/ETL integration, retry/DLQ/idempotency и legacy adapters;
 - `FTH-MCP-001` обслуживает MCP semantics;
 - `FTH-GTW-001` отвечает за routing к AI/model providers, а не за enterprise integration в целом.
+
+
+## Amendment v1.11 — SLO / Alerting / Incident Response
+
+При нормализации Lesson 15 добавлен:
+
+- `FTH-SLO-001` — SLO, Alerting & Incident Response Service.
+
+Разделены ответственности:
+- `FTH-OBS-001` — collection/correlation of metrics, logs, traces and audit;
+- `FTH-SLO-001` — SLI/SLO, error budgets, alert rules/routing, runbooks, MTTF/MTTR and incident/RCA linkage.
+
+Observability without response ownership is treated as incomplete operational architecture.
