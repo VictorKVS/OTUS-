@@ -118,3 +118,12 @@ Lesson 01 теперь служит эталоном: schema + visual + OTUS + A
 - data: `data/lesson-details/02.json`
 
 Production mapping: Requirements → Estimation/Planning → Risk/Change Control → FinOps.
+
+
+## Lesson 03 normalized
+
+- [Lesson 03 · PoC → Production](./lesson-template.html?id=3)
+- visual: `assets/lesson-03-poc-to-production.svg`
+- data: `data/lesson-details/03.json`
+
+Production mapping: Value Delivery / Stage Gates → Estimation → Risk/Change → FinOps → Delivery.
