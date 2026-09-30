@@ -184,18 +184,22 @@
       "status": "done",
       "evidence": "C3 · OpenAPI · Sequence · BPMN · DFD",
       "path": "5. Низкоуровневое проектирование (LLD) компоненты и взаимодействия  ДЗ",
-      "expertPath": null,
+      "expertPath": "./lesson-template.html?id=5",
       "maturity": "M1",
       "curriculum": {
         "source_path": "5. Низкоуровневое проектирование (LLD) компоненты и взаимодействия  ДЗ",
         "status": "done"
       },
       "architect_pro": {
-        "page": null,
-        "status": "planned"
+        "page": "./lesson-template.html?id=5",
+        "status": "active"
       },
       "father_production": {
-        "capability_ids": []
+        "capability_ids": [
+          "FTH-ARC-001",
+          "FTH-API-001",
+          "FTH-EVL-001"
+        ]
       }
     },
     {
