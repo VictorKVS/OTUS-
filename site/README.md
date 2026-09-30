@@ -154,3 +154,21 @@ Completed evidence package: C2 → C3 → Sequence → OpenAPI → CI/evidence.
 - data: `data/lesson-details/06.json`
 
 Notebook evidence: vector retrieval + BM25 hybrid + reranking code; no saved execution outputs, so status remains `draft / M1`.
+
+
+## Lesson 07 normalized
+
+- [Lesson 07 · AI Agents & Multi-Agent](./lesson-template.html?id=7)
+- visual: `assets/lesson-07-multi-agent.svg`
+- data: `data/lesson-details/07.json`
+
+M1.1 evidence includes LangGraph typed state, explicit handoffs, Hybrid RAG, tests and CI workflow definition.
+
+### Status semantics update
+
+Lesson pages now show two independent states:
+
+- engineering status / maturity;
+- OTUS course submission status.
+
+A completed Git artifact is not automatically treated as teacher acceptance.
