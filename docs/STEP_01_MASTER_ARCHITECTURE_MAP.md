@@ -223,3 +223,16 @@ Review Service владеет review sessions, quality-attribute scenarios, chal
 - `FTH-GOV-001` — Architecture Governance & Technical Debt Service.
 
 Governance Service сравнивает change/PR с target architecture and ADR, фиксирует explainable review findings, разделяет debt и waiver, ведёт owner/priority/remediation и требует evidence для закрытия.
+
+
+## Amendment v1.10 — Integration Runtime / Messaging
+
+При нормализации Lesson 11 добавлен:
+
+- `FTH-IGR-001` — Integration Runtime & Messaging.
+
+Ответственности разделены:
+- `FTH-API-001` хранит contracts/schemas;
+- `FTH-IGR-001` исполняет sync/async/ETL integration, retry/DLQ/idempotency и legacy adapters;
+- `FTH-MCP-001` обслуживает MCP semantics;
+- `FTH-GTW-001` отвечает за routing к AI/model providers, а не за enterprise integration в целом.
