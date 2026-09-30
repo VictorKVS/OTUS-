@@ -681,3 +681,45 @@ Schema → Visual → OTUS → Architect Pro → FATHER Production → Evidence 
 ## 2026-09-30 — STEP 14 started
 
 **Статус:** IN PROGRESS.
+
+
+---
+
+## 2026-09-30 — STEP 14 completed
+
+**Статус:** DONE v1.
+
+### Сделано
+
+- создан `site/data/lesson-details/11.json`;
+- создан `site/assets/lesson-11-integrations-ai-standards.svg`;
+- Lesson 11 подключён к universal template;
+- добавлен `FTH-IGR-001 · Integration Runtime & Messaging`;
+- source / Architect Pro / FATHER Production разделены.
+
+### Source-derived scope
+
+Подтверждены API Gateway, Message Broker, ETL, HTTP/SMTP/gRPC, A2A/MCP, ONNX и fault-tolerant legacy integration through broker.
+
+### Validation
+
+- status = `materials / M0`;
+- 7/7 production IDs;
+- 7 artifact/target entries;
+- 5 evidence;
+- 4 GAP;
+- 7 traceability links.
+
+### Важное уточнение
+
+ONNX сохранён как термин из курса, но professional layer не смешивает его с transport protocols.
+
+### Следующий шаг
+
+**STEP 15 — Lesson 12: Data Architecture for AI Systems.**
+
+---
+
+## 2026-09-30 — STEP 15 started
+
+**Статус:** IN PROGRESS.
