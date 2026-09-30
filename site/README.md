@@ -214,3 +214,16 @@ The first ten lessons now use one visual-first contract:
 - data: `data/lesson-details/11.json`
 
 Production mapping: Contract Registry → Integration Runtime/Messaging → MCP/AI Gateway → Security/Observability.
+
+
+## Lesson 15 normalized — Observability
+
+- [Lesson 15 · AI Observability](./lesson-template.html?id=15)
+- visual: `assets/lesson-15-observability-ai.svg`
+- data: `data/lesson-details/15.json`
+
+Engineering status: `LAB / M1`. Course submission status remains `not submitted`.
+
+Production chain:
+
+`Observability → SLO/Alerting → Eval/Security/FinOps → Runbook → Incident/RCA → Change`.
