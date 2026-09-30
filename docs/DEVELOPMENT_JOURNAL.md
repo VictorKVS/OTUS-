@@ -780,3 +780,21 @@ Telemetry collection/correlation и operational decision/response разделе
 ### Следующий последовательный шаг
 
 **STEP 16 — Lesson 13**, поскольку STEP 18 выполнен вне очереди.
+
+
+---
+
+## 2026-09-30 — Lesson 15 course metadata correction
+
+Пользователь предоставил уточнённый текст задания.
+
+Исправлено / добавлено:
+
+- recommended due: `2026-09-27`;
+- teacher: Дмитрий Фомин;
+- lesson date: `2026-09-21`;
+- duration: 90 minutes;
+- homework steps нормализованы дословнее;
+- acceptance criteria выделены отдельным массивом.
+
+Universal lesson runtime расширен: теперь OTUS Curriculum показывает Homework, Acceptance Criteria и course metadata отдельно от engineering maturity/status.
