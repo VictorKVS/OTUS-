@@ -71,10 +71,10 @@
       "Связать alerting с бизнес-метриками и RCA"
     ],
     "homework": [
-      "Security Layer: PII Sanitizer + Guardrails",
-      "Testing Strategy: RAG quality metrics Faithfulness / Answer Relevancy",
-      "Observability: Grafana dashboard с 4–5 ключевыми графиками",
-      "Документ со схемой Security, testing plan и dashboard mockup/widgets"
+      "Security Layer: добавить на архитектурную схему PII Sanitizer и Guardrails.",
+      "Testing Strategy: описать оценку качества RAG через Faithfulness и Answer Relevancy; выбрать Ragas или DeepEval.",
+      "Observability: спроектировать Grafana dashboard с Golden Signals — Latency, Traffic, Errors, Saturation — и AI-метриками Token usage и Average Cost per Request.",
+      "Формат сдачи: документ со схемой Security, планом тестирования и мокапом/списком виджетов dashboard."
     ],
     "sources": [
       "OTUS Lesson 15 source",
@@ -82,6 +82,15 @@
       "LLM observability matrix",
       "OWASP GenAI LLM Top 10 2026",
       "Alerting lab archive"
+    ],
+    "teacher": "Дмитрий Фомин",
+    "lesson_date": "2026-09-21",
+    "duration_minutes": 90,
+    "recommended_due": "2026-09-27",
+    "acceptance_criteria": [
+      "Безопасность: учтены специфичные атаки, включая Prompt Injection, либо утечки данных.",
+      "Метрики: выбраны AI-метрики качества, а не только инфраструктурные показатели вроде CPU load.",
+      "Инструментарий: предложены актуальные инструменты — Prometheus, Tempo, Langfuse/LangSmith, Ragas/DeepEval."
     ]
   },
   "architect_pro": {
