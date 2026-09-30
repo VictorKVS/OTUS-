@@ -18,7 +18,7 @@ async function init(){
  document.querySelector("#lessonTitle").innerHTML=escapeHtml(lesson.title);
  document.querySelector("#lessonPurpose").textContent=detail?.purpose||"Урок ещё не нормализован в detail manifest. Базовая информация загружена из course manifest.";
  document.querySelector("#metaGate").textContent=lesson.gate;document.querySelector("#metaStatus").textContent=labels[lesson.status]||lesson.status;
- document.querySelector("#metaMaturity").textContent=lesson.maturity;document.querySelector("#metaCaps").textContent=(lesson.father_production?.capability_ids||[]).length;
+ document.querySelector("#metaMaturity").textContent=lesson.maturity;const courseStatus=lesson.curriculum?.submission_status||"unknown";document.querySelector("#metaCourse").textContent=courseStatus==="not_submitted_in_source"?"НЕ СДАНО (ИСТОЧНИК)":courseStatus==="accepted"?"ПРИНЯТО":"НЕ ПОДТВЕРЖДЕНО";document.querySelector("#metaCaps").textContent=(lesson.father_production?.capability_ids||[]).length;
  const flow=detail?.schema?.notation?.split(/\s*→\s*/).filter(Boolean)||["OTUS","Architect Pro","FATHER Production","Evidence"];
  document.querySelector("#schemaFlow").innerHTML=flow.map(x=>'<span>'+escapeHtml(x)+'</span>').join("");
  document.querySelector("#schemaNote").textContent=detail?.schema?.description||"GAP · lesson-specific engineering schema ещё не опубликована.";
