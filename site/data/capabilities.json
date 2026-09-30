@@ -180,6 +180,28 @@
       "maturity": "M1"
     },
     {
+      "id": "FTH-IGR-001",
+      "name": "Integration Runtime & Messaging",
+      "domain": "Integration",
+      "capabilities": [
+        "Synchronous API Integration",
+        "Message Broker / Async Messaging",
+        "ETL / Data Exchange",
+        "Retry / DLQ / Idempotency",
+        "Legacy System Adapters"
+      ],
+      "lessons": [
+        11,
+        12,
+        18,
+        20,
+        23,
+        25,
+        31
+      ],
+      "maturity": "M0"
+    },
+    {
       "id": "FTH-VAL-001",
       "name": "Value Delivery & Stage Gate Service",
       "domain": "Delivery Strategy",
