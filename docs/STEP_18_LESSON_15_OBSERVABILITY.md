@@ -153,3 +153,21 @@ Observability and SLO/Alerting are separate responsibilities:
 
 Следующее последовательное продолжение после возврата к очереди: **STEP 16 — Lesson 13**.  
 Если продолжаем по текущему приоритету уроков пользователя, следующий выбранный Lesson может быть обработан вне очереди с явной записью в journal.
+
+
+## 13. Course metadata clarification
+
+По уточнённому тексту Lesson 15:
+
+- преподаватель: **Дмитрий Фомин**;
+- дата занятия: **21.09.2026**;
+- длительность: **90 минут**;
+- рекомендуемый срок сдачи: **27.09.2026**.
+
+Критерии статуса «Принято»:
+
+1. Security — учтены Prompt Injection или утечки данных.
+2. Metrics — используются AI-quality metrics, а не только CPU/infrastructure load.
+3. Tooling — предложены актуальные инструменты: Prometheus, Tempo, Langfuse/LangSmith, Ragas/DeepEval.
+
+Эти критерии теперь хранятся в lesson detail manifest отдельно от engineering maturity.
