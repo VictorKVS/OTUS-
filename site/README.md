@@ -205,3 +205,12 @@ Source evidence is limited to lesson material, so engineering status remains `ma
 The first ten lessons now use one visual-first contract:
 
 `Schema → Visual → OTUS Curriculum → Architect Pro → FATHER Production → Artifacts/Evidence → Traceability → Maturity`.
+
+
+## Lesson 11 normalized
+
+- [Lesson 11 · Integrations from classic to AI standards](./lesson-template.html?id=11)
+- visual: `assets/lesson-11-integrations-ai-standards.svg`
+- data: `data/lesson-details/11.json`
+
+Production mapping: Contract Registry → Integration Runtime/Messaging → MCP/AI Gateway → Security/Observability.
