@@ -525,3 +525,43 @@ Notebook содержит RAG/hybrid/rerank code, но не имеет сохр�
 ## 2026-09-30 — STEP 10 started
 
 **Статус:** IN PROGRESS.
+
+
+---
+
+## 2026-09-30 — STEP 10 completed
+
+**Статус:** DONE v1.
+
+### Сделано
+
+- создан `site/data/lesson-details/07.json`;
+- создан `site/assets/lesson-07-multi-agent.svg`;
+- Lesson 07 подключён к universal template;
+- production mapping очищен от неподтверждённых MCP / persistent Memory;
+- добавлена manifest-driven навигация Previous / Course Map / Next;
+- введён отдельный `curriculum.submission_status`;
+- Lesson 03 и Lesson 07 помечены `not_submitted_in_source`;
+- Lesson 07 сохранён как engineering `done / M1`.
+
+### Validation
+
+- 7/7 production IDs;
+- 16 artifacts;
+- 8 evidence;
+- 6 GAP;
+- 8 traceability links.
+
+### Важное правило
+
+Engineering `done` ≠ OTUS `accepted`. Сайт теперь показывает эти статусы отдельно.
+
+### Следующий шаг
+
+**STEP 11 — Lesson 08: Architecture Decision Records.**
+
+---
+
+## 2026-09-30 — STEP 11 started
+
+**Статус:** IN PROGRESS.
