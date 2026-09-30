@@ -98,6 +98,26 @@
       "maturity": "M1"
     },
     {
+      "id": "FTH-API-001",
+      "name": "Interface Contract & API Registry",
+      "domain": "Integration",
+      "capabilities": [
+        "OpenAPI / AsyncAPI Contracts",
+        "Schemas / Examples / Error Model",
+        "Contract Versioning",
+        "Contract Validation"
+      ],
+      "lessons": [
+        5,
+        11,
+        18,
+        20,
+        23,
+        31
+      ],
+      "maturity": "M1"
+    },
+    {
       "id": "FTH-VAL-001",
       "name": "Value Delivery & Stage Gate Service",
       "domain": "Delivery Strategy",
