@@ -236,27 +236,25 @@
       "status": "done",
       "evidence": "LangGraph · Hybrid RAG · handoffs",
       "path": "7. Архитектурные паттерны AI-агенты и Multi-Agent Systems  ДЗ",
-      "expertPath": null,
+      "expertPath": "./lesson-template.html?id=7",
       "maturity": "M1",
       "curriculum": {
         "source_path": "7. Архитектурные паттерны AI-агенты и Multi-Agent Systems  ДЗ",
         "status": "done"
       },
       "architect_pro": {
-        "page": null,
-        "status": "planned"
+        "page": "./lesson-template.html?id=7",
+        "status": "active"
       },
       "father_production": {
         "capability_ids": [
           "FTH-HARNESS-001",
-          "FTH-CTX-001",
-          "FTH-PRM-001",
-          "FTH-MEM-001",
-          "FTH-TOL-001",
-          "FTH-MCP-001",
+          "FTH-KNW-001",
+          "FTH-RAG-001",
           "FTH-WFG-001",
           "FTH-AGT-001",
-          "FTH-SUP-001"
+          "FTH-SUP-001",
+          "FTH-EVL-001"
         ]
       }
     },
