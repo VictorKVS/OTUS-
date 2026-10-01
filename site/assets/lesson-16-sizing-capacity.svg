@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Lesson 16 — Sizing and Capacity</title>
+<desc id="desc">Requirements and SLO become a workload model, concurrency estimate, compute and storage budget, replication and headroom, benchmark, on-prem or cloud comparison, TCO and capacity gate.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061018"/><stop offset="1" stop-color="#15152d"/></linearGradient><style>.t{font-family:Segoe UI,Arial,sans-serif;fill:#eef7ff}.m{fill:#91a9ba}.h{font-weight:700}.box{fill:#0d1a25;stroke:#29495d;stroke-width:2}.cyan{stroke:#4ed9ff}.vio{stroke:#9b83ff}.green{stroke:#63e6a5}.amber{stroke:#ffbd65}.red{stroke:#ff7474}.mono{font-family:Consolas,monospace}</style></defs>
+<rect width="1600" height="1000" rx="28" fill="url(#bg)"/>
+<text x="70" y="70" class="t h" font-size="34">LESSON 16 · Sizing / Capacity / TCO</text>
+<text x="70" y="108" class="m mono" font-size="15">SLO → WORKLOAD → BENCHMARK → CAPACITY → COST → GATE</text>
+
+<rect x="70" y="165" width="250" height="130" rx="18" class="box cyan"/><text x="100" y="205" class="t h" font-size="17">REQ / NFR / SLO</text><text x="100" y="240" class="m" font-size="13">latency · RPS · availability</text>
+<rect x="365" y="165" width="250" height="130" rx="18" class="box vio"/><text x="395" y="205" class="t h" font-size="17">WORKLOAD</text><text x="395" y="240" class="m" font-size="13">avg · peak · burst · growth</text>
+<rect x="660" y="165" width="250" height="130" rx="18" class="box green"/><text x="690" y="205" class="t h" font-size="17">CONCURRENCY</text><text x="690" y="240" class="m" font-size="13">RPS × service time</text>
+<rect x="955" y="165" width="250" height="130" rx="18" class="box amber"/><text x="985" y="205" class="t h" font-size="17">SERVICE CLASS</text><text x="985" y="240" class="m" font-size="13">stateless · stateful · DB</text>
+<rect x="1250" y="165" width="280" height="130" rx="18" class="box red"/><text x="1280" y="205" class="t h" font-size="17">RESOURCE BUDGET</text><text x="1280" y="240" class="m" font-size="13">CPU · RAM · GPU · Disk</text>
+<path d="M320 230H365M615 230H660M910 230H955M1205 230H1250" stroke="#4ed9ff" stroke-width="5"/>
+
+<text x="70" y="375" class="t h" font-size="20">DATA &amp; RELIABILITY</text>
+<rect x="70" y="415" width="330" height="165" rx="20" class="box green"/><text x="100" y="455" class="t h" font-size="17">SQL / NoSQL</text><text x="100" y="488" class="m" font-size="13">working set · cache · retention</text><text x="100" y="516" class="m" font-size="13">replication · backup</text>
+<rect x="450" y="415" width="330" height="165" rx="20" class="box vio"/><text x="480" y="455" class="t h" font-size="17">VECTOR STORE</text><text x="480" y="488" class="m" font-size="13">N × dimension × bytes</text><text x="480" y="516" class="m" font-size="13">index · metadata · replicas</text>
+<rect x="830" y="415" width="330" height="165" rx="20" class="box amber"/><text x="860" y="455" class="t h" font-size="17">HEADROOM</text><text x="860" y="488" class="m" font-size="13">failure reserve</text><text x="860" y="516" class="m" font-size="13">burst · growth · maintenance</text>
+<rect x="1210" y="415" width="320" height="165" rx="20" class="box cyan"/><text x="1240" y="455" class="t h" font-size="17">BENCHMARK</text><text x="1240" y="488" class="m" font-size="13">load test · measured p95</text><text x="1240" y="516" class="m" font-size="13">calibrate assumptions</text>
+
+<text x="70" y="655" class="t h" font-size="20">ECONOMICS &amp; RELEASE</text>
+<rect x="70" y="695" width="330" height="145" rx="18" class="box cyan"/><text x="100" y="735" class="t h" font-size="17">ON-PREMISE</text><text x="100" y="768" class="m" font-size="13">hardware · power · support</text>
+<rect x="450" y="695" width="330" height="145" rx="18" class="box vio"/><text x="480" y="735" class="t h" font-size="17">CLOUD</text><text x="480" y="768" class="m" font-size="13">compute · storage · egress</text>
+<rect x="830" y="695" width="330" height="145" rx="18" class="box amber"/><text x="860" y="735" class="t h" font-size="17">TCO</text><text x="860" y="768" class="m" font-size="13">cost / month · cost / task</text>
+<rect x="1210" y="695" width="320" height="145" rx="18" class="box green"/><text x="1240" y="735" class="t h" font-size="17">CAPACITY GATE</text><text x="1240" y="768" class="m" font-size="13">SLO + evidence + budget</text>
+<path d="M400 768H450M780 768H830M1160 768H1210" stroke="#ffbd65" stroke-width="5"/>
+
+<text x="70" y="915" class="m" font-size="14">RULE: choose infrastructure after workload + benchmark; recalculate capacity from real telemetry after deployment.</text>
+</svg>
