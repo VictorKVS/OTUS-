@@ -227,3 +227,22 @@ Engineering status: `LAB / M1`. Course submission status remains `not submitted`
 Production chain:
 
 `Observability → SLO/Alerting → Eval/Security/FinOps → Runbook → Incident/RCA → Change`.
+
+
+## Lesson 16 normalized — Sizing / Capacity
+
+- [Lesson 16 · Resource Sizing](./lesson-template.html?id=16)
+- visual: `assets/lesson-16-sizing-capacity.svg`
+- data: `data/lesson-details/16.json`
+
+Engineering status: `draft / M1`.
+
+Sizing chain:
+
+`SLO → Workload → CPU/RAM/GPU/Storage → Replicas/Headroom → Benchmark → On-prem/Cloud → TCO → Capacity Gate`.
+
+Agent production standard:
+
+- [AGENT_PRODUCTION_STANDARD.md](../docs/AGENT_PRODUCTION_STANDARD.md)
+
+Каждый production-agent теперь обязан иметь workload profile, sizing assumptions, benchmark/capacity evidence и cost budget.
