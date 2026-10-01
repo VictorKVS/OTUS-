@@ -266,3 +266,21 @@ Observability without response ownership is treated as incomplete operational ar
 - `FTH-EST-001` связывает sizing с планом проекта.
 
 Для Agent Factory введён обязательный **Capacity Gate** перед production release.
+
+
+## Amendment v1.13 — LLM Inference Optimization
+
+При нормализации Lesson 17 добавлен:
+
+- `FTH-INF-001` — LLM Inference Optimization Service.
+
+Разделены ответственности:
+
+- `FTH-SIZ-001` — общий workload/capacity budget;
+- `FTH-INF-001` — VRAM, quantization, engine, batching и inference benchmark;
+- `FTH-MDL-001` — model/version artifact lifecycle;
+- `FTH-GTW-001` — runtime routing;
+- `FTH-SLO-001` — latency/availability targets;
+- `FTH-FIN-001` — unit economics.
+
+Для Agent Factory введён обязательный **Inference Gate**.
