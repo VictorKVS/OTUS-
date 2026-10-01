@@ -565,7 +565,8 @@
         24,
         28,
         30,
-        16
+        16,
+        17
       ],
       "maturity": "M1"
     },
@@ -610,6 +611,29 @@
         22,
         24,
         25,
+        28
+      ],
+      "maturity": "M1"
+    },
+    {
+      "id": "FTH-INF-001",
+      "name": "LLM Inference Optimization Service",
+      "domain": "Inference Engineering",
+      "capabilities": [
+        "VRAM Estimation",
+        "Quantization Profiles",
+        "Inference Engine Profiles",
+        "FlashAttention",
+        "Continuous Batching",
+        "Latency / Throughput Benchmark",
+        "GPU Instance Selection"
+      ],
+      "lessons": [
+        17,
+        19,
+        20,
+        22,
+        24,
         28
       ],
       "maturity": "M1"
