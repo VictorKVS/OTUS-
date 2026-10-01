@@ -811,3 +811,69 @@ Universal lesson runtime расширен: теперь OTUS Curriculum пока
 
 Acceptance criteria и структура домашнего задания подтверждены без изменений:
 Security Layer → RAG Testing Strategy → Grafana Observability.
+
+
+---
+
+## 2026-10-01 — priority jump to STEP 19 / Lesson 16
+
+**Причина:** пользователь предоставил Lesson 16 и попросил сразу встроить sizing в стандарт создания агентов.
+
+STEP 16–17 (Lessons 13–14) остаются pending; нумерация не переписывается.
+
+---
+
+## 2026-10-01 — STEP 19 completed
+
+**Статус:** DONE v1 normalization.  
+**Lesson:** 16 · Resource Sizing for Applications and Data.  
+**Engineering maturity:** draft / M1.  
+**Course submission:** unknown.
+
+### Source-derived scope
+
+Подтверждено источником:
+
+- CPU / GPU / RAM / storage forecasting;
+- stateless/stateful sizing;
+- SQL / NoSQL / Vector DB;
+- влияние RPS, quality и financial constraints;
+- on-premise TCO;
+- on-prem / cloud comparison;
+- TCO calculator frame.
+
+### Folder evidence
+
+В Lesson 16 есть:
+
+- source lesson text;
+- `megaxls-611826-e95145.xlsx`.
+
+XLSX подтверждён как artifact, но его formulas/outputs в этом проходе не верифицированы.
+
+### Сделано
+
+- создан `site/data/lesson-details/16.json`;
+- создан `site/assets/lesson-16-sizing-capacity.svg`;
+- добавлен `FTH-SIZ-001 · Resource Sizing & Capacity Service`;
+- Lesson 16 подключён к universal template;
+- создан `docs/AGENT_PRODUCTION_STANDARD.md`;
+- в стандарт агента добавлен обязательный Capacity Gate.
+
+### Архитектурный вывод
+
+Agent production lifecycle теперь:
+
+`SPEC → SECURITY → RAG/TOOLS → EVAL → OBSERVABILITY → SLO → SIZING → COST → RELEASE → FEEDBACK`.
+
+### Что стоит улучшить
+
+- отдельно проверить XLSX calculator formulas/outputs;
+- добавить reproducible load benchmark;
+- привязать sizing к реальным telemetry metrics;
+- в Lesson 17 уточнить LLM/GPU/VRAM inference sizing;
+- сделать machine-readable sizing policy/schema.
+
+### Следующий последовательный шаг
+
+STEP 16 / Lesson 13 остаётся первым незакрытым последовательным шагом, но Lesson 17 может быть приоритетно обработан следующим для продолжения sizing chain.
