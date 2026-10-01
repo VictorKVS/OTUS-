@@ -249,3 +249,20 @@ Governance Service сравнивает change/PR с target architecture and ADR
 - `FTH-SLO-001` — SLI/SLO, error budgets, alert rules/routing, runbooks, MTTF/MTTR and incident/RCA linkage.
 
 Observability without response ownership is treated as incomplete operational architecture.
+
+
+## Amendment v1.12 — Resource Sizing & Capacity
+
+При нормализации Lesson 16 добавлен:
+
+- `FTH-SIZ-001` — Resource Sizing & Capacity Service.
+
+Разделены ответственности:
+
+- `FTH-SLO-001` задаёт эксплуатационные цели;
+- `FTH-SIZ-001` переводит workload/SLO в CPU/RAM/GPU/storage/replicas/headroom и benchmark evidence;
+- `FTH-REL-001` определяет reliability topology;
+- `FTH-FIN-001` переводит capacity в TCO/unit economics;
+- `FTH-EST-001` связывает sizing с планом проекта.
+
+Для Agent Factory введён обязательный **Capacity Gate** перед production release.
