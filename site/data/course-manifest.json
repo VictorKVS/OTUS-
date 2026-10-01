@@ -537,23 +537,29 @@
       "id": 17,
       "title": "Sizing и оптимизация инференса LLM",
       "gate": "G5",
-      "status": "materials",
+      "status": "draft",
       "evidence": "GPU · VRAM · throughput · batching",
       "path": "17. Расчёт ресурсов и оптимизация инференса LLM  ДЗ",
-      "expertPath": null,
-      "maturity": "M0",
+      "expertPath": "./lesson-template.html?id=17",
+      "maturity": "M1",
       "curriculum": {
         "source_path": "17. Расчёт ресурсов и оптимизация инференса LLM  ДЗ",
         "status": "materials",
-        "submission_status": "unknown"
+        "submission_status": "unknown",
+        "teacher": "Иван Четвериков",
+        "lesson_date": "2026-09-28",
+        "duration_minutes": 90
       },
       "architect_pro": {
-        "page": null,
-        "status": "planned"
+        "page": "./lesson-template.html?id=17",
+        "status": "active"
       },
       "father_production": {
         "capability_ids": [
           "FTH-MDL-001",
+          "FTH-SIZ-001",
+          "FTH-INF-001",
+          "FTH-SLO-001",
           "FTH-GTW-001",
           "FTH-FIN-001",
           "FTH-REL-001"
