@@ -157,3 +157,14 @@ Lesson 16 / Sizing выполнен приоритетно по запросу �
 `SLO → SIZING → TCO → CAPACITY GATE → DEPLOY`
 
 STEP 16–17 (Lessons 13–14) остаются pending.
+
+
+## STEP 20 — Lesson 17 completed out of order
+
+Lesson 17 / LLM Inference Sizing выполнен после Lesson 16 как единая capacity chain.
+
+Agent production gates now include:
+
+`SLO → CAPACITY GATE → INFERENCE GATE → COST → RELEASE`.
+
+STEP 16–17 in the original sequential queue (Lessons 13–14) remain pending.
