@@ -146,3 +146,14 @@
 - STEP 18 = Lesson 15.
 
 STEP 16–17 остаются pending. Завершённый STEP 18 не считается автоматическим закрытием предыдущих шагов.
+
+
+## STEP 19 — Lesson 16 completed out of order
+
+Lesson 16 / Sizing выполнен приоритетно по запросу пользователя.
+
+Добавлен обязательный Agent Factory gate:
+
+`SLO → SIZING → TCO → CAPACITY GATE → DEPLOY`
+
+STEP 16–17 (Lessons 13–14) остаются pending.
