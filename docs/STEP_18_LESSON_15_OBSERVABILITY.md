@@ -171,3 +171,12 @@ Observability and SLO/Alerting are separate responsibilities:
 3. Tooling — предложены актуальные инструменты: Prometheus, Tempo, Langfuse/LangSmith, Ragas/DeepEval.
 
 Эти критерии теперь хранятся в lesson detail manifest отдельно от engineering maturity.
+
+
+## 14. Deadline correction
+
+По полному тексту задания, предоставленному пользователем:
+
+- рекомендуемый срок сдачи: **30.09.2026**.
+
+Ранее зафиксированная дата 27.09.2026 считается заменённой.
