@@ -71,13 +71,25 @@
       "Снижать стоимость инференса при сохранении performance requirements"
     ],
     "homework": [
-      "Практика: выбрать оптимальную конфигурацию GPU-инстанса в Yandex Cloud / Cloud.ru / AWS / Azure для хостинга модели GPT-oss.",
-      "Результат урока включает фрейм «Калькулятор Инференса»."
+      "Задача: Llama-3-70B в FP16 и INT4 под нагрузку 1000 RPM.",
+      "Hardware Sizing: рассчитать VRAM = параметры × вес + KV Cache; определить минимальное число A100 80GB, T4 16GB и L4 24GB.",
+      "Cloud Selection: сравнить месячную стоимость выбранной мощности минимум в двух облаках — Yandex Cloud и Cloud.ru.",
+      "Optimization: оценить влияние quantization, batching и vLLM на GPU count и стоимость; прогноз строить через измеряемый throughput, а не фиксированный процент «из головы».",
+      "Вывод: рекомендовать конфигурацию и явно указать допущения/границы расчёта.",
+      "Формат: Google Таблица с расчётами + краткий текстовый вывод."
     ],
-    "acceptance_criteria": [],
+    "acceptance_criteria": [
+      "Точность: VRAM рассчитан как Parameters × Weight + KV Cache.",
+      "Сравнение: приведены реальные или приближенные к реальным цены облаков и указаны источники/границы сравнения.",
+      "Оптимизация: показано, что INT4 уменьшает память модели; batching/vLLM оцениваются через throughput benchmark и влияние на число GPU/стоимость."
+    ],
     "sources": [
-      "Lesson 17 source text"
-    ]
+      "Lesson 17 source text",
+      "VRAM calculator: https://huggingface.co/spaces/NyxKrage/LLM-Model-VRAM-Calculator",
+      "Yandex Cloud pricing",
+      "Cloud.ru ML Inference tariff"
+    ],
+    "recommended_due": "2026-10-06"
   },
   "architect_pro": {
     "summary": "Engineering extension: VRAM и скорость инференса оцениваются как модель бюджета, а финальная конфигурация выбирается только по воспроизводимому benchmark. Quantization, engine и batching рассматриваются как связанные переменные, влияющие одновременно на quality, latency, throughput и cost.",
@@ -160,20 +172,24 @@
   },
   "artifacts": [
     "Lesson 17 source text",
-    "Inference Calculator frame (required by lesson; completed artifact not found)",
-    "VRAM Budget (target)",
-    "Quantization Decision Record (target)",
-    "Engine Benchmark Matrix (target)",
-    "GPU Instance Comparison (target)",
-    "Inference Gate (target)"
+    "OTUS_DZ17_Llama3_70B_Sizing.xlsx — formula-driven calculation workbook",
+    "Native Google Sheet — OTUS ДЗ 17 — Llama-3-70B Sizing",
+    "DZ_17_SIZING_REPORT.md",
+    "VRAM Budget",
+    "Throughput / optimization sensitivity",
+    "Yandex Cloud / Cloud.ru cost comparison",
+    "Inference Gate"
   ],
   "evidence": [
-    "Source explicitly requires VRAM calculation",
-    "Source explicitly mentions quantization",
-    "Source explicitly mentions FlashAttention",
-    "Source explicitly mentions vLLM",
-    "Source explicitly mentions continuous batching",
-    "Source explicitly requires GPU instance selection across Yandex Cloud / Cloud.ru / AWS / Azure"
+    "1000 RPM converted to 16.67 RPS",
+    "Base workload assumptions are explicit and editable: 512 input tokens, 128 output tokens, 6s average E2E, 20% headroom",
+    "FP16 raw weights ≈130.39 GiB; INT4 raw weights ≈32.60 GiB",
+    "KV cache ≈19.53 GiB for the base concurrency/context model",
+    "INT4 estimated runtime memory with 15% reserve ≈59.95 GiB",
+    "Memory-fit: FP16 — A100 4 (vendor optimized profile), T4 11, L4 8; INT4 — A100 1, T4 4, L4 3",
+    "Throughput target with headroom =2560 output tok/s; selected planning configuration =4×A100 80GB INT4",
+    "Current core-compute comparison: Cloud.ru ≈1,018,944 ₽/month vs Yandex ≈1,360,426 ₽/month for 4×A100, excluding disk/network/extras",
+    "Optimization sensitivity shows GPU count/cost as measured effective throughput changes"
   ],
   "traceability": [
     "MODEL + SLO → VRAM BUDGET",
@@ -186,10 +202,10 @@
     "PRODUCTION TELEMETRY → RE-BENCHMARK / RE-SIZE"
   ],
   "gaps": [
-    "Lesson 17 folder contains only the lesson text; completed Inference Calculator artifact was not found.",
-    "Exact GPU SKUs/prices are not pinned because they are time-dependent and require current provider data.",
-    "Engineering formulas above are Architect Pro extensions, not literal source text.",
-    "No benchmark evidence for GPT-oss is present in the lesson folder."
+    "The exact vLLM throughput for our prompt/context profile is not assumed; a reproducible benchmark is required before production.",
+    "T4/L4 counts are memory-fit only and are not a throughput recommendation for 1000 RPM.",
+    "Cloud prices are time-dependent and must be refreshed before submission/procurement.",
+    "Input/output token lengths and 6s E2E are explicit planning assumptions, not source requirements."
   ],
   "sources": [
     {
