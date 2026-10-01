@@ -10,7 +10,7 @@
 
 Минимальный lifecycle:
 
-`SPEC → SECURITY → KNOWLEDGE/RAG → MODEL/TOOLS → EVAL → OBSERVABILITY → SLO → SIZING → COST → RELEASE → FEEDBACK`
+`SPEC → SECURITY → KNOWLEDGE/RAG → MODEL/TOOLS → EVAL → OBSERVABILITY → SLO → SIZING → INFERENCE → COST → RELEASE → FEEDBACK`
 
 ## 2. Mandatory agent passport
 
@@ -65,6 +65,21 @@ sizing:
   headroom_factor: null
   benchmark_id: null
 
+inference:
+  model_id: ""
+  model_version: ""
+  parameter_count: null
+  precision: ""
+  quantization: ""
+  max_context_tokens: null
+  kv_cache_budget_gb: null
+  engine: ""
+  batching_mode: ""
+  ttft_target_ms: null
+  p95_latency_target_ms: null
+  tokens_per_second_target: null
+  benchmark_id: null
+
 cost:
   monthly_budget: null
   max_cost_per_task: null
@@ -76,6 +91,7 @@ release:
   security_gate: required
   slo_gate: required
   capacity_gate: required
+  inference_gate: required
   rollback: required
 ```
 
@@ -141,3 +157,39 @@ Do not deploy a separate monitoring/security/sizing stack per agent. Agents cons
 - FinOps / Cost Control.
 
 Per-agent differences live in manifest configuration and evidence.
+
+
+## 7. Inference contract — Lesson 17
+
+LLM-serving agents additionally require an **Inference Profile**.
+
+Inputs:
+
+- model/version;
+- parameter count;
+- precision / quantization;
+- context length;
+- workload/batch/concurrency profile;
+- latency / TTFT SLO;
+- quality baseline;
+- cost budget.
+
+Planning formulas:
+
+- `Weights VRAM ≈ parameter_count × bits_per_weight / 8`;
+- `KV cache ≈ batch × sequence × layers × 2 × kv_heads × head_dim × bytes_per_element`;
+- `Runtime VRAM ≈ weights + KV cache + workspace/activations + headroom`;
+- `Latency ≈ queue + prefill + decode + external overhead`.
+
+These are planning formulas. Final placement requires benchmark evidence.
+
+## 8. Inference Gate
+
+Release of an LLM-backed agent requires evidence that the selected runtime profile satisfies:
+
+1. **quality** — quantization/runtime changes pass evaluation gates;
+2. **latency/throughput** — benchmark meets SLO under target workload;
+3. **capacity** — VRAM/headroom remain safe under context/batching profile;
+4. **cost** — cost/token or cost/task remains within budget.
+
+No agent manifest should hard-code a provider GPU SKU as architecture. Placement is derived from model + SLO + workload + benchmark + cost.
