@@ -798,3 +798,16 @@ Telemetry collection/correlation и operational decision/response разделе
 - acceptance criteria выделены отдельным массивом.
 
 Universal lesson runtime расширен: теперь OTUS Curriculum показывает Homework, Acceptance Criteria и course metadata отдельно от engineering maturity/status.
+
+
+---
+
+## 2026-10-01 — Lesson 15 deadline correction
+
+Пользователь предоставил полный официальный текст домашнего задания.
+
+Исправлено:
+- recommended due: `2026-09-30` (вместо ранее зафиксированного `2026-09-27`).
+
+Acceptance criteria и структура домашнего задания подтверждены без изменений:
+Security Layer → RAG Testing Strategy → Grafana Observability.
