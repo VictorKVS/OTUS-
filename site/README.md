@@ -246,3 +246,19 @@ Agent production standard:
 - [AGENT_PRODUCTION_STANDARD.md](../docs/AGENT_PRODUCTION_STANDARD.md)
 
 Каждый production-agent теперь обязан иметь workload profile, sizing assumptions, benchmark/capacity evidence и cost budget.
+
+
+## Lesson 17 normalized — LLM Inference
+
+- [Lesson 17 · LLM Inference Sizing](./lesson-template.html?id=17)
+- visual: `assets/lesson-17-llm-inference-optimization.svg`
+- data: `data/lesson-details/17.json`
+- homework report: `../17. Расчёт ресурсов и оптимизация инференса LLM  ДЗ/DZ_17_SIZING_REPORT.md`
+
+Engineering status: `draft / M1`.
+
+Inference chain:
+
+`Model/SLO → VRAM → Quantization → Engine/Batching → Benchmark → GPU placement → Cost → Inference Gate`.
+
+The homework calculation is ready as XLSX + native Google Sheet; course submission is still separate.
