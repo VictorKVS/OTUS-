@@ -877,3 +877,45 @@ Agent production lifecycle теперь:
 ### Следующий последовательный шаг
 
 STEP 16 / Lesson 13 остаётся первым незакрытым последовательным шагом, но Lesson 17 может быть приоритетно обработан следующим для продолжения sizing chain.
+
+
+---
+
+## 2026-10-01 — STEP 20 completed — Lesson 17
+
+**Lesson:** LLM inference sizing / optimization.  
+**Engineering maturity:** draft / M1.  
+**Course submission:** not submitted.  
+**Recommended due:** 06.10.2026.
+
+### Сделано
+
+- нормализован Lesson 17;
+- создан `FTH-INF-001 · LLM Inference Optimization Service`;
+- создан `site/data/lesson-details/17.json`;
+- создан `site/assets/lesson-17-llm-inference-optimization.svg`;
+- создан `docs/STEP_20_LESSON_17_LLM_INFERENCE.md`;
+- создан `DZ_17_SIZING_REPORT.md`;
+- создан formula-driven XLSX calculation workbook;
+- создана native Google Sheet;
+- в Agent Production Standard добавлены Inference Profile и Inference Gate.
+
+### Homework result
+
+Base assumptions: 512 input + 128 output tokens, 6s E2E, 20% headroom.
+
+- 1000 RPM = 16.67 RPS;
+- required throughput with headroom = 2560 output tok/s;
+- FP16 raw weights = 130.39 GiB;
+- INT4 raw weights = 32.60 GiB;
+- KV cache = 19.53 GiB;
+- selected initial plan = 4×A100 80GB INT4;
+- Cloud.ru core compute ≈ 1.019M ₽/month;
+- Yandex core compute ≈ 1.360M ₽/month.
+
+### Boundary
+
+- exact vLLM performance must be benchmarked;
+- T4/L4 counts are memory-fit only;
+- cloud prices require refresh before final procurement;
+- course status remains not submitted until external submission.
