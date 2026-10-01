@@ -564,7 +564,8 @@
         21,
         24,
         28,
-        30
+        30,
+        16
       ],
       "maturity": "M1"
     },
@@ -588,6 +589,30 @@
         31
       ],
       "maturity": "M0"
+    },
+    {
+      "id": "FTH-SIZ-001",
+      "name": "Resource Sizing & Capacity Service",
+      "domain": "Capacity Engineering",
+      "capabilities": [
+        "Workload Model",
+        "CPU / RAM / GPU Sizing",
+        "Stateless / Stateful Capacity",
+        "SQL / NoSQL / Vector DB Sizing",
+        "Replication / Headroom",
+        "On-prem / Cloud Capacity Comparison",
+        "Sizing Evidence / Benchmark Link"
+      ],
+      "lessons": [
+        16,
+        17,
+        21,
+        22,
+        24,
+        25,
+        28
+      ],
+      "maturity": "M1"
     },
     {
       "id": "FTH-FIN-001",
