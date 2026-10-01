@@ -505,24 +505,31 @@
       "id": 16,
       "title": "Sizing приложений и данных",
       "gate": "G5",
-      "status": "materials",
+      "status": "draft",
       "evidence": "Capacity · load · resources",
       "path": "16. Расчёт ресурсов (Sizing) для приложений и данных",
-      "expertPath": null,
-      "maturity": "M0",
+      "expertPath": "./lesson-template.html?id=16",
+      "maturity": "M1",
       "curriculum": {
         "source_path": "16. Расчёт ресурсов (Sizing) для приложений и данных",
         "status": "materials",
-        "submission_status": "unknown"
+        "submission_status": "unknown",
+        "teacher": "Михаил Лебедев",
+        "lesson_date": "2026-09-23",
+        "duration_minutes": 90
       },
       "architect_pro": {
-        "page": null,
-        "status": "planned"
+        "page": "./lesson-template.html?id=16",
+        "status": "active"
       },
       "father_production": {
         "capability_ids": [
+          "FTH-REQ-001",
+          "FTH-SLO-001",
+          "FTH-SIZ-001",
+          "FTH-REL-001",
           "FTH-FIN-001",
-          "FTH-REL-001"
+          "FTH-EST-001"
         ]
       }
     },
