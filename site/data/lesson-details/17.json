@@ -1,0 +1,200 @@
+{
+  "schema_version": "father-architect-lesson-detail.v1",
+  "lesson_id": 17,
+  "purpose": "Оптимизировать инференс LLM по VRAM, latency, throughput и cost: выбрать precision/quantization, inference engine и batching strategy, затем подтвердить конфигурацию benchmark-ом перед выбором GPU-инстанса.",
+  "schema": {
+    "notation": "MODEL + SLO → VRAM MODEL → QUANTIZATION → ENGINE → BATCHING → BENCHMARK → GPU INSTANCE → COST/TOKEN → INFERENCE GATE",
+    "description": "Источник Lesson 17 подтверждает расчёт VRAM, влияние квантизации, FlashAttention, vLLM, непрерывный батчинг и практику выбора GPU-инстанса в Yandex Cloud / Cloud.ru / AWS / Azure для хостинга GPT-oss.",
+    "nodes": [
+      "MODEL + SLO",
+      "VRAM MODEL",
+      "QUANTIZATION",
+      "ENGINE",
+      "BATCHING",
+      "BENCHMARK",
+      "GPU INSTANCE",
+      "COST/TOKEN",
+      "INFERENCE GATE"
+    ],
+    "edges": [
+      [
+        "MODEL + SLO",
+        "VRAM MODEL"
+      ],
+      [
+        "VRAM MODEL",
+        "QUANTIZATION"
+      ],
+      [
+        "QUANTIZATION",
+        "ENGINE"
+      ],
+      [
+        "ENGINE",
+        "BATCHING"
+      ],
+      [
+        "BATCHING",
+        "BENCHMARK"
+      ],
+      [
+        "BENCHMARK",
+        "GPU INSTANCE"
+      ],
+      [
+        "GPU INSTANCE",
+        "COST/TOKEN"
+      ],
+      [
+        "COST/TOKEN",
+        "INFERENCE GATE"
+      ]
+    ]
+  },
+  "visual": {
+    "poster": "./assets/lesson-17-llm-inference-optimization.svg",
+    "alt": "Lesson 17 inference engineering flow: model and SLO lead to VRAM estimate, quantization, inference engine, batching, benchmark, GPU instance selection, cost per token and inference gate."
+  },
+  "curriculum": {
+    "summary": "Lesson 17 teaches LLM performance analysis, VRAM calculation, quantization impact and inference optimization using FlashAttention, vLLM and continuous batching, followed by GPU instance selection across several cloud providers.",
+    "teacher": "Иван Четвериков",
+    "lesson_date": "2026-09-28",
+    "duration_minutes": 90,
+    "requirements": [
+      "Анализировать производительность LLM",
+      "Рассчитывать VRAM",
+      "Учитывать влияние квантизации",
+      "Применять FlashAttention",
+      "Использовать vLLM",
+      "Использовать continuous batching",
+      "Выбирать GPU-инстанс для хостинга модели",
+      "Снижать стоимость инференса при сохранении performance requirements"
+    ],
+    "homework": [
+      "Практика: выбрать оптимальную конфигурацию GPU-инстанса в Yandex Cloud / Cloud.ru / AWS / Azure для хостинга модели GPT-oss.",
+      "Результат урока включает фрейм «Калькулятор Инференса»."
+    ],
+    "acceptance_criteria": [],
+    "sources": [
+      "Lesson 17 source text"
+    ]
+  },
+  "architect_pro": {
+    "summary": "Engineering extension: VRAM и скорость инференса оцениваются как модель бюджета, а финальная конфигурация выбирается только по воспроизводимому benchmark. Quantization, engine и batching рассматриваются как связанные переменные, влияющие одновременно на quality, latency, throughput и cost.",
+    "methods": [
+      "Model-weights VRAM estimate",
+      "KV-cache budget",
+      "Activation/workspace reserve",
+      "Precision / quantization profile",
+      "Engine profile: baseline vs optimized runtime",
+      "Continuous batching profile",
+      "Prefill / decode separation",
+      "TTFT and inter-token latency measurement",
+      "Tokens/sec and requests/sec benchmark",
+      "GPU utilization and memory headroom",
+      "Cost per 1M tokens / cost per successful request",
+      "Quality regression check after quantization"
+    ],
+    "standards": [
+      "Benchmark-driven inference engineering",
+      "SLO-driven GPU selection",
+      "Quality gate after quantization",
+      "Capacity + cost co-optimization"
+    ],
+    "formulas": [
+      "Weights VRAM ≈ parameter_count × bits_per_weight / 8",
+      "KV cache bytes ≈ batch × sequence_length × layers × 2 × kv_heads × head_dim × bytes_per_element",
+      "Runtime VRAM ≈ weights + KV cache + activations/workspace + fragmentation/headroom",
+      "End-to-end latency ≈ queue + prefill + decode + tool/RAG overhead",
+      "Cost per 1M tokens ≈ hourly_GPU_cost / (effective_tokens_per_second × 3600) × 1,000,000"
+    ],
+    "anti_patterns": [
+      "Выбирать GPU только по размеру весов модели",
+      "Игнорировать KV-cache при длинном context",
+      "Считать quantization бесплатной по качеству",
+      "Сравнивать engines без одинакового prompt/context/workload",
+      "Смотреть только на tokens/sec без TTFT/p95 latency",
+      "Оценивать cost без фактической загрузки GPU",
+      "Считать один benchmark универсальным для всех batch/context profiles"
+    ],
+    "templates": [
+      "Inference Profile",
+      "VRAM Budget",
+      "Quantization Decision Record",
+      "Engine Benchmark Matrix",
+      "Batching Profile",
+      "GPU Instance Comparison",
+      "Cost-per-token Sheet",
+      "Inference Gate"
+    ]
+  },
+  "father_production": {
+    "summary": "Для Agent Factory Lesson 17 добавляет Inference Profile к паспорту агента. Shared LLM runtime выбирается не агентом самостоятельно: Model Zoo + Inference Optimization Service + AI Gateway определяют model/precision/engine/batching route по SLO, capacity и cost.",
+    "capability_ids": [
+      "FTH-MDL-001",
+      "FTH-SIZ-001",
+      "FTH-INF-001",
+      "FTH-SLO-001",
+      "FTH-GTW-001",
+      "FTH-FIN-001",
+      "FTH-REL-001"
+    ],
+    "components": [
+      "FTH-MDL-001 · Model Zoo",
+      "FTH-SIZ-001 · Resource Sizing & Capacity Service",
+      "FTH-INF-001 · LLM Inference Optimization Service",
+      "FTH-SLO-001 · SLO / Alerting",
+      "FTH-GTW-001 · AI Gateway",
+      "FTH-FIN-001 · FinOps / Cost Control",
+      "FTH-REL-001 · Reliability Plane"
+    ],
+    "runtime_notes": [
+      "Inference runtime is shared across agents when policy allows",
+      "Agent manifest declares SLO/context/profile, not hard-coded GPU SKU",
+      "Model/precision/engine versions are traceable",
+      "Quantization requires quality regression evaluation",
+      "GPU selection is based on reproducible workload benchmark",
+      "Routing may use different model/runtime profiles for different task classes",
+      "Production telemetry recalibrates throughput and cost model"
+    ]
+  },
+  "artifacts": [
+    "Lesson 17 source text",
+    "Inference Calculator frame (required by lesson; completed artifact not found)",
+    "VRAM Budget (target)",
+    "Quantization Decision Record (target)",
+    "Engine Benchmark Matrix (target)",
+    "GPU Instance Comparison (target)",
+    "Inference Gate (target)"
+  ],
+  "evidence": [
+    "Source explicitly requires VRAM calculation",
+    "Source explicitly mentions quantization",
+    "Source explicitly mentions FlashAttention",
+    "Source explicitly mentions vLLM",
+    "Source explicitly mentions continuous batching",
+    "Source explicitly requires GPU instance selection across Yandex Cloud / Cloud.ru / AWS / Azure"
+  ],
+  "traceability": [
+    "MODEL + SLO → VRAM BUDGET",
+    "VRAM → QUANTIZATION OPTIONS",
+    "QUANTIZATION → QUALITY REGRESSION",
+    "ENGINE/BATCHING → BENCHMARK",
+    "BENCHMARK → GPU INSTANCE",
+    "GPU INSTANCE → COST MODEL",
+    "QUALITY + SLO + COST → INFERENCE GATE",
+    "PRODUCTION TELEMETRY → RE-BENCHMARK / RE-SIZE"
+  ],
+  "gaps": [
+    "Lesson 17 folder contains only the lesson text; completed Inference Calculator artifact was not found.",
+    "Exact GPU SKUs/prices are not pinned because they are time-dependent and require current provider data.",
+    "Engineering formulas above are Architect Pro extensions, not literal source text.",
+    "No benchmark evidence for GPT-oss is present in the lesson folder."
+  ],
+  "sources": [
+    {
+      "title": "Lesson 17 source",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/17.%20%D0%A0%D0%B0%D1%81%D1%87%D1%91%D1%82%20%D1%80%D0%B5%D1%81%D1%83%D1%80%D1%81%D0%BE%D0%B2%20%D0%B8%20%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B8%D0%BD%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%81%D0%B0%20LLM%20%20%D0%94%D0%97/17%20%D0%A0%D0%B0%D1%81%D1%87%D1%91%D1%82%20%D1%80%D0%B5%D1%81%D1%83%D1%80%D1%81%D0%BE%D0%B2%20%D0%B8%20%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B8%D0%BD%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%81.txt"
+    }
+  ]
+}
