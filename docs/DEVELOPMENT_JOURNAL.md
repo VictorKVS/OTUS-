@@ -919,3 +919,37 @@ Base assumptions: 512 input + 128 output tokens, 6s E2E, 20% headroom.
 - T4/L4 counts are memory-fit only;
 - cloud prices require refresh before final procurement;
 - course status remains not submitted until external submission.
+
+
+---
+
+## 2026-10-02 — FATHER Document Conveyor v1
+
+**Статус:** CANONICAL v1.
+
+### Причина
+
+Потребовался единый маршрут документов от входной идеи/материалов FATHER до проверенного задания программисту и дальнейшего релиза.
+
+### Сделано
+
+- создан `docs/FATHER_DOCUMENT_CONVEYOR.md`;
+- создан `site/data/document-conveyor.json`;
+- создан `site/assets/father-document-conveyor.svg`;
+- создан `site/document-conveyor.html`;
+- Document Conveyor добавлен в главную навигацию сайта.
+
+### Ключевой процесс
+
+`INTAKE → ANALYST → ARCHITECT REVIEW → DETAILED DESIGN → CROSS-CUTTING REVIEW → DEVELOPMENT PACK → DEVELOPER → CI/QA → ANALYST ACCEPTANCE → ARCHITECT ACCEPTANCE → RELEASE → OPERATIONS FEEDBACK`.
+
+### Новый обязательный gate
+
+Перед передачей программисту требуется **double sign-off**:
+
+- Analyst sign-off — смысл, полнота, traceability, acceptance criteria;
+- Architect sign-off — реализуемость, NFR, interfaces/data, trade-offs, ADR.
+
+### Архитектурное правило
+
+Сайт является visual router, а Git artifacts остаются canonical source of truth. PDF/Google Docs — представления/сдача, а не единственный источник истины.
