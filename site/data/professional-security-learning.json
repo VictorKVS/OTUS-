@@ -1,0 +1,36 @@
+{
+  "schema_version": "professional-security-learning.v1",
+  "updated": "2026-10-02",
+  "tracks": [
+    {
+      "id": "SEC-LEARN-001",
+      "title": "Security Engineer",
+      "title_ru": "Инженер по информационной безопасности",
+      "provider": "CyberED",
+      "course_code": "F-402",
+      "status": "in_progress",
+      "evidence_status": "verify_enrollment_or_completion_document",
+      "cv_rule": "mention_as_in_progress_until completion evidence exists"
+    },
+    {
+      "id": "SEC-LEARN-002",
+      "title": "Penetration Tester",
+      "title_ru": "Пентестер",
+      "provider": "CyberED",
+      "course_code": "R301",
+      "status": "in_progress",
+      "evidence_status": "verify_enrollment_or_completion_document",
+      "cv_rule": "claim hands-on skills only from completed labs/evidence"
+    },
+    {
+      "id": "SEC-LEARN-003",
+      "title": "SOC Analyst",
+      "title_ru": "Аналитик SOC",
+      "provider": "CyberED",
+      "course_code": null,
+      "status": "in_progress",
+      "evidence_status": "verify_exact_program_code_and_completion_document",
+      "cv_rule": "claim SIEM/SOC hands-on only from completed labs/evidence"
+    }
+  ]
+}
