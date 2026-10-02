@@ -33,7 +33,12 @@
         "SUCCESS_CRITERIA"
       ],
       "gate": "Intake Ready",
-      "next": "Analyst"
+      "next": "Analyst",
+      "agents": [
+        "FTH-AG-SUP-001",
+        "FTH-AG-INT-001",
+        "FTH-AG-KNW-001"
+      ]
     },
     {
       "id": "A1",
@@ -54,7 +59,12 @@
         "ANALYSIS_REVIEW"
       ],
       "gate": "Analyst Self Review",
-      "next": "Architect"
+      "next": "Architect",
+      "agents": [
+        "FTH-AG-SUP-001",
+        "FTH-AG-ANL-001",
+        "FTH-AG-KNW-001"
+      ]
     },
     {
       "id": "A2",
@@ -74,7 +84,12 @@
         "ARCHITECTURE_VISION"
       ],
       "gate": "Analyst ↔ Architect Handshake",
-      "next": "Detailed Design"
+      "next": "Detailed Design",
+      "agents": [
+        "FTH-AG-SUP-001",
+        "FTH-AG-ARC-001",
+        "FTH-AG-GOV-001"
+      ]
     },
     {
       "id": "A3",
@@ -100,7 +115,13 @@
         "TOOL_MCP_POLICY"
       ],
       "gate": "Architecture Pack v1",
-      "next": "Cross-cutting Review"
+      "next": "Cross-cutting Review",
+      "agents": [
+        "FTH-AG-SUP-001",
+        "FTH-AG-ARC-001",
+        "FTH-AG-DAT-001",
+        "FTH-AG-KNW-001"
+      ]
     },
     {
       "id": "A4",
@@ -126,7 +147,15 @@
         "ROLLBACK_REQUIREMENTS"
       ],
       "gate": "Architecture Review / CTO Challenge",
-      "next": "Development Pack"
+      "next": "Development Pack",
+      "agents": [
+        "FTH-AG-SUP-001",
+        "FTH-AG-SEC-001",
+        "FTH-AG-EVL-001",
+        "FTH-AG-SIZ-001",
+        "FTH-AG-DAT-001",
+        "FTH-AG-GOV-001"
+      ]
     },
     {
       "id": "D0",
@@ -154,7 +183,12 @@
         "TRACEABILITY_SLICE"
       ],
       "gate": "Definition of Ready",
-      "next": "Pre-Dev Validation"
+      "next": "Pre-Dev Validation",
+      "agents": [
+        "FTH-AG-SUP-001",
+        "FTH-AG-DPK-001",
+        "FTH-AG-GOV-001"
+      ]
     },
     {
       "id": "D0.5",
@@ -168,7 +202,11 @@
         "GIT_COMMIT_SHA"
       ],
       "gate": "All P0-P11 blocking checks PASS",
-      "next": "Programmer"
+      "next": "Programmer",
+      "agents": [
+        "FTH-AG-PDV-001",
+        "FTH-AG-GOV-001"
+      ]
     },
     {
       "id": "D1",
@@ -188,7 +226,10 @@
         "PR"
       ],
       "gate": "PR Ready",
-      "next": "CI / QA"
+      "next": "CI / QA",
+      "agents": [
+        "FTH-AG-DEV-001"
+      ]
     },
     {
       "id": "V1",
@@ -206,7 +247,12 @@
         "TRACEABILITY_EVIDENCE"
       ],
       "gate": "Technical Gate",
-      "next": "Analyst Acceptance"
+      "next": "Analyst Acceptance",
+      "agents": [
+        "FTH-AG-QA-001",
+        "FTH-AG-SEC-001",
+        "FTH-AG-EVL-001"
+      ]
     },
     {
       "id": "V2",
@@ -217,7 +263,10 @@
         "ANALYST_ACCEPTANCE"
       ],
       "gate": "Functional Acceptance",
-      "next": "Architect Acceptance"
+      "next": "Architect Acceptance",
+      "agents": [
+        "FTH-AG-ANL-001"
+      ]
     },
     {
       "id": "V3",
@@ -230,7 +279,11 @@
         "WAIVERS"
       ],
       "gate": "Architecture Conformance",
-      "next": "Release"
+      "next": "Release",
+      "agents": [
+        "FTH-AG-ARC-001",
+        "FTH-AG-GOV-001"
+      ]
     },
     {
       "id": "R1",
@@ -251,7 +304,11 @@
         "TRACEABILITY_SNAPSHOT"
       ],
       "gate": "Release Approved",
-      "next": "Operations"
+      "next": "Operations",
+      "agents": [
+        "FTH-AG-REL-001",
+        "FTH-AG-GOV-001"
+      ]
     },
     {
       "id": "O1",
@@ -267,7 +324,13 @@
         "ADR_SUPERSEDE"
       ],
       "gate": "Feedback converted to controlled change",
-      "next": "New cycle"
+      "next": "New cycle",
+      "agents": [
+        "FTH-AG-OPS-001",
+        "FTH-AG-ANL-001",
+        "FTH-AG-ARC-001",
+        "FTH-AG-KNW-001"
+      ]
     }
   ]
 }
