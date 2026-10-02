@@ -953,3 +953,48 @@ Base assumptions: 512 input + 128 output tokens, 6s E2E, 20% headroom.
 ### Архитектурное правило
 
 Сайт является visual router, а Git artifacts остаются canonical source of truth. PDF/Google Docs — представления/сдача, а не единственный источник истины.
+
+
+---
+
+## 2026-10-02 — Validated Development Pack v1
+
+**Статус:** CANONICAL v1.
+
+### Решение
+
+Между Development Pack и программистом введён отдельный blocking gate:
+
+`DEVELOPMENT PACK → PRE-DEV VALIDATION → VALIDATED DEVELOPMENT PACK → PROGRAMMER`.
+
+### Что добавлено
+
+- `docs/DEVELOPMENT_PACK_STANDARD.md`;
+- `site/data/development-pack.json`;
+- `site/development-pack.html`;
+- полный шаблон `templates/development-pack/`;
+- `tools/validate_dev_pack.py`;
+- `.github/workflows/dev-pack-validation.yml`;
+- PRE-DEV stage `D0.5` добавлен в Document Conveyor;
+- визуальная схема конвейера обновлена.
+
+### Blocking checks
+
+- P0 completeness;
+- P1 Analyst + Architect sign-off;
+- P2 requirements integrity;
+- P3 acceptance testability;
+- P4 API/schema validation;
+- P5 data contract;
+- P6 security contract;
+- P7 observability contract;
+- P8 test-plan coverage;
+- P9 config/migration/rollback;
+- P10 traceability closure;
+- P11 unresolved placeholders / critical ambiguities.
+
+### Handoff rule
+
+Programmer получает только **VALIDATED DEVELOPMENT PACK**.
+
+Изменение baselined REQ/API/schema/security constraint после handoff требует новой версии pack и повторного validation.
