@@ -1,0 +1,821 @@
+{
+  "schema_version": "father-factory.v1",
+  "title": "FATHER Factory",
+  "status": "M0 scaffold",
+  "principle": "Every station has explicit inputs, agent, data stores, knowledge bases, outputs and next destination.",
+  "input_ports": [
+    {
+      "id": "IN-IDEA",
+      "icon": "💡",
+      "name": "Idea / Request",
+      "accepts": [
+        "text",
+        "voice-note",
+        "brief"
+      ]
+    },
+    {
+      "id": "IN-DOC",
+      "icon": "📄",
+      "name": "Documents",
+      "accepts": [
+        "pdf",
+        "docx",
+        "xlsx",
+        "md",
+        "images"
+      ]
+    },
+    {
+      "id": "IN-CODE",
+      "icon": "💻",
+      "name": "Existing Code / Repo",
+      "accepts": [
+        "git",
+        "zip",
+        "source tree"
+      ]
+    },
+    {
+      "id": "IN-DATA",
+      "icon": "🗃️",
+      "name": "Data",
+      "accepts": [
+        "csv",
+        "json",
+        "sql",
+        "db dump",
+        "samples"
+      ]
+    },
+    {
+      "id": "IN-API",
+      "icon": "🔌",
+      "name": "API / Integration",
+      "accepts": [
+        "openapi",
+        "asyncapi",
+        "docs",
+        "credentials reference"
+      ]
+    },
+    {
+      "id": "IN-CONSTRAINT",
+      "icon": "⚠️",
+      "name": "Constraints",
+      "accepts": [
+        "deadline",
+        "budget",
+        "security",
+        "infra",
+        "regulation"
+      ]
+    }
+  ],
+  "data_stores": [
+    {
+      "id": "DB-PROJECT",
+      "icon": "🗄️",
+      "name": "Project DB",
+      "kind": "PostgreSQL",
+      "status": "placeholder",
+      "purpose": "Projects, stages, owners, statuses, registers, metadata."
+    },
+    {
+      "id": "DB-VECTOR",
+      "icon": "🧬",
+      "name": "Vector DB",
+      "kind": "pgvector/Qdrant TBD",
+      "status": "placeholder",
+      "purpose": "Embeddings and semantic retrieval collections."
+    },
+    {
+      "id": "DB-GRAPH",
+      "icon": "🕸️",
+      "name": "Graph DB",
+      "kind": "AGE/graph backend TBD",
+      "status": "placeholder",
+      "purpose": "Traceability and entity-relation graph."
+    },
+    {
+      "id": "DB-OBJECT",
+      "icon": "🪣",
+      "name": "Object Store",
+      "kind": "filesystem/S3-compatible TBD",
+      "status": "placeholder",
+      "purpose": "Original documents, media, binaries and large artifacts."
+    },
+    {
+      "id": "DB-ARTIFACT",
+      "icon": "📦",
+      "name": "Artifact Registry",
+      "kind": "Git/packages/builds TBD",
+      "status": "placeholder",
+      "purpose": "Builds, schemas, packages, release artifacts."
+    },
+    {
+      "id": "DB-EVIDENCE",
+      "icon": "🧾",
+      "name": "Evidence Store",
+      "kind": "append-only TBD",
+      "status": "placeholder",
+      "purpose": "Test reports, validation results, hashes, screenshots and benchmark evidence."
+    },
+    {
+      "id": "DB-OBS",
+      "icon": "📡",
+      "name": "Observability Store",
+      "kind": "metrics/logs/traces TBD",
+      "status": "placeholder",
+      "purpose": "Runtime metrics, logs, traces, incidents."
+    },
+    {
+      "id": "DB-CONFIG",
+      "icon": "⚙️",
+      "name": "Registry / Config DB",
+      "kind": "YAML/DB TBD",
+      "status": "placeholder",
+      "purpose": "Agent/model/tool/config registries and versioned policies."
+    }
+  ],
+  "stations": [
+    {
+      "id": "S00",
+      "icon": "🧭",
+      "name": "Supervisor / Router",
+      "agent": "FTH-AG-SUP-001",
+      "input": [
+        "all factory events"
+      ],
+      "db": [
+        "DB-PROJECT",
+        "DB-CONFIG"
+      ],
+      "kb": [
+        "KB-PROJECT",
+        "KB-TRACE"
+      ],
+      "output": [
+        [
+          "🧭",
+          "Route / Handoff"
+        ]
+      ],
+      "next": [
+        "S10",
+        "S20",
+        "S30",
+        "S40"
+      ]
+    },
+    {
+      "id": "S10",
+      "icon": "📥",
+      "name": "Intake",
+      "agent": "FTH-AG-INT-001",
+      "input": [
+        "IN-IDEA",
+        "IN-DOC",
+        "IN-CODE",
+        "IN-DATA",
+        "IN-API",
+        "IN-CONSTRAINT"
+      ],
+      "db": [
+        "DB-PROJECT",
+        "DB-OBJECT"
+      ],
+      "kb": [
+        "KB-SOURCES",
+        "KB-PROJECT",
+        "KB-REGULATORY"
+      ],
+      "output": [
+        [
+          "📘",
+          "Intake Pack"
+        ],
+        [
+          "❓",
+          "Open Questions"
+        ],
+        [
+          "🏷️",
+          "Classification"
+        ]
+      ],
+      "next": [
+        "S20"
+      ]
+    },
+    {
+      "id": "S15",
+      "icon": "🧠",
+      "name": "Knowledge Curator",
+      "agent": "FTH-AG-KNW-001",
+      "input": [
+        "new sources",
+        "approved artifacts",
+        "production findings"
+      ],
+      "db": [
+        "DB-OBJECT",
+        "DB-VECTOR",
+        "DB-GRAPH"
+      ],
+      "kb": [
+        "KB-SOURCES",
+        "KB-PROJECT",
+        "KB-EVIDENCE"
+      ],
+      "output": [
+        [
+          "🧠",
+          "Indexed Knowledge"
+        ],
+        [
+          "🔗",
+          "Provenance Links"
+        ]
+      ],
+      "next": [
+        "all"
+      ]
+    },
+    {
+      "id": "S20",
+      "icon": "🔎",
+      "name": "Analyst",
+      "agent": "FTH-AG-ANL-001",
+      "input": [
+        "Intake Pack"
+      ],
+      "db": [
+        "DB-PROJECT",
+        "DB-GRAPH"
+      ],
+      "kb": [
+        "KB-REQUIREMENTS",
+        "KB-PROJECT",
+        "KB-DATA"
+      ],
+      "output": [
+        [
+          "📋",
+          "Analysis Pack"
+        ],
+        [
+          "✅",
+          "Acceptance Criteria"
+        ],
+        [
+          "🔗",
+          "Traceability"
+        ]
+      ],
+      "next": [
+        "S30"
+      ]
+    },
+    {
+      "id": "S30",
+      "icon": "🏛️",
+      "name": "Architect",
+      "agent": "FTH-AG-ARC-001",
+      "input": [
+        "Analysis Pack"
+      ],
+      "db": [
+        "DB-PROJECT",
+        "DB-GRAPH",
+        "DB-CONFIG"
+      ],
+      "kb": [
+        "KB-ARCHITECTURE",
+        "KB-REQUIREMENTS",
+        "KB-SECURITY"
+      ],
+      "output": [
+        [
+          "🧩",
+          "Architecture Pack"
+        ],
+        [
+          "📝",
+          "ADR"
+        ],
+        [
+          "🗺️",
+          "C4 / LLD"
+        ]
+      ],
+      "next": [
+        "S35",
+        "S40"
+      ]
+    },
+    {
+      "id": "S35",
+      "icon": "🔌",
+      "name": "Data / Integration",
+      "agent": "FTH-AG-DAT-001",
+      "input": [
+        "Architecture slice",
+        "data/integration requirements"
+      ],
+      "db": [
+        "DB-PROJECT",
+        "DB-ARTIFACT"
+      ],
+      "kb": [
+        "KB-DATA",
+        "KB-ARCHITECTURE"
+      ],
+      "output": [
+        [
+          "🔌",
+          "API Contracts"
+        ],
+        [
+          "🗃️",
+          "Data Model"
+        ],
+        [
+          "📨",
+          "Event Contracts"
+        ]
+      ],
+      "next": [
+        "S40"
+      ]
+    },
+    {
+      "id": "S40",
+      "icon": "🛡️",
+      "name": "Security",
+      "agent": "FTH-AG-SEC-001",
+      "input": [
+        "Architecture Pack"
+      ],
+      "db": [
+        "DB-PROJECT",
+        "DB-EVIDENCE"
+      ],
+      "kb": [
+        "KB-SECURITY",
+        "KB-REGULATORY"
+      ],
+      "output": [
+        [
+          "🛡️",
+          "Security Pack"
+        ],
+        [
+          "🔐",
+          "IAM / Policy"
+        ],
+        [
+          "⚔️",
+          "Threat Model"
+        ]
+      ],
+      "next": [
+        "S45"
+      ]
+    },
+    {
+      "id": "S45",
+      "icon": "🧪",
+      "name": "Quality / Eval",
+      "agent": "FTH-AG-EVL-001",
+      "input": [
+        "requirements",
+        "architecture",
+        "AI/RAG contracts"
+      ],
+      "db": [
+        "DB-EVIDENCE",
+        "DB-ARTIFACT"
+      ],
+      "kb": [
+        "KB-QUALITY",
+        "KB-EVIDENCE"
+      ],
+      "output": [
+        [
+          "🧪",
+          "Test Strategy"
+        ],
+        [
+          "📏",
+          "Quality Gates"
+        ],
+        [
+          "🥇",
+          "Golden Dataset"
+        ]
+      ],
+      "next": [
+        "S50"
+      ]
+    },
+    {
+      "id": "S50",
+      "icon": "📐",
+      "name": "Sizing / FinOps",
+      "agent": "FTH-AG-SIZ-001",
+      "input": [
+        "SLO",
+        "workload",
+        "runtime profile"
+      ],
+      "db": [
+        "DB-EVIDENCE",
+        "DB-CONFIG"
+      ],
+      "kb": [
+        "KB-OPERATIONS",
+        "KB-FINOPS"
+      ],
+      "output": [
+        [
+          "📐",
+          "Capacity Plan"
+        ],
+        [
+          "💰",
+          "TCO"
+        ],
+        [
+          "🎛️",
+          "Inference Profile"
+        ]
+      ],
+      "next": [
+        "S60"
+      ]
+    },
+    {
+      "id": "S55",
+      "icon": "🧷",
+      "name": "Governance / Traceability",
+      "agent": "FTH-AG-GOV-001",
+      "input": [
+        "all baselined artifacts"
+      ],
+      "db": [
+        "DB-GRAPH",
+        "DB-PROJECT",
+        "DB-EVIDENCE"
+      ],
+      "kb": [
+        "KB-TRACE",
+        "KB-EVIDENCE"
+      ],
+      "output": [
+        [
+          "🧷",
+          "Baseline"
+        ],
+        [
+          "🔗",
+          "Trace Graph"
+        ],
+        [
+          "📜",
+          "Waivers / Debt"
+        ]
+      ],
+      "next": [
+        "all gates"
+      ]
+    },
+    {
+      "id": "S60",
+      "icon": "📦",
+      "name": "Development Pack Builder",
+      "agent": "FTH-AG-DPK-001",
+      "input": [
+        "approved packs"
+      ],
+      "db": [
+        "DB-PROJECT",
+        "DB-ARTIFACT"
+      ],
+      "kb": [
+        "KB-REQUIREMENTS",
+        "KB-ARCHITECTURE",
+        "KB-SECURITY",
+        "KB-QUALITY",
+        "KB-TRACE"
+      ],
+      "output": [
+        [
+          "📦",
+          "Development Pack"
+        ]
+      ],
+      "next": [
+        "S65"
+      ]
+    },
+    {
+      "id": "S65",
+      "icon": "✅",
+      "name": "Pre-Dev Validator",
+      "agent": "FTH-AG-PDV-001",
+      "input": [
+        "Development Pack"
+      ],
+      "db": [
+        "DB-EVIDENCE",
+        "DB-ARTIFACT"
+      ],
+      "kb": [
+        "KB-TRACE",
+        "KB-EVIDENCE"
+      ],
+      "output": [
+        [
+          "✅",
+          "Validated Dev Pack"
+        ],
+        [
+          "🧾",
+          "P0–P11 Report"
+        ]
+      ],
+      "next": [
+        "S70",
+        "O10",
+        "O20",
+        "O30",
+        "O40"
+      ]
+    },
+    {
+      "id": "S70",
+      "icon": "💻",
+      "name": "Programmer",
+      "agent": "FTH-AG-DEV-001",
+      "input": [
+        "Validated Development Pack"
+      ],
+      "db": [
+        "DB-ARTIFACT",
+        "DB-CONFIG"
+      ],
+      "kb": [
+        "KB-CODE",
+        "KB-ARCHITECTURE",
+        "KB-REQUIREMENTS"
+      ],
+      "output": [
+        [
+          "💻",
+          "Code"
+        ],
+        [
+          "🧪",
+          "Tests"
+        ],
+        [
+          "🔀",
+          "PR"
+        ]
+      ],
+      "next": [
+        "S80"
+      ]
+    },
+    {
+      "id": "S80",
+      "icon": "🔬",
+      "name": "QA / Technical Verification",
+      "agent": "FTH-AG-QA-001",
+      "input": [
+        "implementation + PR"
+      ],
+      "db": [
+        "DB-EVIDENCE",
+        "DB-ARTIFACT"
+      ],
+      "kb": [
+        "KB-QUALITY",
+        "KB-SECURITY",
+        "KB-EVIDENCE"
+      ],
+      "output": [
+        [
+          "🔬",
+          "Implementation Evidence"
+        ],
+        [
+          "✅",
+          "Technical Gate"
+        ]
+      ],
+      "next": [
+        "S90"
+      ]
+    },
+    {
+      "id": "S90",
+      "icon": "🚀",
+      "name": "Release / SRE",
+      "agent": "FTH-AG-REL-001",
+      "input": [
+        "accepted build"
+      ],
+      "db": [
+        "DB-ARTIFACT",
+        "DB-OBS",
+        "DB-EVIDENCE"
+      ],
+      "kb": [
+        "KB-OPERATIONS",
+        "KB-EVIDENCE"
+      ],
+      "output": [
+        [
+          "🚀",
+          "Release Pack"
+        ],
+        [
+          "↩️",
+          "Rollback"
+        ],
+        [
+          "📘",
+          "Runbooks"
+        ]
+      ],
+      "next": [
+        "S95"
+      ]
+    },
+    {
+      "id": "S95",
+      "icon": "♻️",
+      "name": "Operations / RCA",
+      "agent": "FTH-AG-OPS-001",
+      "input": [
+        "telemetry",
+        "incidents",
+        "feedback"
+      ],
+      "db": [
+        "DB-OBS",
+        "DB-EVIDENCE",
+        "DB-GRAPH"
+      ],
+      "kb": [
+        "KB-OPERATIONS",
+        "KB-TRACE",
+        "KB-QUALITY"
+      ],
+      "output": [
+        [
+          "♻️",
+          "RCA"
+        ],
+        [
+          "🧪",
+          "Regression Case"
+        ],
+        [
+          "🔁",
+          "Change Request"
+        ]
+      ],
+      "next": [
+        "S00"
+      ]
+    }
+  ],
+  "outlets": [
+    {
+      "id": "O10",
+      "icon": "🎨",
+      "name": "Visual Systems / Makar",
+      "agent": "FTH-AG-VIS-001",
+      "status": "placeholder",
+      "input": [
+        "Architecture Pack",
+        "brand/design tokens",
+        "data for visualization"
+      ],
+      "kb": [
+        "KB-ARCHITECTURE",
+        "KB-PROJECT"
+      ],
+      "output": [
+        [
+          "🎨",
+          "Visual Board"
+        ],
+        [
+          "🗺️",
+          "Technical Diagram"
+        ],
+        [
+          "🖼️",
+          "UI / Product Assets"
+        ]
+      ]
+    },
+    {
+      "id": "O20",
+      "icon": "🌐",
+      "name": "Web Factory",
+      "agent": "FTH-AG-WEB-001",
+      "status": "placeholder",
+      "input": [
+        "Validated Dev Pack",
+        "Visual Assets",
+        "API/Schema"
+      ],
+      "kb": [
+        "KB-CODE",
+        "KB-ARCHITECTURE",
+        "KB-QUALITY"
+      ],
+      "output": [
+        [
+          "🌐",
+          "Web App"
+        ],
+        [
+          "📦",
+          "Frontend Build"
+        ],
+        [
+          "🧪",
+          "Web Test Evidence"
+        ]
+      ]
+    },
+    {
+      "id": "O30",
+      "icon": "🎮",
+      "name": "Game Factory",
+      "agent": "FTH-AG-GAME-001",
+      "status": "placeholder",
+      "input": [
+        "Game Dev Pack",
+        "Visual/Audio Assets",
+        "mechanics/contracts"
+      ],
+      "kb": [
+        "KB-CODE",
+        "KB-PROJECT",
+        "KB-QUALITY"
+      ],
+      "output": [
+        [
+          "🎮",
+          "Game Build"
+        ],
+        [
+          "🧩",
+          "Game Assets"
+        ],
+        [
+          "🧪",
+          "Play/Test Evidence"
+        ]
+      ]
+    },
+    {
+      "id": "O40",
+      "icon": "📱",
+      "name": "Mobile Factory",
+      "agent": "FTH-AG-MOB-001",
+      "status": "placeholder",
+      "input": [
+        "Mobile Dev Pack",
+        "Visual Assets",
+        "API/Schema"
+      ],
+      "kb": [
+        "KB-CODE",
+        "KB-ARCHITECTURE",
+        "KB-QUALITY"
+      ],
+      "output": [
+        [
+          "📱",
+          "Mobile App"
+        ],
+        [
+          "📦",
+          "APK/IPA Package"
+        ],
+        [
+          "🧪",
+          "Mobile Test Evidence"
+        ]
+      ]
+    }
+  ]
+}

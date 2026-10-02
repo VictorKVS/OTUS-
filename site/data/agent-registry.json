@@ -239,6 +239,58 @@
       "rag": "../agents/governance/rag.yaml",
       "knowledge": "../agents/governance/knowledge.yaml",
       "manifest": "../agents/governance/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-VIS-001",
+      "slug": "visual-systems",
+      "name": "Makar / Visual Systems Specialist",
+      "stages": [
+        "OUT-VIS"
+      ],
+      "status": "placeholder",
+      "prompt": "../agents/visual-systems/prompt.md",
+      "rag": "../agents/visual-systems/rag.yaml",
+      "knowledge": "../agents/visual-systems/knowledge.yaml",
+      "manifest": "../agents/visual-systems/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-WEB-001",
+      "slug": "web-factory",
+      "name": "Web Factory Orchestrator",
+      "stages": [
+        "OUT-WEB"
+      ],
+      "status": "placeholder",
+      "prompt": "../agents/web-factory/prompt.md",
+      "rag": "../agents/web-factory/rag.yaml",
+      "knowledge": "../agents/web-factory/knowledge.yaml",
+      "manifest": "../agents/web-factory/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-GAME-001",
+      "slug": "game-factory",
+      "name": "Game Factory Orchestrator",
+      "stages": [
+        "OUT-GAME"
+      ],
+      "status": "placeholder",
+      "prompt": "../agents/game-factory/prompt.md",
+      "rag": "../agents/game-factory/rag.yaml",
+      "knowledge": "../agents/game-factory/knowledge.yaml",
+      "manifest": "../agents/game-factory/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-MOB-001",
+      "slug": "mobile-factory",
+      "name": "Mobile Factory Orchestrator",
+      "stages": [
+        "OUT-MOBILE"
+      ],
+      "status": "placeholder",
+      "prompt": "../agents/mobile-factory/prompt.md",
+      "rag": "../agents/mobile-factory/rag.yaml",
+      "knowledge": "../agents/mobile-factory/knowledge.yaml",
+      "manifest": "../agents/mobile-factory/agent.yaml"
     }
   ]
 }

@@ -1,0 +1,19 @@
+agent:
+  id: FTH-AG-WEB-001
+  name: "Web Factory Orchestrator"
+  status: placeholder
+  maturity: M0
+  stages: [OUT-WEB]
+role: "Принимает VALIDATED DEVELOPMENT PACK + visual assets и оркестрирует web/frontend реализацию, сборку и handoff в QA."
+contracts:
+  prompt: ./prompt.md
+  rag: ./rag.yaml
+  knowledge: ./knowledge.yaml
+outputs:
+  versioned_artifact: required
+  evidence: required
+  findings: required
+tools:
+  - web_build
+  - frontend
+  - ci

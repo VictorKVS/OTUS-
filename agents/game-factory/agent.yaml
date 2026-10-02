@@ -1,0 +1,19 @@
+agent:
+  id: FTH-AG-GAME-001
+  name: "Game Factory Orchestrator"
+  status: placeholder
+  maturity: M0
+  stages: [OUT-GAME]
+role: "Принимает game design slice, assets, mechanics, interfaces и собирает pipeline игровой реализации/сборки."
+contracts:
+  prompt: ./prompt.md
+  rag: ./rag.yaml
+  knowledge: ./knowledge.yaml
+outputs:
+  versioned_artifact: required
+  evidence: required
+  findings: required
+tools:
+  - game_build
+  - asset_pipeline
+  - ci
