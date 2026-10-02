@@ -998,3 +998,49 @@ Base assumptions: 512 input + 128 output tokens, 6s E2E, 20% headroom.
 Programmer получает только **VALIDATED DEVELOPMENT PACK**.
 
 Изменение baselined REQ/API/schema/security constraint после handoff требует новой версии pack и повторного validation.
+
+
+---
+
+## 2026-10-02 — FATHER Factory / Site 2 M0
+
+**Статус:** SCAFFOLD / M0.
+
+### Решение
+
+Создан второй отдельный сайт — **FATHER Factory**.
+
+Разделение ответственности:
+
+- Site 1 = Production Base / Architect OS — проектирование, документы, traceability, gates, evidence;
+- Site 2 = Factory — execution floor: входы, агенты, БД, KB/RAG, артефакты, downstream factories.
+
+### Factory minimum
+
+- 6 input ports;
+- 16 core production stations;
+- 8 operational data stores;
+- 13 knowledge bases;
+- 4 downstream output factories;
+- output icons visible on every station;
+- explicit input/output, DB and KB bindings.
+
+### Downstream placeholders
+
+- `FTH-AG-VIS-001` — Makar / Visual Systems Specialist;
+- `FTH-AG-WEB-001` — Web Factory Orchestrator;
+- `FTH-AG-GAME-001` — Game Factory Orchestrator;
+- `FTH-AG-MOB-001` — Mobile Factory Orchestrator.
+
+Каждая заглушка имеет manifest, system prompt, RAG profile и KB bindings.
+
+### Visible output docks
+
+- 🎨 Visual Board / Technical Diagram / UI assets;
+- 🌐 Web App / Frontend Build / Web Test Evidence;
+- 🎮 Game Build / Game Assets / Play-Test Evidence;
+- 📱 Mobile App / APK/IPA Package / Mobile Test Evidence.
+
+### Boundary
+
+Это presence baseline. Downstream factories пока не заявляются как production-ready runtime.
