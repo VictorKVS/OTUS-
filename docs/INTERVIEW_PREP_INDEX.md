@@ -39,3 +39,8 @@ Security / Compliance: `Source → Requirement → Applicability → Gap → Con
 ## AI Capability Stack 2026
 
 Полный разбор терминов из capability stack 2026 находится в `AI_CAPABILITY_STACK_2026_DEEP_DIVE.md`. Machine-readable registry: `site/data/ai-capability-stack-2026.json`.
+
+
+## Professional Security Learning
+
+Текущие треки по ИБ вынесены в `PROFESSIONAL_SECURITY_LEARNING_REGISTRY.md`: Security Engineer, Penetration Tester, SOC Analyst. До подтверждения завершения они учитываются как `IN_PROGRESS`, а не как полученная квалификация.
