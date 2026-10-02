@@ -154,7 +154,21 @@
         "TRACEABILITY_SLICE"
       ],
       "gate": "Definition of Ready",
-      "next": "Developer"
+      "next": "Pre-Dev Validation"
+    },
+    {
+      "id": "D0.5",
+      "name": "Pre-Dev Validation",
+      "owner": "Validator / CI / Analyst / Architect",
+      "input": "Development Pack",
+      "documents": [
+        "PRE_DEV_VALIDATION_REPORT",
+        "VALIDATOR_LOG",
+        "PACK_VERSION",
+        "GIT_COMMIT_SHA"
+      ],
+      "gate": "All P0-P11 blocking checks PASS",
+      "next": "Programmer"
     },
     {
       "id": "D1",
