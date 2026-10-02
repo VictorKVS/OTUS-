@@ -300,3 +300,28 @@ Programmer handoff is now:
 The pack contains task, baselined requirement slice, acceptance criteria, LLD/sequence, API/schema, data/security/observability contracts, quality gates, test plan, config/migration/rollback, related ADR and traceability slice.
 
 Any blocking validation failure returns the finding to its owner before coding starts.
+
+
+## Site 2 — FATHER Factory
+
+Второй сайт проекта:
+
+- entry: `../factory/index.html`
+- registry: `../factory/data/factory-registry.json`
+- core stations: 16
+- downstream placeholder agents/factories: 4
+- operational data stores: 8
+- knowledge bases: 13
+
+Назначение:
+
+`INPUT → AGENT → DB → KB/RAG → ARTIFACT OUTPUT → NEXT AGENT / SPECIALIZED FACTORY`.
+
+Выходные M0-заглушки:
+
+- 🎨 Makar / Visual Systems Specialist;
+- 🌐 Web Factory;
+- 🎮 Game Factory;
+- 📱 Mobile Factory.
+
+У каждой заглушки уже есть `agent.yaml`, `prompt.md`, `rag.yaml`, `knowledge.yaml`.
