@@ -261,9 +261,43 @@
 
 ---
 
+## 5.1. PRE-DEV VALIDATION — обязательный барьер перед программистом
+
+Development Pack существует в двух состояниях:
+
+- `DRAFT / REVIEW` — пакет формируется и проверяется;
+- `VALIDATED / READY_FOR_DEVELOPMENT` — официальный вход программиста.
+
+До handoff выполняются blocking checks `P0–P11`:
+
+- P0 — completeness;
+- P1 — Analyst + Architect sign-off;
+- P2 — requirements integrity;
+- P3 — acceptance testability;
+- P4 — API/schema contract validation;
+- P5 — data contract;
+- P6 — security contract;
+- P7 — observability contract;
+- P8 — test-plan coverage;
+- P9 — config/migration/rollback;
+- P10 — traceability closure;
+- P11 — отсутствие unresolved placeholders/critical ambiguities.
+
+Результат фиксируется в `PRE_DEV_VALIDATION_REPORT.md`.
+
+Только `PASS` переводит пакет в `VALIDATED DEVELOPMENT PACK`.
+
+Канонический стандарт: `docs/DEVELOPMENT_PACK_STANDARD.md`.
+
+Автоматический validator: `tools/validate_dev_pack.py`.
+
+CI gate: `.github/workflows/dev-pack-validation.yml`.
+
+---
+
 ## 6. Программист — Implementation Pack
 
-Программист возвращает:
+Программист получает только **VALIDATED DEVELOPMENT PACK** и возвращает:
 
 - код;
 - unit tests;
