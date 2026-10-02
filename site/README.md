@@ -282,3 +282,21 @@ The homework calculation is ready as XLSX + native Google Sheet; course submissi
 2. архитектор подтверждает реализуемость/NFR/interfaces/ADR.
 
 Программист получает task-scoped Development Pack, а не сырой архив проекта.
+
+
+## Validated Development Pack
+
+- [Development Pack](./development-pack.html)
+- standard: `../docs/DEVELOPMENT_PACK_STANDARD.md`
+- data contract: `data/development-pack.json`
+- template: `../templates/development-pack/`
+- validator: `../tools/validate_dev_pack.py`
+- CI gate: `../.github/workflows/dev-pack-validation.yml`
+
+Programmer handoff is now:
+
+`Development Pack → P0–P11 PRE-DEV VALIDATION → VALIDATED DEVELOPMENT PACK → Programmer`.
+
+The pack contains task, baselined requirement slice, acceptance criteria, LLD/sequence, API/schema, data/security/observability contracts, quality gates, test plan, config/migration/rollback, related ADR and traceability slice.
+
+Any blocking validation failure returns the finding to its owner before coding starts.
