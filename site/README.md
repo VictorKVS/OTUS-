@@ -262,3 +262,23 @@ Inference chain:
 `Model/SLO → VRAM → Quantization → Engine/Batching → Benchmark → GPU placement → Cost → Inference Gate`.
 
 The homework calculation is ready as XLSX + native Google Sheet; course submission is still separate.
+
+
+## FATHER Document Conveyor
+
+Добавлен канонический end-to-end маршрут проектной документации:
+
+- [Document Conveyor](./document-conveyor.html)
+- data contract: `data/document-conveyor.json`
+- visual: `assets/father-document-conveyor.svg`
+- engineering document: `../docs/FATHER_DOCUMENT_CONVEYOR.md`
+
+Главный handoff:
+
+`RAW INPUT → INTAKE PACK → ANALYSIS PACK → ANALYST/ARCHITECT HANDSHAKE → ARCHITECTURE PACK → CROSS-CUTTING GATES → DEVELOPMENT PACK → DEVELOPER → CI/QA → ANALYST ACCEPTANCE → ARCHITECT ACCEPTANCE → RELEASE`.
+
+Перед программистом обязательны два независимых sign-off:
+1. аналитик подтверждает смысл/полноту/acceptance criteria;
+2. архитектор подтверждает реализуемость/NFR/interfaces/ADR.
+
+Программист получает task-scoped Development Pack, а не сырой архив проекта.
