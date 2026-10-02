@@ -1,0 +1,21 @@
+agent_id: FTH-AG-SEC-001
+status: scaffold
+knowledge_bases:
+  - id: KB-SECURITY
+    access: read
+    required: true
+  - id: KB-REGULATORY
+    access: read
+    required: true
+  - id: KB-ARCHITECTURE
+    access: read
+    required: true
+  - id: KB-EVIDENCE
+    access: read
+    required: true
+write_policy:
+  direct_write_to_canonical_kb: false
+  publish_via_review_gate: true
+memory:
+  project_memory: read_write_scoped
+  cross_project_memory: denied_by_default

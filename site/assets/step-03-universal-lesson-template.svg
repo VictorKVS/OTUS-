@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+<title id="title">Universal Lesson Template — FATHER Architect OS</title>
+<desc id="desc">Visual-first template showing schema, visual, OTUS Curriculum, Architect Pro, FATHER Production, artifacts, evidence, traceability, maturity and sources.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071018"/><stop offset="1" stop-color="#17152d"/></linearGradient>
+  <style>.t{font-family:Segoe UI,Arial,sans-serif;fill:#eef7ff}.m{fill:#91a9ba}.h{font-weight:700}.box{fill:#0e1b26;stroke:#29495d;stroke-width:2}.cyan{stroke:#4ed9ff}.vio{stroke:#9d84ff}.green{stroke:#63e6a5}.orange{stroke:#ffad57}.red{stroke:#ff7272}.mono{font-family:Consolas,monospace}</style>
+</defs>
+<rect width="1600" height="980" rx="28" fill="url(#bg)"/>
+<text x="70" y="70" class="t h" font-size="34">STEP 03 · Universal Lesson Template</text>
+<text x="70" y="108" class="m mono" font-size="15">SCHEMA → VISUAL → OTUS → ARCHITECT PRO → FATHER PRODUCTION → EVIDENCE → MATURITY</text>
+
+<rect x="70" y="155" width="1460" height="105" rx="20" class="box cyan"/>
+<text x="105" y="196" class="t h" font-size="20">LESSON HEADER / PURPOSE</text>
+<text x="105" y="228" class="m" font-size="14">Lesson ID · Gate · Status · Maturity · Purpose · Evidence state · Production capability IDs</text>
+
+<rect x="70" y="300" width="690" height="150" rx="20" class="box cyan"/>
+<text x="105" y="342" class="t h" font-size="19">01 · ENGINEERING SCHEMA</text>
+<text x="105" y="375" class="m" font-size="14">строгая нотация · связи · входы/выходы · решения</text>
+<text x="105" y="406" class="m mono" font-size="13">BUS → REQ → ADR → CMP → TEST</text>
+
+<rect x="840" y="300" width="690" height="150" rx="20" class="box vio"/>
+<text x="875" y="342" class="t h" font-size="19">02 · VISUAL POSTER</text>
+<text x="875" y="375" class="m" font-size="14">быстрое восприятие · одна модель со schema</text>
+<text x="875" y="406" class="m mono" font-size="13">same IDs · same semantics · different presentation</text>
+
+<rect x="70" y="495" width="430" height="150" rx="20" class="box cyan"/>
+<text x="100" y="537" class="t h" font-size="18">03 · OTUS CURRICULUM</text>
+<text x="100" y="568" class="m" font-size="13">материалы · требования · ДЗ</text>
+<text x="100" y="596" class="m" font-size="13">что дано курсом</text>
+
+<rect x="585" y="495" width="430" height="150" rx="20" class="box vio"/>
+<text x="615" y="537" class="t h" font-size="18">04 · ARCHITECT PRO</text>
+<text x="615" y="568" class="m" font-size="13">standards · trade-offs · methods</text>
+<text x="615" y="596" class="m" font-size="13">как делает профессионал</text>
+
+<rect x="1100" y="495" width="430" height="150" rx="20" class="box orange"/>
+<text x="1130" y="537" class="t h" font-size="18">05 · FATHER PRODUCTION</text>
+<text x="1130" y="568" class="m" font-size="13">services · runtime · policies</text>
+<text x="1130" y="596" class="m" font-size="13">во что превращается в платформе</text>
+
+<rect x="70" y="690" width="340" height="120" rx="18" class="box green"/>
+<text x="100" y="730" class="t h" font-size="17">ARTIFACTS</text><text x="100" y="762" class="m" font-size="13">docs · code · diagrams · configs</text>
+
+<rect x="440" y="690" width="340" height="120" rx="18" class="box green"/>
+<text x="470" y="730" class="t h" font-size="17">TESTS / EVIDENCE</text><text x="470" y="762" class="m" font-size="13">checks · metrics · review · CI</text>
+
+<rect x="810" y="690" width="340" height="120" rx="18" class="box cyan"/>
+<text x="840" y="730" class="t h" font-size="17">TRACEABILITY</text><text x="840" y="762" class="m" font-size="13">source → decision → component → proof</text>
+
+<rect x="1180" y="690" width="350" height="120" rx="18" class="box orange"/>
+<text x="1210" y="730" class="t h" font-size="17">MATURITY / SOURCES</text><text x="1210" y="762" class="m" font-size="13">M0–M3 · provenance · GAP</text>
+
+<path d="M415 260 V300 M1185 260 V300" stroke="#4ed9ff" stroke-width="4"/>
+<path d="M415 450 V495 M800 450 V495 M1185 450 V495" stroke="#9d84ff" stroke-width="4"/>
+<path d="M285 645 V690 M800 645 V690 M1315 645 V690" stroke="#63e6a5" stroke-width="4"/>
+<text x="70" y="885" class="t h" font-size="18">RULE:</text>
+<text x="135" y="885" class="m" font-size="15">layout is reusable; lesson facts live in data; missing facts render as GAP, not invention.</text>
+<text x="70" y="928" class="m mono" font-size="13">M0 MATERIALS · M1 DESIGN · M2 PROFESSIONAL · M3 PRODUCTION</text>
+</svg>

@@ -1,0 +1,336 @@
+{
+  "schema_version": "father-document-conveyor.v1",
+  "title": "FATHER Document Conveyor",
+  "traceability": [
+    "BUS",
+    "REQ/NFR",
+    "RISK",
+    "ADR",
+    "CMP/INT/DATA",
+    "CTRL/SAFE",
+    "TEST/EVAL",
+    "SLO/OBS",
+    "COST/FIN",
+    "DEPLOY/RUN",
+    "REL"
+  ],
+  "stages": [
+    {
+      "id": "I0",
+      "name": "Intake",
+      "owner": "Requester / Intake",
+      "input": "Idea, task, files, repo, API, constraints",
+      "documents": [
+        "PROJECT_PASSPORT",
+        "SOURCE_REGISTER",
+        "STAKEHOLDER_REGISTER",
+        "BUSINESS_CONTEXT",
+        "GLOSSARY",
+        "CONSTRAINTS",
+        "ASSUMPTIONS_OPEN_QUESTIONS",
+        "DATA_SECURITY_CLASSIFICATION",
+        "INITIAL_SCOPE",
+        "SUCCESS_CRITERIA"
+      ],
+      "gate": "Intake Ready",
+      "next": "Analyst",
+      "agents": [
+        "FTH-AG-SUP-001",
+        "FTH-AG-INT-001",
+        "FTH-AG-KNW-001"
+      ]
+    },
+    {
+      "id": "A1",
+      "name": "Analysis",
+      "owner": "Analyst",
+      "input": "Intake Pack",
+      "documents": [
+        "AS_IS",
+        "TO_BE",
+        "BPMN",
+        "USE_CASES",
+        "FUNCTIONAL_REQUIREMENTS",
+        "NFR",
+        "DATA_CATALOG",
+        "INTEGRATION_REGISTER",
+        "RISK_REGISTER",
+        "TRACEABILITY_MATRIX",
+        "ANALYSIS_REVIEW"
+      ],
+      "gate": "Analyst Self Review",
+      "next": "Architect",
+      "agents": [
+        "FTH-AG-SUP-001",
+        "FTH-AG-ANL-001",
+        "FTH-AG-KNW-001"
+      ]
+    },
+    {
+      "id": "A2",
+      "name": "Architecture Review",
+      "owner": "Architect",
+      "input": "Analysis Pack",
+      "documents": [
+        "ARCHITECT_REVIEW",
+        "REQUIREMENT_GAPS",
+        "QUALITY_ATTRIBUTE_SCENARIOS",
+        "ARCHITECTURE_OPTIONS",
+        "TRADEOFF_MATRIX",
+        "ARCHITECTURE_RISKS",
+        "ADR",
+        "C4_CONTEXT",
+        "C4_CONTAINER",
+        "ARCHITECTURE_VISION"
+      ],
+      "gate": "Analyst ↔ Architect Handshake",
+      "next": "Detailed Design",
+      "agents": [
+        "FTH-AG-SUP-001",
+        "FTH-AG-ARC-001",
+        "FTH-AG-GOV-001"
+      ]
+    },
+    {
+      "id": "A3",
+      "name": "Detailed Design",
+      "owner": "Architect / AI Architect",
+      "input": "Baselined requirements",
+      "documents": [
+        "C4_COMPONENT",
+        "SEQUENCE",
+        "DEPLOYMENT",
+        "DFD",
+        "COMPONENT_CATALOG",
+        "INTERFACE_CATALOG",
+        "OPENAPI",
+        "ASYNCAPI",
+        "SCHEMAS",
+        "DATA_MODEL",
+        "RAG_SPEC",
+        "PROMPT_CONTRACT",
+        "AGENT_SPEC",
+        "MEMORY_POLICY",
+        "MODEL_ROUTING",
+        "TOOL_MCP_POLICY"
+      ],
+      "gate": "Architecture Pack v1",
+      "next": "Cross-cutting Review",
+      "agents": [
+        "FTH-AG-SUP-001",
+        "FTH-AG-ARC-001",
+        "FTH-AG-DAT-001",
+        "FTH-AG-KNW-001"
+      ]
+    },
+    {
+      "id": "A4",
+      "name": "Cross-cutting",
+      "owner": "Security / Quality / SRE / Architect",
+      "input": "Architecture Pack",
+      "documents": [
+        "THREAT_MODEL",
+        "SECURITY_CONTROLS",
+        "IAM_MATRIX",
+        "DLP_PII_POLICY",
+        "TEST_STRATEGY",
+        "GOLDEN_DATASET",
+        "RAG_EVAL_PLAN",
+        "QUALITY_GATES",
+        "SLO_SLI",
+        "OBSERVABILITY_CONTRACT",
+        "ALERT_MATRIX",
+        "CAPACITY_SIZING",
+        "INFERENCE_PROFILE",
+        "TCO_FINOPS",
+        "HA_DR",
+        "ROLLBACK_REQUIREMENTS"
+      ],
+      "gate": "Architecture Review / CTO Challenge",
+      "next": "Development Pack",
+      "agents": [
+        "FTH-AG-SUP-001",
+        "FTH-AG-SEC-001",
+        "FTH-AG-EVL-001",
+        "FTH-AG-SIZ-001",
+        "FTH-AG-DAT-001",
+        "FTH-AG-GOV-001"
+      ]
+    },
+    {
+      "id": "D0",
+      "name": "Development Pack",
+      "owner": "Analyst + Architect",
+      "input": "Approved Architecture",
+      "documents": [
+        "DEV_PACK_MANIFEST",
+        "DEV_TASK",
+        "REQUIREMENTS_SLICE",
+        "ACCEPTANCE_CRITERIA",
+        "LLD_COMPONENT",
+        "SEQUENCE",
+        "OPENAPI_ASYNCAPI",
+        "SCHEMAS",
+        "DATA_MODEL_SLICE",
+        "SECURITY_CONSTRAINTS",
+        "OBSERVABILITY_REQUIREMENTS",
+        "QUALITY_GATES",
+        "TEST_PLAN",
+        "CONFIG_CONTRACT",
+        "MIGRATION_PLAN",
+        "ROLLBACK_PLAN",
+        "RELATED_ADR",
+        "TRACEABILITY_SLICE"
+      ],
+      "gate": "Definition of Ready",
+      "next": "Pre-Dev Validation",
+      "agents": [
+        "FTH-AG-SUP-001",
+        "FTH-AG-DPK-001",
+        "FTH-AG-GOV-001"
+      ]
+    },
+    {
+      "id": "D0.5",
+      "name": "Pre-Dev Validation",
+      "owner": "Validator / CI / Analyst / Architect",
+      "input": "Development Pack",
+      "documents": [
+        "PRE_DEV_VALIDATION_REPORT",
+        "VALIDATOR_LOG",
+        "PACK_VERSION",
+        "GIT_COMMIT_SHA"
+      ],
+      "gate": "All P0-P11 blocking checks PASS",
+      "next": "Programmer",
+      "agents": [
+        "FTH-AG-PDV-001",
+        "FTH-AG-GOV-001"
+      ]
+    },
+    {
+      "id": "D1",
+      "name": "Implementation",
+      "owner": "Developer",
+      "input": "VALIDATED DEVELOPMENT PACK",
+      "documents": [
+        "CODE",
+        "UNIT_TESTS",
+        "INTEGRATION_TESTS",
+        "CONTRACT_TESTS",
+        "MIGRATIONS",
+        "CONFIG_EXAMPLES",
+        "README",
+        "TELEMETRY_HOOKS",
+        "CHANGELOG",
+        "PR"
+      ],
+      "gate": "PR Ready",
+      "next": "CI / QA",
+      "agents": [
+        "FTH-AG-DEV-001"
+      ]
+    },
+    {
+      "id": "V1",
+      "name": "Technical Verification",
+      "owner": "CI / QA / Security",
+      "input": "Implementation",
+      "documents": [
+        "BUILD_EVIDENCE",
+        "TEST_EVIDENCE",
+        "SAST_SCA",
+        "SECRET_SCAN",
+        "SCHEMA_VALIDATION",
+        "AI_EVAL",
+        "LOAD_TEST",
+        "TRACEABILITY_EVIDENCE"
+      ],
+      "gate": "Technical Gate",
+      "next": "Analyst Acceptance",
+      "agents": [
+        "FTH-AG-QA-001",
+        "FTH-AG-SEC-001",
+        "FTH-AG-EVL-001"
+      ]
+    },
+    {
+      "id": "V2",
+      "name": "Analyst Acceptance",
+      "owner": "Analyst",
+      "input": "Verified build",
+      "documents": [
+        "ANALYST_ACCEPTANCE"
+      ],
+      "gate": "Functional Acceptance",
+      "next": "Architect Acceptance",
+      "agents": [
+        "FTH-AG-ANL-001"
+      ]
+    },
+    {
+      "id": "V3",
+      "name": "Architect Acceptance",
+      "owner": "Architect",
+      "input": "Verified build + Analyst acceptance",
+      "documents": [
+        "ARCHITECT_ACCEPTANCE",
+        "DEBT_REGISTER",
+        "WAIVERS"
+      ],
+      "gate": "Architecture Conformance",
+      "next": "Release",
+      "agents": [
+        "FTH-AG-ARC-001",
+        "FTH-AG-GOV-001"
+      ]
+    },
+    {
+      "id": "R1",
+      "name": "Release",
+      "owner": "Delivery / SRE",
+      "input": "Accepted build",
+      "documents": [
+        "RELEASE_MANIFEST",
+        "RELEASE_NOTES",
+        "CHANGELOG",
+        "DEPLOYMENT_PLAN",
+        "ROLLBACK_PLAN",
+        "RUNBOOKS",
+        "SLO_DASHBOARD_LINKS",
+        "SECURITY_EVIDENCE",
+        "TEST_EVIDENCE",
+        "KNOWN_ISSUES",
+        "TRACEABILITY_SNAPSHOT"
+      ],
+      "gate": "Release Approved",
+      "next": "Operations",
+      "agents": [
+        "FTH-AG-REL-001",
+        "FTH-AG-GOV-001"
+      ]
+    },
+    {
+      "id": "O1",
+      "name": "Operations Feedback",
+      "owner": "SRE / Product / Analyst / Architect",
+      "input": "Telemetry, incidents, user feedback",
+      "documents": [
+        "INCIDENT",
+        "RCA",
+        "REGRESSION_CASE",
+        "CHANGE_REQUEST",
+        "UPDATED_RISK",
+        "ADR_SUPERSEDE"
+      ],
+      "gate": "Feedback converted to controlled change",
+      "next": "New cycle",
+      "agents": [
+        "FTH-AG-OPS-001",
+        "FTH-AG-ANL-001",
+        "FTH-AG-ARC-001",
+        "FTH-AG-KNW-001"
+      ]
+    }
+  ]
+}

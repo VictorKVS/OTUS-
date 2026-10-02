@@ -1,0 +1,14 @@
+agent_id: FTH-AG-GAME-001
+status: placeholder
+knowledge_bases:
+  - id: KB-CODE
+    access: read
+  - id: KB-ARCHITECTURE
+    access: read
+  - id: KB-PROJECT
+    access: read
+  - id: KB-QUALITY
+    access: read
+write_policy:
+  canonical_write: false
+  artifact_output_only: true

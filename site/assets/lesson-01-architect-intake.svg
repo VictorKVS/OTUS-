@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+<title id="title">Lesson 01 — Architect Intake</title>
+<desc id="desc">31 входной артефакт проходят через проверку наличия, GAP, owner, workshop, draft, verification и затем становятся проверенным контекстом для требований, рисков, ADR и компонентов.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071018"/><stop offset="1" stop-color="#18142d"/></linearGradient><style>.t{font-family:Segoe UI,Arial,sans-serif;fill:#eef7ff}.m{fill:#91a9ba}.h{font-weight:700}.box{fill:#0e1b26;stroke:#29495d;stroke-width:2}.cyan{stroke:#4ed9ff}.vio{stroke:#9d84ff}.green{stroke:#63e6a5}.amber{stroke:#ffbd65}.red{stroke:#ff7474}.mono{font-family:Consolas,monospace}</style></defs>
+<rect width="1600" height="980" rx="28" fill="url(#bg)"/>
+<text x="70" y="70" class="t h" font-size="34">LESSON 01 · Architect Intake</text>
+<text x="70" y="108" class="m mono" font-size="15">FROM RAW INPUT TO VERIFIED ARCHITECTURAL CONTEXT</text>
+
+<rect x="70" y="150" width="300" height="250" rx="22" class="box cyan"/>
+<text x="100" y="190" class="t h" font-size="18">31 INPUT ARTIFACTS</text>
+<text x="100" y="225" class="m" font-size="13">Vision · Business Case</text>
+<text x="100" y="252" class="m" font-size="13">Stakeholders · Scope</text>
+<text x="100" y="279" class="m" font-size="13">REQ / NFR · Acceptance</text>
+<text x="100" y="306" class="m" font-size="13">AS-IS · Integrations · Data</text>
+<text x="100" y="333" class="m" font-size="13">Security · IAM · SLA/SLO</text>
+<text x="100" y="360" class="m" font-size="13">Load · Budget · Risks · ADR</text>
+
+<rect x="470" y="150" width="300" height="250" rx="22" class="box amber"/>
+<text x="500" y="190" class="t h" font-size="18">INTAKE REGISTER</text>
+<text x="500" y="226" class="m mono" font-size="13">EXPECTED</text>
+<text x="500" y="252" class="m mono" font-size="13">REQUESTED</text>
+<text x="500" y="278" class="m mono" font-size="13">RECEIVED</text>
+<text x="500" y="304" class="m mono" font-size="13">GAP</text>
+<text x="500" y="330" class="m mono" font-size="13">DRAFTED_BY_ARCHITECT</text>
+<text x="500" y="356" class="m mono" font-size="13">VERIFIED / CONFIRMED</text>
+
+<rect x="870" y="150" width="300" height="250" rx="22" class="box vio"/>
+<text x="900" y="190" class="t h" font-size="18">GAP RESOLUTION</text>
+<text x="900" y="226" class="m" font-size="13">owner</text>
+<text x="900" y="252" class="m" font-size="13">interview / workshop</text>
+<text x="900" y="278" class="m" font-size="13">data pull</text>
+<text x="900" y="304" class="m" font-size="13">reverse engineering</text>
+<text x="900" y="330" class="m" font-size="13">architect draft</text>
+<text x="900" y="356" class="m" font-size="13">owner confirmation</text>
+
+<rect x="1270" y="150" width="260" height="250" rx="22" class="box green"/>
+<text x="1300" y="190" class="t h" font-size="18">VERIFIED CONTEXT</text>
+<text x="1300" y="226" class="m" font-size="13">source</text>
+<text x="1300" y="252" class="m" font-size="13">owner</text>
+<text x="1300" y="278" class="m" font-size="13">date / version</text>
+<text x="1300" y="304" class="m" font-size="13">scope</text>
+<text x="1300" y="330" class="m" font-size="13">assumptions</text>
+<text x="1300" y="356" class="m" font-size="13">contradictions</text>
+
+<path d="M370 275 H470 M770 275 H870 M1170 275 H1270" stroke="#4ed9ff" stroke-width="5"/>
+<polygon points="462,267 477,275 462,283" fill="#4ed9ff"/><polygon points="862,267 877,275 862,283" fill="#9d84ff"/><polygon points="1262,267 1277,275 1262,283" fill="#63e6a5"/>
+
+<text x="70" y="475" class="t h" font-size="20">ARCHITECTURE TRACEABILITY</text>
+<g class="mono" font-size="14">
+<rect x="70" y="515" width="125" height="65" rx="12" class="box cyan"/><text x="104" y="554" class="t">SOURCE</text>
+<rect x="225" y="515" width="125" height="65" rx="12" class="box cyan"/><text x="266" y="554" class="t">INPUT</text>
+<rect x="380" y="515" width="145" height="65" rx="12" class="box vio"/><text x="405" y="554" class="t">REQ/NFR</text>
+<rect x="555" y="515" width="180" height="65" rx="12" class="box red"/><text x="577" y="554" class="t">RISK/CONSTRAINT</text>
+<rect x="765" y="515" width="125" height="65" rx="12" class="box amber"/><text x="797" y="554" class="t">OPTION</text>
+<rect x="920" y="515" width="110" height="65" rx="12" class="box vio"/><text x="958" y="554" class="t">ADR</text>
+<rect x="1060" y="515" width="150" height="65" rx="12" class="box green"/><text x="1081" y="554" class="t">COMPONENT</text>
+<rect x="1240" y="515" width="110" height="65" rx="12" class="box green"/><text x="1274" y="554" class="t">TEST</text>
+<rect x="1380" y="515" width="150" height="65" rx="12" class="box amber"/><text x="1400" y="554" class="t">SLO/COST</text>
+</g>
+<path d="M195 548H225M350 548H380M525 548H555M735 548H765M890 548H920M1030 548H1060M1210 548H1240M1350 548H1380" stroke="#4ed9ff" stroke-width="3"/>
+
+<rect x="70" y="650" width="440" height="190" rx="22" class="box cyan"/>
+<text x="100" y="690" class="t h" font-size="18">FTH-INT-001</text><text x="100" y="720" class="m" font-size="14">Architect Intake Workspace</text>
+<text x="100" y="754" class="m" font-size="13">Intake Register · GAP · owner</text><text x="100" y="780" class="m" font-size="13">Scope · assumptions · questions</text>
+
+<rect x="580" y="650" width="440" height="190" rx="22" class="box vio"/>
+<text x="610" y="690" class="t h" font-size="18">FTH-REQ-001</text><text x="610" y="720" class="m" font-size="14">Requirements & Traceability Service</text>
+<text x="610" y="754" class="m" font-size="13">REQ/NFR · risks · constraints</text><text x="610" y="780" class="m" font-size="13">decision links · evidence chain</text>
+
+<rect x="1090" y="650" width="440" height="190" rx="22" class="box green"/>
+<text x="1120" y="690" class="t h" font-size="18">FTH-CTX-001</text><text x="1120" y="720" class="m" font-size="14">Context Builder</text>
+<text x="1120" y="754" class="m" font-size="13">only verified context downstream</text><text x="1120" y="780" class="m" font-size="13">source · version · applicability</text>
+
+<text x="70" y="910" class="m" font-size="14">RULE: assumption ≠ fact · GAP is explicit · source/owner/version travel with critical input</text>
+</svg>

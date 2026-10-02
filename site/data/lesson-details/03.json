@@ -1,0 +1,187 @@
+{
+  "schema_version": "father-architect-lesson-detail.v1",
+  "lesson_id": 3,
+  "purpose": "Разбить большую AI-задачу на стадии, каждая из которых приносит измеримую ценность и снижает неопределённость: Demo показывает форму решения, PoC проверяет техническую выполнимость, MVP — гипотезу на реальных пользователях, Production — масштабирование и полный жизненный цикл.",
+  "schema": {
+    "notation": "BUSINESS NEED → DEMO → PoC → TECH GATE → MVP → VALUE GATE → PRODUCTION READINESS → PRODUCTION → OPERATIONS",
+    "description": "Схема отражает источник Lesson 03: staged delivery снижает риск дальнейшей разработки. Для каждого перехода должны быть критерии успеха/DoD и решение go/change/stop.",
+    "nodes": [
+      "BUSINESS NEED",
+      "DEMO",
+      "PoC",
+      "TECH GATE",
+      "MVP",
+      "VALUE GATE",
+      "PRODUCTION READINESS",
+      "PRODUCTION",
+      "OPERATIONS"
+    ],
+    "edges": [
+      [
+        "BUSINESS NEED",
+        "DEMO"
+      ],
+      [
+        "DEMO",
+        "PoC"
+      ],
+      [
+        "PoC",
+        "TECH GATE"
+      ],
+      [
+        "TECH GATE",
+        "MVP"
+      ],
+      [
+        "MVP",
+        "VALUE GATE"
+      ],
+      [
+        "VALUE GATE",
+        "PRODUCTION READINESS"
+      ],
+      [
+        "PRODUCTION READINESS",
+        "PRODUCTION"
+      ],
+      [
+        "PRODUCTION",
+        "OPERATIONS"
+      ]
+    ]
+  },
+  "visual": {
+    "poster": "./assets/lesson-03-poc-to-production.svg",
+    "alt": "Lesson 03: бизнес-потребность проходит стадии Demo, PoC, MVP и Production; между стадиями стоят decision gates, а риски, контракт, бюджет и критерии успеха пересматриваются по мере снижения неопределенности."
+  },
+  "curriculum": {
+    "summary": "Урок посвящён стратегии реализации проекта и декомпозиции большой задачи на этапы с измеримой ценностью и снижением рисков. Рассматриваются Demo, PoC, MVP, Production, архитектурные компромиссы, бизнес-цели этапов, контрактная модель и окружения Dev/Test/Prod.",
+    "requirements": [
+      "Понимать различия Demo, PoC, MVP и Production",
+      "Связывать каждый этап с бизнес-целью и архитектурными компромиссами",
+      "Проверять техническую гипотезу на PoC",
+      "Проверять рыночную гипотезу на MVP",
+      "Планировать полный жизненный цикл решения до Production",
+      "Связывать staged delivery с контрактной моделью",
+      "Разрабатывать roadmap с бизнес-целями, scope, архитектурными решениями и рисками"
+    ],
+    "homework": [
+      "Сформулировать 5–7 уточняющих вопросов клиенту",
+      "Обосновать контрактную модель для PoC и основной разработки",
+      "Составить матрицу минимум из 5 AI-рисков и mitigation plan",
+      "Разработать Roadmap с DoD для PoC, MVP и Production",
+      "Представить вопросы, контракт, risk matrix и roadmap в итоговом документе"
+    ],
+    "sources": [
+      "Основной текст Lesson 03",
+      "Кейс крупного ритейлера и AI-рекомендаций",
+      "Пример Risk Matrix",
+      "Количественный risk register"
+    ]
+  },
+  "architect_pro": {
+    "summary": "Профессиональное расширение превращает staged delivery в управляемую систему decision gates: на каждом этапе фиксируются hypothesis, value, scope, architecture delta, risks, success criteria, evidence, contract/budget assumptions и решение go/change/stop.",
+    "methods": [
+      "Demo как дешёвая проверка представления/UX без выдачи фасада за готовую систему",
+      "PoC как техническая проверка feasibility, data challenge и архитектурных гипотез",
+      "MVP как проверка продуктовой/рыночной гипотезы с реальными пользователями",
+      "Production Readiness как отдельный gate перед масштабированием",
+      "DoD / success criteria для каждой стадии",
+      "Decision Gate: go / change / stop",
+      "Поэтапная контрактная модель с учётом уровня неопределённости",
+      "Risk register и количественная оценка влияния неопределённости на цели",
+      "Связь risk → target metric → scenario → mitigation → decision",
+      "Переоценка scope, cost и schedule на каждом gate"
+    ],
+    "standards": [],
+    "anti_patterns": [
+      "Считать Demo доказательством технической выполнимости",
+      "Считать PoC готовым Production-кодом",
+      "Переходить к MVP без критериев успеха PoC",
+      "Переходить в Production без production-readiness gate",
+      "Фиксировать FP на высоконеопределённый R&D scope без механизма изменений",
+      "Оценивать риск только субъективным score без связи с целями/показателями",
+      "Выдавать точность risk model за точность реального прогноза",
+      "Не пересматривать бюджет и roadmap после снятия неопределённости"
+    ],
+    "templates": [
+      "Stage / Gate Roadmap",
+      "PoC Success Criteria",
+      "MVP Success Criteria",
+      "Production Readiness Checklist",
+      "Risk Register",
+      "Quantitative Risk Scenario",
+      "Contract Strategy Matrix",
+      "Decision Gate Record"
+    ]
+  },
+  "father_production": {
+    "summary": "Lesson 03 формирует orchestration-слой поставки ценности. Value Delivery & Stage Gate Service хранит стадии, критерии и gate decisions; Estimation/Planning и Risk/Change пересчитывают план по мере появления evidence; FinOps обновляет бюджет/TCO; Delivery Plane отвечает за переход к воспроизводимому release/deployment.",
+    "capability_ids": [
+      "FTH-VAL-001",
+      "FTH-EST-001",
+      "FTH-RSK-001",
+      "FTH-FIN-001",
+      "FTH-DLV-001"
+    ],
+    "components": [
+      "FTH-VAL-001 · Value Delivery & Stage Gate Service",
+      "FTH-EST-001 · Estimation & Planning Service",
+      "FTH-RSK-001 · Risk & Change Control Service",
+      "FTH-FIN-001 · FinOps / Cost Control",
+      "FTH-DLV-001 · Delivery Plane"
+    ],
+    "runtime_notes": [
+      "Каждый stage имеет hypothesis, scope, target value, risks, DoD и evidence",
+      "Gate decision хранится как отдельный проверяемый артефакт",
+      "Переход между стадиями не автоматический: требуется evidence",
+      "Стоимость, сроки и contract assumptions пересчитываются после gate",
+      "Risk inputs должны хранить источник и уровень уверенности",
+      "Production требует отдельного readiness evidence, а не только успешного PoC/MVP"
+    ]
+  },
+  "artifacts": [
+    "Lesson 03 assignment / конспект",
+    "Roadmap PoC → MVP → Production",
+    "Contract Strategy rationale",
+    "AI Risk Matrix",
+    "Risk Register Guide",
+    "Quantitative Risk Register workbook",
+    "Case: retailer + AI recommendations",
+    "Risk Matrix Example",
+    "CI/CD workflow supporting material",
+    "CRISP supporting material"
+  ],
+  "evidence": [
+    "В тексте Lesson 03 явно определены Demo, PoC, MVP и Production",
+    "Домашнее задание требует контрактную модель, risk matrix и Roadmap с DoD для PoC/MVP/Production",
+    "RISK_REGISTER_GUIDE.md описывает risk → target → metric → scenario → decision",
+    "В папке урока присутствуют risk calculator, risk matrix, кейс ритейлера и supporting materials"
+  ],
+  "traceability": [
+    "BUSINESS NEED → STAGE HYPOTHESIS",
+    "STAGE HYPOTHESIS → SUCCESS CRITERIA / DoD",
+    "DoD → EVIDENCE",
+    "EVIDENCE → GATE DECISION",
+    "GATE DECISION → NEXT SCOPE / CONTRACT / PLAN",
+    "RISK → TARGET METRIC → SCENARIO → MITIGATION → DECISION",
+    "PRODUCTION READINESS → RELEASE / OPERATIONS"
+  ],
+  "gaps": [
+    "В исходном тексте статус домашнего задания указан как «не сдано»; нормализация сайта не должна трактоваться как подтверждение сдачи курса.",
+    "FTH-VAL-001 пока является архитектурным target service, а не подтверждённым production deployment.",
+    "Автоматизированный Stage Gate workflow и machine-readable gate evidence пока не реализованы.",
+    "Содержимое CI/CD и CRISP DOCX в этом проходе не использовалось как фактическая основа, только зафиксировано как присутствующие supporting files."
+  ],
+  "sources": [
+    {
+      "title": "Lesson 03 assignment",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/3.%20%D0%A1%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D0%B8%D1%8F%20%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B8%20%D1%86%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BE%D1%82%20PoC%20%D0%B4%D0%BE%20Production%20%20%D0%94%D0%97/3.%20%D0%A1%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D0%B8%D1%8F%20%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B8%20%D1%86%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BE%D1%82%20PoC%20%D0%B4%D0%BE%20Production__%20%D0%94%D0%97.txt"
+    },
+    {
+      "title": "Risk Register Guide",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/3.%20%D0%A1%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D0%B8%D1%8F%20%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B8%20%D1%86%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BE%D1%82%20PoC%20%D0%B4%D0%BE%20Production%20%20%D0%94%D0%97/RISK_REGISTER_GUIDE.md"
+    }
+  ]
+}
