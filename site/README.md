@@ -137,3 +137,8 @@ Interview Lab не меняет статусы уроков OTUS и не под�
 ## AI Capability Stack 2026
 
 Добавлена отдельная страница [AI Capability Stack 2026](./ai-capability-stack-2026.html) с инженерным разбором 22 capability из схемы 2023→2026. Для каждого capability фиксируются тип, назначение, pipeline, входы/выходы, риски, component mapping и вопрос собеседования.
+
+
+## Professional Security Learning Registry
+
+Отдельно ведётся реестр текущего обучения по ИБ: Security Engineer, Penetration Tester и SOC Analyst. Реестр не смешивается с курсом OTUS и различает обучение, labs и подтверждённый рабочий опыт.
