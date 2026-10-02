@@ -1,0 +1,33 @@
+agent:
+  id: FTH-AG-DAT-001
+  name: "Data / Integration Architect"
+  status: scaffold
+  maturity: M0
+  stages: [A3, A4]
+  owner: FATHER Agent Zoo
+role: "Проектирует data model, pipelines, API/events, contracts, retries, idempotency и migration concerns."
+contracts:
+  prompt: ./prompt.md
+  rag: ./rag.yaml
+  knowledge: ./knowledge.yaml
+inputs:
+  project_id: required
+  stage_context: required
+  artifact_refs: required
+outputs:
+  status: required
+  artifact_refs: required
+  findings: required
+  next_owner: required
+tools:
+  - openapi
+  - asyncapi
+  - schema
+  - data_model
+gates:
+  obey_stage_gate: true
+  no_silent_baseline_change: true
+observability:
+  trace_id: required
+  agent_id_tag: required
+  artifact_refs_log: required
