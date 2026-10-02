@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1040" viewBox="0 0 1800 1040" role="img" aria-labelledby="t d">
+<title id="t">FATHER Document Conveyor</title><desc id="d">End-to-end document pipeline from intake through analyst, architect, development, verification and release.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061018"/><stop offset="1" stop-color="#16172d"/></linearGradient><style>.tx{font-family:Segoe UI,Arial,sans-serif;fill:#edf7ff}.mu{fill:#91a9ba}.h{font-weight:700}.box{fill:#0e1a24;stroke-width:2}.cy{stroke:#4ed9ff}.gr{stroke:#63e6a5}.am{stroke:#ffbd65}.vi{stroke:#9b83ff}.rd{stroke:#ff7474}.id{font-family:Consolas,monospace;fill:#4ed9ff;font-size:13px}</style></defs>
+<rect width="1800" height="1040" rx="28" fill="url(#bg)"/>
+<text x="70" y="72" class="tx h" font-size="36">FATHER · DOCUMENT CONVEYOR</text>
+<text x="70" y="112" class="mu" font-size="16">raw input → analysis → architecture → cross-cutting gates → Development Pack → code → verification → release</text>
+
+<g>
+<rect x="70" y="180" width="250" height="150" rx="18" class="box cy"/><text x="98" y="214" class="id">I0 · INTAKE</text><text x="98" y="250" class="tx h" font-size="18">Raw → structured</text><text x="98" y="282" class="mu" font-size="13">sources · scope · glossary</text><text x="98" y="306" class="mu" font-size="13">constraints · success</text>
+<rect x="360" y="180" width="250" height="150" rx="18" class="box gr"/><text x="388" y="214" class="id">A1 · ANALYST</text><text x="388" y="250" class="tx h" font-size="18">Analysis Pack</text><text x="388" y="282" class="mu" font-size="13">FR/NFR · BPMN · data</text><text x="388" y="306" class="mu" font-size="13">risk · traceability</text>
+<rect x="650" y="180" width="250" height="150" rx="18" class="box vi"/><text x="678" y="214" class="id">A2 · ARCH REVIEW</text><text x="678" y="250" class="tx h" font-size="18">Independent review</text><text x="678" y="282" class="mu" font-size="13">options · ADR · C4</text><text x="678" y="306" class="mu" font-size="13">trade-offs · gaps</text>
+<rect x="940" y="180" width="250" height="150" rx="18" class="box vi"/><text x="968" y="214" class="id">A3 · DESIGN</text><text x="968" y="250" class="tx h" font-size="18">Architecture Pack</text><text x="968" y="282" class="mu" font-size="13">LLD · API · data · AI</text><text x="968" y="306" class="mu" font-size="13">sequences · schemas</text>
+<rect x="1230" y="180" width="250" height="150" rx="18" class="box am"/><text x="1258" y="214" class="id">A4 · CROSS-CUT</text><text x="1258" y="250" class="tx h" font-size="18">Production gates</text><text x="1258" y="282" class="mu" font-size="13">security · quality · SLO</text><text x="1258" y="306" class="mu" font-size="13">sizing · cost · HA/DR</text>
+</g>
+<path d="M320 255H360M610 255H650M900 255H940M1190 255H1230" stroke="#4ed9ff" stroke-width="5"/>
+
+<rect x="650" y="385" width="540" height="110" rx="20" class="box gr"/>
+<text x="685" y="420" class="tx h" font-size="20">DOUBLE SIGN-OFF BEFORE DEVELOPMENT</text>
+<text x="685" y="454" class="mu" font-size="14">Analyst: смысл / полнота / acceptance</text>
+<text x="930" y="454" class="mu" font-size="14">Architect: реализуемость / NFR / ADR</text>
+
+<g>
+<rect x="70" y="565" width="270" height="150" rx="18" class="box gr"/><text x="98" y="599" class="id">D0 · DEV PACK</text><text x="98" y="635" class="tx h" font-size="18">Developer input</text><text x="98" y="667" class="mu" font-size="13">task · LLD · API · tests</text><text x="98" y="691" class="mu" font-size="13">security · trace slice</text>
+<rect x="390" y="565" width="270" height="150" rx="18" class="box cy"/><text x="418" y="599" class="id">D1 · DEVELOPER</text><text x="418" y="635" class="tx h" font-size="18">Implementation</text><text x="418" y="667" class="mu" font-size="13">code · tests · migrations</text><text x="418" y="691" class="mu" font-size="13">telemetry · PR</text>
+<rect x="710" y="565" width="270" height="150" rx="18" class="box rd"/><text x="738" y="599" class="id">V1 · CI / QA</text><text x="738" y="635" class="tx h" font-size="18">Evidence</text><text x="738" y="667" class="mu" font-size="13">tests · SAST/SCA · eval</text><text x="738" y="691" class="mu" font-size="13">load · contracts</text>
+<rect x="1030" y="565" width="270" height="150" rx="18" class="box gr"/><text x="1058" y="599" class="id">V2/V3 · ACCEPT</text><text x="1058" y="635" class="tx h" font-size="18">Analyst + Architect</text><text x="1058" y="667" class="mu" font-size="13">functional + conformance</text><text x="1058" y="691" class="mu" font-size="13">debt / waivers</text>
+<rect x="1350" y="565" width="270" height="150" rx="18" class="box am"/><text x="1378" y="599" class="id">R1 · RELEASE</text><text x="1378" y="635" class="tx h" font-size="18">Release Pack</text><text x="1378" y="667" class="mu" font-size="13">deploy · rollback · runbook</text><text x="1378" y="691" class="mu" font-size="13">traceability snapshot</text>
+</g>
+<path d="M340 640H390M660 640H710M980 640H1030M1300 640H1350" stroke="#63e6a5" stroke-width="5"/>
+
+<rect x="360" y="805" width="1080" height="120" rx="20" class="box cy"/>
+<text x="400" y="845" class="tx h" font-size="20">O1 · PRODUCTION FEEDBACK LOOP</text>
+<text x="400" y="880" class="mu" font-size="14">telemetry / incident / user feedback → regression case → requirement/risk → ADR/change → new Dev Pack</text>
+
+<text x="70" y="990" class="mu" font-size="14">Canonical: Git artifacts are source of truth. Site is the visual router. PDF/Docs are views, not the only source.</text>
+</svg>
