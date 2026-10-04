@@ -1,0 +1,179 @@
+{
+  "schema_version": "father-architect-lesson-detail.v1",
+  "lesson_id": 5,
+  "purpose": "Детализировать HLD до уровня компонентов и проверяемых контрактов: C3 показывает внутреннее устройство выбранного контейнера, Sequence фиксирует порядок взаимодействий, а OpenAPI задаёт формальный Backend ↔ AI Service контракт с типами, примерами и ошибками.",
+  "schema": {
+    "notation": "C2 CONTAINER → C3 COMPONENTS → SEQUENCE → API CONTRACT → CONTRACT VALIDATION → IMPLEMENTATION / TEST",
+    "description": "Исходный урок требует C3 + OpenAPI и проектирование последовательностей. Существующий пакет ДЗ дополнительно связывает C2, C3, Sequence, OpenAPI, BPMN, DFD и CI-проверку в один доказательный комплект.",
+    "nodes": [
+      "C2 CONTAINER",
+      "C3 COMPONENTS",
+      "SEQUENCE",
+      "API CONTRACT",
+      "CONTRACT VALIDATION",
+      "IMPLEMENTATION / TEST"
+    ],
+    "edges": [
+      [
+        "C2 CONTAINER",
+        "C3 COMPONENTS"
+      ],
+      [
+        "C3 COMPONENTS",
+        "SEQUENCE"
+      ],
+      [
+        "SEQUENCE",
+        "API CONTRACT"
+      ],
+      [
+        "API CONTRACT",
+        "CONTRACT VALIDATION"
+      ],
+      [
+        "CONTRACT VALIDATION",
+        "IMPLEMENTATION / TEST"
+      ]
+    ]
+  },
+  "visual": {
+    "poster": "./assets/lesson-05-lld-contracts.svg",
+    "alt": "Lesson 05 LLD: C2 container architecture is decomposed into C3 AI Service components, traced through a recommendation sequence into an OpenAPI contract and automated validation."
+  },
+  "curriculum": {
+    "summary": "Урок требует детализировать высокоуровневые компоненты до классов/модулей, проектировать API и протоколы взаимодействия, строить Sequence Diagram и выполнить LLD одного контейнера через C3 + OpenAPI.",
+    "requirements": [
+      "Детализировать HLD до C3 Component Diagram",
+      "Проектировать API и протоколы взаимодействия",
+      "Создавать Sequence Diagram ключевого сценария",
+      "Подготовить OpenAPI-спецификацию API выбранного контейнера",
+      "Связать компоненты и взаимодействия в согласованный LLD"
+    ],
+    "homework": [
+      "C2 Container Diagram всей системы",
+      "C3 Component Diagram внутри AI Service",
+      "Sequence Diagram «Пользователь запрашивает рекомендацию»",
+      "OpenAPI YAML/Swagger для Backend ↔ AI Service",
+      "Собрать артефакты в одной GitHub-папке"
+    ],
+    "sources": [
+      "Lesson 05 outline",
+      "УСЛОВИЕ_ДЗ.md",
+      "README.md итогового пакета"
+    ]
+  },
+  "architect_pro": {
+    "summary": "Реализованный пакет расширяет базовое ДЗ до трассируемого LLD: OSINT / Due Diligence AI Platform имеет C2, C3, recommendation sequence, OpenAPI 3.1, BPMN, DFD, information flow, editable Draw.io, manifest, checksum и CI-сборку итогового PDF.",
+    "methods": [
+      "C2 фиксирует Frontend, Backend/Case Service, AI Service, Vector DB, SQL DB и Evidence Vault",
+      "C3 раскрывает AI Service: Controller → Query Normalizer → RAG Manager → Prompt Factory → LLM Client → Evidence Guard → Confidence Evaluator → Formatter",
+      "Sequence связывает пользовательский сценарий с конкретными компонентами",
+      "OpenAPI фиксирует POST /get_recommendation",
+      "Contract содержит schemas, request/response examples и error model",
+      "Недостаток доказательств моделируется как 422 INSUFFICIENT_EVIDENCE",
+      "Recommendation возвращает evidence_refs, confidence, limitations и research_gaps",
+      "BPMN показывает бизнес-процесс и human gate",
+      "DFD показывает информационные потоки и хранилища",
+      "CI валидирует OpenAPI и собирает/проверяет итоговый PDF"
+    ],
+    "standards": [
+      "OpenAPI 3.1",
+      "C4 Model",
+      "HTTP status/error contract"
+    ],
+    "anti_patterns": [
+      "C3-компоненты не соответствуют участникам Sequence",
+      "OpenAPI расходится с Sequence и C3",
+      "API без схем request/response",
+      "Ошибки описаны только текстом без стабильных кодов",
+      "LLM-рекомендация не содержит evidence/provenance",
+      "Недостаток evidence маскируется сгенерированным ответом",
+      "LLD существует только как картинка без редактируемого/версионируемого источника",
+      "Высокорисковое управленческое решение автоматически передаётся AI без human gate"
+    ],
+    "templates": [
+      "C2 Container Diagram",
+      "C3 Component Diagram",
+      "Sequence Diagram",
+      "OpenAPI 3.1",
+      "BPMN",
+      "DFD",
+      "Information Flow",
+      "Artifact Manifest",
+      "Checksum / build evidence"
+    ]
+  },
+  "father_production": {
+    "summary": "Lesson 05 формирует два production-регистра: Architecture Model & View Registry владеет C2/C3/Sequence/flows, Interface Contract & API Registry владеет OpenAPI и versioned schemas, а Evaluation Service проверяет согласованность контрактов и evidence.",
+    "capability_ids": [
+      "FTH-ARC-001",
+      "FTH-API-001",
+      "FTH-EVL-001"
+    ],
+    "components": [
+      "FTH-ARC-001 · Architecture Model & View Registry",
+      "FTH-API-001 · Interface Contract & API Registry",
+      "FTH-EVL-001 · Evaluation Service"
+    ],
+    "runtime_notes": [
+      "Component IDs должны совпадать между C3, Sequence и implementation mapping",
+      "API contract является first-class versioned artifact",
+      "Request/response/error schemas должны проходить автоматическую validation",
+      "Sequence должен ссылаться на реальные операции API",
+      "Contract breaking change требует review/version decision",
+      "Evidence/provenance поля считаются частью domain contract, а не UI decoration"
+    ]
+  },
+  "artifacts": [
+    "DZ05_LLD_OSINT_KB_AGENT_SUBMISSION.pdf",
+    "README.md",
+    "УСЛОВИЕ_ДЗ.md",
+    "MANIFEST.json",
+    "api/openapi.yaml",
+    "architecture/C2_SYSTEM_CONTAINERS.svg",
+    "architecture/C3_KB_AGENT_COMPONENTS.svg",
+    "architecture/SEQUENCE_GET_RECOMMENDATION.md",
+    "architecture/SEQUENCE_EVIDENCE_TO_KB.md",
+    "architecture/DIAGRAMS.drawio",
+    "architecture/BPMN/...",
+    "architecture/DFD/...",
+    "docs/OSINT_KB_AGENT_INFORMATION_FLOW_V1.md",
+    "SHA256SUMS.txt"
+  ],
+  "evidence": [
+    "README содержит матрицу соответствия требованиям ДЗ",
+    "C2, C3, Sequence и OpenAPI присутствуют как отдельные reviewable artifacts",
+    "OpenAPI описывает POST /get_recommendation, schemas, examples и error codes",
+    "Sequence связывает Frontend, Backend и внутренние компоненты AI Service",
+    "BPMN/DFD/Information Flow добавлены как supporting artifacts",
+    "README описывает CI workflow: OpenAPI validation, PDF build/check и SHA-256"
+  ],
+  "traceability": [
+    "C2 AI SERVICE → C3 COMPONENTS",
+    "C3 COMPONENTS → SEQUENCE PARTICIPANTS",
+    "SEQUENCE CALL → POST /get_recommendation",
+    "OPENAPI SCHEMAS → REQUEST / RESPONSE",
+    "ERROR MODEL → FAILURE PATHS",
+    "EVIDENCE_REFS → PROVENANCE / HUMAN REVIEW",
+    "CONTRACT → CI VALIDATION → SUBMISSION EVIDENCE"
+  ],
+  "gaps": [
+    "MANIFEST называет артефакт «OSINT Knowledge Base Filling Agent LLD», а README — «OSINT / Due Diligence AI Platform»; название пакета следует унифицировать.",
+    "Наличие CI workflow описано в README, но в этом проходе не проверялся конкретный последний run/status.",
+    "M1 означает зрелый design/evidence package, но не подтверждает production deployment сервиса."
+  ],
+  "sources": [
+    {
+      "title": "Lesson 05 outline",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/5.%20%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20(LLD)%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B%20%D0%B8%20%D0%B2%D0%B7%D0%B0%D0%B8%D0%BC%D0%BE%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D1%8F%20%20%D0%94%D0%97/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20(LLD)%20%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B%20%D0%B8%20%D0%B2%D0%B7%D0%B0%D0%B8%D0%BC%D0%BE%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D1%8F.txt"
+    },
+    {
+      "title": "DZ 05 README",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/5.%20%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20(LLD)%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B%20%D0%B8%20%D0%B2%D0%B7%D0%B0%D0%B8%D0%BC%D0%BE%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D1%8F%20%20%D0%94%D0%97/%D0%94%D0%97_05_OSINT_KB_Agent_LLD/README.md"
+    },
+    {
+      "title": "OpenAPI contract",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/5.%20%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20(LLD)%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B%20%D0%B8%20%D0%B2%D0%B7%D0%B0%D0%B8%D0%BC%D0%BE%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D1%8F%20%20%D0%94%D0%97/%D0%94%D0%97_05_OSINT_KB_Agent_LLD/api/openapi.yaml"
+    }
+  ]
+}

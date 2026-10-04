@@ -1,0 +1,16 @@
+profile:
+  id: FTH-AG-VIS-001-RAG
+  status: placeholder
+retrieval:
+  enabled: true
+  mode: hybrid
+  top_k: 8
+  reranker: true
+  citations_required: true
+  provenance_required: true
+filters:
+  project_id: required
+  allowed_document_status: [baselined, approved, verified]
+fallback:
+  on_empty: return_gap
+  on_conflict: return_conflict_finding

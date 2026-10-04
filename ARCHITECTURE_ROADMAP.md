@@ -53,3 +53,22 @@
 ## Ближайший этап
 
 Нормализовать уроки 01–03 и закрыть G1 на сквозном проекте FATHER Architecture Platform.
+
+
+## FATHER Architect OS — визуально-инженерный стандарт
+
+С 2026-09-27 развитие сайта ведётся по обязательному циклу:
+
+`СХЕМА → ВИЗУАЛ → СМЫСЛ → АРТЕФАКТЫ → ПРОВЕРКИ → FATHER MAPPING → ЗРЕЛОСТЬ`
+
+Каждая тема рассматривается в трёх слоях:
+
+`OTUS Curriculum → Architect Pro → FATHER Production`
+
+Нормативные документы:
+
+- [STEP 00 — нотация и визуальный язык](docs/STEP_00_NOTATION_AND_VISUAL_LANGUAGE.md)
+- [План строительства от STEP 00](docs/FATHER_ARCHITECT_OS_BUILD_PLAN.md)
+- [Дневник разработки](docs/DEVELOPMENT_JOURNAL.md)
+
+Ближайший архитектурный этап: **STEP 01 — Master Architecture Map**.

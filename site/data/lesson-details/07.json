@@ -1,0 +1,211 @@
+{
+  "schema_version": "father-architect-lesson-detail.v1",
+  "lesson_id": 7,
+  "purpose": "Спроектировать и доказать минимальную мультиагентную систему, где Manager/Supervisor декомпозирует процесс, специализированные агенты работают в своих границах ответственности, Policy RAG возвращает проверяемые evidence refs, а LangGraph фиксирует типизированные сообщения и явные handoff.",
+  "schema": {
+    "notation": "HUMAN REQUEST → MANAGER/SUPERVISOR → POLICY RAG → FLIGHT SEARCH → HOTEL SEARCH → BUDGET ANALYST → MANAGER/FINALIZE → GROUNDED DRAFT",
+    "description": "Curriculum требует ReAct/Plan-and-Execute и multi-agent patterns. Реализованный M1.1 использует иерархический Supervisor, MessagesState и детерминированные Command(goto=...) handoff. Это доказанный конкретный паттерн, а не полный динамический planner.",
+    "nodes": [
+      "HUMAN REQUEST",
+      "MANAGER/SUPERVISOR",
+      "POLICY RAG",
+      "FLIGHT SEARCH",
+      "HOTEL SEARCH",
+      "BUDGET ANALYST",
+      "MANAGER/FINALIZE",
+      "GROUNDED DRAFT"
+    ],
+    "edges": [
+      [
+        "HUMAN REQUEST",
+        "MANAGER/SUPERVISOR"
+      ],
+      [
+        "MANAGER/SUPERVISOR",
+        "POLICY RAG"
+      ],
+      [
+        "POLICY RAG",
+        "FLIGHT SEARCH"
+      ],
+      [
+        "FLIGHT SEARCH",
+        "HOTEL SEARCH"
+      ],
+      [
+        "HOTEL SEARCH",
+        "BUDGET ANALYST"
+      ],
+      [
+        "BUDGET ANALYST",
+        "MANAGER/FINALIZE"
+      ],
+      [
+        "MANAGER/FINALIZE",
+        "GROUNDED DRAFT"
+      ]
+    ]
+  },
+  "visual": {
+    "poster": "./assets/lesson-07-multi-agent.svg",
+    "alt": "Lesson 07 Multi-Agent Travel Assistant: employee request goes to Manager, then explicit LangGraph handoffs through Policy RAG, Flight Search, Hotel Search and Budget Analyst, then Manager finalizes a grounded draft with evidence refs."
+  },
+  "curriculum": {
+    "summary": "Урок рассматривает автономных AI-агентов, ReAct, Plan-and-Execute, иерархические и кооперативные multi-agent patterns. ДЗ требует спроектировать «Умный помощник» для командировок с RAG и прототипом Manager → Searcher.",
+    "requirements": [
+      "Определить агентов и разделить ответственность",
+      "Спроектировать схему взаимодействия агентов",
+      "Показать источник корпоративной travel policy через RAG",
+      "Описать chunking, embeddings, retrieval и reranking",
+      "Подготовить LangChain/LangGraph prototype",
+      "Manager должен делегировать задачу специализированному агенту",
+      "Код должен запускаться, а агенты — обмениваться сообщениями",
+      "Соблюдать Single Responsibility"
+    ],
+    "homework": [
+      "Architecture diagram PNG/PDF",
+      "Colab notebook с работающим минимальным примером или псевдокодом",
+      "Multi-Agent Travel Assistant",
+      "RAG Flow"
+    ],
+    "sources": [
+      "Основной текст Lesson 07",
+      "УСЛОВИЕ_ДЗ.md",
+      "README M1.1"
+    ]
+  },
+  "architect_pro": {
+    "summary": "Пакет M1.1 существенно расширяет минимальное ДЗ: пять специализированных ролей, typed LangChain messages, explicit LangGraph Command handoff, Hybrid RAG, stable evidence refs, retrieval smoke-gate, OpenAPI continuation и offline deterministic demo без API key.",
+    "methods": [
+      "Supervisor / hierarchical multi-agent pattern",
+      "Manager хранит общий контекст и координирует handoff",
+      "MessagesState для типизированной истории сообщений",
+      "Command(goto=...) как явный переход между агентами",
+      "Single Responsibility для Manager / Policy RAG / Flight / Hotel / Budget",
+      "Hybrid RAG: dense + lexical + domain signal",
+      "Dedup by chunk_id",
+      "Reranking и adjacent chunk expansion",
+      "Evidence refs: source_id + chunk_id + retrieval scores",
+      "Retrieval quality gate HitRate@2 / MRR@2",
+      "Read-only mock providers для воспроизводимой проверки",
+      "Human boundary: реальное финансовое одобрение/бронирование не выполняется"
+    ],
+    "standards": [
+      "LangGraph StateGraph",
+      "LangChain MessagesState",
+      "OpenAPI continuation from DZ05"
+    ],
+    "anti_patterns": [
+      "Один универсальный агент делает всё",
+      "Агенты существуют только на диаграмме и не обмениваются сообщениями",
+      "Скрытый handoff без trace",
+      "Manager сам выполняет обязанности specialist agents",
+      "Policy RAG генерирует правило без evidence",
+      "Agent loop не имеет ограничений/контроля",
+      "Демо выполняет реальные покупки или финансовые действия",
+      "Persistent memory заявлена, хотя фактически используется только transient MessagesState",
+      "MCP объявляется частью Lesson 07 без source/runtime evidence"
+    ],
+    "templates": [
+      "Multi-Agent Architecture",
+      "Agent Responsibility Matrix",
+      "Agent Handoff Contract",
+      "MessagesState schema",
+      "Hybrid RAG Flow",
+      "Retrieval Evaluation Gate",
+      "Agent Trace",
+      "Demo vs Production matrix"
+    ]
+  },
+  "father_production": {
+    "summary": "В FATHER этот урок раскладывается на orchestration/runtime plane. AI Harness задаёт execution envelope; Workflow/Graph Engine исполняет state graph; Agent Zoo хранит specialist definitions; Supervisor/Handoff управляет маршрутизацией; Knowledge/Retrieval дают grounded context; Evaluation проверяет handoff/retrieval/evidence.",
+    "capability_ids": [
+      "FTH-HARNESS-001",
+      "FTH-KNW-001",
+      "FTH-RAG-001",
+      "FTH-WFG-001",
+      "FTH-AGT-001",
+      "FTH-SUP-001",
+      "FTH-EVL-001"
+    ],
+    "components": [
+      "FTH-HARNESS-001 · AI Harness",
+      "FTH-WFG-001 · Workflow / Graph Engine",
+      "FTH-AGT-001 · Agent Zoo",
+      "FTH-SUP-001 · Supervisor / Handoff",
+      "FTH-KNW-001 · Knowledge Service",
+      "FTH-RAG-001 · Retrieval Gateway",
+      "FTH-EVL-001 · Evaluation Service"
+    ],
+    "runtime_notes": [
+      "Agent definition имеет role, allowed actions/tools, input/output contract и stop conditions",
+      "Handoff является first-class traced event",
+      "Shared state имеет schema/version, а не произвольный dict",
+      "Agent trace связывает message → handoff → state delta → evidence",
+      "Specialist agents получают минимальные права",
+      "Human approval остаётся обязательным для критических действий",
+      "Persistent memory — отдельная production capability и не выводится из transient MessagesState",
+      "MCP подключается только при реальном tool/MCP contract, а не автоматически из факта agent architecture"
+    ]
+  },
+  "artifacts": [
+    "ДЗ_07_Travel_MultiAgent_RAG/README.md",
+    "УСЛОВИЕ_ДЗ.md",
+    "architecture/DZ07_TRAVEL_MULTIAGENT_ARCHITECTURE.pdf",
+    "architecture/MULTI_AGENT_ARCHITECTURE.md",
+    "architecture/RAG_FLOW.md",
+    "architecture/AGENT_HANDOFFS.md",
+    "src/travel_multiagent_demo.py",
+    "tests/test_demo.py",
+    "data/travel_policy.md",
+    "data/rag_eval.json",
+    "notebooks/travel_multiagent_colab.ipynb",
+    "api/openapi-travel.yaml",
+    ".github/workflows/dz7-multiagent-demo.yml",
+    "LANGCHAIN_NOTES.md",
+    "RAG_PIPELINE.md",
+    "PRACTICE.md"
+  ],
+  "evidence": [
+    "Source code defines LangGraph StateGraph and typed MessagesState",
+    "Manager/PolicyRAG/Flight/Hotel/Budget use explicit Command(goto=...) handoffs",
+    "Tests assert typed messages and full handoff sequence",
+    "Tests assert evidence refs and budgeted final result",
+    "Tests assert dense + lexical + hybrid retrieval and chunk expansion",
+    "Tests enforce HitRate@2 >= 0.80 and MRR@2 >= 0.70",
+    "Workflow definition compiles code, validates OpenAPI, runs pytest, evaluates retrieval, runs demo and verifies PDF",
+    "Architecture PDF and detailed architecture/RAG/handoff markdown files are present"
+  ],
+  "traceability": [
+    "BUSINESS PROCESS → AGENT RESPONSIBILITIES",
+    "RESPONSIBILITY → AGENT NODE",
+    "AGENT NODE → TYPED MESSAGE / STATE DELTA",
+    "HANDOFF → COMMAND(goto) → TRACE EVENT",
+    "POLICY QUESTION → HYBRID RETRIEVAL → EVIDENCE REFS",
+    "SPECIALIST RESULTS → BUDGET ANALYST",
+    "AGENT RESULTS + EVIDENCE → MANAGER SYNTHESIS",
+    "PROTOTYPE → TESTS / RETRIEVAL GATE / WORKFLOW"
+  ],
+  "gaps": [
+    "Основной учебный текст Lesson 07 содержит статус «не сдано»; наличие готового пакета в Git не подтверждает отправку/принятие преподавателем.",
+    "Workflow определён, но текущий successful GitHub Actions run в этом проходе не удалось проверить через доступный connector endpoint.",
+    "Реализованный Manager использует детерминированный маршрут, а не dynamic planning/ReAct runtime.",
+    "Flight/Hotel являются mock/read-only providers; реальные интеграции отсутствуют намеренно.",
+    "Persistent memory не реализована: MessagesState — state/history прототипа, не production memory service.",
+    "MCP не является частью подтверждённой реализации Lesson 07."
+  ],
+  "sources": [
+    {
+      "title": "Lesson 07 assignment",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/7.%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B5%20AI-%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%D1%8B%20%D0%B8%20Multi-Agent%20Systems%20%20%D0%94%D0%97/%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B0%D1%82%D1%82%D0%B5%D1%80%D0%BD%D1%8B%20AI-%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%D1%8B%20%D0%B8%20Multi-Agent%20Systems%20%20%D0%94%D0%97.txt"
+    },
+    {
+      "title": "DZ07 M1.1 README",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/7.%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B5%20AI-%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%D1%8B%20%D0%B8%20Multi-Agent%20Systems%20%20%D0%94%D0%97/%D0%94%D0%97_07_Travel_MultiAgent_RAG/README.md"
+    },
+    {
+      "title": "Travel Multi-Agent demo",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/7.%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B5%20AI-%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%D1%8B%20%D0%B8%20Multi-Agent%20Systems%20%20%D0%94%D0%97/%D0%94%D0%97_07_Travel_MultiAgent_RAG/src/travel_multiagent_demo.py"
+    }
+  ]
+}

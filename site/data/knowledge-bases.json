@@ -1,0 +1,97 @@
+{
+  "schema_version": "father-knowledge-registry.v1",
+  "status": "scaffold",
+  "bases": [
+    {
+      "id": "KB-SOURCES",
+      "name": "Source & Intake Corpus",
+      "purpose": "Сырые входные источники с provenance и статусом; не являются автоматически утверждёнными знаниями.",
+      "write": "Knowledge Curator",
+      "status": "M0"
+    },
+    {
+      "id": "KB-PROJECT",
+      "name": "Canonical Project KB",
+      "purpose": "Утверждённые project facts, glossary, scope, packs, versions.",
+      "write": "Controlled publish",
+      "status": "M0"
+    },
+    {
+      "id": "KB-REQUIREMENTS",
+      "name": "Requirements KB",
+      "purpose": "BUS/FR/NFR/use cases/acceptance/risk/constraints and baselines.",
+      "write": "Analyst + gate",
+      "status": "M0"
+    },
+    {
+      "id": "KB-ARCHITECTURE",
+      "name": "Architecture KB",
+      "purpose": "C4/LLD/ADR/interfaces/trade-offs/component catalog.",
+      "write": "Architect + review",
+      "status": "M0"
+    },
+    {
+      "id": "KB-DATA",
+      "name": "Data & Integration KB",
+      "purpose": "Data models, schemas, APIs, events, pipelines, migrations.",
+      "write": "Data/Integration Architect",
+      "status": "M0"
+    },
+    {
+      "id": "KB-SECURITY",
+      "name": "Security KB",
+      "purpose": "Threats, controls, IAM, secrets, DLP/PII, security tests.",
+      "write": "Security Architect",
+      "status": "M0"
+    },
+    {
+      "id": "KB-REGULATORY",
+      "name": "Regulatory / Policy KB",
+      "purpose": "Verified laws, internal policies, applicability and effective dates.",
+      "write": "Controlled legal/security publish",
+      "status": "M0"
+    },
+    {
+      "id": "KB-QUALITY",
+      "name": "Quality / Eval KB",
+      "purpose": "Test strategies, golden sets, RAG/LLM evaluation, quality gates.",
+      "write": "Quality/Eval",
+      "status": "M0"
+    },
+    {
+      "id": "KB-OPERATIONS",
+      "name": "Operations / SRE KB",
+      "purpose": "SLO, observability, runbooks, sizing, HA/DR, incidents.",
+      "write": "SRE/Architect",
+      "status": "M0"
+    },
+    {
+      "id": "KB-FINOPS",
+      "name": "Sizing / FinOps KB",
+      "purpose": "Workload models, benchmarks, TCO, budgets, unit economics.",
+      "write": "Sizing/FinOps",
+      "status": "M0"
+    },
+    {
+      "id": "KB-CODE",
+      "name": "Code / Engineering KB",
+      "purpose": "Approved coding conventions, repo maps, APIs, reusable components and implementation evidence.",
+      "write": "Developer + review",
+      "status": "M0"
+    },
+    {
+      "id": "KB-TRACE",
+      "name": "Traceability Graph",
+      "purpose": "REQ↔ADR↔CMP/API/DATA↔CTRL↔TEST↔SLO↔release links.",
+      "write": "Governance service",
+      "status": "M0"
+    },
+    {
+      "id": "KB-EVIDENCE",
+      "name": "Evidence Store",
+      "purpose": "Validation reports, test evidence, benchmarks, screenshots, hashes, release evidence.",
+      "write": "Append-only controlled",
+      "status": "M0"
+    }
+  ]
+}

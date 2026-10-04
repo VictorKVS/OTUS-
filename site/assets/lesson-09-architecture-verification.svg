@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Lesson 09 — Architecture Verification and CTO Challenge</title>
+<desc id="desc">Architecture inputs enter quality attribute scenarios and CTO challenge, evidence produces risk and tradeoff findings, then actions or a new ADR are created and architecture is reverified.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061018"/><stop offset="1" stop-color="#241522"/></linearGradient>
+  <style>.t{font-family:Segoe UI,Arial,sans-serif;fill:#eef7ff}.m{fill:#91a9ba}.h{font-weight:700}.box{fill:#0d1a25;stroke:#29495d;stroke-width:2}.cyan{stroke:#4ed9ff}.vio{stroke:#9b83ff}.green{stroke:#63e6a5}.amber{stroke:#ffbd65}.red{stroke:#ff7474}.mono{font-family:Consolas,monospace}</style>
+</defs>
+<rect width="1600" height="1000" rx="28" fill="url(#bg)"/>
+<text x="70" y="70" class="t h" font-size="34">LESSON 09 · Architecture Verification / CTO Challenge</text>
+<text x="70" y="108" class="m mono" font-size="15">CHALLENGE THE ARCHITECTURE WITH SCENARIOS + EVIDENCE BEFORE PRODUCTION</text>
+
+<rect x="70" y="160" width="330" height="180" rx="20" class="box cyan"/>
+<text x="100" y="204" class="t h" font-size="17">REVIEW PACK</text>
+<text x="100" y="240" class="m" font-size="13">REQ / NFR · ADR</text><text x="100" y="268" class="m" font-size="13">C4 / LLD · risks</text><text x="100" y="296" class="m" font-size="13">TCO · eval evidence</text>
+
+<rect x="465" y="160" width="330" height="180" rx="20" class="box vio"/>
+<text x="495" y="204" class="t h" font-size="17">QUALITY SCENARIOS</text>
+<text x="495" y="240" class="m" font-size="13">stimulus · environment</text><text x="495" y="268" class="m" font-size="13">artifact · response</text><text x="495" y="296" class="m" font-size="13">measurable response</text>
+
+<rect x="860" y="160" width="300" height="180" rx="20" class="box amber"/>
+<text x="890" y="204" class="t h" font-size="17">CTO CHALLENGE</text>
+<text x="890" y="240" class="m" font-size="13">defense vs challengers</text><text x="890" y="268" class="m" font-size="13">assumptions attacked</text><text x="890" y="296" class="m" font-size="13">evidence required</text>
+
+<rect x="1225" y="160" width="305" height="180" rx="20" class="box red"/>
+<text x="1255" y="204" class="t h" font-size="17">FINDINGS</text>
+<text x="1255" y="240" class="m" font-size="13">risk points</text><text x="1255" y="268" class="m" font-size="13">sensitivity points</text><text x="1255" y="296" class="m" font-size="13">trade-off points</text>
+
+<path d="M400 250H465M795 250H860M1160 250H1225" stroke="#4ed9ff" stroke-width="5"/>
+
+<rect x="180" y="440" width="360" height="170" rx="20" class="box amber"/>
+<text x="210" y="483" class="t h" font-size="17">DECISION</text>
+<text x="210" y="518" class="m" font-size="13">approve</text><text x="210" y="545" class="m" font-size="13">approve with actions</text><text x="210" y="572" class="m" font-size="13">reject / rework</text>
+
+<rect x="620" y="440" width="360" height="170" rx="20" class="box green"/>
+<text x="650" y="483" class="t h" font-size="17">ACTION REGISTER</text>
+<text x="650" y="518" class="m" font-size="13">finding · severity</text><text x="650" y="545" class="m" font-size="13">owner · due date</text><text x="650" y="572" class="m" font-size="13">disposition</text>
+
+<rect x="1060" y="440" width="360" height="170" rx="20" class="box vio"/>
+<text x="1090" y="483" class="t h" font-size="17">NEW ADR / CHANGE</text>
+<text x="1090" y="518" class="m" font-size="13">supersede if decision changes</text><text x="1090" y="545" class="m" font-size="13">architecture delta</text><text x="1090" y="572" class="m" font-size="13">re-verify</text>
+
+<path d="M1377 340 C1377 400 360 395 360 440" fill="none" stroke="#ffbd65" stroke-width="4"/>
+<path d="M540 525H620M980 525H1060" stroke="#63e6a5" stroke-width="5"/>
+
+<text x="70" y="700" class="t h" font-size="20">FATHER REVIEW PLANE</text>
+<rect x="70" y="745" width="360" height="135" rx="18" class="box red"/>
+<text x="100" y="787" class="t h" font-size="17">FTH-REV-001</text><text x="100" y="819" class="m" font-size="13">Review / Challenge session</text>
+<rect x="475" y="745" width="300" height="135" rx="18" class="box vio"/>
+<text x="505" y="787" class="t h" font-size="17">ADR / RISK</text><text x="505" y="819" class="m" font-size="13">decision + uncertainty</text>
+<rect x="820" y="745" width="300" height="135" rx="18" class="box cyan"/>
+<text x="850" y="787" class="t h" font-size="17">ARCH / EVAL</text><text x="850" y="819" class="m" font-size="13">model + measurements</text>
+<rect x="1165" y="745" width="365" height="135" rx="18" class="box green"/>
+<text x="1195" y="787" class="t h" font-size="17">REVIEW EVIDENCE</text><text x="1195" y="819" class="m" font-size="13">findings · actions · decision · snapshot</text>
+
+<text x="70" y="950" class="m" font-size="14">RULE: a prepared pitch is not a completed review. G3 needs review evidence and resolved critical findings.</text>
+</svg>

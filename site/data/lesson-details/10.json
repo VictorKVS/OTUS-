@@ -1,0 +1,169 @@
+{
+  "schema_version": "father-architect-lesson-detail.v1",
+  "lesson_id": 10,
+  "purpose": "Организовать архитектурный надзор после принятия решений: сравнивать изменения реализации с утверждённой архитектурой, выявлять отклонения и технический долг, фиксировать их владельца/приоритет и управлять устранением либо осознанным исключением.",
+  "schema": {
+    "notation": "TARGET ARCH/ADR → CHANGE/PR → ARCH REVIEW → COMPLIANT? → IMPLEMENT / DEBT/EXCEPTION → OWNER/PRIORITY → REMEDIATION → RE-VERIFY",
+    "description": "Источник Lesson 10 подтверждает architectural governance, роль архитектора в code review, technical debt lifecycle и практику architecture review pull request. Детализированный register/waiver/remediation model ниже — Architect Pro/FATHER extension.",
+    "nodes": [
+      "TARGET ARCH/ADR",
+      "CHANGE/PR",
+      "ARCH REVIEW",
+      "COMPLIANT?",
+      "IMPLEMENT / DEBT/EXCEPTION",
+      "OWNER/PRIORITY",
+      "REMEDIATION",
+      "RE-VERIFY"
+    ],
+    "edges": [
+      [
+        "TARGET ARCH/ADR",
+        "CHANGE/PR"
+      ],
+      [
+        "CHANGE/PR",
+        "ARCH REVIEW"
+      ],
+      [
+        "ARCH REVIEW",
+        "COMPLIANT?"
+      ],
+      [
+        "COMPLIANT?",
+        "IMPLEMENT / DEBT/EXCEPTION"
+      ],
+      [
+        "IMPLEMENT / DEBT/EXCEPTION",
+        "OWNER/PRIORITY"
+      ],
+      [
+        "OWNER/PRIORITY",
+        "REMEDIATION"
+      ],
+      [
+        "REMEDIATION",
+        "RE-VERIFY"
+      ]
+    ]
+  },
+  "visual": {
+    "poster": "./assets/lesson-10-governance-tech-debt.svg",
+    "alt": "Lesson 10 architecture governance: target architecture and ADR are compared with a pull request; compliant changes proceed, deviations become explicit debt or exception with owner, priority, remediation and re-verification."
+  },
+  "curriculum": {
+    "summary": "Урок посвящён architectural governance: контролю соответствия реализации утверждённой архитектуре, роли архитектора в code review и управлению жизненным циклом технического долга.",
+    "requirements": [
+      "Выстраивать процесс контроля соответствия реализации утверждённой архитектуре",
+      "Понимать роль архитектора в code review",
+      "Выявлять технический долг",
+      "Оценивать и приоритизировать technical debt",
+      "Управлять жизненным циклом technical debt",
+      "Проводить архитектурный review pull request",
+      "Документировать технический долг"
+    ],
+    "homework": [
+      "Практика architectural review pull request",
+      "Идентификация и документирование technical debt"
+    ],
+    "sources": [
+      "Lesson 10 source text"
+    ]
+  },
+  "architect_pro": {
+    "summary": "Профессиональное расширение: governance должен сравнивать current implementation с target architecture/ADR, а каждое отклонение оформлять как debt, approved exception или нарушение. У долга должны быть причина, impact, owner, priority, due/review date и remediation path.",
+    "methods": [
+      "Architecture review checklist для PR",
+      "Target vs Current architecture delta",
+      "Trace PR/change → affected component → ADR/NFR",
+      "Debt register с stable ID",
+      "Debt classification: intentional / accidental / obsolete decision / temporary workaround",
+      "Impact по quality attributes",
+      "Owner + priority + target/remediation date",
+      "Exception / waiver с expiry/review date",
+      "Remediation backlog",
+      "Re-verification после погашения debt",
+      "Escalation для repeated/critical violations"
+    ],
+    "standards": [],
+    "anti_patterns": [
+      "Architectural governance = ручное одобрение каждого PR без критериев",
+      "Technical debt хранится только как комментарий в коде",
+      "Отклонение от ADR принимается без нового решения/waiver",
+      "У debt нет owner или review date",
+      "Все debt имеют одинаковый приоритет",
+      "Exception становится бессрочным",
+      "Target architecture не обновляется после осознанного изменения",
+      "Review блокирует delivery без объяснимого violated rule"
+    ],
+    "templates": [
+      "Architecture PR Review Checklist",
+      "Technical Debt Register",
+      "Architecture Exception / Waiver",
+      "Target vs Current Delta",
+      "Remediation Backlog",
+      "Governance Review Report"
+    ]
+  },
+  "father_production": {
+    "summary": "FTH-GOV-001 становится governance-plane: принимает change/PR metadata, получает affected architecture elements и ADR, запускает policy/fitness checks, создаёт review findings, debt or waiver records и отслеживает remediation. Реестр решений/архитектуры остаётся источником target state.",
+    "capability_ids": [
+      "FTH-GOV-001",
+      "FTH-ADR-001",
+      "FTH-ARC-001",
+      "FTH-REV-001",
+      "FTH-EVL-001"
+    ],
+    "components": [
+      "FTH-GOV-001 · Architecture Governance & Technical Debt Service",
+      "FTH-ADR-001 · Architecture Decision Registry",
+      "FTH-ARC-001 · Architecture Model & View Registry",
+      "FTH-REV-001 · Architecture Review & Challenge Service",
+      "FTH-EVL-001 · Evaluation Service"
+    ],
+    "runtime_notes": [
+      "Governance rules должны быть explainable и ссылаться на ADR/NFR/policy",
+      "PR review finding хранит affected IDs and evidence",
+      "Debt и waiver — разные сущности",
+      "Waiver имеет expiry/review date",
+      "Critical architectural violation может блокировать gate/release",
+      "Погашение debt требует evidence и re-verification",
+      "Автоматические checks дополняют, а не подменяют human architecture review"
+    ]
+  },
+  "artifacts": [
+    "Lesson 10 source text",
+    "Target Architecture model — target artifact",
+    "Architecture PR Review Checklist — target artifact",
+    "Technical Debt Register — target artifact",
+    "Architecture Exception / Waiver — target artifact",
+    "Remediation Backlog — target artifact"
+  ],
+  "evidence": [
+    "Source explicitly requires architectural governance",
+    "Source explicitly names architect role in code review",
+    "Source explicitly requires technical debt identification/documentation/lifecycle",
+    "No completed Lesson 10 practical artifacts were found in the lesson folder"
+  ],
+  "traceability": [
+    "ADR / TARGET ARCH → REVIEW RULE",
+    "PR / CHANGE → AFFECTED COMPONENT",
+    "AFFECTED COMPONENT → ARCH REVIEW",
+    "VIOLATION → FINDING",
+    "FINDING → DEBT / WAIVER / REJECT",
+    "DEBT → OWNER / PRIORITY / REMEDIATION",
+    "REMEDIATION → EVIDENCE → RE-VERIFY"
+  ],
+  "gaps": [
+    "В папке Lesson 10 найден только исходный текст занятия; готовый PR-review artifact отсутствует.",
+    "Technical Debt Register отсутствует как фактический артефакт.",
+    "FTH-GOV-001 является target capability, не реализованным runtime.",
+    "Fitness functions / automated architecture rules пока не подтверждены.",
+    "Поэтому engineering status остаётся materials / M0."
+  ],
+  "sources": [
+    {
+      "title": "Lesson 10 source",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/10%20.%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B9%20%D0%BD%D0%B0%D0%B4%D0%B7%D0%BE%D1%80%20%D0%B8%20%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%BC%20%D0%B4%D0%BE%D0%BB%D0%B3%D0%BE%D0%BC/10%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B9%20%D0%BD%D0%B0%D0%B4%D0%B7%D0%BE%D1%80%20%D0%B8%20%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%82%D0%B5%D1%85%D0%BD.txt"
+    }
+  ]
+}

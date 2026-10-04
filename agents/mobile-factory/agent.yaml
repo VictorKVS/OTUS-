@@ -1,0 +1,19 @@
+agent:
+  id: FTH-AG-MOB-001
+  name: "Mobile Factory Orchestrator"
+  status: placeholder
+  maturity: M0
+  stages: [OUT-MOBILE]
+role: "Принимает mobile development pack, API/schema и visual assets и оркестрирует mobile build/test/package pipeline."
+contracts:
+  prompt: ./prompt.md
+  rag: ./rag.yaml
+  knowledge: ./knowledge.yaml
+outputs:
+  versioned_artifact: required
+  evidence: required
+  findings: required
+tools:
+  - mobile_build
+  - app_package
+  - ci

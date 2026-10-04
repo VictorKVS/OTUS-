@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Lesson 01 Architect Intake Pack: какие документы должен получить архитектор, у кого их брать, как проверять и что создавать самому при отсутствии входа." />
+  <title>Урок 1 · Вход архитектора · FATHER Architect OS</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./lesson.css" />
+  <style>
+    .intake-main{max-width:1500px;margin:auto;padding:0 clamp(16px,4vw,56px) 80px}.intake-hero{padding:70px 0 42px;display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}.intake-hero h1{font-size:clamp(40px,5vw,70px);line-height:1.03;margin:0;letter-spacing:-.04em}.intake-hero h1 span{color:var(--cyan)}.principle{padding:22px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,color-mix(in srgb,var(--cyan) 9%,var(--panel)),var(--panel));box-shadow:var(--shadow)}.principle b{display:block;font-size:17px;margin-bottom:8px}.principle p{margin:0;color:var(--muted);font-size:12px}.flow{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.flow span{padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel);font:10px Consolas,monospace}.flow span:not(:last-child)::after{content:'→';color:var(--cyan);margin-left:12px}.intake-table-wrap{overflow:auto;border:1px solid var(--line);border-radius:15px;background:var(--panel)}.intake-table{width:100%;border-collapse:collapse;min-width:1250px}.intake-table th,.intake-table td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left;font-size:10px}.intake-table th{position:sticky;top:0;background:var(--panel2);color:var(--cyan);font-size:9px;letter-spacing:.08em;text-transform:uppercase}.intake-table td:first-child{font:10px Consolas,monospace;color:var(--cyan);white-space:nowrap}.intake-table td:nth-child(2){font-weight:700;font-size:11px}.status-grid,.created-grid,.red-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.mini-card{padding:15px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}.mini-card b{display:block;font-size:11px;margin-bottom:5px}.mini-card p{font-size:10px;color:var(--muted);margin:0}.status-token{font:10px Consolas,monospace;color:var(--cyan)}.red-grid .mini-card{border-left:3px solid var(--amber)}.created-grid .mini-card{border-left:3px solid var(--green)}.searchbar{display:flex;gap:8px;margin-bottom:14px}.searchbar input{flex:1;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:9px;padding:11px 12px}.searchbar select{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:9px;padding:10px}.table-note{font-size:10px;color:var(--muted);margin-top:10px}.empty-row td{text-align:center;color:var(--muted);padding:25px}@media(max-width:900px){.intake-hero{grid-template-columns:1fr}.status-grid,.created-grid,.red-grid{grid-template-columns:1fr}.searchbar{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./index.html"><span class="brand-mark">FA</span><span><strong>FATHER Architect OS</strong><small>OTUS · Architect Intake</small></span></a>
+    <nav class="nav">
+      <a href="./lesson-01.html">Урок 1</a>
+      <a href="#pack">Документы</a>
+      <a href="#workflow">Получение</a>
+      <a href="#own">Что создаём сами</a>
+      <a href="#redflags">Красные флаги</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" type="button">◐</button>
+  </header>
+
+  <main class="intake-main">
+    <section class="intake-hero">
+      <div>
+        <p class="eyebrow">Lesson 01 · Architect Intake Pack</p>
+        <h1>Что должно попасть<br>в руки <span>архитектору</span></h1>
+        <p class="hero-text">Идеальный продукт приходит не одним ТЗ. Архитектор получает набор бизнес-, продуктовых, технических, эксплуатационных, security и коммерческих материалов. Если критичного входа нет — архитектор обязан зафиксировать пробел и организовать получение или создание артефакта.</p>
+        <div class="hero-actions"><a class="btn primary" href="#pack">Открыть реестр</a><a class="btn" href="#workflow">Как добывать вход</a></div>
+      </div>
+      <aside class="principle">
+        <b>Правило архитектора №1</b>
+        <p>Нельзя ждать «когда бизнес принесёт идеальное ТЗ». Но и нельзя выдумывать отсутствующие факты. Архитектор создаёт черновик, явно помечает assumptions и gaps, находит владельца информации и получает подтверждение.</p>
+        <div class="flow"><span>GAP</span><span>OWNER</span><span>REQUEST</span><span>DRAFT</span><span>REVIEW</span><span>CONFIRM</span><span>USE</span></div>
+      </aside>
+    </section>
+
+    <section class="section" id="workflow">
+      <div class="section-head"><div><p class="eyebrow">Acquisition workflow</p><h2>Как документ появляется у архитектора</h2></div></div>
+      <div class="status-grid">
+        <div class="mini-card"><b>1. EXPECTED → REQUESTED</b><p>Сначала создаём Intake Register: какие входы требуются для решений и кто должен ими владеть.</p></div>
+        <div class="mini-card"><b>2. RECEIVED → VERIFIED</b><p>Получить файл мало. Проверяем owner, источник, дату, версию, scope, согласование и противоречия.</p></div>
+        <div class="mini-card"><b>3. GAP → DRAFTED</b><p>Если документа нет, архитектор проводит интервью, workshop, profiling или reverse engineering и создаёт рабочий черновик.</p></div>
+        <div class="mini-card"><b>4. DRAFTED → CONFIRMED</b><p>Черновик не становится фактом сам по себе. Его подтверждает владелец бизнеса, домена, данных, ИБ или эксплуатации.</p></div>
+        <div class="mini-card"><b>5. WAIVED</b><p>Если артефакт неприменим, это тоже решение: фиксируем кто и почему разрешил его не готовить.</p></div>
+        <div class="mini-card"><b>6. SUPERSEDED</b><p>Старые версии не исчезают. Новая версия заменяет старую с сохранением истории решения.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="pack">
+      <div class="section-head"><div><p class="eyebrow">Input register</p><h2>31 входной артефакт</h2></div><p class="muted">Ищи по названию, владельцу или смыслу: например «security», «scope», «нагрузка», «RFP».</p></div>
+      <div class="searchbar"><input id="intakeSearch" type="search" placeholder="Поиск по входному пакету…"><select id="intakeGroup"><option value="all">Все группы</option><option value="business">Бизнес / продукт</option><option value="requirements">Требования / процессы</option><option value="technology">Технологии / данные</option><option value="operations">Эксплуатация / delivery</option><option value="commercial">Коммерция / решения</option></select></div>
+      <div class="intake-table-wrap"><table class="intake-table"><thead><tr><th>ID</th><th>Артефакт</th><th>Владелец</th><th>Как получить</th><th>Что проверить</th><th>Если отсутствует</th><th>Что даёт архитектуре</th></tr></thead><tbody id="intakeBody"></tbody></table></div>
+      <p class="table-note">Полная текстовая версия процесса хранится рядом с материалами урока в `ARCHITECT_INTAKE_PACK.md`.</p>
+    </section>
+
+    <section class="section" id="own">
+      <div class="section-head"><div><p class="eyebrow">Architect-owned artifacts</p><h2>Что архитектор создаёт сам с первого дня</h2></div></div>
+      <div class="created-grid" id="ownGrid"></div>
+    </section>
+
+    <section class="section" id="redflags">
+      <div class="section-head"><div><p class="eyebrow">Red flags</p><h2>Когда входу нельзя доверять</h2></div></div>
+      <div class="red-grid" id="redGrid"></div>
+    </section>
+  </main>
+
+  <footer><span>FATHER Architect OS · Lesson 01 · Architect Intake Pack</span><a href="./lesson-01.html">← Словарь урока 1</a></footer>
+
+<script>
+const rows=[
+['IN-01','Product Vision','Sponsor / Product Owner','Интервью + стратегия + презентации','Проблема, пользователи, результат, границы','Vision Workshop → 1-page Vision','BUS / цели / границы','business'],
+['IN-02','Business Need / Problem Statement','Sponsor / Business Owner','Интервью + KPI + отчёты','Проблема измерима? почему сейчас?','Составить Problem Statement и подтвердить','Исходная бизнес-потребность','business'],
+['IN-03','Business Case','Sponsor / Finance / Product','Финмодель + бюджет + investment docs','Выгоды, стоимость, риски, альтернативы','Черновой value/cost case + assumptions','Экономика решения','business'],
+['IN-04','Stakeholder Register','Sponsor / PM / PO','Оргструктура + интервью + RACI','Кто принимает, использует, эксплуатирует','Stakeholder Map + validation','Владельцы требований','business'],
+['IN-05','Scope / Out of Scope','PO / PM / Sponsor','Charter + договор + backlog + workshop','MVP, границы, исключения','Scope Workshop → baseline','Границы архитектуры','business'],
+['IN-06','Business Requirements','Business Owner / BA','BRD/БФТ + интервью','Связь с целями, источник, приоритет','Architect + BA draft → business review','REQ-BUS','requirements'],
+['IN-07','Stakeholder Requirements','BA / Users / SME','Интервью + workshop + observation','Чей requirement, конфликты, приоритет','Интервью по ролям и сценариям','REQ-STK','requirements'],
+['IN-08','Functional Requirements','BA / PO','SRS + backlog + use cases','Сценарии, исключения, данные, ошибки','Use-case workshop','REQ-FUNC','requirements'],
+['IN-09','NFR / Quality Attributes','Architect + NFR owners','SRS + SLA + security + ops metrics','Latency, availability, scale, security измеримы?','NFR Catalogue + согласование','Архитектурные драйверы','requirements'],
+['IN-10','Acceptance Criteria','PO / QA / Business','Stories + DoD + UAT','Проверяемость и однозначность','Architect/BA/QA draft → approve','Будущие TEST','requirements'],
+['IN-11','Personas / Journeys / Use Cases','UX / PO / BA','Research + interviews + analytics','Реальные роли, частота, critical paths','Workshop + observation','UX и load scenarios','requirements'],
+['IN-12','Business Processes / BPMN','Process Owner / BA','Регламенты + BPMN + интервью','AS-IS/TO-BE, ручные шаги, исключения','Process interview → architect draft','Контекст automation/integration','requirements'],
+['IN-13','Domain Model / Glossary','SME / BA / Data Owner','Словари + регламенты + schemas','Термины, сущности, business rules','Domain workshop + glossary','Модель предметной области','requirements'],
+['IN-14','AS-IS Architecture','Architect / IT','C4/Visio + CMDB + repo + runtime','Актуальность, owners, реальные зависимости','Reverse engineering','Legacy constraints / integration points','technology'],
+['IN-15','Integration Inventory','Integration Architect / System Owners','API catalogue + OpenAPI + topics','Protocol, auth, SLA, owner, version','API/integration discovery','Внешние зависимости','technology'],
+['IN-16','Data Inventory / Data Dictionary','Data Owner / DBA / Data Architect','ERD + catalogue + schemas + samples','Owner, sensitivity, quality, volume, retention','Data profiling + interviews','DATA / privacy constraints','technology'],
+['IN-17','Security & Compliance Requirements','CISO / ИБ / Legal / DPO','Policies + laws + standards + threat model','Applicability и обязательность','Security workshop + applicability matrix','CTRL / security constraints','technology'],
+['IN-18','IAM Model','IAM / ИБ / Platform','RBAC/ABAC docs + IdP contracts','Actors, roles, service accounts, privilege','Access matrix workshop','Identity boundaries','technology'],
+['IN-19','SLA / SLO / Support Model','Ops / Service Owner','SLA + dashboards + incident stats','p95/p99, availability, support, escalation','SLO workshop','Operational NFR','operations'],
+['IN-20','Load Profile / Capacity Data','Analytics / Ops','RPS/TPS + concurrency + DAU/MAU + growth','Peak, average, seasonality, forecast','Assumptions + synthetic load profile','Sizing input','operations'],
+['IN-21','Infrastructure / Platform Constraints','Platform / DevOps / Cloud','Landing zone + CMDB + quotas + standards','Regions, networks, quotas, approved services','Platform interview + inventory','Technical constraints','technology'],
+['IN-22','Delivery Plan / Roadmap','PM / PO / EM','Roadmap + milestones + release plan','Dependencies, critical path, deadlines','Technical decomposition + roadmap','Schedule constraints','operations'],
+['IN-23','Team & Skills Matrix','Engineering Manager','Staffing + competency matrix','Skills, availability, bus factor','Interviews with EM/tech leads','Feasibility / maintainability','operations'],
+['IN-24','Budget / Commercial Model','Sponsor / Finance / Sales','Budget + contract + proposal','CAPEX/OPEX, limits, licenses, currency','Cost assumptions → confirmation','COST constraints','commercial'],
+['IN-25','RFI / RFP / RFQ / SOW / Contract','Procurement / Sales / Client','Procurement package','Scope, deliverables, acceptance, liabilities','Requirements/questions matrix','Commercial/legal рамки','commercial'],
+['IN-26','Risk Register','PM / Risk / Security / Architect','Risk register + audit findings','Probability, impact, owner, mitigation','Architect creates technical risk register','RISK','commercial'],
+['IN-27','Assumption Log','Architect / PM / BA','Workshops + estimates + ADR drafts','Owner + validation trigger','Architect creates from day 1','Явная неопределённость','commercial'],
+['IN-28','Open Questions / Decision Log','Architect / PM','Meeting notes + issue tracker','Owner, due date, blocking status','Architect maintains Questions Log','Управляемые GAP','commercial'],
+['IN-29','Existing ADR / Decision History','Architecture Board / Teams','Repo + wiki + minutes','Почему принято? ещё действует?','Reconstruct from git/interviews','Decision constraints','commercial'],
+['IN-30','Incidents / Postmortems','SRE / Ops / Support','Incident tracker + postmortems','Recurring failures, SLO breaches, RCA','Metrics review + interviews','Real pain points','operations'],
+['IN-31','PoC / Benchmark / Research Evidence','R&D / Team / Vendors','Reports + notebooks + test runs','Equal conditions? reproducible?','Architect defines experiment plan','Evidence for trade-offs','technology']
+];
+const own=[['INTAKE_REGISTER','Что получили, чего нет, статус, owner, версия.'],['QUESTIONS_LOG','Уточняющие вопросы, владелец ответа, срок, блокирующий статус.'],['ASSUMPTION_LOG','Предположения, которые нельзя выдавать за факт; для каждого — способ проверки.'],['CONSTRAINT_REGISTER','Ограничения бизнеса, техники, права, времени и денег.'],['RISK_REGISTER','Архитектурные/технические риски с owner и mitigation.'],['NFR_CATALOGUE','Измеримые quality attributes: latency, availability, security, scale и др.'],['STAKEHOLDER_MAP','Кто принимает, финансирует, использует, эксплуатирует и регулирует.'],['SCOPE_BASELINE','Что входит / не входит в текущий этап и MVP.'],['AS_IS_MAP','Существующая система, зависимости, реальные интеграции и legacy.'],['DECISION_BACKLOG','Какие архитектурные решения предстоит оформить ADR.']];
+const reds=['«Все и так знают, что имеется в виду»','Документ без owner','Нет даты или версии','Нагрузка без периода и методики','SLA без метрик','«Обязательно Kubernetes/AI» без потребности','Срок не связан со scope','Security: «должно быть безопасно»','Схема не совпадает с runtime','Assumption записан как факт'];
+const body=document.querySelector('#intakeBody');
+function renderRows(){const q=document.querySelector('#intakeSearch').value.toLowerCase().trim();const g=document.querySelector('#intakeGroup').value;const data=rows.filter(r=>(g==='all'||r[7]===g)&&(!q||r.slice(0,7).join(' ').toLowerCase().includes(q)));body.innerHTML=data.length?data.map(r=>`<tr>${r.slice(0,7).map(x=>`<td>${x}</td>`).join('')}</tr>`).join(''):`<tr class="empty-row"><td colspan="7">Ничего не найдено</td></tr>`}
+document.querySelector('#ownGrid').innerHTML=own.map(([a,b])=>`<div class="mini-card"><b class="status-token">${a}</b><p>${b}</p></div>`).join('');
+document.querySelector('#redGrid').innerHTML=reds.map(x=>`<div class="mini-card"><b>⚠ ${x}</b><p>Проверить источник, owner и основание до использования в архитектурном решении.</p></div>`).join('');
+document.querySelector('#intakeSearch').addEventListener('input',renderRows);document.querySelector('#intakeGroup').addEventListener('change',renderRows);renderRows();
+const root=document.documentElement;const saved=localStorage.getItem('otus-theme');if(saved)root.dataset.theme=saved;document.querySelector('#themeToggle').addEventListener('click',()=>{const next=root.dataset.theme==='light'?'dark':'light';root.dataset.theme=next;localStorage.setItem('otus-theme',next)});
+</script>
+</body>
+</html>

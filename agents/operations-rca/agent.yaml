@@ -1,0 +1,33 @@
+agent:
+  id: FTH-AG-OPS-001
+  name: "Operations / RCA Agent"
+  status: scaffold
+  maturity: M0
+  stages: [O1]
+  owner: FATHER Agent Zoo
+role: "Преобразует telemetry/incidents/user feedback в RCA, regression case, change request и risk update."
+contracts:
+  prompt: ./prompt.md
+  rag: ./rag.yaml
+  knowledge: ./knowledge.yaml
+inputs:
+  project_id: required
+  stage_context: required
+  artifact_refs: required
+outputs:
+  status: required
+  artifact_refs: required
+  findings: required
+  next_owner: required
+tools:
+  - observability
+  - incident
+  - rca
+  - change_request
+gates:
+  obey_stage_gate: true
+  no_silent_baseline_change: true
+observability:
+  trace_id: required
+  agent_id_tag: required
+  artifact_refs_log: required

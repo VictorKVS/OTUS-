@@ -1,0 +1,188 @@
+{
+  "schema_version": "father-architect-lesson-detail.v1",
+  "lesson_id": 1,
+  "purpose": "Архитектор сначала проверяет и нормализует вход: бизнес-цели, stakeholders, scope, требования, данные, интеграции, безопасность, нагрузку, бюджет, сроки и историю решений. Отсутствующие материалы фиксируются как GAP и добываются через owner, interview/workshop, reverse engineering или согласуемый draft.",
+  "schema": {
+    "notation": "SOURCE → INPUT → REQ/NFR → RISK/CONSTRAINT → OPTION → ADR → COMPONENT → TEST → SLO → COST → RELEASE",
+    "description": "Сквозная трассировка из Architect Intake Pack: важное решение должно иметь проверяемый источник; предположение не превращается в факт без подтверждения.",
+    "nodes": [
+      "SOURCE",
+      "INPUT",
+      "REQ/NFR",
+      "RISK/CONSTRAINT",
+      "OPTION",
+      "ADR",
+      "COMPONENT",
+      "TEST",
+      "SLO",
+      "COST",
+      "RELEASE"
+    ],
+    "edges": [
+      [
+        "SOURCE",
+        "INPUT"
+      ],
+      [
+        "INPUT",
+        "REQ/NFR"
+      ],
+      [
+        "REQ/NFR",
+        "RISK/CONSTRAINT"
+      ],
+      [
+        "RISK/CONSTRAINT",
+        "OPTION"
+      ],
+      [
+        "OPTION",
+        "ADR"
+      ],
+      [
+        "ADR",
+        "COMPONENT"
+      ],
+      [
+        "COMPONENT",
+        "TEST"
+      ],
+      [
+        "TEST",
+        "SLO"
+      ],
+      [
+        "SLO",
+        "COST"
+      ],
+      [
+        "COST",
+        "RELEASE"
+      ]
+    ]
+  },
+  "visual": {
+    "poster": "./assets/lesson-01-architect-intake.svg",
+    "alt": "Lesson 01 Architect Intake: 31 входной артефакт проходят через GAP/owner/workshop/verification и формируют требования, риски, ADR и проверяемую архитектуру."
+  },
+  "curriculum": {
+    "summary": "Материал урока 1 рассматривает путь от идеи на салфетке до формального ТЗ/RFP, выявление скрытых требований, бизнес-контекст, неопределённость, риски и коммерческие модели.",
+    "requirements": [
+      "Presales и работа с RFP/требованиями",
+      "Выявление явных и скрытых требований",
+      "Фиксация бизнес-контекста и ограничений",
+      "Понимание Fixed Price, T&M и T&M with a cap",
+      "Change Management и работа с неопределённостью",
+      "Риски и архитектурные артефакты"
+    ],
+    "homework": [],
+    "sources": [
+      "Исходные материалы урока 1 в папке курса",
+      "ARCHITECT_INTAKE_PACK.md как профессиональное расширение"
+    ]
+  },
+  "architect_pro": {
+    "summary": "Профессиональное расширение вводит Architect Intake Pack: реестр из 31 входного артефакта, статусы, owners, способы получения, проверки качества и процесс превращения GAP в подтверждённый вход.",
+    "methods": [
+      "Создать Intake Register и заполнить ожидаемые IN-01..IN-31",
+      "Для отсутствующего материала поставить GAP",
+      "Назначить владельца информации",
+      "Получить данные через interview / workshop / data pull / reverse engineering",
+      "При необходимости создать draft",
+      "Получить owner review / confirmation",
+      "Проверить owner, source, date, version, scope и contradictions",
+      "Только после VERIFIED / CONFIRMED использовать вход в REQ/NFR/RISK/ADR"
+    ],
+    "standards": [],
+    "anti_patterns": [
+      "«Все и так знают, что имеется в виду»",
+      "Документ без owner",
+      "Документ без даты или версии",
+      "Нагрузка без периода и методики",
+      "SLA без измеримых метрик",
+      "«Обязательно Kubernetes/AI/blockchain» без потребности",
+      "Срок не связан со scope",
+      "Security requirement: «система должна быть безопасной»",
+      "Архитектурная схема не совпадает с runtime",
+      "Assumption записан как факт"
+    ],
+    "templates": [
+      "INTAKE_REGISTER",
+      "QUESTIONS_LOG",
+      "ASSUMPTION_LOG",
+      "CONSTRAINT_REGISTER",
+      "RISK_REGISTER",
+      "NFR_CATALOGUE",
+      "STAKEHOLDER_MAP",
+      "SCOPE_BASELINE",
+      "AS_IS_MAP",
+      "DECISION_BACKLOG"
+    ]
+  },
+  "father_production": {
+    "summary": "Lesson 01 превращается в production-контур управления входами, требованиями и трассировкой: Intake Workspace фиксирует вход/GAP/owner, Requirements & Traceability Service связывает требования, риски и решения, Context Builder подаёт проверенный контекст в последующие AI/agent workflows.",
+    "capability_ids": [
+      "FTH-INT-001",
+      "FTH-REQ-001",
+      "FTH-CTX-001"
+    ],
+    "components": [
+      "FTH-INT-001 · Architect Intake Workspace",
+      "FTH-REQ-001 · Requirements & Traceability Service",
+      "FTH-CTX-001 · Context Builder"
+    ],
+    "runtime_notes": [
+      "Источник и версия должны сохраняться вместе с входным артефактом",
+      "GAP и assumption не публикуются как подтверждённый факт",
+      "Связь SOURCE → REQ/NFR → RISK → ADR должна быть прослеживаемой"
+    ]
+  },
+  "artifacts": [
+    "ARCHITECT_INTAKE_PACK.md",
+    "site/lesson-01.html",
+    "site/lesson-01-intake.html",
+    "INTAKE_REGISTER",
+    "QUESTIONS_LOG",
+    "ASSUMPTION_LOG",
+    "CONSTRAINT_REGISTER",
+    "RISK_REGISTER",
+    "NFR_CATALOGUE",
+    "STAKEHOLDER_MAP",
+    "SCOPE_BASELINE",
+    "AS_IS_MAP",
+    "DECISION_BACKLOG"
+  ],
+  "evidence": [
+    "В Git хранится реестр IN-01..IN-31 с owner / acquisition / checks / fallback",
+    "В Git хранится Mermaid-процесс получения и верификации входа",
+    "Существуют отдельные страницы Lesson 01 и Architect Intake",
+    "Урок подключён к универсальному lesson runtime через detail manifest"
+  ],
+  "traceability": [
+    "SOURCE → INPUT",
+    "INPUT → REQ/NFR",
+    "REQ/NFR → RISK/CONSTRAINT",
+    "RISK/CONSTRAINT → OPTION → ADR",
+    "ADR → COMPONENT → TEST",
+    "TEST → SLO → COST → RELEASE"
+  ],
+  "gaps": [
+    "Runtime-сервисы FTH-INT-001 и FTH-REQ-001 пока являются архитектурным target, а не доказанным production deployment.",
+    "Автоматическое получение статусов входных артефактов из реальной системы ещё не реализовано.",
+    "Lesson 01 пока не имеет автоматизированной проверки completeness IN-01..IN-31."
+  ],
+  "sources": [
+    {
+      "title": "Architect Intake Pack",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/1.%20%D0%9F%D1%80%D0%B5%D1%81%D0%B5%D0%B9%D0%BB,%20%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%B0%D0%BA%D1%82%D1%8B%20%D0%B8%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D1%82%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%D0%BC%D0%B8%20%D0%B7%D0%B0%D0%BA%D0%BB%D0%B0%D0%B4%D1%8B%D0%B2%D0%B0%D0%B5%D0%BC%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/ARCHITECT_INTAKE_PACK.md"
+    },
+    {
+      "title": "Legacy Lesson 01 expert page",
+      "url": "./lesson-01.html"
+    },
+    {
+      "title": "Architect Intake interactive page",
+      "url": "./lesson-01-intake.html"
+    }
+  ]
+}

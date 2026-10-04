@@ -1,0 +1,33 @@
+agent:
+  id: FTH-AG-GOV-001
+  name: "Governance / Traceability Agent"
+  status: scaffold
+  maturity: M0
+  stages: [A2, A4, D0, D0.5, V3, R1]
+  owner: FATHER Agent Zoo
+role: "Следит за baseline, ADR lifecycle, waivers, orphan links и сквозной доказательностью."
+contracts:
+  prompt: ./prompt.md
+  rag: ./rag.yaml
+  knowledge: ./knowledge.yaml
+inputs:
+  project_id: required
+  stage_context: required
+  artifact_refs: required
+outputs:
+  status: required
+  artifact_refs: required
+  findings: required
+  next_owner: required
+tools:
+  - traceability
+  - adr_registry
+  - waiver
+  - baseline
+gates:
+  obey_stage_gate: true
+  no_silent_baseline_change: true
+observability:
+  trace_id: required
+  agent_id_tag: required
+  artifact_refs_log: required

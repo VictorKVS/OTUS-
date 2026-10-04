@@ -1,0 +1,37 @@
+name: Development Pack Validation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'projects/**/04_dev_pack/**'
+      - 'tools/validate_dev_pack.py'
+      - '.github/workflows/dev-pack-validation.yml'
+  push:
+    branches: [feature/otus-homework-site]
+    paths:
+      - 'projects/**/04_dev_pack/**'
+      - 'tools/validate_dev_pack.py'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pyyaml jsonschema
+      - name: Validate every project Development Pack
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t packs < <(find projects -type f -path '*/04_dev_pack/DEV_PACK_MANIFEST.json' -print 2>/dev/null | xargs -r -n1 dirname)
+          if [ "${#packs[@]}" -eq 0 ]; then
+            echo "No project Development Packs found; nothing to validate."
+            exit 0
+          fi
+          for pack in "${packs[@]}"; do
+            echo "=== Validating $pack ==="
+            python tools/validate_dev_pack.py "$pack"
+          done

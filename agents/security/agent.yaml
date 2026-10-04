@@ -1,0 +1,32 @@
+agent:
+  id: FTH-AG-SEC-001
+  name: "Security Architect"
+  status: scaffold
+  maturity: M0
+  stages: [A4, V1]
+  owner: FATHER Agent Zoo
+role: "Формирует threat model, security controls, IAM, data classification, DLP/PII, secrets и security tests."
+contracts:
+  prompt: ./prompt.md
+  rag: ./rag.yaml
+  knowledge: ./knowledge.yaml
+inputs:
+  project_id: required
+  stage_context: required
+  artifact_refs: required
+outputs:
+  status: required
+  artifact_refs: required
+  findings: required
+  next_owner: required
+tools:
+  - threat_model
+  - policy
+  - security_review
+gates:
+  obey_stage_gate: true
+  no_silent_baseline_change: true
+observability:
+  trace_id: required
+  agent_id_tag: required
+  artifact_refs_log: required
