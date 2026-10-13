@@ -630,19 +630,23 @@
       "id": 20,
       "title": "Стратегии развёртывания и Production",
       "gate": "G5",
-      "status": "materials",
-      "evidence": "Canary · rollback · deployment",
+      "status": "draft",
+      "evidence": "IaC · CI/CD · Model Registry · MLOps · Canary 1→5→100 · rollback plan",
       "path": "20 Стратегии развёртывания и вывода в Production  ДЗ",
-      "expertPath": null,
-      "maturity": "M0",
+      "expertPath": "./lesson-template.html?id=20",
+      "maturity": "M1",
       "curriculum": {
         "source_path": "20 Стратегии развёртывания и вывода в Production  ДЗ",
-        "status": "materials",
-        "submission_status": "unknown"
+        "status": "draft",
+        "submission_status": "not_submitted_in_source",
+        "teacher": "Игорь Стурейко",
+        "lesson_date": "2026-10-07",
+        "duration_minutes": 90,
+        "recommended_due": "2026-10-27"
       },
       "architect_pro": {
-        "page": null,
-        "status": "planned"
+        "page": "./lesson-template.html?id=20",
+        "status": "active"
       },
       "father_production": {
         "capability_ids": [
@@ -650,7 +654,11 @@
           "FTH-MRG-001",
           "FTH-OBS-001",
           "FTH-GTW-001",
-          "FTH-DLV-001"
+          "FTH-DLV-001",
+          "FTH-DSEC-001",
+          "FTH-K8S-001",
+          "FTH-SLO-001",
+          "FTH-EVL-001"
         ]
       }
     },

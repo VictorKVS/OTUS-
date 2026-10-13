@@ -1,0 +1,36 @@
+schema_version: father-canary-policy.v1
+strategy: canary
+stable_release_ref: previous-approved-release
+candidate_release_ref: REL-2026-10-DZ20-001
+
+stages:
+  - traffic_percent: 1
+    min_observation_minutes: 10
+  - traffic_percent: 5
+    min_observation_minutes: 30
+  - traffic_percent: 100
+    action: promote
+
+blocking_gates:
+  availability:
+    readiness_required: true
+    liveness_required: true
+  latency:
+    p95_max_regression_percent_vs_stable: 20
+  ai_quality:
+    max_relative_degradation_percent: 5
+  security:
+    critical_events_allowed: 0
+    confirmed_data_leak_events_allowed: 0
+  cost:
+    max_regression_percent_vs_stable: 20
+
+on_failure:
+  route_traffic_percent_to_stable: 100
+  stop_candidate: true
+  revert_desired_state: true
+  open_rca: true
+
+notes:
+  - Thresholds are DZ20 design assumptions and must be calibrated against real SLOs.
+  - Error-rate gate is bound to service SLO/stable baseline rather than a universal hard-coded value.

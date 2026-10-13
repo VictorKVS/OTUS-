@@ -1191,3 +1191,31 @@ Shared baseline:
 - Architect DZ18 reuses Minikube for IaC / CI/CD / DevSecOps delivery.
 - Kind is no longer required by DZ18.
 - Terraform remains specific to Architect DZ18 and is not duplicated by Kubernetes DZ1.
+
+
+---
+
+## 2026-10-13 — priority jump to Lesson 20 / DZ20 submission
+
+User supplied the current Lesson 20 homework text and requested to review the supplied Argo CD and Canary materials and prepare the required submission.
+
+### Prepared
+
+- `20 Стратегии развёртывания и вывода в Production  ДЗ/DZ_20_Production_Delivery/DZ_20_SUBMISSION.md`;
+- Terraform-style IaC pseudocode for network/K8s/S3;
+- CI/CD + MLOps integrated pipeline;
+- immutable release manifest binding app image + model artifact + RAG index + prompt/config;
+- Canary policy 1% → 5% → 100%;
+- rollback plan and readiness checklist;
+- no-crossing submission architecture SVG;
+- Lesson 20 detail manifest + site page.
+
+### Course acceptance mapping
+
+- Integration: Model Registry linked to application release.
+- Release safety: tests + Canary + rollback.
+- Automation: GitOps pipeline minimizes manual production actions.
+
+### Status boundary
+
+Architecture submission package is ready, but curriculum status remains **not submitted** until external OTUS submission is performed.

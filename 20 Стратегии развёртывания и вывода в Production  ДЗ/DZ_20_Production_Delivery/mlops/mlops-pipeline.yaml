@@ -1,0 +1,46 @@
+schema_version: father-mlops-pipeline.v1
+trigger:
+  any:
+    - dataset_changed
+    - approved_training_code_changed
+    - rag_source_corpus_changed
+
+pipeline:
+  - id: validate_data
+    action: schema_quality_validation
+    example_tool: Pandera
+
+  - id: orchestrate
+    action: trigger_pipeline
+    example_tool: Airflow
+
+  - id: retrain_model
+    action: train_or_finetune
+    when: dataset_or_training_change
+
+  - id: rebuild_rag_index
+    action: chunk_embed_index
+    when: rag_source_corpus_changed
+
+  - id: evaluate
+    action: quality_security_regression_eval
+    blocking: true
+
+  - id: publish_model
+    action: publish_to_model_registry
+    when: model_candidate_passed
+
+  - id: publish_index
+    action: publish_versioned_rag_index
+    when: rag_candidate_passed
+
+  - id: create_release
+    action: bind_app_model_index_prompt_config
+
+  - id: trigger_delivery
+    action: update_git_desired_state
+
+deployment:
+  controller: Argo CD
+  target: Kubernetes
+  release_policy: canary-1-5-100
