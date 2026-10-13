@@ -149,7 +149,7 @@
     "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/app/ — minimal FastAPI agent service",
     "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/Dockerfile — non-root container image",
     "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/terraform/local-lab/ — Terraform local lab",
-    "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/kind/kind-config.yaml — local Kubernetes cluster config",
+    "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/Minikube profile father-dz18 — shared local Kubernetes runtime",
     "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/k8s/ — namespace/deployment/service/network policy",
     "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/security/quality-gates.yaml — machine-readable DevSecOps gates",
     "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/scripts/deploy_local.ps1 — local deployment orchestrator",
@@ -160,7 +160,7 @@
     "Source lesson explicitly requires Terraform/IaC.",
     "Source lesson explicitly requires CI/CD with quality gates.",
     "Source lesson practice explicitly names VPC, Kubernetes cluster and S3 as Terraform targets.",
-    "A versioned Terraform local-lab scaffold now provisions a Docker network (local VPC analogue), MinIO (local S3 analogue) and ensures a Kind Kubernetes cluster.",
+    "A versioned Terraform local-lab scaffold now provisions a Docker network (local VPC analogue), MinIO (local S3 analogue) and ensures a Minikube Kubernetes cluster.",
     "A minimal non-root FastAPI agent image, Kubernetes Deployment/Service/NetworkPolicy and health probes are versioned in the homework folder.",
     "A path-scoped GitHub Actions workflow defines tests, SAST, dependency audit, secret scan, SBOM generation, Terraform validation, Checkov and container scan stages.",
     "Runtime apply/deploy evidence is still pending local execution; therefore this is engineering M1 draft, not a confirmed running Kubernetes lab."
@@ -177,7 +177,7 @@
     "DEPLOY → VERIFY → EVIDENCE"
   ],
   "gaps": [
-    "Runtime evidence is pending: Terraform apply, Kind cluster, MinIO, Kubernetes rollout and health verification have not yet been confirmed on the user's machine.",
+    "Runtime evidence is pending: Terraform apply, Minikube profile, MinIO, Kubernetes rollout and health verification have not yet been confirmed on the user's machine.",
     "CI workflow is versioned but a successful GitHub Actions run for the new DZ18 scaffold has not yet been confirmed.",
     "Completed CI/CD workflow for Lesson 18 is not confirmed.",
     "Kubernetes cluster runtime evidence is not confirmed.",

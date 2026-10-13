@@ -3,7 +3,7 @@ $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent $PSScriptRoot
 Set-Location $Root
 
-$Required = @("docker", "terraform", "kind", "kubectl", "python")
+$Required = @("docker", "terraform", "minikube", "kubectl", "python")
 foreach ($cmd in $Required) {
     if (-not (Get-Command $cmd -ErrorAction SilentlyContinue)) {
         throw "Required command not found in PATH: $cmd"
@@ -33,8 +33,11 @@ Pop-Location
 Write-Host "== Build local agent image ==" -ForegroundColor Cyan
 docker build -t father-dz18-agent:local .
 
-Write-Host "== Load image into Kind ==" -ForegroundColor Cyan
-kind load docker-image father-dz18-agent:local --name father-dz18
+Write-Host "== Load image into Minikube ==" -ForegroundColor Cyan
+minikube image load father-dz18-agent:local -p father-dz18
+
+Write-Host "== Select Minikube context ==" -ForegroundColor Cyan
+kubectl config use-context father-dz18
 
 Write-Host "== Apply Kubernetes manifests ==" -ForegroundColor Cyan
 kubectl apply -f ".\k8s\namespace.yaml"
@@ -46,7 +49,7 @@ Write-Host "== Wait for rollout ==" -ForegroundColor Cyan
 kubectl rollout status deployment/father-agent -n father-dz18 --timeout=120s
 
 Write-Host ""
-Write-Host "DZ18 lab deployed." -ForegroundColor Green
+Write-Host "DZ18 lab deployed into the shared Minikube runtime." -ForegroundColor Green
 Write-Host "MinIO API:     http://127.0.0.1:9000"
 Write-Host "MinIO Console: http://127.0.0.1:9001"
 Write-Host ""

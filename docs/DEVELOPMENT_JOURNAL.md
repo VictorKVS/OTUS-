@@ -1175,3 +1175,19 @@ Lesson 18 moved from MATERIALS/M0 to **DRAFT/M1** because implementation artifac
 
 It is **not LAB yet**. Required runtime evidence is still pending:
 Terraform apply, Kind/Kubernetes rollout, health endpoint and CI run.
+
+
+---
+
+## 2026-10-13 — DZ18 / Kubernetes DZ1 runtime unification
+
+To avoid duplicate local Kubernetes stacks, Architect DZ18 is aligned with the parallel Kubernetes course.
+
+Shared baseline:
+
+`Docker Desktop → kubectl → Minikube`
+
+- Kubernetes DZ1 owns the base Minikube learning environment.
+- Architect DZ18 reuses Minikube for IaC / CI/CD / DevSecOps delivery.
+- Kind is no longer required by DZ18.
+- Terraform remains specific to Architect DZ18 and is not duplicated by Kubernetes DZ1.

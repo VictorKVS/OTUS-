@@ -6,7 +6,7 @@ After local execution, capture:
 
 1. terraform fmt/validate output;
 2. terraform plan/apply summary;
-3. `kind get clusters`;
+3. `minikube status -p father-dz18`;
 4. `kubectl get all -n father-dz18 -o wide`;
 5. rollout status;
 6. health endpoint response;

@@ -34,7 +34,7 @@ VALIDATED DEV PACK
 | Требование курса | Local lab |
 |---|---|
 | VPC | Docker network `father-dz18-vpc` |
-| Kubernetes cluster | Kind cluster `father-dz18` |
+| Kubernetes cluster | Minikube profile `father-dz18` |
 | S3 | MinIO |
 | CI/CD | GitHub Actions |
 | Quality/Security gates | pytest, Bandit, Semgrep, pip-audit, detect-secrets, Checkov, Trivy |
@@ -49,7 +49,7 @@ DZ_18_IaC_CICD/
 ├── app/
 ├── tests/
 ├── terraform/local-lab/
-├── kind/
+├── minikube/
 ├── k8s/
 ├── security/
 ├── evidence/
@@ -65,7 +65,7 @@ DZ_18_IaC_CICD/
 - Docker Desktop;
 - Python 3.12+;
 - Terraform;
-- kind;
+- minikube;
 - kubectl.
 
 ## Локальный запуск
@@ -107,7 +107,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\destroy_local.ps1
 
 - `terraform validate`;
 - `terraform plan/apply`;
-- `kind get clusters`;
+- `minikube get clusters`;
 - `kubectl get all -n father-dz18`;
 - rollout status;
 - `/health`;

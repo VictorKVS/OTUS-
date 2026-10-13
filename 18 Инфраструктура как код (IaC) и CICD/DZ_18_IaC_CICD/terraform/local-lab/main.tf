@@ -33,11 +33,11 @@ resource "docker_container" "minio" {
   }
 }
 
-resource "terraform_data" "kind_cluster" {
+resource "terraform_data" "minikube_cluster" {
   input = var.cluster_name
 
   provisioner "local-exec" {
-    command = "python \"${path.module}/../../scripts/ensure_kind_cluster.py\" --name \"${var.cluster_name}\" --config \"${path.module}/../../kind/kind-config.yaml\""
+    command = "python \"${path.module}/../../scripts/ensure_minikube_cluster.py\" --profile \"${var.cluster_name}\""
   }
 
   depends_on = [docker_network.father_vpc]

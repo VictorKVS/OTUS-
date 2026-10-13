@@ -572,7 +572,7 @@
       "title": "Infrastructure as Code и CI/CD",
       "gate": "G5",
       "status": "draft",
-      "evidence": "Terraform local lab · Docker · Kind/Kubernetes · CI/DevSecOps scaffold · runtime evidence pending",
+      "evidence": "Terraform local lab · Docker · Minikube/Kubernetes · CI/DevSecOps scaffold · runtime evidence pending",
       "path": "18 Инфраструктура как код (IaC) и CICD",
       "expertPath": "./lesson-template.html?id=18",
       "maturity": "M1",
