@@ -1234,3 +1234,19 @@ Principles:
 - numeric thresholds require source, statistical rationale, benchmark or measured evidence;
 - LAB and PROD evidence are never conflated;
 - Lesson 20 report is generated from the same project, not as an isolated homework diagram.
+
+
+---
+
+## 2026-10-13 — deepening wave 1 for canonical 0–20 project
+
+Expanded `SAIKA-001` through lessons 00–05 with real artifacts rather than placeholder README files.
+
+Key discipline:
+- source-provided Lesson 2 NFR numbers are preserved as `COURSE_TEMPLATE`;
+- no course example is silently promoted to a production SLO;
+- unknown customer facts remain `TBD`;
+- requirements now trace into C4/HLD/LLD and verification methods;
+- Lesson 4 C1/C2 and Lesson 5 C3/API/sequence requirements are reflected directly in project artifacts.
+
+Next planned wave: 06–10.

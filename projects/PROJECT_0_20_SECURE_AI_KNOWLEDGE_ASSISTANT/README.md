@@ -66,3 +66,20 @@ IDEA
 | 20 | **Production release** → DZ20_REPORT.md · CANARY_POLICY.md · ROLLBACK_PLAN.md |
 
 Главный отчёт для сдачи Lesson 20: [REPORT/DZ20_REPORT.md](./REPORT/DZ20_REPORT.md).
+
+
+## Deepening status
+
+### Wave 1 · Lessons 00–05 — DONE / DESIGN
+
+Created real project artifacts:
+- charter/intake;
+- business context and measurement plan;
+- functional requirements, NFR and risk register;
+- value-delivery roadmap and stage gates;
+- C4 C1/C2 textual source-of-truth;
+- HLD invariants;
+- LLD for Query API, OpenAPI 3.1 contract and sequence;
+- wave-1 requirements traceability.
+
+Next wave: **06–10 · RAG → Agent → ADR → Architecture Review → Governance**.
