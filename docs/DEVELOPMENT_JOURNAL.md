@@ -1219,3 +1219,18 @@ User supplied the current Lesson 20 homework text and requested to review the su
 ### Status boundary
 
 Architecture submission package is ready, but curriculum status remains **not submitted** until external OTUS submission is performed.
+
+
+---
+
+## 2026-10-13 — canonical end-to-end project 0–20
+
+Created one continuous senior-level teaching/production project: `projects/PROJECT_0_20_SECURE_AI_KNOWLEDGE_ASSISTANT`.
+
+Principles:
+- one system evolves through lessons 0–20;
+- explanations must remain understandable to a senior school student without losing engineering rigor;
+- tables and explicit traceability are mandatory;
+- numeric thresholds require source, statistical rationale, benchmark or measured evidence;
+- LAB and PROD evidence are never conflated;
+- Lesson 20 report is generated from the same project, not as an isolated homework diagram.
