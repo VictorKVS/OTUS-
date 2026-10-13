@@ -1,0 +1,87 @@
+name: DZ18 IaC DevSecOps
+
+on:
+  pull_request:
+    paths:
+      - '18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/**'
+      - '.github/workflows/dz18-iac-devsecops.yml'
+  push:
+    branches: ['feature/otus-homework-site']
+    paths:
+      - '18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/**'
+      - '.github/workflows/dz18-iac-devsecops.yml'
+  workflow_dispatch:
+
+jobs:
+  quality-security:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: '18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install test and security tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+          pip install semgrep==1.99.0 checkov==3.2.337
+
+      - name: Compile
+        run: python -m compileall app tests
+
+      - name: Unit tests
+        run: pytest -q
+
+      - name: Bandit SAST
+        run: bandit -r app -ll
+
+      - name: Semgrep SAST
+        run: semgrep scan --config p/python --error app
+
+      - name: Dependency audit
+        run: pip-audit -r requirements.txt
+
+      - name: Secret scan
+        run: detect-secrets scan app tests terraform kind k8s security scripts Dockerfile requirements.txt requirements-dev.txt > evidence/detect-secrets.json
+
+      - name: Generate SBOM
+        run: cyclonedx-py requirements requirements.txt --output-format JSON --output-file evidence/sbom.cdx.json
+
+      - name: Check Kubernetes/IaC
+        run: |
+          checkov -d terraform --framework terraform
+          checkov -d k8s --framework kubernetes
+
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: '1.9.8'
+
+      - name: Terraform fmt
+        run: terraform -chdir=terraform/local-lab fmt -check
+
+      - name: Terraform init
+        run: terraform -chdir=terraform/local-lab init -backend=false
+
+      - name: Terraform validate
+        run: terraform -chdir=terraform/local-lab validate
+
+      - name: Build image
+        run: docker build -t father-dz18-agent:ci .
+
+      - name: Trivy container gate
+        run: |
+          docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
+            aquasec/trivy:0.57.1 image \
+            --exit-code 1 --ignore-unfixed --severity CRITICAL \
+            father-dz18-agent:ci
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dz18-evidence
+          path: '18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/evidence/'

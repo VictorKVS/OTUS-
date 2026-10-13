@@ -140,19 +140,30 @@
       "Lessons 16–17 sizing determine runtime requests/limits and deployment target",
       "Validated Development Pack is the delivery input",
       "Kubernetes is a selectable target, not mandatory for every agent",
-      "DevOps/DevSecOps Factory remains TARGET until Lesson 18 infrastructure and pipeline evidence exist"
+      "DevOps/DevSecOps Factory remains TARGET until Lesson 18 infrastructure and pipeline evidence exist",
+      "DZ18 scaffold now exists under the lesson folder; activation to LAB requires local runtime verification and captured evidence."
     ]
   },
   "artifacts": [
-    "18. Инфраструктура как код IaC и CI CD.txt",
-    "TARGET: Terraform VPC/Kubernetes/S3 configuration",
-    "TARGET: CI/CD pipeline with quality gates",
-    "TARGET: DevOps/DevSecOps Factory scaffold after homework"
+    "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/README.md — homework/lab entrypoint",
+    "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/app/ — minimal FastAPI agent service",
+    "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/Dockerfile — non-root container image",
+    "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/terraform/local-lab/ — Terraform local lab",
+    "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/kind/kind-config.yaml — local Kubernetes cluster config",
+    "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/k8s/ — namespace/deployment/service/network policy",
+    "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/security/quality-gates.yaml — machine-readable DevSecOps gates",
+    "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/scripts/deploy_local.ps1 — local deployment orchestrator",
+    ".github/workflows/dz18-iac-devsecops.yml — CI/DevSecOps validation workflow",
+    "site/dz18-devsecops.html — visual lab page"
   ],
   "evidence": [
     "Source lesson explicitly requires Terraform/IaC.",
     "Source lesson explicitly requires CI/CD with quality gates.",
-    "Source lesson practice explicitly names VPC, Kubernetes cluster and S3 as Terraform targets."
+    "Source lesson practice explicitly names VPC, Kubernetes cluster and S3 as Terraform targets.",
+    "A versioned Terraform local-lab scaffold now provisions a Docker network (local VPC analogue), MinIO (local S3 analogue) and ensures a Kind Kubernetes cluster.",
+    "A minimal non-root FastAPI agent image, Kubernetes Deployment/Service/NetworkPolicy and health probes are versioned in the homework folder.",
+    "A path-scoped GitHub Actions workflow defines tests, SAST, dependency audit, secret scan, SBOM generation, Terraform validation, Checkov and container scan stages.",
+    "Runtime apply/deploy evidence is still pending local execution; therefore this is engineering M1 draft, not a confirmed running Kubernetes lab."
   ],
   "traceability": [
     "VALIDATED DEV PACK → IaC/PIPELINE",
@@ -166,7 +177,8 @@
     "DEPLOY → VERIFY → EVIDENCE"
   ],
   "gaps": [
-    "Current Lesson 18 folder evidence inspected here contains source lesson text; completed Terraform configuration is not confirmed.",
+    "Runtime evidence is pending: Terraform apply, Kind cluster, MinIO, Kubernetes rollout and health verification have not yet been confirmed on the user's machine.",
+    "CI workflow is versioned but a successful GitHub Actions run for the new DZ18 scaffold has not yet been confirmed.",
     "Completed CI/CD workflow for Lesson 18 is not confirmed.",
     "Kubernetes cluster runtime evidence is not confirmed.",
     "S3/VPC deployment evidence is not confirmed.",

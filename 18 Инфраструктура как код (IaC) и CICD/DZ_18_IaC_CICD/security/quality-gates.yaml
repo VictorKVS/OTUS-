@@ -1,0 +1,55 @@
+schema_version: father-devsecops-gates.v1
+status: engineering-draft
+gates:
+  - id: QG-01
+    name: Python tests
+    tool: pytest
+    blocking: true
+  - id: QG-02
+    name: SAST
+    tool: bandit + semgrep
+    blocking: true
+  - id: QG-03
+    name: Dependency audit
+    tool: pip-audit
+    blocking: true
+  - id: QG-04
+    name: Secret scan
+    tool: detect-secrets
+    blocking: true
+  - id: QG-05
+    name: SBOM
+    tool: CycloneDX
+    blocking: true
+  - id: QG-06
+    name: Terraform validation
+    tool: terraform fmt + validate
+    blocking: true
+  - id: QG-07
+    name: IaC/Kubernetes policy scan
+    tool: Checkov
+    blocking: true
+  - id: QG-08
+    name: Container vulnerability scan
+    tool: Trivy
+    blocking: true
+    policy: CRITICAL + ignore-unfixed
+runtime_gates:
+  - id: RG-01
+    name: Kubernetes rollout
+    blocking: true
+  - id: RG-02
+    name: Health endpoint
+    blocking: true
+evidence:
+  required:
+    - tests
+    - sast
+    - sca
+    - secret_scan
+    - sbom
+    - terraform_validate
+    - iac_scan
+    - container_scan
+    - rollout
+    - health

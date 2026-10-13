@@ -1,0 +1,4 @@
+# Copy to terraform.tfvars only if you do not use TF_VAR_* environment variables.
+# Never commit real credentials.
+minio_root_user     = "CHANGE_ME"
+minio_root_password = "CHANGE_ME"

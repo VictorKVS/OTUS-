@@ -1145,3 +1145,33 @@ Defined TARGET:
 **FATHER DevOps / DevSecOps Factory**.
 
 Activation requires real Lesson 18 homework/lab evidence. Kubernetes is introduced as a selectable deployment target, not a mandatory runtime for every agent.
+
+
+---
+
+## 2026-10-13 — STEP 22 started — DZ18 IaC / DevSecOps lab
+
+Created a runnable engineering scaffold under:
+
+`18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD`
+
+### Added
+
+- minimal FastAPI agent service + tests;
+- non-root Docker image;
+- Terraform local lab;
+- Docker network as local VPC analogue;
+- MinIO as local S3 analogue;
+- Kind Kubernetes target;
+- Kubernetes namespace/deployment/service/network policy;
+- PowerShell deploy/verify/destroy scripts;
+- machine-readable DevSecOps gates;
+- GitHub Actions workflow with test/SAST/SCA/secret/SBOM/IaC/container gates;
+- DZ18 visual page on the site.
+
+### Status boundary
+
+Lesson 18 moved from MATERIALS/M0 to **DRAFT/M1** because implementation artifacts now exist.
+
+It is **not LAB yet**. Required runtime evidence is still pending:
+Terraform apply, Kind/Kubernetes rollout, health endpoint and CI run.

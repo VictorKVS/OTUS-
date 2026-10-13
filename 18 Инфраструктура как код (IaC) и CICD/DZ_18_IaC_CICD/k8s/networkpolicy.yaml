@@ -1,0 +1,12 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: father-agent-default-deny
+  namespace: father-dz18
+spec:
+  podSelector:
+    matchLabels:
+      app: father-agent
+  policyTypes:
+    - Ingress
+    - Egress
