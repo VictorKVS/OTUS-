@@ -444,19 +444,19 @@
       "id": 14,
       "title": "Security by Design для AI-систем",
       "gate": "G4",
-      "status": "materials",
-      "evidence": "Threats · controls · secure architecture",
+      "status": "lab",
+      "evidence": "PII Sanitizer · Guardrail Validator · Secret Manager · secure-agent tests",
       "path": "14. Security by Design архитектура для защиты AI-систем",
-      "expertPath": null,
-      "maturity": "M0",
+      "expertPath": "./lesson-template.html?id=14",
+      "maturity": "M1",
       "curriculum": {
         "source_path": "14. Security by Design архитектура для защиты AI-систем",
-        "status": "materials",
+        "status": "lab",
         "submission_status": "unknown"
       },
       "architect_pro": {
-        "page": null,
-        "status": "planned"
+        "page": "./lesson-template.html?id=14",
+        "status": "active"
       },
       "father_production": {
         "capability_ids": [
@@ -466,7 +466,8 @@
           "FTH-TOL-001",
           "FTH-MCP-001",
           "FTH-AGT-001",
-          "FTH-POL-001"
+          "FTH-POL-001",
+          "FTH-DSEC-001"
         ]
       }
     },
@@ -571,9 +572,9 @@
       "title": "Infrastructure as Code и CI/CD",
       "gate": "G5",
       "status": "materials",
-      "evidence": "IaC · pipelines · environments",
+      "evidence": "Terraform · quality gates · VPC · Kubernetes · S3",
       "path": "18 Инфраструктура как код (IaC) и CICD",
-      "expertPath": null,
+      "expertPath": "./lesson-template.html?id=18",
       "maturity": "M0",
       "curriculum": {
         "source_path": "18 Инфраструктура как код (IaC) и CICD",
@@ -581,14 +582,19 @@
         "submission_status": "unknown"
       },
       "architect_pro": {
-        "page": null,
-        "status": "planned"
+        "page": "./lesson-template.html?id=18",
+        "status": "active"
       },
       "father_production": {
         "capability_ids": [
           "FTH-HARNESS-001",
           "FTH-WFG-001",
-          "FTH-DLV-001"
+          "FTH-DLV-001",
+          "FTH-DSEC-001",
+          "FTH-K8S-001",
+          "FTH-POL-001",
+          "FTH-OBS-001",
+          "FTH-EVL-001"
         ]
       }
     },

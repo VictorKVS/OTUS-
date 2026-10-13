@@ -1098,3 +1098,50 @@ No confirmed successful immutable run evidence for the current commit and no ded
 ### Next sequential step
 
 **STEP 17 — Lesson 14: Security by Design.**
+
+
+---
+
+## 2026-10-13 — STEP 17 completed — Lesson 14
+
+**Lesson:** Security by Design.  
+**Engineering maturity:** LAB / M1.  
+**Course submission:** unknown.
+
+### Source-derived
+Secure by Design, adversarial attacks, data poisoning, OWASP Top 10 for LLM, Guardrails, PII Sanitization, sanitizer/validator/secret manager practice.
+
+### Lab evidence
+Lesson 14 Colab contains executed PII sanitizer, guardrail validator, mock secret manager, SecureAgent composition, adversarial-output blocking and secret-exfiltration scenario.
+
+### Boundary
+Notebook is educational evidence, not production security.
+
+---
+
+## 2026-10-13 — Lessons 13–18 continuity audit
+
+13–17 have normalized engineering pages. Lesson 18 is normalized from source as MATERIALS / M0.
+
+Production chain is now explicit:
+
+`13 EVAL → 14 SECURITY → 15 OBSERVABILITY → 16 SIZING → 17 INFERENCE → 18 DELIVERY`.
+
+Created `site/lessons-13-18.html` and a non-crossing production bridge SVG.
+
+---
+
+## 2026-10-13 — STEP 21 normalized — Lesson 18
+
+**Lesson:** Infrastructure as Code and CI/CD.  
+**Engineering maturity:** MATERIALS / M0.
+
+Source confirms Terraform, CI/CD quality gates and practice target VPC + Kubernetes cluster + S3.
+
+No completed Terraform/CI/Kubernetes runtime evidence was confirmed in this pass.
+
+### Production outcome
+Defined TARGET:
+**FATHER DevOps / DevSecOps Factory**.
+
+Activation requires real Lesson 18 homework/lab evidence. Kubernetes is introduced as a selectable deployment target, not a mandatory runtime for every agent.

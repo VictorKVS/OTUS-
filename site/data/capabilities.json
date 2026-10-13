@@ -709,6 +709,56 @@
         15
       ],
       "maturity": "M0"
+    },
+    {
+      "id": "FTH-DSEC-001",
+      "name": "DevSecOps Delivery Security",
+      "domain": "DevSecOps",
+      "capabilities": [
+        "SAST",
+        "SCA",
+        "Secret Scanning",
+        "SBOM",
+        "Container Scanning",
+        "IaC Scanning",
+        "DAST",
+        "Policy as Code",
+        "Security Evidence",
+        "Release Security Gate"
+      ],
+      "lessons": [
+        14,
+        18,
+        20,
+        30
+      ],
+      "maturity": "M0"
+    },
+    {
+      "id": "FTH-K8S-001",
+      "name": "Kubernetes Runtime",
+      "domain": "Platform Runtime",
+      "capabilities": [
+        "Namespaces",
+        "Deployments",
+        "Services",
+        "Ingress",
+        "Config/Secrets",
+        "RBAC",
+        "NetworkPolicy",
+        "Helm",
+        "Autoscaling",
+        "Observability Hooks"
+      ],
+      "lessons": [
+        18,
+        20,
+        21,
+        22,
+        24,
+        25
+      ],
+      "maturity": "M0"
     }
   ]
 }
