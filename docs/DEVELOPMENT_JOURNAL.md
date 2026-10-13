@@ -1266,3 +1266,17 @@ Created:
 - rollout waves for high-value cross-project validation.
 
 Important constraint preserved: OSINT_deepseek and PX00 are mapped but their repositories are not modified.
+
+
+---
+
+## 2026-10-13 — authorial maturity model added to DZ20
+
+Extended the submission with an explicit project-authored engineering layer:
+- Security stream from requirements through release gates;
+- DevOps maturity D0-D5 instead of a single late DevOps phase;
+- Research → PoC → MVP → Pilot → Production → Scale ladder;
+- evidence-driven scaling by bottleneck/failure domain;
+- reusable Block/Slot architecture for models, RAG, evaluation, security, observability and deployment.
+
+The report clearly separates OTUS requirements from project-authored methodology and does not present the latter as a new external standard.

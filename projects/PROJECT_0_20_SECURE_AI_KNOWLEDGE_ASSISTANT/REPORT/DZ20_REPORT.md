@@ -178,7 +178,13 @@ BLOCKING GATE FAIL
 
 Эти значения подтверждают работу метода сравнения, но честно маркируются как **LAB**, а не как production evidence.
 
-## 9. Критерии OTUS
+## 11. Авторская модель поэтапного наращивания DevOps, Security и масштаба
+
+В дополнение к обязательной схеме ДЗ проект использует собственную maturity-модель. Security начинается с требований и trust boundaries, а не только с отдельного security-урока. DevOps начинается с воспроизводимости и deployability, затем развивается до observability, IaC/CI/CD, MLOps и GitOps/Canary. Масштабирование выполняется по измеримому bottleneck/failure domain, а не по принципу «сразу микросервисы и Kubernetes».
+
+Подробная схема: `AUTHORIAL_MATURITY_MODEL.md`.
+
+## 12. Критерии OTUS
 
 | Критерий | Как закрыт |
 |---|---|
@@ -186,7 +192,7 @@ BLOCKING GATE FAIL
 | Тестирование + Canary/Blue-Green | Unit/E2E/AI/DevSecOps + Canary |
 | Минимум ручных действий | IaC + CI/CD + MLOps + GitOps reconciliation |
 
-## 10. Вывод
+## 13. Вывод
 
 Получен единый delivery architecture: изменение кода, модели или базы знаний проходит проверяемый pipeline; app/model/RAG/prompt версии связаны в одном релизе; production rollout идёт постепенно; откат выполняется к уже известному stable release без пересборки.
 
