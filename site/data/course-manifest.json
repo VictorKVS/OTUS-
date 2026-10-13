@@ -413,9 +413,9 @@
       "title": "Оценка качества и тестирование GenAI",
       "gate": "G4",
       "status": "lab",
-      "evidence": "RAGAS · MLflow · Langfuse · CI",
+      "evidence": "RAGAS · MLflow · Langfuse · CI · toxicity gate",
       "path": "13 . Оценка качества и тестирование GenAI-компонентов",
-      "expertPath": null,
+      "expertPath": "./lesson-template.html?id=13",
       "maturity": "M1",
       "curriculum": {
         "source_path": "13 . Оценка качества и тестирование GenAI-компонентов",
@@ -423,8 +423,8 @@
         "submission_status": "unknown"
       },
       "architect_pro": {
-        "page": null,
-        "status": "planned"
+        "page": "./lesson-template.html?id=13",
+        "status": "active"
       },
       "father_production": {
         "capability_ids": [

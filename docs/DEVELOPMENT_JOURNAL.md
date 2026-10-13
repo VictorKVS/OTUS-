@@ -1044,3 +1044,57 @@ Programmer получает только **VALIDATED DEVELOPMENT PACK**.
 ### Boundary
 
 Это presence baseline. Downstream factories пока не заявляются как production-ready runtime.
+
+
+---
+
+## 2026-10-13 — STEP 16 completed — Lesson 13
+
+**Lesson:** Оценка качества и тестирование GenAI-компонентов.  
+**Engineering maturity:** LAB / M1.  
+**Course submission:** unknown.
+
+### Source-derived scope
+
+Lesson 13 confirms:
+
+- LLM quality metrics/frameworks;
+- automated GenAI testing in CI/CD;
+- RAG Faithfulness and Answer Relevancy;
+- DeepEval / Ragas;
+- LLM load testing;
+- Test Plan comparing two LLM models on a RAG task.
+
+### Repository lab evidence
+
+Confirmed in `llm-app`:
+
+- Qdrant + Ollama RAG;
+- RAGAS evaluation;
+- multi-model pre-deploy runner;
+- MLflow metrics/artifacts;
+- optional Langfuse traces;
+- toxicity/rudeness judge;
+- GitHub Actions model matrix and blocking toxicity gate.
+
+### Added
+
+- `site/data/lesson-details/13.json`;
+- `site/assets/lesson-13-genai-evaluation.svg`;
+- `docs/STEP_16_LESSON_13_EVALUATION.md`;
+- Lesson 13 connected to universal lesson page;
+- Architect Pro status set to active.
+
+### Architecture rule
+
+`MODEL/PROMPT/RAG change → SAME VERSIONED DATASET → EVAL → QUALITY GATE → EVIDENCE`.
+
+Averages alone do not close the gate; per-case failures and critical hard gates remain visible.
+
+### GAP
+
+No confirmed successful immutable run evidence for the current commit and no dedicated reproducible LLM load-test report were established in this pass. DeepEval is part of the source curriculum, but the inspected lab evidence is RAGAS-based.
+
+### Next sequential step
+
+**STEP 17 — Lesson 14: Security by Design.**
