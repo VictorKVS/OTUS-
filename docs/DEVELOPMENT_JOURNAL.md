@@ -1250,3 +1250,19 @@ Key discipline:
 - Lesson 4 C1/C2 and Lesson 5 C3/API/sequence requirements are reflected directly in project artifacts.
 
 Next planned wave: 06–10.
+
+
+---
+
+## 2026-10-13 — FATHER Knowledge Polygon
+
+Expanded the 0–20 concept from one reference project to the whole project portfolio.
+
+Created:
+- canonical Projects × Phases 0–20 model;
+- machine-readable knowledge-polygon registry;
+- conservative phase matrix with evidence-based status promotion;
+- playbook for turning project-specific lessons into reusable blocks;
+- rollout waves for high-value cross-project validation.
+
+Important constraint preserved: OSINT_deepseek and PX00 are mapped but their repositories are not modified.

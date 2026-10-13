@@ -83,3 +83,13 @@ Created real project artifacts:
 - wave-1 requirements traceability.
 
 Next wave: **06–10 · RAG → Agent → ADR → Architecture Review → Governance**.
+
+
+## Role in Knowledge Polygon
+
+SAIKA-001 is the **reference project** for the FATHER Knowledge Polygon. Patterns are first made traceable here, then validated against other projects and only after that promoted into reusable FATHER blocks.
+
+See:
+- `docs/FATHER_KNOWLEDGE_POLYGON.md`
+- `registry/knowledge-polygon.yaml`
+- `docs/PORTFOLIO_PHASE_MATRIX.md`
