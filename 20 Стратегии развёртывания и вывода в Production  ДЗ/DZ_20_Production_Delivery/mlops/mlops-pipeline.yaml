@@ -10,6 +10,13 @@ pipeline:
     action: schema_quality_validation
     example_tool: Pandera
 
+  - id: monitor_data
+    action: detect_schema_or_distribution_change
+    example_tool: Evidently_or_equivalent
+
+  - id: version_data
+    action: create_versioned_dataset_or_knowledge_snapshot
+
   - id: orchestrate
     action: trigger_pipeline
     example_tool: Airflow
@@ -34,8 +41,11 @@ pipeline:
     action: publish_versioned_rag_index
     when: rag_candidate_passed
 
+  - id: resolve_registry_artifacts
+    action: fetch_exact_model_and_index_versions_by_immutable_reference
+
   - id: create_release
-    action: bind_app_model_index_prompt_config
+    action: bind_app_model_index_prompt_config_schema_evidence
 
   - id: trigger_delivery
     action: update_git_desired_state

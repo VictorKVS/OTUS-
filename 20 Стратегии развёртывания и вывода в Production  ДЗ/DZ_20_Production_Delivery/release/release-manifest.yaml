@@ -23,6 +23,13 @@ prompt:
 configuration:
   version: "config-v1"
 
+schema:
+  contract_version: "api-schema-v1"
+  migration_strategy: "backward-compatible-or-tested-rollback"
+
+feature_flags:
+  profile_version: "flags-v1"
+
 deployment:
   strategy: canary
   stages_percent: [1, 5, 100]
@@ -33,3 +40,6 @@ evidence:
   ai_eval: pending
   security_gate: pending
   sbom: pending
+  load_test: pending
+  canary_analysis: pending
+  rollback_drill: pending

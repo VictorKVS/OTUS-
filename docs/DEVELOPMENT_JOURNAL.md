@@ -1280,3 +1280,17 @@ Extended the submission with an explicit project-authored engineering layer:
 - reusable Block/Slot architecture for models, RAG, evaluation, security, observability and deployment.
 
 The report clearly separates OTUS requirements from project-authored methodology and does not present the latter as a new external standard.
+
+
+---
+
+## 2026-10-13 — Lesson 20 completeness audit and assurance backbone
+
+Performed a strict Lesson 20 audit and strengthened the submission:
+- added Rolling / Blue-Green / Canary comparison;
+- separated Argo CD GitOps reconciliation from Argo Rollouts progressive traffic delivery;
+- added traffic-router + AnalysisRun concept for exact 1% → 5% → 100%;
+- removed arbitrary universal 10/30-minute canary windows and replaced them with sample/traffic-derived observation logic;
+- added data versioning/drift monitoring, feature flags and exact registry artifact resolution;
+- expanded rollback from image-only to complete release bundle;
+- introduced the Assurance Backbone: NO EVIDENCE → NO PROMOTION.

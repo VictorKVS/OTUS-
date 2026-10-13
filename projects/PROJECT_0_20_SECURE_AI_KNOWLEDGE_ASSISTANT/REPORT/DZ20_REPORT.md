@@ -56,7 +56,15 @@ METRIC GATE
 100% + PROMOTE
 ```
 
-## 3. Infrastructure as Code
+## 3. Deployment strategies: почему выбран Canary
+
+Урок 20 рассматривает Rolling, Blue-Green и Canary. В проекте они сравниваются отдельно, а для production plan выбран Canary: он соответствует заданию 1% → 5% → 100% и лучше ограничивает blast radius AI-релиза.
+
+Важно: Argo CD обеспечивает GitOps reconciliation, но точное progressive traffic management выполняет Argo Rollouts (или эквивалентный controller) вместе с NGINX/Istio/ALB-class traffic router и metric analysis.
+
+См. `20 Стратегии развёртывания и вывода в Production  ДЗ/DZ_20_Production_Delivery/DEPLOYMENT_STRATEGIES.md`.
+
+## 4. Infrastructure as Code
 
 Terraform-style IaC автоматически описывает сеть/VPC, Kubernetes cluster, object storage/S3, artifact registry и observability hooks.
 
@@ -68,7 +76,7 @@ Terraform-style IaC автоматически описывает сеть/VPC, 
 | Artifact Registry | container images | точная версия приложения |
 | Observability | metrics/logs/traces | release gates и RCA |
 
-## 4. CI/CD
+## 5. CI/CD
 
 ```text
 Commit
@@ -86,7 +94,7 @@ Commit
 
 Критическая идея: CI производит проверенные immutable artifacts; CD не «ходит вручную в кластер», а меняет desired state в Git, после чего GitOps controller выполняет reconciliation.
 
-## 5. MLOps integration
+## 6. MLOps integration
 
 ```text
 Dataset / Knowledge Update
@@ -112,7 +120,7 @@ Dataset / Knowledge Update
 
 Только полный комплект получает `RELEASE_ID`.
 
-## 6. Canary strategy
+## 7. Canary strategy
 
 Требование курса: **1% → 5% → 100%**.
 
@@ -140,7 +148,7 @@ Canary не равен A/B. Canary снижает blast radius релиза. A/B
 
 Google SRE показывает простую модель: если дефект даёт 20% ошибок, а candidate получает 5% трафика, вклад этого дефекта в общий error rate примерно 1% при равномерной нагрузке. Это не универсальная гарантия, но понятное инженерное объяснение снижения blast radius.
 
-## 7. Rollback
+## 8. Rollback
 
 ```text
 BLOCKING GATE FAIL
@@ -165,7 +173,7 @@ BLOCKING GATE FAIL
 
 Числа без измерения production baseline не объявляются production thresholds.
 
-## 8. Практическая calibration
+## 9. Практическая calibration
 
 В репозитории есть воспроизводимый controlled lab. При 10 000 synthetic requests на каждый вариант получено:
 
@@ -178,11 +186,32 @@ BLOCKING GATE FAIL
 
 Эти значения подтверждают работу метода сравнения, но честно маркируются как **LAB**, а не как production evidence.
 
-## 11. Авторская модель поэтапного наращивания DevOps, Security и масштаба
+## 10. Авторская модель поэтапного наращивания DevOps, Security и масштаба
 
 В дополнение к обязательной схеме ДЗ проект использует собственную maturity-модель. Security начинается с требований и trust boundaries, а не только с отдельного security-урока. DevOps начинается с воспроизводимости и deployability, затем развивается до observability, IaC/CI/CD, MLOps и GitOps/Canary. Масштабирование выполняется по измеримому bottleneck/failure domain, а не по принципу «сразу микросервисы и Kubernetes».
 
 Подробная схема: `AUTHORIAL_MATURITY_MODEL.md`.
+
+## 11. Assurance Backbone — краеугольный контур обеспечения
+
+Главный вывод Lesson 20 в сквозном проекте: инструменты сами по себе не обеспечивают production. Production обеспечивается цепочкой доказательств.
+
+```text
+REQ/NFR
+→ ARCHITECTURE GATE
+→ BUILD/SECURITY GATE
+→ AI EVAL GATE
+→ STAGING GATE
+→ CANARY 1% GATE
+→ CANARY 5% GATE
+→ PROMOTION
+```
+
+Правило проекта: **NO EVIDENCE → NO PROMOTION**.
+
+Каждый gate сохраняет evidence и имеет явный fail action. Благодаря этому Security, Quality, Observability, DevSecOps и SRE работают не как отдельные дисциплины, а как единый Assurance Backbone.
+
+См. `projects/PROJECT_0_20_SECURE_AI_KNOWLEDGE_ASSISTANT/ASSURANCE_BACKBONE.md`.
 
 ## 12. Критерии OTUS
 
@@ -203,3 +232,8 @@ BLOCKING GATE FAIL
 - Google SRE Workbook, Canarying Releases: https://sre.google/workbook/canarying-releases/
 - Martin Fowler, Canary Release: https://martinfowler.com/bliki/CanaryRelease.html
 - NIST AI RMF / GenAI Profile: https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence
+
+
+## Lesson 20 audit
+
+Полная матрица соответствия лекции и домашнему заданию: `20 Стратегии развёртывания и вывода в Production  ДЗ/DZ_20_Production_Delivery/LESSON20_COMPLETENESS_AUDIT.md`.
