@@ -1,0 +1,11 @@
+gates:
+  unit: required
+  integration: required
+  contract: required
+  negative: required
+  security: required
+  schema: required
+  lint_type: required
+  sast_sca_secret_scan: required
+  performance: conditional
+  ai_rag_eval: conditional

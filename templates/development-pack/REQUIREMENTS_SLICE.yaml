@@ -1,0 +1,10 @@
+requirements:
+  - id: REQ-001
+    type: FR
+    statement: "<baselined requirement>"
+    rationale: "<why>"
+    source_ref: "<source-id>"
+    priority: must
+    owner: "<owner>"
+    acceptance_ids: [AC-001]
+    status: baselined

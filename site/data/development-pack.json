@@ -1,0 +1,183 @@
+{
+  "schema_version": "father-development-pack.v1",
+  "title": "Development Pack → Pre-Dev Validation → Programmer",
+  "required_documents": [
+    {
+      "id": "manifest",
+      "file": "DEV_PACK_MANIFEST.json",
+      "owner": "Analyst + Architect",
+      "test": "JSON parse + required metadata + sign-offs"
+    },
+    {
+      "id": "task",
+      "file": "DEV_TASK.md",
+      "owner": "Analyst",
+      "test": "goal/scope/DoD/REQ references present"
+    },
+    {
+      "id": "requirements",
+      "file": "REQUIREMENTS_SLICE.yaml",
+      "owner": "Analyst",
+      "test": "IDs unique, baselined, acceptance links"
+    },
+    {
+      "id": "acceptance",
+      "file": "ACCEPTANCE_CRITERIA.md",
+      "owner": "Analyst + QA",
+      "test": "AC IDs linked to REQ IDs; measurable/negative cases"
+    },
+    {
+      "id": "lld",
+      "file": "LLD_COMPONENT.md",
+      "owner": "Architect",
+      "test": "boundary/interfaces/failure/security/telemetry"
+    },
+    {
+      "id": "sequence",
+      "file": "SEQUENCE.md",
+      "owner": "Architect",
+      "test": "happy/error/timeout/auth/idempotency paths"
+    },
+    {
+      "id": "api",
+      "file": "openapi.yaml",
+      "owner": "Architect",
+      "test": "contract parses; version/schema/errors/auth"
+    },
+    {
+      "id": "schemas",
+      "file": "schemas/*.schema.json",
+      "owner": "Architect + Developer",
+      "test": "JSON Schema parse + required/types/version"
+    },
+    {
+      "id": "data",
+      "file": "DATA_MODEL_SLICE.md",
+      "owner": "Architect / Data",
+      "test": "entities/keys/relations/classification/migration"
+    },
+    {
+      "id": "security",
+      "file": "SECURITY_CONSTRAINTS.md",
+      "owner": "Security",
+      "test": "auth/secrets/PII/audit/negative cases"
+    },
+    {
+      "id": "observability",
+      "file": "OBSERVABILITY_REQUIREMENTS.md",
+      "owner": "SRE / Architect",
+      "test": "metrics/logs/traces/correlation/SLO owner"
+    },
+    {
+      "id": "quality",
+      "file": "QUALITY_GATES.yaml",
+      "owner": "QA / AI Quality",
+      "test": "hard gates and thresholds"
+    },
+    {
+      "id": "tests",
+      "file": "TEST_PLAN.md",
+      "owner": "QA + Architect",
+      "test": "unit/integration/contract/negative/security + applicable AI/load"
+    },
+    {
+      "id": "config",
+      "file": "CONFIG_CONTRACT.yaml",
+      "owner": "Architect / Developer",
+      "test": "typed keys/defaults/secrets/env behavior"
+    },
+    {
+      "id": "migration",
+      "file": "MIGRATION_PLAN.md",
+      "owner": "Architect / Data",
+      "test": "plan or explicit N/A"
+    },
+    {
+      "id": "rollback",
+      "file": "ROLLBACK_PLAN.md",
+      "owner": "Architect / SRE",
+      "test": "trigger/version/data compatibility/owner/RTO"
+    },
+    {
+      "id": "adr",
+      "file": "RELATED_ADR.md",
+      "owner": "Architect",
+      "test": "ADR IDs and implementation constraints"
+    },
+    {
+      "id": "trace",
+      "file": "TRACEABILITY_SLICE.json",
+      "owner": "Analyst + Architect",
+      "test": "REQ→design→control→test→acceptance→telemetry complete"
+    },
+    {
+      "id": "report",
+      "file": "PRE_DEV_VALIDATION_REPORT.md",
+      "owner": "Validator",
+      "test": "generated PASS/FAIL evidence"
+    }
+  ],
+  "checks": [
+    {
+      "id": "P0",
+      "name": "Completeness",
+      "blocking": true
+    },
+    {
+      "id": "P1",
+      "name": "Analyst + Architect sign-off",
+      "blocking": true
+    },
+    {
+      "id": "P2",
+      "name": "Requirements integrity",
+      "blocking": true
+    },
+    {
+      "id": "P3",
+      "name": "Acceptance testability",
+      "blocking": true
+    },
+    {
+      "id": "P4",
+      "name": "API/schema contract validation",
+      "blocking": true
+    },
+    {
+      "id": "P5",
+      "name": "Data contract",
+      "blocking": true
+    },
+    {
+      "id": "P6",
+      "name": "Security contract",
+      "blocking": true
+    },
+    {
+      "id": "P7",
+      "name": "Observability contract",
+      "blocking": true
+    },
+    {
+      "id": "P8",
+      "name": "Test plan coverage",
+      "blocking": true
+    },
+    {
+      "id": "P9",
+      "name": "Config/migration/rollback",
+      "blocking": true
+    },
+    {
+      "id": "P10",
+      "name": "Traceability closure",
+      "blocking": true
+    },
+    {
+      "id": "P11",
+      "name": "No unresolved placeholders",
+      "blocking": true
+    }
+  ],
+  "handoff_rule": "All blocking checks PASS; critical_open_questions=0; analyst_signoff=approved; architect_signoff=approved"
+}

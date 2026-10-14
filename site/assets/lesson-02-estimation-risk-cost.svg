@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+<title id="title">Lesson 02 — Estimation, Risk and Cost</title>
+<desc id="desc">Business requirements are transformed into SRS and NFR, decomposed into WBS, estimated, risk-adjusted, controlled by Change Request, and rolled into cost, TCO and delivery plan.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071018"/><stop offset="1" stop-color="#18142d"/></linearGradient><style>.t{font-family:Segoe UI,Arial,sans-serif;fill:#eef7ff}.m{fill:#91a9ba}.h{font-weight:700}.box{fill:#0e1b26;stroke:#29495d;stroke-width:2}.cyan{stroke:#4ed9ff}.vio{stroke:#9d84ff}.green{stroke:#63e6a5}.amber{stroke:#ffbd65}.red{stroke:#ff7474}.mono{font-family:Consolas,monospace}</style></defs>
+<rect width="1600" height="980" rx="28" fill="url(#bg)"/>
+<text x="70" y="70" class="t h" font-size="34">LESSON 02 · Estimate before you promise</text>
+<text x="70" y="108" class="m mono" font-size="15">REQUIREMENTS → PLAN → RISK → COST</text>
+
+<rect x="70" y="165" width="260" height="150" rx="20" class="box cyan"/>
+<text x="100" y="205" class="t h" font-size="18">PRD / USER STORY</text>
+<text x="100" y="240" class="m" font-size="13">business context</text>
+<text x="100" y="268" class="m" font-size="13">constraints · acceptance</text>
+
+<rect x="390" y="165" width="260" height="150" rx="20" class="box vio"/>
+<text x="420" y="205" class="t h" font-size="18">SRS / NFR</text>
+<text x="420" y="240" class="m" font-size="13">metric · target · priority</text>
+<text x="420" y="268" class="m" font-size="13">verification method</text>
+
+<rect x="710" y="165" width="260" height="150" rx="20" class="box green"/>
+<text x="740" y="205" class="t h" font-size="18">WBS</text>
+<text x="740" y="240" class="m" font-size="13">decomposition · roles</text>
+<text x="740" y="268" class="m" font-size="13">critical path · artifacts</text>
+
+<rect x="1030" y="165" width="500" height="150" rx="20" class="box amber"/>
+<text x="1060" y="205" class="t h" font-size="18">ESTIMATION METHODS</text>
+<text x="1060" y="240" class="m" font-size="13">Analogous · Parametric · PERT · Bottom-Up</text>
+<text x="1060" y="268" class="m" font-size="13">AI / R&amp;D uncertainty stays explicit</text>
+
+<path d="M330 240H390M650 240H710M970 240H1030" stroke="#4ed9ff" stroke-width="5"/>
+
+<rect x="70" y="385" width="340" height="180" rx="20" class="box red"/>
+<text x="100" y="425" class="t h" font-size="18">RISK REGISTER</text>
+<text x="100" y="460" class="m" font-size="13">probability × impact</text>
+<text x="100" y="488" class="m" font-size="13">mitigation · trigger</text>
+<text x="100" y="516" class="m" font-size="13">risk buffer</text>
+
+<rect x="470" y="385" width="340" height="180" rx="20" class="box amber"/>
+<text x="500" y="425" class="t h" font-size="18">CHANGE REQUEST</text>
+<text x="500" y="460" class="m" font-size="13">scope delta</text>
+<text x="500" y="488" class="m" font-size="13">architecture impact</text>
+<text x="500" y="516" class="m" font-size="13">time · cost · risk</text>
+
+<rect x="870" y="385" width="300" height="180" rx="20" class="box green"/>
+<text x="900" y="425" class="t h" font-size="18">COST / TCO</text>
+<text x="900" y="460" class="m" font-size="13">CapEx + OpEx</text>
+<text x="900" y="488" class="m" font-size="13">unit economics</text>
+<text x="900" y="516" class="m" font-size="13">overhead + risk reserve</text>
+
+<rect x="1230" y="385" width="300" height="180" rx="20" class="box cyan"/>
+<text x="1260" y="425" class="t h" font-size="18">PLAN / GATE</text>
+<text x="1260" y="460" class="m" font-size="13">schedule</text>
+<text x="1260" y="488" class="m" font-size="13">budget</text>
+<text x="1260" y="516" class="m" font-size="13">go / change / stop</text>
+
+<path d="M410 475H470M810 475H870M1170 475H1230" stroke="#ffbd65" stroke-width="5"/>
+<path d="M1280 315 C1280 350 250 350 250 385" fill="none" stroke="#ff7474" stroke-width="4" stroke-dasharray="8 7"/>
+
+<text x="70" y="645" class="t h" font-size="20">FATHER PRODUCTION</text>
+<rect x="70" y="685" width="340" height="140" rx="18" class="box vio"/><text x="100" y="724" class="t h" font-size="17">FTH-REQ-001</text><text x="100" y="754" class="m" font-size="13">Requirements &amp; Traceability</text>
+<rect x="450" y="685" width="340" height="140" rx="18" class="box cyan"/><text x="480" y="724" class="t h" font-size="17">FTH-EST-001</text><text x="480" y="754" class="m" font-size="13">Estimation &amp; Planning</text>
+<rect x="830" y="685" width="340" height="140" rx="18" class="box red"/><text x="860" y="724" class="t h" font-size="17">FTH-RSK-001</text><text x="860" y="754" class="m" font-size="13">Risk &amp; Change Control</text>
+<rect x="1210" y="685" width="320" height="140" rx="18" class="box green"/><text x="1240" y="724" class="t h" font-size="17">FTH-FIN-001</text><text x="1240" y="754" class="m" font-size="13">FinOps / Cost Control</text>
+
+<text x="70" y="900" class="m" font-size="14">RULE: uncertainty is priced or constrained; a scope change must change plan/cost or be rejected/deferred.</text>
+</svg>

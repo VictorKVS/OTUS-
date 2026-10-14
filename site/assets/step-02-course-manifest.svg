@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="850" viewBox="0 0 1600 850">
+<defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071018"/><stop offset="1" stop-color="#17152d"/></linearGradient><style>.t{font-family:Segoe UI,Arial,sans-serif;fill:#edf7ff}.m{fill:#91a9ba}.h{font-weight:700}.box{fill:#0e1b26;stroke:#28475a;stroke-width:2}.cyan{stroke:#4ed9ff}.vio{stroke:#9d84ff}.green{stroke:#63e6a5}.orange{stroke:#ffad57}</style></defs>
+<rect width="1600" height="850" rx="28" fill="url(#b)"/>
+<text x="70" y="72" class="t h" font-size="34">STEP 02 · Course Manifest Pipeline</text>
+<text x="70" y="108" class="m" font-size="16">SOURCE / EVIDENCE → MANIFEST → RUNTIME → VISUAL COCKPIT</text>
+
+<rect x="70" y="180" width="300" height="130" rx="18" class="box cyan"/>
+<text x="100" y="225" class="t h" font-size="18">OTUS / Git Evidence</text><text x="100" y="258" class="m" font-size="14">31 folders · artifacts · statuses</text><text x="100" y="285" class="m" font-size="14">source of truth</text>
+
+<rect x="70" y="400" width="300" height="130" rx="18" class="box vio"/>
+<text x="100" y="445" class="t h" font-size="18">Capability Manifest</text><text x="100" y="478" class="m" font-size="14">FTH-* component IDs</text><text x="100" y="505" class="m" font-size="14">lesson ↔ production mapping</text>
+
+<rect x="500" y="270" width="410" height="190" rx="22" class="box orange"/>
+<text x="535" y="320" class="t h" font-size="22">course-manifest.json</text>
+<text x="535" y="355" class="m" font-size="14">31 lessons · 7 gates</text>
+<text x="535" y="382" class="m" font-size="14">status · maturity · evidence</text>
+<text x="535" y="409" class="m" font-size="14">OTUS · Architect Pro · FATHER</text>
+
+<rect x="1030" y="160" width="450" height="120" rx="18" class="box green"/>
+<text x="1060" y="204" class="t h" font-size="18">Dashboard / Gates</text><text x="1060" y="238" class="m" font-size="14">computed from manifest</text>
+
+<rect x="1030" y="335" width="450" height="120" rx="18" class="box cyan"/>
+<text x="1060" y="379" class="t h" font-size="18">31 Lesson Cards</text><text x="1060" y="413" class="m" font-size="14">filters · evidence status · M0–M3</text>
+
+<rect x="1030" y="510" width="450" height="120" rx="18" class="box vio"/>
+<text x="1060" y="554" class="t h" font-size="18">Universal Lesson Template</text><text x="1060" y="588" class="m" font-size="14">STEP 03 consumes the same data</text>
+
+<path d="M370 245 C430 245 445 320 500 340" fill="none" stroke="#4ed9ff" stroke-width="5"/>
+<path d="M370 465 C430 465 445 410 500 390" fill="none" stroke="#9d84ff" stroke-width="5"/>
+<path d="M910 340 C970 310 985 225 1030 220" fill="none" stroke="#63e6a5" stroke-width="5"/>
+<path d="M910 365 H1030" fill="none" stroke="#4ed9ff" stroke-width="5"/>
+<path d="M910 410 C970 455 985 565 1030 570" fill="none" stroke="#9d84ff" stroke-width="5"/>
+
+<text x="70" y="730" class="t h" font-size="18">Rule:</text><text x="130" y="730" class="m" font-size="16">runtime code renders facts; it does not own architectural facts.</text>
+<text x="70" y="775" class="m" font-size="14">M0 materials · M1 design · M2 professional · M3 production</text>
+</svg>

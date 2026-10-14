@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">FATHER Architect OS — Master Architecture Map</title>
+<desc id="desc">Three-layer map from OTUS Curriculum through Architect Pro to FATHER Production, showing AI Harness, context, knowledge, models, tools, orchestration, agents, evaluation, safety, observability, gateway, FinOps, delivery and reliability.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061018"/><stop offset="1" stop-color="#111429"/></linearGradient>
+  <linearGradient id="hero" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#34d6ff"/><stop offset=".5" stop-color="#8b7cff"/><stop offset="1" stop-color="#ff9c5c"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <style>
+    .t{font-family:Segoe UI,Arial,sans-serif;fill:#eef7ff}.m{fill:#90a8ba}.h{font-weight:700}.mono{font-family:Consolas,monospace}
+    .card{fill:#0d1a25;stroke:#244154;stroke-width:2}.ai{stroke:#8b7cff}.know{stroke:#34d6c8}.safe{stroke:#ff7272}.ops{stroke:#4ed9ff}.fin{stroke:#ffad57}.green{stroke:#5fe49d}
+  </style>
+</defs>
+<rect width="1600" height="1000" rx="28" fill="url(#bg)"/>
+<text x="70" y="72" class="t h" font-size="34">FATHER Architect OS · Master Architecture Map</text>
+<text x="70" y="108" class="m mono" font-size="16">STEP 01 · Schema → Visual → Evidence · OTUS → Architect Pro → FATHER Production</text>
+
+<!-- three layers -->
+<rect x="70" y="145" width="430" height="110" rx="20" class="card" stroke="#4ed9ff"/>
+<text x="100" y="184" class="t h" font-size="19">01 · OTUS CURRICULUM</text>
+<text x="100" y="216" class="m" font-size="15">31 урок · 7 gates · исходные требования и ДЗ</text>
+<rect x="585" y="145" width="430" height="110" rx="20" class="card ai"/>
+<text x="615" y="184" class="t h" font-size="19">02 · ARCHITECT PRO</text>
+<text x="615" y="216" class="m" font-size="15">методики · trade-offs · ADR · standards · evidence</text>
+<rect x="1100" y="145" width="430" height="110" rx="20" class="card" stroke="#ff9c5c"/>
+<text x="1130" y="184" class="t h" font-size="19">03 · FATHER PRODUCTION</text>
+<text x="1130" y="216" class="m" font-size="15">runtime · policies · services · delivery · operations</text>
+<path d="M500 200 H585" stroke="url(#hero)" stroke-width="5"/><path d="M1015 200 H1100" stroke="url(#hero)" stroke-width="5"/>
+<polygon points="577,193 590,200 577,207" fill="#8b7cff"/><polygon points="1092,193 1105,200 1092,207" fill="#ff9c5c"/>
+
+<!-- Harness boundary -->
+<rect x="70" y="300" width="1460" height="500" rx="28" fill="#08141d" stroke="#8b7cff" stroke-width="3"/>
+<text x="100" y="342" class="t h" font-size="22">FTH-HARNESS-001 · AI HARNESS</text>
+<text x="430" y="342" class="m mono" font-size="14">execution · state · permissions · tracing · policy · retries · human review</text>
+
+<!-- Core capabilities -->
+<rect x="100" y="380" width="245" height="120" rx="16" class="card ops"/>
+<text x="122" y="415" class="t h" font-size="16">CONTEXT</text><text x="122" y="442" class="m" font-size="13">FTH-CTX-001</text><text x="122" y="468" class="m" font-size="13">Context Engineering</text>
+
+<rect x="365" y="380" width="245" height="120" rx="16" class="card know"/>
+<text x="387" y="415" class="t h" font-size="16">KNOWLEDGE</text><text x="387" y="442" class="m" font-size="13">FTH-KNW / RAG / MEM</text><text x="387" y="468" class="m" font-size="13">RAG · Vector DB · Memory</text>
+
+<rect x="630" y="380" width="245" height="120" rx="16" class="card ai"/>
+<text x="652" y="415" class="t h" font-size="16">MODELS</text><text x="652" y="442" class="m" font-size="13">FTH-MDL-001</text><text x="652" y="468" class="m" font-size="13">Model Zoo · FT · Distill</text>
+
+<rect x="895" y="380" width="245" height="120" rx="16" class="card green"/>
+<text x="917" y="415" class="t h" font-size="16">TOOLS / MCP</text><text x="917" y="442" class="m" font-size="13">FTH-TOL / MCP</text><text x="917" y="468" class="m" font-size="13">Tools · Functions · MCP</text>
+
+<rect x="1160" y="380" width="340" height="120" rx="16" class="card ai"/>
+<text x="1182" y="415" class="t h" font-size="16">GRAPH / AGENTS</text><text x="1182" y="442" class="m" font-size="13">FTH-WFG / AGT / SUP</text><text x="1182" y="468" class="m" font-size="13">Loops · Graphs · Multi-Agent · Handoff</text>
+
+<path d="M345 440 H365 M610 440 H630 M875 440 H895 M1140 440 H1160" stroke="#4ed9ff" stroke-width="3" stroke-dasharray="7 6"/>
+
+<!-- quality and control plane -->
+<rect x="100" y="535" width="270" height="105" rx="16" class="card ai"/>
+<text x="122" y="570" class="t h" font-size="16">EVALUATION</text><text x="122" y="596" class="m" font-size="13">FTH-EVL-001 · Quality Gates</text>
+
+<rect x="390" y="535" width="270" height="105" rx="16" class="card safe"/>
+<text x="412" y="570" class="t h" font-size="16">POLICY / SECURITY</text><text x="412" y="596" class="m" font-size="13">FTH-POL-001 · IAM · Guardrails</text>
+
+<rect x="680" y="535" width="270" height="105" rx="16" class="card ops"/>
+<text x="702" y="570" class="t h" font-size="16">OBSERVABILITY</text><text x="702" y="596" class="m" font-size="13">FTH-OBS-001 · Audit · Incidents</text>
+
+<rect x="970" y="535" width="250" height="105" rx="16" class="card" stroke="#ff9c5c"/>
+<text x="992" y="570" class="t h" font-size="16">AI GATEWAY</text><text x="992" y="596" class="m" font-size="13">FTH-GTW-001 · Routing</text>
+
+<rect x="1240" y="535" width="260" height="105" rx="16" class="card fin"/>
+<text x="1262" y="570" class="t h" font-size="16">FINOPS</text><text x="1262" y="596" class="m" font-size="13">FTH-FIN-001 · Cost Control</text>
+
+<!-- delivery reliability -->
+<rect x="100" y="675" width="445" height="90" rx="16" class="card green"/>
+<text x="122" y="711" class="t h" font-size="16">DELIVERY PLANE · FTH-DLV-001</text>
+<text x="122" y="738" class="m" font-size="13">IaC · CI/CD · deployment · rollback · artifact registry</text>
+
+<rect x="575" y="675" width="445" height="90" rx="16" class="card ops"/>
+<text x="597" y="711" class="t h" font-size="16">RELIABILITY PLANE · FTH-REL-001</text>
+<text x="597" y="738" class="m" font-size="13">sizing · capacity · HA/DR · latency · multi-cloud</text>
+
+<rect x="1050" y="675" width="450" height="90" rx="16" class="card know"/>
+<text x="1072" y="711" class="t h" font-size="16">DATA FACTORY · FTH-SYN-001</text>
+<text x="1072" y="738" class="m" font-size="13">synthetic data · eval sets · provenance · governance</text>
+
+<!-- traceability -->
+<text x="70" y="852" class="t h" font-size="18">TRACEABILITY CONTRACT</text>
+<g class="mono" font-size="13">
+  <text x="70" y="890" class="t">BUS</text><text x="128" y="890" fill="#4ed9ff">→</text>
+  <text x="158" y="890" class="t">REQ/NFR</text><text x="252" y="890" fill="#4ed9ff">→</text>
+  <text x="282" y="890" class="t">RISK</text><text x="342" y="890" fill="#4ed9ff">→</text>
+  <text x="372" y="890" class="t">ADR</text><text x="422" y="890" fill="#4ed9ff">→</text>
+  <text x="452" y="890" class="t">CMP/INT/DATA</text><text x="578" y="890" fill="#4ed9ff">→</text>
+  <text x="608" y="890" class="t">CTRL/SAFE</text><text x="708" y="890" fill="#4ed9ff">→</text>
+  <text x="738" y="890" class="t">TEST/EVAL</text><text x="835" y="890" fill="#4ed9ff">→</text>
+  <text x="865" y="890" class="t">SLO/OBS</text><text x="945" y="890" fill="#4ed9ff">→</text>
+  <text x="975" y="890" class="t">COST/FIN</text><text x="1065" y="890" fill="#4ed9ff">→</text>
+  <text x="1095" y="890" class="t">DEPLOY/RUN</text><text x="1210" y="890" fill="#4ed9ff">→</text>
+  <text x="1240" y="890" class="t">REL</text>
+</g>
+<text x="70" y="945" class="m" font-size="14">M0 MATERIALS · M1 DESIGN · M2 PROFESSIONAL · M3 PRODUCTION</text>
+<text x="1530" y="945" text-anchor="end" class="m mono" font-size="13">STEP 01 · v1</text>
+</svg>

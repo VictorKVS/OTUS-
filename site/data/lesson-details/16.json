@@ -1,0 +1,203 @@
+{
+  "schema_version": "father-architect-lesson-detail.v1",
+  "lesson_id": 16,
+  "purpose": "Преобразовать требования по нагрузке, качеству и стоимости в проверяемую модель ресурсов: CPU, RAM, GPU, диски, SQL/NoSQL/Vector DB, репликацию, запас мощности и сравнение on-premise/cloud перед deployment.",
+  "schema": {
+    "notation": "REQ/NFR/SLO → WORKLOAD MODEL → RPS/CONCURRENCY → SERVICE/DATA CLASS → CPU/RAM/GPU/STORAGE → REPLICAS/HEADROOM → BENCHMARK → ON-PREM/CLOUD → TCO → CAPACITY GATE",
+    "description": "Источник Lesson 16 требует расчёта CPU/GPU/RAM/Disk для stateless/stateful services и SQL/NoSQL/Vector DB, учёта RPS, качества и финансовых ограничений, а также сравнения on-premise/cloud и TCO.",
+    "nodes": [
+      "REQ/NFR/SLO",
+      "WORKLOAD MODEL",
+      "RPS/CONCURRENCY",
+      "SERVICE/DATA CLASS",
+      "CPU/RAM/GPU/STORAGE",
+      "REPLICAS/HEADROOM",
+      "BENCHMARK",
+      "ON-PREM/CLOUD",
+      "TCO",
+      "CAPACITY GATE"
+    ],
+    "edges": [
+      [
+        "REQ/NFR/SLO",
+        "WORKLOAD MODEL"
+      ],
+      [
+        "WORKLOAD MODEL",
+        "RPS/CONCURRENCY"
+      ],
+      [
+        "RPS/CONCURRENCY",
+        "SERVICE/DATA CLASS"
+      ],
+      [
+        "SERVICE/DATA CLASS",
+        "CPU/RAM/GPU/STORAGE"
+      ],
+      [
+        "CPU/RAM/GPU/STORAGE",
+        "REPLICAS/HEADROOM"
+      ],
+      [
+        "REPLICAS/HEADROOM",
+        "BENCHMARK"
+      ],
+      [
+        "BENCHMARK",
+        "ON-PREM/CLOUD"
+      ],
+      [
+        "ON-PREM/CLOUD",
+        "TCO"
+      ],
+      [
+        "TCO",
+        "CAPACITY GATE"
+      ]
+    ]
+  },
+  "visual": {
+    "poster": "./assets/lesson-16-sizing-capacity.svg",
+    "alt": "Lesson 16 sizing flow: requirements and SLO are converted into workload, concurrency, compute and storage sizing, headroom and replicas, verified by benchmark, compared for on-premise and cloud, then passed through TCO and capacity gate."
+  },
+  "curriculum": {
+    "summary": "Lesson 16 focuses on forecasting CPU, GPU, RAM and storage requirements, sizing stateless/stateful services and SQL/NoSQL/Vector databases, taking into account RPS, quality and financial constraints, and comparing on-premise and cloud configurations.",
+    "teacher": "Михаил Лебедев",
+    "lesson_date": "2026-09-23",
+    "duration_minutes": 90,
+    "requirements": [
+      "Прогнозировать CPU, GPU, RAM и storage",
+      "Выбирать конфигурацию с учётом performance и cost",
+      "Считать stateless/stateful services",
+      "Считать SQL, NoSQL и Vector DB capacity",
+      "Учитывать RPS, quality requirements и financial constraints",
+      "Рассчитывать TCO для on-premise",
+      "Сравнивать on-premise и cloud для компонентов проекта"
+    ],
+    "homework": [
+      "Практика: детальный расчёт ресурсов для всех компонентов учебного проекта для on-premise и cloud.",
+      "Результат урока включает фрейм/калькулятор TCO."
+    ],
+    "acceptance_criteria": [],
+    "sources": [
+      "Lesson 16 source text",
+      "megaxls-611826-e95145.xlsx — calculator artifact present in lesson folder"
+    ]
+  },
+  "architect_pro": {
+    "summary": "Engineering extension: sizing строится не от SKU, а от workload model и измерений. Сначала фиксируются SLO, peak/burst workload и тип состояния, затем выполняется benchmark, добавляются replication/headroom и только потом выбирается infrastructure SKU и считается TCO.",
+    "methods": [
+      "Workload profile: average / peak / burst RPS",
+      "Concurrency estimate using measured service time",
+      "Stateless CPU/RAM sizing from benchmark",
+      "Stateful sizing with dataset growth, cache, replication and retention",
+      "Vector DB sizing from vector count, dimension, element size, metadata/index overhead",
+      "Headroom and failure-domain reserve",
+      "Load test calibration before purchase",
+      "On-prem vs cloud cost comparison",
+      "Sensitivity analysis for RPS, retention, replicas and growth",
+      "Capacity re-estimation from production telemetry"
+    ],
+    "standards": [
+      "Little's Law as an engineering concurrency model",
+      "SLO-driven capacity planning",
+      "Benchmark-driven sizing",
+      "TCO / unit-cost comparison"
+    ],
+    "formulas": [
+      "Concurrency ≈ RPS × service_time_seconds",
+      "CPU cores ≈ peak_RPS × CPU_seconds_per_request / target_utilization",
+      "RAM ≈ working_set + cache + runtime_overhead + safety_margin",
+      "Raw vector payload ≈ vector_count × dimension × bytes_per_element",
+      "Storage ≈ data_growth × retention × replication × index_overhead × headroom",
+      "On-prem TCO ≈ hardware amortization + power/cooling + rack/network + licenses + support + operations",
+      "Cloud cost ≈ compute + storage + managed DB/services + network + observability + support"
+    ],
+    "anti_patterns": [
+      "Выбирать VM/GPU SKU до workload model",
+      "Считать только средний RPS без peak/burst",
+      "Игнорировать replication и failure headroom",
+      "Считать Vector DB только по raw vectors без index/metadata overhead",
+      "Сравнивать cloud и on-prem только по compute price",
+      "Использовать учебный TCO как текущую рыночную цену",
+      "Не подтверждать sizing нагрузочным тестом"
+    ],
+    "templates": [
+      "Workload Model",
+      "Capacity Budget",
+      "Service Sizing Sheet",
+      "Database / Vector Sizing Sheet",
+      "Benchmark Record",
+      "Headroom / Replica Policy",
+      "On-prem / Cloud Comparison",
+      "TCO Calculator",
+      "Capacity Gate"
+    ]
+  },
+  "father_production": {
+    "summary": "Для фабрики агентов sizing становится обязательным gate: профиль агента описывает tasks/RPS, context/output tokens, RAG/tool calls, memory and telemetry; Sizing Service переводит это в shared compute/storage capacity и cost budget. Deployment запрещён без benchmark evidence или явно утверждённого conservative estimate.",
+    "capability_ids": [
+      "FTH-REQ-001",
+      "FTH-SLO-001",
+      "FTH-SIZ-001",
+      "FTH-REL-001",
+      "FTH-FIN-001",
+      "FTH-EST-001"
+    ],
+    "components": [
+      "FTH-REQ-001 · Requirements & Traceability Service",
+      "FTH-SLO-001 · SLO, Alerting & Incident Response Service",
+      "FTH-SIZ-001 · Resource Sizing & Capacity Service",
+      "FTH-REL-001 · Reliability Plane",
+      "FTH-FIN-001 · FinOps / Cost Control",
+      "FTH-EST-001 · Estimation & Planning Service"
+    ],
+    "runtime_notes": [
+      "Agent capacity is modeled at shared-pool level, not one dedicated server per agent",
+      "Workload inputs: task rate, concurrency, tokens, RAG queries, tool calls, memory operations",
+      "Observability data volume and retention are included in capacity",
+      "Sizing keeps assumptions, benchmark version and safety factors",
+      "Lesson 17 will refine LLM-specific GPU/VRAM/inference sizing",
+      "Capacity is recalculated from real telemetry after deployment"
+    ]
+  },
+  "artifacts": [
+    "Lesson 16 source text",
+    "megaxls-611826-e95145.xlsx — TCO/sizing calculator artifact present",
+    "Workload Model (target)",
+    "Capacity Budget (target)",
+    "Benchmark Record (target)",
+    "On-prem / Cloud Comparison (target)",
+    "Capacity Gate (target)"
+  ],
+  "evidence": [
+    "Lesson source explicitly requires CPU/GPU/RAM/storage forecasting",
+    "Lesson source explicitly covers stateless/stateful services and SQL/NoSQL/Vector DB",
+    "Lesson source explicitly requires RPS, quality and financial constraints",
+    "Lesson source explicitly requires detailed on-prem/cloud resource calculation",
+    "Lesson folder contains a separate XLSX calculator artifact"
+  ],
+  "traceability": [
+    "REQ/NFR → SLO",
+    "SLO → WORKLOAD MODEL",
+    "WORKLOAD → CONCURRENCY / PEAK",
+    "WORKLOAD → COMPUTE / STORAGE",
+    "COMPUTE / STORAGE → BENCHMARK",
+    "BENCHMARK → HEADROOM / REPLICAS",
+    "CAPACITY → ON-PREM / CLOUD",
+    "ON-PREM / CLOUD → TCO",
+    "TCO + SLO → CAPACITY GATE"
+  ],
+  "gaps": [
+    "XLSX calculator is present in GitHub, but its formulas and calculated outputs were not verified in this pass.",
+    "No completed workload benchmark artifact was found in the Lesson 16 folder.",
+    "Exact GPU/VRAM model sizing is deferred to Lesson 17.",
+    "Cloud/on-prem price inputs must be refreshed for any real procurement decision."
+  ],
+  "sources": [
+    {
+      "title": "Lesson 16 source",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/16.%20%D0%A0%D0%B0%D1%81%D1%87%D1%91%D1%82%20%D1%80%D0%B5%D1%81%D1%83%D1%80%D1%81%D0%BE%D0%B2%20(Sizing)%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9%20%D0%B8%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85/16%20%D0%A0%D0%B0%D1%81%D1%87%D1%91%D1%82%20%D1%80%D0%B5%D1%81%D1%83%D1%80%D1%81%D0%BE%D0%B2%20(Sizing)%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8.txt"
+    }
+  ]
+}

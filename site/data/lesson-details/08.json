@@ -1,0 +1,200 @@
+{
+  "schema_version": "father-architect-lesson-detail.v1",
+  "lesson_id": 8,
+  "purpose": "Сделать архитектурные решения проверяемыми и долговечными: зафиксировать контекст, драйверы, варианты, критерии, trade-offs, решение, последствия и условия пересмотра; хранить историю решений в Git и не переписывать прошлое при изменении архитектуры.",
+  "schema": {
+    "notation": "REQ/NFR/RISK → DECISION CONTEXT → OPTIONS → CRITERIA/TRADE-OFFS → ADR PROPOSAL → REVIEW → ACCEPTED → IMPLEMENTATION/FITNESS → REVIEW TRIGGER → SUPERSEDE",
+    "description": "Lesson 08 требует ADR и Git-based process. Реализованный ADR-001 добавляет TCO, quality gate, риски, review triggers и принцип supersede вместо переписывания истории.",
+    "nodes": [
+      "REQ/NFR/RISK",
+      "DECISION CONTEXT",
+      "OPTIONS",
+      "CRITERIA/TRADE-OFFS",
+      "ADR PROPOSAL",
+      "REVIEW",
+      "ACCEPTED",
+      "IMPLEMENTATION/FITNESS",
+      "REVIEW TRIGGER",
+      "SUPERSEDE"
+    ],
+    "edges": [
+      [
+        "REQ/NFR/RISK",
+        "DECISION CONTEXT"
+      ],
+      [
+        "DECISION CONTEXT",
+        "OPTIONS"
+      ],
+      [
+        "OPTIONS",
+        "CRITERIA/TRADE-OFFS"
+      ],
+      [
+        "CRITERIA/TRADE-OFFS",
+        "ADR PROPOSAL"
+      ],
+      [
+        "ADR PROPOSAL",
+        "REVIEW"
+      ],
+      [
+        "REVIEW",
+        "ACCEPTED"
+      ],
+      [
+        "ACCEPTED",
+        "IMPLEMENTATION/FITNESS"
+      ],
+      [
+        "IMPLEMENTATION/FITNESS",
+        "REVIEW TRIGGER"
+      ],
+      [
+        "REVIEW TRIGGER",
+        "SUPERSEDE"
+      ]
+    ]
+  },
+  "visual": {
+    "poster": "./assets/lesson-08-adr-lifecycle.svg",
+    "alt": "Lesson 08 ADR lifecycle: requirements and risks create decision context; options are compared by criteria, reviewed and accepted, then validated by fitness evidence and superseded by a new ADR when assumptions change."
+  },
+  "curriculum": {
+    "summary": "Урок посвящён формату ADR, фиксации контекста и последствий архитектурных решений, ведению ADR через Git и Architecture as Code. Практика — ADR выбора между облачной и локальной LLM.",
+    "requirements": [
+      "Использовать ADR для ключевых архитектурных решений",
+      "Фиксировать context и consequences",
+      "Интегрировать ADR lifecycle в командную работу через Git",
+      "Использовать Architecture as Code",
+      "Обосновать выбор между cloud и local LLM"
+    ],
+    "homework": [
+      "Подготовить ADR по выбору способа хостинга LLM"
+    ],
+    "sources": [
+      "Lesson 08 outline",
+      "ADR-001-LLM-HOSTING.md"
+    ]
+  },
+  "architect_pro": {
+    "summary": "ADR-001 реализован как полноценное решение, а не короткая заметка: Accepted status, project-specific drivers, SaaS vs Self-hosted options, comparison, reproducible TCO model, common quality gate, decision, positive/negative consequences, risk mitigations, explicit review triggers and CTO challenge preparation.",
+    "methods": [
+      "Decision context из architecture drivers",
+      "Явный список альтернатив",
+      "Criteria/trade-off matrix",
+      "Project-specific decision instead of universal claim",
+      "Reproducible TCO formulas and calculator",
+      "Common quality/SLO gate before cost comparison",
+      "Positive and negative consequences",
+      "Risk → mitigation table",
+      "Review triggers",
+      "Supersede instead of editing accepted history",
+      "LLM Gateway to decouple application from concrete runtime/model",
+      "CTO Challenge questions as adversarial review"
+    ],
+    "standards": [
+      "ADR/MADR-oriented structure",
+      "Git history",
+      "Architecture as Code"
+    ],
+    "anti_patterns": [
+      "ADR фиксирует только финальный выбор без context и alternatives",
+      "Решение формулируется как универсальная истина вместо конкретного project context",
+      "Учебные/исторические цены выдаются за актуальный рынок",
+      "Стоимость сравнивается при разном quality level",
+      "Accepted ADR тихо переписывается после изменения решения",
+      "Нет условий пересмотра",
+      "Consequences описываются только положительно",
+      "Application code напрямую связывается с конкретным LLM provider/runtime"
+    ],
+    "templates": [
+      "ADR Template",
+      "Decision Options Matrix",
+      "Trade-off Matrix",
+      "TCO Evidence",
+      "Quality Gate",
+      "Risk/Mitigation Table",
+      "Review Trigger List",
+      "Supersede Record"
+    ]
+  },
+  "father_production": {
+    "summary": "В FATHER Decision Registry превращает ADR из Markdown-документа в first-class архитектурный объект. Он связан с requirements, risks, affected components, tests/fitness functions, owner, status, review date и superseding ADR. Markdown остаётся экспортируемым source artifact, а UI строится поверх реестра.",
+    "capability_ids": [
+      "FTH-REQ-001",
+      "FTH-RSK-001",
+      "FTH-ADR-001",
+      "FTH-ARC-001",
+      "FTH-EVL-001",
+      "FTH-FIN-001"
+    ],
+    "components": [
+      "FTH-ADR-001 · Architecture Decision Registry",
+      "FTH-REQ-001 · Requirements & Traceability Service",
+      "FTH-RSK-001 · Risk & Change Control Service",
+      "FTH-ARC-001 · Architecture Model & View Registry",
+      "FTH-EVL-001 · Evaluation Service",
+      "FTH-FIN-001 · FinOps / Cost Control"
+    ],
+    "runtime_notes": [
+      "Accepted ADR immutable по смыслу; изменение решения создаёт new ADR / supersede",
+      "ADR имеет stable ID, owner, status, date, review triggers и affected components",
+      "Options и rejected alternatives сохраняются",
+      "Evidence links versioned and timestamped",
+      "Fitness checks могут автоматически сигнализировать о нарушении assumptions",
+      "Decision graph связывает REQ/NFR/RISK → ADR → CMP → TEST/EVAL",
+      "UI/CLI не заменяет Markdown/Git export и audit history"
+    ]
+  },
+  "artifacts": [
+    "8 Документирование решений Architecture Decision Records (ADR).txt",
+    "ADR-001-LLM-HOSTING.md",
+    "ADR_TOOLING.md",
+    "CLOUD_VS_ONPREM.md",
+    "llm_tco_calculator.py",
+    "SOURCES.md",
+    "README_DZ9.md",
+    "9 Верификация архитектуры и CTO Challenge.md"
+  ],
+  "evidence": [
+    "ADR-001 имеет Accepted status и дату",
+    "ADR-001 фиксирует context, options, comparison, decision and consequences",
+    "ADR-001 содержит risk/mitigation table",
+    "ADR-001 содержит explicit review/supersede triggers",
+    "CLOUD_VS_ONPREM.md содержит reproducible TCO formulas",
+    "llm_tco_calculator.py является воспроизводимым supporting calculation artifact",
+    "ADR_TOOLING.md определяет M0/M1/M2 evolution для Git/CI/tooling"
+  ],
+  "traceability": [
+    "REQ/NFR/RISK → DECISION CONTEXT",
+    "DECISION CONTEXT → OPTIONS",
+    "OPTIONS → TRADE-OFFS / TCO / QUALITY",
+    "EVIDENCE → ADR DECISION",
+    "ADR → AFFECTED ARCHITECTURE",
+    "ADR → FITNESS / QUALITY GATES",
+    "TRIGGER BREACH → REVIEW",
+    "REVIEW → NEW ADR / SUPERSEDE"
+  ],
+  "gaps": [
+    "ADR-001 принят внутри проектного контура, но curriculum submission/teacher acceptance не подтверждены.",
+    "Decision Registry как runtime-сервис FATHER ещё не реализован.",
+    "ADR links к REQ/RISK/CMP/TEST пока описаны концептуально, но не хранятся в едином machine-readable graph.",
+    "Текущие TCO числа в ADR являются учебным сценарием и требуют актуализации для реального решения.",
+    "ADR lint / duplicate-ID / mandatory-field validation в CI ещё не подтверждены."
+  ],
+  "sources": [
+    {
+      "title": "Lesson 08 outline",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/8.%20%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B9%20Architecture%20Decision%20Records%20(ADR)/8%20%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B9%20%20Architecture%20Decision%20Records%20(ADR).txt"
+    },
+    {
+      "title": "ADR-001 LLM Hosting",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/8.%20%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B9%20Architecture%20Decision%20Records%20(ADR)/ADR-001-LLM-HOSTING.md"
+    },
+    {
+      "title": "ADR Tooling",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/8.%20%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B9%20Architecture%20Decision%20Records%20(ADR)/ADR_TOOLING.md"
+    }
+  ]
+}

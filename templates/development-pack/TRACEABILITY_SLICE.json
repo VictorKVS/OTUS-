@@ -1,0 +1,22 @@
+{
+  "links": [
+    {
+      "requirement_id": "REQ-001",
+      "design_refs": [
+        "LLD_COMPONENT"
+      ],
+      "control_refs": [
+        "CTRL-001"
+      ],
+      "test_refs": [
+        "TEST-001"
+      ],
+      "acceptance_refs": [
+        "AC-001"
+      ],
+      "telemetry_refs": [
+        "METRIC-001"
+      ]
+    }
+  ]
+}

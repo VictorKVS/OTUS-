@@ -1,0 +1,335 @@
+{
+  "schema_version": "father-factory-lesson-conveyor.v1",
+  "title": "FATHER Factory · Lessons 0–29",
+  "target": "working integration of course capabilities into the factory",
+  "principle": "Every lesson must produce a concrete factory capability, contract, evidence or blocking gate. No evidence means no maturity promotion.",
+  "milestone": "0-29",
+  "waves": [
+    {
+      "id": "W1",
+      "range": [
+        0,
+        12
+      ],
+      "title": "Foundation + Design + AI/Data",
+      "result": "Factory can intake, analyze, design and define contracts."
+    },
+    {
+      "id": "W2",
+      "range": [
+        13,
+        20
+      ],
+      "title": "Assurance + Capacity + Delivery",
+      "result": "Factory can test, secure, observe, size, build and release."
+    },
+    {
+      "id": "W3",
+      "range": [
+        21,
+        29
+      ],
+      "title": "Reliability + Scale + Economics + Evolution",
+      "result": "Factory can survive failures, scale, isolate tenants, protect distributed data, optimize cost and evolve architecture."
+    }
+  ],
+  "statuses": {
+    "design": "project-defined design exists",
+    "mapped": "mapped to existing FATHER capability/artifacts",
+    "lab": "lab evidence exists; production status not claimed",
+    "planned": "course/materials known; factory implementation pending",
+    "source_available": "lesson source exists; factory capability not yet verified"
+  },
+  "lessons": [
+    {
+      "id": 0,
+      "title": "FATHER Intake / Project Start",
+      "domain": "Foundation",
+      "output": "Intake Pack, project ID, scope, assumptions",
+      "station": "Supervisor / Intake",
+      "capability": "FTH-INT-001",
+      "status": "design"
+    },
+    {
+      "id": 1,
+      "title": "Пресейл, контракты и требования",
+      "domain": "Foundation",
+      "output": "Business context, stakeholders, requirements baseline",
+      "station": "Intake / Analyst",
+      "capability": "FTH-REQ-001",
+      "status": "mapped"
+    },
+    {
+      "id": 2,
+      "title": "Проектирование и оценка: план, риски и смета",
+      "domain": "Foundation",
+      "output": "NFR, risk register, estimate, cost assumptions",
+      "station": "Analyst / Architect",
+      "capability": "FTH-RSK-001",
+      "status": "mapped"
+    },
+    {
+      "id": 3,
+      "title": "Стратегия поставки ценности: PoC → Production",
+      "domain": "Foundation",
+      "output": "Delivery roadmap, stage gates, PoC/MVP/Prod criteria",
+      "station": "Architect / Governance",
+      "capability": "FTH-DLV-001",
+      "status": "mapped"
+    },
+    {
+      "id": 4,
+      "title": "HLD / C4",
+      "domain": "Design",
+      "output": "C1/C2, system boundaries, containers",
+      "station": "Architect",
+      "capability": "FTH-ARC-001",
+      "status": "mapped"
+    },
+    {
+      "id": 5,
+      "title": "LLD: компоненты и взаимодействия",
+      "domain": "Design",
+      "output": "C3, sequence, OpenAPI, component contracts",
+      "station": "Architect / Data-Integration",
+      "capability": "FTH-API-001",
+      "status": "mapped"
+    },
+    {
+      "id": 6,
+      "title": "RAG и продвинутые вариации",
+      "domain": "AI Core",
+      "output": "RAG contract, retrieval policy, knowledge flow",
+      "station": "Knowledge Curator",
+      "capability": "FTH-RAG-001",
+      "status": "mapped"
+    },
+    {
+      "id": 7,
+      "title": "AI Agents / Multi-Agent Systems",
+      "domain": "AI Core",
+      "output": "Agent workflow, handoffs, tool contracts",
+      "station": "Supervisor / Agent Runtime",
+      "capability": "FTH-AGT-001",
+      "status": "mapped"
+    },
+    {
+      "id": 8,
+      "title": "Architecture Decision Records",
+      "domain": "Governance",
+      "output": "ADR lifecycle and supersede rules",
+      "station": "Governance / Architect",
+      "capability": "FTH-ADR-001",
+      "status": "mapped"
+    },
+    {
+      "id": 9,
+      "title": "Architecture Verification / CTO Challenge",
+      "domain": "Governance",
+      "output": "Architecture review, gap register, trade-offs",
+      "station": "Architect / Governance",
+      "capability": "FTH-REV-001",
+      "status": "mapped"
+    },
+    {
+      "id": 10,
+      "title": "Architecture Governance / Technical Debt",
+      "domain": "Governance",
+      "output": "Baseline, exceptions, debt register",
+      "station": "Governance",
+      "capability": "FTH-GOV-001",
+      "status": "mapped"
+    },
+    {
+      "id": 11,
+      "title": "Интеграции: API, messaging, MCP/A2A",
+      "domain": "Integration",
+      "output": "API/event/tool contracts and boundary policies",
+      "station": "Data / Integration",
+      "capability": "FTH-IGR-001",
+      "status": "mapped"
+    },
+    {
+      "id": 12,
+      "title": "Архитектура данных для AI",
+      "domain": "Data",
+      "output": "Data flows, lineage, stores, retention, vector/feature patterns",
+      "station": "Data / Integration",
+      "capability": "FTH-DAT-001",
+      "status": "planned"
+    },
+    {
+      "id": 13,
+      "title": "Оценка качества и тестирование GenAI",
+      "domain": "Assurance",
+      "output": "Golden set, eval harness, regression gate",
+      "station": "Quality / Eval",
+      "capability": "FTH-EVL-001",
+      "status": "lab"
+    },
+    {
+      "id": 14,
+      "title": "Security by Design для AI",
+      "domain": "Assurance",
+      "output": "Threat model, security controls, guardrails",
+      "station": "Security",
+      "capability": "FTH-SEC-001",
+      "status": "mapped"
+    },
+    {
+      "id": 15,
+      "title": "Observability для AI",
+      "domain": "Assurance",
+      "output": "Metrics/logs/traces, SLI/SLO, alerting",
+      "station": "Release / SRE",
+      "capability": "FTH-OBS-001",
+      "status": "lab"
+    },
+    {
+      "id": 16,
+      "title": "Sizing приложений и данных",
+      "domain": "Capacity",
+      "output": "Capacity model: CPU/RAM/storage/replicas/headroom",
+      "station": "Sizing / FinOps",
+      "capability": "FTH-SIZ-001",
+      "status": "design"
+    },
+    {
+      "id": 17,
+      "title": "Sizing и оптимизация LLM inference",
+      "domain": "Capacity",
+      "output": "VRAM, quantization, batching, GPU profile",
+      "station": "Sizing / FinOps",
+      "capability": "FTH-INF-001",
+      "status": "design"
+    },
+    {
+      "id": 18,
+      "title": "IaC + CI/CD + DevSecOps",
+      "domain": "Delivery",
+      "output": "Terraform/K8s, CI gates, SBOM, scans, staging",
+      "station": "Developer / QA / Release",
+      "capability": "FTH-CICD-001",
+      "status": "design"
+    },
+    {
+      "id": 19,
+      "title": "MLOps pipelines",
+      "domain": "Delivery",
+      "output": "Dataset/model/index lifecycle and registries",
+      "station": "Release / SRE",
+      "capability": "FTH-MLOPS-001",
+      "status": "design"
+    },
+    {
+      "id": 20,
+      "title": "Production deployment strategies",
+      "domain": "Delivery",
+      "output": "GitOps, Canary, release manifest, rollback",
+      "station": "Release / SRE",
+      "capability": "FTH-REL-001",
+      "status": "design"
+    },
+    {
+      "id": 21,
+      "title": "HA и Disaster Recovery",
+      "domain": "Reliability",
+      "output": "Failover, replication, backup/restore, RTO/RPO, geo-reserve",
+      "station": "Release / SRE",
+      "capability": "FTH-HA-001",
+      "status": "source_available"
+    },
+    {
+      "id": 22,
+      "title": "Serverless vs Kubernetes для AI",
+      "domain": "Runtime Platform",
+      "output": "Platform decision record by workload/cost/state/GPU",
+      "station": "Architect / Release",
+      "capability": "FTH-PLT-001",
+      "status": "source_available"
+    },
+    {
+      "id": 23,
+      "title": "Event-Driven Architecture для AI",
+      "domain": "Runtime Platform",
+      "output": "Event contracts, Pub/Sub, CQRS/Event Sourcing where justified",
+      "station": "Data / Integration",
+      "capability": "FTH-EDA-001",
+      "status": "source_available"
+    },
+    {
+      "id": 24,
+      "title": "High-Load / Low-Latency inference",
+      "domain": "Scale",
+      "output": "Caching, KEDA/HPA-style scaling, queues, edge/geo patterns",
+      "station": "Sizing / Release",
+      "capability": "FTH-HLOAD-001",
+      "status": "source_available"
+    },
+    {
+      "id": 25,
+      "title": "Hybrid / Multi-Cloud AI",
+      "domain": "Scale",
+      "output": "Placement policy, cloud bursting, portability, data boundary",
+      "station": "Architect / Release",
+      "capability": "FTH-HYB-001",
+      "status": "source_available"
+    },
+    {
+      "id": 26,
+      "title": "Multi-tenancy in AI SaaS",
+      "domain": "Scale",
+      "output": "Tenant isolation, Silo/Pool/Bridge, policy and quota",
+      "station": "Security / Data / Architect",
+      "capability": "FTH-TEN-001",
+      "status": "source_available"
+    },
+    {
+      "id": 27,
+      "title": "Federated Learning / Privacy-Preserving AI",
+      "domain": "Privacy",
+      "output": "Federated topology, DP/privacy controls, distributed training",
+      "station": "Security / Data",
+      "capability": "FTH-PRIV-001",
+      "status": "source_available"
+    },
+    {
+      "id": 28,
+      "title": "FinOps: cost-driven architecture",
+      "domain": "Economics",
+      "output": "Unit economics, cloud bill analysis, cost gates, optimization backlog",
+      "station": "Sizing / FinOps",
+      "capability": "FTH-FIN-001",
+      "status": "source_available"
+    },
+    {
+      "id": 29,
+      "title": "Technology Radar / Architecture Evolution",
+      "domain": "Evolution",
+      "output": "Radar, adoption rules, obsolescence/debt review, evolution backlog",
+      "station": "Governance / Architect",
+      "capability": "FTH-RAD-001",
+      "status": "source_available"
+    }
+  ],
+  "working_definition": {
+    "per_lesson": [
+      "source/requirement captured",
+      "factory capability mapped",
+      "input/output contract defined",
+      "owner/station assigned",
+      "artifact or implementation exists",
+      "test/evidence defined",
+      "blocking gate or review rule defined where applicable",
+      "status is evidence-based"
+    ],
+    "factory_0_29_done": [
+      "all 30 rows have evidence-backed status",
+      "lesson 21-29 capabilities are connected to existing stations",
+      "Assurance Backbone spans design, build, release and operations",
+      "release/rollback/DR paths are testable",
+      "scale and FinOps decisions are metric-driven",
+      "Technology Radar feeds ADR/debt/backlog rather than living as a separate document"
+    ]
+  }
+}

@@ -1,0 +1,296 @@
+{
+  "schema_version": "father-agent-registry.v1",
+  "status": "scaffold",
+  "principle": "Every conveyor stage has an assigned agent or shared specialist; every agent has prompt, RAG and knowledge contracts.",
+  "agents": [
+    {
+      "id": "FTH-AG-SUP-001",
+      "slug": "supervisor",
+      "name": "Supervisor / Router",
+      "stages": [
+        "I0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "D0",
+        "D0.5",
+        "D1",
+        "V1",
+        "V2",
+        "V3",
+        "R1",
+        "O1"
+      ],
+      "status": "scaffold",
+      "prompt": "../agents/supervisor/prompt.md",
+      "rag": "../agents/supervisor/rag.yaml",
+      "knowledge": "../agents/supervisor/knowledge.yaml",
+      "manifest": "../agents/supervisor/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-INT-001",
+      "slug": "intake",
+      "name": "Intake Agent",
+      "stages": [
+        "I0"
+      ],
+      "status": "scaffold",
+      "prompt": "../agents/intake/prompt.md",
+      "rag": "../agents/intake/rag.yaml",
+      "knowledge": "../agents/intake/knowledge.yaml",
+      "manifest": "../agents/intake/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-ANL-001",
+      "slug": "analyst",
+      "name": "Business / System Analyst",
+      "stages": [
+        "A1",
+        "V2",
+        "O1"
+      ],
+      "status": "scaffold",
+      "prompt": "../agents/analyst/prompt.md",
+      "rag": "../agents/analyst/rag.yaml",
+      "knowledge": "../agents/analyst/knowledge.yaml",
+      "manifest": "../agents/analyst/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-ARC-001",
+      "slug": "architect",
+      "name": "Solution / AI Architect",
+      "stages": [
+        "A2",
+        "A3",
+        "V3",
+        "O1"
+      ],
+      "status": "scaffold",
+      "prompt": "../agents/architect/prompt.md",
+      "rag": "../agents/architect/rag.yaml",
+      "knowledge": "../agents/architect/knowledge.yaml",
+      "manifest": "../agents/architect/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-DAT-001",
+      "slug": "data-integration",
+      "name": "Data / Integration Architect",
+      "stages": [
+        "A3",
+        "A4"
+      ],
+      "status": "scaffold",
+      "prompt": "../agents/data-integration/prompt.md",
+      "rag": "../agents/data-integration/rag.yaml",
+      "knowledge": "../agents/data-integration/knowledge.yaml",
+      "manifest": "../agents/data-integration/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-SEC-001",
+      "slug": "security",
+      "name": "Security Architect",
+      "stages": [
+        "A4",
+        "V1"
+      ],
+      "status": "scaffold",
+      "prompt": "../agents/security/prompt.md",
+      "rag": "../agents/security/rag.yaml",
+      "knowledge": "../agents/security/knowledge.yaml",
+      "manifest": "../agents/security/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-EVL-001",
+      "slug": "quality-eval",
+      "name": "Quality / GenAI Evaluation Agent",
+      "stages": [
+        "A4",
+        "V1"
+      ],
+      "status": "scaffold",
+      "prompt": "../agents/quality-eval/prompt.md",
+      "rag": "../agents/quality-eval/rag.yaml",
+      "knowledge": "../agents/quality-eval/knowledge.yaml",
+      "manifest": "../agents/quality-eval/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-SIZ-001",
+      "slug": "sizing-finops",
+      "name": "Sizing / FinOps Agent",
+      "stages": [
+        "A4"
+      ],
+      "status": "scaffold",
+      "prompt": "../agents/sizing-finops/prompt.md",
+      "rag": "../agents/sizing-finops/rag.yaml",
+      "knowledge": "../agents/sizing-finops/knowledge.yaml",
+      "manifest": "../agents/sizing-finops/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-KNW-001",
+      "slug": "knowledge-curator",
+      "name": "Knowledge Curator",
+      "stages": [
+        "I0",
+        "A1",
+        "A3",
+        "A4",
+        "O1"
+      ],
+      "status": "scaffold",
+      "prompt": "../agents/knowledge-curator/prompt.md",
+      "rag": "../agents/knowledge-curator/rag.yaml",
+      "knowledge": "../agents/knowledge-curator/knowledge.yaml",
+      "manifest": "../agents/knowledge-curator/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-DPK-001",
+      "slug": "devpack-builder",
+      "name": "Development Pack Builder",
+      "stages": [
+        "D0"
+      ],
+      "status": "scaffold",
+      "prompt": "../agents/devpack-builder/prompt.md",
+      "rag": "../agents/devpack-builder/rag.yaml",
+      "knowledge": "../agents/devpack-builder/knowledge.yaml",
+      "manifest": "../agents/devpack-builder/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-PDV-001",
+      "slug": "predev-validator",
+      "name": "Pre-Dev Validator",
+      "stages": [
+        "D0.5"
+      ],
+      "status": "scaffold",
+      "prompt": "../agents/predev-validator/prompt.md",
+      "rag": "../agents/predev-validator/rag.yaml",
+      "knowledge": "../agents/predev-validator/knowledge.yaml",
+      "manifest": "../agents/predev-validator/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-DEV-001",
+      "slug": "programmer",
+      "name": "Programmer / Coding Agent",
+      "stages": [
+        "D1"
+      ],
+      "status": "scaffold",
+      "prompt": "../agents/programmer/prompt.md",
+      "rag": "../agents/programmer/rag.yaml",
+      "knowledge": "../agents/programmer/knowledge.yaml",
+      "manifest": "../agents/programmer/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-QA-001",
+      "slug": "qa-verifier",
+      "name": "QA / Technical Verification Agent",
+      "stages": [
+        "V1"
+      ],
+      "status": "scaffold",
+      "prompt": "../agents/qa-verifier/prompt.md",
+      "rag": "../agents/qa-verifier/rag.yaml",
+      "knowledge": "../agents/qa-verifier/knowledge.yaml",
+      "manifest": "../agents/qa-verifier/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-REL-001",
+      "slug": "release-sre",
+      "name": "Release / SRE Agent",
+      "stages": [
+        "R1"
+      ],
+      "status": "scaffold",
+      "prompt": "../agents/release-sre/prompt.md",
+      "rag": "../agents/release-sre/rag.yaml",
+      "knowledge": "../agents/release-sre/knowledge.yaml",
+      "manifest": "../agents/release-sre/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-OPS-001",
+      "slug": "operations-rca",
+      "name": "Operations / RCA Agent",
+      "stages": [
+        "O1"
+      ],
+      "status": "scaffold",
+      "prompt": "../agents/operations-rca/prompt.md",
+      "rag": "../agents/operations-rca/rag.yaml",
+      "knowledge": "../agents/operations-rca/knowledge.yaml",
+      "manifest": "../agents/operations-rca/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-GOV-001",
+      "slug": "governance",
+      "name": "Governance / Traceability Agent",
+      "stages": [
+        "A2",
+        "A4",
+        "D0",
+        "D0.5",
+        "V3",
+        "R1"
+      ],
+      "status": "scaffold",
+      "prompt": "../agents/governance/prompt.md",
+      "rag": "../agents/governance/rag.yaml",
+      "knowledge": "../agents/governance/knowledge.yaml",
+      "manifest": "../agents/governance/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-VIS-001",
+      "slug": "visual-systems",
+      "name": "Makar / Visual Systems Specialist",
+      "stages": [
+        "OUT-VIS"
+      ],
+      "status": "placeholder",
+      "prompt": "../agents/visual-systems/prompt.md",
+      "rag": "../agents/visual-systems/rag.yaml",
+      "knowledge": "../agents/visual-systems/knowledge.yaml",
+      "manifest": "../agents/visual-systems/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-WEB-001",
+      "slug": "web-factory",
+      "name": "Web Factory Orchestrator",
+      "stages": [
+        "OUT-WEB"
+      ],
+      "status": "placeholder",
+      "prompt": "../agents/web-factory/prompt.md",
+      "rag": "../agents/web-factory/rag.yaml",
+      "knowledge": "../agents/web-factory/knowledge.yaml",
+      "manifest": "../agents/web-factory/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-GAME-001",
+      "slug": "game-factory",
+      "name": "Game Factory Orchestrator",
+      "stages": [
+        "OUT-GAME"
+      ],
+      "status": "placeholder",
+      "prompt": "../agents/game-factory/prompt.md",
+      "rag": "../agents/game-factory/rag.yaml",
+      "knowledge": "../agents/game-factory/knowledge.yaml",
+      "manifest": "../agents/game-factory/agent.yaml"
+    },
+    {
+      "id": "FTH-AG-MOB-001",
+      "slug": "mobile-factory",
+      "name": "Mobile Factory Orchestrator",
+      "stages": [
+        "OUT-MOBILE"
+      ],
+      "status": "placeholder",
+      "prompt": "../agents/mobile-factory/prompt.md",
+      "rag": "../agents/mobile-factory/rag.yaml",
+      "knowledge": "../agents/mobile-factory/knowledge.yaml",
+      "manifest": "../agents/mobile-factory/agent.yaml"
+    }
+  ]
+}

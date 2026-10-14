@@ -1,0 +1,33 @@
+agent:
+  id: FTH-AG-KNW-001
+  name: "Knowledge Curator"
+  status: scaffold
+  maturity: M0
+  stages: [I0, A1, A3, A4, O1]
+  owner: FATHER Agent Zoo
+role: "Каталогизирует знания, provenance, версии, чанки, дубли, статусы документов и публикацию в canonical KB."
+contracts:
+  prompt: ./prompt.md
+  rag: ./rag.yaml
+  knowledge: ./knowledge.yaml
+inputs:
+  project_id: required
+  stage_context: required
+  artifact_refs: required
+outputs:
+  status: required
+  artifact_refs: required
+  findings: required
+  next_owner: required
+tools:
+  - ingest
+  - dedup
+  - chunk
+  - provenance
+gates:
+  obey_stage_gate: true
+  no_silent_baseline_change: true
+observability:
+  trace_id: required
+  agent_id_tag: required
+  artifact_refs_log: required

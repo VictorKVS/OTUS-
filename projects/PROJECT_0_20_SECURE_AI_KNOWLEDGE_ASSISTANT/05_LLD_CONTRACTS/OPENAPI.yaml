@@ -1,0 +1,66 @@
+openapi: 3.1.0
+info:
+  title: SAIKA Query API
+  version: 0.1.0
+paths:
+  /v1/query:
+    post:
+      summary: Answer a question using authorized corporate knowledge
+      operationId: queryKnowledge
+      parameters:
+        - in: header
+          name: X-Trace-Id
+          required: false
+          schema: { type: string, maxLength: 128 }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
+      responses:
+        '200':
+          description: Grounded answer or explicit insufficient-evidence result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResponse'
+        '400': { description: Invalid request }
+        '401': { description: Authentication required }
+        '403': { description: Access denied }
+        '503': { description: Temporary upstream failure }
+components:
+  schemas:
+    QueryRequest:
+      type: object
+      required: [question]
+      additionalProperties: false
+      properties:
+        question:
+          type: string
+          minLength: 1
+          maxLength: 8000
+        conversation_id:
+          type: [string, 'null']
+        requested_scope:
+          type: [string, 'null']
+    Citation:
+      type: object
+      required: [source_id, chunk_id]
+      properties:
+        source_id: { type: string }
+        chunk_id: { type: string }
+        title: { type: [string, 'null'] }
+    QueryResponse:
+      type: object
+      required: [trace_id, answer_status, answer, citations]
+      properties:
+        trace_id: { type: string }
+        answer_status:
+          type: string
+          enum: [answered, insufficient_evidence, blocked]
+        answer: { type: string }
+        citations:
+          type: array
+          items: { $ref: '#/components/schemas/Citation' }
+        release_id: { type: string }

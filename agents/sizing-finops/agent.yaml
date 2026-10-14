@@ -1,0 +1,32 @@
+agent:
+  id: FTH-AG-SIZ-001
+  name: "Sizing / FinOps Agent"
+  status: scaffold
+  maturity: M0
+  stages: [A4]
+  owner: FATHER Agent Zoo
+role: "Считает workload, CPU/RAM/GPU/storage, inference profile, headroom, TCO и budget gates."
+contracts:
+  prompt: ./prompt.md
+  rag: ./rag.yaml
+  knowledge: ./knowledge.yaml
+inputs:
+  project_id: required
+  stage_context: required
+  artifact_refs: required
+outputs:
+  status: required
+  artifact_refs: required
+  findings: required
+  next_owner: required
+tools:
+  - sizing
+  - benchmark
+  - tco
+gates:
+  obey_stage_gate: true
+  no_silent_baseline_change: true
+observability:
+  trace_id: required
+  agent_id_tag: required
+  artifact_refs_log: required

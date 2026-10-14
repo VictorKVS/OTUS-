@@ -1,0 +1,8 @@
+config:
+  - key: APP_EXAMPLE
+    type: string
+    required: true
+    default: null
+    secret: false
+    environments: [dev, stage, prod]
+    change_behavior: restart

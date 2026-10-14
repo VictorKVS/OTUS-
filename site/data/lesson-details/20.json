@@ -1,0 +1,220 @@
+{
+  "schema_version": "father-architect-lesson-detail.v1",
+  "lesson_id": 20,
+  "purpose": "Спроектировать автоматизированную поставку AI-сервиса: IaC, CI/CD, MLOps, Model Registry и безопасный Canary-релиз 1% → 5% → 100% с измеримыми rollback gates.",
+  "schema": {
+    "notation": "COMMIT → BUILD → UNIT TESTS → SECURITY/QUALITY GATES → STAGING → E2E → RELEASE MANIFEST → CANARY 1% → CANARY 5% → PROD 100% → OBSERVE / ROLLBACK",
+    "description": "Homework требует IaC для K8s/S3, CI/CD от commit до prod, связь с обучением/Model Registry и Canary. MLOps lane связывает dataset update, orchestration/retrain, evaluation, Model Registry and deployment trigger.",
+    "nodes": [
+      "COMMIT",
+      "BUILD",
+      "UNIT TESTS",
+      "SECURITY/QUALITY GATES",
+      "STAGING",
+      "E2E",
+      "RELEASE MANIFEST",
+      "CANARY 1%",
+      "CANARY 5%",
+      "PROD 100%",
+      "OBSERVE / ROLLBACK"
+    ],
+    "edges": [
+      [
+        "COMMIT",
+        "BUILD"
+      ],
+      [
+        "BUILD",
+        "UNIT TESTS"
+      ],
+      [
+        "UNIT TESTS",
+        "SECURITY/QUALITY GATES"
+      ],
+      [
+        "SECURITY/QUALITY GATES",
+        "STAGING"
+      ],
+      [
+        "STAGING",
+        "E2E"
+      ],
+      [
+        "E2E",
+        "RELEASE MANIFEST"
+      ],
+      [
+        "RELEASE MANIFEST",
+        "CANARY 1%"
+      ],
+      [
+        "CANARY 1%",
+        "CANARY 5%"
+      ],
+      [
+        "CANARY 5%",
+        "PROD 100%"
+      ],
+      [
+        "PROD 100%",
+        "OBSERVE / ROLLBACK"
+      ]
+    ]
+  },
+  "visual": {
+    "poster": "./assets/lesson-20-production-canary.svg",
+    "alt": "Lesson 20 automated AI delivery with CI/CD, MLOps Model Registry and Canary 1 percent, 5 percent and 100 percent rollout."
+  },
+  "curriculum": {
+    "summary": "Стратегии Blue-Green, Canary и Rolling; планирование релиза; readiness checklist; rollback plan; практика — план релиза AI-сервиса с Canary.",
+    "teacher": "Игорь Стурейко",
+    "lesson_date": "2026-10-07",
+    "duration_minutes": 90,
+    "recommended_due": "2026-10-27",
+    "requirements": [
+      "Infrastructure as Code: описать автоматически создаваемые K8s cluster и S3 buckets",
+      "CI/CD: Commit → Build Docker → Unit Tests → Deploy Staging → E2E Tests → Deploy Prod",
+      "MLOps: показать связь dataset update → orchestrator → retrain → Model Registry → CI/CD trigger",
+      "Canary: описать переключение 1% → 5% → 100% и rollback metrics"
+    ],
+    "homework": [
+      "Схема CI/CD + MLOps pipeline",
+      "Текстовое описание release strategy",
+      "Связать код приложения с model artifact / Model Registry",
+      "Показать тестирование и Canary/Blue-Green",
+      "Минимизировать ручные действия"
+    ],
+    "acceptance_criteria": [
+      "Интеграция: связь между кодом приложения и артефактом модели (Model Registry)",
+      "Безопасность релиза: наличие этапов тестирования и стратегии Canary/Blue-Green",
+      "Автоматизация: минимум ручных действий в схеме"
+    ],
+    "sources": [
+      "OTUS Lesson 20 user-provided source",
+      "Argo CD Architectural Overview",
+      "Martin Fowler — Canary Release"
+    ]
+  },
+  "architect_pro": {
+    "summary": "GitOps separates build from deployment: CI produces immutable app/model/index references; Git stores desired deployment state; Argo CD reconciles live state to Git. Canary progression is an explicit release state machine with automatic metric gates and immediate traffic rollback to stable on failure.",
+    "methods": [
+      "Immutable app image digest + model URI/version + vector-index version in one release manifest",
+      "GitOps desired state",
+      "Argo CD sync/reconciliation",
+      "Staging before production",
+      "E2E / security / eval gates",
+      "Canary 1% → 5% → 100%",
+      "Automatic rollback on SLO/quality/security regression",
+      "Keep stable version live during canary",
+      "Separate Canary release risk control from A/B hypothesis testing",
+      "Release evidence bundle"
+    ],
+    "standards": [
+      "Terraform",
+      "Kubernetes",
+      "GitOps",
+      "Argo CD",
+      "Model Registry",
+      "CI/CD",
+      "Canary Release"
+    ],
+    "templates": [
+      "DZ_20_SUBMISSION.md",
+      "release-manifest.yaml",
+      "canary-policy.yaml",
+      "mlops-pipeline.yaml",
+      "readiness-checklist.md",
+      "rollback-plan.md"
+    ],
+    "anti_patterns": [
+      "Deploy latest tag without immutable digest/version",
+      "Model artifact not bound to application release",
+      "Manual production changes outside Git",
+      "Canary without metrics and rollback condition",
+      "Removing stable version before canary completes",
+      "Treating A/B test and canary release as the same experiment",
+      "100% rollout immediately after unit tests",
+      "Rollback that requires rebuilding an old version"
+    ]
+  },
+  "father_production": {
+    "summary": "DZ20 is the first submission-grade composition of FATHER Delivery, Model Registry, Evaluation, Security, Observability/SLO and Kubernetes blocks. It is also the target blueprint for the future reusable DevOps/DevSecOps Factory.",
+    "capability_ids": [
+      "FTH-HARNESS-001",
+      "FTH-MRG-001",
+      "FTH-OBS-001",
+      "FTH-GTW-001",
+      "FTH-DLV-001",
+      "FTH-DSEC-001",
+      "FTH-K8S-001",
+      "FTH-SLO-001",
+      "FTH-EVL-001"
+    ],
+    "components": [
+      "FTH-DLV-001 · Delivery Plane",
+      "FTH-DSEC-001 · DevSecOps Delivery Security",
+      "FTH-MRG-001 · Model Registry",
+      "FTH-EVL-001 · Evaluation Service",
+      "FTH-OBS-001 · Observability & Audit Plane",
+      "FTH-SLO-001 · SLO / Alerting",
+      "FTH-K8S-001 · Kubernetes Runtime",
+      "FTH-GTW-001 · Traffic / AI Gateway"
+    ],
+    "runtime_notes": [
+      "CI builds immutable artifacts; deployment is GitOps-driven",
+      "Release manifest binds app image, model version and RAG/index version",
+      "Canary traffic stages are independent release gates",
+      "Stable remains available until 100% promotion is complete",
+      "Rollback redirects traffic to stable and restores previous release manifest",
+      "Runtime thresholds in submission are design choices and must be calibrated from real SLO/evidence"
+    ]
+  },
+  "artifacts": [
+    "20 Стратегии развёртывания и вывода в Production  ДЗ/DZ_20_Production_Delivery/DZ_20_SUBMISSION.md",
+    "20 Стратегии развёртывания и вывода в Production  ДЗ/DZ_20_Production_Delivery/RELEASE_STRATEGY.md",
+    "20 Стратегии развёртывания и вывода в Production  ДЗ/DZ_20_Production_Delivery/IAC_PSEUDOCODE.tf",
+    "20 Стратегии развёртывания и вывода в Production  ДЗ/DZ_20_Production_Delivery/release/release-manifest.yaml",
+    "20 Стратегии развёртывания и вывода в Production  ДЗ/DZ_20_Production_Delivery/release/canary-policy.yaml",
+    "20 Стратегии развёртывания и вывода в Production  ДЗ/DZ_20_Production_Delivery/mlops/mlops-pipeline.yaml",
+    "20 Стратегии развёртывания и вывода в Production  ДЗ/DZ_20_Production_Delivery/READINESS_CHECKLIST.md",
+    "20 Стратегии развёртывания и вывода в Production  ДЗ/DZ_20_Production_Delivery/ROLLBACK_PLAN.md",
+    "site/assets/lesson-20-production-canary.svg"
+  ],
+  "evidence": [
+    "Submission package explicitly maps all four homework steps.",
+    "Release manifest binds application image digest to model registry URI/version and RAG index version.",
+    "Canary policy specifies 1% → 5% → 100% progression and rollback signals.",
+    "IaC pseudocode declares VPC/network, Kubernetes cluster and S3/object storage targets.",
+    "MLOps pipeline shows dataset/source update → validation → retrain/reindex → evaluation → registry → release trigger.",
+    "GitOps design uses Git desired state and Argo CD reconciliation; runtime execution evidence is not claimed."
+  ],
+  "traceability": [
+    "HOMEWORK-1 → IAC_PSEUDOCODE.tf",
+    "HOMEWORK-2 → CI/CD lane in DZ_20_SUBMISSION.md",
+    "HOMEWORK-3 → mlops/mlops-pipeline.yaml + release-manifest.yaml",
+    "HOMEWORK-4 → canary-policy.yaml + RELEASE_STRATEGY.md",
+    "MODEL REGISTRY → RELEASE MANIFEST",
+    "RELEASE MANIFEST → STAGING/CANARY",
+    "CANARY METRICS → PROMOTE/ROLLBACK",
+    "ROLLBACK → STABLE RELEASE",
+    "GIT DESIRED STATE → ARGO CD → KUBERNETES"
+  ],
+  "gaps": [
+    "Homework is prepared but still marked not submitted until uploaded to OTUS.",
+    "Terraform is submission pseudocode/design, not proof of a cloud deployment.",
+    "Argo CD architecture is used as GitOps reference; an installed Argo CD runtime is not claimed.",
+    "Canary thresholds are project design values, not values supplied by OTUS or Martin Fowler.",
+    "Model Registry implementation is abstract; MLflow or another registry can be selected later.",
+    "Runtime CI/CD, Canary and rollback evidence can be added after DZ18/DZ19 labs are executed."
+  ],
+  "sources": [
+    {
+      "title": "Argo CD Architectural Overview",
+      "url": "https://argo-cd.readthedocs.io/en/stable/operator-manual/architecture/"
+    },
+    {
+      "title": "Martin Fowler — Canary Release",
+      "url": "https://martinfowler.com/bliki/CanaryRelease.html"
+    }
+  ]
+}
