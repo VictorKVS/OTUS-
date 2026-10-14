@@ -1294,3 +1294,18 @@ Performed a strict Lesson 20 audit and strengthened the submission:
 - added data versioning/drift monitoring, feature flags and exact registry artifact resolution;
 - expanded rollback from image-only to complete release bundle;
 - introduced the Assurance Backbone: NO EVIDENCE → NO PROMOTION.
+
+
+---
+
+## 2026-10-14 — Factory milestone moved to Lessons 00–29
+
+Current focus is now a working FATHER Factory through Lesson 29 rather than further visual expansion.
+
+Added:
+- machine-readable Lesson → Capability → Station → Evidence mapping for 00–29;
+- three integration waves: 00–12, 13–20, 21–29;
+- working milestone page in Factory;
+- explicit plan for HA/DR, runtime selection, EDA, high-load, hybrid cloud, multi-tenancy, privacy, FinOps and Technology Radar.
+
+No production maturity is inferred from course-source availability. Lessons 21–29 remain source-available until factory artifacts and evidence are implemented.

@@ -72,3 +72,19 @@
 - [Дневник разработки](docs/DEVELOPMENT_JOURNAL.md)
 
 Ближайший архитектурный этап: **STEP 01 — Master Architecture Map**.
+
+
+## Current Factory Milestone — Lessons 00–29
+
+По состоянию на 2026-10-14 текущий приоритет FATHER Factory: довести единый рабочий контур через Lessons 00–29 до evidence-based M1.
+
+Это не изменяет полный учебный реестр 1–31. Lessons 30–31 остаются в курсе, но временно находятся за границей текущего factory milestone.
+
+Operational layers:
+- 00–12: Foundation / Design / AI / Data;
+- 13–20: Assurance / Capacity / Delivery;
+- 21–29: Reliability / Runtime / Scale / Privacy / FinOps / Evolution.
+
+Canonical page: `factory/lesson-conveyor-0-29.html`.
+Canonical data: `factory/data/lesson-conveyor-0-29.json`.
+Engineering plan: `docs/FACTORY_0_29_WORKING_PLAN.md`.
