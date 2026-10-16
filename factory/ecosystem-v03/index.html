@@ -107,7 +107,8 @@ function componentReferenceHtml(x){
  '<div class="rsec"><small>ТЕХНИЧЕСКАЯ ПОДСКАЗКА</small><div>'+escHtml(r.technical_hint||'')+'</div></div>'+
  '<div class="rsec"><small>ИСТОЧНИК</small><div>'+escHtml(x.source_repo+':'+x.source_path)+'</div></div>'+
  '<div class="rsec"><small>LIFECYCLE</small><div class="good">'+escHtml(r.lifecycle||'')+'</div></div>'+
- '<div class="rsec"><small>ДО СЕРТИФИКАЦИИ</small><div class="warn">'+req+'</div></div>';
+ '<div class="rsec"><small>ДО СЕРТИФИКАЦИИ</small><div class="warn">'+req+'</div></div>'+
+ '<div class="ref-actions"><button data-comp-details="'+escHtml(x.id)+'">Подробнее</button></div>';
 }
 function projectReferenceHtml(x){
  const r=PROJECT_REFS.items?.[x.id];
@@ -135,6 +136,7 @@ function showReference(kind,id,ev){
  else return;
  tip.classList.add('show');tip.setAttribute('aria-hidden','false');positionRefTip(ev);
  const btn=tip.querySelector('[data-ref-details]');if(btn)btn.onclick=()=>{cancelHideRef();hideComponentRef();openProjectReference(btn.dataset.refDetails)}
+ const cbtn=tip.querySelector('[data-comp-details]');if(cbtn)cbtn.onclick=()=>{cancelHideRef();hideComponentRef();openComponentReference(cbtn.dataset.compDetails)}
 }
 function hideComponentRef(){cancelHideRef();const tip=$('#refTip');tip.classList.remove('show');tip.setAttribute('aria-hidden','true')}
 function bindReferenceHover(el,kind,id){
@@ -177,7 +179,7 @@ function refResolvePath(base,href){
 async function loadReferenceDoc(id,path,push=true){
  const r=PROJECT_REFS.items?.[id];if(!r||!r.repo){$('#refArticle').innerHTML='<div class="source-fail">Для этого агента GitHub-источник пока не подтверждён.</div>';return}
  if(push&&refCurrent)refHistory.push(refCurrent);
- refCurrent={id,path};$('#refCenterBack').disabled=refHistory.length===0;
+ refCurrent={mode:'project',id,path};$('#refCenterBack').disabled=refHistory.length===0;
  $('#refCenterTitle').textContent=r.title||id;$('#refCenterSource').textContent=r.repo+' · '+path;
  $('#refCenterGithub').href=githubBlobUrl(r.repo,r.ref,path);$('#refArticle').innerHTML='<div class="loading">Загрузка из GitHub: '+escHtml(path)+'…</div>';
  $all('#refCenterNav button[data-doc]').forEach(b=>b.classList.toggle('active',b.dataset.doc===path));
@@ -197,9 +199,102 @@ async function loadReferenceDoc(id,path,push=true){
    $('#refArticle').innerHTML='<div class="source-fail"><b>Не удалось загрузить документ из GitHub.</b><br>'+escHtml(String(err))+'<br><br><a target="_blank" rel="noopener" href="'+githubBlobUrl(r.repo,r.ref,path)+'">Открыть исходник на GitHub ↗</a></div>'
  }
 }
-function openProjectReference(id){
+function componentPassportHtml(x){
+ const r=x.reference||{},req=r.promotion_requirements||[];
+ return '<h1>'+escHtml(x.name)+'</h1>'+
+ '<div class="ref-center-meta"><span>'+escHtml(x.id)+'</span><span>'+escHtml(x.level)+'</span><span>'+escHtml(x.status)+'</span><span>'+escHtml(x.certification)+'</span></div>'+
+ '<h2>Что это</h2><p>'+escHtml(r.summary||x.purpose||'')+'</p>'+
+ '<h2>Роль в FATHER</h2><p>'+escHtml(r.father_role||'')+'</p>'+
+ '<h2>Источник</h2><p><code>'+escHtml(x.source_repo+':'+x.source_path)+'</code></p>'+
+ '<h2>Происхождение</h2><p>Parent agent: <code>'+escHtml(x.parent_agent)+'</code><br>Logical folder: <code>'+escHtml(x.logical_folder)+'</code><br>Source kind: <code>'+escHtml(x.source_kind)+'</code></p>'+
+ '<h2>Техническая справка</h2><p>'+escHtml(r.technical_hint||'')+'</p>'+
+ '<h2>Рекомендация по использованию</h2><p>'+escHtml(r.usage_hint||'')+'</p>'+
+ '<h2>Lifecycle</h2><p><code>'+escHtml(r.lifecycle||'')+'</code></p>'+
+ '<h2>Что нужно до сертификации</h2><ul>'+req.map(v=>'<li>'+escHtml(v)+'</li>').join('')+'</ul>'+
+ '<p><strong>Confidence:</strong> '+escHtml(r.confidence||'')+'</p>'
+}
+function componentEvidenceHtml(x){
+ const ev=x.evidence||[],tests=x.tests||[],compat=x.compatibility||[];
+ return '<h1>Evidence · '+escHtml(x.name)+'</h1>'+
+ '<h2>Source evidence</h2>'+(ev.length?'<ul>'+ev.map(v=>'<li><code>'+escHtml(v)+'</code></li>').join('')+'</ul>':'<p>Evidence пока не добавлено.</p>')+
+ '<h2>Tests</h2>'+(tests.length?'<ul>'+tests.map(v=>'<li>'+escHtml(typeof v==='string'?v:JSON.stringify(v))+'</li>').join('')+'</ul>':'<p>Тесты пока не привязаны.</p>')+
+ '<h2>Compatibility</h2>'+(compat.length?'<ul>'+compat.map(v=>'<li>'+escHtml(typeof v==='string'?v:JSON.stringify(v))+'</li>').join('')+'</ul>':'<p>Матрица совместимости пока не построена.</p>')+
+ '<div class="source-fail"><b>NO EVIDENCE → NO PROMOTION.</b><br>Наличие исходного файла подтверждает происхождение, но не сертификацию.</div>'
+}
+function componentPromotionHtml(x){
+ const r=x.reference||{},req=r.promotion_requirements||[];
+ return '<h1>Promotion path</h1>'+
+ '<div class="ref-center-meta"><span>'+escHtml(x.status)+'</span><span>'+escHtml(x.certification)+'</span></div>'+
+ '<pre><code>HARVEST_CANDIDATE\n  ↓\nREVIEWED\n  ↓\nTESTED\n  ↓\nINTEGRATION_TESTED\n  ↓\nSECURITY_TESTED\n  ↓\nCERTIFIED</code></pre>'+
+ '<h2>Gate checklist</h2><ul>'+req.map(v=>'<li>'+escHtml(v)+'</li>').join('')+'</ul>'+
+ '<p>Текущий компонент не повышается автоматически. Решение должно опираться на паспорт, tests/evidence, security review и compatibility review.</p>'
+}
+function renderCodeOrText(path,text){
+ const ext=(path.split('.').pop()||'').toLowerCase();
+ if(ext==='md')return markdownToHtml(text);
+ if(ext==='json'){try{return '<pre><code>'+escHtml(JSON.stringify(JSON.parse(text),null,2))+'</code></pre>'}catch{}}
+ return '<pre><code>'+escHtml(text)+'</code></pre>'
+}
+async function loadComponentPath(id,path,push=true){
+ const x=componentList().find(c=>c.id===id);if(!x)return;
+ if(push&&refCurrent)refHistory.push(refCurrent);
+ refCurrent={mode:'component-source',id,path};$('#refCenterBack').disabled=refHistory.length===0;
+ $('#refCenterTitle').textContent=x.name;$('#refCenterSource').textContent=x.source_repo+' · '+path;
+ $('#refCenterGithub').href=githubBlobUrl(x.source_repo,x.source_ref,path);$('#refArticle').innerHTML='<div class="loading">Загрузка из GitHub: '+escHtml(path)+'…</div>';
+ try{
+   const res=await fetch(githubApiUrl(x.source_repo,x.source_ref,path),{headers:{Accept:'application/vnd.github+json'}});
+   if(!res.ok)throw new Error('GitHub HTTP '+res.status);
+   const obj=await res.json();
+   if(Array.isArray(obj)){
+     $('#refArticle').innerHTML='<h1>'+escHtml(path||'/')+'</h1><div class="ref-center-meta"><span>DIRECTORY / ASSEMBLY SOURCE</span><span>'+obj.length+' item(s)</span></div>'+
+       obj.map(it=>'<a href="#" class="artifact" data-comp-path="'+escHtml(it.path)+'">'+escHtml(it.name)+'<span class="ak">'+escHtml(it.type)+'</span></a>').join('');
+     $all('#refArticle [data-comp-path]').forEach(a=>a.onclick=e=>{e.preventDefault();loadComponentPath(id,a.dataset.compPath,true)});
+   }else{
+     const text=decodeGithubContent(obj);
+     $('#refArticle').innerHTML='<div class="ref-center-meta"><span>'+escHtml(x.level)+'</span><span>'+escHtml(x.status)+'</span><span>'+escHtml(path)+'</span></div>'+renderCodeOrText(path,text);
+     $all('#refArticle a[data-md-link]').forEach(a=>a.onclick=e=>{
+       const href=a.dataset.mdLink;if(!href)return;
+       if(href.startsWith('#'))return;
+       const resolved=refResolvePath(path,href);
+       if(/^https?:\/\//i.test(resolved)){a.target='_blank';return}
+       e.preventDefault();loadComponentPath(id,resolved.split('#')[0],true)
+     })
+   }
+ }catch(err){
+   $('#refArticle').innerHTML='<div class="source-fail"><b>Не удалось загрузить source.</b><br>'+escHtml(String(err))+'<br><br><a target="_blank" rel="noopener" href="'+githubBlobUrl(x.source_repo,x.source_ref,path)+'">Открыть GitHub ↗</a></div>'
+ }
+}
+function showComponentPanel(id,viewName,push=true){
+ const x=componentList().find(c=>c.id===id);if(!x)return;
+ if(push&&refCurrent)refHistory.push(refCurrent);
+ refCurrent={mode:'component-panel',id,viewName};$('#refCenterBack').disabled=refHistory.length===0;
+ $('#refCenterTitle').textContent=x.name;$('#refCenterSource').textContent=x.source_repo+' · '+x.source_path;$('#refCenterGithub').href=githubBlobUrl(x.source_repo,x.source_ref,x.source_path);
+ $all('#refCenterNav button[data-comp-view]').forEach(b=>b.classList.toggle('active',b.dataset.compView===viewName));
+ if(viewName==='passport')$('#refArticle').innerHTML=componentPassportHtml(x);
+ else if(viewName==='evidence')$('#refArticle').innerHTML=componentEvidenceHtml(x);
+ else if(viewName==='promotion')$('#refArticle').innerHTML=componentPromotionHtml(x);
+}
+function openComponentReference(id){
+ const x=componentList().find(c=>c.id===id);if(!x)return;
+ refHistory=[];refCurrent=null;$('#refCenterTitle').textContent=x.name;$('#refCenterSource').textContent=x.source_repo+' · '+x.source_path;
+ $('#refCenterNav').innerHTML=
+  '<div class="nav-title">COMPONENT REFERENCE</div>'+
+  '<div class="summary">'+escHtml(x.reference?.summary||x.purpose||'')+'</div>'+
+  '<button data-comp-view="passport">Паспорт</button>'+
+  '<button data-comp-source="1">Исходник / каталог</button>'+
+  '<button data-comp-view="evidence">Evidence & Tests</button>'+
+  '<button data-comp-view="promotion">Promotion / Certification</button>'+
+  '<div class="nav-title">PARENT</div>'+
+  '<button data-parent-agent="'+escHtml(x.parent_agent)+'">Родительский агент · '+escHtml(x.parent_agent)+'</button>'+
+  '<div class="nav-title">SOURCE</div><a class="artifact" target="_blank" rel="noopener" href="'+githubBlobUrl(x.source_repo,x.source_ref,x.source_path)+'">'+escHtml(x.source_repo)+' ↗</a>';
+ $all('#refCenterNav button[data-comp-view]').forEach(b=>b.onclick=()=>showComponentPanel(id,b.dataset.compView,true));
+ const sb=$('#refCenterNav button[data-comp-source]');if(sb)sb.onclick=()=>loadComponentPath(id,x.source_path,true);
+ const pb=$('#refCenterNav button[data-parent-agent]');if(pb)pb.onclick=()=>{const pid=pb.dataset.parentAgent;if(PROJECT_REFS.items?.[pid]){if(refCurrent)refHistory.push(refCurrent);openProjectReference(pid,true)}else $('#refArticle').innerHTML='<div class="source-fail">Для parent agent '+escHtml(pid)+' Project Reference пока не создан.</div>'};
+ $('#referenceCenter').showModal();showComponentPanel(id,'passport',false)
+}
+function openProjectReference(id,preserveHistory=false){
  const r=PROJECT_REFS.items?.[id];if(!r)return;
- refHistory=[];refCurrent=null;$('#refCenterTitle').textContent=r.title||id;$('#refCenterSource').textContent=r.repo||'SOURCE MAPPING REQUIRED';
+ if(!preserveHistory){refHistory=[];refCurrent=null;}$('#refCenterTitle').textContent=r.title||id;$('#refCenterSource').textContent=r.repo||'SOURCE MAPPING REQUIRED';
  const docs=r.docs||[];$('#refCenterNav').innerHTML='<div class="nav-title">PROJECT REFERENCE</div><div class="summary">'+escHtml(r.short||'')+'</div>'+docs.map(d=>'<button data-doc="'+escHtml(d.path)+'">'+escHtml(d.label||d.path)+'</button>').join('')+(r.repo?'<div class="nav-title">SOURCE</div><a class="artifact" target="_blank" rel="noopener" href="https://github.com/'+r.repo+'">'+escHtml(r.repo)+' ↗</a>':'<div class="source-fail">GitHub mapping pending.</div>');
  $all('#refCenterNav button[data-doc]').forEach(b=>b.onclick=()=>loadReferenceDoc(id,b.dataset.doc,true));
  $('#referenceCenter').showModal();if(docs.length)loadReferenceDoc(id,docs[0].path,false);else $('#refArticle').innerHTML='<h1>'+escHtml(r.title||id)+'</h1><p>'+escHtml(r.short||'')+'</p>'
@@ -217,7 +312,7 @@ function renderInspector(){
  }
  if(selected.k==='component'){
    const url=artifactUrl(x.source_repo,x.source_ref,x.source_path);
-   $('#ib').innerHTML='<div class="cards"><div class="card"><small>ID</small><b>'+x.id+'</b></div><div class="card"><small>LEVEL</small><b>'+x.level+'</b></div><div class="card"><small>STATUS</small><b>'+x.status+'</b></div><div class="card"><small>CERTIFICATION</small><b>'+x.certification+'</b></div></div><div class="sec"><h3>PURPOSE</h3><div class="folder">'+x.role+'</div></div><div class="sec"><h3>SOURCE</h3><a class="artifact" target="_blank" rel="noopener" href="'+url+'">'+x.source_repo+' / '+x.source_path+'<span class="ak">'+x.source_kind+'</span></a></div><div class="sec"><h3>PARENT AGENT</h3><div class="folder"><b>'+x.parent_agent+'</b><small>logical folder: '+x.logical_folder+'</small></div></div><div class="sec"><h3>PASSPORT STATE</h3><div class="folder"><b>HARVEST_CANDIDATE</b><small>Not certified. Requires tests, evidence review and compatibility review before promotion.</small></div></div><div class="btnrow"><button onclick="addNode(\'component\',\''+x.id+'\')">На поле</button></div>';return
+   $('#ib').innerHTML='<div class="cards"><div class="card"><small>ID</small><b>'+x.id+'</b></div><div class="card"><small>LEVEL</small><b>'+x.level+'</b></div><div class="card"><small>STATUS</small><b>'+x.status+'</b></div><div class="card"><small>CERTIFICATION</small><b>'+x.certification+'</b></div></div><div class="sec"><h3>PURPOSE</h3><div class="folder">'+x.role+'</div></div><div class="sec"><h3>SOURCE</h3><a class="artifact" target="_blank" rel="noopener" href="'+url+'">'+x.source_repo+' / '+x.source_path+'<span class="ak">'+x.source_kind+'</span></a></div><div class="sec"><h3>PARENT AGENT</h3><div class="folder"><b>'+x.parent_agent+'</b><small>logical folder: '+x.logical_folder+'</small></div></div><div class="sec"><h3>PASSPORT STATE</h3><div class="folder"><b>HARVEST_CANDIDATE</b><small>Not certified. Requires tests, evidence review and compatibility review before promotion.</small></div></div><div class="btnrow"><button onclick="addNode(\'component\',\''+x.id+'\')">На поле</button><button onclick="openComponentReference(\''+x.id+'\')">Подробнее / Source</button></div>';return
  }
  if(x.kind==='integration'){
    $('#ib').innerHTML='<div class="cards"><div class="card"><small>ID</small><b>'+x.id+'</b></div><div class="card"><small>PROVIDER</small><b>'+x.provider+'</b></div><div class="card"><small>TYPE</small><b>'+x.role+'</b></div><div class="card"><small>STATUS</small><b>'+x.status+'</b></div></div><div class="sec"><h3>CONTRACT</h3><div class="folder"><b>Adapter contract</b><small>Credentials/secrets are not stored here.</small></div></div><div class="btnrow"><button onclick="addNode(\'integration\',\''+x.id+'\')">На поле</button></div>';return
@@ -310,7 +405,11 @@ $('#create').onclick=()=>{let n=$('#an').value.trim();if(!n)return;S.custom.push
 $('#reset').onclick=()=>{if(confirm('Reset local workspace state?')){S={custom:[],arch:[],nodes:[],edges:[],events:[],agentGraphs:{}};view={mode:'root',agentId:null};selected=null;save();updateCanvasContext();renderCatalog();renderCanvas();renderInspector();renderBottom()}};
 $('#in').onclick=()=>addNode('io','INPUT',50,100);$('#out').onclick=()=>addNode('io','OUTPUT',1050,100);$('#fit').onclick=fit;$('#backRoot').onclick=backRoot;
 $('#refCenterClose').onclick=()=>$('#referenceCenter').close();
-$('#refCenterBack').onclick=()=>{if(!refHistory.length)return;const prev=refHistory.pop();refCurrent=null;loadReferenceDoc(prev.id,prev.path,false);$('#refCenterBack').disabled=refHistory.length===0};
+$('#refCenterBack').onclick=()=>{if(!refHistory.length)return;const prev=refHistory.pop();refCurrent=null;
+ if(prev.mode==='project')loadReferenceDoc(prev.id,prev.path,false);
+ else if(prev.mode==='component-source')loadComponentPath(prev.id,prev.path,false);
+ else if(prev.mode==='component-panel')showComponentPanel(prev.id,prev.viewName,false);
+ $('#refCenterBack').disabled=refHistory.length===0};
 $('#refTip').addEventListener('mouseenter',cancelHideRef);$('#refTip').addEventListener('mouseleave',scheduleHideRef);
 $all('#btabs button').forEach(x=>x.onclick=()=>{bottom=x.dataset.b;renderBottom()});
 let v=$('#view');v.ondragover=e=>e.preventDefault();v.ondrop=e=>{e.preventDefault();let a=JSON.parse(e.dataTransfer.getData('father')||'null');if(!a)return;let r=v.getBoundingClientRect();addNode(a.kind,a.id,e.clientX-r.left-95,e.clientY-r.top-40)};
