@@ -1,0 +1,481 @@
+{
+  "schema_version": "father.project.references.v0.1",
+  "generated_at": "2026-10-16",
+  "policy": "Summaries reference verified repositories/docs. Detailed viewer loads source text from GitHub raw URLs. Unmapped agents remain explicitly pending.",
+  "items": {
+    "FTH-ALINA-ANALYST-001": {
+      "title": "Алина · Analyst Black Box",
+      "kind": "FATHER CORE / external black box",
+      "repo": "VictorKVS/alina-knowledge-worker",
+      "ref": "main",
+      "short": "Локальный knowledge-worker: индексирует документы, хранит provenance в SQLite/FTS5, поддерживает очереди, поиск и исполняемые процессы. В FATHER используется как главный производитель и поставщик структурированного знания; внутренний workflow в этом Workspace намеренно не раскрывается.",
+      "already": [
+        "локальная библиотека документов",
+        "SQLite/FTS5 + provenance",
+        "очередь и веб-дашборд",
+        "исполняемые process definitions",
+        "20 локальных тестов по README"
+      ],
+      "father_role": "Knowledge/Intelligence production layer перед Knowledge Graph и Component Factory.",
+      "status": "EXTERNAL_BLACKBOX",
+      "docs": [
+        {
+          "label": "Обзор",
+          "path": "README.md"
+        },
+        {
+          "label": "Правила агента",
+          "path": "AGENTS.md"
+        }
+      ]
+    },
+    "PRJ-OSINT-001": {
+      "title": "FATHER OSINT",
+      "kind": "Project Agent / OSINT",
+      "repo": "VictorKVS/OSINT_TRICOLOR",
+      "ref": "main",
+      "short": "Специализированный профиль общего OSINT-агента FATHER. MVP принимает находки, нормализует URL, дедуплицирует сигналы, хранит их в SQLite, ведёт аудит и формирует отчёты-гипотезы. Архитектура разделяет общее OSINT-ядро и отраслевые профили.",
+      "already": [
+        "JSONL intake и URL normalization",
+        "SQLite signal registry",
+        "audit log",
+        "heuristic priority queue",
+        "knowledge/graph contracts",
+        "visual workflow specification"
+      ],
+      "father_role": "Research/OSINT factory, provenance, evidence and reusable intelligence modules.",
+      "status": "MVP / HARVESTED",
+      "docs": [
+        {
+          "label": "README",
+          "path": "README.md"
+        },
+        {
+          "label": "Архитектура",
+          "path": "docs/ARCHITECTURE.md"
+        },
+        {
+          "label": "Модули",
+          "path": "docs/14_FATHER_MODULAR_INTELLIGENCE/MODULE_CATALOG.md"
+        },
+        {
+          "label": "Visual Workflow",
+          "path": "docs/14_FATHER_MODULAR_INTELLIGENCE/WORKFLOW_AND_VISUAL_DESIGNER.md"
+        },
+        {
+          "label": "Graph Model",
+          "path": "docs/11_KNOWLEDGE_GRAPH/GRAPH_MODEL.md"
+        },
+        {
+          "label": "Security",
+          "path": "docs/12_GRAPH_ENGINEERING/SECURITY_AND_PRIVACY.md"
+        }
+      ]
+    },
+    "PRJ-SECGRAPH-001": {
+      "title": "SecGraph",
+      "kind": "Project Agent / Security Graph",
+      "repo": "VictorKVS/SecGraph",
+      "ref": "main",
+      "short": "Платформа knowledge-driven аудита безопасности, пентеста и анализа инфраструктуры. Центральная идея — граф сущностей ИБ: угрозы, уязвимости, меры защиты, нормативные требования, активы и риски.",
+      "already": [
+        "KB Core specification",
+        "graph node/edge model",
+        "audit_log requirements",
+        "test specification",
+        "backend dependency skeleton"
+      ],
+      "father_role": "Security knowledge graph and reusable threat/risk/control relationship engine.",
+      "status": "v0.1 foundation",
+      "docs": [
+        {
+          "label": "README",
+          "path": "README.md"
+        },
+        {
+          "label": "KB Core Spec",
+          "path": "docs/001_kb_core_spec.md"
+        },
+        {
+          "label": "KB Core Tests",
+          "path": "docs/002_kb_core_tests.md"
+        }
+      ]
+    },
+    "PRJ-WEB-001": {
+      "title": "Website Builder & Maintainer",
+      "kind": "Project Agent / Web",
+      "repo": "VictorKVS/Makar-Frontend-Factory",
+      "ref": "main",
+      "short": "Веб-контур на базе Makar Frontend Factory: переиспользуемая фабрика сложных frontend/interactive интерфейсов. Делает акцент на design tokens, workspace engine, information streams, visualization, avatar/scene pipelines, QA и коммерческую повторяемость.",
+      "already": [
+        "ALINA Control Center",
+        "workspace/UI engines",
+        "visualization surfaces",
+        "Playwright/Vitest checks",
+        "Makar passport + skills/evidence",
+        "BOOK-CRAFT reference case"
+      ],
+      "father_role": "Создание и сопровождение сайтов и визуальных интерфейсов FATHER из reusable frontend-компонентов.",
+      "status": "M1/M2 active",
+      "docs": [
+        {
+          "label": "README",
+          "path": "README.md"
+        },
+        {
+          "label": "Roadmap",
+          "path": "ROADMAP.md"
+        },
+        {
+          "label": "Makar Passport",
+          "path": "agents/makar/passport.json"
+        },
+        {
+          "label": "Skills",
+          "path": "agents/makar/skills.json"
+        },
+        {
+          "label": "Control Center",
+          "path": "apps/alina-control-center/README.md"
+        }
+      ]
+    },
+    "PRJ-AVATAR-001": {
+      "title": "Avatar Production Agent",
+      "kind": "Project Agent / Avatar",
+      "repo": "VictorKVS/Makar-Frontend-Factory",
+      "ref": "main",
+      "short": "Контур производства и интеграции аватаров в Makar/FATHER. В репозитории уже есть Avatar Engine/Surface, runtime, demo, visual QA и evidence по avatar.integration.",
+      "already": [
+        "AlinaAvatarSurface",
+        "AvatarDemo",
+        "avatar runtime",
+        "visual tests",
+        "Makar evidence",
+        "scene/asset pipeline"
+      ],
+      "father_role": "Производство, runtime-интеграция и контроль качества аватаров.",
+      "status": "implemented candidate / reusable",
+      "docs": [
+        {
+          "label": "README",
+          "path": "README.md"
+        },
+        {
+          "label": "ALINA Control Center",
+          "path": "apps/alina-control-center/README.md"
+        },
+        {
+          "label": "Makar Passport",
+          "path": "agents/makar/passport.json"
+        },
+        {
+          "label": "Evidence",
+          "path": "agents/makar/evidence.json"
+        }
+      ]
+    },
+    "PRJ-COURSE-HARVESTER-001": {
+      "title": "Course Harvester / Lesson Agent",
+      "kind": "Project Agent / Knowledge ingestion",
+      "repo": "VictorKVS/CyberED",
+      "ref": "main",
+      "short": "Контур последовательного импорта, нормализации и связывания учебных/нормативных источников. CyberED использует общий FATHER IT/IB Knowledge Core и не должен становиться вторым независимым source of truth.",
+      "already": [
+        "source catalog import",
+        "source↔normalized linking",
+        "knowledge graph build",
+        "integrity validation",
+        "Alina IB sync",
+        "review-required handling"
+      ],
+      "father_role": "Проходит учебные источники, документирует их, строит knowledge candidates и передаёт в общий FATHER Knowledge Core.",
+      "status": "working automation",
+      "docs": [
+        {
+          "label": "FATHER IT/IB Core",
+          "path": "00_F402A/docs/FATHER_IT_IB_CORE.md"
+        },
+        {
+          "label": "Automation",
+          "path": "00_F402A/automation/README.md"
+        }
+      ]
+    },
+    "PRJ-COURSE-EDITOR-001": {
+      "title": "Course Update / Curriculum Agent",
+      "kind": "Project Agent / Curriculum",
+      "repo": "VictorKVS/CyberED",
+      "ref": "main",
+      "short": "Редакторский контур поверх CyberED/FATHER Knowledge: получает нормализованное знание и превращает его в предложения по обновлению курса, уроков, лабораторных и evidence. Финальные изменения требуют проверки эксперта/Алины.",
+      "already": [
+        "единый Knowledge Core",
+        "pipeline source→graph→validation",
+        "course as knowledge consumer"
+      ],
+      "father_role": "Обновление учебной программы на базе проверенного knowledge graph.",
+      "status": "DESIGN over existing knowledge pipeline",
+      "docs": [
+        {
+          "label": "FATHER IT/IB Core",
+          "path": "00_F402A/docs/FATHER_IT_IB_CORE.md"
+        },
+        {
+          "label": "Automation",
+          "path": "00_F402A/automation/README.md"
+        }
+      ]
+    },
+    "PRJ-COMPLIANCE-001": {
+      "title": "Compliance Agent",
+      "kind": "Project Agent / Compliance",
+      "repo": "VictorKVS/CyberED",
+      "ref": "main",
+      "short": "Нормативный knowledge-контур: SOURCE → candidate requirement → verified requirement → applicability → control → architecture → implementation → test → evidence. Автоматика специально не считает найденный фрагмент автоматически подтверждённым требованием.",
+      "already": [
+        "ИБ source catalog",
+        "FSTEC/FSB/RKN/GOST search profiles",
+        "knowledge graph build",
+        "integrity validation",
+        "AMBIGUOUS / REVIEW_REQUIRED states"
+      ],
+      "father_role": "Compliance Router knowledge source and traceability from regulation to controls/evidence.",
+      "status": "working knowledge pipeline",
+      "docs": [
+        {
+          "label": "FATHER IT/IB Core",
+          "path": "00_F402A/docs/FATHER_IT_IB_CORE.md"
+        },
+        {
+          "label": "Automation",
+          "path": "00_F402A/automation/README.md"
+        }
+      ]
+    },
+    "PRJ-DEVOPS-001": {
+      "title": "DevOps Agent",
+      "kind": "Project Agent / Delivery",
+      "repo": "VictorKVS/OTUS_Kibirnetes",
+      "ref": "main",
+      "short": "Инфраструктурный учебно-производственный контур Kubernetes, интегрированный с AI Architect. Общие инженерные компоненты переиспользуются, а задания курсов остаются самостоятельными.",
+      "already": [
+        "Kubernetes lessons 01–08",
+        "DZ_01 manifests",
+        "safe scripts",
+        "course integration docs",
+        "Git/CI/CD track"
+      ],
+      "father_role": "Delivery automation, containers, environments and reusable infrastructure capabilities.",
+      "status": "training→factory integration",
+      "docs": [
+        {
+          "label": "README",
+          "path": "README.md"
+        },
+        {
+          "label": "Integration",
+          "path": "docs/COURSE_INTEGRATION.md"
+        },
+        {
+          "label": "Lessons",
+          "path": "LESSONS/08_Git_and_CICD/README.md"
+        }
+      ]
+    },
+    "PRJ-DEVSECOPS-001": {
+      "title": "DevSecOps Agent",
+      "kind": "Project Agent / Security delivery",
+      "repo": "VictorKVS/OTUS_Kibirnetes",
+      "ref": "main",
+      "short": "Kubernetes security track FATHER: 100 авторских risk-сценариев по категориям OWASP Kubernetes Top 10 и read-only static audit MVP. Инструмент не объявляется автономным LLM-агентом и не выполняет активный пентест.",
+      "already": [
+        "100 risk scenarios",
+        "audit_k8s.py read-only auditor",
+        "lesson→threat→control→check→evidence model",
+        "security gates",
+        "external source registry"
+      ],
+      "father_role": "SAST/SCA/secrets/SBOM/container/K8s security and promotion gates.",
+      "status": "MVP / rule-based",
+      "docs": [
+        {
+          "label": "Security Track",
+          "path": "SECURITY/README.md"
+        },
+        {
+          "label": "Root README",
+          "path": "README.md"
+        }
+      ]
+    },
+    "PRJ-K8S-001": {
+      "title": "Platform / Kubernetes Agent",
+      "kind": "Project Agent / Platform",
+      "repo": "VictorKVS/OTUS_Kibirnetes",
+      "ref": "main",
+      "short": "Платформенный контур Kubernetes: объекты, сеть, storage, resources, service mesh, deployment и Git/CI/CD. В FATHER это база будущего runtime/deployment chassis.",
+      "already": [
+        "8 lesson tracks",
+        "DZ_01",
+        "scripts",
+        "security subtrack"
+      ],
+      "father_role": "Kubernetes/Helm/GitOps platform capabilities for FATHER deployments.",
+      "status": "training→platform candidate",
+      "docs": [
+        {
+          "label": "README",
+          "path": "README.md"
+        },
+        {
+          "label": "Integration",
+          "path": "docs/COURSE_INTEGRATION.md"
+        }
+      ]
+    },
+    "PRJ-SECARCH-001": {
+      "title": "Security Architect Agent",
+      "kind": "Project Agent / Security Architecture",
+      "repo": "VictorKVS/OTUS_Kibirnetes",
+      "ref": "main",
+      "short": "Архитектурный security-контур, связывающий угрозы, controls, Kubernetes security gates и evidence. Текущий репозиторий особенно силён в container/Kubernetes security и правилах ручной проверки.",
+      "already": [
+        "security track",
+        "risk scenarios",
+        "regulations source layer",
+        "static audit tool",
+        "evidence-oriented gates"
+      ],
+      "father_role": "Threat model → control architecture → security gate → evidence.",
+      "status": "partial / Kubernetes-focused",
+      "docs": [
+        {
+          "label": "Security Track",
+          "path": "SECURITY/README.md"
+        }
+      ]
+    },
+    "PRJ-QA-EVAL-001": {
+      "title": "QA / AI Eval Agent",
+      "kind": "Project Agent / Quality",
+      "repo": "VictorKVS/Makar-Frontend-Factory",
+      "ref": "main",
+      "short": "QA/Eval-контур опирается на реальные unit/visual/acceptance проверки Makar Frontend Factory и на FATHER policy 'NO EVIDENCE → NO PROMOTION'. Используется как заготовка для общего evaluator/certification pipeline.",
+      "already": [
+        "Vitest/Playwright evidence",
+        "quality budget checks",
+        "acceptance validators",
+        "skills/evidence registry"
+      ],
+      "father_role": "Quality and AI/RAG evaluation gates before certification/promotion.",
+      "status": "cross-project candidate",
+      "docs": [
+        {
+          "label": "README",
+          "path": "README.md"
+        },
+        {
+          "label": "Evidence",
+          "path": "agents/makar/evidence.json"
+        },
+        {
+          "label": "Roadmap",
+          "path": "ROADMAP.md"
+        }
+      ]
+    },
+    "PRJ-OBS-001": {
+      "title": "Observability / SRE Agent",
+      "kind": "Project Agent / Operations",
+      "repo": "VictorKVS/OTUS-",
+      "ref": "feature/father-ecosystem-workspace-v03",
+      "short": "Эксплуатационный контур FATHER для logs, metrics, traces, SLO, incidents и runtime feedback. В основном OTUS/FATHER репозитории уже есть observability lesson/factory материалы; отдельный агент пока собирается как reusable capability.",
+      "already": [
+        "factory evidence/gates",
+        "observability lesson track",
+        "runtime trace model in FATHER design"
+      ],
+      "father_role": "Runtime observability and production feedback loop.",
+      "status": "DESIGN / harvest pending",
+      "docs": [
+        {
+          "label": "Factory",
+          "path": "factory/README.md"
+        },
+        {
+          "label": "Workspace",
+          "path": "factory/ecosystem-v03/README.md"
+        }
+      ]
+    },
+    "PRJ-ALINA-CREATIVE-001": {
+      "title": "Алина · Creative Production",
+      "kind": "Project Agent / Creative",
+      "repo": "VictorKVS/MindForge-Studio",
+      "ref": "main",
+      "short": "Креативный производственный контур FATHER/Алины: изображения, визуальные assets и производственные пайплайны. Связан с BOOKCRAFT/Makar и дальнейшими ветками книг, сценариев, изображений и аватаров.",
+      "already": [
+        "dedicated MindForge Studio repository",
+        "creative production direction"
+      ],
+      "father_role": "Creative asset production for books, scripts, images and visual products.",
+      "status": "repository verified / detailed harvest pending",
+      "docs": [
+        {
+          "label": "README",
+          "path": "README.md"
+        }
+      ]
+    },
+    "PRJ-GAME-001": {
+      "title": "Game Development Agent",
+      "kind": "Project Agent / Games",
+      "repo": "VictorKVS/js-game",
+      "ref": "master",
+      "short": "Игровой агент-проект FATHER. Текущий verified GitHub source — существующий игровой репозиторий; его предстоит переработать в reusable game-development capabilities и связать с Makar/FATHER game track.",
+      "already": [
+        "existing game repository"
+      ],
+      "father_role": "Game prototypes, interactive scenarios and future reusable game engine capabilities.",
+      "status": "HARVEST PENDING",
+      "docs": [
+        {
+          "label": "README",
+          "path": "README.md"
+        }
+      ]
+    },
+    "PRJ-PROTOTYPE-001": {
+      "title": "Prototype Engineering Agent",
+      "kind": "Project Agent / Prototyping",
+      "repo": "VictorKVS/META-FOUNDRY",
+      "ref": "main",
+      "short": "Агент быстрых PoC/reference builds. Привязан к существующему инженерному repository-кандидату META-FOUNDRY; глубокая классификация его внутренностей ещё должна пройти Harvest.",
+      "already": [
+        "verified repository exists"
+      ],
+      "father_role": "Fast engineering prototypes before promotion into certified components.",
+      "status": "HARVEST PENDING",
+      "docs": [
+        {
+          "label": "README",
+          "path": "README.md"
+        }
+      ]
+    },
+    "PRJ-AISOC-001": {
+      "title": "FATHER AI-SOC",
+      "kind": "Project Agent / SOC",
+      "repo": null,
+      "ref": null,
+      "short": "SOC-контур FATHER: корреляция, расследование и analyst support. В текущем Reference Registry отдельный GitHub repository ещё не подтверждён автоматически, поэтому здесь не подставляется фиктивный источник.",
+      "already": [
+        "project identity exists in FATHER registry"
+      ],
+      "father_role": "SOC analysis, correlation, investigation and response support.",
+      "status": "SOURCE MAPPING REQUIRED",
+      "docs": []
+    }
+  }
+}
