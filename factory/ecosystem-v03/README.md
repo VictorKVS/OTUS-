@@ -75,3 +75,16 @@ python -m http.server 8088
 ## Правило Алины
 
 Alina Analyst в этом workspace — black box. Внутренняя реализация ведётся отдельно; сюда подключается её внешний контракт.
+
+
+## Agent drill-down
+
+Двойной клик по агенту на корневом canvas открывает его внутреннюю архитектуру:
+
+`Identity → Prompt / Knowledge / RAG / DB / Memory / Tools → Workflow → Security → Eval → Observability → Deployment → Docs / Evidence`.
+
+Для `FTH-ALINA-ANALYST-001` действует особое правило: Alina остаётся black box и показывает только:
+
+`Input Contract → ALINA BLACK BOX → Output / Evidence Contract`.
+
+Это защищает отдельную ветку разработки Алины и не моделирует её внутренности фиктивно.
