@@ -77,10 +77,10 @@ function artifactUrl(repo,ref,path){const clean=String(path).replace(/\/$/,'');r
 let S=JSON.parse(localStorage.getItem('father-v03')||'{"custom":[],"arch":[],"nodes":[],"edges":[],"events":[]}');
 S.custom=S.custom||[];S.arch=S.arch||[];S.nodes=S.nodes||[];S.edges=S.edges||[];S.events=S.events||[];S.agentGraphs=S.agentGraphs||{};
 let tab='father',bottom='structure',selected=null,pending=null,drag=null,view={mode:'root',agentId:null};
-const $=s=>document.querySelector(s),$=s=>[...document.querySelectorAll(s)],save=()=>{localStorage.setItem('father-v03',JSON.stringify(S));stats()},all=()=>[...core,...projects,...S.custom];
+const $=s=>document.querySelector(s),$all=s=>[...document.querySelectorAll(s)],save=()=>{localStorage.setItem('father-v03',JSON.stringify(S));stats()},all=()=>[...core,...projects,...S.custom];
 function ev(k,m){S.events.unshift({t:new Date().toISOString(),k,m});save()}
 function list(){if(tab==='father')return core;if(tab==='projects')return [...projects,...S.custom];if(tab==='integrations')return ints;return [...projects,...S.custom].filter(a=>['devops','devsecops','kubernetes','security','compliance','qa','observability'].includes(a.tag))}
-function renderCatalog(){let q=$('#q').value.toLowerCase(),a=list().filter(x=>(x.id+x.name+x.role).toLowerCase().includes(q));$('#catalog').innerHTML='<div class="group">'+({father:'АГЕНТЫ ВНУТРИ FATHER',projects:'АГЕНТЫ КАК ПРОЕКТЫ',integrations:'ЗАПЧАСТИ / ИНТЕГРАЦИИ',delivery:'DEVOPS / SECURITY ECOSYSTEM'}[tab])+'</div>'+a.map(x=>'<div class="item '+(x.core?'core ':'')+(S.arch.includes(x.id)?'arch':'')+'" draggable="true" data-id="'+x.id+'" data-kind="'+x.kind+'"><span class="ico">'+x.icon+'</span><span><b>'+x.name+'</b><small>'+x.id+' · '+x.status+'</small></span></div>').join('');$('.item').forEach(e=>{e.ondragstart=v=>v.dataTransfer.setData('father',JSON.stringify({id:e.dataset.id,kind:e.dataset.kind}));e.onclick=()=>select(e.dataset.kind,e.dataset.id);e.ondblclick=()=>{if(e.dataset.kind==='agent')openAgent(e.dataset.id)}})}
+function renderCatalog(){let q=$('#q').value.toLowerCase(),a=list().filter(x=>(x.id+x.name+x.role).toLowerCase().includes(q));$('#catalog').innerHTML='<div class="group">'+({father:'АГЕНТЫ ВНУТРИ FATHER',projects:'АГЕНТЫ КАК ПРОЕКТЫ',integrations:'ЗАПЧАСТИ / ИНТЕГРАЦИИ',delivery:'DEVOPS / SECURITY ECOSYSTEM'}[tab])+'</div>'+a.map(x=>'<div class="item '+(x.core?'core ':'')+(S.arch.includes(x.id)?'arch':'')+'" draggable="true" data-id="'+x.id+'" data-kind="'+x.kind+'"><span class="ico">'+x.icon+'</span><span><b>'+x.name+'</b><small>'+x.id+' · '+x.status+'</small></span></div>').join('');$all('.item').forEach(e=>{e.ondragstart=v=>v.dataTransfer.setData('father',JSON.stringify({id:e.dataset.id,kind:e.dataset.kind}));e.onclick=()=>select(e.dataset.kind,e.dataset.id);e.ondblclick=()=>{if(e.dataset.kind==='agent')openAgent(e.dataset.id)}})}
 function entity(k,id){if(k==='integration')return ints.find(x=>x.id===id);if(k==='folder')return folderDefs.find(x=>x.id===id);return all().find(x=>x.id===id)}
 function select(k,id){selected={k,id};$('#sel').textContent='SELECT: '+id;renderInspector()}
 function renderInspector(){
@@ -147,12 +147,12 @@ function nodeEntity(n){
 function renderCanvas(){
  const g=graph();
  $('#world').innerHTML=g.nodes.map(n=>{let x=nodeEntity(n);return '<div class="node '+(x.core?'core ':'')+(n.k==='integration'?'int ':'')+(n.k==='folder'?'foldernode '+(x.cls||''):'')+(x.blackbox?' blackbox':'')+'" data-node="'+n.nid+'" style="left:'+n.x+'px;top:'+n.y+'px"><div class="nh"><span class="ico">'+x.icon+'</span><span><b>'+x.name+'</b><small>'+(n.k==='folder'?(view.agentId+'/'+n.id):n.id)+'</small></span></div><div class="nb">'+x.role+(x.harvestCount?'<span class="harvest-badge">HARVEST '+x.harvestCount+'</span>':'')+'</div><div class="ports"><span class="port in" data-d="in" data-n="'+n.nid+'"></span><span class="port out" data-d="out" data-n="'+n.nid+'"></span></div></div>'}).join('');
- $('.node').forEach(e=>{e.onmousedown=startDrag;e.onclick=v=>{if(v.target.classList.contains('port'))return;let n=g.nodes.find(x=>x.nid===e.dataset.node);if(!n||n.k==='io')return;select(n.k,n.id)};e.ondblclick=()=>{let n=g.nodes.find(x=>x.nid===e.dataset.node);if(view.mode==='root'&&n?.k==='agent')openAgent(n.id)}});
- $('.port').forEach(p=>p.onclick=connect);draw()
+ $all('.node').forEach(e=>{e.onmousedown=startDrag;e.onclick=v=>{if(v.target.classList.contains('port'))return;let n=g.nodes.find(x=>x.nid===e.dataset.node);if(!n||n.k==='io')return;select(n.k,n.id)};e.ondblclick=()=>{let n=g.nodes.find(x=>x.nid===e.dataset.node);if(view.mode==='root'&&n?.k==='agent')openAgent(n.id)}});
+ $all('.port').forEach(p=>p.onclick=connect);draw()
 }
 function connect(e){
  e.stopPropagation();const g=graph(),id=e.target.dataset.n;
- if(e.target.dataset.d==='out'){pending=id;$('.port.out').forEach(p=>p.classList.toggle('pending',p.dataset.n===id));return}
+ if(e.target.dataset.d==='out'){pending=id;$all('.port.out').forEach(p=>p.classList.toggle('pending',p.dataset.n===id));return}
  if(pending&&pending!==id){g.edges.push({from:pending,to:id,type:view.mode==='agent'?'INTERNAL':'API/DATA',contract:'TBD'});pending=null;ev('EDGE','created');renderCanvas();renderBottom()}
 }
 function startDrag(e){
@@ -165,7 +165,7 @@ function draw(){
 }
 function fit(){let g=graph();g.nodes.forEach((n,i)=>{n.x=50+(i%4)*235;n.y=60+Math.floor(i/4)*150});save();renderCanvas()}
 function renderBottom(){
- $('#btabs button').forEach(b=>b.classList.toggle('active',b.dataset.b===bottom));let b=$('#bb'),g=graph();
+ $all('#btabs button').forEach(b=>b.classList.toggle('active',b.dataset.b===bottom));let b=$('#bb'),g=graph();
  if(bottom==='structure'){
    if(view.mode==='agent'){const a=all().find(x=>x.id===view.agentId);b.innerHTML=folderDefs.map((f,i)=>'<div class="row"><span>'+String(i).padStart(2,'0')+'</span><b>'+f.name+'</b><span>'+view.agentId+'/'+f.id+'/ · '+(a?.status||'')+'</span></div>').join('')}
    else b.innerHTML=all().filter(x=>!S.arch.includes(x.id)).map(x=>'<div class="row"><span>'+(x.core?'FATHER CORE':'PROJECT')+'</span><b>'+x.name+'</b><span>'+folders.length+' standard folders · '+x.status+'</span></div>').join('')
@@ -175,13 +175,13 @@ function renderBottom(){
 }
 function stats(){$('#count').textContent='CORE '+core.length+' · PROJECT '+([...projects,...S.custom].length)+' · INTEGRATIONS '+ints.length+' · CANVAS '+graph().nodes.length}
 
-$('#tabs').onclick=e=>{let b=e.target.closest('button');if(!b)return;tab=b.dataset.tab;$('#tabs button').forEach(x=>x.classList.toggle('active',x===b));renderCatalog()};
+$('#tabs').onclick=e=>{let b=e.target.closest('button');if(!b)return;tab=b.dataset.tab;$all('#tabs button').forEach(x=>x.classList.toggle('active',x===b));renderCatalog()};
 $('#q').oninput=renderCatalog;
 $('#newAgent').onclick=()=>dlg.showModal();
 $('#create').onclick=()=>{let n=$('#an').value.trim();if(!n)return;S.custom.push({id:'USR-AGENT-'+Date.now(),name:n,icon:'USR',role:$('#ar').value||'Custom project agent',kind:'agent',core:false,status:'DESIGN'});save();dlg.close();tab='projects';renderCatalog();stats()};
 $('#reset').onclick=()=>{if(confirm('Reset local workspace state?')){S={custom:[],arch:[],nodes:[],edges:[],events:[],agentGraphs:{}};view={mode:'root',agentId:null};selected=null;save();updateCanvasContext();renderCatalog();renderCanvas();renderInspector();renderBottom()}};
 $('#in').onclick=()=>addNode('io','INPUT',50,100);$('#out').onclick=()=>addNode('io','OUTPUT',1050,100);$('#fit').onclick=fit;$('#backRoot').onclick=backRoot;
-$('#btabs button').forEach(x=>x.onclick=()=>{bottom=x.dataset.b;renderBottom()});
+$all('#btabs button').forEach(x=>x.onclick=()=>{bottom=x.dataset.b;renderBottom()});
 let v=$('#view');v.ondragover=e=>e.preventDefault();v.ondrop=e=>{e.preventDefault();let a=JSON.parse(e.dataTransfer.getData('father')||'null');if(!a)return;let r=v.getBoundingClientRect();addNode(a.kind,a.id,e.clientX-r.left-95,e.clientY-r.top-40)};
 window.onresize=draw;updateCanvasContext();renderCatalog();renderCanvas();renderBottom();stats();
 fetch('./data/harvest-map.json').then(r=>r.json()).then(h=>{HARVEST=h;renderCatalog();renderCanvas();renderInspector();renderBottom();stats();ev('HARVEST','Loaded verified GitHub harvest map')}).catch(err=>{console.warn('Harvest map unavailable',err)});
