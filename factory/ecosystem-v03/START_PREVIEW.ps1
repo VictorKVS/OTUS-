@@ -1,8 +1,8 @@
-$ErrorActionPreference = "Stop"
-
 param(
     [int]$Port = 8093
 )
+
+$ErrorActionPreference = "Stop"
 
 function Write-FatherHeader([string]$Title) {
     Write-Host ""
