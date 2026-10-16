@@ -1,0 +1,107 @@
+# FATHER Ecosystem Workspace v0.3
+
+Единый визуальный каркас экосистемы FATHER.
+
+## Модель
+
+### Агенты внутри FATHER
+Core-агенты защищены в UI:
+- Factory Orchestrator
+- Alina Analyst Black Box
+- Domain / Action Modeler
+- Capability Mapper
+- Agent Composer
+- Legacy / Project Harvester
+- Certification Agent
+- Traceability Agent
+
+### Агенты как проекты
+Проектные агенты можно расширять и архивировать:
+- FATHER OSINT
+- FATHER AI-SOC
+- SecGraph
+- Alina Creative Production
+- Avatar Production Agent
+- Website Builder & Maintainer
+- Game Development Agent
+- Prototype Engineering Agent
+- Course Harvester / Lesson Agent
+- Course Update / Curriculum Agent
+- DevOps
+- DevSecOps
+- Platform / Kubernetes
+- Security Architect
+- Compliance
+- QA / AI Eval
+- Observability / SRE
+
+### Стандартная внутренняя структура агента
+- Identity / Passport
+- Prompt / Policy
+- Knowledge Base
+- RAG / Retrieval
+- Databases / State
+- Memory
+- Tools / MCP / API
+- Workflow / Graph
+- Security / Guardrails
+- Tests / Eval
+- Observability
+- Deployment / Runtime
+- Documentation
+- Evidence / History
+
+### Интеграционные запчасти
+В registry включены OpenAI/GPT, Google Gemini/Vertex AI, Drive/Docs, Sheets, Gmail,
+Calendar, YouTube, GCP, Azure/OpenAI, GitHub, GitLab, Anthropic, Ollama,
+PostgreSQL/pgvector, Neo4j и MCP.
+
+Интеграционный слой хранит только паспорт/контракт. Credentials и secrets не хранятся в визуальном registry.
+
+## Запуск
+
+```powershell
+cd "G:\1\OTUS"
+git fetch origin
+git switch feature/father-ecosystem-workspace-v03
+git pull
+python -m http.server 8088
+```
+
+Открыть:
+
+`http://localhost:8088/factory/ecosystem-v03/`
+
+## Правило Алины
+
+Alina Analyst в этом workspace — black box. Внутренняя реализация ведётся отдельно; сюда подключается её внешний контракт.
+
+
+## Agent drill-down
+
+Двойной клик по агенту на корневом canvas открывает его внутреннюю архитектуру:
+
+`Identity → Prompt / Knowledge / RAG / DB / Memory / Tools → Workflow → Security → Eval → Observability → Deployment → Docs / Evidence`.
+
+Для `FTH-ALINA-ANALYST-001` действует особое правило: Alina остаётся black box и показывает только:
+
+`Input Contract → ALINA BLACK BOX → Output / Evidence Contract`.
+
+Это защищает отдельную ветку разработки Алины и не моделирует её внутренности фиктивно.
+
+
+## Verified Harvest Map
+
+Добавлен `data/harvest-map.json`.
+
+Он связывает логические внутренние папки FATHER с реально найденными GitHub-артефактами. На первой волне подключены:
+
+- `FATHER OSINT` → `VictorKVS/OSINT_TRICOLOR`
+- `SecGraph` → `VictorKVS/SecGraph`
+- `Website Builder & Maintainer` / `Avatar Production` → `VictorKVS/Makar-Frontend-Factory`
+- `Course Harvester` / `Compliance Agent` → `VictorKVS/CyberED`
+- `DevOps` / `DevSecOps` / `Platform Kubernetes` / `Security Architect` → `VictorKVS/OTUS_Kibirnetes`
+
+Правило: в Harvest Map попадают только пути, реально обнаруженные в GitHub. Если для Prompt/RAG/DB/Memory и другой папки подтверждённого артефакта пока нет, UI показывает `TBD / NOT HARVESTED`, а не выдуманную реализацию.
+
+Внутри агента нажмите на папку — Inspector покажет найденные реальные файлы и ссылки на исходный repository.
