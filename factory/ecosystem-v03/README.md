@@ -88,3 +88,20 @@ Alina Analyst в этом workspace — black box. Внутренняя реал
 `Input Contract → ALINA BLACK BOX → Output / Evidence Contract`.
 
 Это защищает отдельную ветку разработки Алины и не моделирует её внутренности фиктивно.
+
+
+## Verified Harvest Map
+
+Добавлен `data/harvest-map.json`.
+
+Он связывает логические внутренние папки FATHER с реально найденными GitHub-артефактами. На первой волне подключены:
+
+- `FATHER OSINT` → `VictorKVS/OSINT_TRICOLOR`
+- `SecGraph` → `VictorKVS/SecGraph`
+- `Website Builder & Maintainer` / `Avatar Production` → `VictorKVS/Makar-Frontend-Factory`
+- `Course Harvester` / `Compliance Agent` → `VictorKVS/CyberED`
+- `DevOps` / `DevSecOps` / `Platform Kubernetes` / `Security Architect` → `VictorKVS/OTUS_Kibirnetes`
+
+Правило: в Harvest Map попадают только пути, реально обнаруженные в GitHub. Если для Prompt/RAG/DB/Memory и другой папки подтверждённого артефакта пока нет, UI показывает `TBD / NOT HARVESTED`, а не выдуманную реализацию.
+
+Внутри агента нажмите на папку — Inspector покажет найденные реальные файлы и ссылки на исходный repository.
