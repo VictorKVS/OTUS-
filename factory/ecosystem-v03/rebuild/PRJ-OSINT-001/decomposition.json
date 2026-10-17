@@ -1,0 +1,155 @@
+{
+  "schema_version": "father.rebuild.decomposition.v0.1",
+  "rebuild_case_id": "RB-OSINT-001",
+  "reference_agent_id": "PRJ-OSINT-001",
+  "source_repository": "VictorKVS/OSINT_TRICOLOR",
+  "status": "DESIGN",
+  "hierarchy": [
+    {
+      "id": "MEC-OSINT-TRIAGE-001",
+      "level": "MECHANISM",
+      "name": "Offline OSINT Triage Mechanism",
+      "status": "CANDIDATE",
+      "contains": [
+        "BLK-OSINT-INTAKE-001",
+        "BLK-OSINT-STATE-001",
+        "BLK-OSINT-REPORT-001",
+        "BLK-OSINT-AUDIT-001"
+      ]
+    },
+    {
+      "id": "BLK-OSINT-INTAKE-001",
+      "level": "BLOCK",
+      "name": "Signal Intake & Validation",
+      "status": "CANDIDATE",
+      "contains": [
+        "ASM-URL-NORMALIZE-001",
+        "ASM-SIGNAL-VALIDATE-001",
+        "ASM-FINGERPRINT-001"
+      ]
+    },
+    {
+      "id": "ASM-URL-NORMALIZE-001",
+      "level": "ASSEMBLY",
+      "name": "URL Normalization",
+      "source": "agent.py::normalize_url",
+      "status": "CANDIDATE",
+      "contains": [
+        "PART-URL-PARSE-001",
+        "PART-TRACKING-FILTER-001",
+        "PART-URL-CANONICALIZE-001"
+      ],
+      "covered_by": [
+        "GB-001"
+      ]
+    },
+    {
+      "id": "ASM-SIGNAL-VALIDATE-001",
+      "level": "ASSEMBLY",
+      "name": "Signal Validation",
+      "source": "agent.py::ingest",
+      "status": "CANDIDATE",
+      "contains": [
+        "PART-CATEGORY-GUARD-001",
+        "PART-TITLE-GUARD-001",
+        "PART-TIMEZONE-GUARD-001"
+      ],
+      "covered_by": [
+        "GB-004"
+      ]
+    },
+    {
+      "id": "ASM-FINGERPRINT-001",
+      "level": "ASSEMBLY",
+      "name": "Signal Fingerprint",
+      "source": "agent.py::ingest",
+      "status": "CANDIDATE",
+      "contains": [
+        "PART-SHA256-001"
+      ],
+      "covered_by": [
+        "GB-002"
+      ]
+    },
+    {
+      "id": "BLK-OSINT-STATE-001",
+      "level": "BLOCK",
+      "name": "Finding State Registry",
+      "status": "CANDIDATE",
+      "contains": [
+        "ASM-SQLITE-SCHEMA-001",
+        "ASM-DEDUP-STATE-001"
+      ]
+    },
+    {
+      "id": "ASM-SQLITE-SCHEMA-001",
+      "level": "ASSEMBLY",
+      "name": "SQLite Findings Schema",
+      "source": "agent.py::connect",
+      "status": "CANDIDATE",
+      "contains": [
+        "PART-FINDINGS-TABLE-001",
+        "PART-AUDIT-TABLE-001"
+      ]
+    },
+    {
+      "id": "ASM-DEDUP-STATE-001",
+      "level": "ASSEMBLY",
+      "name": "Dedup State Transition",
+      "source": "agent.py::ingest",
+      "status": "CANDIDATE",
+      "contains": [
+        "PART-CREATED-TRANSITION-001",
+        "PART-DUPLICATE-SEEN-TRANSITION-001"
+      ],
+      "covered_by": [
+        "GB-002"
+      ]
+    },
+    {
+      "id": "BLK-OSINT-AUDIT-001",
+      "level": "BLOCK",
+      "name": "Audit Trail",
+      "status": "CANDIDATE",
+      "contains": [
+        "ASM-AUDIT-EVENT-001"
+      ]
+    },
+    {
+      "id": "ASM-AUDIT-EVENT-001",
+      "level": "ASSEMBLY",
+      "name": "Audit Event Writer",
+      "source": "agent.py::ingest",
+      "status": "CANDIDATE"
+    },
+    {
+      "id": "BLK-OSINT-REPORT-001",
+      "level": "BLOCK",
+      "name": "Preliminary Report",
+      "status": "CANDIDATE",
+      "contains": [
+        "ASM-REPORT-BUILDER-001"
+      ]
+    },
+    {
+      "id": "ASM-REPORT-BUILDER-001",
+      "level": "ASSEMBLY",
+      "name": "Markdown Preliminary Report Builder",
+      "source": "agent.py::report",
+      "status": "CANDIDATE",
+      "contains": [
+        "PART-HUMAN-REVIEW-DISCLAIMER-001",
+        "PART-CASE-FORMAT-001",
+        "PART-PRIORITY-SORT-001"
+      ],
+      "covered_by": [
+        "GB-003"
+      ]
+    }
+  ],
+  "notes": [
+    "This is a first-pass decomposition from observed source structure.",
+    "No component is certified by this document.",
+    "Missing interfaces, dependencies and negative tests remain TBD until rebuild implementation."
+  ]
+}
