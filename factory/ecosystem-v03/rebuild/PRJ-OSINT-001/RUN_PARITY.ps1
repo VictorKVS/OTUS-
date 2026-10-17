@@ -1,5 +1,5 @@
 param(
-    [string]$ReferenceRoot = "G:\\1\\OSINT_TRICOLOR"
+    [string]$ReferenceRoot = "G:\1\OSINT_TRICOLOR"
 )
 
 $ErrorActionPreference = "Stop"
@@ -13,8 +13,8 @@ function Header([string]$Text) {
 
 $CaseRoot = $PSScriptRoot
 $Runtime  = Join-Path $CaseRoot "runtime"
-$Parity   = Join-Path $CaseRoot "parity\\run_parity.py"
-$Evidence = Join-Path $CaseRoot "evidence\\generated\\parity-report.json"
+$Parity   = Join-Path $CaseRoot "parity\run_parity.py"
+$Evidence = Join-Path $CaseRoot "evidence\generated\parity-report.json"
 
 Header "REFERENCE CHECK"
 
