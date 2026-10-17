@@ -1,0 +1,78 @@
+{
+  "schema_version": "father.rebuild.golden-contract.v0.1",
+  "rebuild_case_id": "RB-OSINT-001",
+  "reference_agent_id": "PRJ-OSINT-001",
+  "reference_repository": "VictorKVS/OSINT_TRICOLOR",
+  "reference_ref": "main",
+  "reference_entrypoint": "agent.py",
+  "status": "REFERENCE_CAPTURED_NOT_YET_EXECUTED_BY_FATHER",
+  "source_contract": {
+    "input": "JSONL",
+    "required_fields": [
+      "url",
+      "category",
+      "title",
+      "observed_at"
+    ],
+    "optional_fields": [
+      "description",
+      "source"
+    ],
+    "categories": [
+      "suspected_restream",
+      "suspected_iptv",
+      "trademark",
+      "suspected_counterfeit",
+      "phishing",
+      "other"
+    ],
+    "outputs": [
+      "SQLite findings",
+      "SQLite audit_log",
+      "Markdown preliminary report"
+    ]
+  },
+  "golden_behaviors": [
+    {
+      "id": "GB-001",
+      "behavior": "URL normalization removes known tracking parameters and normalizes host/path",
+      "source_test": "tests/test_agent.py::test_normalize_url",
+      "expected": "https://EXAMPLE.org/demo/?utm_source=test -> https://example.org/demo",
+      "execution_state": "REFERENCE_TEST_EXISTS"
+    },
+    {
+      "id": "GB-002",
+      "behavior": "Duplicate signal is not inserted twice",
+      "source_test": "tests/test_agent.py::test_dedup",
+      "expected": "first ingest=created; second ingest=duplicate_seen; findings count remains 1",
+      "execution_state": "REFERENCE_TEST_EXISTS"
+    },
+    {
+      "id": "GB-003",
+      "behavior": "Generated report contains mandatory human-review disclaimer",
+      "source_test": "tests/test_agent.py::test_report_disclaimer",
+      "expected": "report contains 'Human review required'",
+      "execution_state": "REFERENCE_TEST_EXISTS"
+    },
+    {
+      "id": "GB-004",
+      "behavior": "Observed timestamp without timezone is rejected",
+      "source_test": "tests/test_agent.py::test_missing_timezone",
+      "expected": "ValueError",
+      "execution_state": "REFERENCE_TEST_EXISTS"
+    }
+  ],
+  "invariants": [
+    "offline MVP performs no network collection",
+    "only http/https URLs without credentials are accepted",
+    "scores are heuristic priorities, not probability of illegality",
+    "human/legal review remains mandatory",
+    "no autonomous enforcement"
+  ],
+  "parity_gate": {
+    "id": "GATE-RB-OSINT-PARITY-001",
+    "rule": "All golden behaviors must pass on rebuilt implementation before improvement phase",
+    "current_state": "BLOCKED",
+    "reason": "Rebuilt implementation not created yet"
+  }
+}
