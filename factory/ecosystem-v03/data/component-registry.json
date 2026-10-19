@@ -1,0 +1,3574 @@
+{
+  "schema_version": "father.component.registry.v0.2",
+  "generated_at": "2026-10-16",
+  "policy": {
+    "no_fake_certification": true,
+    "candidate_default": "HARVEST_CANDIDATE",
+    "directory_default_level": "ASSEMBLY",
+    "file_default_level": "PART",
+    "promotion_requires": [
+      "passport review",
+      "tests",
+      "evidence",
+      "compatibility review"
+    ]
+  },
+  "components": [
+    {
+      "id": "FTH-CMP-0001",
+      "name": "AGENT_SPEC.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "AGENT_SPEC.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "identity",
+      "purpose": "Harvested file candidate from identity",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:AGENT_SPEC.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "AGENT_SPEC.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Идентификация, паспорт, версия, назначение и жизненный цикл компонента.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка identity, источник VictorKVS/OSINT_TRICOLOR:AGENT_SPEC.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0002",
+      "name": "README.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "README.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "identity",
+      "purpose": "Harvested file candidate from identity",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:README.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "README.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Идентификация, паспорт, версия, назначение и жизненный цикл компонента.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка identity, источник VictorKVS/OSINT_TRICOLOR:README.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0003",
+      "name": "GRAPH_MODEL.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "docs/11_KNOWLEDGE_GRAPH/GRAPH_MODEL.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested file candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:docs/11_KNOWLEDGE_GRAPH/GRAPH_MODEL.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "GRAPH_MODEL.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка knowledge, источник VictorKVS/OSINT_TRICOLOR:docs/11_KNOWLEDGE_GRAPH/GRAPH_MODEL.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0004",
+      "name": "GRAPH_SCHEMA_AND_RULES.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "docs/11_KNOWLEDGE_GRAPH/GRAPH_SCHEMA_AND_RULES.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested file candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:docs/11_KNOWLEDGE_GRAPH/GRAPH_SCHEMA_AND_RULES.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "GRAPH_SCHEMA_AND_RULES.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка knowledge, источник VictorKVS/OSINT_TRICOLOR:docs/11_KNOWLEDGE_GRAPH/GRAPH_SCHEMA_AND_RULES.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0005",
+      "name": "GRAPH_DATA_CONTRACT_V01.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "docs/11_KNOWLEDGE_GRAPH/GRAPH_DATA_CONTRACT_V01.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested file candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:docs/11_KNOWLEDGE_GRAPH/GRAPH_DATA_CONTRACT_V01.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "GRAPH_DATA_CONTRACT_V01.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка knowledge, источник VictorKVS/OSINT_TRICOLOR:docs/11_KNOWLEDGE_GRAPH/GRAPH_DATA_CONTRACT_V01.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0006",
+      "name": "STORAGE_OPTIONS.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "docs/12_GRAPH_ENGINEERING/STORAGE_OPTIONS.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "database",
+      "purpose": "Harvested file candidate from database",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:docs/12_GRAPH_ENGINEERING/STORAGE_OPTIONS.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "STORAGE_OPTIONS.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Хранение operational state, SQL/NoSQL/vector/graph данных.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка database, источник VictorKVS/OSINT_TRICOLOR:docs/12_GRAPH_ENGINEERING/STORAGE_OPTIONS.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0007",
+      "name": "SIZING_MODEL.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "docs/12_GRAPH_ENGINEERING/SIZING_MODEL.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "database",
+      "purpose": "Harvested file candidate from database",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:docs/12_GRAPH_ENGINEERING/SIZING_MODEL.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "SIZING_MODEL.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Хранение operational state, SQL/NoSQL/vector/graph данных.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка database, источник VictorKVS/OSINT_TRICOLOR:docs/12_GRAPH_ENGINEERING/SIZING_MODEL.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0008",
+      "name": "MODULE_CATALOG.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "docs/14_FATHER_MODULAR_INTELLIGENCE/MODULE_CATALOG.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "tools",
+      "purpose": "Harvested file candidate from tools",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:docs/14_FATHER_MODULAR_INTELLIGENCE/MODULE_CATALOG.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "MODULE_CATALOG.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Инструменты, MCP/API-адаптеры и исполняемые действия.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка tools, источник VictorKVS/OSINT_TRICOLOR:docs/14_FATHER_MODULAR_INTELLIGENCE/MODULE_CATALOG.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0009",
+      "name": "SEARCH_RESEARCH_SURFACES.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "docs/14_FATHER_MODULAR_INTELLIGENCE/SEARCH_RESEARCH_SURFACES.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "tools",
+      "purpose": "Harvested file candidate from tools",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:docs/14_FATHER_MODULAR_INTELLIGENCE/SEARCH_RESEARCH_SURFACES.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "SEARCH_RESEARCH_SURFACES.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Инструменты, MCP/API-адаптеры и исполняемые действия.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка tools, источник VictorKVS/OSINT_TRICOLOR:docs/14_FATHER_MODULAR_INTELLIGENCE/SEARCH_RESEARCH_SURFACES.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0010",
+      "name": "agent.py",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "agent.py",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "workflow",
+      "purpose": "Harvested file candidate from workflow",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:agent.py"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "agent.py · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Маршрутизация, orchestration, state machine и внутренние процессы.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка workflow, источник VictorKVS/OSINT_TRICOLOR:agent.py.",
+        "technical_hint": "Python-модуль или исполняемый скрипт; перед повторным использованием нужны dependency review, тесты и контракт входов/выходов.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0011",
+      "name": "WORKFLOW_AND_VISUAL_DESIGNER.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "docs/14_FATHER_MODULAR_INTELLIGENCE/WORKFLOW_AND_VISUAL_DESIGNER.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "workflow",
+      "purpose": "Harvested file candidate from workflow",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:docs/14_FATHER_MODULAR_INTELLIGENCE/WORKFLOW_AND_VISUAL_DESIGNER.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "WORKFLOW_AND_VISUAL_DESIGNER.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Маршрутизация, orchestration, state machine и внутренние процессы.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка workflow, источник VictorKVS/OSINT_TRICOLOR:docs/14_FATHER_MODULAR_INTELLIGENCE/WORKFLOW_AND_VISUAL_DESIGNER.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0012",
+      "name": "OSINT_BLOCK_SCOPE_AND_CANVAS.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "docs/14_FATHER_MODULAR_INTELLIGENCE/OSINT_BLOCK_SCOPE_AND_CANVAS.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "workflow",
+      "purpose": "Harvested file candidate from workflow",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:docs/14_FATHER_MODULAR_INTELLIGENCE/OSINT_BLOCK_SCOPE_AND_CANVAS.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "OSINT_BLOCK_SCOPE_AND_CANVAS.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Маршрутизация, orchestration, state machine и внутренние процессы.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка workflow, источник VictorKVS/OSINT_TRICOLOR:docs/14_FATHER_MODULAR_INTELLIGENCE/OSINT_BLOCK_SCOPE_AND_CANVAS.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0013",
+      "name": "SECURITY_AND_PRIVACY.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "docs/12_GRAPH_ENGINEERING/SECURITY_AND_PRIVACY.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "security",
+      "purpose": "Harvested file candidate from security",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:docs/12_GRAPH_ENGINEERING/SECURITY_AND_PRIVACY.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "SECURITY_AND_PRIVACY.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Контроли ИБ, guardrails, IAM, privacy и безопасное выполнение.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка security, источник VictorKVS/OSINT_TRICOLOR:docs/12_GRAPH_ENGINEERING/SECURITY_AND_PRIVACY.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0014",
+      "name": "DEPENDENCY_LICENSE_GUARD_POLICY.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "research/DEPENDENCY_LICENSE_GUARD_POLICY.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "security",
+      "purpose": "Harvested file candidate from security",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:research/DEPENDENCY_LICENSE_GUARD_POLICY.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "DEPENDENCY_LICENSE_GUARD_POLICY.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Контроли ИБ, guardrails, IAM, privacy и безопасное выполнение.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка security, источник VictorKVS/OSINT_TRICOLOR:research/DEPENDENCY_LICENSE_GUARD_POLICY.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0015",
+      "name": "test_agent.py",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "tests/test_agent.py",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "eval",
+      "purpose": "Harvested file candidate from eval",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:tests/test_agent.py"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "test_agent.py · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Тесты, валидация, AI/RAG eval и quality gates.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка eval, источник VictorKVS/OSINT_TRICOLOR:tests/test_agent.py.",
+        "technical_hint": "Python-модуль или исполняемый скрипт; перед повторным использованием нужны dependency review, тесты и контракт входов/выходов.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0016",
+      "name": "GRAPH_VALIDATION_MATRIX.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "docs/11_KNOWLEDGE_GRAPH/GRAPH_VALIDATION_MATRIX.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "eval",
+      "purpose": "Harvested file candidate from eval",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:docs/11_KNOWLEDGE_GRAPH/GRAPH_VALIDATION_MATRIX.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "GRAPH_VALIDATION_MATRIX.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Тесты, валидация, AI/RAG eval и quality gates.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка eval, источник VictorKVS/OSINT_TRICOLOR:docs/11_KNOWLEDGE_GRAPH/GRAPH_VALIDATION_MATRIX.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0017",
+      "name": "GRAPH_REVIEW_CHECKLIST.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "docs/11_KNOWLEDGE_GRAPH/GRAPH_REVIEW_CHECKLIST.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "eval",
+      "purpose": "Harvested file candidate from eval",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:docs/11_KNOWLEDGE_GRAPH/GRAPH_REVIEW_CHECKLIST.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "GRAPH_REVIEW_CHECKLIST.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Тесты, валидация, AI/RAG eval и quality gates.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка eval, источник VictorKVS/OSINT_TRICOLOR:docs/11_KNOWLEDGE_GRAPH/GRAPH_REVIEW_CHECKLIST.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0018",
+      "name": "ARCHITECTURE.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "docs/ARCHITECTURE.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "docs",
+      "purpose": "Harvested file candidate from docs",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:docs/ARCHITECTURE.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "ARCHITECTURE.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Архитектурная, эксплуатационная и проектная документация.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка docs, источник VictorKVS/OSINT_TRICOLOR:docs/ARCHITECTURE.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0019",
+      "name": "INDEX.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "docs/INDEX.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "docs",
+      "purpose": "Harvested file candidate from docs",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:docs/INDEX.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "INDEX.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Архитектурная, эксплуатационная и проектная документация.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка docs, источник VictorKVS/OSINT_TRICOLOR:docs/INDEX.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0020",
+      "name": "PROJECT_REGISTRY.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "docs/PROJECT_REGISTRY.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "docs",
+      "purpose": "Harvested file candidate from docs",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:docs/PROJECT_REGISTRY.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "PROJECT_REGISTRY.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Архитектурная, эксплуатационная и проектная документация.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка docs, источник VictorKVS/OSINT_TRICOLOR:docs/PROJECT_REGISTRY.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0021",
+      "name": "PROJECT_REPORT.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "PROJECT_REPORT.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "evidence",
+      "purpose": "Harvested file candidate from evidence",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:PROJECT_REPORT.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "PROJECT_REPORT.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Evidence, история испытаний, отчёты и подтверждение происхождения.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка evidence, источник VictorKVS/OSINT_TRICOLOR:PROJECT_REPORT.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0022",
+      "name": "sample_findings.jsonl",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "sample_findings.jsonl",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "evidence",
+      "purpose": "Harvested file candidate from evidence",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:sample_findings.jsonl"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "sample_findings.jsonl · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Evidence, история испытаний, отчёты и подтверждение происхождения.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка evidence, источник VictorKVS/OSINT_TRICOLOR:sample_findings.jsonl.",
+        "technical_hint": "Структурированные данные/паспорт/evidence; требует фиксации schema и правил валидации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0023",
+      "name": "TRACEABILITY.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OSINT_TRICOLOR",
+      "source_ref": "main",
+      "source_path": "research/TRACEABILITY.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-OSINT-001",
+      "logical_folder": "evidence",
+      "purpose": "Harvested file candidate from evidence",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OSINT_TRICOLOR:research/TRACEABILITY.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "TRACEABILITY.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OSINT_TRICOLOR, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Evidence, история испытаний, отчёты и подтверждение происхождения.",
+        "source_context": "Найден в агенте PRJ-OSINT-001, логическая папка evidence, источник VictorKVS/OSINT_TRICOLOR:research/TRACEABILITY.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0024",
+      "name": "README.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/SecGraph",
+      "source_ref": "main",
+      "source_path": "README.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-SECGRAPH-001",
+      "logical_folder": "identity",
+      "purpose": "Harvested file candidate from identity",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/SecGraph:README.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "README.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/SecGraph, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Идентификация, паспорт, версия, назначение и жизненный цикл компонента.",
+        "source_context": "Найден в агенте PRJ-SECGRAPH-001, логическая папка identity, источник VictorKVS/SecGraph:README.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0025",
+      "name": "001_kb_core_spec.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/SecGraph",
+      "source_ref": "main",
+      "source_path": "docs/001_kb_core_spec.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-SECGRAPH-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested file candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/SecGraph:docs/001_kb_core_spec.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "001_kb_core_spec.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/SecGraph, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-SECGRAPH-001, логическая папка knowledge, источник VictorKVS/SecGraph:docs/001_kb_core_spec.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0026",
+      "name": "002_kb_core_tests.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/SecGraph",
+      "source_ref": "main",
+      "source_path": "docs/002_kb_core_tests.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-SECGRAPH-001",
+      "logical_folder": "eval",
+      "purpose": "Harvested file candidate from eval",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/SecGraph:docs/002_kb_core_tests.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "002_kb_core_tests.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/SecGraph, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Тесты, валидация, AI/RAG eval и quality gates.",
+        "source_context": "Найден в агенте PRJ-SECGRAPH-001, логическая папка eval, источник VictorKVS/SecGraph:docs/002_kb_core_tests.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0027",
+      "name": "requirements.txt",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/SecGraph",
+      "source_ref": "main",
+      "source_path": "backend/requirements.txt",
+      "source_kind": "file",
+      "parent_agent": "PRJ-SECGRAPH-001",
+      "logical_folder": "deployment",
+      "purpose": "Harvested file candidate from deployment",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/SecGraph:backend/requirements.txt"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "requirements.txt · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/SecGraph, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Сборка, зависимости, контейнеризация, запуск и runtime.",
+        "source_context": "Найден в агенте PRJ-SECGRAPH-001, логическая папка deployment, источник VictorKVS/SecGraph:backend/requirements.txt.",
+        "technical_hint": "Текстовый dependency/config artifact; использовать только после анализа содержимого и происхождения.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0028",
+      "name": "risk-management",
+      "level": "ASSEMBLY",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/SecGraph",
+      "source_ref": "main",
+      "source_path": "risk-management/",
+      "source_kind": "directory",
+      "parent_agent": "PRJ-SECGRAPH-001",
+      "logical_folder": "workflow",
+      "purpose": "Harvested directory candidate from workflow",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/SecGraph:risk-management/"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "risk-management · ASSEMBLY",
+        "summary": "Реально найденный каталог из VictorKVS/SecGraph, зарегистрированный как ASSEMBLY уровня HARVEST_CANDIDATE.",
+        "father_role": "Маршрутизация, orchestration, state machine и внутренние процессы.",
+        "source_context": "Найден в агенте PRJ-SECGRAPH-001, логическая папка workflow, источник VictorKVS/SecGraph:risk-management/.",
+        "technical_hint": "Каталог-кандидат на уровень ASSEMBLY: объединяет несколько связанных артефактов и требует отдельной декомпозиции.",
+        "usage_hint": "Рассматривать как заготовку узла/сборки. Перед использованием нужно разложить на составные PART, определить интерфейсы и проверить совместимость.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0029",
+      "name": "backend",
+      "level": "ASSEMBLY",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/SecGraph",
+      "source_ref": "main",
+      "source_path": "backend/",
+      "source_kind": "directory",
+      "parent_agent": "PRJ-SECGRAPH-001",
+      "logical_folder": "tools",
+      "purpose": "Harvested directory candidate from tools",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/SecGraph:backend/"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "backend · ASSEMBLY",
+        "summary": "Реально найденный каталог из VictorKVS/SecGraph, зарегистрированный как ASSEMBLY уровня HARVEST_CANDIDATE.",
+        "father_role": "Инструменты, MCP/API-адаптеры и исполняемые действия.",
+        "source_context": "Найден в агенте PRJ-SECGRAPH-001, логическая папка tools, источник VictorKVS/SecGraph:backend/.",
+        "technical_hint": "Каталог-кандидат на уровень ASSEMBLY: объединяет несколько связанных артефактов и требует отдельной декомпозиции.",
+        "usage_hint": "Рассматривать как заготовку узла/сборки. Перед использованием нужно разложить на составные PART, определить интерфейсы и проверить совместимость.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0030",
+      "name": "README.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "README.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-WEB-001",
+      "logical_folder": "identity",
+      "purpose": "Harvested file candidate from identity",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:README.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "README.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Идентификация, паспорт, версия, назначение и жизненный цикл компонента.",
+        "source_context": "Найден в агенте PRJ-WEB-001, логическая папка identity, источник VictorKVS/Makar-Frontend-Factory:README.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0031",
+      "name": "passport.json",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "agents/makar/passport.json",
+      "source_kind": "file",
+      "parent_agent": "PRJ-WEB-001",
+      "logical_folder": "identity",
+      "purpose": "Harvested file candidate from identity",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:agents/makar/passport.json"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "passport.json · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Идентификация, паспорт, версия, назначение и жизненный цикл компонента.",
+        "source_context": "Найден в агенте PRJ-WEB-001, логическая папка identity, источник VictorKVS/Makar-Frontend-Factory:agents/makar/passport.json.",
+        "technical_hint": "Структурированные данные/паспорт/evidence; требует фиксации schema и правил валидации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0032",
+      "name": "knowledge-items.json",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "agents/makar/knowledge-items.json",
+      "source_kind": "file",
+      "parent_agent": "PRJ-WEB-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested file candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:agents/makar/knowledge-items.json"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "knowledge-items.json · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-WEB-001, логическая папка knowledge, источник VictorKVS/Makar-Frontend-Factory:agents/makar/knowledge-items.json.",
+        "technical_hint": "Структурированные данные/паспорт/evidence; требует фиксации schema и правил валидации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0033",
+      "name": "AgentFactoryDemo.tsx",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "apps/alina-control-center/src/AgentFactoryDemo.tsx",
+      "source_kind": "file",
+      "parent_agent": "PRJ-WEB-001",
+      "logical_folder": "workflow",
+      "purpose": "Harvested file candidate from workflow",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:apps/alina-control-center/src/AgentFactoryDemo.tsx"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "AgentFactoryDemo.tsx · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Маршрутизация, orchestration, state machine и внутренние процессы.",
+        "source_context": "Найден в агенте PRJ-WEB-001, логическая папка workflow, источник VictorKVS/Makar-Frontend-Factory:apps/alina-control-center/src/AgentFactoryDemo.tsx.",
+        "technical_hint": "Frontend-компонент/поверхность; требует UI-контракта, состояния, тестов и dependency review.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0034",
+      "name": "WorkspaceDemo.tsx",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "apps/alina-control-center/src/WorkspaceDemo.tsx",
+      "source_kind": "file",
+      "parent_agent": "PRJ-WEB-001",
+      "logical_folder": "workflow",
+      "purpose": "Harvested file candidate from workflow",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:apps/alina-control-center/src/WorkspaceDemo.tsx"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "WorkspaceDemo.tsx · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Маршрутизация, orchestration, state machine и внутренние процессы.",
+        "source_context": "Найден в агенте PRJ-WEB-001, логическая папка workflow, источник VictorKVS/Makar-Frontend-Factory:apps/alina-control-center/src/WorkspaceDemo.tsx.",
+        "technical_hint": "Frontend-компонент/поверхность; требует UI-контракта, состояния, тестов и dependency review.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0035",
+      "name": "ProductShell.tsx",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "apps/alina-control-center/src/ProductShell.tsx",
+      "source_kind": "file",
+      "parent_agent": "PRJ-WEB-001",
+      "logical_folder": "workflow",
+      "purpose": "Harvested file candidate from workflow",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:apps/alina-control-center/src/ProductShell.tsx"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "ProductShell.tsx · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Маршрутизация, orchestration, state machine и внутренние процессы.",
+        "source_context": "Найден в агенте PRJ-WEB-001, логическая папка workflow, источник VictorKVS/Makar-Frontend-Factory:apps/alina-control-center/src/ProductShell.tsx.",
+        "technical_hint": "Frontend-компонент/поверхность; требует UI-контракта, состояния, тестов и dependency review.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0036",
+      "name": "App.test.tsx",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "apps/alina-control-center/src/App.test.tsx",
+      "source_kind": "file",
+      "parent_agent": "PRJ-WEB-001",
+      "logical_folder": "eval",
+      "purpose": "Harvested file candidate from eval",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:apps/alina-control-center/src/App.test.tsx"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "App.test.tsx · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Тесты, валидация, AI/RAG eval и quality gates.",
+        "source_context": "Найден в агенте PRJ-WEB-001, логическая папка eval, источник VictorKVS/Makar-Frontend-Factory:apps/alina-control-center/src/App.test.tsx.",
+        "technical_hint": "Frontend-компонент/поверхность; требует UI-контракта, состояния, тестов и dependency review.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0037",
+      "name": "ProductShell.test.tsx",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "apps/alina-control-center/src/ProductShell.test.tsx",
+      "source_kind": "file",
+      "parent_agent": "PRJ-WEB-001",
+      "logical_folder": "eval",
+      "purpose": "Harvested file candidate from eval",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:apps/alina-control-center/src/ProductShell.test.tsx"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "ProductShell.test.tsx · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Тесты, валидация, AI/RAG eval и quality gates.",
+        "source_context": "Найден в агенте PRJ-WEB-001, логическая папка eval, источник VictorKVS/Makar-Frontend-Factory:apps/alina-control-center/src/ProductShell.test.tsx.",
+        "technical_hint": "Frontend-компонент/поверхность; требует UI-контракта, состояния, тестов и dependency review.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0038",
+      "name": "validate-alina-acceptance.mjs",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "scripts/validate-alina-acceptance.mjs",
+      "source_kind": "file",
+      "parent_agent": "PRJ-WEB-001",
+      "logical_folder": "eval",
+      "purpose": "Harvested file candidate from eval",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:scripts/validate-alina-acceptance.mjs"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "validate-alina-acceptance.mjs · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Тесты, валидация, AI/RAG eval и quality gates.",
+        "source_context": "Найден в агенте PRJ-WEB-001, логическая папка eval, источник VictorKVS/Makar-Frontend-Factory:scripts/validate-alina-acceptance.mjs.",
+        "technical_hint": "JavaScript/Node-модуль или validator; требует runtime/dependency и contract review.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0039",
+      "name": "validate-alina-shell.mjs",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "scripts/validate-alina-shell.mjs",
+      "source_kind": "file",
+      "parent_agent": "PRJ-WEB-001",
+      "logical_folder": "eval",
+      "purpose": "Harvested file candidate from eval",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:scripts/validate-alina-shell.mjs"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "validate-alina-shell.mjs · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Тесты, валидация, AI/RAG eval и quality gates.",
+        "source_context": "Найден в агенте PRJ-WEB-001, логическая папка eval, источник VictorKVS/Makar-Frontend-Factory:scripts/validate-alina-shell.mjs.",
+        "technical_hint": "JavaScript/Node-модуль или validator; требует runtime/dependency и contract review.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0040",
+      "name": "check-quality-budget.mjs",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "scripts/check-quality-budget.mjs",
+      "source_kind": "file",
+      "parent_agent": "PRJ-WEB-001",
+      "logical_folder": "eval",
+      "purpose": "Harvested file candidate from eval",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:scripts/check-quality-budget.mjs"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "check-quality-budget.mjs · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Тесты, валидация, AI/RAG eval и quality gates.",
+        "source_context": "Найден в агенте PRJ-WEB-001, логическая папка eval, источник VictorKVS/Makar-Frontend-Factory:scripts/check-quality-budget.mjs.",
+        "technical_hint": "JavaScript/Node-модуль или validator; требует runtime/dependency и contract review.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0041",
+      "name": "ROADMAP.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "ROADMAP.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-WEB-001",
+      "logical_folder": "docs",
+      "purpose": "Harvested file candidate from docs",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:ROADMAP.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "ROADMAP.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Архитектурная, эксплуатационная и проектная документация.",
+        "source_context": "Найден в агенте PRJ-WEB-001, логическая папка docs, источник VictorKVS/Makar-Frontend-Factory:ROADMAP.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0042",
+      "name": "CONTRIBUTING.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "CONTRIBUTING.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-WEB-001",
+      "logical_folder": "docs",
+      "purpose": "Harvested file candidate from docs",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:CONTRIBUTING.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "CONTRIBUTING.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Архитектурная, эксплуатационная и проектная документация.",
+        "source_context": "Найден в агенте PRJ-WEB-001, логическая папка docs, источник VictorKVS/Makar-Frontend-Factory:CONTRIBUTING.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0043",
+      "name": "evidence.json",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "agents/makar/evidence.json",
+      "source_kind": "file",
+      "parent_agent": "PRJ-WEB-001",
+      "logical_folder": "evidence",
+      "purpose": "Harvested file candidate from evidence",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:agents/makar/evidence.json"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "evidence.json · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Evidence, история испытаний, отчёты и подтверждение происхождения.",
+        "source_context": "Найден в агенте PRJ-WEB-001, логическая папка evidence, источник VictorKVS/Makar-Frontend-Factory:agents/makar/evidence.json.",
+        "technical_hint": "Структурированные данные/паспорт/evidence; требует фиксации schema и правил валидации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0044",
+      "name": "promotion-proposals.json",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "agents/makar/promotion-proposals.json",
+      "source_kind": "file",
+      "parent_agent": "PRJ-WEB-001",
+      "logical_folder": "evidence",
+      "purpose": "Harvested file candidate from evidence",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:agents/makar/promotion-proposals.json"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "promotion-proposals.json · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Evidence, история испытаний, отчёты и подтверждение происхождения.",
+        "source_context": "Найден в агенте PRJ-WEB-001, логическая папка evidence, источник VictorKVS/Makar-Frontend-Factory:agents/makar/promotion-proposals.json.",
+        "technical_hint": "Структурированные данные/паспорт/evidence; требует фиксации schema и правил валидации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0045",
+      "name": "package.json",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "package.json",
+      "source_kind": "file",
+      "parent_agent": "PRJ-WEB-001",
+      "logical_folder": "deployment",
+      "purpose": "Harvested file candidate from deployment",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:package.json"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "package.json · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Сборка, зависимости, контейнеризация, запуск и runtime.",
+        "source_context": "Найден в агенте PRJ-WEB-001, логическая папка deployment, источник VictorKVS/Makar-Frontend-Factory:package.json.",
+        "technical_hint": "Структурированные данные/паспорт/evidence; требует фиксации schema и правил валидации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0046",
+      "name": "pnpm-workspace.yaml",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "pnpm-workspace.yaml",
+      "source_kind": "file",
+      "parent_agent": "PRJ-WEB-001",
+      "logical_folder": "deployment",
+      "purpose": "Harvested file candidate from deployment",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:pnpm-workspace.yaml"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "pnpm-workspace.yaml · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Сборка, зависимости, контейнеризация, запуск и runtime.",
+        "source_context": "Найден в агенте PRJ-WEB-001, логическая папка deployment, источник VictorKVS/Makar-Frontend-Factory:pnpm-workspace.yaml.",
+        "technical_hint": "Тип артефакта определён по пути. Требуется инженерный review содержимого перед повышением maturity.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0047",
+      "name": "turbo.json",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "turbo.json",
+      "source_kind": "file",
+      "parent_agent": "PRJ-WEB-001",
+      "logical_folder": "deployment",
+      "purpose": "Harvested file candidate from deployment",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:turbo.json"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "turbo.json · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Сборка, зависимости, контейнеризация, запуск и runtime.",
+        "source_context": "Найден в агенте PRJ-WEB-001, логическая папка deployment, источник VictorKVS/Makar-Frontend-Factory:turbo.json.",
+        "technical_hint": "Структурированные данные/паспорт/evidence; требует фиксации schema и правил валидации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0048",
+      "name": "passport.json",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "agents/makar/passport.json",
+      "source_kind": "file",
+      "parent_agent": "PRJ-AVATAR-001",
+      "logical_folder": "identity",
+      "purpose": "Harvested file candidate from identity",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:agents/makar/passport.json"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "passport.json · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Идентификация, паспорт, версия, назначение и жизненный цикл компонента.",
+        "source_context": "Найден в агенте PRJ-AVATAR-001, логическая папка identity, источник VictorKVS/Makar-Frontend-Factory:agents/makar/passport.json.",
+        "technical_hint": "Структурированные данные/паспорт/evidence; требует фиксации schema и правил валидации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0049",
+      "name": "AlinaAvatarSurface.tsx",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "apps/alina-control-center/src/AlinaAvatarSurface.tsx",
+      "source_kind": "file",
+      "parent_agent": "PRJ-AVATAR-001",
+      "logical_folder": "workflow",
+      "purpose": "Harvested file candidate from workflow",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:apps/alina-control-center/src/AlinaAvatarSurface.tsx"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "AlinaAvatarSurface.tsx · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Маршрутизация, orchestration, state machine и внутренние процессы.",
+        "source_context": "Найден в агенте PRJ-AVATAR-001, логическая папка workflow, источник VictorKVS/Makar-Frontend-Factory:apps/alina-control-center/src/AlinaAvatarSurface.tsx.",
+        "technical_hint": "Frontend-компонент/поверхность; требует UI-контракта, состояния, тестов и dependency review.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0050",
+      "name": "AvatarDemo.tsx",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "apps/alina-control-center/src/AvatarDemo.tsx",
+      "source_kind": "file",
+      "parent_agent": "PRJ-AVATAR-001",
+      "logical_folder": "workflow",
+      "purpose": "Harvested file candidate from workflow",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:apps/alina-control-center/src/AvatarDemo.tsx"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "AvatarDemo.tsx · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Маршрутизация, orchestration, state machine и внутренние процессы.",
+        "source_context": "Найден в агенте PRJ-AVATAR-001, логическая папка workflow, источник VictorKVS/Makar-Frontend-Factory:apps/alina-control-center/src/AvatarDemo.tsx.",
+        "technical_hint": "Frontend-компонент/поверхность; требует UI-контракта, состояния, тестов и dependency review.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0051",
+      "name": "alina-avatar-runtime.ts",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "apps/alina-control-center/src/alina-avatar-runtime.ts",
+      "source_kind": "file",
+      "parent_agent": "PRJ-AVATAR-001",
+      "logical_folder": "workflow",
+      "purpose": "Harvested file candidate from workflow",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:apps/alina-control-center/src/alina-avatar-runtime.ts"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "alina-avatar-runtime.ts · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Маршрутизация, orchestration, state machine и внутренние процессы.",
+        "source_context": "Найден в агенте PRJ-AVATAR-001, логическая папка workflow, источник VictorKVS/Makar-Frontend-Factory:apps/alina-control-center/src/alina-avatar-runtime.ts.",
+        "technical_hint": "Тип артефакта определён по пути. Требуется инженерный review содержимого перед повышением maturity.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0052",
+      "name": "validate-alina-acceptance.mjs",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "scripts/validate-alina-acceptance.mjs",
+      "source_kind": "file",
+      "parent_agent": "PRJ-AVATAR-001",
+      "logical_folder": "eval",
+      "purpose": "Harvested file candidate from eval",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:scripts/validate-alina-acceptance.mjs"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "validate-alina-acceptance.mjs · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Тесты, валидация, AI/RAG eval и quality gates.",
+        "source_context": "Найден в агенте PRJ-AVATAR-001, логическая папка eval, источник VictorKVS/Makar-Frontend-Factory:scripts/validate-alina-acceptance.mjs.",
+        "technical_hint": "JavaScript/Node-модуль или validator; требует runtime/dependency и contract review.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0053",
+      "name": "visual-tests",
+      "level": "ASSEMBLY",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "apps/alina-control-center/visual-tests/",
+      "source_kind": "directory",
+      "parent_agent": "PRJ-AVATAR-001",
+      "logical_folder": "eval",
+      "purpose": "Harvested directory candidate from eval",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:apps/alina-control-center/visual-tests/"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "visual-tests · ASSEMBLY",
+        "summary": "Реально найденный каталог из VictorKVS/Makar-Frontend-Factory, зарегистрированный как ASSEMBLY уровня HARVEST_CANDIDATE.",
+        "father_role": "Тесты, валидация, AI/RAG eval и quality gates.",
+        "source_context": "Найден в агенте PRJ-AVATAR-001, логическая папка eval, источник VictorKVS/Makar-Frontend-Factory:apps/alina-control-center/visual-tests/.",
+        "technical_hint": "Каталог-кандидат на уровень ASSEMBLY: объединяет несколько связанных артефактов и требует отдельной декомпозиции.",
+        "usage_hint": "Рассматривать как заготовку узла/сборки. Перед использованием нужно разложить на составные PART, определить интерфейсы и проверить совместимость.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0054",
+      "name": "evidence.json",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "agents/makar/evidence.json",
+      "source_kind": "file",
+      "parent_agent": "PRJ-AVATAR-001",
+      "logical_folder": "evidence",
+      "purpose": "Harvested file candidate from evidence",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:agents/makar/evidence.json"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "evidence.json · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Evidence, история испытаний, отчёты и подтверждение происхождения.",
+        "source_context": "Найден в агенте PRJ-AVATAR-001, логическая папка evidence, источник VictorKVS/Makar-Frontend-Factory:agents/makar/evidence.json.",
+        "technical_hint": "Структурированные данные/паспорт/evidence; требует фиксации schema и правил валидации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0055",
+      "name": "README.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/Makar-Frontend-Factory",
+      "source_ref": "main",
+      "source_path": "apps/alina-control-center/README.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-AVATAR-001",
+      "logical_folder": "docs",
+      "purpose": "Harvested file candidate from docs",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/Makar-Frontend-Factory:apps/alina-control-center/README.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "README.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/Makar-Frontend-Factory, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Архитектурная, эксплуатационная и проектная документация.",
+        "source_context": "Найден в агенте PRJ-AVATAR-001, логическая папка docs, источник VictorKVS/Makar-Frontend-Factory:apps/alina-control-center/README.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0056",
+      "name": "FATHER_IT_IB_CORE.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/CyberED",
+      "source_ref": "main",
+      "source_path": "00_F402A/docs/FATHER_IT_IB_CORE.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-COURSE-HARVESTER-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested file candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/CyberED:00_F402A/docs/FATHER_IT_IB_CORE.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "FATHER_IT_IB_CORE.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/CyberED, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-COURSE-HARVESTER-001, логическая папка knowledge, источник VictorKVS/CyberED:00_F402A/docs/FATHER_IT_IB_CORE.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0057",
+      "name": "import_source_catalog.py",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/CyberED",
+      "source_ref": "main",
+      "source_path": "00_F402A/automation/import_source_catalog.py",
+      "source_kind": "file",
+      "parent_agent": "PRJ-COURSE-HARVESTER-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested file candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/CyberED:00_F402A/automation/import_source_catalog.py"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "import_source_catalog.py · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/CyberED, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-COURSE-HARVESTER-001, логическая папка knowledge, источник VictorKVS/CyberED:00_F402A/automation/import_source_catalog.py.",
+        "technical_hint": "Python-модуль или исполняемый скрипт; перед повторным использованием нужны dependency review, тесты и контракт входов/выходов.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0058",
+      "name": "link_source_catalog.py",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/CyberED",
+      "source_ref": "main",
+      "source_path": "00_F402A/automation/link_source_catalog.py",
+      "source_kind": "file",
+      "parent_agent": "PRJ-COURSE-HARVESTER-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested file candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/CyberED:00_F402A/automation/link_source_catalog.py"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "link_source_catalog.py · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/CyberED, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-COURSE-HARVESTER-001, логическая папка knowledge, источник VictorKVS/CyberED:00_F402A/automation/link_source_catalog.py.",
+        "technical_hint": "Python-модуль или исполняемый скрипт; перед повторным использованием нужны dependency review, тесты и контракт входов/выходов.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0059",
+      "name": "IMPORT_SOURCE_CATALOG.ps1",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/CyberED",
+      "source_ref": "main",
+      "source_path": "00_F402A/automation/IMPORT_SOURCE_CATALOG.ps1",
+      "source_kind": "file",
+      "parent_agent": "PRJ-COURSE-HARVESTER-001",
+      "logical_folder": "workflow",
+      "purpose": "Harvested file candidate from workflow",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/CyberED:00_F402A/automation/IMPORT_SOURCE_CATALOG.ps1"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "IMPORT_SOURCE_CATALOG.ps1 · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/CyberED, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Маршрутизация, orchestration, state machine и внутренние процессы.",
+        "source_context": "Найден в агенте PRJ-COURSE-HARVESTER-001, логическая папка workflow, источник VictorKVS/CyberED:00_F402A/automation/IMPORT_SOURCE_CATALOG.ps1.",
+        "technical_hint": "PowerShell-автоматизация; требует проверки идемпотентности, прав, ошибок и безопасного повторного запуска.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0060",
+      "name": "REBUILD_KNOWLEDGE.ps1",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/CyberED",
+      "source_ref": "main",
+      "source_path": "00_F402A/automation/REBUILD_KNOWLEDGE.ps1",
+      "source_kind": "file",
+      "parent_agent": "PRJ-COURSE-HARVESTER-001",
+      "logical_folder": "workflow",
+      "purpose": "Harvested file candidate from workflow",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/CyberED:00_F402A/automation/REBUILD_KNOWLEDGE.ps1"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "REBUILD_KNOWLEDGE.ps1 · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/CyberED, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Маршрутизация, orchestration, state machine и внутренние процессы.",
+        "source_context": "Найден в агенте PRJ-COURSE-HARVESTER-001, логическая папка workflow, источник VictorKVS/CyberED:00_F402A/automation/REBUILD_KNOWLEDGE.ps1.",
+        "technical_hint": "PowerShell-автоматизация; требует проверки идемпотентности, прав, ошибок и безопасного повторного запуска.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0061",
+      "name": "START_ALINA_IB_SYNC.ps1",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/CyberED",
+      "source_ref": "main",
+      "source_path": "00_F402A/automation/START_ALINA_IB_SYNC.ps1",
+      "source_kind": "file",
+      "parent_agent": "PRJ-COURSE-HARVESTER-001",
+      "logical_folder": "workflow",
+      "purpose": "Harvested file candidate from workflow",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/CyberED:00_F402A/automation/START_ALINA_IB_SYNC.ps1"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "START_ALINA_IB_SYNC.ps1 · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/CyberED, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Маршрутизация, orchestration, state machine и внутренние процессы.",
+        "source_context": "Найден в агенте PRJ-COURSE-HARVESTER-001, логическая папка workflow, источник VictorKVS/CyberED:00_F402A/automation/START_ALINA_IB_SYNC.ps1.",
+        "technical_hint": "PowerShell-автоматизация; требует проверки идемпотентности, прав, ошибок и безопасного повторного запуска.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0062",
+      "name": "SYNC_FATHER_KNOWLEDGE.ps1",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/CyberED",
+      "source_ref": "main",
+      "source_path": "00_F402A/automation/SYNC_FATHER_KNOWLEDGE.ps1",
+      "source_kind": "file",
+      "parent_agent": "PRJ-COURSE-HARVESTER-001",
+      "logical_folder": "workflow",
+      "purpose": "Harvested file candidate from workflow",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/CyberED:00_F402A/automation/SYNC_FATHER_KNOWLEDGE.ps1"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "SYNC_FATHER_KNOWLEDGE.ps1 · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/CyberED, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Маршрутизация, orchestration, state machine и внутренние процессы.",
+        "source_context": "Найден в агенте PRJ-COURSE-HARVESTER-001, логическая папка workflow, источник VictorKVS/CyberED:00_F402A/automation/SYNC_FATHER_KNOWLEDGE.ps1.",
+        "technical_hint": "PowerShell-автоматизация; требует проверки идемпотентности, прав, ошибок и безопасного повторного запуска.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0063",
+      "name": "sync_alina_ib.py",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/CyberED",
+      "source_ref": "main",
+      "source_path": "00_F402A/automation/sync_alina_ib.py",
+      "source_kind": "file",
+      "parent_agent": "PRJ-COURSE-HARVESTER-001",
+      "logical_folder": "workflow",
+      "purpose": "Harvested file candidate from workflow",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/CyberED:00_F402A/automation/sync_alina_ib.py"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "sync_alina_ib.py · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/CyberED, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Маршрутизация, orchestration, state machine и внутренние процессы.",
+        "source_context": "Найден в агенте PRJ-COURSE-HARVESTER-001, логическая папка workflow, источник VictorKVS/CyberED:00_F402A/automation/sync_alina_ib.py.",
+        "technical_hint": "Python-модуль или исполняемый скрипт; перед повторным использованием нужны dependency review, тесты и контракт входов/выходов.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0064",
+      "name": "build_knowledge_graph.py",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/CyberED",
+      "source_ref": "main",
+      "source_path": "00_F402A/automation/build_knowledge_graph.py",
+      "source_kind": "file",
+      "parent_agent": "PRJ-COURSE-HARVESTER-001",
+      "logical_folder": "tools",
+      "purpose": "Harvested file candidate from tools",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/CyberED:00_F402A/automation/build_knowledge_graph.py"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "build_knowledge_graph.py · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/CyberED, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Инструменты, MCP/API-адаптеры и исполняемые действия.",
+        "source_context": "Найден в агенте PRJ-COURSE-HARVESTER-001, логическая папка tools, источник VictorKVS/CyberED:00_F402A/automation/build_knowledge_graph.py.",
+        "technical_hint": "Python-модуль или исполняемый скрипт; перед повторным использованием нужны dependency review, тесты и контракт входов/выходов.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0065",
+      "name": "build_normalization_candidates.py",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/CyberED",
+      "source_ref": "main",
+      "source_path": "00_F402A/automation/build_normalization_candidates.py",
+      "source_kind": "file",
+      "parent_agent": "PRJ-COURSE-HARVESTER-001",
+      "logical_folder": "tools",
+      "purpose": "Harvested file candidate from tools",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/CyberED:00_F402A/automation/build_normalization_candidates.py"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "build_normalization_candidates.py · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/CyberED, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Инструменты, MCP/API-адаптеры и исполняемые действия.",
+        "source_context": "Найден в агенте PRJ-COURSE-HARVESTER-001, логическая папка tools, источник VictorKVS/CyberED:00_F402A/automation/build_normalization_candidates.py.",
+        "technical_hint": "Python-модуль или исполняемый скрипт; перед повторным использованием нужны dependency review, тесты и контракт входов/выходов.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0066",
+      "name": "validate_knowledge_graph.py",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/CyberED",
+      "source_ref": "main",
+      "source_path": "00_F402A/automation/validate_knowledge_graph.py",
+      "source_kind": "file",
+      "parent_agent": "PRJ-COURSE-HARVESTER-001",
+      "logical_folder": "eval",
+      "purpose": "Harvested file candidate from eval",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/CyberED:00_F402A/automation/validate_knowledge_graph.py"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "validate_knowledge_graph.py · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/CyberED, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Тесты, валидация, AI/RAG eval и quality gates.",
+        "source_context": "Найден в агенте PRJ-COURSE-HARVESTER-001, логическая папка eval, источник VictorKVS/CyberED:00_F402A/automation/validate_knowledge_graph.py.",
+        "technical_hint": "Python-модуль или исполняемый скрипт; перед повторным использованием нужны dependency review, тесты и контракт входов/выходов.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0067",
+      "name": "README.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/CyberED",
+      "source_ref": "main",
+      "source_path": "00_F402A/automation/README.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-COURSE-HARVESTER-001",
+      "logical_folder": "docs",
+      "purpose": "Harvested file candidate from docs",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/CyberED:00_F402A/automation/README.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "README.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/CyberED, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Архитектурная, эксплуатационная и проектная документация.",
+        "source_context": "Найден в агенте PRJ-COURSE-HARVESTER-001, логическая папка docs, источник VictorKVS/CyberED:00_F402A/automation/README.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0068",
+      "name": "FATHER_IT_IB_CORE.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/CyberED",
+      "source_ref": "main",
+      "source_path": "00_F402A/docs/FATHER_IT_IB_CORE.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-COMPLIANCE-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested file candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/CyberED:00_F402A/docs/FATHER_IT_IB_CORE.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "FATHER_IT_IB_CORE.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/CyberED, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-COMPLIANCE-001, логическая папка knowledge, источник VictorKVS/CyberED:00_F402A/docs/FATHER_IT_IB_CORE.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0069",
+      "name": "SYNC_FATHER_KNOWLEDGE.ps1",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/CyberED",
+      "source_ref": "main",
+      "source_path": "00_F402A/automation/SYNC_FATHER_KNOWLEDGE.ps1",
+      "source_kind": "file",
+      "parent_agent": "PRJ-COMPLIANCE-001",
+      "logical_folder": "workflow",
+      "purpose": "Harvested file candidate from workflow",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/CyberED:00_F402A/automation/SYNC_FATHER_KNOWLEDGE.ps1"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "SYNC_FATHER_KNOWLEDGE.ps1 · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/CyberED, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Маршрутизация, orchestration, state machine и внутренние процессы.",
+        "source_context": "Найден в агенте PRJ-COMPLIANCE-001, логическая папка workflow, источник VictorKVS/CyberED:00_F402A/automation/SYNC_FATHER_KNOWLEDGE.ps1.",
+        "technical_hint": "PowerShell-автоматизация; требует проверки идемпотентности, прав, ошибок и безопасного повторного запуска.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0070",
+      "name": "sync_alina_ib.py",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/CyberED",
+      "source_ref": "main",
+      "source_path": "00_F402A/automation/sync_alina_ib.py",
+      "source_kind": "file",
+      "parent_agent": "PRJ-COMPLIANCE-001",
+      "logical_folder": "workflow",
+      "purpose": "Harvested file candidate from workflow",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/CyberED:00_F402A/automation/sync_alina_ib.py"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "sync_alina_ib.py · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/CyberED, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Маршрутизация, orchestration, state machine и внутренние процессы.",
+        "source_context": "Найден в агенте PRJ-COMPLIANCE-001, логическая папка workflow, источник VictorKVS/CyberED:00_F402A/automation/sync_alina_ib.py.",
+        "technical_hint": "Python-модуль или исполняемый скрипт; перед повторным использованием нужны dependency review, тесты и контракт входов/выходов.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0071",
+      "name": "validate_knowledge_graph.py",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/CyberED",
+      "source_ref": "main",
+      "source_path": "00_F402A/automation/validate_knowledge_graph.py",
+      "source_kind": "file",
+      "parent_agent": "PRJ-COMPLIANCE-001",
+      "logical_folder": "eval",
+      "purpose": "Harvested file candidate from eval",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/CyberED:00_F402A/automation/validate_knowledge_graph.py"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "validate_knowledge_graph.py · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/CyberED, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Тесты, валидация, AI/RAG eval и quality gates.",
+        "source_context": "Найден в агенте PRJ-COMPLIANCE-001, логическая папка eval, источник VictorKVS/CyberED:00_F402A/automation/validate_knowledge_graph.py.",
+        "technical_hint": "Python-модуль или исполняемый скрипт; перед повторным использованием нужны dependency review, тесты и контракт входов/выходов.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0072",
+      "name": "07_Kubernetes_Cluster_Deployment",
+      "level": "ASSEMBLY",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "LESSONS/07_Kubernetes_Cluster_Deployment/",
+      "source_kind": "directory",
+      "parent_agent": "PRJ-DEVOPS-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested directory candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:LESSONS/07_Kubernetes_Cluster_Deployment/"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "07_Kubernetes_Cluster_Deployment · ASSEMBLY",
+        "summary": "Реально найденный каталог из VictorKVS/OTUS_Kibirnetes, зарегистрированный как ASSEMBLY уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-DEVOPS-001, логическая папка knowledge, источник VictorKVS/OTUS_Kibirnetes:LESSONS/07_Kubernetes_Cluster_Deployment/.",
+        "technical_hint": "Каталог-кандидат на уровень ASSEMBLY: объединяет несколько связанных артефактов и требует отдельной декомпозиции.",
+        "usage_hint": "Рассматривать как заготовку узла/сборки. Перед использованием нужно разложить на составные PART, определить интерфейсы и проверить совместимость.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0073",
+      "name": "08_Git_and_CICD",
+      "level": "ASSEMBLY",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "LESSONS/08_Git_and_CICD/",
+      "source_kind": "directory",
+      "parent_agent": "PRJ-DEVOPS-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested directory candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:LESSONS/08_Git_and_CICD/"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "08_Git_and_CICD · ASSEMBLY",
+        "summary": "Реально найденный каталог из VictorKVS/OTUS_Kibirnetes, зарегистрированный как ASSEMBLY уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-DEVOPS-001, логическая папка knowledge, источник VictorKVS/OTUS_Kibirnetes:LESSONS/08_Git_and_CICD/.",
+        "technical_hint": "Каталог-кандидат на уровень ASSEMBLY: объединяет несколько связанных артефактов и требует отдельной декомпозиции.",
+        "usage_hint": "Рассматривать как заготовку узла/сборки. Перед использованием нужно разложить на составные PART, определить интерфейсы и проверить совместимость.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0074",
+      "name": "INIT_LOCAL_LESSONS.ps1",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "scripts/INIT_LOCAL_LESSONS.ps1",
+      "source_kind": "file",
+      "parent_agent": "PRJ-DEVOPS-001",
+      "logical_folder": "workflow",
+      "purpose": "Harvested file candidate from workflow",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:scripts/INIT_LOCAL_LESSONS.ps1"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "INIT_LOCAL_LESSONS.ps1 · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OTUS_Kibirnetes, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Маршрутизация, orchestration, state machine и внутренние процессы.",
+        "source_context": "Найден в агенте PRJ-DEVOPS-001, логическая папка workflow, источник VictorKVS/OTUS_Kibirnetes:scripts/INIT_LOCAL_LESSONS.ps1.",
+        "technical_hint": "PowerShell-автоматизация; требует проверки идемпотентности, прав, ошибок и безопасного повторного запуска.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0075",
+      "name": "RUN_LESSON03_STEP01.ps1",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "scripts/RUN_LESSON03_STEP01.ps1",
+      "source_kind": "file",
+      "parent_agent": "PRJ-DEVOPS-001",
+      "logical_folder": "workflow",
+      "purpose": "Harvested file candidate from workflow",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:scripts/RUN_LESSON03_STEP01.ps1"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "RUN_LESSON03_STEP01.ps1 · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OTUS_Kibirnetes, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Маршрутизация, orchestration, state machine и внутренние процессы.",
+        "source_context": "Найден в агенте PRJ-DEVOPS-001, логическая папка workflow, источник VictorKVS/OTUS_Kibirnetes:scripts/RUN_LESSON03_STEP01.ps1.",
+        "technical_hint": "PowerShell-автоматизация; требует проверки идемпотентности, прав, ошибок и безопасного повторного запуска.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0076",
+      "name": "README.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "README.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-DEVOPS-001",
+      "logical_folder": "docs",
+      "purpose": "Harvested file candidate from docs",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:README.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "README.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OTUS_Kibirnetes, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Архитектурная, эксплуатационная и проектная документация.",
+        "source_context": "Найден в агенте PRJ-DEVOPS-001, логическая папка docs, источник VictorKVS/OTUS_Kibirnetes:README.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0077",
+      "name": "README.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "SECURITY/README.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-DEVSECOPS-001",
+      "logical_folder": "security",
+      "purpose": "Harvested file candidate from security",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:SECURITY/README.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "README.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OTUS_Kibirnetes, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Контроли ИБ, guardrails, IAM, privacy и безопасное выполнение.",
+        "source_context": "Найден в агенте PRJ-DEVSECOPS-001, логическая папка security, источник VictorKVS/OTUS_Kibirnetes:SECURITY/README.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0078",
+      "name": "threats",
+      "level": "ASSEMBLY",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "SECURITY/threats/",
+      "source_kind": "directory",
+      "parent_agent": "PRJ-DEVSECOPS-001",
+      "logical_folder": "security",
+      "purpose": "Harvested directory candidate from security",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:SECURITY/threats/"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "threats · ASSEMBLY",
+        "summary": "Реально найденный каталог из VictorKVS/OTUS_Kibirnetes, зарегистрированный как ASSEMBLY уровня HARVEST_CANDIDATE.",
+        "father_role": "Контроли ИБ, guardrails, IAM, privacy и безопасное выполнение.",
+        "source_context": "Найден в агенте PRJ-DEVSECOPS-001, логическая папка security, источник VictorKVS/OTUS_Kibirnetes:SECURITY/threats/.",
+        "technical_hint": "Каталог-кандидат на уровень ASSEMBLY: объединяет несколько связанных артефактов и требует отдельной декомпозиции.",
+        "usage_hint": "Рассматривать как заготовку узла/сборки. Перед использованием нужно разложить на составные PART, определить интерфейсы и проверить совместимость.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0079",
+      "name": "regulations",
+      "level": "ASSEMBLY",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "SECURITY/regulations/",
+      "source_kind": "directory",
+      "parent_agent": "PRJ-DEVSECOPS-001",
+      "logical_folder": "security",
+      "purpose": "Harvested directory candidate from security",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:SECURITY/regulations/"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "regulations · ASSEMBLY",
+        "summary": "Реально найденный каталог из VictorKVS/OTUS_Kibirnetes, зарегистрированный как ASSEMBLY уровня HARVEST_CANDIDATE.",
+        "father_role": "Контроли ИБ, guardrails, IAM, privacy и безопасное выполнение.",
+        "source_context": "Найден в агенте PRJ-DEVSECOPS-001, логическая папка security, источник VictorKVS/OTUS_Kibirnetes:SECURITY/regulations/.",
+        "technical_hint": "Каталог-кандидат на уровень ASSEMBLY: объединяет несколько связанных артефактов и требует отдельной декомпозиции.",
+        "usage_hint": "Рассматривать как заготовку узла/сборки. Перед использованием нужно разложить на составные PART, определить интерфейсы и проверить совместимость.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0080",
+      "name": "audit_k8s.py",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "SECURITY/agent/audit_k8s.py",
+      "source_kind": "file",
+      "parent_agent": "PRJ-DEVSECOPS-001",
+      "logical_folder": "tools",
+      "purpose": "Harvested file candidate from tools",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:SECURITY/agent/audit_k8s.py"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "audit_k8s.py · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OTUS_Kibirnetes, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Инструменты, MCP/API-адаптеры и исполняемые действия.",
+        "source_context": "Найден в агенте PRJ-DEVSECOPS-001, логическая папка tools, источник VictorKVS/OTUS_Kibirnetes:SECURITY/agent/audit_k8s.py.",
+        "technical_hint": "Python-модуль или исполняемый скрипт; перед повторным использованием нужны dependency review, тесты и контракт входов/выходов.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0081",
+      "name": "03_Kubernetes_Networking",
+      "level": "ASSEMBLY",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "LESSONS/03_Kubernetes_Networking/",
+      "source_kind": "directory",
+      "parent_agent": "PRJ-DEVSECOPS-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested directory candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:LESSONS/03_Kubernetes_Networking/"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "03_Kubernetes_Networking · ASSEMBLY",
+        "summary": "Реально найденный каталог из VictorKVS/OTUS_Kibirnetes, зарегистрированный как ASSEMBLY уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-DEVSECOPS-001, логическая папка knowledge, источник VictorKVS/OTUS_Kibirnetes:LESSONS/03_Kubernetes_Networking/.",
+        "technical_hint": "Каталог-кандидат на уровень ASSEMBLY: объединяет несколько связанных артефактов и требует отдельной декомпозиции.",
+        "usage_hint": "Рассматривать как заготовку узла/сборки. Перед использованием нужно разложить на составные PART, определить интерфейсы и проверить совместимость.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0082",
+      "name": "06_Service_Mesh",
+      "level": "ASSEMBLY",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "LESSONS/06_Service_Mesh/",
+      "source_kind": "directory",
+      "parent_agent": "PRJ-DEVSECOPS-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested directory candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:LESSONS/06_Service_Mesh/"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "06_Service_Mesh · ASSEMBLY",
+        "summary": "Реально найденный каталог из VictorKVS/OTUS_Kibirnetes, зарегистрированный как ASSEMBLY уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-DEVSECOPS-001, логическая папка knowledge, источник VictorKVS/OTUS_Kibirnetes:LESSONS/06_Service_Mesh/.",
+        "technical_hint": "Каталог-кандидат на уровень ASSEMBLY: объединяет несколько связанных артефактов и требует отдельной декомпозиции.",
+        "usage_hint": "Рассматривать как заготовку узла/сборки. Перед использованием нужно разложить на составные PART, определить интерфейсы и проверить совместимость.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0083",
+      "name": "01_Introduction_to_Kubernetes",
+      "level": "ASSEMBLY",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "LESSONS/01_Introduction_to_Kubernetes/",
+      "source_kind": "directory",
+      "parent_agent": "PRJ-K8S-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested directory candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:LESSONS/01_Introduction_to_Kubernetes/"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "01_Introduction_to_Kubernetes · ASSEMBLY",
+        "summary": "Реально найденный каталог из VictorKVS/OTUS_Kibirnetes, зарегистрированный как ASSEMBLY уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-K8S-001, логическая папка knowledge, источник VictorKVS/OTUS_Kibirnetes:LESSONS/01_Introduction_to_Kubernetes/.",
+        "technical_hint": "Каталог-кандидат на уровень ASSEMBLY: объединяет несколько связанных артефактов и требует отдельной декомпозиции.",
+        "usage_hint": "Рассматривать как заготовку узла/сборки. Перед использованием нужно разложить на составные PART, определить интерфейсы и проверить совместимость.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0084",
+      "name": "02_Kubernetes_Objects",
+      "level": "ASSEMBLY",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "LESSONS/02_Kubernetes_Objects/",
+      "source_kind": "directory",
+      "parent_agent": "PRJ-K8S-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested directory candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:LESSONS/02_Kubernetes_Objects/"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "02_Kubernetes_Objects · ASSEMBLY",
+        "summary": "Реально найденный каталог из VictorKVS/OTUS_Kibirnetes, зарегистрированный как ASSEMBLY уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-K8S-001, логическая папка knowledge, источник VictorKVS/OTUS_Kibirnetes:LESSONS/02_Kubernetes_Objects/.",
+        "technical_hint": "Каталог-кандидат на уровень ASSEMBLY: объединяет несколько связанных артефактов и требует отдельной декомпозиции.",
+        "usage_hint": "Рассматривать как заготовку узла/сборки. Перед использованием нужно разложить на составные PART, определить интерфейсы и проверить совместимость.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0085",
+      "name": "03_Kubernetes_Networking",
+      "level": "ASSEMBLY",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "LESSONS/03_Kubernetes_Networking/",
+      "source_kind": "directory",
+      "parent_agent": "PRJ-K8S-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested directory candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:LESSONS/03_Kubernetes_Networking/"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "03_Kubernetes_Networking · ASSEMBLY",
+        "summary": "Реально найденный каталог из VictorKVS/OTUS_Kibirnetes, зарегистрированный как ASSEMBLY уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-K8S-001, логическая папка knowledge, источник VictorKVS/OTUS_Kibirnetes:LESSONS/03_Kubernetes_Networking/.",
+        "technical_hint": "Каталог-кандидат на уровень ASSEMBLY: объединяет несколько связанных артефактов и требует отдельной декомпозиции.",
+        "usage_hint": "Рассматривать как заготовку узла/сборки. Перед использованием нужно разложить на составные PART, определить интерфейсы и проверить совместимость.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0086",
+      "name": "04_Kubernetes_Storage",
+      "level": "ASSEMBLY",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "LESSONS/04_Kubernetes_Storage/",
+      "source_kind": "directory",
+      "parent_agent": "PRJ-K8S-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested directory candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:LESSONS/04_Kubernetes_Storage/"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "04_Kubernetes_Storage · ASSEMBLY",
+        "summary": "Реально найденный каталог из VictorKVS/OTUS_Kibirnetes, зарегистрированный как ASSEMBLY уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-K8S-001, логическая папка knowledge, источник VictorKVS/OTUS_Kibirnetes:LESSONS/04_Kubernetes_Storage/.",
+        "technical_hint": "Каталог-кандидат на уровень ASSEMBLY: объединяет несколько связанных артефактов и требует отдельной декомпозиции.",
+        "usage_hint": "Рассматривать как заготовку узла/сборки. Перед использованием нужно разложить на составные PART, определить интерфейсы и проверить совместимость.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0087",
+      "name": "05_Requests_Limits_Load_Balancing",
+      "level": "ASSEMBLY",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "LESSONS/05_Requests_Limits_Load_Balancing/",
+      "source_kind": "directory",
+      "parent_agent": "PRJ-K8S-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested directory candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:LESSONS/05_Requests_Limits_Load_Balancing/"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "05_Requests_Limits_Load_Balancing · ASSEMBLY",
+        "summary": "Реально найденный каталог из VictorKVS/OTUS_Kibirnetes, зарегистрированный как ASSEMBLY уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-K8S-001, логическая папка knowledge, источник VictorKVS/OTUS_Kibirnetes:LESSONS/05_Requests_Limits_Load_Balancing/.",
+        "technical_hint": "Каталог-кандидат на уровень ASSEMBLY: объединяет несколько связанных артефактов и требует отдельной декомпозиции.",
+        "usage_hint": "Рассматривать как заготовку узла/сборки. Перед использованием нужно разложить на составные PART, определить интерфейсы и проверить совместимость.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0088",
+      "name": "06_Service_Mesh",
+      "level": "ASSEMBLY",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "LESSONS/06_Service_Mesh/",
+      "source_kind": "directory",
+      "parent_agent": "PRJ-K8S-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested directory candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:LESSONS/06_Service_Mesh/"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "06_Service_Mesh · ASSEMBLY",
+        "summary": "Реально найденный каталог из VictorKVS/OTUS_Kibirnetes, зарегистрированный как ASSEMBLY уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-K8S-001, логическая папка knowledge, источник VictorKVS/OTUS_Kibirnetes:LESSONS/06_Service_Mesh/.",
+        "technical_hint": "Каталог-кандидат на уровень ASSEMBLY: объединяет несколько связанных артефактов и требует отдельной декомпозиции.",
+        "usage_hint": "Рассматривать как заготовку узла/сборки. Перед использованием нужно разложить на составные PART, определить интерфейсы и проверить совместимость.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0089",
+      "name": "07_Kubernetes_Cluster_Deployment",
+      "level": "ASSEMBLY",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "LESSONS/07_Kubernetes_Cluster_Deployment/",
+      "source_kind": "directory",
+      "parent_agent": "PRJ-K8S-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested directory candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:LESSONS/07_Kubernetes_Cluster_Deployment/"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "07_Kubernetes_Cluster_Deployment · ASSEMBLY",
+        "summary": "Реально найденный каталог из VictorKVS/OTUS_Kibirnetes, зарегистрированный как ASSEMBLY уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-K8S-001, логическая папка knowledge, источник VictorKVS/OTUS_Kibirnetes:LESSONS/07_Kubernetes_Cluster_Deployment/.",
+        "technical_hint": "Каталог-кандидат на уровень ASSEMBLY: объединяет несколько связанных артефактов и требует отдельной декомпозиции.",
+        "usage_hint": "Рассматривать как заготовку узла/сборки. Перед использованием нужно разложить на составные PART, определить интерфейсы и проверить совместимость.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0090",
+      "name": "08_Git_and_CICD",
+      "level": "ASSEMBLY",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "LESSONS/08_Git_and_CICD/",
+      "source_kind": "directory",
+      "parent_agent": "PRJ-K8S-001",
+      "logical_folder": "knowledge",
+      "purpose": "Harvested directory candidate from knowledge",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:LESSONS/08_Git_and_CICD/"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "08_Git_and_CICD · ASSEMBLY",
+        "summary": "Реально найденный каталог из VictorKVS/OTUS_Kibirnetes, зарегистрированный как ASSEMBLY уровня HARVEST_CANDIDATE.",
+        "father_role": "Доменные знания, документы, схемы знаний и справочные материалы.",
+        "source_context": "Найден в агенте PRJ-K8S-001, логическая папка knowledge, источник VictorKVS/OTUS_Kibirnetes:LESSONS/08_Git_and_CICD/.",
+        "technical_hint": "Каталог-кандидат на уровень ASSEMBLY: объединяет несколько связанных артефактов и требует отдельной декомпозиции.",
+        "usage_hint": "Рассматривать как заготовку узла/сборки. Перед использованием нужно разложить на составные PART, определить интерфейсы и проверить совместимость.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0091",
+      "name": "audit_k8s.py",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "SECURITY/agent/audit_k8s.py",
+      "source_kind": "file",
+      "parent_agent": "PRJ-K8S-001",
+      "logical_folder": "security",
+      "purpose": "Harvested file candidate from security",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:SECURITY/agent/audit_k8s.py"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "audit_k8s.py · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OTUS_Kibirnetes, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Контроли ИБ, guardrails, IAM, privacy и безопасное выполнение.",
+        "source_context": "Найден в агенте PRJ-K8S-001, логическая папка security, источник VictorKVS/OTUS_Kibirnetes:SECURITY/agent/audit_k8s.py.",
+        "technical_hint": "Python-модуль или исполняемый скрипт; перед повторным использованием нужны dependency review, тесты и контракт входов/выходов.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0092",
+      "name": "README.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "README.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-K8S-001",
+      "logical_folder": "docs",
+      "purpose": "Harvested file candidate from docs",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:README.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "README.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OTUS_Kibirnetes, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Архитектурная, эксплуатационная и проектная документация.",
+        "source_context": "Найден в агенте PRJ-K8S-001, логическая папка docs, источник VictorKVS/OTUS_Kibirnetes:README.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0093",
+      "name": "README.md",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "SECURITY/README.md",
+      "source_kind": "file",
+      "parent_agent": "PRJ-SECARCH-001",
+      "logical_folder": "security",
+      "purpose": "Harvested file candidate from security",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:SECURITY/README.md"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "README.md · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OTUS_Kibirnetes, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Контроли ИБ, guardrails, IAM, privacy и безопасное выполнение.",
+        "source_context": "Найден в агенте PRJ-SECARCH-001, логическая папка security, источник VictorKVS/OTUS_Kibirnetes:SECURITY/README.md.",
+        "technical_hint": "Документ/спецификация. Это knowledge/evidence artifact, а не исполняемая деталь до подтверждения реализации.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0094",
+      "name": "threats",
+      "level": "ASSEMBLY",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "SECURITY/threats/",
+      "source_kind": "directory",
+      "parent_agent": "PRJ-SECARCH-001",
+      "logical_folder": "security",
+      "purpose": "Harvested directory candidate from security",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:SECURITY/threats/"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "threats · ASSEMBLY",
+        "summary": "Реально найденный каталог из VictorKVS/OTUS_Kibirnetes, зарегистрированный как ASSEMBLY уровня HARVEST_CANDIDATE.",
+        "father_role": "Контроли ИБ, guardrails, IAM, privacy и безопасное выполнение.",
+        "source_context": "Найден в агенте PRJ-SECARCH-001, логическая папка security, источник VictorKVS/OTUS_Kibirnetes:SECURITY/threats/.",
+        "technical_hint": "Каталог-кандидат на уровень ASSEMBLY: объединяет несколько связанных артефактов и требует отдельной декомпозиции.",
+        "usage_hint": "Рассматривать как заготовку узла/сборки. Перед использованием нужно разложить на составные PART, определить интерфейсы и проверить совместимость.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0095",
+      "name": "regulations",
+      "level": "ASSEMBLY",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "SECURITY/regulations/",
+      "source_kind": "directory",
+      "parent_agent": "PRJ-SECARCH-001",
+      "logical_folder": "security",
+      "purpose": "Harvested directory candidate from security",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:SECURITY/regulations/"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "regulations · ASSEMBLY",
+        "summary": "Реально найденный каталог из VictorKVS/OTUS_Kibirnetes, зарегистрированный как ASSEMBLY уровня HARVEST_CANDIDATE.",
+        "father_role": "Контроли ИБ, guardrails, IAM, privacy и безопасное выполнение.",
+        "source_context": "Найден в агенте PRJ-SECARCH-001, логическая папка security, источник VictorKVS/OTUS_Kibirnetes:SECURITY/regulations/.",
+        "technical_hint": "Каталог-кандидат на уровень ASSEMBLY: объединяет несколько связанных артефактов и требует отдельной декомпозиции.",
+        "usage_hint": "Рассматривать как заготовку узла/сборки. Перед использованием нужно разложить на составные PART, определить интерфейсы и проверить совместимость.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    },
+    {
+      "id": "FTH-CMP-0096",
+      "name": "audit_k8s.py",
+      "level": "PART",
+      "status": "HARVEST_CANDIDATE",
+      "source_repo": "VictorKVS/OTUS_Kibirnetes",
+      "source_ref": "main",
+      "source_path": "SECURITY/agent/audit_k8s.py",
+      "source_kind": "file",
+      "parent_agent": "PRJ-SECARCH-001",
+      "logical_folder": "tools",
+      "purpose": "Harvested file candidate from tools",
+      "certification": "NOT_CERTIFIED",
+      "evidence": [
+        "VictorKVS/OTUS_Kibirnetes:SECURITY/agent/audit_k8s.py"
+      ],
+      "tests": [],
+      "compatibility": [],
+      "notes": "Automatic first-pass classification from verified Harvest Map. Requires engineering review before promotion.",
+      "reference": {
+        "title": "audit_k8s.py · PART",
+        "summary": "Реально найденный артефакт из VictorKVS/OTUS_Kibirnetes, зарегистрированный как PART уровня HARVEST_CANDIDATE.",
+        "father_role": "Инструменты, MCP/API-адаптеры и исполняемые действия.",
+        "source_context": "Найден в агенте PRJ-SECARCH-001, логическая папка tools, источник VictorKVS/OTUS_Kibirnetes:SECURITY/agent/audit_k8s.py.",
+        "technical_hint": "Python-модуль или исполняемый скрипт; перед повторным использованием нужны dependency review, тесты и контракт входов/выходов.",
+        "usage_hint": "Рассматривать как низкоуровневую деталь-кандидат. Подключать в сборки только после проверки контракта, зависимостей и тестов.",
+        "lifecycle": "HARVEST_CANDIDATE → REVIEWED → TESTED → INTEGRATION_TESTED → SECURITY_TESTED → CERTIFIED",
+        "promotion_requirements": [
+          "паспорт и назначение подтверждены",
+          "входы/выходы и зависимости описаны",
+          "есть тесты и evidence",
+          "проверена безопасность",
+          "проверена совместимость"
+        ],
+        "confidence": "SOURCE_VERIFIED / CLASSIFICATION_HEURISTIC"
+      }
+    }
+  ],
+  "reference_layer": {
+    "version": "v0.1",
+    "description": "Hover/reference help generated from verified harvest metadata. Technical classification remains provisional until engineering review."
+  }
+}

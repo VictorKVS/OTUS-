@@ -1,0 +1,38 @@
+{
+  "schema_version": "father.idea.v0.1",
+  "idea_id": "LIFE-001",
+  "status": "IDEA_DRAFT",
+  "title": "Personal Lifelong Companion / Human Life Agent",
+  "one_sentence": "A personal digital companion that accompanies one person throughout life, preserves continuity of context, helps organize information and decisions, and adapts to life stage.",
+  "core_value": [
+    "continuity_of_personal_context",
+    "organization_of_life_information",
+    "decision_and_task_assistance",
+    "memory_evidence_history",
+    "life_stage_adaptation"
+  ],
+  "authority_principle": "AGENT_ASSISTS_HUMAN_DECIDES",
+  "lifecycle": [
+    "birth_early_childhood",
+    "childhood",
+    "education",
+    "adolescence",
+    "early_adulthood",
+    "career_family_household",
+    "mature_adulthood",
+    "retirement",
+    "late_life_support",
+    "end_of_life_digital_legacy_handoff"
+  ],
+  "next_stage": "PRODUCT_MANAGER_DISCOVERY",
+  "explicit_non_goals": [
+    "autonomous_medical_diagnosis",
+    "autonomous_financial_advice",
+    "autonomous_legal_representation",
+    "surveillance",
+    "social_scoring",
+    "substitute_parent",
+    "unrestricted_single_memory",
+    "finished_architecture"
+  ]
+}

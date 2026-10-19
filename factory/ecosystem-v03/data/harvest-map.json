@@ -1,0 +1,553 @@
+{
+  "schema_version": "father.harvest-map.v0.1",
+  "generated_at": "2026-10-16",
+  "rule": "Only GitHub paths observed during harvest are listed. Missing folders remain explicit TBD.",
+  "agents": {
+    "PRJ-OSINT-001": {
+      "repository": "VictorKVS/OSINT_TRICOLOR",
+      "ref": "main",
+      "status": "VERIFIED_REPOSITORY",
+      "folders": {
+        "identity": [
+          {
+            "path": "AGENT_SPEC.md",
+            "kind": "file"
+          },
+          {
+            "path": "README.md",
+            "kind": "file"
+          }
+        ],
+        "knowledge": [
+          {
+            "path": "docs/11_KNOWLEDGE_GRAPH/GRAPH_MODEL.md",
+            "kind": "file"
+          },
+          {
+            "path": "docs/11_KNOWLEDGE_GRAPH/GRAPH_SCHEMA_AND_RULES.md",
+            "kind": "file"
+          },
+          {
+            "path": "docs/11_KNOWLEDGE_GRAPH/GRAPH_DATA_CONTRACT_V01.md",
+            "kind": "file"
+          }
+        ],
+        "database": [
+          {
+            "path": "docs/12_GRAPH_ENGINEERING/STORAGE_OPTIONS.md",
+            "kind": "file"
+          },
+          {
+            "path": "docs/12_GRAPH_ENGINEERING/SIZING_MODEL.md",
+            "kind": "file"
+          }
+        ],
+        "tools": [
+          {
+            "path": "docs/14_FATHER_MODULAR_INTELLIGENCE/MODULE_CATALOG.md",
+            "kind": "file"
+          },
+          {
+            "path": "docs/14_FATHER_MODULAR_INTELLIGENCE/SEARCH_RESEARCH_SURFACES.md",
+            "kind": "file"
+          }
+        ],
+        "workflow": [
+          {
+            "path": "agent.py",
+            "kind": "file"
+          },
+          {
+            "path": "docs/14_FATHER_MODULAR_INTELLIGENCE/WORKFLOW_AND_VISUAL_DESIGNER.md",
+            "kind": "file"
+          },
+          {
+            "path": "docs/14_FATHER_MODULAR_INTELLIGENCE/OSINT_BLOCK_SCOPE_AND_CANVAS.md",
+            "kind": "file"
+          }
+        ],
+        "security": [
+          {
+            "path": "docs/12_GRAPH_ENGINEERING/SECURITY_AND_PRIVACY.md",
+            "kind": "file"
+          },
+          {
+            "path": "research/DEPENDENCY_LICENSE_GUARD_POLICY.md",
+            "kind": "file"
+          }
+        ],
+        "eval": [
+          {
+            "path": "tests/test_agent.py",
+            "kind": "file"
+          },
+          {
+            "path": "docs/11_KNOWLEDGE_GRAPH/GRAPH_VALIDATION_MATRIX.md",
+            "kind": "file"
+          },
+          {
+            "path": "docs/11_KNOWLEDGE_GRAPH/GRAPH_REVIEW_CHECKLIST.md",
+            "kind": "file"
+          }
+        ],
+        "docs": [
+          {
+            "path": "docs/ARCHITECTURE.md",
+            "kind": "file"
+          },
+          {
+            "path": "docs/INDEX.md",
+            "kind": "file"
+          },
+          {
+            "path": "docs/PROJECT_REGISTRY.md",
+            "kind": "file"
+          }
+        ],
+        "evidence": [
+          {
+            "path": "PROJECT_REPORT.md",
+            "kind": "file"
+          },
+          {
+            "path": "sample_findings.jsonl",
+            "kind": "file"
+          },
+          {
+            "path": "research/TRACEABILITY.md",
+            "kind": "file"
+          }
+        ]
+      }
+    },
+    "PRJ-SECGRAPH-001": {
+      "repository": "VictorKVS/SecGraph",
+      "ref": "main",
+      "status": "VERIFIED_REPOSITORY",
+      "folders": {
+        "identity": [
+          {
+            "path": "README.md",
+            "kind": "file"
+          }
+        ],
+        "knowledge": [
+          {
+            "path": "docs/001_kb_core_spec.md",
+            "kind": "file"
+          }
+        ],
+        "eval": [
+          {
+            "path": "docs/002_kb_core_tests.md",
+            "kind": "file"
+          }
+        ],
+        "deployment": [
+          {
+            "path": "backend/requirements.txt",
+            "kind": "file"
+          }
+        ],
+        "workflow": [
+          {
+            "path": "risk-management/",
+            "kind": "directory"
+          }
+        ],
+        "tools": [
+          {
+            "path": "backend/",
+            "kind": "directory"
+          }
+        ]
+      }
+    },
+    "PRJ-WEB-001": {
+      "repository": "VictorKVS/Makar-Frontend-Factory",
+      "ref": "main",
+      "status": "VERIFIED_REPOSITORY",
+      "folders": {
+        "identity": [
+          {
+            "path": "README.md",
+            "kind": "file"
+          },
+          {
+            "path": "agents/makar/passport.json",
+            "kind": "file"
+          }
+        ],
+        "knowledge": [
+          {
+            "path": "agents/makar/knowledge-items.json",
+            "kind": "file"
+          }
+        ],
+        "workflow": [
+          {
+            "path": "apps/alina-control-center/src/AgentFactoryDemo.tsx",
+            "kind": "file"
+          },
+          {
+            "path": "apps/alina-control-center/src/WorkspaceDemo.tsx",
+            "kind": "file"
+          },
+          {
+            "path": "apps/alina-control-center/src/ProductShell.tsx",
+            "kind": "file"
+          }
+        ],
+        "eval": [
+          {
+            "path": "apps/alina-control-center/src/App.test.tsx",
+            "kind": "file"
+          },
+          {
+            "path": "apps/alina-control-center/src/ProductShell.test.tsx",
+            "kind": "file"
+          },
+          {
+            "path": "scripts/validate-alina-acceptance.mjs",
+            "kind": "file"
+          },
+          {
+            "path": "scripts/validate-alina-shell.mjs",
+            "kind": "file"
+          },
+          {
+            "path": "scripts/check-quality-budget.mjs",
+            "kind": "file"
+          }
+        ],
+        "docs": [
+          {
+            "path": "ROADMAP.md",
+            "kind": "file"
+          },
+          {
+            "path": "CONTRIBUTING.md",
+            "kind": "file"
+          }
+        ],
+        "evidence": [
+          {
+            "path": "agents/makar/evidence.json",
+            "kind": "file"
+          },
+          {
+            "path": "agents/makar/promotion-proposals.json",
+            "kind": "file"
+          }
+        ],
+        "deployment": [
+          {
+            "path": "package.json",
+            "kind": "file"
+          },
+          {
+            "path": "pnpm-workspace.yaml",
+            "kind": "file"
+          },
+          {
+            "path": "turbo.json",
+            "kind": "file"
+          }
+        ]
+      }
+    },
+    "PRJ-AVATAR-001": {
+      "repository": "VictorKVS/Makar-Frontend-Factory",
+      "ref": "main",
+      "status": "VERIFIED_REPOSITORY",
+      "folders": {
+        "identity": [
+          {
+            "path": "agents/makar/passport.json",
+            "kind": "file"
+          }
+        ],
+        "workflow": [
+          {
+            "path": "apps/alina-control-center/src/AlinaAvatarSurface.tsx",
+            "kind": "file"
+          },
+          {
+            "path": "apps/alina-control-center/src/AvatarDemo.tsx",
+            "kind": "file"
+          },
+          {
+            "path": "apps/alina-control-center/src/alina-avatar-runtime.ts",
+            "kind": "file"
+          }
+        ],
+        "eval": [
+          {
+            "path": "scripts/validate-alina-acceptance.mjs",
+            "kind": "file"
+          },
+          {
+            "path": "apps/alina-control-center/visual-tests/",
+            "kind": "directory"
+          }
+        ],
+        "evidence": [
+          {
+            "path": "agents/makar/evidence.json",
+            "kind": "file"
+          }
+        ],
+        "docs": [
+          {
+            "path": "apps/alina-control-center/README.md",
+            "kind": "file"
+          }
+        ]
+      }
+    },
+    "PRJ-COURSE-HARVESTER-001": {
+      "repository": "VictorKVS/CyberED",
+      "ref": "main",
+      "status": "VERIFIED_REPOSITORY",
+      "folders": {
+        "knowledge": [
+          {
+            "path": "00_F402A/docs/FATHER_IT_IB_CORE.md",
+            "kind": "file"
+          },
+          {
+            "path": "00_F402A/automation/import_source_catalog.py",
+            "kind": "file"
+          },
+          {
+            "path": "00_F402A/automation/link_source_catalog.py",
+            "kind": "file"
+          }
+        ],
+        "workflow": [
+          {
+            "path": "00_F402A/automation/IMPORT_SOURCE_CATALOG.ps1",
+            "kind": "file"
+          },
+          {
+            "path": "00_F402A/automation/REBUILD_KNOWLEDGE.ps1",
+            "kind": "file"
+          },
+          {
+            "path": "00_F402A/automation/START_ALINA_IB_SYNC.ps1",
+            "kind": "file"
+          },
+          {
+            "path": "00_F402A/automation/SYNC_FATHER_KNOWLEDGE.ps1",
+            "kind": "file"
+          },
+          {
+            "path": "00_F402A/automation/sync_alina_ib.py",
+            "kind": "file"
+          }
+        ],
+        "tools": [
+          {
+            "path": "00_F402A/automation/build_knowledge_graph.py",
+            "kind": "file"
+          },
+          {
+            "path": "00_F402A/automation/build_normalization_candidates.py",
+            "kind": "file"
+          }
+        ],
+        "eval": [
+          {
+            "path": "00_F402A/automation/validate_knowledge_graph.py",
+            "kind": "file"
+          }
+        ],
+        "docs": [
+          {
+            "path": "00_F402A/automation/README.md",
+            "kind": "file"
+          }
+        ]
+      }
+    },
+    "PRJ-COMPLIANCE-001": {
+      "repository": "VictorKVS/CyberED",
+      "ref": "main",
+      "status": "VERIFIED_REPOSITORY",
+      "folders": {
+        "knowledge": [
+          {
+            "path": "00_F402A/docs/FATHER_IT_IB_CORE.md",
+            "kind": "file"
+          }
+        ],
+        "workflow": [
+          {
+            "path": "00_F402A/automation/SYNC_FATHER_KNOWLEDGE.ps1",
+            "kind": "file"
+          },
+          {
+            "path": "00_F402A/automation/sync_alina_ib.py",
+            "kind": "file"
+          }
+        ],
+        "eval": [
+          {
+            "path": "00_F402A/automation/validate_knowledge_graph.py",
+            "kind": "file"
+          }
+        ]
+      }
+    },
+    "PRJ-DEVOPS-001": {
+      "repository": "VictorKVS/OTUS_Kibirnetes",
+      "ref": "main",
+      "status": "VERIFIED_REPOSITORY",
+      "folders": {
+        "knowledge": [
+          {
+            "path": "LESSONS/07_Kubernetes_Cluster_Deployment/",
+            "kind": "directory"
+          },
+          {
+            "path": "LESSONS/08_Git_and_CICD/",
+            "kind": "directory"
+          }
+        ],
+        "workflow": [
+          {
+            "path": "scripts/INIT_LOCAL_LESSONS.ps1",
+            "kind": "file"
+          },
+          {
+            "path": "scripts/RUN_LESSON03_STEP01.ps1",
+            "kind": "file"
+          }
+        ],
+        "docs": [
+          {
+            "path": "README.md",
+            "kind": "file"
+          }
+        ]
+      }
+    },
+    "PRJ-DEVSECOPS-001": {
+      "repository": "VictorKVS/OTUS_Kibirnetes",
+      "ref": "main",
+      "status": "VERIFIED_REPOSITORY",
+      "folders": {
+        "security": [
+          {
+            "path": "SECURITY/README.md",
+            "kind": "file"
+          },
+          {
+            "path": "SECURITY/threats/",
+            "kind": "directory"
+          },
+          {
+            "path": "SECURITY/regulations/",
+            "kind": "directory"
+          }
+        ],
+        "tools": [
+          {
+            "path": "SECURITY/agent/audit_k8s.py",
+            "kind": "file"
+          }
+        ],
+        "knowledge": [
+          {
+            "path": "LESSONS/03_Kubernetes_Networking/",
+            "kind": "directory"
+          },
+          {
+            "path": "LESSONS/06_Service_Mesh/",
+            "kind": "directory"
+          }
+        ]
+      }
+    },
+    "PRJ-K8S-001": {
+      "repository": "VictorKVS/OTUS_Kibirnetes",
+      "ref": "main",
+      "status": "VERIFIED_REPOSITORY",
+      "folders": {
+        "knowledge": [
+          {
+            "path": "LESSONS/01_Introduction_to_Kubernetes/",
+            "kind": "directory"
+          },
+          {
+            "path": "LESSONS/02_Kubernetes_Objects/",
+            "kind": "directory"
+          },
+          {
+            "path": "LESSONS/03_Kubernetes_Networking/",
+            "kind": "directory"
+          },
+          {
+            "path": "LESSONS/04_Kubernetes_Storage/",
+            "kind": "directory"
+          },
+          {
+            "path": "LESSONS/05_Requests_Limits_Load_Balancing/",
+            "kind": "directory"
+          },
+          {
+            "path": "LESSONS/06_Service_Mesh/",
+            "kind": "directory"
+          },
+          {
+            "path": "LESSONS/07_Kubernetes_Cluster_Deployment/",
+            "kind": "directory"
+          },
+          {
+            "path": "LESSONS/08_Git_and_CICD/",
+            "kind": "directory"
+          }
+        ],
+        "security": [
+          {
+            "path": "SECURITY/agent/audit_k8s.py",
+            "kind": "file"
+          }
+        ],
+        "docs": [
+          {
+            "path": "README.md",
+            "kind": "file"
+          }
+        ]
+      }
+    },
+    "PRJ-SECARCH-001": {
+      "repository": "VictorKVS/OTUS_Kibirnetes",
+      "ref": "main",
+      "status": "VERIFIED_REPOSITORY",
+      "folders": {
+        "security": [
+          {
+            "path": "SECURITY/README.md",
+            "kind": "file"
+          },
+          {
+            "path": "SECURITY/threats/",
+            "kind": "directory"
+          },
+          {
+            "path": "SECURITY/regulations/",
+            "kind": "directory"
+          }
+        ],
+        "tools": [
+          {
+            "path": "SECURITY/agent/audit_k8s.py",
+            "kind": "file"
+          }
+        ]
+      }
+    }
+  }
+}

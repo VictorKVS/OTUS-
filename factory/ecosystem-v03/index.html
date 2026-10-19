@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FATHER Ecosystem Workspace v0.3</title>
+<link rel="icon" type="image/svg+xml" href="./favicon.svg?v=3">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23071017'/%3E%3Crect x='5' y='5' width='54' height='54' rx='11' fill='none' stroke='%234ed9ff' stroke-width='3'/%3E%3Cpath d='M18 48V16h27v8H27v6h14v8H27v10z' fill='%234ed9ff'/%3E%3Ccircle cx='49' cy='17' r='4' fill='%2363e6a5'/%3E%3C/svg%3E">
+<link rel="shortcut icon" href="./favicon.svg?v=3">
+<meta name="theme-color" content="#071017">
+<style>
+:root{--bg:#071017;--p:#0b161e;--p2:#0f1d27;--l:#203744;--t:#eef7fc;--m:#829aaa;--c:#4ed9ff;--g:#63e6a5;--v:#a18cff;--r:#ff7474;--b:#6daeff}*{box-sizing:border-box}html,body{height:100%;margin:0}body{overflow:hidden;background:var(--bg);color:var(--t);font-family:Inter,Segoe UI,Arial,sans-serif}button,input,select{font:inherit}.top{height:58px;padding:0 15px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--l)}.brand{font-weight:800;letter-spacing:.08em}.brand small{display:block;color:var(--m);font-size:9px;font-weight:500}.actions{display:flex;gap:6px}.actions button,.actions select,.canvasbar button{border:1px solid var(--l);background:#0b1720;color:var(--t);border-radius:8px;padding:7px 9px;font-size:9px}.status{height:29px;padding:0 14px;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--l);font:9px Consolas;color:var(--m)}.status .ok{margin-left:auto;color:var(--g)}.shell{height:calc(100vh - 87px);padding:8px;display:grid;grid-template-columns:310px minmax(620px,1fr) 360px;grid-template-rows:minmax(0,1fr) 190px;gap:8px}.panel{border:1px solid var(--l);border-radius:12px;background:linear-gradient(145deg,#0d1922,#091219);overflow:hidden}.side{grid-row:1/3}.canvas{grid-column:2}.ins{grid-column:3}.bottom{grid-column:2/4}.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;padding:7px;border-bottom:1px solid var(--l)}.tabs button,.btabs button{border:1px solid var(--l);background:#09131a;color:var(--m);border-radius:7px;padding:6px 3px;font-size:8px}.tabs button.active,.btabs button.active{color:var(--c);border-color:var(--c)}.search{padding:7px;border-bottom:1px solid var(--l)}.search input{width:100%;padding:7px;background:#071219;color:var(--t);border:1px solid var(--l);border-radius:8px}.catalog{height:calc(100% - 80px);overflow:auto;padding:7px}.group{font-size:8px;color:var(--c);letter-spacing:.12em;margin:10px 4px 5px}.item{display:flex;gap:8px;align-items:center;padding:8px;border:1px solid var(--l);border-radius:9px;background:#09141b;margin:5px 0;cursor:grab}.item.core{border-left:3px solid var(--v)}.item.arch{opacity:.4}.ico{width:31px;height:31px;border:1px solid #2e4b5a;border-radius:8px;display:grid;place-items:center;background:#12232d;font:bold 8px Consolas}.item b{font-size:9px}.item small{display:block;color:var(--m);font-size:7px;margin-top:2px}.canvasbar,.inshead{height:60px;padding:9px 11px;border-bottom:1px solid var(--l);display:flex;align-items:center;justify-content:space-between}.canvasbar small,.inshead small{color:var(--c);font-size:8px;letter-spacing:.12em}.canvasbar h1,.inshead h2{font-size:13px;margin:3px 0}.view{position:relative;height:calc(100% - 60px);overflow:hidden;background-color:#071017;background-image:linear-gradient(#10232d 1px,transparent 1px),linear-gradient(90deg,#10232d 1px,transparent 1px);background-size:28px 28px}.world{position:absolute;inset:0}.wires{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}.wires path{fill:none;stroke:var(--b);stroke-width:2;marker-end:url(#arr)}.node{position:absolute;width:200px;border:1px solid #2b4858;border-radius:11px;background:#0b1720;z-index:3;box-shadow:0 14px 32px #0007;user-select:none}.node.core{border-color:#6556a7}.node.int{border-color:#38645b}.nh{display:flex;gap:8px;align-items:center;padding:8px 9px;border-bottom:1px solid #19303d;cursor:move}.nh b{font-size:9px}.nh small{display:block;color:var(--m);font-size:7px}.nb{padding:8px 9px;color:var(--m);font-size:8px;line-height:1.35}.ports{padding:0 8px 8px;display:flex;justify-content:space-between}.port{width:12px;height:12px;border:2px solid #658091;border-radius:50%;background:#071017;display:inline-block;cursor:crosshair}.port.pending{border-color:var(--c);box-shadow:0 0 8px var(--c)}.insbody{height:calc(100% - 60px);overflow:auto;padding:10px;color:var(--m);font-size:9px}.cards{display:grid;grid-template-columns:1fr 1fr;gap:6px}.card{border:1px solid var(--l);border-radius:8px;padding:7px;background:#08131a}.card small{display:block;color:var(--m);font-size:7px}.card b{font-size:9px;color:var(--t)}.sec{margin:11px 0}.sec h3{font-size:8px;color:var(--c);letter-spacing:.1em}.folder{border:1px solid var(--l);border-radius:8px;padding:7px;margin:5px 0;background:#09141b}.folder b{font-size:8px;color:var(--t)}.folder small{display:block;font-size:7px}.artifact{display:block;border:1px solid var(--l);border-radius:7px;padding:7px;margin:5px 0;background:#071219;color:#bfeeff;text-decoration:none;font:8px Consolas,monospace;word-break:break-word}.artifact:hover{border-color:var(--c)}.artifact .ak{float:right;color:var(--g);font-size:7px}.harvest-badge{display:inline-block;margin-top:5px;padding:2px 5px;border-radius:999px;border:1px solid #2f5a47;color:#baf5d4;font-size:7px}.btnrow{display:flex;gap:5px;flex-wrap:wrap}.btnrow button{border:1px solid var(--l);background:#0a161d;color:var(--t);padding:6px 8px;border-radius:7px;font-size:8px}.btabs{height:39px;display:flex;gap:4px;padding:7px;border-bottom:1px solid var(--l)}.bbody{height:calc(100% - 39px);overflow:auto;padding:8px;font:9px Consolas;color:#a9c1cf}.row{display:grid;grid-template-columns:140px 220px 1fr;gap:8px;padding:5px 2px;border-bottom:1px dashed #16313d}.row b{color:var(--t)}.breadcrumb{display:flex;align-items:center;gap:7px;margin-top:4px;font:8px Consolas;color:var(--m)}.breadcrumb button{border:1px solid var(--l);background:#0b1720;color:var(--c);border-radius:6px;padding:3px 6px;font-size:8px}.node.foldernode{border-color:#355264}.node.foldernode.security-folder{border-color:#72522a}.node.foldernode.evidence-folder{border-color:#2f5a47}.node.blackbox{border-color:var(--v);background:linear-gradient(145deg,#17152b,#0b1720)}dialog{border:1px solid var(--l);background:#09141b;color:var(--t);border-radius:12px;width:min(600px,90vw)}dialog::backdrop{background:#0009}dialog label{display:block;font-size:9px;color:var(--m);margin:8px 0}dialog input,dialog textarea{width:100%;margin-top:5px;padding:8px;background:#061017;color:var(--t);border:1px solid var(--l);border-radius:8px}dialog textarea{min-height:80px}.ref-tip{position:fixed;z-index:9999;width:min(460px,calc(100vw - 24px));max-height:72vh;overflow:auto;display:none;pointer-events:auto;border:1px solid #356178;border-radius:12px;background:linear-gradient(145deg,#0d1d27,#081219);box-shadow:0 18px 48px #000b;padding:11px;color:var(--t)}.ref-tip.show{display:block}.ref-tip .rtop{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding-bottom:8px;border-bottom:1px solid var(--l)}.ref-tip .rtop b{font-size:11px}.ref-tip .rid{font:8px Consolas;color:var(--c);margin-top:2px}.ref-tip .rgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:8px 0}.ref-tip .rbox{border:1px solid var(--l);border-radius:7px;padding:6px;background:#071219}.ref-tip .rbox small{display:block;color:var(--m);font-size:7px}.ref-tip .rbox strong{font-size:8px}.ref-tip .rsec{margin-top:8px}.ref-tip .rsec small{display:block;color:var(--c);font-size:7px;letter-spacing:.08em;margin-bottom:3px}.ref-tip .rsec div{font-size:8px;line-height:1.45;color:#c4d8e3}.ref-tip .warn{color:#ffd59f}.ref-tip .good{color:#baf5d4}.ref-tip .ref-actions{display:flex;gap:6px;margin-top:10px}.ref-tip .ref-actions button{pointer-events:auto;border:1px solid #356178;background:#102530;color:var(--t);border-radius:7px;padding:6px 9px;font-size:8px;cursor:pointer}.ref-tip .ref-actions button:hover{border-color:var(--c);color:var(--c)}
+.ref-center{width:min(1220px,94vw);height:min(820px,90vh);padding:0;border:1px solid #315467;background:#071017;color:var(--t);border-radius:14px}.ref-center::backdrop{background:#000b}.ref-center-shell{height:100%;display:grid;grid-template-columns:270px 1fr;grid-template-rows:58px 1fr}.ref-center-top{grid-column:1/3;display:flex;align-items:center;gap:8px;padding:9px 12px;border-bottom:1px solid var(--l);background:#0b171f}.ref-center-top .grow{flex:1;min-width:0}.ref-center-top b{display:block;font-size:12px}.ref-center-top small{display:block;color:var(--m);font-size:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ref-center-top button,.ref-center-top a{border:1px solid var(--l);background:#0a161d;color:var(--t);border-radius:7px;padding:7px 9px;font-size:8px;text-decoration:none;cursor:pointer}.ref-center-nav{border-right:1px solid var(--l);overflow:auto;padding:9px;background:#09131a}.ref-center-nav .nav-title{font-size:8px;color:var(--c);letter-spacing:.1em;margin:4px 3px 8px}.ref-center-nav button{display:block;width:100%;text-align:left;border:1px solid var(--l);background:#0b171f;color:var(--m);border-radius:8px;padding:8px;margin:5px 0;font-size:8px;cursor:pointer}.ref-center-nav button.active,.ref-center-nav button:hover{border-color:var(--c);color:var(--t)}.ref-center-nav .summary{font-size:8px;line-height:1.45;color:#b7ccd7;border:1px solid var(--l);border-radius:8px;padding:8px;margin-bottom:10px}.ref-article{overflow:auto;padding:18px 24px;background:#071017}.ref-article h1{font-size:22px;margin:0 0 14px}.ref-article h2{font-size:17px;color:var(--c);margin:24px 0 10px}.ref-article h3{font-size:14px;margin:20px 0 8px}.ref-article p,.ref-article li{font-size:11px;line-height:1.7;color:#c9dae3}.ref-article pre{overflow:auto;border:1px solid var(--l);border-radius:9px;background:#041018;padding:11px;font:9px Consolas;color:#c8f4ff}.ref-article code{font-family:Consolas,monospace;color:#bfeeff}.ref-article a{color:var(--c)}.ref-article blockquote{border-left:3px solid #385a6d;margin:12px 0;padding:5px 12px;color:#a8c0cc}.ref-article .loading{color:var(--m);font-size:10px}.ref-article .source-fail{border:1px solid #72522a;border-radius:9px;padding:12px;color:#ffd59f}.ref-center-meta{font-size:8px;color:var(--m);margin:8px 0 14px}.ref-center-meta span{display:inline-block;border:1px solid var(--l);border-radius:999px;padding:4px 7px;margin:0 4px 4px 0}@media(max-width:1200px){.shell{grid-template-columns:260px 1fr;grid-template-rows:minmax(430px,1fr) 300px 190px}.side{grid-row:1/4}.canvas{grid-column:2}.ins{grid-column:2;grid-row:2}.bottom{grid-column:2;grid-row:3}}
+</style>
+</head>
+<body>
+<header class="top"><div class="brand">FATHER ECOSYSTEM WORKSPACE<small>Agents · Components · Integrations · Knowledge · Delivery</small></div><div class="actions"><select id="layout"><option>S1 · Wide</option><option>S2 · Dual</option><option>S3 · Triple</option><option>S5 · Command Center</option></select><button id="newAgent">+ Агент-проект</button><button id="reset">Reset</button></div></header>
+<div class="status"><span>FATHER v0.3</span><span id="count"></span><span id="sel">SELECT: none</span><span class="ok">CORE PROTECTED</span></div>
+<main class="shell">
+<aside class="panel side"><div class="tabs" id="tabs"><button class="active" data-tab="father">FATHER</button><button data-tab="projects">Проекты</button><button data-tab="parts">Запчасти</button><button data-tab="integrations">Интеграции</button><button data-tab="delivery">DevOps / Security</button></div><div class="search"><input id="q" placeholder="Найти агента / запчасть..."></div><div id="catalog" class="catalog"></div></aside>
+<section class="panel canvas"><div class="canvasbar"><div><small id="canvasEyebrow">VISUAL ECOSYSTEM FIELD</small><h1 id="canvasTitle">FATHER Project Canvas</h1><div class="breadcrumb"><button id="backRoot" style="display:none">← Экосистема</button><span id="crumb">ROOT / ECOSYSTEM</span></div></div><div><button id="in">+ INPUT</button><button id="out">+ OUTPUT</button><button id="fit">Разложить</button></div></div><div id="view" class="view"><svg id="svg" class="wires"><defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="3.5" orient="auto"><polygon points="0 0,8 3.5,0 7" fill="#6daeff"/></marker></defs></svg><div id="world" class="world"></div></div></section>
+<aside class="panel ins"><div class="inshead"><div><small>AGENT / COMPONENT INSPECTOR</small><h2 id="it">Ничего не выбрано</h2></div></div><div id="ib" class="insbody">Выбери агента, компонент или интеграцию.</div></aside>
+<section class="panel bottom"><div class="btabs" id="btabs"><button class="active" data-b="structure">Структура</button><button data-b="contracts">I/O & API</button><button data-b="events">События</button><button data-b="governance">Governance</button></div><div id="bb" class="bbody"></div></section>
+</main>
+<div id="refTip" class="ref-tip" role="tooltip" aria-hidden="true"></div>
+<dialog id="referenceCenter" class="ref-center">
+  <div class="ref-center-shell">
+    <div class="ref-center-top">
+      <button id="refCenterBack">← Назад</button>
+      <div class="grow"><b id="refCenterTitle">Project Reference</b><small id="refCenterSource"></small></div>
+      <a id="refCenterGithub" href="#" target="_blank" rel="noopener">GitHub ↗</a>
+      <button id="refCenterClose">Закрыть</button>
+    </div>
+    <aside id="refCenterNav" class="ref-center-nav"></aside>
+    <article id="refArticle" class="ref-article"></article>
+  </div>
+</dialog>
+<dialog id="dlg"><h3>Новый агент-проект</h3><label>Название<input id="an"></label><label>Назначение<textarea id="ar"></textarea></label><div class="btnrow"><button id="create">Создать</button><button onclick="dlg.close()">Отмена</button></div></dialog>
+<script>
+const core=[
+['FTH-CORE-ORCHESTRATOR-001','FATHER Factory Orchestrator','F','Главный диспетчер фабрики'],
+['FTH-ALINA-ANALYST-001','Алина · Analyst Black Box','A','Главный производственник знаний; здесь только внешний контракт'],
+['FTH-DOMAIN-MODELER-001','Domain / Action Modeler','DM','Domain Graph, Action Graph, Decision Graph'],
+['FTH-CAPABILITY-MAPPER-001','Capability Mapper','CM','Требования и действия → способности'],
+['FTH-COMPOSER-001','Agent Composer','CP','Сборка аппарата из совместимых компонентов'],
+['FTH-HARVESTER-001','Legacy / Project Harvester','HV','Разбор существующих проектов на детали и блоки'],
+['FTH-CERTIFIER-001','Certification Agent','CT','Паспорт, нормы, тесты, evidence'],
+['FTH-TRACE-001','Traceability Agent','TR','Requirement → architecture → component → test → evidence']
+].map(x=>({id:x[0],name:x[1],icon:x[2],role:x[3],kind:'agent',core:true,status:x[0].includes('ALINA')?'EXTERNAL_BLACKBOX':'DESIGN'}));
+const projects=[
+['PRJ-OSINT-001','FATHER OSINT','OS','OSINT, provenance, evidence, graph investigations','osint'],
+['PRJ-AISOC-001','FATHER AI-SOC','SOC','SOC-аналитика и расследования','security'],
+['PRJ-SECGRAPH-001','SecGraph','SG','Threat Modeling + OSINT + Pentest + Document Engine','security'],
+['PRJ-ALINA-CREATIVE-001','Алина · Creative Production','AC','Книги, сценарии, изображения и контент','creative'],
+['PRJ-AVATAR-001','Avatar Production Agent','AV','Создание и QC аватаров','creative'],
+['PRJ-WEB-001','Website Builder & Maintainer','WEB','Создание, аудит и ведение сайтов','web'],
+['PRJ-GAME-001','Game Development Agent','GAME','Игры и интерактивные прототипы','games'],
+['PRJ-PROTOTYPE-001','Prototype Engineering Agent','POC','PoC, стенды и reference builds','prototype'],
+['PRJ-COURSE-HARVESTER-001','Course Harvester / Lesson Agent','EDU','Последовательно проходит материалы уроков, документирует, анализирует и пополняет БЗ','course'],
+['PRJ-COURSE-EDITOR-001','Course Update / Curriculum Agent','CUR','Готовит обновления курса и передаёт Алине/эксперту','course'],
+['PRJ-DEVOPS-001','DevOps Agent','DO','CI/CD, containers, environments','devops'],
+['PRJ-DEVSECOPS-001','DevSecOps Agent','DS','SAST/SCA/secrets/SBOM/container/K8s security','devsecops'],
+['PRJ-K8S-001','Platform / Kubernetes Agent','K8S','Kubernetes, Helm, GitOps, rollout','kubernetes'],
+['PRJ-SECARCH-001','Security Architect Agent','SA','Threat model, controls, IAM, guardrails','security'],
+['PRJ-COMPLIANCE-001','Compliance Agent','CMP','Нормативка, applicability, controls, evidence','compliance'],
+['PRJ-QA-EVAL-001','QA / AI Eval Agent','QA','Tests, AI/RAG eval, quality gates','qa'],
+['PRJ-OBS-001','Observability / SRE Agent','OBS','Logs, metrics, traces, SLO, incidents','observability']
+].map(x=>({id:x[0],name:x[1],icon:x[2],role:x[3],tag:x[4],kind:'agent',core:false,status:'ACTIVE'}));
+const ints=[
+['INT-OPENAI-API','OpenAI / GPT API','GPT','OpenAI','LLM / API'],['INT-OPENAI-TOOLS','OpenAI Tools / Connectors','OA','OpenAI','Tools'],['INT-GOOGLE-GEMINI','Google Gemini / Vertex AI','G','Google','LLM / Cloud AI'],['INT-GOOGLE-DRIVE','Google Drive / Docs','GD','Google','Knowledge / Files'],['INT-GOOGLE-SHEETS','Google Sheets','GS','Google','Data'],['INT-GOOGLE-GMAIL','Gmail','GM','Google','Mail'],['INT-GOOGLE-CALENDAR','Google Calendar','GC','Google','Calendar'],['INT-GOOGLE-YOUTUBE','YouTube / Video Sources','YT','Google','Media / Course Source'],['INT-GCP','Google Cloud Platform','GCP','Google','Cloud'],['INT-AZURE-OPENAI','Azure OpenAI','AZ','Microsoft','LLM / Cloud AI'],['INT-AZURE','Microsoft Azure','MS','Microsoft','Cloud'],['INT-GITHUB','GitHub','GH','GitHub','SCM / DevOps'],['INT-GITLAB','GitLab','GL','GitLab','SCM / DevOps'],['INT-ANTHROPIC','Anthropic Claude API','CL','Anthropic','LLM / API'],['INT-OLLAMA','Ollama / Local Models','OL','Local','LLM Runtime'],['INT-POSTGRES','PostgreSQL / pgvector','PG','Data','DB / Vector'],['INT-NEO4J','Neo4j / Graph DB','N4J','Data','Graph'],['INT-MCP','MCP Tool Runtime','MCP','Protocol','Tools']
+].map(x=>({id:x[0],name:x[1],icon:x[2],provider:x[3],role:x[4],kind:'integration',status:'CANDIDATE'}));
+
+const folderDefs=[
+{id:'identity',name:'Identity / Passport',icon:'ID',role:'ID, версия, назначение, maturity, owner, lifecycle'},
+{id:'prompt',name:'Prompt / Policy',icon:'P',role:'System prompt, policies, output contract'},
+{id:'knowledge',name:'Knowledge Base',icon:'KB',role:'Доменные знания, документы, нормативка'},
+{id:'rag',name:'RAG / Retrieval',icon:'R',role:'Retrieval, reranking, context, citations'},
+{id:'database',name:'Databases / State',icon:'DB',role:'Operational state, SQL/NoSQL/vector/graph'},
+{id:'memory',name:'Memory',icon:'M',role:'Working, episodic, project memory'},
+{id:'tools',name:'Tools / MCP / API',icon:'T',role:'Инструменты, MCP, API, external actions'},
+{id:'workflow',name:'Workflow / Graph',icon:'WF',role:'Маршрутизация, graph/state machine, orchestration'},
+{id:'security',name:'Security / Guardrails',icon:'SEC',role:'IAM, permissions, PII, guardrails, tool authorization',cls:'security-folder'},
+{id:'eval',name:'Tests / Eval',icon:'QA',role:'Unit/contract/AI/RAG eval, quality gates'},
+{id:'observability',name:'Observability',icon:'OBS',role:'Logs, metrics, traces, audit, SLO'},
+{id:'deployment',name:'Deployment / Runtime',icon:'DEP',role:'Container, K8s, Helm, GitOps, runtime'},
+{id:'docs',name:'Documentation',icon:'DOC',role:'Architecture, ADR, API, operating docs'},
+{id:'evidence',name:'Evidence / History',icon:'EV',role:'Evidence, test history, production history',cls:'evidence-folder'}
+];
+const folders=folderDefs.map((f,i)=>String(i).padStart(2,'0')+' · '+f.name);
+let HARVEST={agents:{}},COMPONENTS={components:[]},PROJECT_REFS={items:{}};
+function componentIcon(level){return level==='ASSEMBLY'?'ASM':level==='BLOCK'?'BLK':level==='MECHANISM'?'MEC':'PRT'}
+function componentList(){return (COMPONENTS.components||[]).map(x=>({...x,kind:'component',icon:componentIcon(x.level),role:x.purpose||x.source_path}))}
+function harvestFolder(agentId,folderId){return HARVEST.agents?.[agentId]?.folders?.[folderId]||[]}
+function harvestAgent(agentId){return HARVEST.agents?.[agentId]||null}
+function artifactUrl(repo,ref,path){const clean=String(path).replace(/\/$/,'');return 'https://github.com/'+repo+(String(path).endsWith('/')?'/tree/':'/blob/')+(ref||'main')+'/'+clean}
+
+let S=JSON.parse(localStorage.getItem('father-v03')||'{"custom":[],"arch":[],"nodes":[],"edges":[],"events":[]}');
+S.custom=S.custom||[];S.arch=S.arch||[];S.nodes=S.nodes||[];S.edges=S.edges||[];S.events=S.events||[];S.agentGraphs=S.agentGraphs||{};
+let tab='father',bottom='structure',selected=null,pending=null,drag=null,view={mode:'root',agentId:null};
+const $=s=>document.querySelector(s),$all=s=>[...document.querySelectorAll(s)],save=()=>{localStorage.setItem('father-v03',JSON.stringify(S));stats()},all=()=>[...core,...projects,...S.custom];
+function ev(k,m){S.events.unshift({t:new Date().toISOString(),k,m});save()}
+function list(){if(tab==='father')return core;if(tab==='projects')return [...projects,...S.custom];if(tab==='parts')return componentList();if(tab==='integrations')return ints;return [...projects,...S.custom].filter(a=>['devops','devsecops','kubernetes','security','compliance','qa','observability'].includes(a.tag))}
+function escHtml(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function componentReferenceHtml(x){
+ const r=x.reference||{};
+ const req=(r.promotion_requirements||[]).map(v=>'• '+escHtml(v)).join('<br>');
+ return '<div class="rtop"><div><b>'+escHtml(r.title||x.name)+'</b><div class="rid">'+escHtml(x.id)+'</div></div><span class="tag warn">'+escHtml(x.status||'')+'</span></div>'+
+ '<div class="rgrid"><div class="rbox"><small>LEVEL</small><strong>'+escHtml(x.level)+'</strong></div><div class="rbox"><small>CERTIFICATION</small><strong>'+escHtml(x.certification)+'</strong></div><div class="rbox"><small>PARENT AGENT</small><strong>'+escHtml(x.parent_agent)+'</strong></div><div class="rbox"><small>FOLDER</small><strong>'+escHtml(x.logical_folder)+'</strong></div></div>'+
+ '<div class="rsec"><small>ЧТО ЭТО</small><div>'+escHtml(r.summary||x.purpose)+'</div></div>'+
+ '<div class="rsec"><small>РОЛЬ В FATHER</small><div>'+escHtml(r.father_role||'')+'</div></div>'+
+ '<div class="rsec"><small>ТЕХНИЧЕСКАЯ ПОДСКАЗКА</small><div>'+escHtml(r.technical_hint||'')+'</div></div>'+
+ '<div class="rsec"><small>ИСТОЧНИК</small><div>'+escHtml(x.source_repo+':'+x.source_path)+'</div></div>'+
+ '<div class="rsec"><small>LIFECYCLE</small><div class="good">'+escHtml(r.lifecycle||'')+'</div></div>'+
+ '<div class="rsec"><small>ДО СЕРТИФИКАЦИИ</small><div class="warn">'+req+'</div></div>'+
+ '<div class="ref-actions"><button data-comp-details="'+escHtml(x.id)+'">Подробнее</button></div>';
+}
+function projectReferenceHtml(x){
+ const r=PROJECT_REFS.items?.[x.id];
+ const done=(r?.already||[]).slice(0,5).map(v=>'• '+escHtml(v)).join('<br>');
+ return '<div class="rtop"><div><b>'+escHtml(r?.title||x.name)+'</b><div class="rid">'+escHtml(x.id)+'</div></div><span class="tag '+(r?.repo?'good':'warn')+'">'+escHtml(r?.status||x.status||'')+'</span></div>'+
+ '<div class="rsec"><small>КРАТКАЯ СПРАВКА</small><div>'+escHtml(r?.short||x.role||'Справка пока не подготовлена.')+'</div></div>'+
+ '<div class="rsec"><small>РОЛЬ В FATHER</small><div>'+escHtml(r?.father_role||x.role||'')+'</div></div>'+
+ (done?'<div class="rsec"><small>УЖЕ ЕСТЬ</small><div>'+done+'</div></div>':'')+
+ '<div class="rsec"><small>GITHUB</small><div>'+(r?.repo?escHtml(r.repo)+' · '+escHtml(r.ref||'main'):'Источник пока не подтверждён')+'</div></div>'+
+ '<div class="ref-actions"><button data-ref-details="'+escHtml(x.id)+'">Подробнее</button></div>';
+}
+let refHideTimer=null,refHistory=[],refCurrent=null;
+function positionRefTip(ev){
+ const tip=$('#refTip'),pad=14;if(!tip.classList.contains('show'))return;
+ const w=tip.offsetWidth||420,h=tip.offsetHeight||260;let x=ev.clientX+16,y=ev.clientY+16;
+ if(x+w+pad>window.innerWidth)x=ev.clientX-w-16;if(y+h+pad>window.innerHeight)y=window.innerHeight-h-pad;
+ tip.style.left=Math.max(pad,x)+'px';tip.style.top=Math.max(pad,y)+'px'
+}
+function cancelHideRef(){if(refHideTimer){clearTimeout(refHideTimer);refHideTimer=null}}
+function scheduleHideRef(){cancelHideRef();refHideTimer=setTimeout(hideComponentRef,180)}
+function showReference(kind,id,ev){
+ cancelHideRef();const x=entity(kind,id);if(!x)return;const tip=$('#refTip');
+ if(kind==='component')tip.innerHTML=componentReferenceHtml(x);
+ else if(kind==='agent')tip.innerHTML=projectReferenceHtml(x);
+ else return;
+ tip.classList.add('show');tip.setAttribute('aria-hidden','false');positionRefTip(ev);
+ const btn=tip.querySelector('[data-ref-details]');if(btn)btn.onclick=()=>{cancelHideRef();hideComponentRef();openProjectReference(btn.dataset.refDetails)}
+ const cbtn=tip.querySelector('[data-comp-details]');if(cbtn)cbtn.onclick=()=>{cancelHideRef();hideComponentRef();openComponentReference(cbtn.dataset.compDetails)}
+}
+function hideComponentRef(){cancelHideRef();const tip=$('#refTip');tip.classList.remove('show');tip.setAttribute('aria-hidden','true')}
+function bindReferenceHover(el,kind,id){
+ if(kind!=='component'&&kind!=='agent')return;
+ el.addEventListener('mouseenter',e=>showReference(kind,id,e));
+ el.addEventListener('mousemove',positionRefTip);
+ el.addEventListener('mouseleave',scheduleHideRef);
+}
+function githubBlobUrl(repo,ref,path){return 'https://github.com/'+repo+'/blob/'+(ref||'main')+'/'+path}
+function githubApiUrl(repo,ref,path){return 'https://api.github.com/repos/'+repo+'/contents/'+path+'?ref='+encodeURIComponent(ref||'main')}
+function decodeGithubContent(obj){try{return decodeURIComponent(escape(atob((obj.content||'').replace(/\n/g,''))))}catch{return atob((obj.content||'').replace(/\n/g,''))}}
+function markdownToHtml(md){
+ const code=[];
+ let s=String(md||'').replace(/\r/g,'').replace(/\`\`\`([\s\S]*?)\`\`\`/g,(m,v)=>{const i=code.push('<pre><code>'+escHtml(v.trim())+'</code></pre>')-1;return '\n@@CODE'+i+'@@\n'});
+ s=escHtml(s);
+ s=s.replace(/^###\s+(.+)$/gm,'<h3>$1</h3>').replace(/^##\s+(.+)$/gm,'<h2>$1</h2>').replace(/^#\s+(.+)$/gm,'<h1>$1</h1>');
+ s=s.replace(/^>\s?(.+)$/gm,'<blockquote>$1</blockquote>');
+ s=s.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\`([^\`]+)\`/g,'<code>$1</code>');
+ s=s.replace(/!\[([^\]]*)\]\(([^)]+)\)/g,'<span class="muted">[image: $1]</span>');
+ s=s.replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" data-md-link="$2">$1</a>');
+ const lines=s.split('\n'),out=[];let inUl=false,inOl=false;
+ for(let line of lines){
+   if(/^\s*[-*]\s+/.test(line)){if(!inUl){out.push('<ul>');inUl=true}out.push('<li>'+line.replace(/^\s*[-*]\s+/,'')+'</li>');continue}else if(inUl){out.push('</ul>');inUl=false}
+   if(/^\s*\d+\.\s+/.test(line)){if(!inOl){out.push('<ol>');inOl=true}out.push('<li>'+line.replace(/^\s*\d+\.\s+/,'')+'</li>');continue}else if(inOl){out.push('</ol>');inOl=false}
+   if(!line.trim()){out.push('');continue}
+   if(/^<(h1|h2|h3|blockquote|pre)/.test(line)||/^@@CODE/.test(line))out.push(line);else out.push('<p>'+line+'</p>')
+ }
+ if(inUl)out.push('</ul>');if(inOl)out.push('</ol>');
+ let html=out.join('\n');html=html.replace(/@@CODE(\d+)@@/g,(m,i)=>code[Number(i)]||'');return html
+}
+function refResolvePath(base,href){
+ if(!href||href.startsWith('#'))return href;
+ if(/^https?:\/\//i.test(href))return href;
+ const clean=href.split('#')[0],frag=href.includes('#')?'#'+href.split('#').slice(1).join('#'):'';
+ const baseDir=base.includes('/')?base.slice(0,base.lastIndexOf('/')+1):'';
+ const parts=(baseDir+clean).split('/'),stack=[];
+ for(const p of parts){if(!p||p==='.')continue;if(p==='..')stack.pop();else stack.push(p)}
+ return stack.join('/')+frag
+}
+async function loadReferenceDoc(id,path,push=true){
+ const r=PROJECT_REFS.items?.[id];if(!r||!r.repo){$('#refArticle').innerHTML='<div class="source-fail">Для этого агента GitHub-источник пока не подтверждён.</div>';return}
+ if(push&&refCurrent)refHistory.push(refCurrent);
+ refCurrent={mode:'project',id,path};$('#refCenterBack').disabled=refHistory.length===0;
+ $('#refCenterTitle').textContent=r.title||id;$('#refCenterSource').textContent=r.repo+' · '+path;
+ $('#refCenterGithub').href=githubBlobUrl(r.repo,r.ref,path);$('#refArticle').innerHTML='<div class="loading">Загрузка из GitHub: '+escHtml(path)+'…</div>';
+ $all('#refCenterNav button[data-doc]').forEach(b=>b.classList.toggle('active',b.dataset.doc===path));
+ try{
+   const res=await fetch(githubApiUrl(r.repo,r.ref,path),{headers:{Accept:'application/vnd.github+json'}});
+   if(!res.ok)throw new Error('GitHub HTTP '+res.status);
+   const obj=await res.json(),text=decodeGithubContent(obj);
+   $('#refArticle').innerHTML='<div class="ref-center-meta"><span>'+escHtml(r.kind||'Project')+'</span><span>'+escHtml(r.status||'')+'</span><span>'+escHtml(r.repo)+'</span></div>'+markdownToHtml(text);
+   $all('#refArticle a[data-md-link]').forEach(a=>a.onclick=e=>{
+     const href=a.dataset.mdLink;if(!href)return;
+     if(href.startsWith('#'))return;
+     const resolved=refResolvePath(path,href);
+     if(/^https?:\/\//i.test(resolved)){a.target='_blank';return}
+     if(/\.(md|json|txt|ya?ml)$/i.test(resolved.split('#')[0])||!resolved.split('/').pop().includes('.')){e.preventDefault();loadReferenceDoc(id,resolved.split('#')[0],true)}
+   });
+ }catch(err){
+   $('#refArticle').innerHTML='<div class="source-fail"><b>Не удалось загрузить документ из GitHub.</b><br>'+escHtml(String(err))+'<br><br><a target="_blank" rel="noopener" href="'+githubBlobUrl(r.repo,r.ref,path)+'">Открыть исходник на GitHub ↗</a></div>'
+ }
+}
+function componentPassportHtml(x){
+ const r=x.reference||{},req=r.promotion_requirements||[];
+ return '<h1>'+escHtml(x.name)+'</h1>'+
+ '<div class="ref-center-meta"><span>'+escHtml(x.id)+'</span><span>'+escHtml(x.level)+'</span><span>'+escHtml(x.status)+'</span><span>'+escHtml(x.certification)+'</span></div>'+
+ '<h2>Что это</h2><p>'+escHtml(r.summary||x.purpose||'')+'</p>'+
+ '<h2>Роль в FATHER</h2><p>'+escHtml(r.father_role||'')+'</p>'+
+ '<h2>Источник</h2><p><code>'+escHtml(x.source_repo+':'+x.source_path)+'</code></p>'+
+ '<h2>Происхождение</h2><p>Parent agent: <code>'+escHtml(x.parent_agent)+'</code><br>Logical folder: <code>'+escHtml(x.logical_folder)+'</code><br>Source kind: <code>'+escHtml(x.source_kind)+'</code></p>'+
+ '<h2>Техническая справка</h2><p>'+escHtml(r.technical_hint||'')+'</p>'+
+ '<h2>Рекомендация по использованию</h2><p>'+escHtml(r.usage_hint||'')+'</p>'+
+ '<h2>Lifecycle</h2><p><code>'+escHtml(r.lifecycle||'')+'</code></p>'+
+ '<h2>Что нужно до сертификации</h2><ul>'+req.map(v=>'<li>'+escHtml(v)+'</li>').join('')+'</ul>'+
+ '<p><strong>Confidence:</strong> '+escHtml(r.confidence||'')+'</p>'
+}
+function componentEvidenceHtml(x){
+ const ev=x.evidence||[],tests=x.tests||[],compat=x.compatibility||[];
+ return '<h1>Evidence · '+escHtml(x.name)+'</h1>'+
+ '<h2>Source evidence</h2>'+(ev.length?'<ul>'+ev.map(v=>'<li><code>'+escHtml(v)+'</code></li>').join('')+'</ul>':'<p>Evidence пока не добавлено.</p>')+
+ '<h2>Tests</h2>'+(tests.length?'<ul>'+tests.map(v=>'<li>'+escHtml(typeof v==='string'?v:JSON.stringify(v))+'</li>').join('')+'</ul>':'<p>Тесты пока не привязаны.</p>')+
+ '<h2>Compatibility</h2>'+(compat.length?'<ul>'+compat.map(v=>'<li>'+escHtml(typeof v==='string'?v:JSON.stringify(v))+'</li>').join('')+'</ul>':'<p>Матрица совместимости пока не построена.</p>')+
+ '<div class="source-fail"><b>NO EVIDENCE → NO PROMOTION.</b><br>Наличие исходного файла подтверждает происхождение, но не сертификацию.</div>'
+}
+function componentPromotionHtml(x){
+ const r=x.reference||{},req=r.promotion_requirements||[];
+ return '<h1>Promotion path</h1>'+
+ '<div class="ref-center-meta"><span>'+escHtml(x.status)+'</span><span>'+escHtml(x.certification)+'</span></div>'+
+ '<pre><code>HARVEST_CANDIDATE\n  ↓\nREVIEWED\n  ↓\nTESTED\n  ↓\nINTEGRATION_TESTED\n  ↓\nSECURITY_TESTED\n  ↓\nCERTIFIED</code></pre>'+
+ '<h2>Gate checklist</h2><ul>'+req.map(v=>'<li>'+escHtml(v)+'</li>').join('')+'</ul>'+
+ '<p>Текущий компонент не повышается автоматически. Решение должно опираться на паспорт, tests/evidence, security review и compatibility review.</p>'
+}
+function renderCodeOrText(path,text){
+ const ext=(path.split('.').pop()||'').toLowerCase();
+ if(ext==='md')return markdownToHtml(text);
+ if(ext==='json'){try{return '<pre><code>'+escHtml(JSON.stringify(JSON.parse(text),null,2))+'</code></pre>'}catch{}}
+ return '<pre><code>'+escHtml(text)+'</code></pre>'
+}
+async function loadComponentPath(id,path,push=true){
+ const x=componentList().find(c=>c.id===id);if(!x)return;
+ if(push&&refCurrent)refHistory.push(refCurrent);
+ refCurrent={mode:'component-source',id,path};$('#refCenterBack').disabled=refHistory.length===0;
+ $('#refCenterTitle').textContent=x.name;$('#refCenterSource').textContent=x.source_repo+' · '+path;
+ $('#refCenterGithub').href=githubBlobUrl(x.source_repo,x.source_ref,path);$('#refArticle').innerHTML='<div class="loading">Загрузка из GitHub: '+escHtml(path)+'…</div>';
+ try{
+   const res=await fetch(githubApiUrl(x.source_repo,x.source_ref,path),{headers:{Accept:'application/vnd.github+json'}});
+   if(!res.ok)throw new Error('GitHub HTTP '+res.status);
+   const obj=await res.json();
+   if(Array.isArray(obj)){
+     $('#refArticle').innerHTML='<h1>'+escHtml(path||'/')+'</h1><div class="ref-center-meta"><span>DIRECTORY / ASSEMBLY SOURCE</span><span>'+obj.length+' item(s)</span></div>'+
+       obj.map(it=>'<a href="#" class="artifact" data-comp-path="'+escHtml(it.path)+'">'+escHtml(it.name)+'<span class="ak">'+escHtml(it.type)+'</span></a>').join('');
+     $all('#refArticle [data-comp-path]').forEach(a=>a.onclick=e=>{e.preventDefault();loadComponentPath(id,a.dataset.compPath,true)});
+   }else{
+     const text=decodeGithubContent(obj);
+     $('#refArticle').innerHTML='<div class="ref-center-meta"><span>'+escHtml(x.level)+'</span><span>'+escHtml(x.status)+'</span><span>'+escHtml(path)+'</span></div>'+renderCodeOrText(path,text);
+     $all('#refArticle a[data-md-link]').forEach(a=>a.onclick=e=>{
+       const href=a.dataset.mdLink;if(!href)return;
+       if(href.startsWith('#'))return;
+       const resolved=refResolvePath(path,href);
+       if(/^https?:\/\//i.test(resolved)){a.target='_blank';return}
+       e.preventDefault();loadComponentPath(id,resolved.split('#')[0],true)
+     })
+   }
+ }catch(err){
+   $('#refArticle').innerHTML='<div class="source-fail"><b>Не удалось загрузить source.</b><br>'+escHtml(String(err))+'<br><br><a target="_blank" rel="noopener" href="'+githubBlobUrl(x.source_repo,x.source_ref,path)+'">Открыть GitHub ↗</a></div>'
+ }
+}
+function showComponentPanel(id,viewName,push=true){
+ const x=componentList().find(c=>c.id===id);if(!x)return;
+ if(push&&refCurrent)refHistory.push(refCurrent);
+ refCurrent={mode:'component-panel',id,viewName};$('#refCenterBack').disabled=refHistory.length===0;
+ $('#refCenterTitle').textContent=x.name;$('#refCenterSource').textContent=x.source_repo+' · '+x.source_path;$('#refCenterGithub').href=githubBlobUrl(x.source_repo,x.source_ref,x.source_path);
+ $all('#refCenterNav button[data-comp-view]').forEach(b=>b.classList.toggle('active',b.dataset.compView===viewName));
+ if(viewName==='passport')$('#refArticle').innerHTML=componentPassportHtml(x);
+ else if(viewName==='evidence')$('#refArticle').innerHTML=componentEvidenceHtml(x);
+ else if(viewName==='promotion')$('#refArticle').innerHTML=componentPromotionHtml(x);
+}
+function openComponentReference(id){
+ const x=componentList().find(c=>c.id===id);if(!x)return;
+ refHistory=[];refCurrent=null;$('#refCenterTitle').textContent=x.name;$('#refCenterSource').textContent=x.source_repo+' · '+x.source_path;
+ $('#refCenterNav').innerHTML=
+  '<div class="nav-title">COMPONENT REFERENCE</div>'+
+  '<div class="summary">'+escHtml(x.reference?.summary||x.purpose||'')+'</div>'+
+  '<button data-comp-view="passport">Паспорт</button>'+
+  '<button data-comp-source="1">Исходник / каталог</button>'+
+  '<button data-comp-view="evidence">Evidence & Tests</button>'+
+  '<button data-comp-view="promotion">Promotion / Certification</button>'+
+  '<div class="nav-title">PARENT</div>'+
+  '<button data-parent-agent="'+escHtml(x.parent_agent)+'">Родительский агент · '+escHtml(x.parent_agent)+'</button>'+
+  '<div class="nav-title">SOURCE</div><a class="artifact" target="_blank" rel="noopener" href="'+githubBlobUrl(x.source_repo,x.source_ref,x.source_path)+'">'+escHtml(x.source_repo)+' ↗</a>';
+ $all('#refCenterNav button[data-comp-view]').forEach(b=>b.onclick=()=>showComponentPanel(id,b.dataset.compView,true));
+ const sb=$('#refCenterNav button[data-comp-source]');if(sb)sb.onclick=()=>loadComponentPath(id,x.source_path,true);
+ const pb=$('#refCenterNav button[data-parent-agent]');if(pb)pb.onclick=()=>{const pid=pb.dataset.parentAgent;if(PROJECT_REFS.items?.[pid]){if(refCurrent)refHistory.push(refCurrent);openProjectReference(pid,true)}else $('#refArticle').innerHTML='<div class="source-fail">Для parent agent '+escHtml(pid)+' Project Reference пока не создан.</div>'};
+ $('#referenceCenter').showModal();showComponentPanel(id,'passport',false)
+}
+function openProjectReference(id,preserveHistory=false){
+ const r=PROJECT_REFS.items?.[id];if(!r)return;
+ if(!preserveHistory){refHistory=[];refCurrent=null;}$('#refCenterTitle').textContent=r.title||id;$('#refCenterSource').textContent=r.repo||'SOURCE MAPPING REQUIRED';
+ const docs=r.docs||[];$('#refCenterNav').innerHTML='<div class="nav-title">PROJECT REFERENCE</div><div class="summary">'+escHtml(r.short||'')+'</div>'+docs.map(d=>'<button data-doc="'+escHtml(d.path)+'">'+escHtml(d.label||d.path)+'</button>').join('')+(r.repo?'<div class="nav-title">SOURCE</div><a class="artifact" target="_blank" rel="noopener" href="https://github.com/'+r.repo+'">'+escHtml(r.repo)+' ↗</a>':'<div class="source-fail">GitHub mapping pending.</div>');
+ $all('#refCenterNav button[data-doc]').forEach(b=>b.onclick=()=>loadReferenceDoc(id,b.dataset.doc,true));
+ $('#referenceCenter').showModal();if(docs.length)loadReferenceDoc(id,docs[0].path,false);else $('#refArticle').innerHTML='<h1>'+escHtml(r.title||id)+'</h1><p>'+escHtml(r.short||'')+'</p>'
+}
+function renderCatalog(){let q=$('#q').value.toLowerCase(),a=list().filter(x=>(x.id+x.name+x.role).toLowerCase().includes(q));$('#catalog').innerHTML='<div class="group">'+({father:'АГЕНТЫ ВНУТРИ FATHER',projects:'АГЕНТЫ КАК ПРОЕКТЫ',parts:'ЗАПЧАСТИ FATHER · HARVEST CANDIDATES',integrations:'ИНТЕГРАЦИИ / ВНЕШНИЕ АДАПТЕРЫ',delivery:'DEVOPS / SECURITY ECOSYSTEM'}[tab])+'</div>'+a.map(x=>'<div class="item '+(x.core?'core ':'')+(S.arch.includes(x.id)?'arch':'')+'" draggable="true" data-id="'+x.id+'" data-kind="'+x.kind+'"><span class="ico">'+x.icon+'</span><span><b>'+x.name+'</b><small>'+x.id+' · '+x.status+'</small></span></div>').join('');$all('.item').forEach(e=>{e.ondragstart=v=>v.dataTransfer.setData('father',JSON.stringify({id:e.dataset.id,kind:e.dataset.kind}));e.onclick=()=>select(e.dataset.kind,e.dataset.id);e.ondblclick=()=>{if(e.dataset.kind==='agent')openAgent(e.dataset.id)};bindReferenceHover(e,e.dataset.kind,e.dataset.id)})}
+function entity(k,id){if(k==='integration')return ints.find(x=>x.id===id);if(k==='component')return componentList().find(x=>x.id===id);if(k==='folder')return folderDefs.find(x=>x.id===id);return all().find(x=>x.id===id)}
+function select(k,id){selected={k,id};$('#sel').textContent='SELECT: '+id;renderInspector()}
+function renderInspector(){
+ if(!selected){$('#it').textContent='Ничего не выбрано';$('#ib').textContent='Выбери агента, компонент или интеграцию.';return}
+ let x=entity(selected.k,selected.id);if(!x)return;$('#it').textContent=x.name;
+ if(selected.k==='folder'){
+   const agent=all().find(a=>a.id===view.agentId),hm=harvestAgent(view.agentId),art=harvestFolder(view.agentId,x.id);
+   const artifacts=art.length?art.map(a=>'<a class="artifact" target="_blank" rel="noopener" href="'+artifactUrl(hm.repository,hm.ref,a.path)+'">'+a.path+'<span class="ak">'+a.kind+'</span></a>').join(''):'<div class="folder"><b>TBD / NOT HARVESTED</b><small>В GitHub Harvest Map пока не найден подтверждённый артефакт для этой папки.</small></div>';
+   $('#ib').innerHTML='<div class="cards"><div class="card"><small>NODE</small><b>'+x.id+'</b></div><div class="card"><small>AGENT</small><b>'+(agent?.name||'')+'</b></div><div class="card"><small>HARVEST</small><b>'+(art.length+' FOUND')+'</b></div><div class="card"><small>SOURCE</small><b>'+(hm?.repository||'NOT MAPPED')+'</b></div></div><div class="sec"><h3>PURPOSE</h3><div class="folder">'+x.role+'</div></div><div class="sec"><h3>REAL ARTIFACTS</h3>'+artifacts+'</div><div class="sec"><h3>VIRTUAL FATHER PATH</h3><div class="folder"><b>'+view.agentId+'/'+x.id+'/</b><small>Это логическая папка FATHER; ссылки выше ведут на реально найденные исходники.</small></div></div>';return
+ }
+ if(selected.k==='component'){
+   const url=artifactUrl(x.source_repo,x.source_ref,x.source_path);
+   $('#ib').innerHTML='<div class="cards"><div class="card"><small>ID</small><b>'+x.id+'</b></div><div class="card"><small>LEVEL</small><b>'+x.level+'</b></div><div class="card"><small>STATUS</small><b>'+x.status+'</b></div><div class="card"><small>CERTIFICATION</small><b>'+x.certification+'</b></div></div><div class="sec"><h3>PURPOSE</h3><div class="folder">'+x.role+'</div></div><div class="sec"><h3>SOURCE</h3><a class="artifact" target="_blank" rel="noopener" href="'+url+'">'+x.source_repo+' / '+x.source_path+'<span class="ak">'+x.source_kind+'</span></a></div><div class="sec"><h3>PARENT AGENT</h3><div class="folder"><b>'+x.parent_agent+'</b><small>logical folder: '+x.logical_folder+'</small></div></div><div class="sec"><h3>PASSPORT STATE</h3><div class="folder"><b>HARVEST_CANDIDATE</b><small>Not certified. Requires tests, evidence review and compatibility review before promotion.</small></div></div><div class="btnrow"><button onclick="addNode(\'component\',\''+x.id+'\')">На поле</button><button onclick="openComponentReference(\''+x.id+'\')">Подробнее / Source</button></div>';return
+ }
+ if(x.kind==='integration'){
+   $('#ib').innerHTML='<div class="cards"><div class="card"><small>ID</small><b>'+x.id+'</b></div><div class="card"><small>PROVIDER</small><b>'+x.provider+'</b></div><div class="card"><small>TYPE</small><b>'+x.role+'</b></div><div class="card"><small>STATUS</small><b>'+x.status+'</b></div></div><div class="sec"><h3>CONTRACT</h3><div class="folder"><b>Adapter contract</b><small>Credentials/secrets are not stored here.</small></div></div><div class="btnrow"><button onclick="addNode(\'integration\',\''+x.id+'\')">На поле</button></div>';return
+ }
+ let acts=x.core?'':'<button onclick="archive(\''+x.id+'\')">'+(S.arch.includes(x.id)?'Вернуть':'Архивировать')+'</button>';
+ $('#ib').innerHTML='<div class="cards"><div class="card"><small>ID</small><b>'+x.id+'</b></div><div class="card"><small>CLASS</small><b>'+(x.core?'FATHER CORE':'PROJECT AGENT')+'</b></div><div class="card"><small>STATUS</small><b>'+x.status+'</b></div><div class="card"><small>PROTECTED</small><b>'+(x.core?'YES':'NO')+'</b></div></div><div class="sec"><h3>ROLE</h3><div class="folder">'+x.role+'</div></div>'+(PROJECT_REFS.items?.[x.id]?'<div class="sec"><h3>КРАТКАЯ СПРАВКА</h3><div class="folder">'+escHtml(PROJECT_REFS.items[x.id].short||'')+'</div><div class="btnrow"><button onclick="openProjectReference(\''+x.id+'\')">Подробнее / GitHub Docs</button></div></div>':'')+'<div class="sec"><h3>ВНУТРЕННИЕ ПАПКИ</h3>'+folders.map((f,i)=>'<div class="folder"><b>'+f+'</b><small>'+x.id+'/'+folderDefs[i].id+'/</small></div>').join('')+'</div><div class="btnrow"><button onclick="addNode(\'agent\',\''+x.id+'\')">На поле</button><button onclick="openAgent(\''+x.id+'\')">Открыть внутренности</button>'+acts+'</div>'
+}
+function archive(id){S.arch.includes(id)?S.arch=S.arch.filter(x=>x!==id):S.arch.push(id);ev('ARCHIVE',id);renderCatalog();renderInspector()}
+
+function graph(){if(view.mode==='agent'){ensureAgentGraph(view.agentId);return S.agentGraphs[view.agentId]}return{nodes:S.nodes,edges:S.edges}}
+function ensureAgentGraph(agentId){
+ if(S.agentGraphs[agentId])return;
+ const alina=agentId==='FTH-ALINA-ANALYST-001';
+ if(alina){
+   S.agentGraphs[agentId]={nodes:[
+     {nid:'AL-IN',k:'folder',id:'identity',x:80,y:150,label:'Input Contract',icon:'IN',role:'research_brief / task / constraints',blackbox:true},
+     {nid:'AL-BB',k:'folder',id:'workflow',x:390,y:150,label:'ALINA BLACK BOX',icon:'A',role:'Внутренняя реализация ведётся в соседней ветке и здесь не раскрывается.',blackbox:true},
+     {nid:'AL-OUT',k:'folder',id:'evidence',x:720,y:150,label:'Output Contract',icon:'OUT',role:'knowledge_pack / evidence_bundle / status_events',blackbox:true}
+   ],edges:[
+     {from:'AL-IN',to:'AL-BB',type:'CONTRACT',contract:'research_brief'},
+     {from:'AL-BB',to:'AL-OUT',type:'CONTRACT',contract:'knowledge_pack + evidence'}
+   ]};save();return
+ }
+ const pos={identity:[60,60],prompt:[300,60],knowledge:[300,215],rag:[540,215],database:[300,370],memory:[540,370],tools:[780,370],workflow:[780,95],security:[1020,95],eval:[1260,95],observability:[1260,275],deployment:[1500,95],docs:[1500,275],evidence:[1500,445]};
+ const nodes=folderDefs.map(f=>({nid:'F-'+f.id,k:'folder',id:f.id,x:pos[f.id][0],y:pos[f.id][1]}));
+ const links=[['identity','prompt'],['identity','knowledge'],['knowledge','rag'],['prompt','workflow'],['rag','workflow'],['database','memory'],['memory','workflow'],['workflow','tools'],['tools','workflow'],['workflow','security'],['security','eval'],['eval','observability'],['observability','deployment'],['eval','docs'],['eval','evidence'],['observability','evidence']];
+ S.agentGraphs[agentId]={nodes,edges:links.map((x,i)=>({from:'F-'+x[0],to:'F-'+x[1],type:'INTERNAL',contract:'TBD-'+String(i+1).padStart(2,'0')}))};save()
+}
+function openAgent(id){
+ if(S.arch.includes(id))return alert('Агент в архиве');
+ ensureAgentGraph(id);view={mode:'agent',agentId:id};selected={k:'agent',id};pending=null;updateCanvasContext();renderCanvas();renderInspector();renderBottom();ev('DRILLDOWN','OPEN '+id)
+}
+function backRoot(){view={mode:'root',agentId:null};selected=null;pending=null;updateCanvasContext();renderCanvas();renderInspector();renderBottom()}
+function updateCanvasContext(){
+ const btn=$('#backRoot');
+ if(view.mode==='agent'){const a=all().find(x=>x.id===view.agentId);$('#canvasEyebrow').textContent='AGENT INTERNAL ARCHITECTURE';$('#canvasTitle').textContent=a?.name||view.agentId;$('#crumb').textContent='ROOT / AGENTS / '+view.agentId;btn.style.display='inline-block';$('#in').style.display='none';$('#out').style.display='none'}
+ else{$('#canvasEyebrow').textContent='VISUAL ECOSYSTEM FIELD';$('#canvasTitle').textContent='FATHER Project Canvas';$('#crumb').textContent='ROOT / ECOSYSTEM';btn.style.display='none';$('#in').style.display='inline-block';$('#out').style.display='inline-block'}
+}
+
+function addNode(k,id,x=350,y=180){
+ if(S.arch.includes(id))return alert('Агент в архиве');
+ const g=graph();
+ if(view.mode==='agent'&&k==='agent')return alert('Внутри агента добавляйте интеграционные запчасти; агент как проект размещается на корневом поле.');
+ g.nodes.push({nid:'N'+Date.now()+Math.random(),k,id,x,y});ev('NODE',id);renderCanvas()
+}
+function nodeEntity(n){
+ if(n.k==='io')return{name:n.id,icon:n.id==='INPUT'?'IN':'OUT',role:n.id==='INPUT'?'Вход проекта':'Ожидаемый результат'};
+ if(n.k==='folder'){
+   const f=folderDefs.find(x=>x.id===n.id)||{},count=view.mode==='agent'?harvestFolder(view.agentId,n.id).length:0;
+   const base=n.role||f.role||'';
+   return{name:n.label||f.name||n.id,icon:n.icon||f.icon||'□',role:base+(count?' · '+count+' real artifact(s)':''),cls:f.cls||'',blackbox:n.blackbox,harvestCount:count}
+ }
+ return entity(n.k,n.id)
+}
+function renderCanvas(){
+ const g=graph();
+ $('#world').innerHTML=g.nodes.map(n=>{let x=nodeEntity(n);return '<div class="node '+(x.core?'core ':'')+(n.k==='integration'?'int ':'')+(n.k==='folder'?'foldernode '+(x.cls||''):'')+(x.blackbox?' blackbox':'')+'" data-node="'+n.nid+'" style="left:'+n.x+'px;top:'+n.y+'px"><div class="nh"><span class="ico">'+x.icon+'</span><span><b>'+x.name+'</b><small>'+(n.k==='folder'?(view.agentId+'/'+n.id):n.id)+'</small></span></div><div class="nb">'+x.role+(x.harvestCount?'<span class="harvest-badge">HARVEST '+x.harvestCount+'</span>':'')+'</div><div class="ports"><span class="port in" data-d="in" data-n="'+n.nid+'"></span><span class="port out" data-d="out" data-n="'+n.nid+'"></span></div></div>'}).join('');
+ $all('.node').forEach(e=>{e.onmousedown=startDrag;e.onclick=v=>{if(v.target.classList.contains('port'))return;let n=g.nodes.find(x=>x.nid===e.dataset.node);if(!n||n.k==='io')return;select(n.k,n.id)};e.ondblclick=()=>{let n=g.nodes.find(x=>x.nid===e.dataset.node);if(view.mode==='root'&&n?.k==='agent')openAgent(n.id)};let n=g.nodes.find(x=>x.nid===e.dataset.node);if(n)bindReferenceHover(e,n.k,n.id)});
+ $all('.port').forEach(p=>p.onclick=connect);draw()
+}
+function connect(e){
+ e.stopPropagation();const g=graph(),id=e.target.dataset.n;
+ if(e.target.dataset.d==='out'){pending=id;$all('.port.out').forEach(p=>p.classList.toggle('pending',p.dataset.n===id));return}
+ if(pending&&pending!==id){g.edges.push({from:pending,to:id,type:view.mode==='agent'?'INTERNAL':'API/DATA',contract:'TBD'});pending=null;ev('EDGE','created');renderCanvas();renderBottom()}
+}
+function startDrag(e){
+ if(e.target.classList.contains('port'))return;let g=graph(),n=g.nodes.find(x=>x.nid===e.currentTarget.dataset.node),r=$('#view').getBoundingClientRect();drag={n,dx:e.clientX-r.left-n.x,dy:e.clientY-r.top-n.y};document.onmousemove=move;document.onmouseup=()=>{document.onmousemove=null;drag=null;save()}
+}
+function move(e){if(!drag)return;let r=$('#view').getBoundingClientRect();drag.n.x=Math.max(0,e.clientX-r.left-drag.dx);drag.n.y=Math.max(0,e.clientY-r.top-drag.dy);renderCanvas()}
+function draw(){
+ let g=graph(),s=$('#svg');[...s.querySelectorAll('path')].forEach(x=>x.remove());let vr=$('#view').getBoundingClientRect();
+ g.edges.forEach(e=>{let a=document.querySelector('[data-node="'+e.from+'"]'),b=document.querySelector('[data-node="'+e.to+'"]');if(!a||!b)return;let A=a.getBoundingClientRect(),B=b.getBoundingClientRect(),x1=A.right-vr.left,y1=A.top+A.height/2-vr.top,x2=B.left-vr.left,y2=B.top+B.height/2-vr.top,d=Math.max(60,Math.abs(x2-x1)*.45),p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d','M '+x1+' '+y1+' C '+(x1+d)+' '+y1+', '+(x2-d)+' '+y2+', '+x2+' '+y2);s.appendChild(p)})
+}
+function fit(){let g=graph();g.nodes.forEach((n,i)=>{n.x=50+(i%4)*235;n.y=60+Math.floor(i/4)*150});save();renderCanvas()}
+function renderBottom(){
+ $all('#btabs button').forEach(b=>b.classList.toggle('active',b.dataset.b===bottom));let b=$('#bb'),g=graph();
+ if(bottom==='structure'){
+   if(view.mode==='agent'){const a=all().find(x=>x.id===view.agentId);b.innerHTML=folderDefs.map((f,i)=>'<div class="row"><span>'+String(i).padStart(2,'0')+'</span><b>'+f.name+'</b><span>'+view.agentId+'/'+f.id+'/ · '+(a?.status||'')+'</span></div>').join('')}
+   else b.innerHTML=all().filter(x=>!S.arch.includes(x.id)).map(x=>'<div class="row"><span>'+(x.core?'FATHER CORE':'PROJECT')+'</span><b>'+x.name+'</b><span>'+folders.length+' standard folders · '+x.status+'</span></div>').join('')
+ }else if(bottom==='contracts')b.innerHTML=g.edges.map(e=>'<div class="row"><span>'+e.type+'</span><b>'+e.from+' → '+e.to+'</b><span>'+e.contract+'</span></div>').join('')||'<div class="row"><span>NONE</span><b>No edges</b><span>Соедини OUT → IN.</span></div>';
+ else if(bottom==='events')b.innerHTML=S.events.slice(0,40).map(e=>'<div class="row"><span>'+e.t.slice(11,19)+'</span><b>'+e.k+'</b><span>'+e.m+'</span></div>').join('');
+ else b.innerHTML='<div class="row"><span>CORE</span><b>Protected</b><span>FATHER core нельзя удалить/архивировать.</span></div><div class="row"><span>PROJECT</span><b>Mutable</b><span>Проектные агенты расширяемы и архивируемы.</span></div><div class="row"><span>ALINA</span><b>Black box</b><span>У Алины показывается только input/output contract.</span></div><div class="row"><span>DRILLDOWN</span><b>Agent internals</b><span>Double click по агенту открывает его внутренний canvas.</span></div>'
+}
+function stats(){$('#count').textContent='CORE '+core.length+' · PROJECT '+([...projects,...S.custom].length)+' · PARTS '+componentList().length+' · INTEGRATIONS '+ints.length+' · CANVAS '+graph().nodes.length}
+
+$('#tabs').onclick=e=>{let b=e.target.closest('button');if(!b)return;tab=b.dataset.tab;$all('#tabs button').forEach(x=>x.classList.toggle('active',x===b));renderCatalog()};
+$('#q').oninput=renderCatalog;
+$('#newAgent').onclick=()=>dlg.showModal();
+$('#create').onclick=()=>{let n=$('#an').value.trim();if(!n)return;S.custom.push({id:'USR-AGENT-'+Date.now(),name:n,icon:'USR',role:$('#ar').value||'Custom project agent',kind:'agent',core:false,status:'DESIGN'});save();dlg.close();tab='projects';renderCatalog();stats()};
+$('#reset').onclick=()=>{if(confirm('Reset local workspace state?')){S={custom:[],arch:[],nodes:[],edges:[],events:[],agentGraphs:{}};view={mode:'root',agentId:null};selected=null;save();updateCanvasContext();renderCatalog();renderCanvas();renderInspector();renderBottom()}};
+$('#in').onclick=()=>addNode('io','INPUT',50,100);$('#out').onclick=()=>addNode('io','OUTPUT',1050,100);$('#fit').onclick=fit;$('#backRoot').onclick=backRoot;
+$('#refCenterClose').onclick=()=>$('#referenceCenter').close();
+$('#refCenterBack').onclick=()=>{if(!refHistory.length)return;const prev=refHistory.pop();refCurrent=null;
+ if(prev.mode==='project')loadReferenceDoc(prev.id,prev.path,false);
+ else if(prev.mode==='component-source')loadComponentPath(prev.id,prev.path,false);
+ else if(prev.mode==='component-panel')showComponentPanel(prev.id,prev.viewName,false);
+ $('#refCenterBack').disabled=refHistory.length===0};
+$('#refTip').addEventListener('mouseenter',cancelHideRef);$('#refTip').addEventListener('mouseleave',scheduleHideRef);
+$all('#btabs button').forEach(x=>x.onclick=()=>{bottom=x.dataset.b;renderBottom()});
+let v=$('#view');v.ondragover=e=>e.preventDefault();v.ondrop=e=>{e.preventDefault();let a=JSON.parse(e.dataTransfer.getData('father')||'null');if(!a)return;let r=v.getBoundingClientRect();addNode(a.kind,a.id,e.clientX-r.left-95,e.clientY-r.top-40)};
+window.onresize=draw;updateCanvasContext();renderCatalog();renderCanvas();renderBottom();stats();
+Promise.all([
+  fetch('./data/harvest-map.json').then(r=>r.json()),
+  fetch('./data/component-registry.json').then(r=>r.json()),
+  fetch('./data/project-reference.json').then(r=>r.json())
+]).then(([h,cmp,pref])=>{HARVEST=h;COMPONENTS=cmp;PROJECT_REFS=pref;renderCatalog();renderCanvas();renderInspector();renderBottom();stats();ev('REFERENCE','Loaded GitHub-backed project references: '+Object.keys(PROJECT_REFS.items||{}).length)}).catch(err=>{console.warn('Workspace reference registries unavailable',err)});
+</script>
+</body></html>
