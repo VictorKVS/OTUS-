@@ -34,6 +34,20 @@ def main():
             if m.get("id") != common.get("id") or m.get("version") != common.get("version"):
                 ok = fail("K0 manifest id/version mismatch") and ok
 
+    common_curriculum_path = common.get("curriculum_path")
+    if not common_curriculum_path:
+        ok = fail("K0 curriculum_path missing") and ok
+    else:
+        cp = ROOT / common_curriculum_path
+        if not cp.exists():
+            ok = fail(f"K0 curriculum not found: {common_curriculum_path}") and ok
+        else:
+            c = json.loads(cp.read_text(encoding="utf-8"))
+            if c.get("knowledge_pack_id") != common.get("id") or c.get("version") != common.get("version"):
+                ok = fail("K0 curriculum id/version mismatch") and ok
+            if not c.get("graduation_gate"):
+                ok = fail("K0 graduation_gate missing") and ok
+
     packs = {x["id"]: x for x in registry.get("specialist_packs", [])}
     contexts = {x["id"]: x for x in registry.get("project_contexts", [])}
     profiles = registry.get("agent_profiles", [])
