@@ -86,7 +86,8 @@
     "retrieval_policy": "evidence_first_hybrid",
     "citation_policy": "provenance_required",
     "conflict_policy": "surface_conflict_do_not_silently_overwrite",
-    "manifest_path": "knowledge/common-core/manifest.json"
+    "manifest_path": "knowledge/common-core/manifest.json",
+    "curriculum_path": "knowledge/common-core/curriculum.json"
   },
   "specialist_packs": [
     {
@@ -110,7 +111,8 @@
       "depends_on": [
         "KB-K0-FATHER-COMMON"
       ],
-      "manifest_path": "knowledge/specialists/alina/manifest.json"
+      "manifest_path": "knowledge/specialists/alina/manifest.json",
+      "curriculum_path": "knowledge/specialists/alina/curriculum.json"
     },
     {
       "id": "KB-K1-OSINT",
@@ -139,7 +141,8 @@
         "KB-K0-FATHER-COMMON",
         "KB-K1-ALINA-ANALYTICS"
       ],
-      "manifest_path": "knowledge/specialists/osint/manifest.json"
+      "manifest_path": "knowledge/specialists/osint/manifest.json",
+      "curriculum_path": "knowledge/specialists/osint/curriculum.json"
     },
     {
       "id": "KB-K1-ARCHITECT",
@@ -164,7 +167,8 @@
       "depends_on": [
         "KB-K0-FATHER-COMMON"
       ],
-      "manifest_path": "knowledge/specialists/architect/manifest.json"
+      "manifest_path": "knowledge/specialists/architect/manifest.json",
+      "curriculum_path": "knowledge/specialists/architect/curriculum.json"
     },
     {
       "id": "KB-K1-PROGRAMMER",
@@ -188,7 +192,8 @@
       "depends_on": [
         "KB-K0-FATHER-COMMON"
       ],
-      "manifest_path": "knowledge/specialists/programmer/manifest.json"
+      "manifest_path": "knowledge/specialists/programmer/manifest.json",
+      "curriculum_path": "knowledge/specialists/programmer/curriculum.json"
     },
     {
       "id": "KB-K1-IB",
