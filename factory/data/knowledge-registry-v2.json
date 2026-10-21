@@ -200,7 +200,7 @@
       "family": "IB",
       "name": "Information Security Specialist Pack",
       "version": "0.1.0",
-      "status": "PLANNED",
+      "status": "DESIGN",
       "topics": [
         "security engineering",
         "risk",
@@ -214,14 +214,15 @@
       "depends_on": [
         "KB-K0-FATHER-COMMON"
       ],
-      "manifest_path": "knowledge/specialists/ib/manifest.json"
+      "manifest_path": "knowledge/specialists/ib/manifest.json",
+      "curriculum_path": "knowledge/specialists/ib/curriculum.json"
     },
     {
       "id": "KB-K1-DEVSECOPS",
       "family": "DEVSECOPS",
       "name": "DevSecOps Specialist Pack",
       "version": "0.1.0",
-      "status": "PLANNED",
+      "status": "DESIGN",
       "topics": [
         "CI/CD",
         "GitOps",
@@ -238,7 +239,112 @@
       "depends_on": [
         "KB-K0-FATHER-COMMON"
       ],
-      "manifest_path": "knowledge/specialists/devsecops/manifest.json"
+      "manifest_path": "knowledge/specialists/devsecops/manifest.json",
+      "curriculum_path": "knowledge/specialists/devsecops/curriculum.json"
+    },
+    {
+      "id": "KB-K1-KNOWLEDGE-ENGINEERING",
+      "family": "KNOWLEDGE",
+      "name": "Knowledge Engineering Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "source registry",
+        "ingestion",
+        "normalization",
+        "document structure",
+        "chunking",
+        "metadata",
+        "provenance",
+        "deduplication",
+        "ontology",
+        "knowledge graph",
+        "controlled publish"
+      ],
+      "skill_tree": "KNOWLEDGE_ENGINEERING_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON"
+      ],
+      "manifest_path": "knowledge/specialists/knowledge-engineer/manifest.json",
+      "curriculum_path": "knowledge/specialists/knowledge-engineer/curriculum.json"
+    },
+    {
+      "id": "KB-K1-QUALITY-EVAL",
+      "family": "QUALITY",
+      "name": "QA & AI Evaluation Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "test design",
+        "golden datasets",
+        "regression",
+        "AI evaluation",
+        "LLM judge calibration",
+        "statistical comparison",
+        "failure taxonomy",
+        "quality gates",
+        "evidence"
+      ],
+      "skill_tree": "QUALITY_EVAL_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON",
+        "KB-K1-ALINA-ANALYTICS"
+      ],
+      "manifest_path": "knowledge/specialists/quality-evaluator/manifest.json",
+      "curriculum_path": "knowledge/specialists/quality-evaluator/curriculum.json"
+    },
+    {
+      "id": "KB-K1-OPS-SRE",
+      "family": "DEVOPS_SRE",
+      "name": "Operations & SRE Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "containers",
+        "Kubernetes",
+        "CI/CD",
+        "GitOps",
+        "observability",
+        "SLI/SLO",
+        "capacity",
+        "HA/DR",
+        "rollback",
+        "incident management",
+        "FinOps"
+      ],
+      "skill_tree": "OPS_SRE_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON",
+        "KB-K1-DEVSECOPS"
+      ],
+      "manifest_path": "knowledge/specialists/ops-sre/manifest.json",
+      "curriculum_path": "knowledge/specialists/ops-sre/curriculum.json"
+    },
+    {
+      "id": "KB-K1-FACTORY-ORCHESTRATION",
+      "family": "FATHER_FACTORY",
+      "name": "Factory Orchestration Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "agent lifecycle",
+        "capability routing",
+        "block registry",
+        "Zoo",
+        "gates",
+        "evidence",
+        "workflow orchestration",
+        "status truth",
+        "certification routing"
+      ],
+      "skill_tree": "FACTORY_ORCHESTRATION_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON",
+        "KB-K1-ARCHITECT",
+        "KB-K1-ALINA-ANALYTICS"
+      ],
+      "manifest_path": "knowledge/specialists/factory-controller/manifest.json",
+      "curriculum_path": "knowledge/specialists/factory-controller/curriculum.json"
     }
   ],
   "project_contexts": [
