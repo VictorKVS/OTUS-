@@ -1,0 +1,24 @@
+{
+  "id": "KB-K1-COMMUNICATION-BRIDGE",
+  "name": "Telegram & Speech Bridge Specialist Pack",
+  "version": "0.1.0",
+  "status": "DESIGN",
+  "layer": "K1",
+  "family": "COMMUNICATION",
+  "depends_on": [
+    "KB-K0-FATHER-COMMON"
+  ],
+  "topics": [
+    "Telegram Bot API",
+    "message routing",
+    "voice message download",
+    "text normalization",
+    "speech to text",
+    "text to speech",
+    "media lifecycle",
+    "error handling",
+    "privacy-safe tracing"
+  ],
+  "skill_tree": "COMMUNICATION_BRIDGE_SKILLS",
+  "provenance_required": true
+}
