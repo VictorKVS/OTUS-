@@ -53,7 +53,7 @@
       "status": "DESIGN",
       "path": "agents/kits/kit-knowledge-engineer/manifest.json",
       "specialist_pack_ids": [
-        "KB-K1-ALINA-ANALYTICS"
+        "KB-K1-KNOWLEDGE-ENGINEERING"
       ]
     },
     {
@@ -64,7 +64,7 @@
       "status": "DESIGN",
       "path": "agents/kits/kit-qa-evaluator/manifest.json",
       "specialist_pack_ids": [
-        "KB-K1-ALINA-ANALYTICS"
+        "KB-K1-QUALITY-EVAL"
       ]
     },
     {
@@ -87,7 +87,8 @@
       "status": "DESIGN",
       "path": "agents/kits/kit-devops-sre/manifest.json",
       "specialist_pack_ids": [
-        "KB-K1-DEVSECOPS"
+        "KB-K1-DEVSECOPS",
+        "KB-K1-OPS-SRE"
       ]
     },
     {
@@ -98,8 +99,7 @@
       "status": "DESIGN",
       "path": "agents/kits/kit-factory-controller/manifest.json",
       "specialist_pack_ids": [
-        "KB-K1-ARCHITECT",
-        "KB-K1-ALINA-ANALYTICS"
+        "KB-K1-FACTORY-ORCHESTRATION"
       ]
     },
     {
