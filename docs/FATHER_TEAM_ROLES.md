@@ -70,3 +70,22 @@ CERTIFIER authorizes promotion
 ~~~
 
 Одна физическая LLM на этапе разработки может эмулировать несколько логических ролей, но роли сохраняют отдельные identity, context, responsibility, output и approval status. Роль не утверждает сама себя там, где требуется независимость.
+
+## Additional factory agents
+
+### FATHER Knowledge Engineer / Curator
+Logical agent id: **FTH-AG-KNW-001**. Owns source ingestion, normalization, provenance, deduplication, knowledge graph preparation and controlled publication into shared/specialist knowledge packs.
+
+### FATHER QA / AI Evaluator
+Logical agent id: **FTH-AG-QA-001**. Owns independent test/evaluation evidence, golden/regression datasets, judge calibration and quality gates.
+
+### FATHER Security / DevSecOps Engineer
+Logical agent id: **FTH-AG-SEC-001**. Owns defensive security design, threat model, secure delivery gates and security acceptance.
+
+### FATHER DevOps / SRE
+Logical agent id: **FTH-AG-SRE-001**. Owns reproducible environments, Kubernetes/containers, CI/CD/GitOps, observability, SLO, rollback and operations readiness.
+
+### FATHER Factory Controller
+Logical agent id: **FTH-AG-FCT-001**. Routes work through lifecycle, registries, gates, LAB, certification and Zoo. It cannot fabricate PASS/CERTIFIED state.
+
+All core roles are packaged through `FATHER_AGENT_KIT_STANDARD.md` and registered in `factory/data/agent-kit-registry.json`.
