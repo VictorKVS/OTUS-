@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FATHER DevOps · Environment Center</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    .env-grid,.platform-grid,.gate-grid2{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}
+    .env-card,.platform-card,.gate-card{border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#0e1a24,#0a141c);padding:15px}
+    .env-card h3,.platform-card h3,.gate-card h3{font-size:13px;margin:9px 0 5px}
+    .env-card p,.platform-card p,.gate-card p{font-size:10px;color:var(--muted);line-height:1.5}
+    .env-status{font:8px Consolas;border:1px solid var(--line);padding:4px 6px;border-radius:999px}
+    .real{color:var(--green)}.planned{color:var(--amber)}.design{color:var(--violet)}
+    .dep-chain{display:flex;gap:7px;overflow:auto;padding:12px 0 4px}.dep{min-width:150px;border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:11px}.dep b{font-size:10px}.dep small{display:block;color:var(--muted);margin-top:5px}
+    .dep.cyber{border-color:color-mix(in srgb,var(--red) 40%,var(--line))}
+    @media(max-width:1100px){.env-grid,.platform-grid,.gate-grid2{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.env-grid,.platform-grid,.gate-grid2{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header class="top"><div class="brand">FATHER DEVOPS<small>Environment Center · runtime & delivery platform</small></div><nav class="nav"><a href="./index.html">Factory</a><a href="./lab.html">🧪 Lab</a><a href="#envs">Среды</a><a href="#platform">Платформа</a><a href="#gates">Gates</a><a href="#dependency">Cyber dependency</a></nav></header>
+<main>
+<section class="hero"><div class="eyebrow">Infrastructure before autonomy</div><h1>Сначала <span>среды и платформа</span>, потом Cyber Range</h1><p>Все агенты, модели, RAG, эксперименты и будущие attack/defense системы должны запускаться в воспроизводимых средах с контролем конфигурации, секретов, сетей, ресурсов, логов, rollback и evidence.</p><div class="kpis"><span class="kpi">LOCAL → DEV → TEST → STAGE → PROD</span><span class="kpi">CONTAINERS → KUBERNETES</span><span class="kpi">CI/CD → GitOps</span><span class="kpi">OBSERVABILITY → SRE</span></div></section>
+
+<section class="section" id="envs"><div class="eyebrow">Environment matrix</div><h2>Стандартные среды FATHER</h2><div class="env-grid" id="envGrid"></div></section>
+
+<section class="section" id="platform"><div class="eyebrow">DevOps platform</div><h2>Что обязано быть общим для всех проектов</h2><div class="platform-grid" id="platformGrid"></div></section>
+
+<section class="section"><div class="eyebrow">Delivery path</div><h2>Единый путь поставки</h2><div class="lane" id="deliveryLane"></div></section>
+
+<section class="section" id="gates"><div class="eyebrow">Infrastructure quality gates</div><h2>Без этих доказательств среда не считается готовой</h2><div class="gate-grid2" id="gateGrid2"></div></section>
+
+<section class="section" id="dependency"><div class="eyebrow">Future cyber range dependency</div><h2>Почему антивирус идёт после DevOps</h2><div class="dep-chain">
+<div class="dep"><b>🏭 FATHER Core</b><small>contracts · registry · runtime</small></div><span class="arrow">→</span>
+<div class="dep"><b>🧪 LAB</b><small>datasets · A/B/N · regression</small></div><span class="arrow">→</span>
+<div class="dep"><b>☸ DevOps Platform</b><small>containers · k8s · CI/CD · GitOps</small></div><span class="arrow">→</span>
+<div class="dep"><b>📡 Observability</b><small>logs · metrics · traces · evidence</small></div><span class="arrow">→</span>
+<div class="dep"><b>🧱 Isolation</b><small>namespaces · network policy · sandbox</small></div><span class="arrow">→</span>
+<div class="dep cyber"><b>🛡⚔ Cyber Range</b><small>attack ↔ defense agents · planned</small></div>
+</div><p style="color:var(--muted);font-size:11px;max-width:1000px">Attack/Defense-полигон не допускается до реализации изоляции, сетевых политик, telemetry, snapshots/rollback, resource quotas, secret management и воспроизводимого deployment. Пока Cyber Range остаётся архитектурным placeholder.</p></section>
+</main>
+<footer><span>FATHER DevOps · Environment Center</span><span>ENVIRONMENT → DELIVERY → OBSERVABILITY → ISOLATION → CYBER RANGE</span></footer>
+<script src="./devops-environments.js"></script>
+</body></html>
