@@ -1,0 +1,382 @@
+{
+  "schema_version": "0.1.0",
+  "projects": [
+    {
+      "id": "LAB-FATHER",
+      "icon": "🏭",
+      "title": "FATHER Platform Lab",
+      "status": "ACTIVE",
+      "purpose": "Испытания шасси, блоков, маршрутизации и совместимости.",
+      "labs": [
+        "Architecture / Chassis",
+        "Workflow / Router",
+        "Block Compatibility",
+        "Performance / Cost"
+      ]
+    },
+    {
+      "id": "LAB-ALINA",
+      "icon": "🧠",
+      "title": "ALINA Research Center",
+      "status": "ACTIVE",
+      "purpose": "Оптимизация аналитического ядра и выращивания специалистов.",
+      "labs": [
+        "Prompt Lab",
+        "RAG Lab",
+        "Knowledge Algorithm Lab",
+        "Agent / Skill / Evaluator Lab"
+      ]
+    },
+    {
+      "id": "LAB-OSINT",
+      "icon": "🔎",
+      "title": "OSINT Project Lab",
+      "status": "ACTIVE",
+      "purpose": "Сравнение моделей, инструментов, retrieval и расследовательских workflow.",
+      "labs": [
+        "Model / Prompt",
+        "Tool Selection",
+        "Graph / Retrieval",
+        "Report / Evidence"
+      ]
+    }
+  ],
+  "labAreas": [
+    {
+      "id": "L01",
+      "icon": "🧠",
+      "title": "Model Lab",
+      "purpose": "Сравнение LLM/VLM/embedding/reranker моделей на одном наборе задач.",
+      "targets": [
+        "quality",
+        "latency",
+        "cost"
+      ]
+    },
+    {
+      "id": "L02",
+      "icon": "💬",
+      "title": "Prompt Lab",
+      "purpose": "Версионирование и A/B/N prompts с одинаковым dataset и evaluator.",
+      "targets": [
+        "accuracy",
+        "stability"
+      ]
+    },
+    {
+      "id": "L03",
+      "icon": "📚",
+      "title": "RAG Lab",
+      "purpose": "Chunking, embedding, retrieval, reranking и context-building.",
+      "targets": [
+        "recall",
+        "faithfulness"
+      ]
+    },
+    {
+      "id": "L04",
+      "icon": "◇",
+      "title": "Knowledge Lab",
+      "purpose": "Извлечение фактов, сущностей, связей, provenance и contradictions.",
+      "targets": [
+        "precision",
+        "recall",
+        "F1"
+      ]
+    },
+    {
+      "id": "L05",
+      "icon": "🤖",
+      "title": "Agent Lab",
+      "purpose": "Траектории, tool use, handoffs, recovery и результат агента.",
+      "targets": [
+        "task success",
+        "steps"
+      ]
+    },
+    {
+      "id": "L06",
+      "icon": "🎓",
+      "title": "Skill Lab",
+      "purpose": "Проверка переноса навыков и уровней компетенции специалиста.",
+      "targets": [
+        "pass rate",
+        "retention"
+      ]
+    },
+    {
+      "id": "L07",
+      "icon": "✓",
+      "title": "Evaluator Lab",
+      "purpose": "Калибровка judges и проверка самих метрик относительно human gold.",
+      "targets": [
+        "agreement",
+        "bias"
+      ]
+    },
+    {
+      "id": "L08",
+      "icon": "🛡",
+      "title": "Safety / Red Team",
+      "purpose": "Prompt injection, poisoning, tool abuse, leakage и excessive agency.",
+      "targets": [
+        "attack success",
+        "containment"
+      ]
+    },
+    {
+      "id": "L09",
+      "icon": "⚙",
+      "title": "Performance Lab",
+      "purpose": "Latency, throughput, ресурсные пределы и устойчивость.",
+      "targets": [
+        "p95",
+        "throughput"
+      ]
+    },
+    {
+      "id": "L10",
+      "icon": "💰",
+      "title": "Cost Lab",
+      "purpose": "Стоимость запроса, эксперимента, проекта и quality/cost trade-off.",
+      "targets": [
+        "cost/run",
+        "cost/success"
+      ]
+    },
+    {
+      "id": "L11",
+      "icon": "📊",
+      "title": "Benchmark Center",
+      "purpose": "Сравнение версий на фиксированных benchmark suites.",
+      "targets": [
+        "score",
+        "delta"
+      ]
+    },
+    {
+      "id": "L12",
+      "icon": "🏁",
+      "title": "Certification Center",
+      "purpose": "Evidence, regression, safety, compatibility и promotion decision.",
+      "targets": [
+        "PASS",
+        "certificate"
+      ]
+    }
+  ],
+  "alinaLabs": [
+    {
+      "icon": "💬",
+      "title": "Prompt Lab",
+      "purpose": "Лучший prompt выбирается экспериментом, а не вручную."
+    },
+    {
+      "icon": "📚",
+      "title": "RAG Lab",
+      "purpose": "Retrieval-архитектуры сравниваются по retrieval и generation метрикам."
+    },
+    {
+      "icon": "◇",
+      "title": "Knowledge Algorithm Lab",
+      "purpose": "A/B алгоритмов fact/entity/relation/provenance/graph построения."
+    },
+    {
+      "icon": "🤖",
+      "title": "Agent Lab",
+      "purpose": "Сравнение монолитных и многоагентных аналитических схем."
+    },
+    {
+      "icon": "🎓",
+      "title": "Skill Lab",
+      "purpose": "Измеряем обучение, перенос навыков и деградацию компетенций."
+    },
+    {
+      "icon": "✓",
+      "title": "Evaluator Lab",
+      "purpose": "Judge обязан быть откалиброван относительно human-verified gold."
+    },
+    {
+      "icon": "◫",
+      "title": "Memory Lab",
+      "purpose": "Проверка scope, retrieval, forgetting и разделения knowledge/memory."
+    },
+    {
+      "icon": "🧬",
+      "title": "Optimization Lab",
+      "purpose": "Автопоиск конфигураций по качеству, стоимости и скорости."
+    }
+  ],
+  "alinaFlow": [
+    "Production failure / research question",
+    "ALINA Researcher forms hypothesis",
+    "Create challenger configuration",
+    "Run controlled A/B/N",
+    "Evaluator + human sample review",
+    "Regression + safety",
+    "Promote or reject",
+    "Update Knowledge / Skill / Agent vNext"
+  ],
+  "experiments": [
+    {
+      "id": "ALINA-RAG-0042",
+      "project": "ALINA",
+      "state": "running",
+      "title": "Hybrid retrieval vs vector-only",
+      "hypothesis": "Hybrid retrieval increases evidence precision without unacceptable latency.",
+      "a": "vector · top_k 5",
+      "b": "hybrid + reranker · top_k 10",
+      "metrics": [
+        "answer accuracy",
+        "citation accuracy",
+        "p95",
+        "cost"
+      ]
+    },
+    {
+      "id": "ALINA-KNOW-0017",
+      "project": "ALINA",
+      "state": "candidate",
+      "title": "Entity extraction pipeline",
+      "hypothesis": "NER + LLM verifier reduces missed entities and duplicate graph nodes.",
+      "a": "LLM extraction",
+      "b": "NER + LLM verifier",
+      "metrics": [
+        "precision",
+        "recall",
+        "duplicates",
+        "cost"
+      ]
+    },
+    {
+      "id": "OSINT-MODEL-0008",
+      "project": "OSINT",
+      "state": "running",
+      "title": "GPT emulator vs local Qwen",
+      "hypothesis": "Local Qwen reaches target quality with lower cost for collector tasks.",
+      "a": "GPT emulator",
+      "b": "Qwen local",
+      "metrics": [
+        "task success",
+        "evidence",
+        "latency",
+        "cost"
+      ]
+    },
+    {
+      "id": "OSINT-WF-0005",
+      "project": "OSINT",
+      "state": "pass",
+      "title": "Collector → Verifier split",
+      "hypothesis": "Dedicated verifier reduces unsupported claims.",
+      "a": "single OSINT agent",
+      "b": "collector + verifier",
+      "metrics": [
+        "factuality",
+        "unsupported claims",
+        "steps"
+      ]
+    },
+    {
+      "id": "FTH-ROUTER-0003",
+      "project": "FATHER",
+      "state": "candidate",
+      "title": "Model router policy",
+      "hypothesis": "Capability-aware routing beats fixed-model routing on balanced score.",
+      "a": "fixed GPT",
+      "b": "policy router",
+      "metrics": [
+        "quality",
+        "cost",
+        "latency",
+        "failover"
+      ]
+    }
+  ],
+  "qualityGates": [
+    {
+      "id": "Q1",
+      "title": "Dataset Gate",
+      "rule": "Dataset version fixed; same cases for all compared variants."
+    },
+    {
+      "id": "Q2",
+      "title": "Evaluator Gate",
+      "rule": "Scorer/judge version fixed and calibrated on human-gold sample."
+    },
+    {
+      "id": "Q3",
+      "title": "Regression Gate",
+      "rule": "Candidate must pass historical failures and protected capabilities."
+    },
+    {
+      "id": "Q4",
+      "title": "Safety Gate",
+      "rule": "No promotion when red-team or policy thresholds regress."
+    }
+  ],
+  "qualityLane": [
+    "Baseline",
+    "Hypothesis",
+    "A/B/N",
+    "Metrics",
+    "Human sample",
+    "Regression",
+    "Safety",
+    "Canary",
+    "Champion"
+  ],
+  "datasets": [
+    {
+      "id": "DS-GOLD",
+      "title": "Golden",
+      "cases": 420,
+      "purpose": "Human-verified reference cases."
+    },
+    {
+      "id": "DS-REG",
+      "title": "Regression",
+      "cases": 780,
+      "purpose": "Previously fixed failures and protected behavior."
+    },
+    {
+      "id": "DS-ADV",
+      "title": "Adversarial",
+      "cases": 260,
+      "purpose": "Attacks, malformed inputs and hostile contexts."
+    },
+    {
+      "id": "DS-PROD",
+      "title": "Production Failures",
+      "cases": 118,
+      "purpose": "Real failures promoted into future tests."
+    }
+  ],
+  "champions": [
+    {
+      "profile": "QUALITY",
+      "winner": "GPT + RAG-HYBRID",
+      "reason": "Максимум accuracy/evidence для сложного анализа."
+    },
+    {
+      "profile": "BALANCED",
+      "winner": "Router profile B",
+      "reason": "Баланс качества, latency и стоимости."
+    },
+    {
+      "profile": "FAST",
+      "winner": "Small/local route",
+      "reason": "Минимальная задержка при прохождении quality floor."
+    },
+    {
+      "profile": "LOCAL",
+      "winner": "Qwen local stack",
+      "reason": "Автономная работа без внешнего inference."
+    },
+    {
+      "profile": "SECURE",
+      "winner": "Isolated local profile",
+      "reason": "Строгий data boundary + approved tools only."
+    }
+  ]
+}
