@@ -306,3 +306,40 @@ Automation:
 - `site/document-center.html` — рабочий UI реестра документов.
 
 Правило: release сайта BLOCKED, если обязательный документ отсутствует, не имеет owner/approver/gate, содержит unresolved placeholders или не связан с требуемым evidence.
+
+
+## FATHER Agent Kits & Shared Knowledge
+
+Новый профессиональный агент создаётся только как Agent Kit:
+
+```text
+FATHER Base Agent Kit
++ K0 Common Knowledge Core (shared_reference)
++ K1 Specialist Knowledge Pack(s)
++ optional K2 Project Context
++ Skills
++ Tools
++ Instruction/Prompt Policy
++ Memory Scope
++ Workflow
++ Security Profile
++ Evaluation Profile
++ Environment Profile
++ Agent Dossier
+```
+
+Source of truth:
+- `factory/data/agent-kit-registry.json`;
+- `factory/data/knowledge-registry-v2.json`;
+- `agents/base/father-agent-base/manifest.json`;
+- `agents/kits/*/manifest.json`;
+- `docs/FATHER_AGENT_KIT_STANDARD.md`;
+- `docs/FATHER_SHARED_KNOWLEDGE_REUSE_MATRIX.md`.
+
+Automation:
+- `tools/scaffold_agent_kit.py` — создаёт новый kit с K0 shared reference и выбранными K1;
+- `tools/validate_agent_kits.py` — проверяет kit ↔ knowledge profile ↔ K0/K1 ↔ curriculum ↔ dossier;
+- `.github/workflows/father-agent-kits.yml` — CI gate;
+- `factory/agent-kits.html` — визуальный Agent Kit Center.
+
+Правило: общая K0 физически не копируется в агента. Изменение K0 требует impact/regression по всем зависимым kits.
