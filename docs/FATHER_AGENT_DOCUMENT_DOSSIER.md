@@ -11,7 +11,7 @@ AGENT_DOSSIER
 ├── 00_GOVERNANCE      passport · ownership · version · changes · evidence index
 ├── 01_BUSINESS        intent · requirements · use cases · NFR · risks · traceability
 ├── 02_ARCHITECTURE    ADR · C4 · component · workflow · state · interfaces · failures
-├── 03_INTELLIGENCE    prompts · models · RAG · memory · knowledge · skills · training
+├── 03_INTELLIGENCE    K0 common core · K1 specialist KB · K2 project context · prompts · models · RAG · skills · memory · training
 ├── 04_SECURITY        threat model · IAM · tool permissions · data · guardrails · abuse
 ├── 05_DEVELOPMENT     complete validated Development Pack
 ├── 06_IMPLEMENTATION  code refs · build · schemas · migrations · config · tests · report
@@ -24,7 +24,7 @@ AGENT_DOSSIER
 
 ## 2. Agent Passport minimum fields
 
-agent_id, name, family, domain, owner, version, lifecycle status, execution mode, backend, role, goals, prohibited goals, inputs, outputs, knowledge packs, skill packs, memory scope, models, tools, permissions, workflows, channels, evaluation profile, security profile, supported environments, dependencies, compatibility, cost profile, known limitations, certificate/evidence links.
+agent_id, name, family, domain, owner, version, lifecycle status, execution mode, backend, role, goals, prohibited goals, inputs, outputs, common_core_id/version, specialist_pack_ids/versions, optional project_context_id, retrieval/conflict/provenance policies, skill packs, memory scope, models, tools, permissions, workflows, channels, evaluation profile, security profile, supported environments, dependencies, compatibility, cost profile, known limitations, certificate/evidence links.
 
 ## 3. Traceability
 
@@ -41,3 +41,7 @@ Document status: DRAFT → REVIEW → APPROVED → BASELINED → SUPERSEDED / DE
 ## 5. Completeness
 
 Сертификат запрещён, если обязательный раздел отсутствует или BLOCKED. Исключение только через явный N/A с rationale и approver; пустой placeholder не считается N/A.
+
+## 6. Knowledge inheritance
+
+Каждый профессиональный Agent Dossier обязан ссылаться на совместимую версию `FATHER Common Knowledge Core` и минимум один `Specialist Knowledge Pack`. Общая база не копируется внутрь специалиста, а наследуется через Knowledge Router. Полный стандарт: `FATHER_KNOWLEDGE_ARCHITECTURE.md`.
