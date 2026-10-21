@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FATHER Trace Center</title>
+<link rel="stylesheet" href="./styles.css">
+<style>
+.trace-list{display:grid;gap:12px}.trace{border:1px solid var(--line);border-radius:15px;background:var(--panel);padding:15px}.trace-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:12px}.evt{border:1px solid var(--line);border-radius:10px;padding:10px;background:#08131b}.evt b{font-size:10px}.evt small{display:block;color:var(--muted);margin-top:5px;word-break:break-word}.pass{color:var(--green)}.warn{color:var(--amber)}.fail{color:#ff6b6b}.start{color:var(--cyan)}.sample{border-color:var(--amber)}.run{border-color:color-mix(in srgb,var(--green) 35%,var(--line))}.privacy{padding:12px;border:1px solid var(--line);border-radius:12px;background:#071018;font-size:10px;color:var(--muted)}</style>
+</head>
+<body>
+<header class="top"><div class="brand">FATHER TRACE<small>Runtime Traceability · Evidence · Spans</small></div><nav class="nav"><a href="./index.html">Factory</a><a href="./agent-kits.html">Agent Kits</a><a href="./lab.html">LAB</a><a href="#runs">Runs</a><a href="../docs/FATHER_TRACE_STANDARD.md">Standard ↗</a></nav></header>
+<main>
+<section class="hero"><div class="eyebrow">End-to-end traceability</div><h1>От входа до ответа — <span>каждый шаг виден</span></h1><p>Trace Center показывает реальные runtime traces, если они экспортированы. Пока реальных запусков нет, отдельно показывается DESIGN SAMPLE — он никогда не маркируется как LIVE.</p><div class="kpis" id="stats"></div></section>
+<section class="section"><div class="privacy">Privacy default: содержимое текста/голоса не попадает в trace. Хранятся технические метаданные, длительности, provider/model, status и ошибки. Content capture разрешается только явно для LAB.</div></section>
+<section class="section" id="runs"><div class="eyebrow">Trace runs</div><h2>Последние маршруты</h2><div class="trace-list" id="runsList"></div></section>
+</main>
+<footer><span>FATHER Trace Center</span><span>CHANNEL → AGENT → TOOL/MODEL → OUTPUT → EVIDENCE</span></footer>
+<script src="./trace-center.js"></script>
+</body></html>
