@@ -76,6 +76,20 @@ def main():
                 ok = fail(f"{aid}: version mismatch for {pid}") and ok
             if common.get("id") not in pack.get("depends_on", []):
                 ok = fail(f"{pid}: missing dependency on K0") and ok
+            if pack.get("status") != "PLANNED":
+                curriculum_path = pack.get("curriculum_path")
+                if not curriculum_path:
+                    ok = fail(f"{pid}: active pack has no curriculum_path") and ok
+                else:
+                    cp = ROOT / curriculum_path
+                    if not cp.exists():
+                        ok = fail(f"{pid}: curriculum not found: {curriculum_path}") and ok
+                    else:
+                        c = json.loads(cp.read_text(encoding="utf-8"))
+                        if c.get("knowledge_pack_id") != pid or c.get("version") != pack.get("version"):
+                            ok = fail(f"{pid}: curriculum id/version mismatch") and ok
+                        if not c.get("graduation_gate"):
+                            ok = fail(f"{pid}: graduation_gate missing") and ok
             manifest_path = pack.get("manifest_path")
             if not manifest_path:
                 ok = fail(f"{pid}: manifest_path missing") and ok
