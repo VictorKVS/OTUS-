@@ -20,7 +20,8 @@
       "mode": "shared_reference"
     },
     "specialist_pack_ids": [
-      "KB-K1-DEVSECOPS"
+      "KB-K1-DEVSECOPS",
+      "KB-K1-OPS-SRE"
     ],
     "project_context_id": "KB-K2-FATHER"
   },
