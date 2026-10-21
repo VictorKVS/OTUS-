@@ -57,6 +57,12 @@
       "test": "entities/keys/relations/classification/migration"
     },
     {
+      "id": "knowledge_profile",
+      "file": "KNOWLEDGE_PROFILE.yaml",
+      "owner": "ALINA + Architect",
+      "test": "K0 common core version + K1 specialist pack(s) + optional K2 context + retrieval/provenance/conflict policies"
+    },
+    {
       "id": "security",
       "file": "SECURITY_CONSTRAINTS.md",
       "owner": "Security",
@@ -177,9 +183,19 @@
       "id": "P11",
       "name": "No unresolved placeholders",
       "blocking": true
+    },
+    {
+      "id": "P12",
+      "name": "Common Knowledge Core compatibility",
+      "blocking": true
+    },
+    {
+      "id": "P13",
+      "name": "Specialist Knowledge Pack present and versioned",
+      "blocking": true
     }
   ],
-  "handoff_rule": "All blocking checks PASS; critical_open_questions=0; analyst_signoff=approved; architect_signoff=approved",
+  "handoff_rule": "All blocking checks P0-P13 PASS; critical_open_questions=0; analyst_signoff=approved; architect_signoff=approved; common_core_compatible=true; specialist_pack_present=true",
   "programmer": {
     "role": "FATHER Programmer / FATHER CODEX",
     "agent_id": "FTH-AG-DEV-001",
