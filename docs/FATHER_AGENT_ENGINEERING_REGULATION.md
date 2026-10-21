@@ -50,7 +50,16 @@ Gate: G-S2-ARCHITECTURE.
 
 ### S3 — Knowledge & Skill Design
 Owner: ALINA + Domain Expert.
-Документы: KNOWLEDGE_SCOPE, SOURCE_POLICY, KNOWLEDGE_SCHEMA, KNOWLEDGE_GRAPH_SPEC, RAG_SPEC, CITATION_PROVENANCE_POLICY, SKILL_TREE, TRAINING_PROGRAM, LEVEL_MODEL, EXAM_PLAN, GOLDEN_DATASET, REGRESSION_DATASET.
+
+Обязательная модель знаний:
+- K0 FATHER Common Knowledge Core — единый фундамент для всех агентов;
+- K1 Specialist Knowledge Pack — профессиональная база специалиста;
+- K2 Project/Organization Context — опциональный scoped overlay;
+- Skills / Memory / Experience — отдельные системы, не смешиваются с Knowledge.
+
+Документы: KNOWLEDGE_PROFILE, COMMON_CORE_REFERENCE, SPECIALIST_PACK_REFERENCE, KNOWLEDGE_SCOPE, SOURCE_POLICY, KNOWLEDGE_SCHEMA, KNOWLEDGE_GRAPH_SPEC, RAG_SPEC, CITATION_PROVENANCE_POLICY, SKILL_TREE, TRAINING_PROGRAM, LEVEL_MODEL, EXAM_PLAN, GOLDEN_DATASET, REGRESSION_DATASET.
+
+Полный стандарт: FATHER_KNOWLEDGE_ARCHITECTURE.md.
 Gate: G-S3-KNOWLEDGE.
 
 ### S4 — Quality / Security / Operations Design
