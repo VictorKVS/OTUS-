@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FATHER Combat Template C00–C99</title>
+<link rel="stylesheet" href="./styles.css">
+<style>
+.band{margin-top:24px}.stage-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.stage{border:1px solid var(--line);border-radius:12px;padding:11px;background:var(--panel)}.stage b{font:10px Consolas;color:var(--cyan)}.stage h3{font-size:11px;margin:6px 0}.stage small{color:var(--muted)}.legacy{border-color:color-mix(in srgb,var(--green) 35%,var(--line))}.v2{border-color:color-mix(in srgb,var(--amber) 28%,var(--line))}.contract{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.contract span{padding:9px;border:1px solid var(--line);border-radius:9px;font:9px Consolas;text-align:center;background:#08131b}@media(max-width:1000px){.stage-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:650px){.stage-grid,.contract{grid-template-columns:1fr 1fr}}</style>
+</head>
+<body>
+<header class="top"><div class="brand">FATHER COMBAT TEMPLATE<small>C00–C99 · Project Dossier / Battle Rhythm</small></div><nav class="nav"><a href="./index.html">Factory</a><a href="#legacy">Legacy 00–20</a><a href="#full">C00–C99</a><a href="../docs/FATHER_PROJECT_BOOTSTRAP_ACTION.md">Bootstrap ↗</a><a href="../docs/FATHER_COMBAT_DOSSIER_C00_C99_V2.md">Standard ↗</a></nav></header>
+<main>
+<section class="hero"><div class="eyebrow">Military-style project index</div><h1>Один проект — <span>один боевой порядок</span></h1><p>Каждый код Cxx имеет постоянное назначение и один контракт. Любой новый проект FATHER читается одинаково: от Intake до Archive/AAR.</p><div class="kpis"><span class="kpi">100 stages</span><span class="kpi">C00–C20 RECOVERED</span><span class="kpi">C21–C99 FATHER v2</span><span class="kpi">NO EVIDENCE → NO PROMOTION</span></div></section>
+<section class="section"><div class="eyebrow">Universal contract</div><h2>Контракт каждого Cxx</h2><div class="contract" id="contract"></div></section>
+<section class="section" id="legacy"><div class="eyebrow">Recovered legacy core</div><h2>C00–C20</h2><div class="stage-grid" id="legacyGrid"></div></section>
+<section class="section" id="full"><div class="eyebrow">FATHER v2 extension</div><h2>C21–C99</h2><div id="bands"></div></section>
+</main>
+<footer><span>FATHER Combat Template</span><span>C00 → … → C99</span></footer>
+<script src="./combat-template.js"></script>
+</body></html>
