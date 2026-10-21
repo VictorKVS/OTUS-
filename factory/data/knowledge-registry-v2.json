@@ -1,0 +1,340 @@
+{
+  "schema_version": "father-knowledge-registry.v2",
+  "status": "DESIGN_IMPLEMENTATION",
+  "common_core": {
+    "id": "KB-K0-FATHER-COMMON",
+    "name": "FATHER Common Knowledge Core",
+    "version": "0.1.0",
+    "status": "BASELINED-DESIGN",
+    "scope": "all_agents",
+    "modules": [
+      {
+        "id": "K0-DOC",
+        "name": "Documents & Sources",
+        "topics": [
+          "source registry",
+          "document structure",
+          "versioning",
+          "provenance",
+          "citations"
+        ]
+      },
+      {
+        "id": "K0-ANA",
+        "name": "Analytical Foundations",
+        "topics": [
+          "facts",
+          "claims",
+          "entities",
+          "relations",
+          "events",
+          "contradictions",
+          "hypotheses",
+          "confidence"
+        ]
+      },
+      {
+        "id": "K0-REQ",
+        "name": "Requirements & Traceability",
+        "topics": [
+          "BUS/FR/NFR",
+          "acceptance",
+          "risk",
+          "ADR links",
+          "traceability"
+        ]
+      },
+      {
+        "id": "K0-AI",
+        "name": "AI Engineering Basics",
+        "topics": [
+          "LLM",
+          "RAG",
+          "agents",
+          "tools",
+          "workflows",
+          "evaluation",
+          "model routing"
+        ]
+      },
+      {
+        "id": "K0-SAFE",
+        "name": "Safety & Evidence",
+        "topics": [
+          "grounding",
+          "anti-hallucination",
+          "uncertainty",
+          "abstention",
+          "permissions",
+          "audit"
+        ]
+      },
+      {
+        "id": "K0-FTH",
+        "name": "FATHER Standards",
+        "topics": [
+          "agent lifecycle",
+          "document dossier",
+          "development pack",
+          "LAB",
+          "DevOps gates",
+          "certification"
+        ]
+      }
+    ],
+    "mutation_policy": "change_request + LAB regression + staged rollout",
+    "retrieval_policy": "evidence_first_hybrid",
+    "citation_policy": "provenance_required",
+    "conflict_policy": "surface_conflict_do_not_silently_overwrite"
+  },
+  "specialist_packs": [
+    {
+      "id": "KB-K1-ALINA-ANALYTICS",
+      "family": "ALINA",
+      "name": "Analytical Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "source analysis",
+        "document analysis",
+        "fact extraction",
+        "entity relation extraction",
+        "evidence",
+        "contradictions",
+        "hypotheses",
+        "causal analysis",
+        "report synthesis"
+      ],
+      "skill_tree": "ALINA_ANALYTICAL_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON"
+      ]
+    },
+    {
+      "id": "KB-K1-OSINT",
+      "family": "OSINT",
+      "name": "OSINT Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "internet architecture",
+        "DNS",
+        "WHOIS/RDAP",
+        "IP/ASN/BGP",
+        "TLS",
+        "web",
+        "search",
+        "social",
+        "Telegram",
+        "GeoINT",
+        "image metadata",
+        "archives",
+        "Git intelligence",
+        "threat intelligence"
+      ],
+      "skill_tree": "OSINT_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON",
+        "KB-K1-ALINA-ANALYTICS"
+      ]
+    },
+    {
+      "id": "KB-K1-ARCHITECT",
+      "family": "FATHER_ARCHITECT",
+      "name": "Architecture Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "requirements to architecture",
+        "C4",
+        "LLD",
+        "ADR",
+        "trade-offs",
+        "integration",
+        "data",
+        "NFR",
+        "reliability",
+        "security architecture",
+        "FinOps"
+      ],
+      "skill_tree": "ARCHITECT_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON"
+      ]
+    },
+    {
+      "id": "KB-K1-PROGRAMMER",
+      "family": "FATHER_CODEX",
+      "name": "Software Engineering Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "implementation planning",
+        "Python",
+        "API contracts",
+        "schemas",
+        "testing",
+        "CI",
+        "containers",
+        "telemetry",
+        "secure coding",
+        "traceability in code"
+      ],
+      "skill_tree": "PROGRAMMER_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON"
+      ]
+    },
+    {
+      "id": "KB-K1-IB",
+      "family": "IB",
+      "name": "Information Security Specialist Pack",
+      "version": "0.1.0",
+      "status": "PLANNED",
+      "topics": [
+        "security engineering",
+        "risk",
+        "regulatory",
+        "threat modeling",
+        "controls",
+        "monitoring",
+        "incident response"
+      ],
+      "skill_tree": "IB_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON"
+      ]
+    },
+    {
+      "id": "KB-K1-DEVSECOPS",
+      "family": "DEVSECOPS",
+      "name": "DevSecOps Specialist Pack",
+      "version": "0.1.0",
+      "status": "PLANNED",
+      "topics": [
+        "CI/CD",
+        "GitOps",
+        "containers",
+        "Kubernetes",
+        "SAST",
+        "SCA",
+        "secrets",
+        "IaC",
+        "policy as code",
+        "supply chain"
+      ],
+      "skill_tree": "DEVSECOPS_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON"
+      ]
+    }
+  ],
+  "project_contexts": [
+    {
+      "id": "KB-K2-FATHER",
+      "name": "FATHER Platform Context",
+      "status": "ACTIVE",
+      "scope": "project",
+      "access_policy": "father_team"
+    },
+    {
+      "id": "KB-K2-OSINT",
+      "name": "OSINT Project Context",
+      "status": "ACTIVE",
+      "scope": "project",
+      "access_policy": "osint_project"
+    },
+    {
+      "id": "KB-K2-ALINA",
+      "name": "ALINA Project Context",
+      "status": "ACTIVE",
+      "scope": "project",
+      "access_policy": "alina_project"
+    }
+  ],
+  "agent_profiles": [
+    {
+      "agent_id": "FTH-AG-ANL-001",
+      "name": "ALINA Analyst",
+      "family": "ALINA",
+      "common_core_id": "KB-K0-FATHER-COMMON",
+      "common_core_version": "0.1.0",
+      "specialist_pack_ids": [
+        "KB-K1-ALINA-ANALYTICS"
+      ],
+      "specialist_pack_versions": [
+        "0.1.0"
+      ],
+      "project_context_id": "KB-K2-ALINA",
+      "retrieval_policy": "K0+K1+K2 evidence-first",
+      "access_policy": "role_and_project_scoped",
+      "citation_provenance_policy": "required",
+      "freshness_policy": "source_type_aware",
+      "conflict_policy": "surface_and_escalate"
+    },
+    {
+      "agent_id": "FTH-AG-OSINT-001",
+      "name": "OSINT Lead",
+      "family": "OSINT",
+      "common_core_id": "KB-K0-FATHER-COMMON",
+      "common_core_version": "0.1.0",
+      "specialist_pack_ids": [
+        "KB-K1-ALINA-ANALYTICS",
+        "KB-K1-OSINT"
+      ],
+      "specialist_pack_versions": [
+        "0.1.0",
+        "0.1.0"
+      ],
+      "project_context_id": "KB-K2-OSINT",
+      "retrieval_policy": "K0+analytics+OSINT+K2 evidence-first",
+      "access_policy": "role_and_project_scoped",
+      "citation_provenance_policy": "required",
+      "freshness_policy": "internet_and_source_type_aware",
+      "conflict_policy": "surface_and_verify"
+    },
+    {
+      "agent_id": "FTH-AG-ARC-001",
+      "name": "FATHER Architect",
+      "family": "FATHER_ARCHITECT",
+      "common_core_id": "KB-K0-FATHER-COMMON",
+      "common_core_version": "0.1.0",
+      "specialist_pack_ids": [
+        "KB-K1-ARCHITECT"
+      ],
+      "specialist_pack_versions": [
+        "0.1.0"
+      ],
+      "project_context_id": "KB-K2-FATHER",
+      "retrieval_policy": "K0+architecture+project",
+      "access_policy": "father_team",
+      "citation_provenance_policy": "required",
+      "freshness_policy": "architecture_version_aware",
+      "conflict_policy": "ADR_or_escalate"
+    },
+    {
+      "agent_id": "FTH-AG-DEV-001",
+      "name": "FATHER Programmer / CODEX",
+      "family": "FATHER_CODEX",
+      "common_core_id": "KB-K0-FATHER-COMMON",
+      "common_core_version": "0.1.0",
+      "specialist_pack_ids": [
+        "KB-K1-PROGRAMMER"
+      ],
+      "specialist_pack_versions": [
+        "0.1.0"
+      ],
+      "project_context_id": "KB-K2-FATHER",
+      "retrieval_policy": "K0+software_engineering+validated_dev_pack",
+      "access_policy": "implementation_scope_only",
+      "citation_provenance_policy": "REQ_AC_ADR_trace_required",
+      "freshness_policy": "repo_commit_and_contract_version_aware",
+      "conflict_policy": "return_structured_finding"
+    }
+  ],
+  "separate_systems": {
+    "skills": "capability/competency state; not stored as factual KB",
+    "memory": "case/session/project history; scoped and mutable",
+    "experience": "reviewed lessons from completed work; promotes into KB only through change control"
+  }
+}
