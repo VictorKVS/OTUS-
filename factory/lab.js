@@ -1,11 +1,17 @@
 const q=s=>document.querySelector(s);
-const state={data:null,filter:'all'};
+const state={data:null,gates:null,filter:'all'};
 function badge(text){return '<span class="tag">'+text+'</span>';}
 async function load(){
- const r=await fetch('./data/lab-registry.json',{cache:'no-store'});
- if(!r.ok) throw new Error('HTTP '+r.status);
+ const [r,g]=await Promise.all([
+  fetch('./data/lab-registry.json',{cache:'no-store'}),
+  fetch('./data/verification-gates.json',{cache:'no-store'})
+ ]);
+ if(!r.ok) throw new Error('LAB registry HTTP '+r.status);
+ if(!g.ok) throw new Error('Verification gates HTTP '+g.status);
  state.data=await r.json();
+ state.gates=await g.json();
  render();
+ renderVerification();
 }
 function render(){
  const d=state.data;
@@ -32,3 +38,11 @@ function renderExperiments(){
 }
 q('#projectFilter').addEventListener('change',e=>{state.filter=e.target.value;renderExperiments();});
 load().catch(e=>document.body.insertAdjacentHTML('beforeend','<pre>LAB DATA ERROR: '+e.message+'</pre>'));
+
+function renderVerification(){
+ const g=state.gates;
+ q('#verificationGateGrid').innerHTML=g.gates.map(x=>
+  '<article class="quality-card"><div class="meta">'+x.id+' · '+x.domain+'</div><h3>'+x.check.replaceAll('_',' ')+'</h3><p>mandatory: <b>'+x.mandatory+'</b> · failure → <b>'+x.failure+'</b></p></article>'
+ ).join('');
+ q('#promotionStates').innerHTML=g.promotion_states.map(x=>'<code>'+x+'</code>').join('');
+}
