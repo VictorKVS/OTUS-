@@ -1,0 +1,34 @@
+name: FATHER Agent Kits
+
+on:
+  push:
+    paths:
+      - 'agents/**'
+      - 'knowledge/**'
+      - 'factory/data/agent-kit-registry.json'
+      - 'factory/data/knowledge-registry-v2.json'
+      - 'factory/data/knowledge-architecture.json'
+      - 'tools/validate_agent_kits.py'
+      - 'tools/scaffold_agent_kit.py'
+      - '.github/workflows/father-agent-kits.yml'
+  pull_request:
+    paths:
+      - 'agents/**'
+      - 'knowledge/**'
+      - 'factory/data/agent-kit-registry.json'
+      - 'factory/data/knowledge-registry-v2.json'
+      - 'tools/validate_agent_kits.py'
+  workflow_dispatch:
+
+jobs:
+  validate-agent-kits:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate knowledge profiles
+        run: python tools/validate_knowledge_profiles.py
+      - name: Validate agent kits
+        run: python tools/validate_agent_kits.py
