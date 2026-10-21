@@ -370,6 +370,36 @@
       ],
       "manifest_path": "knowledge/specialists/communication-bridge/manifest.json",
       "curriculum_path": "knowledge/specialists/communication-bridge/curriculum.json"
+    },
+    {
+      "id": "KB-K1-PENTEST",
+      "family": "PENTEST",
+      "name": "Authorized Pentest Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "rules of engagement",
+        "scope control",
+        "asset inventory",
+        "attack surface analysis",
+        "vulnerability assessment",
+        "web/API testing methodology",
+        "network/service testing methodology",
+        "identity/directory testing methodology",
+        "cloud/container testing methodology",
+        "evidence handling",
+        "severity and risk",
+        "reporting and remediation verification",
+        "safe lab operations"
+      ],
+      "skill_tree": "PENTEST_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON",
+        "KB-K1-IB",
+        "KB-K1-DEVSECOPS"
+      ],
+      "manifest_path": "knowledge/specialists/pentest/manifest.json",
+      "curriculum_path": "knowledge/specialists/pentest/curriculum.json"
     }
   ],
   "project_contexts": [
@@ -393,6 +423,13 @@
       "status": "ACTIVE",
       "scope": "project",
       "access_policy": "alina_project"
+    },
+    {
+      "id": "KB-K2-CYBERED-PT",
+      "name": "CyberED Pentest Training Context",
+      "status": "DESIGN",
+      "scope": "authorized_lab_project",
+      "access_policy": "cybered_pentest_lab_only"
     }
   ],
   "agent_profiles": [
