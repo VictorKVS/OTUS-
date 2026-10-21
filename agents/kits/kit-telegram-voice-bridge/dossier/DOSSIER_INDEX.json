@@ -1,0 +1,48 @@
+{
+  "schema_version": "father-agent-dossier.v1",
+  "agent_id": "FTH-AG-VBR-001",
+  "kit_id": "KIT-TELEGRAM-VOICE-BRIDGE",
+  "version": "0.1.0",
+  "status": "DESIGN_IMPLEMENTED_TEST_PENDING",
+  "documents": [
+    {
+      "path": "agents/kits/kit-telegram-voice-bridge/dossier/AGENT_PASSPORT.md",
+      "status": "BASELINED-DESIGN"
+    },
+    {
+      "path": "agents/kits/kit-telegram-voice-bridge/dossier/REQUIREMENTS.md",
+      "status": "BASELINED-DESIGN"
+    },
+    {
+      "path": "agents/kits/kit-telegram-voice-bridge/dossier/ARCHITECTURE.md",
+      "status": "BASELINED-DESIGN"
+    },
+    {
+      "path": "agents/kits/kit-telegram-voice-bridge/dossier/SECURITY.md",
+      "status": "BASELINED-DESIGN"
+    },
+    {
+      "path": "agents/kits/kit-telegram-voice-bridge/dossier/TEST_PLAN.md",
+      "status": "BASELINED-DESIGN"
+    },
+    {
+      "path": "agents/kits/kit-telegram-voice-bridge/dossier/LAB_PLAN.md",
+      "status": "BASELINED-DESIGN"
+    },
+    {
+      "path": "agents/kits/kit-telegram-voice-bridge/dossier/TRACEABILITY_MATRIX.md",
+      "status": "BASELINED-DESIGN"
+    },
+    {
+      "path": "agents/kits/kit-telegram-voice-bridge/dossier/RUNBOOK.md",
+      "status": "BASELINED-DESIGN"
+    }
+  ],
+  "implementation": [
+    "agents/runtime/telegram-voice-bridge/main.py",
+    "agents/runtime/telegram-voice-bridge/providers.py",
+    "agents/runtime/telegram-voice-bridge/tracing.py",
+    "agents/runtime/telegram-voice-bridge/trace.schema.json"
+  ],
+  "evidence_status": "PENDING_REAL_TELEGRAM_RUN"
+}
