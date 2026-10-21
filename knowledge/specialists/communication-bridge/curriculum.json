@@ -1,0 +1,80 @@
+{
+  "schema_version": "father-specialist-curriculum.v1",
+  "knowledge_pack_id": "KB-K1-COMMUNICATION-BRIDGE",
+  "version": "0.1.0",
+  "prerequisite": "G-K0-GRADUATION",
+  "modules": [
+    {
+      "id": "CB-M01",
+      "name": "Telegram Message Contract",
+      "skills": [
+        "text message",
+        "voice message",
+        "file_id",
+        "chat/message identity"
+      ]
+    },
+    {
+      "id": "CB-M02",
+      "name": "Routing",
+      "skills": [
+        "detect text",
+        "detect voice",
+        "unsupported input",
+        "error response"
+      ]
+    },
+    {
+      "id": "CB-M03",
+      "name": "Text to Speech",
+      "skills": [
+        "text normalization",
+        "TTS provider",
+        "voice artifact",
+        "Telegram reply"
+      ]
+    },
+    {
+      "id": "CB-M04",
+      "name": "Speech to Text",
+      "skills": [
+        "download",
+        "STT provider",
+        "language detection",
+        "text reply"
+      ]
+    },
+    {
+      "id": "CB-M05",
+      "name": "Tracing & Privacy",
+      "skills": [
+        "trace_id",
+        "span",
+        "duration",
+        "metadata minimization",
+        "content redaction"
+      ]
+    },
+    {
+      "id": "CB-M06",
+      "name": "Failure Handling",
+      "skills": [
+        "provider timeout",
+        "Telegram error",
+        "empty transcription",
+        "cleanup"
+      ]
+    }
+  ],
+  "graduation_gate": {
+    "id": "G-K1-COMMUNICATION-BRIDGE-GRADUATION",
+    "rules": [
+      "K0_pass",
+      "text_to_voice_case_pass",
+      "voice_to_text_case_pass",
+      "trace_complete",
+      "content_not_logged_by_default",
+      "failure_case_pass"
+    ]
+  }
+}
