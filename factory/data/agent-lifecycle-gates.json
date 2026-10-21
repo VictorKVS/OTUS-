@@ -1,0 +1,183 @@
+{
+  "schema_version": "father-agent-lifecycle.v1",
+  "global_rule": "paper_design_before_implementation",
+  "stages": [
+    {
+      "id": "S0",
+      "name": "Intake",
+      "owner": "Requester + ALINA",
+      "gate": "G-S0-INTAKE",
+      "required": [
+        "PROJECT_PASSPORT",
+        "AGENT_INTENT",
+        "SCOPE",
+        "SUCCESS_CRITERIA"
+      ]
+    },
+    {
+      "id": "S1",
+      "name": "Analysis",
+      "owner": "ALINA Analyst",
+      "gate": "G-S1-ANALYSIS",
+      "required": [
+        "REQUIREMENTS",
+        "NFR",
+        "USE_CASES",
+        "RISK_REGISTER",
+        "TRACEABILITY_MATRIX"
+      ]
+    },
+    {
+      "id": "S2",
+      "name": "Architecture",
+      "owner": "FATHER Architect",
+      "gate": "G-S2-ARCHITECTURE",
+      "required": [
+        "AGENT_PASSPORT",
+        "AGENT_SPEC",
+        "CAPABILITY_MAP",
+        "WORKFLOW_GRAPH",
+        "STATE_MODEL",
+        "ADR"
+      ]
+    },
+    {
+      "id": "S3",
+      "name": "Knowledge & Skills",
+      "owner": "ALINA + Domain Expert",
+      "gate": "G-S3-KNOWLEDGE",
+      "required": [
+        "KNOWLEDGE_SPEC",
+        "RAG_SPEC",
+        "SKILL_TREE",
+        "TRAINING_PROGRAM",
+        "GOLDEN_DATASET"
+      ]
+    },
+    {
+      "id": "S4",
+      "name": "Cross-cutting",
+      "owner": "Security + QA + SRE + Architect",
+      "gate": "G-S4-CROSSCUTTING",
+      "required": [
+        "THREAT_MODEL",
+        "QUALITY_GATES",
+        "EVALUATION_PLAN",
+        "OBSERVABILITY_CONTRACT",
+        "ROLLBACK_REQUIREMENTS"
+      ]
+    },
+    {
+      "id": "S5",
+      "name": "Development Pack",
+      "owner": "Analyst + Architect",
+      "gate": "G-S5-DEV-PACK",
+      "required": [
+        "DEV_PACK_MANIFEST",
+        "PRE_DEV_VALIDATION_REPORT"
+      ]
+    },
+    {
+      "id": "S6",
+      "name": "Implementation",
+      "owner": "FATHER Programmer / FATHER CODEX",
+      "agent_id": "FTH-AG-DEV-001",
+      "gate": "G-S6-IMPLEMENTATION",
+      "required": [
+        "CODE",
+        "TESTS",
+        "CONFIG",
+        "TELEMETRY_HOOKS",
+        "PR",
+        "IMPLEMENTATION_REPORT"
+      ]
+    },
+    {
+      "id": "S7",
+      "name": "Technical Verification",
+      "owner": "CI + QA + Security",
+      "gate": "G-S7-TECH",
+      "required": [
+        "BUILD_EVIDENCE",
+        "TEST_EVIDENCE",
+        "SECURITY_EVIDENCE",
+        "TRACEABILITY_EVIDENCE"
+      ]
+    },
+    {
+      "id": "S8",
+      "name": "FATHER LAB",
+      "owner": "Lab + AI Quality",
+      "gate": "G-S8-LAB",
+      "required": [
+        "EXPERIMENT_MANIFEST",
+        "RUN_MANIFESTS",
+        "METRIC_REPORT",
+        "REGRESSION_REPORT",
+        "SAFETY_REPORT",
+        "CHAMPION_DECISION"
+      ]
+    },
+    {
+      "id": "S9",
+      "name": "DevOps Environment",
+      "owner": "DevOps/SRE",
+      "gate": "G-S9-ENV",
+      "required": [
+        "ENVIRONMENT_PROFILE",
+        "DEPLOYMENT_MANIFEST",
+        "OBSERVABILITY_EVIDENCE",
+        "ROLLBACK_EVIDENCE"
+      ]
+    },
+    {
+      "id": "S10",
+      "name": "Acceptance",
+      "owner": "Analyst + Architect + Security + Quality + SRE",
+      "gate": "G-S10-ACCEPTANCE",
+      "required": [
+        "ANALYST_ACCEPTANCE",
+        "ARCHITECT_ACCEPTANCE",
+        "SECURITY_ACCEPTANCE",
+        "QUALITY_ACCEPTANCE",
+        "OPERATIONS_ACCEPTANCE"
+      ]
+    },
+    {
+      "id": "S11",
+      "name": "Certification & Zoo",
+      "owner": "Governance",
+      "gate": "G-S11-CERTIFY",
+      "required": [
+        "AGENT_CERTIFICATE",
+        "COMPATIBILITY_MATRIX",
+        "RELEASE_MANIFEST",
+        "ZOO_RECORD"
+      ]
+    },
+    {
+      "id": "S12",
+      "name": "Operations & Experience",
+      "owner": "SRE + Product + ALINA",
+      "gate": "G-S12-FEEDBACK",
+      "required": [
+        "RUNBOOK",
+        "PRODUCTION_METRICS",
+        "EXPERIENCE_RECORDS",
+        "CHANGE_REQUESTS"
+      ]
+    }
+  ],
+  "statuses": [
+    "IDEA",
+    "DESIGN",
+    "PROTOTYPE",
+    "EXPERIMENTAL",
+    "CANDIDATE",
+    "VALIDATED",
+    "CERTIFIED",
+    "PRODUCTION",
+    "DEPRECATED"
+  ],
+  "rule": "A later stage cannot compensate for a missing earlier mandatory gate."
+}
