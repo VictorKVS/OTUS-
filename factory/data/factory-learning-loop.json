@@ -1,0 +1,108 @@
+{
+  "schema_version": "father-factory-learning-loop.v1",
+  "rule": "automation_is_earned_by_manual_evidence",
+  "states": [
+    {
+      "id": "M0",
+      "name": "METHOD_DESIGN",
+      "automation": "none_or_scaffold",
+      "promotion_requires": [
+        "lifecycle_defined",
+        "gates_defined",
+        "evidence_model_defined"
+      ]
+    },
+    {
+      "id": "M1",
+      "name": "MANUAL_GOLDEN_REFERENCE",
+      "automation": "mechanical_only",
+      "promotion_requires": [
+        "complete_manual_dossier",
+        "end_to_end_run",
+        "all_applicable_gates_recorded",
+        "failure_log",
+        "evidence_pack"
+      ]
+    },
+    {
+      "id": "M2",
+      "name": "REPEATED_HARDENED_REFERENCE",
+      "automation": "partial",
+      "promotion_requires": [
+        "repeat_build",
+        "reproducible_process",
+        "regression_suite",
+        "document_process_stable",
+        "human_memory_not_required"
+      ]
+    },
+    {
+      "id": "M3",
+      "name": "COMPONENTIZATION_SPARE_PARTS",
+      "automation": "component_generation_allowed",
+      "promotion_requires": [
+        "invariants_identified",
+        "project_specific_delta_separated",
+        "block_contracts",
+        "tests",
+        "compatibility",
+        "library_candidates"
+      ]
+    },
+    {
+      "id": "M4",
+      "name": "ASSISTED_FACTORY",
+      "automation": "father_executes_human_approves",
+      "promotion_requires": [
+        "template_driven_build",
+        "reuse_adapt_new_selection",
+        "automated_validators",
+        "lab_run",
+        "evidence_pack"
+      ]
+    },
+    {
+      "id": "M5",
+      "name": "AUTONOMOUS_REPLICATION",
+      "automation": "end_to_end_same_class",
+      "promotion_requires": [
+        "new_same_class_task_completed",
+        "critical_gates_pass",
+        "unknowns_escalated_not_invented",
+        "repeatable_result"
+      ]
+    },
+    {
+      "id": "M6",
+      "name": "AUTONOMOUS_PRODUCT_FAMILY",
+      "automation": "configuration_driven_family",
+      "promotion_requires": [
+        "multiple_variants",
+        "shared_chassis",
+        "certified_blocks",
+        "profile_selection",
+        "cross_variant_regression"
+      ]
+    },
+    {
+      "id": "M7",
+      "name": "COMPLEXITY_RATCHET",
+      "automation": "reset_for_new_complexity",
+      "promotion_requires": [
+        "new_complexity_dimension_defined",
+        "new_M1_started"
+      ]
+    }
+  ],
+  "transition_rule": "A new material complexity dimension resets that product class to M1 until re-proven.",
+  "component_rule": "Project implementation becomes reusable block only after stable contract, tests, evidence, and separated configuration.",
+  "unknown_rule": "If no certified pattern/block exists, return NEW_BLOCK_REQUIRED or HUMAN_ENGINEERING_REQUIRED.",
+  "current_pilots": [
+    {
+      "project": "FATHER_VOICE_BRIDGE",
+      "state": "M1",
+      "evidence_status": "PENDING_REAL_END_TO_END_RUN",
+      "purpose": "first manually controlled reference product"
+    }
+  ]
+}
