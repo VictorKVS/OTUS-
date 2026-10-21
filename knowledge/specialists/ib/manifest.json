@@ -1,0 +1,22 @@
+{
+  "id": "KB-K1-IB",
+  "name": "Information Security Specialist Pack",
+  "version": "0.1.0",
+  "status": "PLANNED",
+  "layer": "K1",
+  "family": "IB",
+  "depends_on": [
+    "KB-K0-FATHER-COMMON"
+  ],
+  "topics": [
+    "security engineering",
+    "risk",
+    "regulatory",
+    "threat modeling",
+    "controls",
+    "monitoring",
+    "incident response"
+  ],
+  "skill_tree": "IB_SKILLS",
+  "provenance_required": true
+}
