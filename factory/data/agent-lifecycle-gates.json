@@ -47,12 +47,23 @@
       "owner": "ALINA + Domain Expert",
       "gate": "G-S3-KNOWLEDGE",
       "required": [
+        "KNOWLEDGE_PROFILE",
+        "COMMON_CORE_REFERENCE",
+        "SPECIALIST_PACK_REFERENCE",
         "KNOWLEDGE_SPEC",
         "RAG_SPEC",
         "SKILL_TREE",
         "TRAINING_PROGRAM",
         "GOLDEN_DATASET"
-      ]
+      ],
+      "knowledge_gate": {
+        "common_core_required": true,
+        "specialist_pack_required": true,
+        "project_context_optional": true,
+        "memory_is_separate": true,
+        "experience_is_separate": true,
+        "contract": "../../factory/data/knowledge-architecture.json"
+      }
     },
     {
       "id": "S4",
