@@ -1,0 +1,77 @@
+{
+  "schema_version": "father-agent-kit.v1",
+  "kit_id": "KIT-SECURITY-ENGINEER",
+  "version": "0.1.0",
+  "status": "DESIGN",
+  "agent": {
+    "id": "FTH-AG-SEC-001",
+    "name": "FATHER Security / DevSecOps Engineer",
+    "family": "SECURITY",
+    "role": "security architecture, threat modeling and security gates",
+    "execution_mode": "GPT_EMULATED",
+    "backend": "shared_llm_emulator"
+  },
+  "inheritance": {
+    "base_kit_id": "FATHER-BASE-AGENT-KIT",
+    "base_kit_version": "0.1.0",
+    "common_core": {
+      "id": "KB-K0-FATHER-COMMON",
+      "version": "0.1.0",
+      "mode": "shared_reference"
+    },
+    "specialist_pack_ids": [
+      "KB-K1-IB",
+      "KB-K1-DEVSECOPS"
+    ],
+    "project_context_id": "KB-K2-FATHER"
+  },
+  "skills": [
+    "threat_model",
+    "IAM",
+    "secrets",
+    "SAST",
+    "SCA",
+    "IaC",
+    "container_security",
+    "policy",
+    "security_acceptance"
+  ],
+  "tools": [
+    "security_scanners",
+    "manifest_auditor",
+    "SBOM",
+    "policy_checker",
+    "trace_reader"
+  ],
+  "instruction_policy": "defensive security; authorized scope only; preserve evidence",
+  "memory_policy": "security review scoped",
+  "workflows": [
+    "threat_model",
+    "security_review",
+    "devsecops_gate",
+    "incident_review"
+  ],
+  "model_policy": {
+    "default": "router-managed",
+    "multi_llm_lab_required": true
+  },
+  "channels": [
+    "web",
+    "API",
+    "future_channel_gateway"
+  ],
+  "permissions": {
+    "default": "least_privilege",
+    "profile": "SECURITY_PRIVILEGED_REVIEW"
+  },
+  "evaluation_profile": "SECURITY_ENGINEERING_EVAL",
+  "environment_profile": "SECURITY_TEST",
+  "dossier": {
+    "standard": "docs/FATHER_AGENT_DOCUMENT_DOSSIER.md",
+    "status": "TEMPLATE_REQUIRED"
+  },
+  "lifecycle": "factory/data/agent-lifecycle-gates.json",
+  "known_limitations": [
+    "not certified until FATHER LAB and acceptance gates pass"
+  ]
+}
