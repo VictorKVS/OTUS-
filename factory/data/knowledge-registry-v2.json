@@ -345,6 +345,31 @@
       ],
       "manifest_path": "knowledge/specialists/factory-controller/manifest.json",
       "curriculum_path": "knowledge/specialists/factory-controller/curriculum.json"
+    },
+    {
+      "id": "KB-K1-COMMUNICATION-BRIDGE",
+      "family": "COMMUNICATION",
+      "name": "Telegram & Speech Bridge Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "Telegram Bot API",
+        "message routing",
+        "text normalization",
+        "voice messages",
+        "file download",
+        "speech to text",
+        "text to speech",
+        "media lifecycle",
+        "error handling",
+        "privacy-safe tracing"
+      ],
+      "skill_tree": "COMMUNICATION_BRIDGE_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON"
+      ],
+      "manifest_path": "knowledge/specialists/communication-bridge/manifest.json",
+      "curriculum_path": "knowledge/specialists/communication-bridge/curriculum.json"
     }
   ],
   "project_contexts": [
@@ -547,6 +572,25 @@
       "conflict_policy": "BLOCK_and_route_to_owner",
       "common_core_id": "KB-K0-FATHER-COMMON",
       "common_core_version": "0.1.0"
+    },
+    {
+      "agent_id": "FTH-AG-VBR-001",
+      "name": "Telegram Voice Bridge",
+      "family": "COMMUNICATION",
+      "common_core_id": "KB-K0-FATHER-COMMON",
+      "common_core_version": "0.1.0",
+      "specialist_pack_ids": [
+        "KB-K1-COMMUNICATION-BRIDGE"
+      ],
+      "specialist_pack_versions": [
+        "0.1.0"
+      ],
+      "project_context_id": "KB-K2-FATHER",
+      "retrieval_policy": "K0+communication_bridge; no RAG required for direct conversion",
+      "access_policy": "telegram_chat_scoped",
+      "citation_provenance_policy": "trace_id_required",
+      "freshness_policy": "runtime_and_dependency_version_aware",
+      "conflict_policy": "fail_closed_and_report"
     }
   ],
   "separate_systems": {
