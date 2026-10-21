@@ -22,6 +22,18 @@ def main():
     if not common.get("id") or not common.get("version"):
         ok = fail("K0 common core id/version missing") and ok
 
+    common_manifest_path = common.get("manifest_path")
+    if not common_manifest_path:
+        ok = fail("K0 manifest_path missing") and ok
+    else:
+        mp = ROOT / common_manifest_path
+        if not mp.exists():
+            ok = fail(f"K0 manifest not found: {common_manifest_path}") and ok
+        else:
+            m = json.loads(mp.read_text(encoding="utf-8"))
+            if m.get("id") != common.get("id") or m.get("version") != common.get("version"):
+                ok = fail("K0 manifest id/version mismatch") and ok
+
     packs = {x["id"]: x for x in registry.get("specialist_packs", [])}
     contexts = {x["id"]: x for x in registry.get("project_contexts", [])}
     profiles = registry.get("agent_profiles", [])
@@ -64,6 +76,17 @@ def main():
                 ok = fail(f"{aid}: version mismatch for {pid}") and ok
             if common.get("id") not in pack.get("depends_on", []):
                 ok = fail(f"{pid}: missing dependency on K0") and ok
+            manifest_path = pack.get("manifest_path")
+            if not manifest_path:
+                ok = fail(f"{pid}: manifest_path missing") and ok
+            else:
+                mp = ROOT / manifest_path
+                if not mp.exists():
+                    ok = fail(f"{pid}: manifest not found: {manifest_path}") and ok
+                else:
+                    m = json.loads(mp.read_text(encoding="utf-8"))
+                    if m.get("id") != pid or m.get("version") != pack.get("version"):
+                        ok = fail(f"{pid}: manifest id/version mismatch") and ok
 
         ctx = p.get("project_context_id")
         if ctx and ctx not in contexts:
