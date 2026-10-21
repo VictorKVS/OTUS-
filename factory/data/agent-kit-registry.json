@@ -113,6 +113,17 @@
         "KB-K1-ALINA-ANALYTICS",
         "KB-K1-OSINT"
       ]
+    },
+    {
+      "kit_id": "KIT-TELEGRAM-VOICE-BRIDGE",
+      "agent_id": "FTH-AG-VBR-001",
+      "name": "Telegram Voice Bridge",
+      "family": "COMMUNICATION",
+      "status": "EXPERIMENTAL",
+      "path": "agents/kits/kit-telegram-voice-bridge/manifest.json",
+      "specialist_pack_ids": [
+        "KB-K1-COMMUNICATION-BRIDGE"
+      ]
     }
   ],
   "creation_rule": "new agent must inherit base kit + compatible K0 + at least one K1 for professional role",
