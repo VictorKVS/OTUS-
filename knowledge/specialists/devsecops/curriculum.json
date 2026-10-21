@@ -1,0 +1,96 @@
+{
+  "schema_version": "father-specialist-curriculum.v1",
+  "knowledge_pack_id": "KB-K1-DEVSECOPS",
+  "version": "0.1.0",
+  "prerequisite": "G-K0-GRADUATION",
+  "modules": [
+    {
+      "id": "DS-M01",
+      "name": "Secure SDLC",
+      "skills": [
+        "requirements",
+        "threats",
+        "gates",
+        "evidence"
+      ]
+    },
+    {
+      "id": "DS-M02",
+      "name": "Git / CI Security",
+      "skills": [
+        "branch",
+        "PR",
+        "permissions",
+        "artifacts"
+      ]
+    },
+    {
+      "id": "DS-M03",
+      "name": "SAST / SCA / Secrets",
+      "skills": [
+        "code",
+        "dependencies",
+        "credentials"
+      ]
+    },
+    {
+      "id": "DS-M04",
+      "name": "Container Security",
+      "skills": [
+        "images",
+        "SBOM",
+        "scanning",
+        "runtime"
+      ]
+    },
+    {
+      "id": "DS-M05",
+      "name": "IaC / Policy as Code",
+      "skills": [
+        "validation",
+        "policy",
+        "drift"
+      ]
+    },
+    {
+      "id": "DS-M06",
+      "name": "Kubernetes Security",
+      "skills": [
+        "RBAC",
+        "NetworkPolicy",
+        "secrets",
+        "admission"
+      ]
+    },
+    {
+      "id": "DS-M07",
+      "name": "Supply Chain",
+      "skills": [
+        "provenance",
+        "signing",
+        "dependencies",
+        "promotion"
+      ]
+    },
+    {
+      "id": "DS-M08",
+      "name": "DevSecOps Evidence",
+      "skills": [
+        "findings",
+        "waivers",
+        "remediation",
+        "release gate"
+      ]
+    }
+  ],
+  "graduation_gate": {
+    "id": "G-K1-DEVSECOPS-GRADUATION",
+    "rules": [
+      "K0_pass",
+      "module_assessments_pass",
+      "golden_cases_pass",
+      "evidence_quality_pass",
+      "regression_pass"
+    ]
+  }
+}
