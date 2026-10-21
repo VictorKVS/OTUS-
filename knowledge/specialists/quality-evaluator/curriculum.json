@@ -1,0 +1,98 @@
+{
+  "schema_version": "father-specialist-curriculum.v1",
+  "knowledge_pack_id": "KB-K1-QUALITY-EVAL",
+  "version": "0.1.0",
+  "prerequisite": "G-K0-GRADUATION",
+  "modules": [
+    {
+      "id": "QE-M01",
+      "name": "Test Strategy",
+      "skills": [
+        "unit",
+        "contract",
+        "integration",
+        "system"
+      ]
+    },
+    {
+      "id": "QE-M02",
+      "name": "Datasets",
+      "skills": [
+        "golden",
+        "regression",
+        "adversarial",
+        "holdout"
+      ]
+    },
+    {
+      "id": "QE-M03",
+      "name": "AI Metrics",
+      "skills": [
+        "correctness",
+        "faithfulness",
+        "citation",
+        "task success"
+      ]
+    },
+    {
+      "id": "QE-M04",
+      "name": "Evaluator Calibration",
+      "skills": [
+        "human gold",
+        "agreement",
+        "bias",
+        "variance"
+      ]
+    },
+    {
+      "id": "QE-M05",
+      "name": "A/B/N & Statistics",
+      "skills": [
+        "paired comparison",
+        "repeatability",
+        "effect size",
+        "confidence"
+      ]
+    },
+    {
+      "id": "QE-M06",
+      "name": "Failure Taxonomy",
+      "skills": [
+        "retrieval",
+        "reasoning",
+        "tool",
+        "policy",
+        "format"
+      ]
+    },
+    {
+      "id": "QE-M07",
+      "name": "Regression & Gates",
+      "skills": [
+        "blocking rules",
+        "protected capabilities",
+        "release gate"
+      ]
+    },
+    {
+      "id": "QE-M08",
+      "name": "Evidence Pack",
+      "skills": [
+        "runs",
+        "metrics",
+        "limitations",
+        "decision"
+      ]
+    }
+  ],
+  "graduation_gate": {
+    "id": "G-K1-QUALITY-EVAL-GRADUATION",
+    "rules": [
+      "K0_pass",
+      "module_assessments_pass",
+      "golden_cases_pass",
+      "evidence_quality_pass",
+      "regression_pass"
+    ]
+  }
+}
