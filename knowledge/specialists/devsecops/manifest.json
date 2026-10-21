@@ -1,0 +1,25 @@
+{
+  "id": "KB-K1-DEVSECOPS",
+  "name": "DevSecOps Specialist Pack",
+  "version": "0.1.0",
+  "status": "PLANNED",
+  "layer": "K1",
+  "family": "DEVSECOPS",
+  "depends_on": [
+    "KB-K0-FATHER-COMMON"
+  ],
+  "topics": [
+    "CI/CD",
+    "GitOps",
+    "containers",
+    "Kubernetes",
+    "SAST",
+    "SCA",
+    "secrets",
+    "IaC",
+    "policy as code",
+    "supply chain"
+  ],
+  "skill_tree": "DEVSECOPS_SKILLS",
+  "provenance_required": true
+}
