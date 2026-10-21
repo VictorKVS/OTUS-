@@ -1,0 +1,26 @@
+{
+  "id": "KB-K1-KNOWLEDGE-ENGINEERING",
+  "name": "Knowledge Engineering Specialist Pack",
+  "version": "0.1.0",
+  "status": "DESIGN",
+  "layer": "K1",
+  "family": "KNOWLEDGE",
+  "depends_on": [
+    "KB-K0-FATHER-COMMON"
+  ],
+  "topics": [
+    "source registry",
+    "ingestion",
+    "normalization",
+    "document structure",
+    "chunking",
+    "metadata",
+    "provenance",
+    "deduplication",
+    "ontology",
+    "knowledge graph",
+    "controlled publish"
+  ],
+  "skill_tree": "KNOWLEDGE_ENGINEERING_SKILLS",
+  "provenance_required": true
+}
