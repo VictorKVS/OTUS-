@@ -236,3 +236,34 @@ BASELINE
 ### ALINA Research Center
 
 ALINA получает отдельные стенды Prompt Lab, RAG Lab, Knowledge Algorithm Lab, Agent Lab, Skill Lab, Evaluator Lab, Memory Lab и Optimization Lab. Лучшие конфигурации определяются по профилям QUALITY / BALANCED / FAST / LOCAL / SECURE, а не одной универсальной метрикой.
+
+
+## DevOps / Environment Center precedes Cyber Range
+
+Order is fixed:
+
+```text
+FATHER CORE
+→ LAB / EVALUATION
+→ DEVOPS ENVIRONMENTS
+→ CONTAINERS / KUBERNETES
+→ CI/CD / GITOPS
+→ OBSERVABILITY / SRE
+→ ISOLATION / SANDBOX
+→ CYBER RANGE
+→ ATTACK / DEFENSE AGENTS
+```
+
+Cyber Range remains PLANNED until environment gates prove reproducibility, isolation, observability, rollback, security, resource control and retained evidence.
+
+Standard environment profiles:
+- LOCAL DEV;
+- CONTAINER DEV;
+- K8S DEV;
+- TEST;
+- STAGING;
+- PRODUCTION;
+- ISOLATED LAB;
+- future CYBER RANGE.
+
+The DevOps platform is shared by FATHER, ALINA, OSINT and all later specialist lines; it is not a separate unrelated project.
