@@ -343,3 +343,43 @@ Automation:
 - `factory/agent-kits.html` — визуальный Agent Kit Center.
 
 Правило: общая K0 физически не копируется в агента. Изменение K0 требует impact/regression по всем зависимым kits.
+
+
+## First end-to-end reference agent: Telegram Voice Bridge
+
+Registered:
+- Agent: `FTH-AG-VBR-001`;
+- Kit: `KIT-TELEGRAM-VOICE-BRIDGE`;
+- Knowledge: `K0 FATHER Common + K1 Communication Bridge`;
+- status: `EXPERIMENTAL`.
+
+Routes:
+
+```text
+Telegram TEXT
+→ FATHER trace_id
+→ route
+→ Edge TTS
+→ Telegram VOICE
+
+Telegram VOICE
+→ FATHER trace_id
+→ Telegram download
+→ faster-whisper STT
+→ Telegram TEXT
+```
+
+Implementation:
+- `agents/runtime/telegram-voice-bridge/main.py`;
+- `providers.py`;
+- `tracing.py`;
+- `trace.schema.json`;
+- complete minimum dossier under `agents/kits/kit-telegram-voice-bridge/dossier/`.
+
+Trace:
+- runtime source: `runtime/traces/telegram-voice-bridge.jsonl`;
+- exporter: `tools/export_voice_bridge_traces.py`;
+- UI: `factory/trace-center.html`;
+- standard: `docs/FATHER_TRACE_STANDARD.md`.
+
+Privacy default: raw user text/audio is not retained in trace. Until a real Telegram end-to-end run and LAB evidence exist, the agent cannot move beyond EXPERIMENTAL.
