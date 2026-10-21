@@ -1,0 +1,99 @@
+{
+  "schema_version": "father-specialist-curriculum.v1",
+  "knowledge_pack_id": "KB-K1-ARCHITECT",
+  "version": "0.1.0",
+  "prerequisite": "G-K0-GRADUATION",
+  "modules": [
+    {
+      "id": "AR-M01",
+      "name": "Requirements to Architecture",
+      "skills": [
+        "quality attributes",
+        "constraints",
+        "architecture drivers"
+      ]
+    },
+    {
+      "id": "AR-M02",
+      "name": "C4 / LLD / Interfaces",
+      "skills": [
+        "context",
+        "containers",
+        "components",
+        "interfaces",
+        "sequence"
+      ]
+    },
+    {
+      "id": "AR-M03",
+      "name": "ADR & Trade-offs",
+      "skills": [
+        "options",
+        "decision criteria",
+        "trade-offs",
+        "supersession"
+      ]
+    },
+    {
+      "id": "AR-M04",
+      "name": "Data & Integration",
+      "skills": [
+        "schemas",
+        "APIs",
+        "events",
+        "consistency",
+        "migration"
+      ]
+    },
+    {
+      "id": "AR-M05",
+      "name": "AI Architecture",
+      "skills": [
+        "RAG",
+        "agents",
+        "model routing",
+        "memory",
+        "evaluation"
+      ]
+    },
+    {
+      "id": "AR-M06",
+      "name": "Security / Reliability",
+      "skills": [
+        "threat model",
+        "HA/DR",
+        "failure modes",
+        "SLO"
+      ]
+    },
+    {
+      "id": "AR-M07",
+      "name": "Sizing / FinOps",
+      "skills": [
+        "capacity",
+        "cost model",
+        "quality-cost trade-off"
+      ]
+    },
+    {
+      "id": "AR-M08",
+      "name": "Architecture Governance",
+      "skills": [
+        "review",
+        "conformance",
+        "traceability",
+        "Development Pack"
+      ]
+    }
+  ],
+  "graduation_gate": {
+    "id": "G-K1-ARCHITECT-GRADUATION",
+    "rules": [
+      "K0_pass",
+      "architecture_case_pass",
+      "ADR_case_pass",
+      "NFR_traceability_pass",
+      "review_case_pass"
+    ]
+  }
+}
