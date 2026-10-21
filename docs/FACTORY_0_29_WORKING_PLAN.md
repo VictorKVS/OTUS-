@@ -279,3 +279,30 @@ The DevOps platform is shared by FATHER, ALINA, OSINT and all later specialist l
 - `factory/data/verification-gates.json` — машинно-читаемый реестр обязательных gates.
 
 Правило: Markdown описывает инженерный смысл, а JSON является исполняемым контрактом для UI/CI/Factory Orchestrator. Изменение обязательного gate требует версии, причины и evidence.
+
+
+## Site Documentation Pack
+
+Сайт FATHER является отдельным инженерным изделием и имеет полный controlled dossier.
+
+Source of truth:
+- `site/data/site-document-pack.json`;
+- `docs/SITE_DOCUMENTATION_STANDARD.md`;
+- controlled documents under `docs/site/`.
+
+Категории:
+- governance;
+- UX / information architecture;
+- architecture / contracts;
+- security / privacy;
+- quality / accessibility / performance / SEO;
+- operations / release / SLO / DR / incidents;
+- ADR / roadmap / evidence.
+
+Automation:
+- `tools/generate_site_document_pack.py` — создаёт недостающие документы;
+- `tools/validate_site_document_pack.py` — проверяет completeness и controlled metadata;
+- `.github/workflows/father-site-document-pack.yml` — CI gate;
+- `site/document-center.html` — рабочий UI реестра документов.
+
+Правило: release сайта BLOCKED, если обязательный документ отсутствует, не имеет owner/approver/gate, содержит unresolved placeholders или не связан с требуемым evidence.
