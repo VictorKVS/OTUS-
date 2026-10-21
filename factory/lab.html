@@ -18,7 +18,7 @@
     <a href="#projects">Project Labs</a>
     <a href="#alina">ALINA Lab</a>
     <a href="#experiments">Experiments</a>
-    <a href="#quality">Quality Gates</a>
+    <a href="#quality">Quality Gates</a><a href="#algorithms">Verification Algorithms</a>
     <a href="#champions">Champions</a>
     <a href="../site/production-base.html">Production Base ↗</a>
   </nav>
@@ -94,6 +94,15 @@
   <div class="eyebrow">Dataset center</div>
   <h2>Наборы испытаний</h2>
   <div class="dataset-grid" id="datasets"></div>
+</section>
+
+<section class="section" id="algorithms">
+  <div class="eyebrow">Machine-readable verification</div>
+  <h2>Алгоритмы проверок и обязательные gates</h2>
+  <p style="max-width:1000px;color:var(--muted);font-size:11px">Этот блок загружается из <code>factory/data/verification-gates.json</code>. Он будет использоваться как единый источник правил для UI, CI и будущего Factory Orchestrator.</p>
+  <div class="quality-grid" id="verificationGateGrid"></div>
+  <div class="run-contract" id="promotionStates" style="margin-top:14px"></div>
+  <p style="margin-top:14px"><a href="../docs/FATHER_VERIFICATION_ALGORITHMS.md" style="color:var(--cyan);text-decoration:none">Открыть полный стандарт алгоритмов проверок →</a></p>
 </section>
 
 <section class="section" id="champions">
