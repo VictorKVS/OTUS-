@@ -1,0 +1,79 @@
+{
+  "schema_version": "father-trace-registry.v1",
+  "status": "DESIGN_IMPLEMENTATION",
+  "event_statuses": [
+    "START",
+    "PASS",
+    "WARN",
+    "FAIL"
+  ],
+  "runtime_export": "factory/data/runtime-traces.json",
+  "sources": [
+    {
+      "agent_id": "FTH-AG-VBR-001",
+      "name": "Telegram Voice Bridge",
+      "jsonl_path": "runtime/traces/telegram-voice-bridge.jsonl",
+      "schema_path": "agents/runtime/telegram-voice-bridge/trace.schema.json",
+      "privacy_default": "content_redacted"
+    }
+  ],
+  "design_sample": {
+    "trace_id": "DESIGN-SAMPLE-VBR-001",
+    "kind": "DESIGN_SAMPLE",
+    "agent_id": "FTH-AG-VBR-001",
+    "route": "text_to_voice",
+    "events": [
+      {
+        "event": "telegram.message.received",
+        "status": "PASS",
+        "duration_ms": null,
+        "metadata": {
+          "content_type": "text",
+          "text_chars": 21,
+          "content_redacted": true
+        }
+      },
+      {
+        "event": "route.text_to_voice",
+        "status": "PASS",
+        "duration_ms": null,
+        "metadata": {
+          "route": "text->tts->voice"
+        }
+      },
+      {
+        "event": "tts.edge.start",
+        "status": "START",
+        "duration_ms": null,
+        "metadata": {
+          "voice": "ru-RU-SvetlanaNeural"
+        }
+      },
+      {
+        "event": "tts.edge.finish",
+        "status": "PASS",
+        "duration_ms": 420,
+        "metadata": {
+          "voice": "ru-RU-SvetlanaNeural",
+          "bytes": 18000
+        }
+      },
+      {
+        "event": "telegram.voice.send",
+        "status": "PASS",
+        "duration_ms": 160,
+        "metadata": {
+          "format": "mp3"
+        }
+      },
+      {
+        "event": "run.finish",
+        "status": "PASS",
+        "duration_ms": null,
+        "metadata": {
+          "route": "text_to_voice"
+        }
+      }
+    ]
+  }
+}
