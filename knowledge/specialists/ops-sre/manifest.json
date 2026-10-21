@@ -1,0 +1,27 @@
+{
+  "id": "KB-K1-OPS-SRE",
+  "name": "Operations & SRE Specialist Pack",
+  "version": "0.1.0",
+  "status": "DESIGN",
+  "layer": "K1",
+  "family": "DEVOPS_SRE",
+  "depends_on": [
+    "KB-K0-FATHER-COMMON",
+    "KB-K1-DEVSECOPS"
+  ],
+  "topics": [
+    "containers",
+    "Kubernetes",
+    "CI/CD",
+    "GitOps",
+    "observability",
+    "SLI/SLO",
+    "capacity",
+    "HA/DR",
+    "rollback",
+    "incident management",
+    "FinOps"
+  ],
+  "skill_tree": "OPS_SRE_SKILLS",
+  "provenance_required": true
+}
