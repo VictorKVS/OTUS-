@@ -62,7 +62,8 @@
   "environment_profile": "LOCAL_DEV_THEN_CONTAINER",
   "dossier": {
     "standard": "docs/FATHER_AGENT_DOCUMENT_DOSSIER.md",
-    "status": "DESIGN"
+    "index_path": "agents/kits/kit-telegram-voice-bridge/dossier/DOSSIER_INDEX.json",
+    "status": "DESIGN_IMPLEMENTED_TEST_PENDING"
   },
   "lifecycle": "factory/data/agent-lifecycle-gates.json",
   "trace_contract": "agents/runtime/telegram-voice-bridge/trace.schema.json",
