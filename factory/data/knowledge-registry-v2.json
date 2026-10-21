@@ -85,7 +85,8 @@
     "mutation_policy": "change_request + LAB regression + staged rollout",
     "retrieval_policy": "evidence_first_hybrid",
     "citation_policy": "provenance_required",
-    "conflict_policy": "surface_conflict_do_not_silently_overwrite"
+    "conflict_policy": "surface_conflict_do_not_silently_overwrite",
+    "manifest_path": "knowledge/common-core/manifest.json"
   },
   "specialist_packs": [
     {
@@ -108,7 +109,8 @@
       "skill_tree": "ALINA_ANALYTICAL_SKILLS",
       "depends_on": [
         "KB-K0-FATHER-COMMON"
-      ]
+      ],
+      "manifest_path": "knowledge/specialists/alina/manifest.json"
     },
     {
       "id": "KB-K1-OSINT",
@@ -136,7 +138,8 @@
       "depends_on": [
         "KB-K0-FATHER-COMMON",
         "KB-K1-ALINA-ANALYTICS"
-      ]
+      ],
+      "manifest_path": "knowledge/specialists/osint/manifest.json"
     },
     {
       "id": "KB-K1-ARCHITECT",
@@ -160,7 +163,8 @@
       "skill_tree": "ARCHITECT_SKILLS",
       "depends_on": [
         "KB-K0-FATHER-COMMON"
-      ]
+      ],
+      "manifest_path": "knowledge/specialists/architect/manifest.json"
     },
     {
       "id": "KB-K1-PROGRAMMER",
@@ -183,7 +187,8 @@
       "skill_tree": "PROGRAMMER_SKILLS",
       "depends_on": [
         "KB-K0-FATHER-COMMON"
-      ]
+      ],
+      "manifest_path": "knowledge/specialists/programmer/manifest.json"
     },
     {
       "id": "KB-K1-IB",
@@ -203,7 +208,8 @@
       "skill_tree": "IB_SKILLS",
       "depends_on": [
         "KB-K0-FATHER-COMMON"
-      ]
+      ],
+      "manifest_path": "knowledge/specialists/ib/manifest.json"
     },
     {
       "id": "KB-K1-DEVSECOPS",
@@ -226,7 +232,8 @@
       "skill_tree": "DEVSECOPS_SKILLS",
       "depends_on": [
         "KB-K0-FATHER-COMMON"
-      ]
+      ],
+      "manifest_path": "knowledge/specialists/devsecops/manifest.json"
     }
   ],
   "project_contexts": [
