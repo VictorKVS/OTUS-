@@ -1,0 +1,127 @@
+{
+  "schema_version": "father-specialist-curriculum.v1",
+  "knowledge_pack_id": "KB-K1-OSINT",
+  "version": "0.1.0",
+  "prerequisites": [
+    "G-K0-GRADUATION",
+    "G-K1-ALINA-GRADUATION"
+  ],
+  "modules": [
+    {
+      "id": "O-M01",
+      "name": "Internet & Network Foundations",
+      "skills": [
+        "DNS",
+        "IP",
+        "ASN",
+        "BGP",
+        "TLS",
+        "hosting"
+      ]
+    },
+    {
+      "id": "O-M02",
+      "name": "Domains & Infrastructure",
+      "skills": [
+        "WHOIS/RDAP",
+        "DNS records",
+        "certificates",
+        "subdomains",
+        "infrastructure graph"
+      ]
+    },
+    {
+      "id": "O-M03",
+      "name": "Web & Search Intelligence",
+      "skills": [
+        "search operators",
+        "web technologies",
+        "archives",
+        "source preservation"
+      ]
+    },
+    {
+      "id": "O-M04",
+      "name": "People / Organization / Social OSINT",
+      "skills": [
+        "identity correlation",
+        "organization research",
+        "social sources",
+        "ethical boundaries"
+      ]
+    },
+    {
+      "id": "O-M05",
+      "name": "Telegram & Messaging OSINT",
+      "skills": [
+        "channel/source analysis",
+        "message provenance",
+        "relationship graph",
+        "platform limits"
+      ]
+    },
+    {
+      "id": "O-M06",
+      "name": "GeoINT / Image / Metadata",
+      "skills": [
+        "geolocation reasoning",
+        "metadata",
+        "image evidence",
+        "confidence"
+      ]
+    },
+    {
+      "id": "O-M07",
+      "name": "Code / Repository Intelligence",
+      "skills": [
+        "Git history",
+        "public code search",
+        "dependency clues",
+        "secret-safe handling"
+      ]
+    },
+    {
+      "id": "O-M08",
+      "name": "Threat / Brand / Supply-chain OSINT",
+      "skills": [
+        "external threat mapping",
+        "brand abuse",
+        "third-party risk",
+        "infrastructure monitoring"
+      ]
+    },
+    {
+      "id": "O-M09",
+      "name": "Investigation Workflow",
+      "skills": [
+        "collection plan",
+        "entity graph",
+        "verification",
+        "timeline",
+        "evidence package",
+        "report"
+      ]
+    },
+    {
+      "id": "O-M10",
+      "name": "Tooling",
+      "skills": [
+        "tool selection",
+        "tool output validation",
+        "failure handling",
+        "audit trail"
+      ]
+    }
+  ],
+  "graduation_gate": {
+    "id": "G-K1-OSINT-GRADUATION",
+    "rules": [
+      "K0_pass",
+      "ALINA_analytics_pass",
+      "synthetic_investigations_pass",
+      "realistic_case_pass",
+      "source_verification_pass",
+      "report_evidence_pass"
+    ]
+  }
+}
