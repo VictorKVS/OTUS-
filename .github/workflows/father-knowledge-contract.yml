@@ -1,0 +1,30 @@
+name: FATHER Knowledge Contract
+
+on:
+  push:
+    paths:
+      - 'factory/data/knowledge-architecture.json'
+      - 'factory/data/knowledge-registry-v2.json'
+      - 'factory/data/agent-lifecycle-gates.json'
+      - 'site/data/development-pack.json'
+      - 'tools/validate_knowledge_profiles.py'
+      - '.github/workflows/father-knowledge-contract.yml'
+  pull_request:
+    paths:
+      - 'factory/data/knowledge-architecture.json'
+      - 'factory/data/knowledge-registry-v2.json'
+      - 'factory/data/agent-lifecycle-gates.json'
+      - 'site/data/development-pack.json'
+      - 'tools/validate_knowledge_profiles.py'
+  workflow_dispatch:
+
+jobs:
+  validate-knowledge-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate FATHER knowledge profiles
+        run: python tools/validate_knowledge_profiles.py
