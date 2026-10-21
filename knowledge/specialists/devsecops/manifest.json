@@ -2,7 +2,7 @@
   "id": "KB-K1-DEVSECOPS",
   "name": "DevSecOps Specialist Pack",
   "version": "0.1.0",
-  "status": "PLANNED",
+  "status": "DESIGN",
   "layer": "K1",
   "family": "DEVSECOPS",
   "depends_on": [
