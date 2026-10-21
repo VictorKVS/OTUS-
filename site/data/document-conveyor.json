@@ -211,9 +211,10 @@
     {
       "id": "D1",
       "name": "Implementation",
-      "owner": "Developer",
-      "input": "VALIDATED DEVELOPMENT PACK",
+      "owner": "FATHER Programmer / FATHER CODEX",
+      "input": "VALIDATED DEVELOPMENT PACK only",
       "documents": [
+        "IMPLEMENTATION_PLAN",
         "CODE",
         "UNIT_TESTS",
         "INTEGRATION_TESTS",
@@ -223,9 +224,11 @@
         "README",
         "TELEMETRY_HOOKS",
         "CHANGELOG",
+        "IMPLEMENTATION_REPORT",
+        "TRACEABILITY_EVIDENCE",
         "PR"
       ],
-      "gate": "PR Ready",
+      "gate": "G-S6-IMPLEMENTATION / PR Ready",
       "next": "CI / QA",
       "agents": [
         "FTH-AG-DEV-001"
