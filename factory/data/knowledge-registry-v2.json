@@ -448,6 +448,105 @@
       "citation_provenance_policy": "REQ_AC_ADR_trace_required",
       "freshness_policy": "repo_commit_and_contract_version_aware",
       "conflict_policy": "return_structured_finding"
+    },
+    {
+      "agent_id": "FTH-AG-KNW-001",
+      "name": "FATHER Knowledge Engineer / Curator",
+      "family": "KNOWLEDGE",
+      "specialist_pack_ids": [
+        "KB-K1-KNOWLEDGE-ENGINEERING"
+      ],
+      "specialist_pack_versions": [
+        "0.1.0"
+      ],
+      "project_context_id": "KB-K2-FATHER",
+      "retrieval_policy": "K0+knowledge_engineering+project evidence-first",
+      "access_policy": "controlled_publish_scoped",
+      "citation_provenance_policy": "mandatory_lineage",
+      "freshness_policy": "source_and_version_aware",
+      "conflict_policy": "quarantine_and_review",
+      "common_core_id": "KB-K0-FATHER-COMMON",
+      "common_core_version": "0.1.0"
+    },
+    {
+      "agent_id": "FTH-AG-QA-001",
+      "name": "FATHER QA / AI Evaluator",
+      "family": "QUALITY",
+      "specialist_pack_ids": [
+        "KB-K1-QUALITY-EVAL"
+      ],
+      "specialist_pack_versions": [
+        "0.1.0"
+      ],
+      "project_context_id": "KB-K2-FATHER",
+      "retrieval_policy": "K0+quality_eval+frozen_test_context",
+      "access_policy": "independent_review_scoped",
+      "citation_provenance_policy": "evidence_required",
+      "freshness_policy": "test_version_aware",
+      "conflict_policy": "report_do_not_resolve_silently",
+      "common_core_id": "KB-K0-FATHER-COMMON",
+      "common_core_version": "0.1.0"
+    },
+    {
+      "agent_id": "FTH-AG-SEC-001",
+      "name": "FATHER Security / DevSecOps Engineer",
+      "family": "SECURITY",
+      "specialist_pack_ids": [
+        "KB-K1-IB",
+        "KB-K1-DEVSECOPS"
+      ],
+      "specialist_pack_versions": [
+        "0.1.0",
+        "0.1.0"
+      ],
+      "project_context_id": "KB-K2-FATHER",
+      "retrieval_policy": "K0+IB+DevSecOps+project",
+      "access_policy": "security_review_scoped",
+      "citation_provenance_policy": "security_evidence_required",
+      "freshness_policy": "policy_and_tool_version_aware",
+      "conflict_policy": "escalate_to_security_owner",
+      "common_core_id": "KB-K0-FATHER-COMMON",
+      "common_core_version": "0.1.0"
+    },
+    {
+      "agent_id": "FTH-AG-SRE-001",
+      "name": "FATHER DevOps / SRE",
+      "family": "DEVOPS_SRE",
+      "specialist_pack_ids": [
+        "KB-K1-DEVSECOPS",
+        "KB-K1-OPS-SRE"
+      ],
+      "specialist_pack_versions": [
+        "0.1.0",
+        "0.1.0"
+      ],
+      "project_context_id": "KB-K2-FATHER",
+      "retrieval_policy": "K0+DevSecOps+SRE+environment",
+      "access_policy": "operations_scoped",
+      "citation_provenance_policy": "config_commit_evidence_required",
+      "freshness_policy": "environment_release_aware",
+      "conflict_policy": "desired_state_wins_or_escalate",
+      "common_core_id": "KB-K0-FATHER-COMMON",
+      "common_core_version": "0.1.0"
+    },
+    {
+      "agent_id": "FTH-AG-FCT-001",
+      "name": "FATHER Factory Controller",
+      "family": "FATHER_FACTORY",
+      "specialist_pack_ids": [
+        "KB-K1-FACTORY-ORCHESTRATION"
+      ],
+      "specialist_pack_versions": [
+        "0.1.0"
+      ],
+      "project_context_id": "KB-K2-FATHER",
+      "retrieval_policy": "K0+factory_orchestration+registries",
+      "access_policy": "control_plane_scoped",
+      "citation_provenance_policy": "registry_and_gate_evidence_required",
+      "freshness_policy": "registry_version_aware",
+      "conflict_policy": "BLOCK_and_route_to_owner",
+      "common_core_id": "KB-K0-FATHER-COMMON",
+      "common_core_version": "0.1.0"
     }
   ],
   "separate_systems": {
