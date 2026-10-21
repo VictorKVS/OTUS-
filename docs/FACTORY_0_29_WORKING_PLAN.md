@@ -191,3 +191,48 @@ PROJECT
 ```
 
 Именно после этого FATHER становится не витриной, а самообучающейся инженерной фабрикой.
+
+
+## FATHER Research & Test Center
+
+Лаборатория является обязательной частью рабочего chassis, а не отдельной демонстрационной страницей.
+
+```text
+BASELINE
+→ HYPOTHESIS
+→ CONTROLLED A/B/N
+→ EVALUATION
+→ HUMAN SAMPLE REVIEW
+→ REGRESSION
+→ SAFETY
+→ CANARY
+→ CHAMPION
+→ PRODUCTION
+→ REAL-WORLD FEEDBACK
+→ NEXT EXPERIMENT
+```
+
+Испытываемые типы узлов:
+- Model / VLM / Embedding / Reranker;
+- Prompt / System Prompt;
+- RAG / chunking / retrieval / reranking;
+- Knowledge algorithms: fact/entity/relation/provenance/contradiction;
+- Agent / Skill / Memory;
+- Tool / MCP;
+- Workflow / Router;
+- Evaluator / Judge;
+- Guardrail / Security policy.
+
+Правило фабрики: **ни один challenger не заменяет production champion без воспроизводимого run, versioned dataset, зафиксированных evaluator/metrics, regression suite и evidence.**
+
+### Project Labs
+
+Один `FATHER Experimentation Engine` обслуживает проектные представления:
+- FATHER Platform Lab;
+- ALINA Research Center;
+- OSINT Project Lab;
+- последующие IB / Pentest / DevSecOps / Legal / Programmer labs.
+
+### ALINA Research Center
+
+ALINA получает отдельные стенды Prompt Lab, RAG Lab, Knowledge Algorithm Lab, Agent Lab, Skill Lab, Evaluator Lab, Memory Lab и Optimization Lab. Лучшие конфигурации определяются по профилям QUALITY / BALANCED / FAST / LOCAL / SECURE, а не одной универсальной метрикой.
