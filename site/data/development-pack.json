@@ -179,5 +179,36 @@
       "blocking": true
     }
   ],
-  "handoff_rule": "All blocking checks PASS; critical_open_questions=0; analyst_signoff=approved; architect_signoff=approved"
+  "handoff_rule": "All blocking checks PASS; critical_open_questions=0; analyst_signoff=approved; architect_signoff=approved",
+  "programmer": {
+    "role": "FATHER Programmer / FATHER CODEX",
+    "agent_id": "FTH-AG-DEV-001",
+    "input_rule": "validated_development_pack_only",
+    "must_return_findings_on_ambiguity": true,
+    "cannot_self_approve": true
+  },
+  "implementation_outputs": [
+    "IMPLEMENTATION_PLAN.md",
+    "CODE",
+    "UNIT_TESTS",
+    "INTEGRATION_TESTS",
+    "CONTRACT_TESTS",
+    "MIGRATIONS",
+    "CONFIG_EXAMPLES",
+    "README",
+    "TELEMETRY_HOOKS",
+    "CHANGELOG",
+    "IMPLEMENTATION_REPORT.md",
+    "TRACEABILITY_EVIDENCE.json",
+    "PULL_REQUEST"
+  ],
+  "post_development_gates": [
+    "G-S6-IMPLEMENTATION",
+    "G-S7-TECH",
+    "G-S8-LAB",
+    "G-S9-ENV",
+    "G-S10-ACCEPTANCE",
+    "G-S11-CERTIFY"
+  ],
+  "lifecycle_contract": "../factory/data/agent-lifecycle-gates.json"
 }
