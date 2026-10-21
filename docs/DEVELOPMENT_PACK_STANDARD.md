@@ -344,3 +344,37 @@ AND RollbackDefined == TRUE
 - immutable validation report.
 
 Любое изменение baselined REQ/API/schema/security constraint после handoff → новая версия Development Pack и повторный PRE-DEV VALIDATION.
+
+
+## FATHER Programmer / FATHER CODEX
+
+После PASS пакет получает не абстрактный Developer, а штатная логическая роль **FATHER Programmer / FATHER CODEX (FTH-AG-DEV-001)**.
+
+Его контракт:
+- принимает только validated Development Pack;
+- не меняет requirements/API/data/security silently;
+- при неоднозначности возвращает structured finding;
+- пишет implementation plan до основной реализации;
+- сохраняет REQ/AC/ADR traceability в коде, тестах и PR;
+- формирует implementation evidence;
+- не может самостоятельно утверждать собственную реализацию.
+
+## Implementation outputs
+
+После разработки пакет дополняется:
+- IMPLEMENTATION_PLAN.md;
+- code reference + commit/build;
+- unit/integration/contract tests;
+- migrations/config examples;
+- telemetry hooks;
+- README/CHANGELOG;
+- IMPLEMENTATION_REPORT.md;
+- TRACEABILITY_EVIDENCE.json;
+- Pull Request.
+
+Разработка не завершает жизненный цикл. После Programmer обязательны:
+G-S6 Implementation → G-S7 Technical Verification → G-S8 FATHER LAB → G-S9 Environment → G-S10 Acceptance → G-S11 Certification/Zoo.
+
+Полный регламент: FATHER_AGENT_ENGINEERING_REGULATION.md.
+Полное досье: FATHER_AGENT_DOCUMENT_DOSSIER.md.
+Командные роли: FATHER_TEAM_ROLES.md.
