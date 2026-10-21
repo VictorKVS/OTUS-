@@ -267,3 +267,15 @@ Standard environment profiles:
 - future CYBER RANGE.
 
 The DevOps platform is shared by FATHER, ALINA, OSINT and all later specialist lines; it is not a separate unrelated project.
+
+
+## Нормативные документы LAB / DevOps / проверок
+
+Обязательные проектные документы:
+- `docs/FATHER_LAB_ARCHITECTURE.md` — архитектура Research & Test Center;
+- `docs/FATHER_VERIFICATION_ALGORITHMS.md` — формальные алгоритмы A/B/N, RAG, Knowledge, Agent, Evaluator, DevOps, Regression и Promotion;
+- `docs/FATHER_DEVOPS_ENVIRONMENTS.md` — стандарт сред и инфраструктурных gates;
+- `docs/FATHER_CYBER_RANGE_PLANNED.md` — будущий Cyber Range, только как архитектурный placeholder;
+- `factory/data/verification-gates.json` — машинно-читаемый реестр обязательных gates.
+
+Правило: Markdown описывает инженерный смысл, а JSON является исполняемым контрактом для UI/CI/Factory Orchestrator. Изменение обязательного gate требует версии, причины и evidence.
