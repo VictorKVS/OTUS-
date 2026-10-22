@@ -146,5 +146,87 @@
     "Dossier cells",
     "Trace timeline",
     "Empty/error/loading states"
-  ]
+  ],
+  "reference_synthesis": {
+    "source": "user-provided visual references",
+    "archetypes": [
+      {
+        "id": "R1_INFOGRAPHIC_CARDS",
+        "use_for": [
+          "Model Zoo",
+          "Agent Zoo",
+          "Knowledge packs",
+          "Capability catalogs"
+        ],
+        "traits": [
+          "dark navy base",
+          "cyan structural borders",
+          "amber numbering/accent",
+          "diagram inside card",
+          "short engineering explanation"
+        ],
+        "avoid": [
+          "poster-only layout",
+          "marketing slogans replacing status data"
+        ]
+      },
+      {
+        "id": "R2_MISSION_CONTROL",
+        "use_for": [
+          "Main dashboard",
+          "Current product",
+          "Factory execution",
+          "Operational status"
+        ],
+        "traits": [
+          "dark control-room shell",
+          "left navigation",
+          "central process flow",
+          "cyan active path",
+          "red/amber incidents",
+          "dense operational metrics"
+        ],
+        "avoid": [
+          "fake realtime metrics",
+          "decorative alerts",
+          "status without evidence"
+        ]
+      },
+      {
+        "id": "R3_LAYERED_ARCHITECTURE",
+        "use_for": [
+          "Unified System",
+          "Architecture map",
+          "Knowledge/Analytics/Automation layers",
+          "Workshop overview"
+        ],
+        "traits": [
+          "stacked transparent layers",
+          "glowing connectors",
+          "layer-specific accent",
+          "clear vertical dependency",
+          "workstation metaphor"
+        ],
+        "avoid": [
+          "3D decoration without readable contracts",
+          "layers with no input/output definition"
+        ]
+      }
+    ],
+    "homepage_composition": [
+      "Mission-control shell",
+      "Central live conveyor",
+      "Current product card",
+      "Domain/Zoo cards",
+      "Layered system architecture",
+      "Evidence and gate strip"
+    ],
+    "accent_policy": {
+      "cyan": "active flow / current / structural connections",
+      "amber": "classification / numbering / design-review attention",
+      "green": "validated / accepted / healthy",
+      "red": "blocked / failed / incident",
+      "violet": "AI/model/reasoning layer only when semantically useful"
+    }
+  }
 }
