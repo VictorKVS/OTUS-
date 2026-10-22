@@ -130,6 +130,14 @@
       "status": "PLANNED",
       "href": "./unified-system.html#branches",
       "purpose": "Инженерные расчёты/модели и технические evidence на общей базе."
+    },
+    {
+      "id": "VIS",
+      "name": "Visual System",
+      "group": "PLATFORM",
+      "status": "ACTIVE_DESIGN",
+      "href": "./visual-system.html",
+      "purpose": "Единый дизайн-стандарт FATHER: shell, типографика, статусы, карточки, цеха, gates и page families."
     }
   ],
   "current_projects": [
