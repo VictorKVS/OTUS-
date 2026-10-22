@@ -60,3 +60,40 @@ initLinks();initTheme();
 document.querySelector('#lessonSearch').addEventListener('input',renderLessons);
 document.querySelector('#statusFilter').addEventListener('change',renderLessons);
 initCourse();
+
+
+function escField(v){return String(v??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+function renderFieldBranch(field, branchId){
+  const branch=field.branches.find(x=>x.id===branchId)||field.branches[0];
+  document.querySelectorAll('.field-tab').forEach(btn=>btn.classList.toggle('active',btn.dataset.branch===branch.id));
+  const feeds=(branch.feeds||[]).map(id=>{
+    const target=field.branches.find(x=>x.id===id);
+    return target?target.tab:id;
+  });
+  document.querySelector('#fieldWorkspace').innerHTML=
+    '<div class="field-branch-head"><div><div class="eyebrow">'+escField(branch.agent_family)+' · '+escField(branch.overlay)+'</div><h3>'+escField(branch.tab)+'</h3><p>'+escField(branch.role)+'</p></div><span class="branch-status">'+escField(branch.status)+'</span></div>'+
+    '<div class="field-branch-grid">'+
+      '<div class="branch-box"><b>INPUT</b>'+(branch.input||[]).map(x=>'<span>'+escField(x)+'</span>').join('')+'</div>'+
+      '<div class="branch-box"><b>PROCESSING LAYER</b><span>FATHER Analytical Core</span><span>'+escField(branch.overlay)+'</span><span>optional K2</span></div>'+
+      '<div class="branch-box"><b>OUTPUT</b>'+(branch.output||[]).map(x=>'<span>'+escField(x)+'</span>').join('')+'</div>'+
+    '</div>'+
+    '<div class="branch-flow"><strong>Связи:</strong> '+escField(branch.tab)+' → '+feeds.map(escField).join(' · ')+'<br><strong>Контракт:</strong> COMMON BASE + K1 OVERLAY + OPTIONAL K2 → TESTS → EVIDENCE → RETURN TO ANALYTICS</div>';
+}
+
+async function initFatherField(){
+  const host=document.querySelector('#fieldTabs');
+  if(!host) return;
+  try{
+    const r=await fetch('./data/father-field.json',{cache:'no-store'});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const field=await r.json();
+    document.querySelector('#fieldFoundation').innerHTML=(field.shared_foundation||[]).map(x=>'<div class="foundation-cell"><b>'+escField(x.name)+'</b><small>'+escField(x.purpose)+'</small></div>').join('');
+    host.innerHTML=(field.branches||[]).map((x,i)=>'<button class="field-tab '+(i===0?'active':'')+'" data-branch="'+escField(x.id)+'">'+escField(x.tab)+(x.status==='PLANNED'?'<em>PLANNED</em>':'')+'</button>').join('');
+    host.querySelectorAll('.field-tab').forEach(btn=>btn.addEventListener('click',()=>renderFieldBranch(field,btn.dataset.branch)));
+    renderFieldBranch(field,'analytics');
+  }catch(error){
+    document.querySelector('#fieldWorkspace').innerHTML='<div class="empty">Не удалось загрузить FATHER Field: '+escField(error.message)+'</div>';
+  }
+}
+initFatherField();
