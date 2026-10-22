@@ -97,3 +97,41 @@ async function initFatherField(){
   }
 }
 initFatherField();
+
+
+let systemRegistry=null;
+function systemStateClass(v){return 'state-'+String(v||'').toLowerCase().replaceAll(' ','_');}
+function renderSystemCenters(group='ALL'){
+  if(!systemRegistry) return;
+  const rows=(systemRegistry.centers||[]).filter(x=>group==='ALL'||x.group===group);
+  document.querySelector('#centerGrid').innerHTML=rows.map(x=>
+    '<a class="center-card" href="'+escField(x.href)+'">'+
+      '<div class="center-card-top"><span class="center-id">'+escField(x.id)+' · '+escField(x.group)+'</span><span class="center-state '+systemStateClass(x.status)+'">'+escField(x.status)+'</span></div>'+
+      '<h3>'+escField(x.name)+'</h3><p>'+escField(x.purpose)+'</p><span class="center-open">Открыть центр →</span>'+
+    '</a>'
+  ).join('') || '<div class="empty">Нет центров в этой группе.</div>';
+}
+async function initSystemRegistry(){
+  const grid=document.querySelector('#centerGrid');
+  if(!grid) return;
+  try{
+    const r=await fetch('./data/father-system-registry.json',{cache:'no-store'});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    systemRegistry=await r.json();
+    renderSystemCenters('ALL');
+    document.querySelectorAll('#centerFilter button').forEach(btn=>btn.addEventListener('click',()=>{
+      document.querySelectorAll('#centerFilter button').forEach(x=>x.classList.toggle('active',x===btn));
+      renderSystemCenters(btn.dataset.group);
+    }));
+    const p=(systemRegistry.current_projects||[])[0];
+    if(p){
+      document.querySelector('#currentProject').innerHTML=
+        '<div class="project-main"><p class="eyebrow">'+escField(p.id)+'</p><h3>'+escField(p.name)+'</h3><p>'+escField(p.purpose)+'</p>'+
+        '<div class="project-tags"><span>'+escField(p.class)+'</span><span>'+escField(p.maturity)+'</span><span>'+escField(p.status)+'</span></div></div>'+
+        '<div class="project-side"><b>NEXT CONTROLLED ACTION</b><p>'+escField(p.next)+'</p><a href="'+escField(p.repository)+'" target="_blank" rel="noopener">Открыть репозиторий ↗</a></div>';
+    }
+  }catch(error){
+    grid.innerHTML='<div class="empty">Не удалось загрузить реестр системы: '+escField(error.message)+'</div>';
+  }
+}
+initSystemRegistry();
