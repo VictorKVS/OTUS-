@@ -1,0 +1,148 @@
+{
+  "schema_version": "father-system-registry.v1",
+  "status": "ACTIVE_BUILD",
+  "principle": "ONE_SYSTEM_ONE_NAVIGATION_ONE_DATA_PLANE",
+  "centers": [
+    {
+      "id": "SYS",
+      "name": "Единая система",
+      "group": "CORE",
+      "status": "ACTIVE",
+      "href": "./unified-system.html",
+      "purpose": "Общая карта FATHER: база, цеха, ветки и участие ролей."
+    },
+    {
+      "id": "FAC",
+      "name": "Factory Floor",
+      "group": "CORE",
+      "status": "ACTIVE",
+      "href": "../factory/index.html",
+      "purpose": "Исполнительный производственный контур и маршруты обработки."
+    },
+    {
+      "id": "ANA",
+      "name": "Аналитика",
+      "group": "DOMAIN",
+      "status": "ACTIVE_CORE",
+      "href": "./unified-system.html#branches",
+      "purpose": "Общий Analytical Core: facts, entities, relations, risks, hypotheses, evidence."
+    },
+    {
+      "id": "OSI",
+      "name": "OSINT",
+      "group": "DOMAIN",
+      "status": "ACTIVE_DESIGN",
+      "href": "./unified-system.html#branches",
+      "purpose": "Внешняя разведка и evidence-backed анализ на общей аналитической основе."
+    },
+    {
+      "id": "SEC",
+      "name": "ИБ",
+      "group": "DOMAIN",
+      "status": "DESIGN",
+      "href": "./unified-system.html#branches",
+      "purpose": "Security engineering, risk, controls, compliance и security evidence."
+    },
+    {
+      "id": "PEN",
+      "name": "Pentest",
+      "group": "DOMAIN",
+      "status": "DESIGN",
+      "href": "../factory/pentest-agent-design-run.html",
+      "purpose": "Разрешённые проверки, evidence и retest в LAB/Cyber Range."
+    },
+    {
+      "id": "DSO",
+      "name": "DevSecOps",
+      "group": "DOMAIN",
+      "status": "DESIGN",
+      "href": "../factory/devops-environments.html",
+      "purpose": "CI/CD, supply chain, environments, policy and deployment evidence."
+    },
+    {
+      "id": "KNW",
+      "name": "Knowledge Center",
+      "group": "PLATFORM",
+      "status": "ACTIVE_DESIGN",
+      "href": "../factory/knowledge-center.html",
+      "purpose": "K0/K1/K2, source registry, retrieval, knowledge routing and controlled publish."
+    },
+    {
+      "id": "AGT",
+      "name": "Agent Kits",
+      "group": "PLATFORM",
+      "status": "ACTIVE_DESIGN",
+      "href": "../factory/agent-kits.html",
+      "purpose": "Реестр ролей/агентов, наследование базы знаний и capability profiles."
+    },
+    {
+      "id": "LAB",
+      "name": "FATHER LAB",
+      "group": "PLATFORM",
+      "status": "ACTIVE_DESIGN",
+      "href": "../factory/lab.html",
+      "purpose": "Эксперименты, regression, evaluation, safety and certification evidence."
+    },
+    {
+      "id": "TRC",
+      "name": "Trace Center",
+      "group": "PLATFORM",
+      "status": "ACTIVE_DESIGN",
+      "href": "../factory/trace-center.html",
+      "purpose": "Сквозная трассировка действий, тестов, evidence и runtime events."
+    },
+    {
+      "id": "DOS",
+      "name": "C00–C99 Dossier",
+      "group": "CONTROL",
+      "status": "ACTIVE_DESIGN",
+      "href": "../factory/combat-template.html",
+      "purpose": "Контролируемое техническое дело изделия, а не отдельный конвейер."
+    },
+    {
+      "id": "DOC",
+      "name": "Document Center",
+      "group": "CONTROL",
+      "status": "ACTIVE",
+      "href": "./document-center.html",
+      "purpose": "Управляемые документы, версии, источники и site dossier."
+    },
+    {
+      "id": "ARC",
+      "name": "Architecture",
+      "group": "DOMAIN",
+      "status": "ACTIVE",
+      "href": "./development-pack.html",
+      "purpose": "HLD/LLD/ADR/contracts и Development Pack."
+    },
+    {
+      "id": "LEG",
+      "name": "Legal",
+      "group": "DOMAIN",
+      "status": "PLANNED",
+      "href": "./unified-system.html#branches",
+      "purpose": "Юридическая ветка на общей аналитике и K1 Legal."
+    },
+    {
+      "id": "ENG",
+      "name": "Engineering",
+      "group": "DOMAIN",
+      "status": "PLANNED",
+      "href": "./unified-system.html#branches",
+      "purpose": "Инженерные расчёты/модели и технические evidence на общей базе."
+    }
+  ],
+  "current_projects": [
+    {
+      "id": "FATHER_VOICE_BRIDGE",
+      "name": "Telegram Voice Bridge",
+      "class": "C1_LIGHT_AGENT",
+      "maturity": "M1_MANUAL_GOLDEN_REFERENCE",
+      "status": "EXPERIMENTAL",
+      "repository": "https://github.com/VictorKVS/FATHER_VOICE_BRIDGE",
+      "purpose": "Первый ручной эталон для доказательства полного производственного цикла FATHER.",
+      "next": "Run C00→C10 through local Mission Control; capture real evidence."
+    }
+  ],
+  "navigation_rule": "All domain and platform pages must return to the central FATHER site and use common canonical registries."
+}
