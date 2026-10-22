@@ -1,0 +1,535 @@
+{
+  "schema_version": "father-workshop-registry.v1",
+  "status": "CANONICAL_DESIGN",
+  "universal_contract": [
+    "INPUT",
+    "REGULATIONS",
+    "OWNER_ROLES",
+    "PROCESS",
+    "ARTIFACTS",
+    "TESTS",
+    "EVIDENCE",
+    "GATE",
+    "OUTPUT"
+  ],
+  "workshops": [
+    {
+      "id": "W00",
+      "name": "INTAKE",
+      "status": "DESIGN_READY",
+      "input": [
+        "idea",
+        "business task",
+        "technical specification",
+        "documents",
+        "data",
+        "source code",
+        "existing system",
+        "incident/change request"
+      ],
+      "regulations": [
+        "FATHER Factory Regulation",
+        "Project Bootstrap A00-A12",
+        "Source & Scope Registration"
+      ],
+      "owner_roles": [
+        "Product Owner",
+        "ALINA Analyst"
+      ],
+      "process": [
+        "register project",
+        "identify source provenance",
+        "define scope",
+        "classify product",
+        "record constraints",
+        "open dossier"
+      ],
+      "artifacts": [
+        "PROJECT_PASSPORT",
+        "SOURCE_REGISTER",
+        "SCOPE",
+        "C00_INTAKE"
+      ],
+      "tests": [
+        "required fields validation",
+        "source provenance check",
+        "scope completeness check"
+      ],
+      "evidence": [
+        "registered project id",
+        "versioned intake artifact",
+        "source references"
+      ],
+      "gate": "G-W00-INTAKE",
+      "output": [
+        "accepted work package",
+        "initial scope",
+        "project id",
+        "opened controlled dossier"
+      ]
+    },
+    {
+      "id": "W10",
+      "name": "ANALYSIS",
+      "status": "DESIGN_READY",
+      "input": [
+        "accepted work package",
+        "documents",
+        "data",
+        "domain findings"
+      ],
+      "regulations": [
+        "Analytical Core Standard",
+        "Evidence-first Analysis",
+        "Traceability Standard"
+      ],
+      "owner_roles": [
+        "ALINA Analyst"
+      ],
+      "process": [
+        "extract facts",
+        "identify entities/relations/events",
+        "derive requirements",
+        "identify risks/contradictions",
+        "form hypotheses",
+        "assign confidence"
+      ],
+      "artifacts": [
+        "FACT_SET",
+        "ENTITY_GRAPH",
+        "REQ_NFR",
+        "RISK_REGISTER",
+        "CONTRADICTION_LOG",
+        "ANALYTICS_BUNDLE"
+      ],
+      "tests": [
+        "source traceability",
+        "contradiction detection",
+        "requirement completeness",
+        "confidence/provenance validation"
+      ],
+      "evidence": [
+        "citations",
+        "analysis trace",
+        "validated requirement ids"
+      ],
+      "gate": "G-W10-ANALYSIS",
+      "output": [
+        "validated analytical bundle"
+      ]
+    },
+    {
+      "id": "W20",
+      "name": "ARCHITECTURE",
+      "status": "DESIGN_READY",
+      "input": [
+        "validated analytical bundle",
+        "requirements",
+        "constraints",
+        "domain evidence"
+      ],
+      "regulations": [
+        "Architecture Standard",
+        "ADR Standard",
+        "C4/LLD Contract",
+        "Security by Design"
+      ],
+      "owner_roles": [
+        "FATHER Architect"
+      ],
+      "process": [
+        "define system context",
+        "design containers/components",
+        "define interfaces/contracts",
+        "record ADRs",
+        "map NFRs",
+        "prepare Development Pack"
+      ],
+      "artifacts": [
+        "HLD_C4",
+        "LLD_API",
+        "ADR_INDEX",
+        "ARCH_REVIEW",
+        "DEVELOPMENT_PACK"
+      ],
+      "tests": [
+        "requirements coverage",
+        "architecture consistency",
+        "interface contract validation",
+        "NFR traceability",
+        "security review"
+      ],
+      "evidence": [
+        "REQ→ARCH links",
+        "ADR records",
+        "review decision"
+      ],
+      "gate": "G-W20-ARCH",
+      "output": [
+        "approved architecture package",
+        "validated Development Pack"
+      ]
+    },
+    {
+      "id": "W30",
+      "name": "KNOWLEDGE_DATA",
+      "status": "DESIGN_READY",
+      "input": [
+        "architecture package",
+        "sources",
+        "datasets",
+        "project context"
+      ],
+      "regulations": [
+        "FATHER Knowledge Architecture",
+        "Data Governance",
+        "Provenance Policy"
+      ],
+      "owner_roles": [
+        "Knowledge Engineer",
+        "Data Engineer"
+      ],
+      "process": [
+        "classify K0/K1/K2",
+        "register sources",
+        "normalize data",
+        "define schemas",
+        "prepare retrieval/data contracts",
+        "publish controlled knowledge"
+      ],
+      "artifacts": [
+        "KNOWLEDGE_PROFILE",
+        "SOURCE_REGISTRY",
+        "DATA_SCHEMA",
+        "DATASET_MANIFEST",
+        "RETRIEVAL_CONTRACT"
+      ],
+      "tests": [
+        "provenance validation",
+        "schema validation",
+        "deduplication",
+        "retrieval quality checks",
+        "access scope checks"
+      ],
+      "evidence": [
+        "source lineage",
+        "dataset version",
+        "retrieval evaluation"
+      ],
+      "gate": "G-W30-KNOWLEDGE-DATA",
+      "output": [
+        "approved knowledge/data package"
+      ]
+    },
+    {
+      "id": "W40",
+      "name": "AGENT_COMPONENT_ENGINEERING",
+      "status": "DESIGN_READY",
+      "input": [
+        "architecture package",
+        "knowledge/data package",
+        "requirements"
+      ],
+      "regulations": [
+        "Agent Kit Standard",
+        "Component Reuse Policy",
+        "Compatibility Policy"
+      ],
+      "owner_roles": [
+        "FATHER Architect",
+        "Factory Controller"
+      ],
+      "process": [
+        "select agent kits",
+        "select models/tools",
+        "classify REUSE/ADAPT/NEW",
+        "check compatibility",
+        "define permissions",
+        "assemble component bill"
+      ],
+      "artifacts": [
+        "AGENT_SPEC",
+        "COMPONENT_BOM",
+        "COMPATIBILITY_MATRIX",
+        "PERMISSION_PROFILE",
+        "BUILD_PLAN"
+      ],
+      "tests": [
+        "compatibility checks",
+        "permission checks",
+        "dependency checks",
+        "component contract tests"
+      ],
+      "evidence": [
+        "selection rationale",
+        "version matrix",
+        "reuse/new decision"
+      ],
+      "gate": "G-W40-COMPONENTS",
+      "output": [
+        "approved implementation bill and agent/component plan"
+      ]
+    },
+    {
+      "id": "W50",
+      "name": "IMPLEMENTATION",
+      "status": "DESIGN_READY",
+      "input": [
+        "validated Development Pack",
+        "component plan",
+        "knowledge/data contracts"
+      ],
+      "regulations": [
+        "FATHER CODEX Standard",
+        "Secure Coding",
+        "Traceability in Code"
+      ],
+      "owner_roles": [
+        "FATHER Programmer / CODEX"
+      ],
+      "process": [
+        "implement code",
+        "configure components",
+        "write unit/contract tests",
+        "instrument telemetry",
+        "link requirements to code/tests"
+      ],
+      "artifacts": [
+        "SOURCE_CODE",
+        "CONFIG",
+        "UNIT_TESTS",
+        "CONTRACT_TESTS",
+        "IMPLEMENTATION_TRACE"
+      ],
+      "tests": [
+        "static checks",
+        "unit tests",
+        "contract tests",
+        "secret checks",
+        "build validation"
+      ],
+      "evidence": [
+        "commit ids",
+        "test reports",
+        "REQ/AC/ADR trace"
+      ],
+      "gate": "G-W50-IMPLEMENTATION",
+      "output": [
+        "implementation candidate"
+      ]
+    },
+    {
+      "id": "W60",
+      "name": "QA_SECURITY_LAB",
+      "status": "DESIGN_READY",
+      "input": [
+        "implementation candidate",
+        "requirements",
+        "risk/security model",
+        "test datasets"
+      ],
+      "regulations": [
+        "QA Standard",
+        "FATHER LAB Standard",
+        "Security Test Standard",
+        "Evaluation Policy"
+      ],
+      "owner_roles": [
+        "QA/Evaluator",
+        "Security Engineer",
+        "Pentest role where authorized"
+      ],
+      "process": [
+        "integration/system tests",
+        "regression",
+        "security review/tests",
+        "performance evaluation",
+        "adversarial/safety checks",
+        "compare results"
+      ],
+      "artifacts": [
+        "TEST_REPORT",
+        "SECURITY_REPORT",
+        "LAB_RUN",
+        "REGRESSION_REPORT",
+        "FINDING_REGISTER"
+      ],
+      "tests": [
+        "integration",
+        "system E2E",
+        "security",
+        "performance",
+        "regression",
+        "evaluation calibration"
+      ],
+      "evidence": [
+        "test outputs",
+        "trace ids",
+        "LAB run ids",
+        "reproducible findings"
+      ],
+      "gate": "G-W60-QUALITY-SECURITY",
+      "output": [
+        "verified candidate or blocked findings"
+      ]
+    },
+    {
+      "id": "W70",
+      "name": "DEVOPS_ENVIRONMENTS",
+      "status": "DESIGN_READY",
+      "input": [
+        "verified candidate",
+        "environment profile",
+        "deployment constraints"
+      ],
+      "regulations": [
+        "Environment Standard",
+        "CI/CD/GitOps Standard",
+        "Observability Standard",
+        "Backup/Rollback Standard"
+      ],
+      "owner_roles": [
+        "DevOps/SRE"
+      ],
+      "process": [
+        "build artifact",
+        "containerize",
+        "deploy to target environment",
+        "configure telemetry/secrets",
+        "verify rollback",
+        "capture runtime evidence"
+      ],
+      "artifacts": [
+        "BUILD_ARTIFACT",
+        "CONTAINER",
+        "CI_REPORT",
+        "DEPLOYMENT_MANIFEST",
+        "RUNBOOK",
+        "OBSERVABILITY_CONFIG"
+      ],
+      "tests": [
+        "pipeline checks",
+        "environment smoke tests",
+        "configuration validation",
+        "rollback test",
+        "telemetry availability"
+      ],
+      "evidence": [
+        "build digest",
+        "deployment trace",
+        "environment check report",
+        "rollback evidence"
+      ],
+      "gate": "G-W70-OPERATIONS",
+      "output": [
+        "operational release candidate"
+      ]
+    },
+    {
+      "id": "W80",
+      "name": "ACCEPTANCE_CERTIFICATION",
+      "status": "DESIGN_READY",
+      "input": [
+        "operational release candidate",
+        "full evidence bundle",
+        "acceptance criteria"
+      ],
+      "regulations": [
+        "Acceptance Standard",
+        "Certification Policy",
+        "Promotion Rules"
+      ],
+      "owner_roles": [
+        "Certifier",
+        "Product Owner",
+        "Independent reviewers"
+      ],
+      "process": [
+        "verify acceptance criteria",
+        "verify evidence completeness",
+        "review limitations",
+        "confirm rollback/runbooks",
+        "decide promotion"
+      ],
+      "artifacts": [
+        "ACCEPTANCE_RECORD",
+        "CERTIFICATE_STATUS",
+        "KNOWN_LIMITATIONS",
+        "PROMOTION_DECISION"
+      ],
+      "tests": [
+        "acceptance checklist",
+        "evidence completeness",
+        "critical finding closure",
+        "release readiness review"
+      ],
+      "evidence": [
+        "signed/recorded decision",
+        "evidence index",
+        "exception records"
+      ],
+      "gate": "G-W80-ACCEPTANCE",
+      "output": [
+        "approved release or blocked candidate"
+      ]
+    },
+    {
+      "id": "W90",
+      "name": "OUTPUT_DELIVERY",
+      "status": "DESIGN_READY",
+      "input": [
+        "approved release",
+        "controlled dossier",
+        "deployment package"
+      ],
+      "regulations": [
+        "Delivery Standard",
+        "Archive/AAR Standard",
+        "Feedback Policy"
+      ],
+      "owner_roles": [
+        "Factory Controller",
+        "Product Owner",
+        "Operations"
+      ],
+      "process": [
+        "package product",
+        "publish release",
+        "deliver documentation",
+        "archive evidence",
+        "start telemetry/feedback loop",
+        "open next-version change requests"
+      ],
+      "artifacts": [
+        "PRODUCT_RELEASE",
+        "DELIVERY_PACKAGE",
+        "DOSSIER_INDEX",
+        "AAR",
+        "FEEDBACK_INTAKE"
+      ],
+      "tests": [
+        "package integrity",
+        "documentation completeness",
+        "release version verification",
+        "delivery smoke check"
+      ],
+      "evidence": [
+        "release id",
+        "artifact hashes",
+        "delivery record",
+        "AAR"
+      ],
+      "gate": "G-W90-DELIVERY",
+      "output": [
+        "verified delivered product",
+        "experience/feedback stream"
+      ]
+    }
+  ],
+  "laws": [
+    "NO_REGULATION_NO_PROCESS",
+    "NO_TEST_NO_CLAIM_OF_QUALITY",
+    "NO_EVIDENCE_NO_PROMOTION",
+    "NO_ACCEPTANCE_NO_RELEASE"
+  ]
+}
