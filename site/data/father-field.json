@@ -1,0 +1,282 @@
+{
+  "schema_version": "father-field.v1",
+  "status": "CANONICAL_DESIGN",
+  "rule": "ONE_PLATFORM_MANY_SPECIALIZATIONS",
+  "shared_foundation": [
+    {
+      "id": "BASE-FACTORY",
+      "name": "Factory Core",
+      "purpose": "workshops, gates, lifecycle, product flow"
+    },
+    {
+      "id": "BASE-ANALYTICS",
+      "name": "Analytical Core",
+      "purpose": "facts, entities, relations, events, hypotheses, contradictions, confidence"
+    },
+    {
+      "id": "BASE-K0",
+      "name": "K0 Common Knowledge",
+      "purpose": "shared school, documents, evidence, traceability, AI engineering standards"
+    },
+    {
+      "id": "BASE-DOSSIER",
+      "name": "Controlled Dossier",
+      "purpose": "C00-C99 product evidence areas and versioned documents"
+    },
+    {
+      "id": "BASE-LAB",
+      "name": "LAB & Evaluation",
+      "purpose": "tests, regression, experiments, certification evidence"
+    },
+    {
+      "id": "BASE-OPS",
+      "name": "DevOps / Environments",
+      "purpose": "runtime, CI/CD, observability, isolation, rollback"
+    }
+  ],
+  "branches": [
+    {
+      "id": "analytics",
+      "tab": "Аналитика",
+      "status": "ACTIVE_CORE",
+      "agent_family": "ALINA",
+      "role": "Shared analytical processing core for all domains.",
+      "overlay": "KB-K1-ALINA-ANALYTICS",
+      "input": [
+        "raw documents",
+        "requirements",
+        "events",
+        "data",
+        "external findings"
+      ],
+      "output": [
+        "facts",
+        "entities",
+        "relations",
+        "risks",
+        "hypotheses",
+        "contradictions",
+        "evidence bundle"
+      ],
+      "feeds": [
+        "osint",
+        "security",
+        "pentest",
+        "legal",
+        "engineering",
+        "architecture"
+      ]
+    },
+    {
+      "id": "osint",
+      "tab": "OSINT",
+      "status": "ACTIVE_DESIGN",
+      "agent_family": "OSINT",
+      "role": "External information and attack-surface intelligence built on the common analytical core.",
+      "overlay": "KB-K1-OSINT",
+      "input": [
+        "analytics bundle",
+        "public sources",
+        "internet infrastructure",
+        "media/social sources"
+      ],
+      "output": [
+        "source-backed findings",
+        "entity graphs",
+        "infrastructure map",
+        "external risk signals"
+      ],
+      "feeds": [
+        "analytics",
+        "security",
+        "pentest",
+        "architecture"
+      ]
+    },
+    {
+      "id": "security",
+      "tab": "ИБ",
+      "status": "DESIGN",
+      "agent_family": "SECURITY",
+      "role": "Security engineering, controls, risk and compliance.",
+      "overlay": "KB-K1-IB",
+      "input": [
+        "analytics bundle",
+        "architecture",
+        "assets",
+        "regulatory sources",
+        "OSINT findings"
+      ],
+      "output": [
+        "threat model",
+        "controls",
+        "security requirements",
+        "risk register",
+        "security evidence"
+      ],
+      "feeds": [
+        "analytics",
+        "pentest",
+        "devsecops",
+        "architecture"
+      ]
+    },
+    {
+      "id": "pentest",
+      "tab": "Pentest",
+      "status": "DESIGN",
+      "agent_family": "PENTEST",
+      "role": "Authorized security testing and remediation verification.",
+      "overlay": "KB-K1-PENTEST",
+      "input": [
+        "approved scope",
+        "security model",
+        "OSINT surface map",
+        "test plan"
+      ],
+      "output": [
+        "validated findings",
+        "evidence",
+        "retest results",
+        "coverage report"
+      ],
+      "feeds": [
+        "analytics",
+        "security",
+        "lab"
+      ]
+    },
+    {
+      "id": "devsecops",
+      "tab": "DevSecOps",
+      "status": "DESIGN",
+      "agent_family": "DEVSECOPS",
+      "role": "Secure delivery, CI/CD, supply chain and policy as code.",
+      "overlay": "KB-K1-DEVSECOPS",
+      "input": [
+        "architecture",
+        "security controls",
+        "code",
+        "environment profile"
+      ],
+      "output": [
+        "pipeline controls",
+        "build evidence",
+        "deployment evidence",
+        "policy results"
+      ],
+      "feeds": [
+        "analytics",
+        "security",
+        "operations"
+      ]
+    },
+    {
+      "id": "knowledge",
+      "tab": "Knowledge",
+      "status": "DESIGN",
+      "agent_family": "KNOWLEDGE",
+      "role": "Source governance, ingestion, ontology, RAG and knowledge publishing.",
+      "overlay": "KB-K1-KNOWLEDGE-ENGINEERING",
+      "input": [
+        "sources",
+        "analytics output",
+        "project documents"
+      ],
+      "output": [
+        "K0/K1/K2 packages",
+        "source registry",
+        "datasets",
+        "knowledge graph"
+      ],
+      "feeds": [
+        "analytics",
+        "osint",
+        "security",
+        "legal",
+        "engineering",
+        "architecture"
+      ]
+    },
+    {
+      "id": "legal",
+      "tab": "Legal",
+      "status": "PLANNED",
+      "agent_family": "LEGAL",
+      "role": "Legal and regulatory interpretation as a domain overlay on analytical core.",
+      "overlay": "KB-K1-LEGAL",
+      "input": [
+        "analytics bundle",
+        "regulatory sources",
+        "project facts"
+      ],
+      "output": [
+        "legal positions",
+        "obligations",
+        "responsibility map",
+        "evidence references"
+      ],
+      "feeds": [
+        "analytics",
+        "security",
+        "architecture"
+      ]
+    },
+    {
+      "id": "engineering",
+      "tab": "Engineering",
+      "status": "PLANNED",
+      "agent_family": "ENGINEERING",
+      "role": "Technical engineering analysis for physical/electronic/robotic systems.",
+      "overlay": "KB-K1-ENGINEERING",
+      "input": [
+        "analytics bundle",
+        "technical documents",
+        "measurements",
+        "constraints"
+      ],
+      "output": [
+        "engineering model",
+        "requirements",
+        "calculations",
+        "design evidence"
+      ],
+      "feeds": [
+        "analytics",
+        "architecture"
+      ]
+    },
+    {
+      "id": "architecture",
+      "tab": "Архитектура",
+      "status": "ACTIVE",
+      "agent_family": "FATHER_ARCHITECT",
+      "role": "Transforms validated domain outputs into system architecture and Development Pack.",
+      "overlay": "KB-K1-ARCHITECT",
+      "input": [
+        "analytics bundle",
+        "domain findings",
+        "requirements",
+        "constraints"
+      ],
+      "output": [
+        "HLD",
+        "LLD",
+        "ADR",
+        "contracts",
+        "Development Pack"
+      ],
+      "feeds": [
+        "implementation",
+        "security",
+        "devsecops"
+      ]
+    }
+  ],
+  "flow": {
+    "ingress": "INPUT",
+    "central_core": "analytics",
+    "branch_rule": "DOMAIN_TAB = COMMON_BASE + K1_OVERLAY + OPTIONAL_K2",
+    "feedback": "All branch evidence returns to Analytical Core and controlled Experience/LAB loop."
+  }
+}
