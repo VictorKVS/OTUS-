@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FATHER · Unified System</title>
+<link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="./unified-system.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="./index.html"><span class="brand-mark">FA</span><span><strong>FATHER</strong><small>Unified System</small></span></a>
+  <nav class="nav">
+    <a href="./index.html">Главная</a>
+    <a href="#base">Основа</a>
+    <a href="#flow">Цеха</a>
+    <a href="#branches">Ветки</a>
+    <a href="#matrix">Матрица</a>
+    <a href="../factory/lab.html">LAB</a>
+    <a href="../factory/agent-kits.html">Agent Kits</a>
+  </nav>
+</header>
+
+<main>
+<section class="unified-hero">
+  <div>
+    <p class="eyebrow">ONE BASE · ONE FACTORY · MANY DOMAIN BRANCHES</p>
+    <h1>Единая система <span>FATHER</span></h1>
+    <p class="hero-text">Одна производственная основа. Одно аналитическое ядро. Одни регламенты, тесты, evidence и gates. OSINT, ИБ, Pentest, DevSecOps, Legal, Engineering и другие направления — профессиональные ветки той же фабрики.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#flow">Открыть конвейер</a>
+      <a class="btn" href="#branches">Открыть ветки</a>
+    </div>
+  </div>
+  <aside class="system-status">
+    <div class="sys-row"><span>Архитектура</span><b>UNIFIED</b></div>
+    <div class="sys-row"><span>Ветки</span><b id="branchCount">—</b></div>
+    <div class="sys-row"><span>Цеха</span><b id="workshopCount">—</b></div>
+    <div class="sys-row"><span>K1 packs</span><b id="k1Count">—</b></div>
+    <div class="sys-row"><span>Agent Kits</span><b id="kitCount">—</b></div>
+  </aside>
+</section>
+
+<section class="section" id="base">
+  <div class="section-head"><div><p class="eyebrow">COMMON FOUNDATION</p><h2>Одна основа для всех направлений</h2></div></div>
+  <div class="base-grid" id="baseGrid"></div>
+</section>
+
+<section class="section" id="flow">
+  <div class="section-head">
+    <div><p class="eyebrow">MAIN FACTORY FLOW</p><h2>Один конвейер W00–W90</h2></div>
+    <p class="muted">Каждая ветка проходит те же производственные цеха, но участвует в них в своей роли.</p>
+  </div>
+  <div class="workshop-lane" id="workshopLane"></div>
+</section>
+
+<section class="section analytic-hub">
+  <div class="eyebrow">SHARED ANALYTICAL CORE</div>
+  <h2>Аналитика — общий нервный узел</h2>
+  <div class="hub-grid">
+    <div class="hub-in">INPUT<small>документы · данные · события · требования</small></div>
+    <div class="hub-arrow">→</div>
+    <div class="hub-core"><b>ALINA / FATHER ANALYTICAL CORE</b><small>facts · entities · relations · events · contradictions · hypotheses · confidence · evidence</small></div>
+    <div class="hub-arrow">→</div>
+    <div class="hub-out">DOMAIN BRANCH<small>K1/K2 + tools + regulations + tests</small></div>
+  </div>
+</section>
+
+<section class="section" id="branches">
+  <div class="section-head">
+    <div><p class="eyebrow">DOMAIN TABS</p><h2>Специализации одной фабрики</h2></div>
+  </div>
+  <div class="domain-tabs" id="domainTabs"></div>
+  <div class="domain-panel" id="domainPanel"></div>
+</section>
+
+<section class="section" id="matrix">
+  <div class="section-head">
+    <div><p class="eyebrow">WORKSHOP PARTICIPATION</p><h2>Какая ветка где работает</h2></div>
+  </div>
+  <div class="matrix-scroll"><table id="participationMatrix"></table></div>
+</section>
+
+<section class="section">
+  <div class="section-head"><div><p class="eyebrow">FACTORY CONTRACT</p><h2>Универсальный контракт цеха</h2></div></div>
+  <div class="contract-flow" id="contractFlow"></div>
+</section>
+
+<section class="section feedback-section">
+  <div class="section-head"><div><p class="eyebrow">LEARNING LOOP</p><h2>Каждый проект улучшает одну и ту же фабрику</h2></div></div>
+  <div class="feedback-flow">PRODUCT → TRACE / EVIDENCE / EXPERIENCE → ANALYTICS → LAB → CHANGE REQUEST → K0 / K1 / K2 / BLOCK LIBRARY → NEXT PRODUCT</div>
+</section>
+</main>
+
+<footer><span>FATHER Unified System · Canonical Design</span><a href="../docs/FATHER_UNIFIED_SYSTEM_ARCHITECTURE.md">Архитектура ↗</a></footer>
+<script src="./unified-system.js"></script>
+</body>
+</html>
