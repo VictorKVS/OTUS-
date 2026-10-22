@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FATHER · Visual System</title>
+<link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="./visual-system.css">
+</head>
+<body>
+<header class="topbar visual-topbar">
+  <a class="brand" href="./index.html">
+    <span class="brand-mark">FA</span>
+    <span><strong>FATHER</strong><small>Visual System · Engineering UI</small></span>
+  </a>
+  <nav class="nav">
+    <a href="./index.html">Главная</a>
+    <a href="./unified-system.html">Единая система</a>
+    <a href="#identity">Стиль</a>
+    <a href="#components">Компоненты</a>
+    <a href="#pages">Страницы</a>
+    <a href="#prototype">Прототип</a>
+  </nav>
+  <span class="visual-version">VISUAL · V1</span>
+</header>
+
+<main>
+<section class="visual-hero" id="identity">
+  <div>
+    <p class="eyebrow">FATHER VISUAL SYSTEM · CANONICAL DESIGN</p>
+    <h1>Один визуальный язык<br><span>для всей фабрики</span></h1>
+    <p class="hero-text">Главная, цеха, аналитика, OSINT, ИБ, Pentest, Knowledge, LAB, Trace и C00–C99 должны восприниматься как разные рабочие места одной инженерной системы.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#prototype">Смотреть прототип</a>
+      <a class="btn" href="../docs/FATHER_SITE_VISUAL_SYSTEM.md">Открыть стандарт</a>
+    </div>
+  </div>
+  <aside class="visual-status">
+    <div><span>System</span><b>FATHER</b></div>
+    <div><span>Mode</span><b>ENGINEERING UI</b></div>
+    <div><span>Status</span><b class="tone-amber">CANONICAL DESIGN</b></div>
+    <div><span>Rule</span><b>ONE SHELL / MANY WORKSPACES</b></div>
+  </aside>
+</section>
+
+<section class="section">
+  <div class="section-head"><div><p class="eyebrow">DESIGN TOKENS</p><h2>Основа визуального языка</h2></div></div>
+  <div class="token-layout">
+    <div class="swatches" id="swatches"></div>
+    <div class="type-spec">
+      <div class="type-hero">FATHER</div>
+      <div class="type-h2">Engineering Factory</div>
+      <div class="type-body">Фабрика превращает входную информацию в проверенный инженерный продукт.</div>
+      <div class="type-mono">W20 · ARCHITECTURE · G-W20-ARCH</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="components">
+  <div class="section-head"><div><p class="eyebrow">UI COMPONENTS</p><h2>Компоненты одной системы</h2></div></div>
+
+  <div class="component-grid">
+    <article class="demo-card">
+      <p class="eyebrow">STATUS</p>
+      <h3>Truthful state</h3>
+      <div class="status-demo" id="statusDemo"></div>
+    </article>
+
+    <article class="demo-card">
+      <p class="eyebrow">ACTIONS</p>
+      <h3>Controlled actions</h3>
+      <div class="action-demo">
+        <button class="visual-btn primary">Выполнить</button>
+        <button class="visual-btn">Проверить</button>
+        <button class="visual-btn approve">Принять Gate</button>
+        <button class="visual-btn blocked">BLOCKED</button>
+      </div>
+    </article>
+
+    <article class="demo-card">
+      <p class="eyebrow">DOMAIN TABS</p>
+      <h3>Единая база, разные ветки</h3>
+      <div class="tab-demo">
+        <button class="active">Аналитика</button><button>OSINT</button><button>ИБ</button><button>Pentest</button>
+      </div>
+    </article>
+
+    <article class="demo-card">
+      <p class="eyebrow">EVIDENCE</p>
+      <h3>Action → proof</h3>
+      <div class="evidence-demo">
+        <div><b>PASS</b><span>G-W10-ANALYSIS</span><code>EV-0142</code></div>
+        <div><b class="tone-amber">REVIEW</b><span>C09 ARCH REVIEW</span><code>EV-0143</code></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="pages">
+  <div class="section-head"><div><p class="eyebrow">PAGE FAMILIES</p><h2>Четыре шаблона вместо десятков случайных страниц</h2></div></div>
+  <div class="page-family-grid">
+    <article><span>01</span><h3>Главная FATHER</h3><p>Миссия, текущее изделие, центры, ветки, конвейер, gates и evidence.</p></article>
+    <article><span>02</span><h3>Domain Workspace</h3><p>Общая база + K1/K2 + вход/выход + участие в цехах + инструменты и доказательства.</p></article>
+    <article><span>03</span><h3>Workshop Wxx</h3><p>INPUT → REGULATION → ROLE → PROCESS → ARTIFACTS → TEST → EVIDENCE → GATE.</p></article>
+    <article><span>04</span><h3>Control Screen</h3><p>Текущее действие, результат проверки, evidence и только разрешённый следующий шаг.</p></article>
+  </div>
+</section>
+
+<section class="section" id="prototype">
+  <div class="section-head">
+    <div><p class="eyebrow">MAIN PAGE PROTOTYPE</p><h2>Как должна выглядеть главная</h2></div>
+    <span class="status-note">Visual skeleton · not production status</span>
+  </div>
+
+  <div class="prototype-shell">
+    <div class="proto-top">
+      <div class="proto-brand"><span>FA</span><b>FATHER</b><small>Unified Engineering Factory</small></div>
+      <div class="proto-nav">Система · Factory · Analytics · LAB · Knowledge · Agents · Trace</div>
+      <div class="proto-online">LOCAL · ONLINE</div>
+    </div>
+
+    <div class="proto-hero">
+      <div>
+        <p class="eyebrow">CURRENT MISSION</p>
+        <h3>Из информации —<br><span>в проверенный продукт</span></h3>
+        <p>Одна фабрика, одна аналитика, одни gates. Профессиональные ветки используют общий производственный каркас.</p>
+        <div class="proto-actions"><button>Открыть фабрику</button><button>Текущее изделие</button></div>
+      </div>
+      <aside>
+        <small>CURRENT PRODUCT</small>
+        <b>FATHER_VOICE_BRIDGE</b>
+        <div><span>Maturity</span><strong>M1</strong></div>
+        <div><span>Stage</span><strong>W00 / C00</strong></div>
+        <div><span>Status</span><strong class="tone-amber">EXPERIMENTAL</strong></div>
+      </aside>
+    </div>
+
+    <div class="proto-section">
+      <div class="proto-heading"><small>SYSTEM CENTERS</small><b>Рабочие центры</b></div>
+      <div class="proto-cards">
+        <div><span>CORE</span><b>Единая система</b><small>Base / workshops / branches</small></div>
+        <div><span>CORE</span><b>Analytical Core</b><small>Facts / entities / evidence</small></div>
+        <div><span>PLATFORM</span><b>FATHER LAB</b><small>Tests / evaluation / certification</small></div>
+        <div><span>CONTROL</span><b>C00–C99</b><small>Controlled product dossier</small></div>
+      </div>
+    </div>
+
+    <div class="proto-section">
+      <div class="proto-heading"><small>FACTORY FLOW</small><b>W00–W90</b></div>
+      <div class="proto-flow">
+        <div>W00<br><b>INTAKE</b></div><i>→</i>
+        <div>W10<br><b>ANALYSIS</b></div><i>→</i>
+        <div>W20<br><b>ARCH</b></div><i>→</i>
+        <div>W30<br><b>KNOWLEDGE</b></div><i>→</i>
+        <div>W40<br><b>COMPONENTS</b></div><i>→</i>
+        <div>W50<br><b>BUILD</b></div><i>→</i>
+        <div>W60<br><b>LAB</b></div><i>→</i>
+        <div>W70<br><b>DEVOPS</b></div><i>→</i>
+        <div>W80<br><b>ACCEPT</b></div><i>→</i>
+        <div>W90<br><b>OUTPUT</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><span>FATHER Visual System · v1</span><span>Engineering UI · truthful status · evidence-first</span></footer>
+<script src="./visual-system.js"></script>
+</body>
+</html>
