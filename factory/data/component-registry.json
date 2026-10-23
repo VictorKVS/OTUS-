@@ -1,0 +1,108 @@
+{
+  "schema_version": "father-component-registry.v1",
+  "status": "ACTIVE_BUILD",
+  "rules": {
+    "component_identity": "Every reusable component has stable id, version, contract, dependencies, tests, evidence and certification state.",
+    "promotion": "DESIGN → EXPERIMENTAL → CANDIDATE → VALIDATED → CERTIFIED → PRODUCTION",
+    "certified_requirement": "Certification requires reproducible tests, evidence, compatibility profile and proven reuse.",
+    "unknown_rule": "If no suitable certified component exists, return NEW_BLOCK_REQUIRED or HUMAN_ENGINEERING_REQUIRED."
+  },
+  "components": [
+    {
+      "component_id": "FTH-CMP-VOICE-TTS-001",
+      "name": "FATHER Voice / TTS Profile Component",
+      "family": "VOICE_SPEECH",
+      "version": "0.1.0",
+      "status": "VALIDATED",
+      "validation_scope": "LOCAL_INTEGRATION",
+      "certification_status": "NOT_CERTIFIED",
+      "reuse_state": "READY_FOR_REUSE",
+      "purpose": "Reusable text-to-speech component and voice-profile template for FATHER agents and products requiring spoken output.",
+      "source_context": {
+        "origin": "ALINA/CyberED voice lab integration",
+        "related_product": "FATHER_VOICE_BRIDGE",
+        "implementation_location": "local workspace; central code path not yet baselined in OTUS- repository"
+      },
+      "contract": {
+        "input": [
+          "UTF-8 text",
+          "voice/profile selection",
+          "optional speech parameters"
+        ],
+        "output": [
+          "generated speech audio",
+          "execution status",
+          "trace/evidence metadata"
+        ],
+        "errors": [
+          "provider unavailable",
+          "invalid voice profile",
+          "generation failure",
+          "output file failure"
+        ]
+      },
+      "capabilities": [
+        "TEXT_TO_SPEECH",
+        "VOICE_PROFILE_SELECTION",
+        "MULTI_VOICE_TEMPLATE",
+        "HTTP_LOCAL_SERVICE_INTEGRATION",
+        "TRACEABLE_TTS_REQUEST"
+      ],
+      "dependencies": [
+        "TTS provider/runtime",
+        "local HTTP service",
+        "voice profile configuration"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EV-VOICE-LOCAL-001",
+          "type": "LOCAL_RUNTIME",
+          "result": "PASS",
+          "description": "Local voice lab page loaded successfully and TTS request was received by the running service; user confirmed the voice flow works.",
+          "scope": "local integration only"
+        }
+      ],
+      "tests_required_for_certification": [
+        "repeatable TTS smoke test",
+        "multi-voice profile regression",
+        "invalid-profile negative test",
+        "provider failure/fallback test",
+        "audio artifact validation",
+        "latency measurement",
+        "trace completeness",
+        "second-product reuse test"
+      ],
+      "security_profile": [
+        "no secrets in client assets",
+        "voice/provider credentials scoped outside source control",
+        "input length/resource limits",
+        "temporary audio lifecycle control",
+        "trace without raw sensitive content by default"
+      ],
+      "observability": [
+        "request received",
+        "provider selected",
+        "voice profile selected",
+        "generation success/failure",
+        "duration/latency",
+        "trace_id"
+      ],
+      "compatible_workshops": [
+        "W40",
+        "W50",
+        "W60",
+        "W70"
+      ],
+      "compatible_domains": [
+        "COMMUNICATION",
+        "ANALYTICS",
+        "OSINT",
+        "SECURITY",
+        "KNOWLEDGE",
+        "GENERAL_AGENT_UI"
+      ],
+      "next_promotion_gate": "G-CMP-VOICE-CERTIFY",
+      "promotion_condition": "Pass regression + compatibility + second-product reuse evidence."
+    }
+  ]
+}
