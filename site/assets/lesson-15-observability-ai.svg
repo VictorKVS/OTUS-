@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1020" viewBox="0 0 1600 1020" role="img" aria-labelledby="title desc">
+<title id="title">Lesson 15 — AI Observability Architecture</title>
+<desc id="desc">AI requests generate metrics, logs and traces collected into Prometheus, Loki and Tempo or Jaeger, visualized in Grafana and evaluated against SLO, quality, security and cost. Alerts lead to runbooks, incident analysis and change.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061018"/><stop offset="1" stop-color="#15152d"/></linearGradient><style>.t{font-family:Segoe UI,Arial,sans-serif;fill:#eef7ff}.m{fill:#91a9ba}.h{font-weight:700}.box{fill:#0d1a25;stroke:#29495d;stroke-width:2}.cyan{stroke:#4ed9ff}.vio{stroke:#9b83ff}.green{stroke:#63e6a5}.amber{stroke:#ffbd65}.red{stroke:#ff7474}.mono{font-family:Consolas,monospace}</style></defs>
+<rect width="1600" height="1020" rx="28" fill="url(#bg)"/>
+<text x="70" y="70" class="t h" font-size="34">LESSON 15 · AI Observability</text>
+<text x="70" y="108" class="m mono" font-size="15">METRICS + LOGS + TRACES → SLO + QUALITY + SECURITY + COST → ACTION</text>
+
+<rect x="70" y="165" width="270" height="155" rx="20" class="box cyan"/>
+<text x="100" y="205" class="t h" font-size="18">AI REQUEST PATH</text>
+<text x="100" y="240" class="m" font-size="13">API · RAG · LLM · Agent</text>
+<text x="100" y="268" class="m" font-size="13">tools · guardrails · output</text>
+
+<rect x="390" y="165" width="310" height="155" rx="20" class="box vio"/>
+<text x="420" y="205" class="t h" font-size="18">TELEMETRY</text>
+<text x="420" y="240" class="m" font-size="13">Metrics · Logs · Traces</text>
+<text x="420" y="268" class="m" font-size="13">trace_id · version context</text>
+
+<rect x="750" y="165" width="360" height="155" rx="20" class="box green"/>
+<text x="780" y="205" class="t h" font-size="18">COLLECT / STORE</text>
+<text x="780" y="240" class="m" font-size="13">Prometheus · Loki</text>
+<text x="780" y="268" class="m" font-size="13">Tempo / Jaeger</text>
+
+<rect x="1160" y="165" width="370" height="155" rx="20" class="box amber"/>
+<text x="1190" y="205" class="t h" font-size="18">GRAFANA / ANALYSIS</text>
+<text x="1190" y="240" class="m" font-size="13">SLO · quality · security</text>
+<text x="1190" y="268" class="m" font-size="13">cost · agent · RAG</text>
+<path d="M340 242H390M700 242H750M1110 242H1160" stroke="#4ed9ff" stroke-width="5"/>
+
+<text x="70" y="390" class="t h" font-size="20">SIGNAL DOMAINS · RED + USE + AI</text>
+
+<rect x="70" y="430" width="260" height="160" rx="18" class="box cyan"/>
+<text x="100" y="468" class="t h" font-size="17">SLO / GOLDEN</text>
+<text x="100" y="500" class="m" font-size="13">latency · traffic</text>
+<text x="100" y="527" class="m" font-size="13">errors · saturation</text>
+<text x="100" y="554" class="m" font-size="13">availability / budget</text>
+
+<rect x="365" y="430" width="260" height="160" rx="18" class="box vio"/>
+<text x="395" y="468" class="t h" font-size="17">LLM / COST</text>
+<text x="395" y="500" class="m" font-size="13">tokens · TTFT</text>
+<text x="395" y="527" class="m" font-size="13">provider errors</text>
+<text x="395" y="554" class="m" font-size="13">cost / request</text>
+
+<rect x="660" y="430" width="260" height="160" rx="18" class="box green"/>
+<text x="690" y="468" class="t h" font-size="17">RAG / QUALITY</text>
+<text x="690" y="500" class="m" font-size="13">retrieval latency</text>
+<text x="690" y="527" class="m" font-size="13">Recall@k · citations</text>
+<text x="690" y="554" class="m" font-size="13">faithfulness / grounding</text>
+
+<rect x="955" y="430" width="260" height="160" rx="18" class="box amber"/>
+<text x="985" y="468" class="t h" font-size="17">AGENTS</text>
+<text x="985" y="500" class="m" font-size="13">tool calls · loops</text>
+<text x="985" y="527" class="m" font-size="13">denied actions</text>
+<text x="985" y="554" class="m" font-size="13">human approvals</text>
+
+<rect x="1250" y="430" width="280" height="160" rx="18" class="box red"/>
+<text x="1280" y="468" class="t h" font-size="17">SECURITY / SAFETY</text>
+<text x="1280" y="500" class="m" font-size="13">prompt injection</text>
+<text x="1280" y="527" class="m" font-size="13">sensitive data</text>
+<text x="1280" y="554" class="m" font-size="13">unsafe output / supply chain</text>
+
+<text x="70" y="665" class="t h" font-size="20">ACTION LOOP</text>
+<rect x="70" y="705" width="260" height="130" rx="18" class="box red"/><text x="100" y="745" class="t h" font-size="17">ALERT</text><text x="100" y="777" class="m" font-size="13">threshold · SLO · anomaly</text>
+<rect x="380" y="705" width="260" height="130" rx="18" class="box amber"/><text x="410" y="745" class="t h" font-size="17">RUNBOOK</text><text x="410" y="777" class="m" font-size="13">owner · triage · mitigation</text>
+<rect x="690" y="705" width="260" height="130" rx="18" class="box vio"/><text x="720" y="745" class="t h" font-size="17">INCIDENT / RCA</text><text x="720" y="777" class="m" font-size="13">timeline · 5 Whys</text>
+<rect x="1000" y="705" width="260" height="130" rx="18" class="box cyan"/><text x="1030" y="745" class="t h" font-size="17">CHANGE</text><text x="1030" y="777" class="m" font-size="13">ADR · fix · tech debt</text>
+<rect x="1310" y="705" width="220" height="130" rx="18" class="box green"/><text x="1340" y="745" class="t h" font-size="17">VERIFY</text><text x="1340" y="777" class="m" font-size="13">dashboard / eval / SLO</text>
+<path d="M330 770H380M640 770H690M950 770H1000M1260 770H1310" stroke="#ffbd65" stroke-width="5"/>
+
+<text x="70" y="905" class="t h" font-size="18">FATHER:</text>
+<text x="165" y="905" class="m mono" font-size="14">OBS → SLO/ALERT → EVAL/POLICY/FINOPS → INCIDENT → CHANGE</text>
+<text x="70" y="950" class="m" font-size="14">RULE: a dashboard is not observability until signals are correlated with decisions, owners and response.</text>
+</svg>

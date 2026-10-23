@@ -1,0 +1,185 @@
+{
+  "schema_version": "father-architect-lesson-detail.v1",
+  "lesson_id": 14,
+  "purpose": "Встроить безопасность в архитектуру AI-агента до разработки: санитизация чувствительных данных, контроль входов/выходов, управление секретами, threat-driven controls и проверяемые security gates.",
+  "schema": {
+    "notation": "THREATS/ASSETS → SECURITY REQUIREMENTS → INPUT SANITIZER → AGENT/LLM → OUTPUT GUARDRAIL → SECRET MANAGER → SECURITY TESTS → SECURITY GATE → EVIDENCE",
+    "description": "Источник Lesson 14 задаёт Security by Design, OWASP Top 10 for LLM, adversarial attacks, data poisoning, Guardrails, PII Sanitization и Secret Manager. Colab в папке урока дополнительно демонстрирует PII Sanitizer на Presidio, Output Validator, mock Vault и secure-agent tests.",
+    "nodes": [
+      "THREATS/ASSETS",
+      "SECURITY REQUIREMENTS",
+      "INPUT SANITIZER",
+      "AGENT/LLM",
+      "OUTPUT GUARDRAIL",
+      "SECRET MANAGER",
+      "SECURITY TESTS",
+      "SECURITY GATE",
+      "EVIDENCE"
+    ],
+    "edges": [
+      [
+        "THREATS/ASSETS",
+        "SECURITY REQUIREMENTS"
+      ],
+      [
+        "SECURITY REQUIREMENTS",
+        "INPUT SANITIZER"
+      ],
+      [
+        "INPUT SANITIZER",
+        "AGENT/LLM"
+      ],
+      [
+        "AGENT/LLM",
+        "OUTPUT GUARDRAIL"
+      ],
+      [
+        "OUTPUT GUARDRAIL",
+        "SECRET MANAGER"
+      ],
+      [
+        "SECRET MANAGER",
+        "SECURITY TESTS"
+      ],
+      [
+        "SECURITY TESTS",
+        "SECURITY GATE"
+      ],
+      [
+        "SECURITY GATE",
+        "EVIDENCE"
+      ]
+    ]
+  },
+  "visual": {
+    "poster": "./assets/lesson-14-security-by-design.svg",
+    "alt": "Lesson 14 Security by Design flow from threats and requirements through input sanitization, agent or LLM, output guardrail, secret manager, security tests, gate and evidence."
+  },
+  "curriculum": {
+    "summary": "Урок посвящён Secure by Design для AI-систем, специфичным AI-угрозам, OWASP Top 10 for LLM и архитектурным компонентам защиты: Guardrails, PII Sanitization и Secret Manager. Практика — усиление архитектуры AI-агента компонентами безопасности.",
+    "teacher": "Андрей Носов",
+    "lesson_date": "16 сентября, среда в 20:00",
+    "duration_minutes": 90,
+    "requirements": [
+      "Применять принципы безопасного проектирования к AI-системам",
+      "Выявлять и митигировать специфичные уязвимости AI-моделей",
+      "Учитывать adversarial attacks и data poisoning",
+      "Разбирать OWASP Top 10 для LLM",
+      "Использовать Guardrails и PII Sanitization",
+      "Усиливать AI-агента sanitizer, validator и secret manager"
+    ],
+    "homework": [
+      "Практика: усилить архитектуру AI-агента компонентами безопасности — sanitizer, validator, secret manager."
+    ],
+    "acceptance_criteria": [],
+    "sources": [
+      "Lesson 14 source text",
+      "Colab notebook в папке Lesson 14"
+    ]
+  },
+  "architect_pro": {
+    "summary": "Профессиональный Security by Design начинается с assets/trust boundaries/threats и заканчивается проверяемыми controls. Sanitizer и guardrail — лишь часть защиты; production-профиль дополнительно связывает IAM, secrets, tool permissions, RAG/data controls, software supply chain и security evidence.",
+    "methods": [
+      "Threat modeling: assets, actors, trust boundaries, attack paths",
+      "Input validation / PII sanitization",
+      "Output guardrails / policy validation",
+      "Least privilege for tools and agents",
+      "Secret isolation and short-lived credentials",
+      "Prompt injection / data exfiltration controls",
+      "RAG source trust / poisoning controls",
+      "Dependency and container supply-chain checks",
+      "Security tests mapped to threats and controls",
+      "Security evidence before release"
+    ],
+    "templates": [
+      "THREAT_MODEL.md",
+      "SECURITY_REQUIREMENTS.yaml",
+      "DATA_CLASSIFICATION.md",
+      "IAM_MATRIX.md",
+      "SECRETS_POLICY.md",
+      "TOOL_POLICY.yaml",
+      "GUARDRAIL_POLICY.yaml",
+      "SECURITY_TEST_PLAN.md",
+      "SECURITY_EVIDENCE_MANIFEST.json"
+    ],
+    "anti_patterns": [
+      "Добавлять guardrails только после разработки",
+      "Передавать реальные secrets непосредственно в prompt/context",
+      "Считать keyword blacklist полноценной production-защитой",
+      "Логировать PII/secrets без необходимости",
+      "Разрешать агенту инструменты без explicit permissions",
+      "Не связывать threat → control → test → evidence",
+      "Считать notebook demo доказательством production security"
+    ]
+  },
+  "father_production": {
+    "summary": "В FATHER Security Plane формирует security profile агента, а DevSecOps Delivery Security превращает его в автоматические проверки pipeline. Lesson 14 задаёт WHAT/WHY; Lesson 18 реализует HOW в CI/CD.",
+    "capability_ids": [
+      "FTH-HARNESS-001",
+      "FTH-KNW-001",
+      "FTH-MEM-001",
+      "FTH-TOL-001",
+      "FTH-MCP-001",
+      "FTH-AGT-001",
+      "FTH-POL-001",
+      "FTH-DSEC-001"
+    ],
+    "components": [
+      "FTH-POL-001 · Policy & Security Plane",
+      "FTH-DSEC-001 · DevSecOps Delivery Security",
+      "FTH-EVL-001 · Evaluation Service",
+      "FTH-OBS-001 · Observability & Audit Plane"
+    ],
+    "runtime_notes": [
+      "PII sanitization happens before untrusted model boundary where required",
+      "Output validation is explicit and testable",
+      "Secrets are referenced, not embedded into prompts or source code",
+      "Tool access uses least privilege and auditable policy",
+      "Security findings can block PRE-DEV and release gates",
+      "Lesson 14 controls become machine-enforced checks in Lesson 18"
+    ]
+  },
+  "artifacts": [
+    "14 Security by Design архитектура для защиты AI-систем.txt",
+    "Security_by_Design_архитектура_для_защиты_AI_систем__1-601858-42494b.ipynb",
+    "Notebook: PIISanitizer using Presidio",
+    "Notebook: GuardrailValidator",
+    "Notebook: mock AgentVault",
+    "Notebook: SecureAgent security test scenarios"
+  ],
+  "evidence": [
+    "Notebook installs and uses presidio_analyzer/presidio_anonymizer for PII handling.",
+    "Notebook defines GuardrailValidator that blocks selected dangerous output patterns.",
+    "Notebook defines a mock AgentVault / secret manager.",
+    "SecureAgent composes sanitizer, validator, vault and mock LLM.",
+    "Executed notebook output shows the adversarial SQL-like output 'DROP TABLE users' being blocked by the guardrail.",
+    "Notebook contains a separate secret-exfiltration attempt scenario."
+  ],
+  "traceability": [
+    "AI ASSET/RISK → SECURITY REQUIREMENT",
+    "THREAT → CONTROL",
+    "PII RISK → SANITIZER",
+    "UNSAFE OUTPUT → GUARDRAIL",
+    "SECRET RISK → SECRET MANAGER",
+    "CONTROL → SECURITY TEST",
+    "SECURITY TEST → GATE",
+    "GATE → EVIDENCE",
+    "SECURITY PROFILE → LESSON 18 DEVSECOPS"
+  ],
+  "gaps": [
+    "Source lesson does not provide explicit homework acceptance criteria.",
+    "Source lesson does not state the year of the lesson.",
+    "Course submission status is not confirmed.",
+    "GuardrailValidator is an educational keyword-based mock, not a production-grade policy engine.",
+    "AgentVault stores a mock secret in process memory; it is not a real external secret manager.",
+    "OWASP mapping is named in curriculum, but a separate complete source-to-control matrix is not confirmed in the Lesson 14 folder.",
+    "Data-poisoning/adversarial-model mitigations are curriculum topics but not fully evidenced as runtime controls in the notebook.",
+    "Notebook evidence does not equal production deployment evidence."
+  ],
+  "sources": [
+    {
+      "title": "Lesson 14 source",
+      "url": "https://github.com/VictorKVS/OTUS-/tree/feature/otus-homework-site/14.%20Security%20by%20Design%20%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%8B%20AI-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC"
+    }
+  ]
+}

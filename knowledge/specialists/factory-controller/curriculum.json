@@ -1,0 +1,96 @@
+{
+  "schema_version": "father-specialist-curriculum.v1",
+  "knowledge_pack_id": "KB-K1-FACTORY-ORCHESTRATION",
+  "version": "0.1.0",
+  "prerequisite": "G-K0-GRADUATION",
+  "modules": [
+    {
+      "id": "FC-M01",
+      "name": "Lifecycle Routing",
+      "skills": [
+        "S0-S12",
+        "gate dependencies",
+        "no stage skipping"
+      ]
+    },
+    {
+      "id": "FC-M02",
+      "name": "Capability Map",
+      "skills": [
+        "requirements",
+        "capabilities",
+        "reuse/adapt/new"
+      ]
+    },
+    {
+      "id": "FC-M03",
+      "name": "Registries & Zoo",
+      "skills": [
+        "agents",
+        "models",
+        "tools",
+        "blocks",
+        "knowledge"
+      ]
+    },
+    {
+      "id": "FC-M04",
+      "name": "Evidence Routing",
+      "skills": [
+        "documents",
+        "tests",
+        "LAB",
+        "release evidence"
+      ]
+    },
+    {
+      "id": "FC-M05",
+      "name": "Status Truth",
+      "skills": [
+        "REAL",
+        "GPT_EMULATED",
+        "EXPERIMENTAL",
+        "CERTIFIED"
+      ]
+    },
+    {
+      "id": "FC-M06",
+      "name": "Workflow Orchestration",
+      "skills": [
+        "routing",
+        "handoffs",
+        "retry",
+        "human gates"
+      ]
+    },
+    {
+      "id": "FC-M07",
+      "name": "Certification Flow",
+      "skills": [
+        "candidate",
+        "validated",
+        "certified",
+        "champion"
+      ]
+    },
+    {
+      "id": "FC-M08",
+      "name": "Change Impact",
+      "skills": [
+        "dependency graph",
+        "blast radius",
+        "rerun gates"
+      ]
+    }
+  ],
+  "graduation_gate": {
+    "id": "G-K1-FACTORY-ORCHESTRATION-GRADUATION",
+    "rules": [
+      "K0_pass",
+      "module_assessments_pass",
+      "golden_cases_pass",
+      "evidence_quality_pass",
+      "regression_pass"
+    ]
+  }
+}

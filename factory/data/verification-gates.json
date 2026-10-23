@@ -1,0 +1,178 @@
+{
+  "schema_version": "0.1.0",
+  "result_states": [
+    "PASS",
+    "WARN",
+    "FAIL",
+    "BLOCKED"
+  ],
+  "global_rule": "no_promotion_without_evidence",
+  "gates": [
+    {
+      "id": "G-DATA-01",
+      "domain": "dataset",
+      "mandatory": true,
+      "check": "dataset_version_frozen",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "G-EVAL-01",
+      "domain": "evaluation",
+      "mandatory": true,
+      "check": "evaluator_version_frozen",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "G-EVAL-02",
+      "domain": "evaluation",
+      "mandatory": true,
+      "check": "evaluator_calibrated_when_non_deterministic",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "G-EXP-01",
+      "domain": "experiment",
+      "mandatory": true,
+      "check": "baseline_reproducible",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "G-EXP-02",
+      "domain": "experiment",
+      "mandatory": true,
+      "check": "same_test_conditions_for_variants",
+      "failure": "FAIL"
+    },
+    {
+      "id": "G-EXP-03",
+      "domain": "experiment",
+      "mandatory": true,
+      "check": "trace_and_artifacts_retained",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "G-QUAL-01",
+      "domain": "quality",
+      "mandatory": true,
+      "check": "mandatory_quality_floors_pass",
+      "failure": "FAIL"
+    },
+    {
+      "id": "G-REG-01",
+      "domain": "regression",
+      "mandatory": true,
+      "check": "critical_regression_suite_pass",
+      "failure": "FAIL"
+    },
+    {
+      "id": "G-SAFE-01",
+      "domain": "safety",
+      "mandatory": true,
+      "check": "safety_policy_suite_pass",
+      "failure": "FAIL"
+    },
+    {
+      "id": "G-PERF-01",
+      "domain": "performance",
+      "mandatory": true,
+      "check": "resource_latency_limits_pass",
+      "failure": "FAIL"
+    },
+    {
+      "id": "G-COST-01",
+      "domain": "cost",
+      "mandatory": false,
+      "check": "cost_profile_recorded",
+      "failure": "WARN"
+    },
+    {
+      "id": "G-ENV-01",
+      "domain": "environment",
+      "mandatory": true,
+      "check": "reproducible_from_versioned_config",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "G-ENV-02",
+      "domain": "environment",
+      "mandatory": true,
+      "check": "isolation_boundaries_verified",
+      "failure": "FAIL"
+    },
+    {
+      "id": "G-ENV-03",
+      "domain": "environment",
+      "mandatory": true,
+      "check": "logs_metrics_traces_available",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "G-ENV-04",
+      "domain": "environment",
+      "mandatory": true,
+      "check": "rollback_or_recovery_tested",
+      "failure": "FAIL"
+    },
+    {
+      "id": "G-ENV-05",
+      "domain": "environment",
+      "mandatory": true,
+      "check": "security_scans_and_least_privilege_pass",
+      "failure": "FAIL"
+    },
+    {
+      "id": "G-ENV-06",
+      "domain": "environment",
+      "mandatory": true,
+      "check": "resource_quotas_and_limits_defined",
+      "failure": "FAIL"
+    },
+    {
+      "id": "G-ENV-07",
+      "domain": "environment",
+      "mandatory": true,
+      "check": "build_test_deploy_evidence_retained",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "G-ENV-08",
+      "domain": "environment",
+      "mandatory": true,
+      "check": "risky_tests_use_approved_isolated_lab",
+      "failure": "FAIL"
+    },
+    {
+      "id": "G-PROMOTE-01",
+      "domain": "promotion",
+      "mandatory": true,
+      "check": "all_mandatory_gates_pass",
+      "failure": "BLOCKED"
+    }
+  ],
+  "promotion_states": [
+    "IDEA",
+    "RESEARCH",
+    "PROTOTYPE",
+    "EXPERIMENTAL",
+    "CANDIDATE",
+    "VALIDATED",
+    "CERTIFIED",
+    "CHAMPION"
+  ],
+  "controlled_states": [
+    "REJECTED",
+    "FAILED",
+    "QUARANTINED",
+    "DEPRECATED",
+    "SUPERSEDED"
+  ],
+  "profiles": [
+    "QUALITY",
+    "BALANCED",
+    "FAST",
+    "CHEAP",
+    "LOCAL",
+    "SECURE",
+    "HIGH_THROUGHPUT"
+  ]
+}

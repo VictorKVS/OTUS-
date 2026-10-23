@@ -1,0 +1,211 @@
+{
+  "schema_version": "father-architect-lesson-detail.v1",
+  "lesson_id": 13,
+  "purpose": "Превратить оценку GenAI из ручной проверки ответов в воспроизводимый quality gate: фиксированный набор кейсов → запуск LLM/RAG → метрики → пороги → evidence → решение PASS/FAIL перед deployment.",
+  "schema": {
+    "notation": "REQ/NFR → TEST PLAN → GOLDEN DATASET → MODEL/RAG CANDIDATE → RAGAS/JUDGE → METRICS → QUALITY GATE → CI/CD → EVIDENCE",
+    "description": "Источник Lesson 13 требует метрик RAG Faithfulness и Answer Relevancy, DeepEval/Ragas, нагрузочного тестирования LLM и Test Plan для сравнения двух LLM на RAG-задаче. Репозиторий дополнительно содержит рабочий lab с RAGAS, pre-deploy model matrix, MLflow, Langfuse, toxicity gate и GitHub Actions.",
+    "nodes": [
+      "REQ/NFR",
+      "TEST PLAN",
+      "GOLDEN DATASET",
+      "MODEL/RAG CANDIDATE",
+      "RAGAS/JUDGE",
+      "METRICS",
+      "QUALITY GATE",
+      "CI/CD",
+      "EVIDENCE"
+    ],
+    "edges": [
+      [
+        "REQ/NFR",
+        "TEST PLAN"
+      ],
+      [
+        "TEST PLAN",
+        "GOLDEN DATASET"
+      ],
+      [
+        "GOLDEN DATASET",
+        "MODEL/RAG CANDIDATE"
+      ],
+      [
+        "MODEL/RAG CANDIDATE",
+        "RAGAS/JUDGE"
+      ],
+      [
+        "RAGAS/JUDGE",
+        "METRICS"
+      ],
+      [
+        "METRICS",
+        "QUALITY GATE"
+      ],
+      [
+        "QUALITY GATE",
+        "CI/CD"
+      ],
+      [
+        "CI/CD",
+        "EVIDENCE"
+      ]
+    ]
+  },
+  "visual": {
+    "poster": "./assets/lesson-13-genai-evaluation.svg",
+    "alt": "Lesson 13 GenAI evaluation flow: requirements lead to a test plan and golden dataset, model or RAG candidates are evaluated by RAGAS or judge checks, metrics pass through a quality gate, then CI/CD stores evidence."
+  },
+  "curriculum": {
+    "summary": "Урок посвящён метрикам и фреймворкам оценки качества LLM, автоматизированному тестированию GenAI в CI/CD, метрикам RAG Faithfulness и Answer Relevancy, инструментам DeepEval/Ragas и нагрузочному тестированию LLM. Практика — Test Plan для сравнения двух LLM-моделей на RAG-задаче.",
+    "teacher": "Иван Четвериков",
+    "lesson_date": "14 сентября, понедельник в 20:00",
+    "duration_minutes": 90,
+    "requirements": [
+      "Разрабатывать метрики и фреймворки для оценки качества генеративных моделей (LLM)",
+      "Встраивать автоматизированное тестирование GenAI-решений в CI/CD-пайплайны",
+      "Использовать метрики для RAG: Faithfulness и Answer Relevancy",
+      "Использовать инструменты автоматизированной оценки: DeepEval и Ragas",
+      "Учитывать нагрузочное тестирование LLM",
+      "Разрабатывать планы тестирования для сравнения различных LLM-моделей в RAG-задачах"
+    ],
+    "homework": [
+      "Практика: разработать план тестирования (Test Plan) для сравнения двух LLM-моделей на RAG-задаче."
+    ],
+    "acceptance_criteria": [],
+    "sources": [
+      "Lesson 13 source text",
+      "Результаты занятия в источнике: практическое задание и конспект лекции"
+    ]
+  },
+  "architect_pro": {
+    "summary": "Профессиональный evaluation-контур рассматривает dataset, evaluator, metric, threshold и evidence как versioned contracts. Модель, prompt, retrieval/index и policy сравниваются только на воспроизводимом наборе кейсов; качество, безопасность, latency и cost могут быть независимыми hard/soft gates.",
+    "methods": [
+      "Golden dataset / regression dataset",
+      "Offline evaluation before deployment",
+      "RAG metrics: Faithfulness, Answer Relevancy, Context Precision, Context Recall",
+      "Ground-truth semantic correctness where reference answer exists",
+      "LLM-as-a-Judge with explicit rubric and calibration",
+      "Safety / toxicity / rudeness gates",
+      "Model A/B comparison on the same test cases",
+      "Threshold-based blocking quality gates",
+      "Dataset / model / prompt / index version binding",
+      "Per-case metrics plus aggregate metrics",
+      "Latency / throughput / load-test profile",
+      "Cost-per-case / tokens-per-case as non-functional evaluation",
+      "Regression testing after prompt/model/RAG changes",
+      "Experiment and artifact tracking"
+    ],
+    "templates": [
+      "GENAI_TEST_PLAN.md",
+      "GOLDEN_DATASET.jsonl",
+      "EVAL_CONFIG.yaml",
+      "QUALITY_GATES.yaml",
+      "MODEL_COMPARISON_REPORT.md",
+      "RAG_EVAL_REPORT.json",
+      "SAFETY_EVAL_REPORT.json",
+      "LOAD_TEST_REPORT.md",
+      "EVAL_EVIDENCE_MANIFEST.json"
+    ],
+    "anti_patterns": [
+      "Сравнивать модели на разных вопросах или разных версиях данных",
+      "Оценивать качество только субъективным впечатлением",
+      "Считать среднее значение достаточным без анализа провальных кейсов",
+      "Менять threshold после просмотра результата без фиксации решения",
+      "Использовать LLM-as-a-Judge без rubric и контроля evaluator version",
+      "Смешивать RAG retrieval quality и generation quality в одну непрозрачную оценку",
+      "Считать прохождение unit tests доказательством качества GenAI",
+      "Не сохранять dataset/model/prompt/index versions вместе с результатом",
+      "Делать quality gate без воспроизводимого evidence"
+    ]
+  },
+  "father_production": {
+    "summary": "В FATHER Evaluation Service становится общим production-сервисом для LLM, RAG и Agents. Он получает versioned candidate + dataset + eval config, запускает quality/safety/performance checks, сохраняет per-case и aggregate evidence и выдаёт машинно-читаемый PASS/FAIL для PRE-DEV, CI/CD и Release gates.",
+    "capability_ids": [
+      "FTH-EVL-001",
+      "FTH-HARNESS-001",
+      "FTH-PRM-001",
+      "FTH-KNW-001",
+      "FTH-RAG-001",
+      "FTH-MDL-001",
+      "FTH-AGT-001",
+      "FTH-SUP-001",
+      "FTH-SYN-001"
+    ],
+    "components": [
+      "FTH-EVL-001 · Evaluation Service",
+      "FTH-HARNESS-001 · AI Harness",
+      "FTH-PRM-001 · Prompt Registry",
+      "FTH-KNW-001 · Knowledge Service",
+      "FTH-RAG-001 · Retrieval Gateway",
+      "FTH-MDL-001 · Model Zoo",
+      "FTH-AGT-001 · Agent Zoo",
+      "FTH-SUP-001 · Supervisor / Handoff",
+      "FTH-SYN-001 · Synthetic / Eval Data Factory"
+    ],
+    "runtime_notes": [
+      "Evaluation input binds test dataset, model, prompt, retrieval/index and evaluator versions",
+      "Per-case results are preserved; aggregate means do not hide failed critical cases",
+      "Hard gates can block deployment independently of a composite score",
+      "Quality evidence is written to Evidence Store and linked to release/commit",
+      "RAG evaluation and safety evaluation remain separate dimensions",
+      "Any change to model, prompt, index, RAG policy or evaluator can trigger regression evaluation",
+      "PRE-DEV describes planned checks; CI/Release require runtime evidence",
+      "Evaluation Service supplies quality signals to Observability and SLO layers"
+    ]
+  },
+  "artifacts": [
+    "13 Оценка качества и тестирование GenAI-.txt — source lesson card",
+    "llm-app/ReadMe.md — local lab overview",
+    "llm-app/testing/README.md — testing entrypoints",
+    "llm-app/testing/run_ragas_demo_test.py — RAGAS + fallback answer relevancy + QA semantic correctness",
+    "llm-app/testing/pre_deploy_test.py — multi-model pre-deploy runner with MLflow logging",
+    "llm-app/testing/toxic_test.py — judge toxicity/rudeness gate",
+    "llm-app/.github/workflows/main.yml — model matrix and toxicity CI gates",
+    "llm-app/docker-compose.yaml — MLflow, Qdrant and Langfuse stack",
+    "llm-app/rag/ — local RAG demo on Qdrant + Ollama",
+    "llm-app/agent/ — controlled-agent demo with decomposition, tool and self-check",
+    "llm-app/practice.ipynb",
+    "llm-app/practice_m2_local_llm.ipynb"
+  ],
+  "evidence": [
+    "Source lesson explicitly names Faithfulness and Answer Relevancy and recommends DeepEval/Ragas.",
+    "run_ragas_demo_test.py computes Faithfulness, Context Precision, Context Recall, answer_relevancy fallback and QA semantic correctness.",
+    "run_ragas_demo_test.py defines environment-driven thresholds and exits with failure when a metric is below threshold.",
+    "pre_deploy_test.py compares several Ollama Qwen variants and a YandexGPT candidate through the same RAGAS test module.",
+    "pre_deploy_test.py logs parameters, aggregate/per-case metrics and artifacts to MLflow and marks deployment_ready true/false.",
+    "testing/README.md documents MLflow for metrics/artifacts and optional Langfuse tracing.",
+    "GitHub Actions workflow runs a model matrix on a self-hosted runner and separately blocks on toxicity/rudeness gate.",
+    "docker-compose.yaml defines local MLflow, Qdrant and Langfuse supporting services."
+  ],
+  "traceability": [
+    "REQ/NFR → TEST PLAN",
+    "TEST PLAN → GOLDEN DATASET / CASES",
+    "MODEL/PROMPT/RAG VERSION → EVAL RUN",
+    "EVAL RUN → PER-CASE METRICS",
+    "METRIC → THRESHOLD",
+    "THRESHOLD → QUALITY GATE",
+    "QUALITY GATE → CI/CD PASS/FAIL",
+    "CI RUN → MLFLOW/LANGFUSE/EVIDENCE",
+    "FAILED CASE → REGRESSION CASE / CHANGE"
+  ],
+  "gaps": [
+    "В source lesson отсутствуют явные критерии принятия домашнего задания.",
+    "В source lesson не указан год занятия; на странице сохранена исходная формулировка даты без добавления года.",
+    "Статус сдачи домашнего задания источником не подтверждён.",
+    "DeepEval указан в программе урока, но найденный lab evidence в этом проходе использует RAGAS; подтверждённого DeepEval runtime evidence не найдено.",
+    "Отдельный воспроизводимый LLM load-test artifact/report в просмотренном Lesson 13 evidence не подтверждён, хотя load testing входит в краткое содержание.",
+    "Наличие тестовых скриптов и workflow не доказывает, что текущий commit реально прошёл все model/eval gates; сохранённые run results в этом проходе не подтверждены.",
+    "Пороговые значения в workflow являются текущей lab-конфигурацией, а не универсальными production SLO.",
+    "LLM-as-a-Judge требует контроля evaluator version и калибровки; отдельный calibration evidence пока не подтверждён."
+  ],
+  "sources": [
+    {
+      "title": "Lesson 13 source",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/13%20.%20%D0%9E%D1%86%D0%B5%D0%BD%D0%BA%D0%B0%20%D0%BA%D0%B0%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B0%20%D0%B8%20%D1%82%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20GenAI-%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D0%BE%D0%B2/13%20%D0%9E%D1%86%D0%B5%D0%BD%D0%BA%D0%B0%20%D0%BA%D0%B0%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B0%20%D0%B8%20%D1%82%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20GenAI-.txt"
+    },
+    {
+      "title": "llm-app testing README",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/13%20.%20%D0%9E%D1%86%D0%B5%D0%BD%D0%BA%D0%B0%20%D0%BA%D0%B0%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B0%20%D0%B8%20%D1%82%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20GenAI-%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D0%BE%D0%B2/llm-app/testing/README.md"
+    }
+  ]
+}

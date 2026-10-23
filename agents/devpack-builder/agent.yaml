@@ -1,0 +1,32 @@
+agent:
+  id: FTH-AG-DPK-001
+  name: "Development Pack Builder"
+  status: scaffold
+  maturity: M0
+  stages: [D0]
+  owner: FATHER Agent Zoo
+role: "Собирает task-scoped Development Pack только из baselined и approved артефактов."
+contracts:
+  prompt: ./prompt.md
+  rag: ./rag.yaml
+  knowledge: ./knowledge.yaml
+inputs:
+  project_id: required
+  stage_context: required
+  artifact_refs: required
+outputs:
+  status: required
+  artifact_refs: required
+  findings: required
+  next_owner: required
+tools:
+  - pack_builder
+  - manifest
+  - trace_slice
+gates:
+  obey_stage_gate: true
+  no_silent_baseline_change: true
+observability:
+  trace_id: required
+  agent_id_tag: required
+  artifact_refs_log: required

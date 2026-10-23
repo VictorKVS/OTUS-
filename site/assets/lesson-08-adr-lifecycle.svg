@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Lesson 08 — ADR Lifecycle</title>
+<desc id="desc">Architecture decision lifecycle from requirements and risks through context, options, trade-offs, proposal, review, acceptance, implementation fitness checks and superseding ADR.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061018"/><stop offset="1" stop-color="#1b1828"/></linearGradient>
+  <style>.t{font-family:Segoe UI,Arial,sans-serif;fill:#eef7ff}.m{fill:#91a9ba}.h{font-weight:700}.box{fill:#0d1a25;stroke:#29495d;stroke-width:2}.cyan{stroke:#4ed9ff}.vio{stroke:#9b83ff}.green{stroke:#63e6a5}.amber{stroke:#ffbd65}.red{stroke:#ff7474}.mono{font-family:Consolas,monospace}</style>
+</defs>
+<rect width="1600" height="1000" rx="28" fill="url(#bg)"/>
+<text x="70" y="70" class="t h" font-size="34">LESSON 08 · Architecture Decision Records</text>
+<text x="70" y="108" class="m mono" font-size="15">CONTEXT → OPTIONS → TRADE-OFFS → DECISION → CONSEQUENCES → FITNESS → SUPERSEDE</text>
+
+<rect x="70" y="170" width="260" height="145" rx="18" class="box cyan"/>
+<text x="100" y="210" class="t h" font-size="16">REQ / NFR / RISK</text><text x="100" y="243" class="m" font-size="13">drivers · constraints</text><text x="100" y="270" class="m" font-size="13">problem to decide</text>
+
+<rect x="380" y="170" width="260" height="145" rx="18" class="box vio"/>
+<text x="410" y="210" class="t h" font-size="16">CONTEXT</text><text x="410" y="243" class="m" font-size="13">scope · assumptions</text><text x="410" y="270" class="m" font-size="13">decision boundary</text>
+
+<rect x="690" y="170" width="260" height="145" rx="18" class="box amber"/>
+<text x="720" y="210" class="t h" font-size="16">OPTIONS</text><text x="720" y="243" class="m" font-size="13">SaaS · Self-hosted</text><text x="720" y="270" class="m" font-size="13">rejected alternatives stay</text>
+
+<rect x="1000" y="170" width="260" height="145" rx="18" class="box amber"/>
+<text x="1030" y="210" class="t h" font-size="16">TRADE-OFFS</text><text x="1030" y="243" class="m" font-size="13">quality · privacy · latency</text><text x="1030" y="270" class="m" font-size="13">TCO · support complexity</text>
+
+<rect x="1310" y="170" width="220" height="145" rx="18" class="box green"/>
+<text x="1340" y="210" class="t h" font-size="16">ADR</text><text x="1340" y="243" class="m" font-size="13">Proposal → Review</text><text x="1340" y="270" class="m" font-size="13">→ Accepted</text>
+
+<path d="M330 242H380M640 242H690M950 242H1000M1260 242H1310" stroke="#4ed9ff" stroke-width="5"/>
+
+<text x="70" y="395" class="t h" font-size="20">AFTER ACCEPTANCE</text>
+<rect x="70" y="435" width="350" height="165" rx="20" class="box green"/>
+<text x="100" y="478" class="t h" font-size="17">IMPLEMENTATION</text><text x="100" y="512" class="m" font-size="13">LLM Gateway · selected backend</text><text x="100" y="540" class="m" font-size="13">affected components</text>
+
+<rect x="470" y="435" width="350" height="165" rx="20" class="box vio"/>
+<text x="500" y="478" class="t h" font-size="17">FITNESS EVIDENCE</text><text x="500" y="512" class="m" font-size="13">quality · SLO · cost · risk</text><text x="500" y="540" class="m" font-size="13">same eval set</text>
+
+<rect x="870" y="435" width="300" height="165" rx="20" class="box red"/>
+<text x="900" y="478" class="t h" font-size="17">REVIEW TRIGGER</text><text x="900" y="512" class="m" font-size="13">assumption breaks</text><text x="900" y="540" class="m" font-size="13">quality / SLA / TCO change</text>
+
+<rect x="1220" y="435" width="310" height="165" rx="20" class="box amber"/>
+<text x="1250" y="478" class="t h" font-size="17">NEW ADR</text><text x="1250" y="512" class="m" font-size="13">Supersedes ADR-001</text><text x="1250" y="540" class="m" font-size="13">history remains intact</text>
+
+<path d="M420 517H470M820 517H870M1170 517H1220" stroke="#63e6a5" stroke-width="5"/>
+
+<text x="70" y="690" class="t h" font-size="20">FATHER DECISION GRAPH</text>
+<rect x="70" y="735" width="420" height="145" rx="18" class="box cyan"/>
+<text x="100" y="777" class="t h" font-size="17">REQ / RISK</text><text x="100" y="810" class="m" font-size="13">why decision exists</text>
+
+<rect x="590" y="735" width="420" height="145" rx="18" class="box vio"/>
+<text x="620" y="777" class="t h" font-size="17">FTH-ADR-001</text><text x="620" y="810" class="m" font-size="13">Decision Registry · lifecycle · owner</text>
+
+<rect x="1110" y="735" width="420" height="145" rx="18" class="box green"/>
+<text x="1140" y="777" class="t h" font-size="17">CMP / TEST / EVAL</text><text x="1140" y="810" class="m" font-size="13">impact + fitness evidence</text>
+
+<path d="M490 807H590M1010 807H1110" stroke="#9b83ff" stroke-width="5"/>
+
+<text x="70" y="950" class="m" font-size="14">RULE: accepted decisions are not silently rewritten. New evidence changes the future through review + superseding ADR.</text>
+</svg>

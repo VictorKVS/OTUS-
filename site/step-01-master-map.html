@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="description" content="STEP 01 FATHER Architect OS: Master Architecture Map, capability poster, component IDs and mapping to OTUS lessons."/>
+  <title>STEP 01 · Master Architecture Map · FATHER Architect OS</title>
+  <link rel="stylesheet" href="./styles.css"/>
+  <style>
+    .map-main{max-width:1500px;margin:auto;padding:0 clamp(16px,4vw,56px) 80px}
+    .map-hero{padding:60px 0 28px}.map-hero h1{font-size:clamp(40px,5vw,72px);line-height:1.02;margin:0;letter-spacing:-.04em}
+    .map-hero h1 span{color:var(--cyan)}.poster{margin:28px 0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel);box-shadow:var(--shadow)}
+    .poster img{display:block;width:100%;height:auto}.step-strip{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin:18px 0}
+    .step-strip span{padding:10px;border:1px solid var(--line);border-radius:9px;background:var(--panel);font:10px Consolas,monospace;text-align:center}
+    .layer-grid,.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.layer,.cap{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:16px}
+    .layer b,.cap b{display:block;margin-bottom:6px}.layer p,.cap p{font-size:10px;color:var(--muted);margin:0}.cap small{display:block;color:var(--cyan);font:9px Consolas,monospace;margin-bottom:7px}
+    .cap .tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:10px}.cap .tags span{font-size:8px;border:1px solid var(--line);border-radius:999px;padding:3px 6px;color:var(--muted)}
+    .maturity{font:9px Consolas,monospace;color:var(--amber);float:right}.source-links{display:flex;gap:10px;flex-wrap:wrap}
+    @media(max-width:950px){.layer-grid,.cap-grid{grid-template-columns:1fr 1fr}.step-strip{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.layer-grid,.cap-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="./index.html"><span class="brand-mark">FA</span><span><strong>FATHER Architect OS</strong><small>STEP 01 · Master Map</small></span></a>
+  <nav class="nav"><a href="#poster">Визуал</a><a href="#layers">3 слоя</a><a href="#capabilities">Capabilities</a><a href="#trace">Трассировка</a><a href="./step-02-course-manifest.html">STEP 02</a><a href="./index.html">Cockpit</a></nav>
+  <button class="theme-toggle" id="themeToggle" type="button">◐</button>
+</header>
+<main class="map-main">
+  <section class="map-hero">
+    <p class="eyebrow">STEP 01 · Master Architecture Map</p>
+    <h1>От уроков OTUS к <span>боевой AI-платформе</span></h1>
+    <p class="hero-text">Одна модель в двух представлениях: строгая инженерная схема и быстрый визуальный poster. Оба представления используют одни component IDs, одну трассировку и один capability manifest.</p>
+    <div class="source-links"><a class="btn primary" href="#poster">Открыть карту</a><a class="btn" href="../docs/STEP_01_MASTER_ARCHITECTURE_MAP.md">Engineering document</a><a class="btn" href="./data/capabilities.json">Capability manifest</a></div>
+  </section>
+
+  <section class="section" id="poster"><div class="section-head"><div><p class="eyebrow">Visual layer</p><h2>Capability Poster</h2></div><p class="muted">Быстрое восприятие архитектуры: curriculum → professional method → production runtime.</p></div>
+    <div class="poster"><img src="./assets/step-01-master-architecture.svg" alt="Master Architecture Map FATHER Architect OS"/></div>
+  </section>
+
+  <section class="section" id="layers"><div class="section-head"><div><p class="eyebrow">Three-layer contract</p><h2>Три уровня одной темы</h2></div></div>
+    <div class="layer-grid">
+      <article class="layer"><b>01 · OTUS Curriculum</b><p>Что дано в программе, какие исходные материалы и требования к результату существуют.</p></article>
+      <article class="layer"><b>02 · Architect Pro</b><p>Как задача решается профессионально: standards, trade-offs, ADR, шаблоны, red flags, evidence.</p></article>
+      <article class="layer"><b>03 · FATHER Production</b><p>В какой runtime/service/control превращается тема и чем подтверждается её production-зрелость.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="capabilities"><div class="section-head"><div><p class="eyebrow">Machine-readable model</p><h2>Production capabilities</h2></div><p class="muted">Карточки ниже строятся из <code>data/capabilities.json</code>.</p></div>
+    <div class="cap-grid" id="capGrid"></div>
+  </section>
+
+  <section class="section" id="trace"><div class="section-head"><div><p class="eyebrow">Traceability</p><h2>Контракт доказательности</h2></div></div>
+    <div class="step-strip" id="traceStrip"></div>
+    <div class="panel"><h3>Definition of Done STEP 01</h3><ul class="check-list"><li>Engineering map существует.</li><li>Capability poster существует.</li><li>Component IDs зафиксированы.</li><li>Machine-readable manifest существует.</li><li>OTUS ↔ capability ↔ FATHER mapping доступен.</li><li>GAP явно перечислены в документе и дневнике.</li></ul></div>
+  </section>
+</main>
+<footer><span>FATHER Architect OS · STEP 01</span><a href="./index.html">← Architecture Cockpit</a></footer>
+<script>
+const root=document.documentElement;const saved=localStorage.getItem('otus-theme');if(saved)root.dataset.theme=saved;document.querySelector('#themeToggle').addEventListener('click',()=>{const next=root.dataset.theme==='light'?'dark':'light';root.dataset.theme=next;localStorage.setItem('otus-theme',next)});
+fetch('./data/capabilities.json').then(r=>r.json()).then(data=>{
+  document.querySelector('#traceStrip').innerHTML=data.traceability.map(x=>'<span>'+x+'</span>').join('');
+  document.querySelector('#capGrid').innerHTML=data.components.map(c=>'<article class="cap"><small>'+c.id+' <span class="maturity">'+c.maturity+'</span></small><b>'+c.name+'</b><p>'+c.domain+' · Lessons '+c.lessons.map(x=>String(x).padStart(2,'0')).join(', ')+'</p><div class="tags">'+c.capabilities.map(x=>'<span>'+x+'</span>').join('')+'</div></article>').join('');
+}).catch(()=>{document.querySelector('#capGrid').innerHTML='<div class="empty">Capability manifest не загрузился. Запускайте сайт через HTTP server, а не file://.</div>'});
+</script>
+</body></html>

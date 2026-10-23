@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="620" viewBox="0 0 1800 620" role="img" aria-labelledby="title desc">
+<title id="title">Lesson 13 — GenAI Evaluation Pipeline</title>
+<desc id="desc">A non-crossing left-to-right flow from requirements and test plan through dataset, candidate, evaluator, metrics, quality gate, CI/CD and evidence.</desc>
+<defs>
+<style>
+.bg{fill:#071017}.card{fill:#0d1821;stroke:#284756;stroke-width:2}.blue{stroke:#4ed9ff}.violet{stroke:#9b83ff}.green{stroke:#63e6a5}.amber{stroke:#ffbd65}.txt{font-family:Segoe UI,Arial,sans-serif;fill:#edf7ff}.muted{font-family:Segoe UI,Arial,sans-serif;fill:#8ea6b6}.id{font-family:Consolas,monospace;fill:#4ed9ff}.line{stroke:#4ed9ff;stroke-width:4;fill:none}
+</style>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#4ed9ff"/></marker>
+</defs>
+<rect width="1800" height="620" rx="28" class="bg"/>
+<text x="60" y="65" class="txt" font-size="34" font-weight="700">LESSON 13 · GENAI EVALUATION & QUALITY GATE</text>
+<text x="60" y="100" class="muted" font-size="15">OTUS source → reproducible evaluation pipeline → FATHER Evaluation Service</text>
+
+<g transform="translate(55 190)">
+<rect width="165" height="150" rx="16" class="card blue"/><text x="20" y="32" class="id" font-size="12">01</text><text x="20" y="67" class="txt" font-size="18">REQ / NFR</text><text x="20" y="96" class="muted" font-size="12">quality</text><text x="20" y="116" class="muted" font-size="12">safety · latency</text>
+</g>
+<path d="M220 265H255" class="line" marker-end="url(#arrow)"/>
+
+<g transform="translate(270 190)">
+<rect width="165" height="150" rx="16" class="card blue"/><text x="20" y="32" class="id" font-size="12">02</text><text x="20" y="67" class="txt" font-size="18">TEST PLAN</text><text x="20" y="96" class="muted" font-size="12">cases · rubric</text><text x="20" y="116" class="muted" font-size="12">thresholds</text>
+</g>
+<path d="M435 265H470" class="line" marker-end="url(#arrow)"/>
+
+<g transform="translate(485 190)">
+<rect width="165" height="150" rx="16" class="card violet"/><text x="20" y="32" class="id" font-size="12">03</text><text x="20" y="67" class="txt" font-size="17">GOLDEN SET</text><text x="20" y="96" class="muted" font-size="12">question · context</text><text x="20" y="116" class="muted" font-size="12">ground truth</text>
+</g>
+<path d="M650 265H685" class="line" marker-end="url(#arrow)"/>
+
+<g transform="translate(700 190)">
+<rect width="180" height="150" rx="16" class="card violet"/><text x="20" y="32" class="id" font-size="12">04</text><text x="20" y="67" class="txt" font-size="17">MODEL / RAG</text><text x="20" y="96" class="muted" font-size="12">candidate A/B</text><text x="20" y="116" class="muted" font-size="12">versioned inputs</text>
+</g>
+<path d="M880 265H915" class="line" marker-end="url(#arrow)"/>
+
+<g transform="translate(930 190)">
+<rect width="180" height="150" rx="16" class="card violet"/><text x="20" y="32" class="id" font-size="12">05</text><text x="20" y="67" class="txt" font-size="17">RAGAS / JUDGE</text><text x="20" y="96" class="muted" font-size="12">faithfulness</text><text x="20" y="116" class="muted" font-size="12">relevancy · recall</text>
+</g>
+<path d="M1110 265H1145" class="line" marker-end="url(#arrow)"/>
+
+<g transform="translate(1160 190)">
+<rect width="160" height="150" rx="16" class="card blue"/><text x="20" y="32" class="id" font-size="12">06</text><text x="20" y="67" class="txt" font-size="18">METRICS</text><text x="20" y="96" class="muted" font-size="12">per-case</text><text x="20" y="116" class="muted" font-size="12">aggregate</text>
+</g>
+<path d="M1320 265H1355" class="line" marker-end="url(#arrow)"/>
+
+<g transform="translate(1370 190)">
+<rect width="160" height="150" rx="16" class="card green"/><text x="20" y="32" class="id" font-size="12">07</text><text x="20" y="67" class="txt" font-size="18">QUALITY GATE</text><text x="20" y="96" class="muted" font-size="12">PASS / FAIL</text><text x="20" y="116" class="muted" font-size="12">blocking</text>
+</g>
+<path d="M1530 265H1565" class="line" marker-end="url(#arrow)"/>
+
+<g transform="translate(1580 190)">
+<rect width="165" height="150" rx="16" class="card amber"/><text x="20" y="32" class="id" font-size="12">08</text><text x="20" y="67" class="txt" font-size="18">CI/CD</text><text x="20" y="96" class="muted" font-size="12">MLflow / traces</text><text x="20" y="116" class="muted" font-size="12">evidence</text>
+</g>
+
+<rect x="270" y="405" width="1260" height="105" rx="16" class="card"/>
+<text x="300" y="440" class="txt" font-size="18">FATHER Production contract</text>
+<text x="300" y="472" class="muted" font-size="13">dataset version + candidate version + evaluator version + metric thresholds + per-case results + PASS/FAIL + immutable evidence reference</text>
+</svg>

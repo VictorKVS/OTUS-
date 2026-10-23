@@ -1,0 +1,69 @@
+{
+  "schema_version": "father-knowledge-architecture.v1",
+  "mandatory_layers": [
+    {
+      "id": "K0",
+      "name": "FATHER Common Knowledge Core",
+      "required": true,
+      "scope": "all_agents",
+      "inheritance": "shared_reference",
+      "mutation": "controlled_only",
+      "requires_regression": true
+    },
+    {
+      "id": "K1",
+      "name": "Specialist Knowledge Pack",
+      "required_for": "professional_agents",
+      "scope": "specialist_family",
+      "inheritance": "one_or_more_packs",
+      "mutation": "controlled_only",
+      "requires_regression": true
+    }
+  ],
+  "optional_layers": [
+    {
+      "id": "K2",
+      "name": "Project / Organization Context",
+      "scope": "project_or_tenant",
+      "inheritance": "scoped_overlay",
+      "requires_access_policy": true
+    }
+  ],
+  "separate_systems": [
+    "skills",
+    "memory",
+    "experience"
+  ],
+  "agent_knowledge_profile_required_fields": [
+    "common_core_id",
+    "common_core_version",
+    "specialist_pack_ids",
+    "specialist_pack_versions",
+    "project_context_id",
+    "retrieval_policy",
+    "access_policy",
+    "citation_provenance_policy",
+    "freshness_policy",
+    "conflict_policy"
+  ],
+  "routing_pipeline": [
+    "intent_domain_detection",
+    "query_common_core",
+    "query_specialist_pack",
+    "query_project_context_if_allowed",
+    "merge",
+    "deduplicate",
+    "rank",
+    "conflict_check",
+    "build_evidence_bundle",
+    "deliver_to_agent"
+  ],
+  "candidate_gate": [
+    "common_core_compatible",
+    "specialist_pack_present",
+    "provenance_policy_defined",
+    "knowledge_tests_pass",
+    "no_unresolved_critical_contradictions",
+    "knowledge_versions_frozen"
+  ]
+}

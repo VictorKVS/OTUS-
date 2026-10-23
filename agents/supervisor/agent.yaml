@@ -1,0 +1,32 @@
+agent:
+  id: FTH-AG-SUP-001
+  name: "Supervisor / Router"
+  status: scaffold
+  maturity: M0
+  stages: [I0, A1, A2, A3, A4, D0, D0.5, D1, V1, V2, V3, R1, O1]
+  owner: FATHER Agent Zoo
+role: "Маршрутизирует работу между агентами и gates; сам не подменяет профильных специалистов."
+contracts:
+  prompt: ./prompt.md
+  rag: ./rag.yaml
+  knowledge: ./knowledge.yaml
+inputs:
+  project_id: required
+  stage_context: required
+  artifact_refs: required
+outputs:
+  status: required
+  artifact_refs: required
+  findings: required
+  next_owner: required
+tools:
+  - workflow
+  - registry
+  - handoff
+gates:
+  obey_stage_gate: true
+  no_silent_baseline_change: true
+observability:
+  trace_id: required
+  agent_id_tag: required
+  artifact_refs_log: required

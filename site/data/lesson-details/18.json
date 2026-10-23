@@ -1,0 +1,194 @@
+{
+  "schema_version": "father-architect-lesson-detail.v1",
+  "lesson_id": 18,
+  "purpose": "Перевести архитектуру, security, evaluation, observability и sizing в воспроизводимую инфраструктуру и CI/CD: infrastructure as code, quality gates, environments and automated delivery.",
+  "schema": {
+    "notation": "ARCHITECTURE/DEV PACK → TERRAFORM/IAC → VPC/S3/K8S TARGET → BUILD/TEST → QUALITY+SECURITY GATES → ARTIFACT/IMAGE → DEPLOY → VERIFY → EVIDENCE",
+    "description": "Источник Lesson 18 требует Terraform для базовой инфраструктуры VPC, Kubernetes cluster и S3, а также CI/CD pipeline с quality gates. В текущей папке подтверждён source material, но готовый Terraform/CI lab не подтверждён.",
+    "nodes": [
+      "ARCHITECTURE/DEV PACK",
+      "TERRAFORM/IAC",
+      "VPC/S3/K8S TARGET",
+      "BUILD/TEST",
+      "QUALITY+SECURITY GATES",
+      "ARTIFACT/IMAGE",
+      "DEPLOY",
+      "VERIFY",
+      "EVIDENCE"
+    ],
+    "edges": [
+      [
+        "ARCHITECTURE/DEV PACK",
+        "TERRAFORM/IAC"
+      ],
+      [
+        "TERRAFORM/IAC",
+        "VPC/S3/K8S TARGET"
+      ],
+      [
+        "VPC/S3/K8S TARGET",
+        "BUILD/TEST"
+      ],
+      [
+        "BUILD/TEST",
+        "QUALITY+SECURITY GATES"
+      ],
+      [
+        "QUALITY+SECURITY GATES",
+        "ARTIFACT/IMAGE"
+      ],
+      [
+        "ARTIFACT/IMAGE",
+        "DEPLOY"
+      ],
+      [
+        "DEPLOY",
+        "VERIFY"
+      ],
+      [
+        "VERIFY",
+        "EVIDENCE"
+      ]
+    ]
+  },
+  "visual": {
+    "poster": "./assets/lesson-18-iac-cicd.svg",
+    "alt": "Lesson 18 IaC and CI/CD pipeline from development pack through Terraform and infrastructure target, build and tests, quality and security gates, artifact, deployment, verification and evidence."
+  },
+  "curriculum": {
+    "summary": "Урок требует автоматизировать развёртывание и управление инфраструктурой средствами IaC, прежде всего Terraform, и проектировать CI/CD для автоматической сборки, тестирования и доставки AI-приложений. Практика — Terraform-конфигурация базовой инфраструктуры VPC, Kubernetes-кластер и S3.",
+    "teacher": "Илья Ящук",
+    "requirements": [
+      "Автоматизировать развёртывание и управление инфраструктурой с помощью IaC",
+      "Использовать Terraform как пример IaC",
+      "Проектировать CI/CD pipeline с quality gates",
+      "Автоматизировать сборку, тестирование и доставку AI-приложений",
+      "Писать Terraform для VPC, Kubernetes-кластера и S3"
+    ],
+    "homework": [
+      "Практика: написать Terraform-конфигурацию для развёртывания базовой инфраструктуры — VPC, Kubernetes-кластер, S3."
+    ],
+    "acceptance_criteria": [],
+    "sources": [
+      "Lesson 18 source text"
+    ]
+  },
+  "architect_pro": {
+    "summary": "Профессиональный Delivery Pipeline принимает только validated Development Pack и делает каждый шаг воспроизводимым. DevOps отвечает за build/deploy/runtime delivery; DevSecOps добавляет security gates, SBOM, supply-chain checks, policy-as-code and release evidence. Kubernetes выбирается как target, когда workload/HA/scale оправдывают его сложность.",
+    "methods": [
+      "Terraform plan/apply with remote state and review",
+      "Environment separation: dev/test/stage/prod",
+      "Immutable build artifact / container image",
+      "CI quality gates: tests, lint, schema/contract checks",
+      "DevSecOps gates: SAST, SCA, secret scan, SBOM, container scan, IaC scan",
+      "Artifact/image registry",
+      "Deployment verification / smoke checks",
+      "Rollback contract",
+      "Policy as Code",
+      "Kubernetes manifests or Helm when K8s target is selected",
+      "Release evidence and traceability to commit/pack"
+    ],
+    "templates": [
+      "terraform/",
+      "environments/",
+      "Dockerfile",
+      "docker-compose.yml",
+      ".github/workflows/ci.yml",
+      ".github/workflows/deploy.yml",
+      "security/gates.yaml",
+      "sbom/",
+      "k8s/",
+      "helm/",
+      "release/manifest.yaml",
+      "release/rollback.md"
+    ],
+    "anti_patterns": [
+      "kubectl apply из ноутбука без versioned manifests",
+      "ручная инфраструктура без IaC",
+      "одинаковые secrets для dev/test/prod",
+      "deploy без immutable artifact reference",
+      "security scan как необязательная пост-проверка",
+      "Terraform apply без plan/review/state strategy",
+      "Kubernetes для одиночного простого сервиса без необходимости",
+      "release без rollback и evidence"
+    ]
+  },
+  "father_production": {
+    "summary": "Lesson 18 — точка сборки FATHER Delivery Plane. Здесь результаты Lessons 13–17 превращаются в автоматические pipeline gates и deployment target. После появления реального Homework/Lab evidence можно активировать отдельную DevOps/DevSecOps Factory.",
+    "capability_ids": [
+      "FTH-HARNESS-001",
+      "FTH-WFG-001",
+      "FTH-DLV-001",
+      "FTH-DSEC-001",
+      "FTH-K8S-001",
+      "FTH-POL-001",
+      "FTH-OBS-001",
+      "FTH-EVL-001"
+    ],
+    "components": [
+      "FTH-DLV-001 · Delivery Plane",
+      "FTH-DSEC-001 · DevSecOps Delivery Security",
+      "FTH-K8S-001 · Kubernetes Runtime (target M0)",
+      "FTH-POL-001 · Policy & Security Plane",
+      "FTH-EVL-001 · Evaluation Service",
+      "FTH-OBS-001 · Observability & Audit Plane"
+    ],
+    "runtime_notes": [
+      "Lesson 13 eval thresholds become CI quality gates",
+      "Lesson 14 security controls become DevSecOps gates",
+      "Lesson 15 telemetry requirements become deployment observability hooks",
+      "Lessons 16–17 sizing determine runtime requests/limits and deployment target",
+      "Validated Development Pack is the delivery input",
+      "Kubernetes is a selectable target, not mandatory for every agent",
+      "DevOps/DevSecOps Factory remains TARGET until Lesson 18 infrastructure and pipeline evidence exist",
+      "DZ18 scaffold now exists under the lesson folder; activation to LAB requires local runtime verification and captured evidence."
+    ]
+  },
+  "artifacts": [
+    "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/README.md — homework/lab entrypoint",
+    "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/app/ — minimal FastAPI agent service",
+    "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/Dockerfile — non-root container image",
+    "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/terraform/local-lab/ — Terraform local lab",
+    "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/Minikube profile father-dz18 — shared local Kubernetes runtime",
+    "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/k8s/ — namespace/deployment/service/network policy",
+    "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/security/quality-gates.yaml — machine-readable DevSecOps gates",
+    "18 Инфраструктура как код (IaC) и CICD/DZ_18_IaC_CICD/scripts/deploy_local.ps1 — local deployment orchestrator",
+    ".github/workflows/dz18-iac-devsecops.yml — CI/DevSecOps validation workflow",
+    "site/dz18-devsecops.html — visual lab page"
+  ],
+  "evidence": [
+    "Source lesson explicitly requires Terraform/IaC.",
+    "Source lesson explicitly requires CI/CD with quality gates.",
+    "Source lesson practice explicitly names VPC, Kubernetes cluster and S3 as Terraform targets.",
+    "A versioned Terraform local-lab scaffold now provisions a Docker network (local VPC analogue), MinIO (local S3 analogue) and ensures a Minikube Kubernetes cluster.",
+    "A minimal non-root FastAPI agent image, Kubernetes Deployment/Service/NetworkPolicy and health probes are versioned in the homework folder.",
+    "A path-scoped GitHub Actions workflow defines tests, SAST, dependency audit, secret scan, SBOM generation, Terraform validation, Checkov and container scan stages.",
+    "Runtime apply/deploy evidence is still pending local execution; therefore this is engineering M1 draft, not a confirmed running Kubernetes lab."
+  ],
+  "traceability": [
+    "VALIDATED DEV PACK → IaC/PIPELINE",
+    "LESSON 13 EVAL → QUALITY GATE",
+    "LESSON 14 SECURITY → DEVSECOPS GATE",
+    "LESSON 15 OBSERVABILITY → DEPLOYMENT TELEMETRY",
+    "LESSON 16/17 SIZING → RUNTIME TARGET",
+    "TERRAFORM PLAN → INFRA CHANGE",
+    "BUILD → IMMUTABLE ARTIFACT",
+    "GATES → RELEASE DECISION",
+    "DEPLOY → VERIFY → EVIDENCE"
+  ],
+  "gaps": [
+    "Runtime evidence is pending: Terraform apply, Minikube profile, MinIO, Kubernetes rollout and health verification have not yet been confirmed on the user's machine.",
+    "CI workflow is versioned but a successful GitHub Actions run for the new DZ18 scaffold has not yet been confirmed.",
+    "Completed CI/CD workflow for Lesson 18 is not confirmed.",
+    "Kubernetes cluster runtime evidence is not confirmed.",
+    "S3/VPC deployment evidence is not confirmed.",
+    "Source lesson does not provide explicit acceptance criteria or lesson date in the inspected text.",
+    "DevOps/DevSecOps Factory is a planned production outcome, not yet runtime-ready."
+  ],
+  "sources": [
+    {
+      "title": "Lesson 18 source",
+      "url": "https://github.com/VictorKVS/OTUS-/tree/feature/otus-homework-site/18%20%D0%98%D0%BD%D1%84%D1%80%D0%B0%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BA%D0%B0%D0%BA%20%D0%BA%D0%BE%D0%B4%20(IaC)%20%D0%B8%20CICD"
+    }
+  ]
+}

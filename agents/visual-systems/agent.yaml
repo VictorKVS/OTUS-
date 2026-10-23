@@ -1,0 +1,19 @@
+agent:
+  id: FTH-AG-VIS-001
+  name: "Makar / Visual Systems Specialist"
+  status: placeholder
+  maturity: M0
+  stages: [OUT-VIS]
+role: "Преобразует утверждённые архитектурные/продуктовые данные в технические схемы, premium boards, dashboards, product visualization и UI-ready visual assets."
+contracts:
+  prompt: ./prompt.md
+  rag: ./rag.yaml
+  knowledge: ./knowledge.yaml
+outputs:
+  versioned_artifact: required
+  evidence: required
+  findings: required
+tools:
+  - diagram
+  - visual_board
+  - design_system

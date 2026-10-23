@@ -1,0 +1,26 @@
+{
+  "id": "KB-K1-ARCHITECT",
+  "name": "Architecture Specialist Pack",
+  "version": "0.1.0",
+  "status": "DESIGN",
+  "layer": "K1",
+  "family": "FATHER_ARCHITECT",
+  "depends_on": [
+    "KB-K0-FATHER-COMMON"
+  ],
+  "topics": [
+    "requirements to architecture",
+    "C4",
+    "LLD",
+    "ADR",
+    "trade-offs",
+    "integration",
+    "data",
+    "NFR",
+    "reliability",
+    "security architecture",
+    "FinOps"
+  ],
+  "skill_tree": "ARCHITECT_SKILLS",
+  "provenance_required": true
+}

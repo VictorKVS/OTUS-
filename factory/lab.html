@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FATHER LAB · Research & Test Center</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./lab.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">FATHER LAB<small>Research · Experimentation · Metrology · Certification</small></div>
+  <nav class="nav"><a href="../site/index.html">FATHER</a><a href="../site/unified-system.html">Единая система</a>
+    <a href="./index.html">Factory</a>
+    <a href="./lesson-conveyor-0-29.html">0–29</a>
+    <a href="#overview">Overview</a>
+    <a href="#projects">Project Labs</a>
+    <a href="#alina">ALINA Lab</a>
+    <a href="#experiments">Experiments</a>
+    <a href="#quality">Quality Gates</a><a href="#algorithms">Verification Algorithms</a>
+    <a href="#champions">Champions</a>
+    <a href="../site/production-base.html">Production Base ↗</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero lab-hero" id="overview">
+  <div class="eyebrow">FATHER · Research & Test Center</div>
+  <h1>Не «попробовали и понравилось», а <span>измерили, сравнили, доказали</span></h1>
+  <p>Единый испытательный контур для моделей, prompts, RAG, knowledge algorithms, agents, skills, tools, workflows и evaluators. Любой новый вариант проходит воспроизводимый A/B/N-прогон, regression, safety gate и только затем может стать Champion.</p>
+  <div class="lab-rule">BASELINE → HYPOTHESIS → A/B/N → EVIDENCE → REGRESSION → CERTIFICATION → CHAMPION</div>
+  <div class="kpis" id="labStats"></div>
+</section>
+
+<section class="section">
+  <div class="eyebrow">Laboratory campus</div>
+  <h2>Единая лаборатория, разные испытательные стенды</h2>
+  <div class="lab-grid" id="labAreas"></div>
+</section>
+
+<section class="section" id="projects">
+  <div class="eyebrow">Project laboratories</div>
+  <h2>Каждый проект получает свой LAB поверх общего Experimentation Engine</h2>
+  <div class="project-labs" id="projectLabs"></div>
+</section>
+
+<section class="section" id="alina">
+  <div class="eyebrow">ALINA research center</div>
+  <h2>Лаборатория интеллектуального ядра</h2>
+  <div class="alina-layout">
+    <div class="lab-grid" id="alinaLabs"></div>
+    <aside class="lab-panel">
+      <div class="meta">ALINA · CURRENT RESEARCH LOOP</div>
+      <h3>Knowledge → Experiment → Better specialist</h3>
+      <div class="vertical-flow" id="alinaFlow"></div>
+    </aside>
+  </div>
+</section>
+
+<section class="section" id="experiments">
+  <div class="eyebrow">Experiment registry</div>
+  <div class="section-row">
+    <h2>Активные A/B/N эксперименты</h2>
+    <select id="projectFilter" aria-label="Фильтр проекта">
+      <option value="all">Все проекты</option>
+      <option value="ALINA">ALINA</option>
+      <option value="OSINT">OSINT</option>
+      <option value="FATHER">FATHER</option>
+    </select>
+  </div>
+  <div class="experiments" id="experimentGrid"></div>
+</section>
+
+<section class="section">
+  <div class="eyebrow">Reproducible runs</div>
+  <h2>Паспорт каждого прогона</h2>
+  <div class="run-contract">
+    <code>experiment_id</code><code>hypothesis</code><code>git_commit</code><code>dataset_version</code>
+    <code>model_version</code><code>prompt_version</code><code>rag_config</code><code>agent_config</code>
+    <code>tool_versions</code><code>environment</code><code>seed</code><code>trace</code>
+    <code>metrics</code><code>evaluator_version</code><code>artifacts</code><code>decision</code>
+  </div>
+</section>
+
+<section class="section" id="quality">
+  <div class="eyebrow">Metrology & quality</div>
+  <h2>Измеряем не только систему, но и сам измеритель</h2>
+  <div class="quality-grid" id="qualityGates"></div>
+  <div class="lane quality-lane" id="qualityLane"></div>
+</section>
+
+<section class="section">
+  <div class="eyebrow">Dataset center</div>
+  <h2>Наборы испытаний</h2>
+  <div class="dataset-grid" id="datasets"></div>
+</section>
+
+<section class="section" id="algorithms">
+  <div class="eyebrow">Machine-readable verification</div>
+  <h2>Алгоритмы проверок и обязательные gates</h2>
+  <p style="max-width:1000px;color:var(--muted);font-size:11px">Этот блок загружается из <code>factory/data/verification-gates.json</code>. Он будет использоваться как единый источник правил для UI, CI и будущего Factory Orchestrator.</p>
+  <div class="quality-grid" id="verificationGateGrid"></div>
+  <div class="run-contract" id="promotionStates" style="margin-top:14px"></div>
+  <p style="margin-top:14px"><a href="../docs/FATHER_VERIFICATION_ALGORITHMS.md" style="color:var(--cyan);text-decoration:none">Открыть полный стандарт алгоритмов проверок →</a></p>
+</section>
+
+<section class="section" id="champions">
+  <div class="eyebrow">Champion / Challenger</div>
+  <h2>Лучший вариант определяется под профиль задачи</h2>
+  <div class="champion-grid" id="championProfiles"></div>
+  <div class="promotion">
+    <div class="step"><b>◐ Challenger</b><small>новая конфигурация</small></div><span class="arrow">→</span>
+    <div class="step"><b>🧪 Offline A/B/N</b><small>same dataset</small></div><span class="arrow">→</span>
+    <div class="step"><b>♻ Regression</b><small>старые кейсы</small></div><span class="arrow">→</span>
+    <div class="step"><b>🛡 Safety</b><small>red-team gate</small></div><span class="arrow">→</span>
+    <div class="step"><b>📡 Canary</b><small>контролируемый rollout</small></div><span class="arrow">→</span>
+    <div class="step champion"><b>● Champion</b><small>production profile</small></div>
+  </div>
+</section>
+</main>
+
+<footer><span>FATHER LAB · evidence-driven AI engineering</span><span>RESEARCH → TEST → CERTIFY → FACTORY</span></footer>
+<script src="./lab.js"></script>
+</body>
+</html>

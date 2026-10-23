@@ -1,0 +1,32 @@
+agent:
+  id: FTH-AG-PDV-001
+  name: "Pre-Dev Validator"
+  status: scaffold
+  maturity: M0
+  stages: [D0.5]
+  owner: FATHER Agent Zoo
+role: "Запускает P0–P11 и блокирует передачу программисту при любой критической дырке."
+contracts:
+  prompt: ./prompt.md
+  rag: ./rag.yaml
+  knowledge: ./knowledge.yaml
+inputs:
+  project_id: required
+  stage_context: required
+  artifact_refs: required
+outputs:
+  status: required
+  artifact_refs: required
+  findings: required
+  next_owner: required
+tools:
+  - validator
+  - schema_check
+  - contract_check
+gates:
+  obey_stage_gate: true
+  no_silent_baseline_change: true
+observability:
+  trace_id: required
+  agent_id_tag: required
+  artifact_refs_log: required

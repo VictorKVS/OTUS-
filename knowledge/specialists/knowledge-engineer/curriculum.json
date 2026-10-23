@@ -1,0 +1,97 @@
+{
+  "schema_version": "father-specialist-curriculum.v1",
+  "knowledge_pack_id": "KB-K1-KNOWLEDGE-ENGINEERING",
+  "version": "0.1.0",
+  "prerequisite": "G-K0-GRADUATION",
+  "modules": [
+    {
+      "id": "KE-M01",
+      "name": "Source Registry & Provenance",
+      "skills": [
+        "source identity",
+        "version",
+        "hash",
+        "authority",
+        "lineage"
+      ]
+    },
+    {
+      "id": "KE-M02",
+      "name": "Ingestion & Parsing",
+      "skills": [
+        "format handling",
+        "structure extraction",
+        "failure handling"
+      ]
+    },
+    {
+      "id": "KE-M03",
+      "name": "Normalization & Metadata",
+      "skills": [
+        "canonical fields",
+        "metadata",
+        "language/version"
+      ]
+    },
+    {
+      "id": "KE-M04",
+      "name": "Chunking & Retrieval Preparation",
+      "skills": [
+        "chunk strategy",
+        "hierarchy",
+        "overlap",
+        "metadata filters"
+      ]
+    },
+    {
+      "id": "KE-M05",
+      "name": "Entities / Relations / Graph",
+      "skills": [
+        "entity model",
+        "relations",
+        "deduplication",
+        "graph consistency"
+      ]
+    },
+    {
+      "id": "KE-M06",
+      "name": "Conflict / Freshness",
+      "skills": [
+        "contradictions",
+        "supersession",
+        "freshness",
+        "confidence"
+      ]
+    },
+    {
+      "id": "KE-M07",
+      "name": "Controlled Publish",
+      "skills": [
+        "review",
+        "approval",
+        "versioning",
+        "rollback"
+      ]
+    },
+    {
+      "id": "KE-M08",
+      "name": "Knowledge Quality",
+      "skills": [
+        "precision",
+        "recall",
+        "provenance",
+        "downstream tests"
+      ]
+    }
+  ],
+  "graduation_gate": {
+    "id": "G-K1-KNOWLEDGE-ENGINEERING-GRADUATION",
+    "rules": [
+      "K0_pass",
+      "module_assessments_pass",
+      "golden_cases_pass",
+      "evidence_quality_pass",
+      "regression_pass"
+    ]
+  }
+}

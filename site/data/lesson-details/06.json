@@ -1,0 +1,189 @@
+{
+  "schema_version": "father-architect-lesson-detail.v1",
+  "lesson_id": 6,
+  "purpose": "Спроектировать RAG как двухконтурную систему: ingestion/indexing превращает источники в searchable knowledge, а query pipeline извлекает кандидатов, объединяет keyword/vector retrieval, rerank-ит контекст и передаёт его в LLM. Продвинутые RAG-паттерны выбираются по наблюдаемой проблеме качества, а не как самоцель.",
+  "schema": {
+    "notation": "SOURCES → CHUNK/EMBED → VECTOR/KG INDEX → QUERY → HYBRID RETRIEVAL → RERANK → CONTEXT → PROMPT → LLM → ANSWER/SOURCES",
+    "description": "Основной урок требует RAG и advanced variations. Notebook реализует FAISS vector retrieval, BM25+vector hybrid search и cross-encoder reranking; Self-RAG, CRAG и Knowledge/Cache Augmented Generation остаются учебными паттернами, а не доказанным runtime.",
+    "nodes": [
+      "SOURCES",
+      "CHUNK/EMBED",
+      "VECTOR/KG INDEX",
+      "QUERY",
+      "HYBRID RETRIEVAL",
+      "RERANK",
+      "CONTEXT",
+      "PROMPT",
+      "LLM",
+      "ANSWER/SOURCES"
+    ],
+    "edges": [
+      [
+        "SOURCES",
+        "CHUNK/EMBED"
+      ],
+      [
+        "CHUNK/EMBED",
+        "VECTOR/KG INDEX"
+      ],
+      [
+        "QUERY",
+        "HYBRID RETRIEVAL"
+      ],
+      [
+        "VECTOR/KG INDEX",
+        "HYBRID RETRIEVAL"
+      ],
+      [
+        "HYBRID RETRIEVAL",
+        "RERANK"
+      ],
+      [
+        "RERANK",
+        "CONTEXT"
+      ],
+      [
+        "CONTEXT",
+        "PROMPT"
+      ],
+      [
+        "PROMPT",
+        "LLM"
+      ],
+      [
+        "LLM",
+        "ANSWER/SOURCES"
+      ]
+    ]
+  },
+  "visual": {
+    "poster": "./assets/lesson-06-rag-patterns.svg",
+    "alt": "Lesson 06 RAG: sources are chunked and embedded into vector and graph knowledge; query uses hybrid BM25/vector retrieval, reranking, context construction and LLM generation, while advanced Self-RAG and CRAG remain separate optional patterns."
+  },
+  "curriculum": {
+    "summary": "Урок посвящён проектированию RAG, reranking и hybrid search. В программе отдельно названы Self-RAG, CRAG, Knowledge/Cache Augmented Generation и практика hybrid RAG с Vector DB и Knowledge Graph.",
+    "requirements": [
+      "Проектировать и реализовывать системы на основе RAG",
+      "Применять reranking для повышения качества",
+      "Применять hybrid search",
+      "Различать Self-RAG, CRAG и Knowledge/Cache Augmented Generation",
+      "Проектировать hybrid RAG с Vector DB и Knowledge Graph"
+    ],
+    "homework": [
+      "Практическое проектирование hybrid RAG architecture",
+      "Использование Vector DB и Knowledge Graph для повышения точности",
+      "Работа с Colab notebook"
+    ],
+    "sources": [
+      "Lesson 06 outline",
+      "LLM_RAG notebook"
+    ]
+  },
+  "architect_pro": {
+    "summary": "Notebook даёт рабочий design prototype: SentenceTransformer создаёт embeddings, FAISS хранит vector index, BM25 добавляет lexical retrieval, CrossEncoder reranker переставляет кандидатов, а prompt строится из выбранного context. Отдельный пример показывает добавление отсутствующего знания и повторный запрос.",
+    "methods": [
+      "Embedding-based retrieval через SentenceTransformer + FAISS",
+      "Keyword retrieval через BM25",
+      "Hybrid retrieval как объединение BM25 и vector candidates",
+      "Cross-encoder reranking кандидатов",
+      "Context construction из top documents",
+      "Prompt construction с retrieved context",
+      "Source display для пользователя",
+      "Knowledge update: добавить документ → embedding → index",
+      "Тестовый noisy corpus для сравнения retrieval до/после reranking",
+      "Device-aware execution path: CUDA / XPU / CPU"
+    ],
+    "standards": [],
+    "anti_patterns": [
+      "Считать vector search полноценным RAG без generation/grounding pipeline",
+      "Добавлять advanced RAG-паттерн без измеримой проблемы, которую он решает",
+      "Смешивать lexical и vector результаты без явной ranking strategy",
+      "Отправлять в LLM все найденные документы без reranking/context budget",
+      "Не сохранять sources/provenance результата",
+      "Оценивать качество по одному красивому примеру",
+      "Считать notebook с неисполненными cells доказательством работающего lab runtime",
+      "Смешивать Memory Layer и retrieval knowledge без отдельного контракта"
+    ],
+    "templates": [
+      "Indexing Pipeline",
+      "Query / Retrieval Pipeline",
+      "Hybrid Search",
+      "Reranking Stage",
+      "Context Package",
+      "RAG Quality Experiment",
+      "Knowledge Update Flow"
+    ]
+  },
+  "father_production": {
+    "summary": "В FATHER RAG раскладывается на независимые production capabilities: Knowledge Service управляет корпусом и provenance, Retrieval Gateway — lexical/vector/hybrid retrieval + rerank, Knowledge Graph Service — graph retrieval/linking, Context Builder собирает ограниченный context package, Prompt Registry задаёт versioned prompt templates.",
+    "capability_ids": [
+      "FTH-CTX-001",
+      "FTH-PRM-001",
+      "FTH-KNW-001",
+      "FTH-RAG-001",
+      "FTH-KGR-001"
+    ],
+    "components": [
+      "FTH-KNW-001 · Knowledge Service",
+      "FTH-RAG-001 · Retrieval Gateway",
+      "FTH-KGR-001 · Knowledge Graph Service",
+      "FTH-CTX-001 · Context Builder",
+      "FTH-PRM-001 · Prompt Registry"
+    ],
+    "runtime_notes": [
+      "Ingestion и query runtime разделяются",
+      "Chunk, embedding, index и source metadata версионируются",
+      "Retrieval strategy выбирается конфигурацией и измеряется",
+      "Reranker является отдельным stage с собственной model/version metadata",
+      "Context Builder применяет token/context budget и provenance",
+      "Prompt version должен попадать в trace",
+      "Knowledge Graph не подменяется обычным vector index"
+    ]
+  },
+  "artifacts": [
+    "Lesson 06 outline",
+    "LLM_RAG-373402-ed0bfd.ipynb",
+    "FAISS vector retrieval code",
+    "BM25 hybrid-search code",
+    "CrossEncoder reranking code",
+    "Knowledge update demo",
+    "Interactive notebook UI",
+    "RAG lecture PDF"
+  ],
+  "evidence": [
+    "Lesson source explicitly lists RAG, reranking and hybrid search",
+    "Lesson source explicitly lists Self-RAG, CRAG and Knowledge/Cache Augmented Generation",
+    "Lesson source requires hybrid RAG with Vector DB + Knowledge Graph",
+    "Notebook contains SentenceTransformer + FAISS retrieval",
+    "Notebook contains BM25 + vector hybrid search",
+    "Notebook contains CrossEncoder reranking",
+    "Notebook cells have no saved execution outputs, so runtime execution is not proven"
+  ],
+  "traceability": [
+    "SOURCE → CHUNK / EMBEDDING",
+    "CHUNK / EMBEDDING → VECTOR INDEX",
+    "QUERY → BM25 + VECTOR RETRIEVAL",
+    "CANDIDATES → RERANK",
+    "RERANK → CONTEXT PACKAGE",
+    "CONTEXT → VERSIONED PROMPT",
+    "PROMPT + MODEL → ANSWER",
+    "ANSWER → SOURCES / PROVENANCE"
+  ],
+  "gaps": [
+    "Notebook сохранён без execution_count/output; воспроизводимый запуск не подтверждён.",
+    "Self-RAG и CRAG присутствуют в программе, но не обнаружены как реализованный runtime в notebook.",
+    "Knowledge Graph заявлен в программе, но не реализован в просмотренном notebook.",
+    "Папка lesson-06-c4-model содержит материалы C4, а не RAG; её следует перенести/переименовать и не использовать как RAG evidence.",
+    "RAG evaluation metrics/golden set будут формализованы на отдельном lesson/evaluation step."
+  ],
+  "sources": [
+    {
+      "title": "Lesson 06 outline",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/6.%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B0%D1%82%D1%82%D0%B5%D1%80%D0%BD%D1%8B%20RAG%20%D0%B8%20%D0%B5%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D0%B2%D0%B8%D0%BD%D1%83%D1%82%D1%8B%D0%B5%20%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D1%86%D0%B8%D0%B8/6.%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B0%D1%82%D1%82%D0%B5%D1%80%D0%BD%D1%8B%20%20RAG%20%D0%B8%20%D0%B5%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D0%B2%D0%B8%D0%BD%D1%83%D1%82%D1%8B%D0%B5%20%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D1%86%D0%B8%D0%B8.txt"
+    },
+    {
+      "title": "RAG notebook",
+      "url": "https://github.com/VictorKVS/OTUS-/blob/feature/otus-homework-site/6.%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B0%D1%82%D1%82%D0%B5%D1%80%D0%BD%D1%8B%20RAG%20%D0%B8%20%D0%B5%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D0%B2%D0%B8%D0%BD%D1%83%D1%82%D1%8B%D0%B5%20%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D1%86%D0%B8%D0%B8/LLM_RAG-373402-ed0bfd.ipynb"
+    }
+  ]
+}

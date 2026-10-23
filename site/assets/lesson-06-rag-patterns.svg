@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Lesson 06 — RAG Patterns</title>
+<desc id="desc">Two-path RAG architecture: indexing sources into vector and graph knowledge, and query path through hybrid retrieval, reranking, context building, prompt and LLM generation.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061018"/><stop offset="1" stop-color="#13252a"/></linearGradient>
+  <style>.t{font-family:Segoe UI,Arial,sans-serif;fill:#eef7ff}.m{fill:#91a9ba}.h{font-weight:700}.box{fill:#0d1a25;stroke:#29495d;stroke-width:2}.cyan{stroke:#4ed9ff}.vio{stroke:#9b83ff}.green{stroke:#63e6a5}.amber{stroke:#ffbd65}.red{stroke:#ff7474}.mono{font-family:Consolas,monospace}</style>
+</defs>
+<rect width="1600" height="1000" rx="28" fill="url(#bg)"/>
+<text x="70" y="70" class="t h" font-size="34">LESSON 06 · RAG Patterns</text>
+<text x="70" y="108" class="m mono" font-size="15">INDEXING PATH + QUERY PATH · HYBRID RETRIEVAL · RERANK · GROUNDED CONTEXT</text>
+
+<text x="70" y="165" class="t h" font-size="18">INDEXING PATH</text>
+<rect x="70" y="195" width="260" height="130" rx="18" class="box cyan"/>
+<text x="100" y="235" class="t h" font-size="16">SOURCES</text><text x="100" y="267" class="m" font-size="13">documents / knowledge</text>
+<rect x="390" y="195" width="260" height="130" rx="18" class="box vio"/>
+<text x="420" y="235" class="t h" font-size="16">CHUNK / EMBED</text><text x="420" y="267" class="m" font-size="13">SentenceTransformer</text>
+<rect x="710" y="195" width="330" height="130" rx="18" class="box green"/>
+<text x="740" y="235" class="t h" font-size="16">VECTOR INDEX</text><text x="740" y="267" class="m" font-size="13">FAISS · metadata / provenance</text>
+<rect x="1100" y="195" width="430" height="130" rx="18" class="box amber"/>
+<text x="1130" y="235" class="t h" font-size="16">KNOWLEDGE GRAPH</text><text x="1130" y="267" class="m" font-size="13">required by curriculum · runtime GAP</text>
+<path d="M330 260H390M650 260H710M1040 260H1100" stroke="#4ed9ff" stroke-width="5"/>
+
+<text x="70" y="405" class="t h" font-size="18">QUERY PATH</text>
+<rect x="70" y="435" width="200" height="130" rx="18" class="box cyan"/>
+<text x="100" y="475" class="t h" font-size="16">QUERY</text><text x="100" y="507" class="m" font-size="13">user intent</text>
+<rect x="315" y="435" width="300" height="130" rx="18" class="box green"/>
+<text x="345" y="475" class="t h" font-size="16">HYBRID RETRIEVAL</text><text x="345" y="507" class="m" font-size="13">BM25 + Vector candidates</text>
+<rect x="660" y="435" width="260" height="130" rx="18" class="box vio"/>
+<text x="690" y="475" class="t h" font-size="16">RERANK</text><text x="690" y="507" class="m" font-size="13">CrossEncoder</text>
+<rect x="965" y="435" width="260" height="130" rx="18" class="box cyan"/>
+<text x="995" y="475" class="t h" font-size="16">CONTEXT</text><text x="995" y="507" class="m" font-size="13">top docs + budget</text>
+<rect x="1270" y="435" width="260" height="130" rx="18" class="box green"/>
+<text x="1300" y="475" class="t h" font-size="16">LLM ANSWER</text><text x="1300" y="507" class="m" font-size="13">answer + sources</text>
+<path d="M270 500H315M615 500H660M920 500H965M1225 500H1270" stroke="#63e6a5" stroke-width="5"/>
+
+<text x="70" y="650" class="t h" font-size="18">ADVANCED PATTERNS FROM CURRICULUM</text>
+<rect x="70" y="685" width="300" height="115" rx="18" class="box amber"/><text x="100" y="727" class="t h" font-size="16">SELF-RAG</text><text x="100" y="756" class="m" font-size="12">curriculum · runtime not proven</text>
+<rect x="410" y="685" width="300" height="115" rx="18" class="box amber"/><text x="440" y="727" class="t h" font-size="16">CRAG</text><text x="440" y="756" class="m" font-size="12">curriculum · runtime not proven</text>
+<rect x="750" y="685" width="380" height="115" rx="18" class="box amber"/><text x="780" y="727" class="t h" font-size="16">KNOWLEDGE / CACHE AUG.</text><text x="780" y="756" class="m" font-size="12">curriculum · separate architecture choice</text>
+<rect x="1170" y="685" width="360" height="115" rx="18" class="box red"/><text x="1200" y="727" class="t h" font-size="16">NOTEBOOK STATUS</text><text x="1200" y="756" class="m" font-size="12">code present · no saved execution outputs</text>
+
+<text x="70" y="860" class="t h" font-size="18">FATHER: KNW → RAG/KG → CTX → PROMPT → MODEL TRACE</text>
+<text x="70" y="900" class="m" font-size="13">FTH-KNW-001 · FTH-RAG-001 · FTH-KGR-001 · FTH-CTX-001 · FTH-PRM-001</text>
+<text x="70" y="952" class="m" font-size="14">RULE: advanced RAG is selected by measured failure mode; notebook code without executed evidence stays design, not lab.</text>
+</svg>

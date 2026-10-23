@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FATHER Agent Kit Center</title>
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="stylesheet" href="./styles.css">
+<style>
+.kits{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.kit{border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#0e1a24,#0a141c);padding:16px}.kit h3{font-size:14px;margin:8px 0}.kit p{font-size:10px;color:var(--muted);line-height:1.5}.kit-top{display:flex;justify-content:space-between;gap:8px;align-items:center}.pill{font:8px Consolas;border:1px solid var(--line);border-radius:999px;padding:4px 7px}.ready{color:var(--green)}.design{color:var(--amber)}.inherit{margin-top:10px;padding:9px;border:1px solid var(--line);border-radius:9px;background:#09131b}.inherit b{font-size:9px;color:var(--cyan)}.base-flow{display:flex;gap:7px;overflow:auto;padding:10px 0}.node{min-width:160px;padding:11px;border:1px solid var(--line);border-radius:11px;background:var(--panel)}.node b{font-size:10px}.node small{display:block;color:var(--muted);margin-top:4px}.command{padding:14px;border:1px solid var(--line);border-radius:12px;background:#071018;font:10px/1.7 Consolas,monospace;overflow:auto;color:var(--cyan)}@media(max-width:1000px){.kits{grid-template-columns:1fr 1fr}}@media(max-width:650px){.kits{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top"><div class="brand">FATHER AGENT KITS<small>Base Kit · Shared K0 · Specialist K1 · Dossier · LAB</small></div><nav class="nav"><a href="../site/index.html">FATHER</a><a href="../site/unified-system.html">Единая система</a><a href="./index.html">Factory</a><a href="./knowledge-center.html">Knowledge</a><a href="./lab.html">LAB</a><a href="./trace-center.html">Trace</a><a href="#kits">Kits</a><a href="#scaffold">New Agent</a><a href="../docs/FATHER_AGENT_KIT_STANDARD.md">Standard ↗</a></nav></header>
+<main>
+<section class="hero"><div class="eyebrow">Reusable specialist factory</div><h1>Один базовый комплект → <span>много специалистов</span></h1><p>Новые агенты наследуют FATHER Base Agent Kit и общую K0 по ссылке. Профессиональные знания подключаются как K1. Никакого копирования общей базы между агентами.</p><div class="kpis" id="stats"></div></section>
+<section class="section"><div class="eyebrow">Composition</div><h2>Формула Agent Kit</h2><div class="base-flow" id="composition"></div></section>
+<section class="section" id="kits"><div class="eyebrow">Core team</div><h2>Штатные комплекты FATHER</h2><div class="kits" id="kitGrid"></div></section>
+<section class="section" id="scaffold"><div class="eyebrow">Automatic creation</div><h2>Новый агент из общего фундамента</h2><p>Scaffolder автоматически привязывает совместимый K0 и выбранные K1, регистрирует kit и knowledge-profile. После создания skills/tools/policies должны быть заполнены и комплект проходит validator + LAB.</p><div class="command">python tools/scaffold_agent_kit.py --kit-id KIT-NEW-SPECIALIST --agent-id FTH-AG-NEW-001 --name "New Specialist" --family NEW --role "defined professional role" --k1 KB-K1-...</div></section>
+</main>
+<footer><span>FATHER Agent Kit Center</span><span>BASE + K0(shared) + K1 + Skills + Tools + Policies + Eval</span></footer>
+<script src="./agent-kits.js"></script>
+</body></html>

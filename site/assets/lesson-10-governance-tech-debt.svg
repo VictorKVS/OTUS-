@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Lesson 10 — Architecture Governance and Technical Debt</title>
+<desc id="desc">Target architecture and ADR are compared with a change or pull request. Architecture review sends compliant changes forward and records deviations as debt or exception with owner, priority, remediation and re-verification.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061018"/><stop offset="1" stop-color="#1b1c27"/></linearGradient>
+<style>.t{font-family:Segoe UI,Arial,sans-serif;fill:#eef7ff}.m{fill:#91a9ba}.h{font-weight:700}.box{fill:#0d1a25;stroke:#29495d;stroke-width:2}.cyan{stroke:#4ed9ff}.vio{stroke:#9b83ff}.green{stroke:#63e6a5}.amber{stroke:#ffbd65}.red{stroke:#ff7474}.mono{font-family:Consolas,monospace}</style>
+</defs>
+<rect width="1600" height="1000" rx="28" fill="url(#bg)"/>
+<text x="70" y="70" class="t h" font-size="34">LESSON 10 · Architecture Governance &amp; Technical Debt</text>
+<text x="70" y="108" class="m mono" font-size="15">TARGET STATE → CHANGE → REVIEW → COMPLY OR EXPLICIT DEBT → REMEDIATE → RE-VERIFY</text>
+
+<rect x="70" y="170" width="300" height="160" rx="20" class="box cyan"/>
+<text x="100" y="212" class="t h" font-size="17">TARGET STATE</text><text x="100" y="247" class="m" font-size="13">C4 / LLD</text><text x="100" y="274" class="m" font-size="13">ADR · NFR · policies</text>
+
+<rect x="430" y="170" width="260" height="160" rx="20" class="box vio"/>
+<text x="460" y="212" class="t h" font-size="17">CHANGE / PR</text><text x="460" y="247" class="m" font-size="13">code · config</text><text x="460" y="274" class="m" font-size="13">architecture delta</text>
+
+<rect x="750" y="170" width="300" height="160" rx="20" class="box amber"/>
+<text x="780" y="212" class="t h" font-size="17">ARCH REVIEW</text><text x="780" y="247" class="m" font-size="13">affected IDs</text><text x="780" y="274" class="m" font-size="13">rules · evidence</text>
+
+<polygon points="1220,165 1330,250 1220,335 1110,250" fill="#151b27" stroke="#ffbd65" stroke-width="3"/>
+<text x="1173" y="244" class="t h" font-size="15">COMPLIANT?</text>
+
+<path d="M370 250H430M690 250H750M1050 250H1110" stroke="#4ed9ff" stroke-width="5"/>
+
+<rect x="1260" y="405" width="270" height="145" rx="18" class="box green"/>
+<text x="1290" y="447" class="t h" font-size="17">YES · IMPLEMENT</text><text x="1290" y="480" class="m" font-size="13">review evidence</text><text x="1290" y="508" class="m" font-size="13">continue delivery</text>
+<path d="M1330 335V405" stroke="#63e6a5" stroke-width="5"/>
+
+<rect x="70" y="405" width="330" height="170" rx="20" class="box red"/>
+<text x="100" y="447" class="t h" font-size="17">DEVIATION</text><text x="100" y="480" class="m" font-size="13">violation / shortcut</text><text x="100" y="508" class="m" font-size="13">intentional or accidental</text>
+
+<rect x="455" y="405" width="330" height="170" rx="20" class="box amber"/>
+<text x="485" y="447" class="t h" font-size="17">DEBT / WAIVER</text><text x="485" y="480" class="m" font-size="13">owner · impact · priority</text><text x="485" y="508" class="m" font-size="13">expiry / review date</text>
+
+<rect x="840" y="405" width="330" height="170" rx="20" class="box vio"/>
+<text x="870" y="447" class="t h" font-size="17">REMEDIATION</text><text x="870" y="480" class="m" font-size="13">backlog · due date</text><text x="870" y="508" class="m" font-size="13">evidence to close</text>
+
+<path d="M1110 250 C1010 360 250 340 235 405" fill="none" stroke="#ff7474" stroke-width="4"/>
+<path d="M400 490H455M785 490H840" stroke="#ffbd65" stroke-width="5"/>
+
+<text x="70" y="680" class="t h" font-size="20">FATHER GOVERNANCE PLANE</text>
+<rect x="70" y="725" width="430" height="145" rx="18" class="box red"/>
+<text x="100" y="767" class="t h" font-size="17">FTH-GOV-001</text><text x="100" y="800" class="m" font-size="13">Compliance · Debt · Waiver · Remediation</text>
+<rect x="585" y="725" width="430" height="145" rx="18" class="box vio"/>
+<text x="615" y="767" class="t h" font-size="17">ADR / ARCH / REVIEW</text><text x="615" y="800" class="m" font-size="13">target state and review context</text>
+<rect x="1100" y="725" width="430" height="145" rx="18" class="box green"/>
+<text x="1130" y="767" class="t h" font-size="17">EVIDENCE / FITNESS</text><text x="1130" y="800" class="m" font-size="13">automated + human checks</text>
+
+<text x="70" y="950" class="m" font-size="14">STATUS: MATERIALS / M0 — source lesson exists, but completed PR-review and debt-register evidence is not present yet.</text>
+</svg>

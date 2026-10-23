@@ -1,0 +1,32 @@
+{
+  "schema_version": "father-agent-kit.v1",
+  "kit_id": "FATHER-BASE-AGENT-KIT",
+  "version": "0.1.0",
+  "status": "BASELINED-DESIGN",
+  "purpose": "Reusable foundation inherited by every FATHER logical agent.",
+  "common_core": {
+    "id": "KB-K0-FATHER-COMMON",
+    "version": "0.1.0",
+    "mode": "shared_reference"
+  },
+  "common_policies": {
+    "provenance": "required",
+    "uncertainty": "explicit",
+    "conflict": "do_not_hide",
+    "traceability": "required",
+    "self_approval": "forbidden_when_independence_required",
+    "knowledge_mutation": "change_control_only"
+  },
+  "common_runtime_contract": {
+    "identity_isolation": true,
+    "context_isolation": true,
+    "memory_scope_required": true,
+    "permissions_required": true,
+    "trace_id_required": true,
+    "evidence_required": true
+  },
+  "lifecycle_contract": "factory/data/agent-lifecycle-gates.json",
+  "knowledge_contract": "factory/data/knowledge-architecture.json",
+  "verification_contract": "factory/data/verification-gates.json",
+  "dossier_standard": "docs/FATHER_AGENT_DOCUMENT_DOSSIER.md"
+}

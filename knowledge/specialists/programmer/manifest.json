@@ -1,0 +1,25 @@
+{
+  "id": "KB-K1-PROGRAMMER",
+  "name": "Software Engineering Specialist Pack",
+  "version": "0.1.0",
+  "status": "DESIGN",
+  "layer": "K1",
+  "family": "FATHER_CODEX",
+  "depends_on": [
+    "KB-K0-FATHER-COMMON"
+  ],
+  "topics": [
+    "implementation planning",
+    "Python",
+    "API contracts",
+    "schemas",
+    "testing",
+    "CI",
+    "containers",
+    "telemetry",
+    "secure coding",
+    "traceability in code"
+  ],
+  "skill_tree": "PROGRAMMER_SKILLS",
+  "provenance_required": true
+}

@@ -1,0 +1,33 @@
+agent:
+  id: FTH-AG-REL-001
+  name: "Release / SRE Agent"
+  status: scaffold
+  maturity: M0
+  stages: [R1]
+  owner: FATHER Agent Zoo
+role: "Формирует Release Pack, deployment/rollback/runbooks, SLO links и operational readiness."
+contracts:
+  prompt: ./prompt.md
+  rag: ./rag.yaml
+  knowledge: ./knowledge.yaml
+inputs:
+  project_id: required
+  stage_context: required
+  artifact_refs: required
+outputs:
+  status: required
+  artifact_refs: required
+  findings: required
+  next_owner: required
+tools:
+  - ci_cd
+  - deploy
+  - rollback
+  - runbook
+gates:
+  obey_stage_gate: true
+  no_silent_baseline_change: true
+observability:
+  trace_id: required
+  agent_id_tag: required
+  artifact_refs_log: required
