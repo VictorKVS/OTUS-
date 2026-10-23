@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FATHER · Component Library</title>
+<link rel="stylesheet" href="./styles.css">
+<style>
+.components{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.component{border:1px solid var(--line);border-radius:14px;background:linear-gradient(145deg,#0e1a24,#09131b);padding:18px}.component-top{display:flex;justify-content:space-between;gap:8px}.component-id{font:9px Consolas;color:var(--cyan)}.component-status{font:8px Consolas;border:1px solid #2f7553;border-radius:999px;padding:4px 7px;color:var(--green)}.component h3{font-size:18px;margin:18px 0 8px}.component p{font-size:10px;color:var(--muted);line-height:1.6}.chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:12px}.chips span{font:8px Consolas;border:1px solid var(--line);border-radius:999px;padding:4px 6px;color:var(--muted)}.cert{margin-top:14px;border-left:2px solid var(--amber);padding:9px 11px;background:#15130a;color:#d8c98f;font-size:9px}.contract{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin-top:18px}.contract div{border:1px solid var(--line);border-radius:10px;padding:12px;background:#08131b}.contract i{font-style:normal;color:var(--cyan)}@media(max-width:900px){.components{grid-template-columns:1fr}.contract{grid-template-columns:1fr}.contract i{transform:rotate(90deg);text-align:center}}
+</style>
+</head>
+<body>
+<header class="top"><div class="brand">FATHER COMPONENT LIBRARY<small>Reusable blocks · compatibility · evidence · certification</small></div><nav class="nav"><a href="../site/index.html">FATHER</a><a href="../site/unified-system.html">Единая система</a><a href="./index.html">Factory</a><a href="./lab.html">LAB</a></nav></header>
+<main>
+<section class="hero"><div class="eyebrow">REUSABLE ENGINEERING BLOCKS</div><h1>Компоненты, доказанные <span>работой</span></h1><p>Библиотека хранит не идеи, а блоки с контрактом, версией, тестами, evidence и состоянием допуска к повторному использованию.</p><div class="kpis" id="stats"></div></section>
+<section class="section"><div class="eyebrow">COMPONENTS</div><h2>Реестр блоков</h2><div class="components" id="components"></div></section>
+</main>
+<footer><span>FATHER Component Library</span><span>NO EVIDENCE → NO PROMOTION</span></footer>
+<script>
+fetch('./data/component-registry.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
+ const rows=d.components||[];
+ document.querySelector('#stats').innerHTML='<span class="kpi">'+rows.length+' components</span><span class="kpi">'+rows.filter(x=>x.status==='VALIDATED').length+' validated</span><span class="kpi">'+rows.filter(x=>x.certification_status==='CERTIFIED').length+' certified</span>';
+ document.querySelector('#components').innerHTML=rows.map(x=>'<article class="component"><div class="component-top"><span class="component-id">'+x.component_id+' · v'+x.version+'</span><span class="component-status">'+x.status+'</span></div><h3>'+x.name+'</h3><p>'+x.purpose+'</p><div class="chips">'+x.capabilities.map(c=>'<span>'+c+'</span>').join('')+'</div><div class="contract"><div><b>INPUT</b><p>'+x.contract.input.join(' · ')+'</p></div><i>→</i><div><b>OUTPUT</b><p>'+x.contract.output.join(' · ')+'</p></div></div><div class="cert">REUSE: '+x.reuse_state+' · CERT: '+x.certification_status+' · NEXT: '+x.next_promotion_gate+'</div></article>').join('');
+});
+</script>
+</body></html>
