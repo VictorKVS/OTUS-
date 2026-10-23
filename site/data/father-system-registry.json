@@ -138,6 +138,14 @@
       "status": "ACTIVE_DESIGN",
       "href": "./visual-system.html",
       "purpose": "Единый дизайн-стандарт FATHER: shell, типографика, статусы, карточки, цеха, gates и page families."
+    },
+    {
+      "id": "CMP",
+      "name": "Component Library",
+      "group": "PLATFORM",
+      "status": "ACTIVE",
+      "href": "../factory/component-library.html",
+      "purpose": "Reusable verified blocks with contracts, versions, tests, evidence and certification state."
     }
   ],
   "current_projects": [
