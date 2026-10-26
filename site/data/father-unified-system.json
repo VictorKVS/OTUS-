@@ -19,7 +19,11 @@
       "NO_TEST_NO_CLAIM_OF_QUALITY",
       "NO_EVIDENCE_NO_PROMOTION",
       "NO_ACCEPTANCE_NO_RELEASE"
-    ]
+    ],
+    "contracts": "factory/data/contract-registry.json",
+    "provenance_innovation": "factory/data/innovation-provenance-registry.json",
+    "pro_gate": "G-PRO-IP-PROVENANCE",
+    "pro_rule": "PRO/PATENT_CANDIDATE/COMMERCIAL_RELEASE require versioned contracts, provenance, rights/license review, analogue search, decomposition comparison and independent review."
   },
   "flow": {
     "ingress": "INPUT",
