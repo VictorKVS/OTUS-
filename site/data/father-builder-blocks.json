@@ -28,7 +28,8 @@
     "SECURITY",
     "EVIDENCE_IP",
     "OUTPUT_CHANNEL",
-    "INNOVATION_PROVENANCE"
+    "INNOVATION_PROVENANCE",
+    "AVATAR_INTERFACE"
   ],
   "blocks": [
     {
@@ -1053,6 +1054,149 @@
         "papers/patents where available"
       ],
       "pro_gate": "G-PRO-IP-PROVENANCE"
+    },
+    {
+      "id": "BLK-FATHER-OPERATOR",
+      "name": "FATHER Operator",
+      "category": "AGENT",
+      "status": "DESIGN",
+      "source": "KIT-FATHER-OPERATOR",
+      "agent_id": "FTH-AG-OPR-001",
+      "description": "Единый разговорный помощник фабрики. Понимает запрос, отвечает на простые производственные вопросы, читает контекст проекта и маршрутизирует сложные вопросы к специализированным агентам.",
+      "inputs": [
+        "user message",
+        "project context",
+        "retrieved knowledge",
+        "specialist results"
+      ],
+      "outputs": [
+        "assistant response",
+        "normalized task",
+        "handoff request",
+        "routing decision"
+      ],
+      "config": [
+        "persona",
+        "dialogue policy",
+        "answer depth",
+        "handoff policy",
+        "project context scope"
+      ],
+      "tools": [
+        "factory registry reader",
+        "project graph reader",
+        "knowledge router",
+        "agent registry",
+        "trace/evidence reader",
+        "model router"
+      ],
+      "metrics": [
+        "intent classification accuracy",
+        "routing accuracy",
+        "grounded answer rate",
+        "handoff correctness",
+        "latency",
+        "user correction rate"
+      ],
+      "tests": [
+        "factory FAQ golden set",
+        "routing cases",
+        "unknown question abstention",
+        "specialist handoff"
+      ],
+      "evidence": [
+        "operator agent id",
+        "prompt version",
+        "model id",
+        "knowledge refs",
+        "routing trace"
+      ],
+      "security": [
+        "no gate self-approval",
+        "least privilege",
+        "no fabricated readiness"
+      ],
+      "ownership": [
+        "operator kit/version",
+        "prompt hash",
+        "model version",
+        "source provenance"
+      ],
+      "contracts": [
+        "CT-IO",
+        "CT-ROLE",
+        "CT-DATA",
+        "CT-RUN",
+        "CT-EVIDENCE",
+        "CT-OWNERSHIP"
+      ]
+    },
+    {
+      "id": "BLK-AVATAR-SHELL",
+      "name": "Primitive Avatar Shell",
+      "category": "AVATAR_INTERFACE",
+      "status": "DESIGN",
+      "source": "FTH-CMP-AVATAR-SHELL-001",
+      "description": "Заменяемая оболочка единого аватара: статичный образ, состояния слушает/думает/отвечает, текстовый чат, микрофон и воспроизведение TTS. Позже заменяется видео-аватаром без изменения мозга.",
+      "inputs": [
+        "operator response text",
+        "operator state",
+        "optional audio",
+        "session status"
+      ],
+      "outputs": [
+        "rendered avatar state",
+        "user text/voice event",
+        "audio playback result"
+      ],
+      "config": [
+        "avatar asset",
+        "display name",
+        "state animation",
+        "caption mode",
+        "voice profile",
+        "future video adapter"
+      ],
+      "tools": [
+        "web UI",
+        "microphone trigger",
+        "FTH-CMP-VOICE-TTS-001",
+        "future video avatar adapter"
+      ],
+      "metrics": [
+        "render success",
+        "interaction latency",
+        "TTS playback success",
+        "UI error rate"
+      ],
+      "tests": [
+        "static render",
+        "IDLE/LISTENING/THINKING/RESPONDING transitions",
+        "text roundtrip",
+        "TTS playback",
+        "microphone fallback"
+      ],
+      "evidence": [
+        "avatar build version",
+        "asset hash",
+        "state trace",
+        "TTS trace_id"
+      ],
+      "security": [
+        "no secrets in client",
+        "privacy-safe transcript handling"
+      ],
+      "ownership": [
+        "avatar component/version",
+        "asset provenance",
+        "voice/provider rights"
+      ],
+      "contracts": [
+        "CT-IO",
+        "CT-RUN",
+        "CT-EVIDENCE",
+        "CT-OWNERSHIP"
+      ]
     }
   ],
   "project_template": {
@@ -1083,6 +1227,8 @@
     "runtime_graph": [
       "BLK-CONNECTIVITY-CHECK",
       "BLK-TELEGRAM-CHANNEL",
+      "BLK-AVATAR-SHELL",
+      "BLK-FATHER-OPERATOR",
       "BLK-KNOWLEDGE-RAG",
       "BLK-AGENT-SELECTOR",
       "BLK-MODEL-ROUTER",
@@ -1102,6 +1248,8 @@
         "ip_provenance": "REQUIRED",
         "required_gate": "G-PRO-IP-PROVENANCE"
       }
-    }
+    },
+    "avatar": "FTH-AV-001",
+    "operator": "FTH-AG-OPR-001"
   }
 }
