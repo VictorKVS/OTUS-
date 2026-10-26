@@ -103,6 +103,89 @@
       ],
       "next_promotion_gate": "G-CMP-VOICE-CERTIFY",
       "promotion_condition": "Pass regression + compatibility + second-product reuse evidence."
+    },
+    {
+      "component_id": "FTH-CMP-CONNECTIVITY-001",
+      "name": "FATHER Connectivity / Route Check",
+      "family": "NETWORK_CONNECTIVITY",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "validation_scope": "IMPLEMENTATION_PRESENT_RUNTIME_TEST_PENDING",
+      "certification_status": "NOT_CERTIFIED",
+      "reuse_state": "NOT_READY",
+      "purpose": "Pre-flight connectivity block for Telegram/API/provider dependencies with explicit direct/proxy route evidence.",
+      "source_context": {
+        "origin": "FATHER Project Builder chain",
+        "related_product": "Telegram Topic Assistant MVP",
+        "implementation_location": "factory/components/connectivity-check"
+      },
+      "contract": {
+        "input": [
+          "endpoint list",
+          "network profile",
+          "optional proxy URL",
+          "timeouts"
+        ],
+        "output": [
+          "TCP/HTTPS status",
+          "route profile",
+          "aggregate PASS/FAIL",
+          "JSON evidence report"
+        ],
+        "errors": [
+          "DNS failure",
+          "TCP timeout/refused",
+          "TLS/HTTPS failure",
+          "proxy route failure"
+        ]
+      },
+      "capabilities": [
+        "TCP_CONNECTIVITY_CHECK",
+        "HTTPS_CONNECTIVITY_CHECK",
+        "PROXY_ROUTE_CHECK",
+        "FAIL_CLOSED_PREFLIGHT",
+        "JSON_EVIDENCE_REPORT"
+      ],
+      "dependencies": [
+        "Python standard library",
+        "network route",
+        "optional HTTP proxy"
+      ],
+      "evidence": [],
+      "tests_required_for_certification": [
+        "direct route run",
+        "proxy route run where applicable",
+        "negative closed-port test",
+        "repeatability",
+        "target provider endpoint checks"
+      ],
+      "security_profile": [
+        "no token logging",
+        "proxy credential redaction",
+        "endpoint allowlist",
+        "no arbitrary command execution"
+      ],
+      "observability": [
+        "endpoint",
+        "route",
+        "tcp/https status",
+        "latency",
+        "error category",
+        "timestamp"
+      ],
+      "compatible_workshops": [
+        "W40",
+        "W60",
+        "W70"
+      ],
+      "compatible_domains": [
+        "COMMUNICATION",
+        "OSINT",
+        "SECURITY",
+        "GENERAL_AGENT_UI"
+      ],
+      "next_promotion_gate": "G-CMP-CONNECTIVITY-VALIDATE",
+      "promotion_condition": "Capture reproducible local evidence in target environment."
     }
   ]
 }
