@@ -116,6 +116,25 @@
       "add_runtime": [
         "BLK-CONNECTIVITY-CHECK"
       ]
+    },
+    {
+      "id": "R-PRO-IP",
+      "match_any": [
+        "pro mode",
+        "pro-mode",
+        "профессиональный",
+        "коммерческий",
+        "изобрет",
+        "патент",
+        "владен",
+        "ownership",
+        "prior art",
+        "аналог",
+        "робот"
+      ],
+      "add_build": [
+        "BLK-INNOVATION-PROVENANCE"
+      ]
     }
   ],
   "ordering": {
@@ -125,6 +144,7 @@
       "BLK-ALINA",
       "BLK-OSINT",
       "BLK-ARCHITECT",
+      "BLK-INNOVATION-PROVENANCE",
       "BLK-PROGRAMMER",
       "BLK-METRICS-LAB",
       "BLK-SECURITY",
