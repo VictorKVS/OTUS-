@@ -52,9 +52,20 @@
       </div>
     </div>
 
+    <div class="composition-report" id="compositionReport">
+      <span>FACTORY CONTROLLER</span>
+      <b>Ожидает задачу</b>
+      <small>После «Собрать проект» FATHER применит правила композиции только к зарегистрированным блокам.</small>
+    </div>
+
     <div class="project-chain">
-      <div class="chain-label">PROJECT PIPELINE</div>
-      <div id="projectCanvas" class="project-canvas"></div>
+      <div class="chain-label">FACTORY BUILD LANE · КТО СТРОИТ И ПРОВЕРЯЕТ ИЗДЕЛИЕ</div>
+      <div id="buildLane" class="project-canvas"></div>
+    </div>
+
+    <div class="project-chain runtime-chain">
+      <div class="chain-label">PRODUCT RUNTIME GRAPH · ИЗ ЧЕГО РАБОТАЕТ САМО ИЗДЕЛИЕ</div>
+      <div id="runtimeGraph" class="project-canvas"></div>
     </div>
 
     <div class="gate-strip" id="gateStrip"></div>
@@ -87,12 +98,20 @@
       </div>
       <div id="inspectTabBody" class="inspect-body"></div>
       <div class="inspector-actions">
-        <button>Сохранить конфигурацию</button>
-        <button>Отправить в LAB</button>
-        <button class="danger">Заблокировать</button>
+        <button id="saveConfigBtn">Сохранить конфигурацию</button>
+        <button id="sendLabBtn">Отправить в LAB</button>
+        <button id="blockBtn" class="danger">Заблокировать</button>
       </div>
     </div>
   </aside>
+</section>
+
+<section class="project-state-strip">
+  <div><span>PROJECT ID</span><b id="projectId">—</b></div>
+  <div><span>BUILD BLOCKS</span><b id="buildCount">—</b></div>
+  <div><span>RUNTIME BLOCKS</span><b id="runtimeCount">—</b></div>
+  <div><span>MISSING / NEW</span><b id="missingCount">—</b></div>
+  <button id="exportBtn">Экспорт JSON</button>
 </section>
 
 <section class="builder-bottom">
