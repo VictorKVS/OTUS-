@@ -4,6 +4,14 @@
   "principle": "ONE_SYSTEM_ONE_NAVIGATION_ONE_DATA_PLANE",
   "centers": [
     {
+      "id": "BLD",
+      "name": "Project Builder",
+      "group": "CORE",
+      "status": "ACTIVE_DESIGN",
+      "href": "./project-builder.html",
+      "purpose": "Главное инженерное поле: общая задача → зарегистрированные блоки → настройки/метрики/tests/evidence/ownership → проектный граф."
+    },
+    {
       "id": "SYS",
       "name": "Единая система",
       "group": "CORE",
