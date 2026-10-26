@@ -361,6 +361,82 @@
       ],
       "next_promotion_gate": "G-CMP-RAG-EXTRACT",
       "promotion_condition": "Extract a central runtime/API, freeze retrieval schema and prove primitive + Qdrant profiles against golden set."
+    },
+    {
+      "component_id": "FTH-CMP-AVATAR-SHELL-001",
+      "name": "FATHER Primitive Avatar Shell",
+      "family": "HUMAN_INTERFACE",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "validation_scope": "IMPLEMENTATION_PENDING",
+      "certification_status": "NOT_CERTIFIED",
+      "reuse_state": "READY_TO_IMPLEMENT",
+      "purpose": "Replaceable static avatar UI shell for text/voice interaction; future video avatar adapter without changing operator agent or LLM contract.",
+      "source_context": {
+        "origin": "FATHER Project Builder avatar design",
+        "implementation_location": "factory/components/avatar-shell"
+      },
+      "contract": {
+        "input": [
+          "operator response text",
+          "operator state",
+          "optional audio",
+          "session status"
+        ],
+        "output": [
+          "visual state",
+          "rendered response",
+          "user text/voice event"
+        ],
+        "errors": [
+          "audio unavailable",
+          "microphone unavailable",
+          "renderer failure"
+        ]
+      },
+      "capabilities": [
+        "STATIC_AVATAR",
+        "STATE_INDICATION",
+        "TEXT_CHAT_UI",
+        "VOICE_INPUT_TRIGGER",
+        "TTS_PLAYBACK",
+        "FUTURE_VIDEO_ADAPTER"
+      ],
+      "dependencies": [
+        "web UI",
+        "voice component optional",
+        "STT component future"
+      ],
+      "evidence": [],
+      "tests_required_for_certification": [
+        "static render",
+        "state transitions",
+        "text roundtrip",
+        "TTS playback",
+        "microphone fallback"
+      ],
+      "security_profile": [
+        "no secrets in client",
+        "privacy-safe transcript handling"
+      ],
+      "observability": [
+        "avatar state",
+        "render result",
+        "interaction latency",
+        "audio playback result"
+      ],
+      "compatible_workshops": [
+        "W40",
+        "W50",
+        "W60",
+        "W70"
+      ],
+      "compatible_domains": [
+        "COMMUNICATION",
+        "GENERAL_AGENT_UI"
+      ],
+      "next_promotion_gate": "G-CMP-AVATAR-VALIDATE",
+      "promotion_condition": "Prove one complete text+voice session with static shell and state trace."
     }
   ]
 }
