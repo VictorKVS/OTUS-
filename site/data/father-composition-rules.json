@@ -135,6 +135,23 @@
       "add_build": [
         "BLK-INNOVATION-PROVENANCE"
       ]
+    },
+    {
+      "id": "R-AVATAR",
+      "match_any": [
+        "аватар",
+        "avatar",
+        "поговорить",
+        "говорить",
+        "диалог",
+        "разговор"
+      ],
+      "add_runtime": [
+        "BLK-AVATAR-SHELL",
+        "BLK-FATHER-OPERATOR",
+        "BLK-MODEL-ROUTER",
+        "BLK-PROMPT-RUN"
+      ]
     }
   ],
   "ordering": {
@@ -154,6 +171,8 @@
     "runtime_graph": [
       "BLK-CONNECTIVITY-CHECK",
       "BLK-TELEGRAM-CHANNEL",
+      "BLK-AVATAR-SHELL",
+      "BLK-FATHER-OPERATOR",
       "BLK-KNOWLEDGE-RAG",
       "BLK-AGENT-SELECTOR",
       "BLK-MODEL-ROUTER",
