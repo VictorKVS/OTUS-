@@ -138,9 +138,9 @@
       "id": "BLK-CONNECTIVITY-CHECK",
       "name": "Connectivity / VPN Check",
       "category": "CONNECTIVITY",
-      "status": "NEW_BLOCK_REQUIRED",
-      "source": "NOT_REGISTERED_AS_REUSABLE_COMPONENT",
-      "description": "Проверяет доступность Telegram/API, proxy/VPN path и разрешает/блокирует сетевые зависимости.",
+      "status": "DESIGN",
+      "source": "FTH-CMP-CONNECTIVITY-001",
+      "description": "Pre-flight блок прямого/proxy/VPN-маршрута. Реализация TCP/HTTPS проверки есть; локальная runtime-валидация ещё требуется.",
       "inputs": [
         "target endpoints",
         "network profile"
@@ -157,9 +157,9 @@
         "fail-open/closed"
       ],
       "tools": [
+        "FTH-CMP-CONNECTIVITY-001",
         "TCP/HTTPS checks",
-        "proxy diagnostics",
-        "VPN adapter future"
+        "proxy route check"
       ],
       "metrics": [
         "availability",
@@ -173,7 +173,9 @@
         "proxy bypass negative test"
       ],
       "evidence": [
-        "timestamped connectivity report"
+        "father-connectivity-evidence.v1 report",
+        "timestamped endpoint results",
+        "route profile"
       ],
       "security": [
         "no credential leakage",
