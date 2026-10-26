@@ -300,9 +300,9 @@
       "id": "BLK-KNOWLEDGE-RAG",
       "name": "Knowledge / RAG",
       "category": "KNOWLEDGE_RAG",
-      "status": "CANDIDATE_NEEDS_EXTRACTION",
-      "source": "Knowledge Center + existing RAG demo",
-      "description": "K0/K1/K2, Topic Pack или документы → retrieval context. Runtime пока не оформлен отдельным reusable component.",
+      "status": "CANDIDATE",
+      "source": "FTH-CMP-RAG-001",
+      "description": "Единый контракт retrieval: для первого MVP SIMPLE_LEXICAL, затем HYBRID_QDRANT. Реализации есть, но центральный runtime ещё надо извлечь.",
       "inputs": [
         "sources",
         "topic_pack",
