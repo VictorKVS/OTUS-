@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FATHER · Project Builder</title>
+<link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="./project-builder.css">
+</head>
+<body>
+<header class="topbar builder-top">
+  <a class="brand" href="./index.html"><span class="brand-mark">FA</span><span><strong>FATHER</strong><small>Project Builder · Engineering Field</small></span></a>
+  <nav class="nav">
+    <a href="./index.html">Главная</a>
+    <a href="./unified-system.html">Система</a>
+    <a href="../factory/component-library.html">Components</a>
+    <a href="../factory/agent-kits.html">Agents</a>
+    <a href="../factory/lab.html">LAB</a>
+    <a href="../factory/trace-center.html">Trace</a>
+  </nav>
+  <span class="builder-status">CANONICAL DESIGN</span>
+</header>
+
+<main class="builder-shell">
+<section class="task-strip">
+  <div>
+    <p class="eyebrow">GENERAL TASK / PROJECT PROMPT</p>
+    <textarea id="projectPrompt" rows="3">В Telegram AI приветствует пользователя, принимает тему, ALINA готовит тему, prompt и mini-RAG, выбранный агент ведёт разговор, система измеряет качество и при необходимости отвечает голосом.</textarea>
+  </div>
+  <div class="task-actions">
+    <button id="composeBtn" class="primary-action">FATHER · Собрать проект</button>
+    <button id="resetBtn">Эталонный шаблон</button>
+  </div>
+</section>
+
+<section class="builder-layout">
+  <aside class="palette-panel">
+    <div class="panel-head"><p class="eyebrow">BLOCK LIBRARY</p><h2>Блоки фабрики</h2></div>
+    <div class="palette-filter">
+      <input id="blockSearch" placeholder="Найти блок…">
+      <select id="categoryFilter"><option value="ALL">Все категории</option></select>
+    </div>
+    <div id="blockPalette" class="block-palette"></div>
+  </aside>
+
+  <section class="canvas-panel">
+    <div class="canvas-head">
+      <div><p class="eyebrow">PROJECT GRAPH</p><h2 id="projectName">Telegram Topic Assistant · MVP</h2></div>
+      <div class="canvas-legend">
+        <span class="legend-ready">READY</span>
+        <span class="legend-design">DESIGN</span>
+        <span class="legend-blocked">NEW BLOCK</span>
+      </div>
+    </div>
+
+    <div class="project-chain">
+      <div class="chain-label">PROJECT PIPELINE</div>
+      <div id="projectCanvas" class="project-canvas"></div>
+    </div>
+
+    <div class="gate-strip" id="gateStrip"></div>
+  </section>
+
+  <aside class="inspector-panel">
+    <div id="inspectorEmpty" class="inspector-empty">
+      <span>SELECT BLOCK</span>
+      <p>Нажмите на блок проекта, чтобы открыть его инженерный паспорт и настройки.</p>
+    </div>
+    <div id="inspector" hidden>
+      <div class="inspector-head">
+        <div><p class="eyebrow" id="inspectCategory">BLOCK</p><h2 id="inspectName">—</h2><small id="inspectSource">—</small></div>
+        <span id="inspectStatus" class="status-badge">—</span>
+      </div>
+      <p id="inspectDescription" class="inspect-description"></p>
+      <div class="io-contract">
+        <div><b>INPUT</b><div id="inspectInputs"></div></div>
+        <i>→</i>
+        <div><b>OUTPUT</b><div id="inspectOutputs"></div></div>
+      </div>
+      <div class="inspect-tabs" id="inspectTabs">
+        <button data-tab="config" class="active">Настройки</button>
+        <button data-tab="metrics">Метрики</button>
+        <button data-tab="tests">Тесты</button>
+        <button data-tab="evidence">Evidence</button>
+        <button data-tab="security">Security</button>
+        <button data-tab="ownership">Ownership</button>
+        <button data-tab="tools">Tools</button>
+      </div>
+      <div id="inspectTabBody" class="inspect-body"></div>
+      <div class="inspector-actions">
+        <button>Сохранить конфигурацию</button>
+        <button>Отправить в LAB</button>
+        <button class="danger">Заблокировать</button>
+      </div>
+    </div>
+  </aside>
+</section>
+
+<section class="builder-bottom">
+  <article>
+    <p class="eyebrow">AGENT CANDIDATES</p>
+    <h3>Что уже есть в Zoo</h3>
+    <div id="agentSummary" class="summary-grid"></div>
+  </article>
+  <article>
+    <p class="eyebrow">PROJECT TRUTH</p>
+    <h3>Что пока нельзя считать готовым</h3>
+    <div id="truthSummary" class="truth-list"></div>
+  </article>
+</section>
+</main>
+
+<script src="./project-builder.js"></script>
+</body>
+</html>
