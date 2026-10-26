@@ -162,6 +162,14 @@
       "status": "ACTIVE_DESIGN",
       "href": "../docs/FATHER_EVIDENCE_OWNERSHIP_INNOVATION.md",
       "purpose": "Контракты компонентов, evidence/ownership, происхождение артефактов, аналоги, сравнение декомпозиций и PRO gate."
+    },
+    {
+      "id": "AVT",
+      "name": "FATHER Avatar Operator",
+      "group": "PLATFORM",
+      "status": "ACTIVE_DESIGN",
+      "href": "../docs/FATHER_AVATAR_OPERATOR_ARCHITECTURE.md",
+      "purpose": "Единый разговорный вход в FATHER: Avatar Shell + Operator Agent + RAG + Model Router + Voice, с заменяемой LLM и будущим видео-аватаром."
     }
   ],
   "current_projects": [
