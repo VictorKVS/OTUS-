@@ -1,0 +1,154 @@
+{
+  "schema_version": "father-composition-rules.v1",
+  "status": "DESIGN_IMPLEMENTATION",
+  "always_build_lane": [
+    "BLK-TASK-INPUT",
+    "BLK-FACTORY-CONTROLLER",
+    "BLK-ALINA",
+    "BLK-ARCHITECT",
+    "BLK-PROGRAMMER",
+    "BLK-METRICS-LAB",
+    "BLK-SECURITY",
+    "BLK-EVIDENCE-IP"
+  ],
+  "default_optional_build": [
+    "BLK-DEVOPS"
+  ],
+  "rules": [
+    {
+      "id": "R-TELEGRAM",
+      "match_any": [
+        "telegram",
+        "телеграм",
+        "бот"
+      ],
+      "add_runtime": [
+        "BLK-CONNECTIVITY-CHECK",
+        "BLK-TELEGRAM-CHANNEL"
+      ],
+      "add_build": [
+        "BLK-DEVOPS"
+      ]
+    },
+    {
+      "id": "R-VOICE",
+      "match_any": [
+        "голос",
+        "voice",
+        "tts",
+        "озвуч",
+        "речь"
+      ],
+      "add_runtime": [
+        "BLK-VOICE-TTS"
+      ]
+    },
+    {
+      "id": "R-RAG",
+      "match_any": [
+        "rag",
+        "база знаний",
+        "знания",
+        "тема",
+        "документ"
+      ],
+      "add_runtime": [
+        "BLK-KNOWLEDGE-RAG",
+        "BLK-PROMPT-RUN"
+      ]
+    },
+    {
+      "id": "R-AGENT",
+      "match_any": [
+        "агент",
+        "agent",
+        "помощник",
+        "assistant",
+        "ии",
+        "ai"
+      ],
+      "add_runtime": [
+        "BLK-AGENT-SELECTOR",
+        "BLK-MODEL-ROUTER",
+        "BLK-PROMPT-RUN"
+      ]
+    },
+    {
+      "id": "R-OSINT",
+      "match_any": [
+        "osint",
+        "внешний поиск",
+        "разведка",
+        "открытые источники"
+      ],
+      "add_build": [
+        "BLK-OSINT"
+      ]
+    },
+    {
+      "id": "R-DEPLOY",
+      "match_any": [
+        "deploy",
+        "развернуть",
+        "production",
+        "docker",
+        "kubernetes",
+        "k8s",
+        "сервис"
+      ],
+      "add_build": [
+        "BLK-DEVOPS"
+      ]
+    },
+    {
+      "id": "R-SECURITY",
+      "match_any": [
+        "иб",
+        "security",
+        "безопасност",
+        "секрет",
+        "vpn",
+        "прокси"
+      ],
+      "add_build": [
+        "BLK-SECURITY"
+      ],
+      "add_runtime": [
+        "BLK-CONNECTIVITY-CHECK"
+      ]
+    }
+  ],
+  "ordering": {
+    "build_lane": [
+      "BLK-TASK-INPUT",
+      "BLK-FACTORY-CONTROLLER",
+      "BLK-ALINA",
+      "BLK-OSINT",
+      "BLK-ARCHITECT",
+      "BLK-PROGRAMMER",
+      "BLK-METRICS-LAB",
+      "BLK-SECURITY",
+      "BLK-DEVOPS",
+      "BLK-EVIDENCE-IP"
+    ],
+    "runtime_graph": [
+      "BLK-CONNECTIVITY-CHECK",
+      "BLK-TELEGRAM-CHANNEL",
+      "BLK-KNOWLEDGE-RAG",
+      "BLK-AGENT-SELECTOR",
+      "BLK-MODEL-ROUTER",
+      "BLK-PROMPT-RUN",
+      "BLK-VOICE-TTS"
+    ]
+  },
+  "fail_closed": {
+    "unknown_capability": "NEW_BLOCK_REQUIRED",
+    "missing_registry_entry": "HUMAN_ENGINEERING_REQUIRED",
+    "prohibited_status_for_auto_promotion": [
+      "DESIGN",
+      "NEW_BLOCK_REQUIRED",
+      "FAILED",
+      "BLOCKED"
+    ]
+  }
+}
