@@ -1,5 +1,5 @@
 const $=s=>document.querySelector(s);
-let DATA=null,RULES=null,AGENT_REGISTRY=null,MODEL_REGISTRY=null,selected=null,currentTab='config';
+let DATA=null,RULES=null,AGENT_REGISTRY=null,MODEL_REGISTRY=null,CONTRACT_REGISTRY=null,IP_REGISTRY=null,selected=null,currentTab='config';
 const STORAGE_KEY='father.project-builder.state.v1';
 const esc=v=>String(v??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
@@ -12,7 +12,8 @@ let STATE={
   missing_blocks:[],
   configs:{},
   lab_requests:[],
-  blocked_blocks:[]
+  blocked_blocks:[],
+  project_mode:'MVP'
 };
 
 function statusClass(s){return 'node-'+String(s||'').toLowerCase().replaceAll(' ','_')}
@@ -90,13 +91,14 @@ function renderCanvas(){
 function renderCompositionReport(){
   const count=STATE.build_lane.length+STATE.runtime_graph.length;
   const status=STATE.missing_blocks.length?'HUMAN ENGINEERING REQUIRED':'GRAPH COMPOSED';
+  const proGate=STATE.project_mode==='MVP'?'':' · '+(IP_REGISTRY?.pro_gate?.id||'G-PRO-IP-PROVENANCE');
   $('#compositionReport').innerHTML=
     '<span>FACTORY CONTROLLER · '+esc(status)+'</span>'+
     '<b>'+count+' blocks · '+STATE.build_lane.length+' build · '+STATE.runtime_graph.length+' runtime</b>'+
-    '<small>Rules: '+esc(STATE.matched_rules.join(' · ')||'baseline only')+(STATE.missing_blocks.length?' · Missing: '+esc(STATE.missing_blocks.join(', ')):' · Registry-only composition PASS')+'</small>';
+    '<small>Mode: '+esc(STATE.project_mode)+' · Rules: '+esc(STATE.matched_rules.join(' · ')||'baseline only')+proGate+(STATE.missing_blocks.length?' · Missing: '+esc(STATE.missing_blocks.join(', ')):' · Registry-only composition PASS')+'</small>';
 }
 
-const TABS={config:'config',metrics:'metrics',tests:'tests',evidence:'evidence',security:'security',ownership:'ownership',tools:'tools'};
+const TABS={config:'config',metrics:'metrics',tests:'tests',evidence:'evidence',security:'security',ownership:'ownership',contracts:'contracts',prior_art:'prior_art',tools:'tools'};
 function inspect(id){
   selected=blockById(id); if(!selected)return;
   $('#inspectorEmpty').hidden=true; $('#inspector').hidden=false;
@@ -151,6 +153,24 @@ function renderInspectTab(){
     $('#inspectTabBody').innerHTML=special+generic || '<p class="muted">Нет параметров.</p>';
     document.querySelectorAll('[data-config-key]').forEach(inp=>inp.oninput=()=>{cfg.config[inp.dataset.configKey]=inp.value;persist()});
     bindCandidateConfig(cfg);
+  }else if(currentTab==='contracts'){
+    const ids=(selected.contracts&&selected.contracts.length?selected.contracts:(CONTRACT_REGISTRY?.contract_types||[]).map(x=>x.id));
+    const types=(CONTRACT_REGISTRY?.contract_types||[]).filter(x=>ids.includes(x.id));
+    $('#inspectTabBody').innerHTML=types.map((x,i)=>
+      '<div class="contract-card"><b>'+esc(x.id)+' · '+esc(x.name)+'</b><small>'+esc((x.required_fields||[]).join(' · '))+'</small><span>STATUS · '+(STATE.project_mode==='PRO'?'REQUIRED':'ADVISORY')+'</span></div>'
+    ).join('')||'<p class="muted">Контракты не определены.</p>';
+  }else if(currentTab==='prior_art'){
+    const rowsPA=selected.prior_art||[
+      'functional analogue search',
+      'alternative decomposition search',
+      'interface/contract comparison',
+      'orchestration comparison',
+      'failure modes / tests / metrics comparison'
+    ];
+    $('#inspectTabBody').innerHTML=
+      '<div class="prior-art-head"><b>MODE · '+esc(STATE.project_mode)+'</b><span>'+(STATE.project_mode==='MVP'?'ADVISORY':'G-PRO-IP-PROVENANCE REQUIRED')+'</span></div>'+
+      rowsPA.map((x,i)=>'<div class="inspect-row"><input type="checkbox"><label>'+esc(x)+'</label><small>IP-'+String(i+1).padStart(2,'0')+'</small></div>').join('')+
+      '<p class="muted">Результаты поиска аналогов должны фиксироваться с источником, датой, областью поиска и сравнением декомпозиции. Неразрешённая новизна остаётся NOVELTY_HYPOTHESIS.</p>';
   }else{
     cfg.selections[currentTab]??={};
     $('#inspectTabBody').innerHTML=rows.map((x,i)=>{
@@ -172,6 +192,11 @@ async function compose(){
   const prompt=$('#projectPrompt').value.trim();
   if(!prompt)return;
   const result=composeFromPrompt(prompt);
+  STATE.project_mode=$('#projectMode').value||'MVP';
+  if(STATE.project_mode!=='MVP' && !result.build_lane.includes('BLK-INNOVATION-PROVENANCE')){
+    result.build_lane=orderBy(unique([...result.build_lane,'BLK-INNOVATION-PROVENANCE']),RULES.ordering.build_lane);
+    result.matched_rules=unique([...result.matched_rules,'MODE-'+STATE.project_mode]);
+  }
   STATE.prompt=prompt;
   STATE.project_id=await projectId(prompt);
   STATE.build_lane=result.build_lane;
@@ -193,7 +218,7 @@ function resetTemplate(){
     runtime_graph:[...t.runtime_graph],
     matched_rules:['TEMPLATE'],
     missing_blocks:unique([...t.build_lane,...t.runtime_graph]).map(blockById).filter(x=>x&&x.status==='NEW_BLOCK_REQUIRED').map(x=>x.id),
-    configs:{},lab_requests:[],blocked_blocks:[]
+    configs:{},lab_requests:[],blocked_blocks:[],project_mode:'MVP'
   };
   $('#projectPrompt').value=t.task;
   $('#projectName').textContent=t.name;
@@ -213,13 +238,15 @@ function exportState(){
 }
 
 async function init(){
-  const [dr,rr,ar,mr]=await Promise.all([
+  const [dr,rr,ar,mr,cr,ir]=await Promise.all([
     fetch('./data/father-builder-blocks.json',{cache:'no-store'}),
     fetch('./data/father-composition-rules.json',{cache:'no-store'}),
     fetch('../factory/data/agent-kit-registry.json',{cache:'no-store'}),
-    fetch('../factory/data/model-registry.json',{cache:'no-store'})
+    fetch('../factory/data/model-registry.json',{cache:'no-store'}),
+    fetch('../factory/data/contract-registry.json',{cache:'no-store'}),
+    fetch('../factory/data/innovation-provenance-registry.json',{cache:'no-store'})
   ]);
-  DATA=await dr.json(); RULES=await rr.json(); AGENT_REGISTRY=await ar.json(); MODEL_REGISTRY=await mr.json();
+  DATA=await dr.json(); RULES=await rr.json(); AGENT_REGISTRY=await ar.json(); MODEL_REGISTRY=await mr.json(); CONTRACT_REGISTRY=await cr.json(); IP_REGISTRY=await ir.json();
   const cats=[...new Set(DATA.blocks.map(x=>x.category))];
   $('#categoryFilter').innerHTML='<option value="ALL">Все категории</option>'+cats.map(x=>'<option>'+x+'</option>').join('');
   restore();
@@ -231,6 +258,7 @@ async function init(){
     STATE.missing_blocks=unique([...STATE.build_lane,...STATE.runtime_graph]).map(blockById).filter(x=>x&&x.status==='NEW_BLOCK_REQUIRED').map(x=>x.id);
   }
   $('#projectPrompt').value=STATE.prompt||DATA.project_template.task;
+  $('#projectMode').value=STATE.project_mode||'MVP';
   $('#projectName').textContent=STATE.project_id?'Project · '+STATE.project_id:DATA.project_template.name;
   renderPalette(); renderCanvas(); renderAgents(); inspect((STATE.build_lane[0]||STATE.runtime_graph[0]));
 }
