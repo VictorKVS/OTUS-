@@ -27,6 +27,11 @@
     <textarea id="projectPrompt" rows="3">В Telegram AI приветствует пользователя, принимает тему, ALINA готовит тему, prompt и mini-RAG, выбранный агент ведёт разговор, система измеряет качество и при необходимости отвечает голосом.</textarea>
   </div>
   <div class="task-actions">
+    <select id="projectMode" class="mode-select">
+      <option value="MVP">MVP</option>
+      <option value="PRO">PRO</option>
+      <option value="PATENT_CANDIDATE">PATENT CANDIDATE</option>
+    </select>
     <button id="composeBtn" class="primary-action">FATHER · Собрать проект</button>
     <button id="resetBtn">Эталонный шаблон</button>
   </div>
@@ -94,6 +99,8 @@
         <button data-tab="evidence">Evidence</button>
         <button data-tab="security">Security</button>
         <button data-tab="ownership">Ownership</button>
+        <button data-tab="contracts">Контракты</button>
+        <button data-tab="prior_art">Аналоги / IP</button>
         <button data-tab="tools">Tools</button>
       </div>
       <div id="inspectTabBody" class="inspect-body"></div>
