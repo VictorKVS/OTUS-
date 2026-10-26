@@ -1,0 +1,1009 @@
+{
+  "schema_version": "father-c00-c99-dossier.v1",
+  "project_id": "PRJ-FATHER-LLM-001",
+  "product_id": "MDL-FATHER-CORE-001",
+  "status": "OPEN",
+  "principle": "All stages use the universal production contract: input, requirements, security, contracts, baseline, A/B/N, metrics, evidence, ownership, gate, output.",
+  "stages": [
+    {
+      "code": "C00",
+      "status": "OPEN",
+      "gate": "G-C00",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C01",
+      "status": "PLANNED",
+      "gate": "G-C01",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C02",
+      "status": "PLANNED",
+      "gate": "G-C02",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C03",
+      "status": "PLANNED",
+      "gate": "G-C03",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C04",
+      "status": "PLANNED",
+      "gate": "G-C04",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C05",
+      "status": "PLANNED",
+      "gate": "G-C05",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C06",
+      "status": "PLANNED",
+      "gate": "G-C06",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C07",
+      "status": "PLANNED",
+      "gate": "G-C07",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C08",
+      "status": "PLANNED",
+      "gate": "G-C08",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C09",
+      "status": "PLANNED",
+      "gate": "G-C09",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C10",
+      "status": "PLANNED",
+      "gate": "G-C10",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C11",
+      "status": "PLANNED",
+      "gate": "G-C11",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C12",
+      "status": "PLANNED",
+      "gate": "G-C12",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C13",
+      "status": "PLANNED",
+      "gate": "G-C13",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C14",
+      "status": "PLANNED",
+      "gate": "G-C14",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C15",
+      "status": "PLANNED",
+      "gate": "G-C15",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C16",
+      "status": "PLANNED",
+      "gate": "G-C16",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C17",
+      "status": "PLANNED",
+      "gate": "G-C17",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C18",
+      "status": "PLANNED",
+      "gate": "G-C18",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C19",
+      "status": "PLANNED",
+      "gate": "G-C19",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C20",
+      "status": "PLANNED",
+      "gate": "G-C20",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C21",
+      "status": "PLANNED",
+      "gate": "G-C21",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C22",
+      "status": "PLANNED",
+      "gate": "G-C22",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C23",
+      "status": "PLANNED",
+      "gate": "G-C23",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C24",
+      "status": "PLANNED",
+      "gate": "G-C24",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C25",
+      "status": "PLANNED",
+      "gate": "G-C25",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C26",
+      "status": "PLANNED",
+      "gate": "G-C26",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C27",
+      "status": "PLANNED",
+      "gate": "G-C27",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C28",
+      "status": "PLANNED",
+      "gate": "G-C28",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C29",
+      "status": "PLANNED",
+      "gate": "G-C29",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C30",
+      "status": "PLANNED",
+      "gate": "G-C30",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C31",
+      "status": "PLANNED",
+      "gate": "G-C31",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C32",
+      "status": "PLANNED",
+      "gate": "G-C32",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C33",
+      "status": "PLANNED",
+      "gate": "G-C33",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C34",
+      "status": "PLANNED",
+      "gate": "G-C34",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C35",
+      "status": "PLANNED",
+      "gate": "G-C35",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C36",
+      "status": "PLANNED",
+      "gate": "G-C36",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C37",
+      "status": "PLANNED",
+      "gate": "G-C37",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C38",
+      "status": "PLANNED",
+      "gate": "G-C38",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C39",
+      "status": "PLANNED",
+      "gate": "G-C39",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C40",
+      "status": "PLANNED",
+      "gate": "G-C40",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C41",
+      "status": "PLANNED",
+      "gate": "G-C41",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C42",
+      "status": "PLANNED",
+      "gate": "G-C42",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C43",
+      "status": "PLANNED",
+      "gate": "G-C43",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C44",
+      "status": "PLANNED",
+      "gate": "G-C44",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C45",
+      "status": "PLANNED",
+      "gate": "G-C45",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C46",
+      "status": "PLANNED",
+      "gate": "G-C46",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C47",
+      "status": "PLANNED",
+      "gate": "G-C47",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C48",
+      "status": "PLANNED",
+      "gate": "G-C48",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C49",
+      "status": "PLANNED",
+      "gate": "G-C49",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C50",
+      "status": "PLANNED",
+      "gate": "G-C50",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C51",
+      "status": "PLANNED",
+      "gate": "G-C51",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C52",
+      "status": "PLANNED",
+      "gate": "G-C52",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C53",
+      "status": "PLANNED",
+      "gate": "G-C53",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C54",
+      "status": "PLANNED",
+      "gate": "G-C54",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C55",
+      "status": "PLANNED",
+      "gate": "G-C55",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C56",
+      "status": "PLANNED",
+      "gate": "G-C56",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C57",
+      "status": "PLANNED",
+      "gate": "G-C57",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C58",
+      "status": "PLANNED",
+      "gate": "G-C58",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C59",
+      "status": "PLANNED",
+      "gate": "G-C59",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C60",
+      "status": "PLANNED",
+      "gate": "G-C60",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C61",
+      "status": "PLANNED",
+      "gate": "G-C61",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C62",
+      "status": "PLANNED",
+      "gate": "G-C62",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C63",
+      "status": "PLANNED",
+      "gate": "G-C63",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C64",
+      "status": "PLANNED",
+      "gate": "G-C64",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C65",
+      "status": "PLANNED",
+      "gate": "G-C65",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C66",
+      "status": "PLANNED",
+      "gate": "G-C66",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C67",
+      "status": "PLANNED",
+      "gate": "G-C67",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C68",
+      "status": "PLANNED",
+      "gate": "G-C68",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C69",
+      "status": "PLANNED",
+      "gate": "G-C69",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": true,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C70",
+      "status": "PLANNED",
+      "gate": "G-C70",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C71",
+      "status": "PLANNED",
+      "gate": "G-C71",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C72",
+      "status": "PLANNED",
+      "gate": "G-C72",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C73",
+      "status": "PLANNED",
+      "gate": "G-C73",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C74",
+      "status": "PLANNED",
+      "gate": "G-C74",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C75",
+      "status": "PLANNED",
+      "gate": "G-C75",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C76",
+      "status": "PLANNED",
+      "gate": "G-C76",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C77",
+      "status": "PLANNED",
+      "gate": "G-C77",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C78",
+      "status": "PLANNED",
+      "gate": "G-C78",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C79",
+      "status": "PLANNED",
+      "gate": "G-C79",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C80",
+      "status": "PLANNED",
+      "gate": "G-C80",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C81",
+      "status": "PLANNED",
+      "gate": "G-C81",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C82",
+      "status": "PLANNED",
+      "gate": "G-C82",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C83",
+      "status": "PLANNED",
+      "gate": "G-C83",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C84",
+      "status": "PLANNED",
+      "gate": "G-C84",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C85",
+      "status": "PLANNED",
+      "gate": "G-C85",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C86",
+      "status": "PLANNED",
+      "gate": "G-C86",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C87",
+      "status": "PLANNED",
+      "gate": "G-C87",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C88",
+      "status": "PLANNED",
+      "gate": "G-C88",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C89",
+      "status": "PLANNED",
+      "gate": "G-C89",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C90",
+      "status": "PLANNED",
+      "gate": "G-C90",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C91",
+      "status": "PLANNED",
+      "gate": "G-C91",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C92",
+      "status": "PLANNED",
+      "gate": "G-C92",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C93",
+      "status": "PLANNED",
+      "gate": "G-C93",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C94",
+      "status": "PLANNED",
+      "gate": "G-C94",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C95",
+      "status": "PLANNED",
+      "gate": "G-C95",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C96",
+      "status": "PLANNED",
+      "gate": "G-C96",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C97",
+      "status": "PLANNED",
+      "gate": "G-C97",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C98",
+      "status": "PLANNED",
+      "gate": "G-C98",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    },
+    {
+      "code": "C99",
+      "status": "PLANNED",
+      "gate": "G-C99",
+      "evidence": [],
+      "owner": "UNASSIGNED",
+      "abn_required": false,
+      "security_required": true,
+      "ownership_required": true
+    }
+  ]
+}
