@@ -1,0 +1,94 @@
+{
+  "schema_version": "father-contract-registry.v1",
+  "status": "CANONICAL_DESIGN",
+  "rule": "Every reusable block and every project edge must have an explicit versioned contract.",
+  "contract_types": [
+    {
+      "id": "CT-IO",
+      "name": "Input/Output Contract",
+      "required_fields": [
+        "contract_id",
+        "version",
+        "producer",
+        "consumer",
+        "input_schema",
+        "output_schema",
+        "error_schema",
+        "compatibility",
+        "tests"
+      ]
+    },
+    {
+      "id": "CT-ROLE",
+      "name": "Responsibility / Authority Contract",
+      "required_fields": [
+        "role",
+        "responsibilities",
+        "allowed_actions",
+        "prohibited_actions",
+        "escalation",
+        "approval_boundary"
+      ]
+    },
+    {
+      "id": "CT-DATA",
+      "name": "Data / Knowledge Contract",
+      "required_fields": [
+        "source",
+        "schema",
+        "classification",
+        "retention",
+        "provenance",
+        "license",
+        "access_scope"
+      ]
+    },
+    {
+      "id": "CT-RUN",
+      "name": "Runtime / Tool Contract",
+      "required_fields": [
+        "runtime",
+        "dependencies",
+        "secrets",
+        "timeouts",
+        "fallback",
+        "telemetry",
+        "rollback"
+      ]
+    },
+    {
+      "id": "CT-EVIDENCE",
+      "name": "Evidence Contract",
+      "required_fields": [
+        "required_evidence",
+        "producer",
+        "validator",
+        "hashing",
+        "trace_ids",
+        "retention",
+        "promotion_gate"
+      ]
+    },
+    {
+      "id": "CT-OWNERSHIP",
+      "name": "Ownership / Provenance Contract",
+      "required_fields": [
+        "human_contribution",
+        "agent_contribution",
+        "source_assets",
+        "licenses",
+        "prompt_model_versions",
+        "commits",
+        "artifact_hashes",
+        "claims"
+      ]
+    }
+  ],
+  "validation": [
+    "contract version must be explicit",
+    "producer and consumer must agree on schema",
+    "errors/failure modes must be declared",
+    "contract tests must exist before promotion",
+    "ownership/provenance fields cannot be silently empty in PRO mode"
+  ]
+}
