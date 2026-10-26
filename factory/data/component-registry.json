@@ -186,6 +186,91 @@
       ],
       "next_promotion_gate": "G-CMP-CONNECTIVITY-VALIDATE",
       "promotion_condition": "Capture reproducible local evidence in target environment."
+    },
+    {
+      "component_id": "FTH-CMP-TELEGRAM-CHANNEL-001",
+      "name": "FATHER Telegram Channel",
+      "family": "CHANNEL_GATEWAY",
+      "version": "0.1.0",
+      "status": "EXPERIMENTAL",
+      "validation_scope": "REFERENCE_PRODUCT_RUNTIME_NOT_YET_CENTRALIZED",
+      "certification_status": "NOT_CERTIFIED",
+      "reuse_state": "EXTRACTION_IN_PROGRESS",
+      "purpose": "Reusable Telegram Bot ingress/egress channel separated from higher-level agent reasoning and voice processing.",
+      "source_context": {
+        "origin": "FATHER_VOICE_BRIDGE reference product",
+        "source_repository": "VictorKVS/FATHER_VOICE_BRIDGE",
+        "source_agent_kit": "KIT-TELEGRAM-VOICE-BRIDGE",
+        "extraction_rule": "channel transport must remain independent from ALINA/LLM/RAG/TTS logic"
+      },
+      "contract": {
+        "input": [
+          "Telegram update",
+          "allowed chat policy",
+          "secret reference"
+        ],
+        "output": [
+          "normalized message event",
+          "media metadata",
+          "send text/voice result",
+          "trace metadata"
+        ],
+        "errors": [
+          "Telegram API unavailable",
+          "unauthorized chat",
+          "media download failure",
+          "send failure"
+        ]
+      },
+      "capabilities": [
+        "TELEGRAM_RECEIVE_TEXT",
+        "TELEGRAM_RECEIVE_VOICE",
+        "TELEGRAM_SEND_TEXT",
+        "TELEGRAM_SEND_VOICE",
+        "MESSAGE_TRACE",
+        "CHAT_ALLOWLIST"
+      ],
+      "dependencies": [
+        "Telegram Bot API",
+        "secret reference",
+        "network route"
+      ],
+      "evidence": [],
+      "tests_required_for_certification": [
+        "text receive/send",
+        "voice metadata/download",
+        "unauthorized chat negative test",
+        "API failure path",
+        "privacy-safe trace"
+      ],
+      "security_profile": [
+        "token outside source control",
+        "chat allowlist",
+        "no raw content in trace by default",
+        "temporary media cleanup"
+      ],
+      "observability": [
+        "trace_id",
+        "message direction",
+        "transport result",
+        "latency",
+        "error category"
+      ],
+      "compatible_workshops": [
+        "W40",
+        "W50",
+        "W60",
+        "W70"
+      ],
+      "compatible_domains": [
+        "COMMUNICATION",
+        "ANALYTICS",
+        "OSINT",
+        "SECURITY",
+        "GENERAL_AGENT_UI"
+      ],
+      "next_promotion_gate": "G-CMP-TELEGRAM-EXTRACT",
+      "promotion_condition": "Extract transport adapter into central reusable runtime and prove text+voice E2E independently of Voice Bridge product."
     }
   ]
 }
