@@ -81,6 +81,57 @@
         "vector dimension",
         "failure rate"
       ]
+    },
+    {
+      "model_id": "MDL-FATHER-CORE-001",
+      "name": "FATHER Core LLM",
+      "kind": "CONTROLLED_LLM_SYSTEM",
+      "provider_runtime": "Model Router / OpenAI-compatible local runtime",
+      "reference": "models/father-llm-001/model-card.json",
+      "status": "DESIGN_BASELINE",
+      "installed_status": "PROFILE_ONLY_BASE_MODEL_UNKNOWN",
+      "base_model_selection": "LAB_REQUIRED",
+      "base_candidates": [
+        "MDL-QWEN3-06B-Q8",
+        "MDL-QWEN3-4B-Q4KM",
+        "MDL-QWEN3-8B-Q4KM"
+      ],
+      "knowledge": [
+        "KB-K0-FATHER-COMMON",
+        "K1 specialist by role",
+        "K2 project",
+        "K3 runtime/session"
+      ],
+      "optimization_ladder": [
+        "SYSTEM_PROMPT",
+        "RAG",
+        "TOOLS_AGENT_ROUTING",
+        "SFT_LORA",
+        "PREFERENCE_DPO",
+        "RL_RLHF_RLAIF"
+      ],
+      "required_eval": [
+        "DS-FATHER-GOLDEN-001",
+        "DS-FATHER-ADVERSARIAL-001"
+      ],
+      "security_gate": "G-FATHER-LLM-SECURITY",
+      "acceptance_gate": "G-FATHER-LLM-ACCEPTANCE",
+      "use_cases": [
+        "FATHER Operator",
+        "agent reasoning core",
+        "grounded engineering assistance"
+      ],
+      "metrics": [
+        "task success",
+        "groundedness",
+        "routing accuracy",
+        "abstention quality",
+        "security violation rate",
+        "latency",
+        "tokens/sec",
+        "memory",
+        "cost"
+      ]
     }
   ],
   "promotion_rule": "A model becomes VALIDATED for a product profile only after local runtime evidence + benchmark/evaluation results are recorded."
