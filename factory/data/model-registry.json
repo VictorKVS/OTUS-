@@ -1,0 +1,87 @@
+{
+  "schema_version": "father-model-registry.v1",
+  "status": "ACTIVE_BUILD",
+  "truth_rule": "DOCUMENTED_IN_REPO does not imply currently installed or runtime-validated on the target machine.",
+  "models": [
+    {
+      "model_id": "MDL-QWEN3-4B-Q4KM",
+      "name": "Qwen3 4B GGUF Q4_K_M",
+      "kind": "CHAT_LLM",
+      "provider_runtime": "Ollama / OpenAI-compatible",
+      "reference": "hf.co/Qwen/Qwen3-4B-GGUF:Q4_K_M",
+      "status": "DOCUMENTED_IN_REPO",
+      "installed_status": "UNKNOWN",
+      "use_cases": [
+        "RAG chat",
+        "controlled agent",
+        "general local reasoning"
+      ],
+      "metrics": [
+        "task quality",
+        "latency",
+        "tokens/sec",
+        "memory",
+        "failure rate",
+        "cost"
+      ]
+    },
+    {
+      "model_id": "MDL-QWEN3-06B-Q8",
+      "name": "Qwen3 0.6B GGUF Q8_0",
+      "kind": "CHAT_LLM",
+      "provider_runtime": "Ollama / OpenAI-compatible",
+      "reference": "hf.co/Qwen/Qwen3-0.6B-GGUF:Q8_0",
+      "status": "DOCUMENTED_ALTERNATIVE",
+      "installed_status": "UNKNOWN",
+      "use_cases": [
+        "responsive low-resource fallback"
+      ],
+      "metrics": [
+        "task quality",
+        "latency",
+        "tokens/sec",
+        "memory",
+        "failure rate"
+      ]
+    },
+    {
+      "model_id": "MDL-QWEN3-8B-Q4KM",
+      "name": "Qwen3 8B GGUF Q4_K_M",
+      "kind": "CHAT_LLM",
+      "provider_runtime": "Ollama / OpenAI-compatible",
+      "reference": "hf.co/Qwen/Qwen3-8B-GGUF:Q4_K_M",
+      "status": "DOCUMENTED_ALTERNATIVE",
+      "installed_status": "UNKNOWN",
+      "use_cases": [
+        "higher-quality local candidate"
+      ],
+      "metrics": [
+        "task quality",
+        "latency",
+        "tokens/sec",
+        "memory",
+        "failure rate"
+      ]
+    },
+    {
+      "model_id": "MDL-NOMIC-EMBED",
+      "name": "nomic-embed-text",
+      "kind": "EMBEDDING",
+      "provider_runtime": "Ollama",
+      "reference": "nomic-embed-text",
+      "status": "DOCUMENTED_IN_REPO",
+      "installed_status": "UNKNOWN",
+      "use_cases": [
+        "RAG embeddings",
+        "hybrid Qdrant retrieval"
+      ],
+      "metrics": [
+        "retrieval quality",
+        "embedding latency",
+        "vector dimension",
+        "failure rate"
+      ]
+    }
+  ],
+  "promotion_rule": "A model becomes VALIDATED for a product profile only after local runtime evidence + benchmark/evaluation results are recorded."
+}
