@@ -192,9 +192,9 @@
       "name": "Telegram Channel",
       "category": "INPUT_CHANNEL",
       "status": "EXPERIMENTAL",
-      "source": "KIT-TELEGRAM-VOICE-BRIDGE",
+      "source": "FTH-CMP-TELEGRAM-CHANNEL-001",
       "agent_id": "FTH-AG-VBR-001",
-      "description": "Telegram Bot API ingress/egress; text and voice message transport.",
+      "description": "Telegram transport extracted from Voice Bridge reference product; central reusable runtime extraction is still in progress.",
       "inputs": [
         "Telegram text/voice"
       ],
