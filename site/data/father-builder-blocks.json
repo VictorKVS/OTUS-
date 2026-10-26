@@ -27,7 +27,8 @@
     "EVALUATION",
     "SECURITY",
     "EVIDENCE_IP",
-    "OUTPUT_CHANNEL"
+    "OUTPUT_CHANNEL",
+    "INNOVATION_PROVENANCE"
   ],
   "blocks": [
     {
@@ -956,6 +957,102 @@
         "source provenance",
         "finding version"
       ]
+    },
+    {
+      "id": "BLK-INNOVATION-PROVENANCE",
+      "name": "Innovation / Provenance Review",
+      "category": "INNOVATION_PROVENANCE",
+      "status": "DESIGN_READY",
+      "source": "FATHER Innovation & Provenance Control",
+      "description": "Проверяет происхождение, встроенные контракты, права/лицензии, известные аналоги и альтернативные декомпозиции; формирует scoped novelty delta без ложного заявления о патентной новизне.",
+      "inputs": [
+        "project graph",
+        "architecture/contracts",
+        "source/license registry",
+        "candidate analogue systems/robots",
+        "artifact provenance"
+      ],
+      "outputs": [
+        "contract coverage report",
+        "ownership bundle",
+        "analogue search log",
+        "decomposition comparison",
+        "novelty delta",
+        "PRO gate input"
+      ],
+      "config": [
+        "mode: STANDARD / PRO / PATENT_CANDIDATE",
+        "analogue search scope",
+        "decomposition taxonomy",
+        "minimum analogue count",
+        "license policy",
+        "independent reviewer"
+      ],
+      "tools": [
+        "contract registry",
+        "OSINT/search",
+        "public technical docs",
+        "patent/paper/manual search adapters future",
+        "graph comparator",
+        "hashing/git",
+        "evidence ledger"
+      ],
+      "metrics": [
+        "contract coverage",
+        "provenance completeness",
+        "analogue coverage",
+        "license gaps",
+        "unresolved novelty hypotheses",
+        "independent review coverage"
+      ],
+      "tests": [
+        "contract completeness",
+        "artifact hash consistency",
+        "source/license presence",
+        "analogue decomposition consistency",
+        "novelty claim challenge",
+        "independent cross-check"
+      ],
+      "evidence": [
+        "PROVENANCE.json",
+        "OWNERSHIP.md",
+        "CHECKSUMS.sha256",
+        "SBOM.json",
+        "analogue search log",
+        "decomposition graphs",
+        "novelty delta record",
+        "review decision"
+      ],
+      "security": [
+        "do not expose restricted design data during public search",
+        "redact secrets",
+        "separate public prior-art corpus from private project data"
+      ],
+      "ownership": [
+        "human contribution",
+        "agent contribution",
+        "prompt/model/tool versions",
+        "source assets/licenses",
+        "commit/build ids",
+        "artifact hashes",
+        "claim scope"
+      ],
+      "contracts": [
+        "CT-IO",
+        "CT-ROLE",
+        "CT-DATA",
+        "CT-RUN",
+        "CT-EVIDENCE",
+        "CT-OWNERSHIP"
+      ],
+      "prior_art": [
+        "known comparable systems/robots",
+        "alternative decompositions",
+        "public architectures",
+        "manuals/specifications",
+        "papers/patents where available"
+      ],
+      "pro_gate": "G-PRO-IP-PROVENANCE"
     }
   ],
   "project_template": {
@@ -976,6 +1073,7 @@
       "BLK-FACTORY-CONTROLLER",
       "BLK-ALINA",
       "BLK-ARCHITECT",
+      "BLK-INNOVATION-PROVENANCE",
       "BLK-PROGRAMMER",
       "BLK-METRICS-LAB",
       "BLK-SECURITY",
@@ -990,6 +1088,20 @@
       "BLK-MODEL-ROUTER",
       "BLK-PROMPT-RUN",
       "BLK-VOICE-TTS"
-    ]
+    ],
+    "project_modes": {
+      "MVP": {
+        "ip_provenance": "ADVISORY",
+        "required_gate": null
+      },
+      "PRO": {
+        "ip_provenance": "REQUIRED",
+        "required_gate": "G-PRO-IP-PROVENANCE"
+      },
+      "PATENT_CANDIDATE": {
+        "ip_provenance": "REQUIRED",
+        "required_gate": "G-PRO-IP-PROVENANCE"
+      }
+    }
   }
 }
