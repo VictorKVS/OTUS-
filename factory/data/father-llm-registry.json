@@ -163,7 +163,29 @@
       "model_card": "models/father-llm-001/model-card.json",
       "system_prompt": "models/father-llm-001/system-prompt.md",
       "golden_set": "models/father-llm-001/datasets/golden-v0.json",
-      "adversarial_set": "models/father-llm-001/datasets/adversarial-v0.json"
+      "adversarial_set": "models/father-llm-001/datasets/adversarial-v0.json",
+      "agent_binding": {
+        "primary_analytical_agent": "FTH-AG-ANL-001",
+        "kit_id": "KIT-ALINA-ANALYST",
+        "rule": "Reuse the same ALINA analytical core across domains; specialization is provided by K1 packs, project context by K2 and runtime context by K3.",
+        "security_profile": {
+          "packs": [
+            "KB-K1-IB",
+            "KB-K1-DEVSECOPS"
+          ],
+          "can": [
+            "analyze",
+            "structure evidence",
+            "identify risks",
+            "prepare security context"
+          ],
+          "cannot": [
+            "approve security gate",
+            "certify security",
+            "promote to production"
+          ]
+        }
+      }
     }
   ]
 }
