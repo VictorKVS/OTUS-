@@ -1,0 +1,169 @@
+{
+  "schema_version": "father-llm-product-registry.v1",
+  "status": "ACTIVE_BUILD",
+  "truth_rule": "A FATHER LLM product is not considered trained, validated, certified or production-ready until the corresponding LAB evidence and gates exist.",
+  "products": [
+    {
+      "model_id": "MDL-FATHER-CORE-001",
+      "name": "FATHER Core LLM",
+      "version": "0.1.0",
+      "product_class": "CONTROLLED_LLM_SYSTEM",
+      "status": "DESIGN_BASELINE",
+      "purpose": "General reasoning core for FATHER Operator, analytical and engineering agents, grounded by FATHER knowledge and governed by routing, evidence and security policies.",
+      "base_candidates": [
+        {
+          "model_id": "MDL-QWEN3-06B-Q8",
+          "role": "A_LOW_RESOURCE",
+          "status": "DOCUMENTED_ALTERNATIVE"
+        },
+        {
+          "model_id": "MDL-QWEN3-4B-Q4KM",
+          "role": "B_BASELINE",
+          "status": "DOCUMENTED_IN_REPO"
+        },
+        {
+          "model_id": "MDL-QWEN3-8B-Q4KM",
+          "role": "C_HIGHER_QUALITY",
+          "status": "DOCUMENTED_ALTERNATIVE"
+        }
+      ],
+      "knowledge_contract": {
+        "required": [
+          "KB-K0-FATHER-COMMON"
+        ],
+        "optional_by_role": [
+          "K1 specialist pack",
+          "K2 project context",
+          "K3 runtime/session context"
+        ],
+        "retrieval_policy": "evidence_first_hybrid",
+        "citation_policy": "provenance_required"
+      },
+      "behavior_contract": [
+        "separate fact from hypothesis",
+        "state uncertainty and abstain when evidence is insufficient",
+        "never fabricate PASS, evidence, source, test or certification",
+        "respect agent/tool permissions and human gates",
+        "route specialist work instead of pretending universal expertise",
+        "preserve traceability from task to result"
+      ],
+      "optimization_ladder": [
+        {
+          "level": "L0",
+          "method": "BASE_MODEL",
+          "gate": "baseline benchmark"
+        },
+        {
+          "level": "L1",
+          "method": "SYSTEM_PROMPT",
+          "gate": "prompt A/B/N"
+        },
+        {
+          "level": "L2",
+          "method": "RAG_K0_K1_K2",
+          "gate": "retrieval + groundedness A/B/N"
+        },
+        {
+          "level": "L3",
+          "method": "TOOLS_AND_AGENT_ROUTING",
+          "gate": "task/routing success"
+        },
+        {
+          "level": "L4",
+          "method": "SFT_LORA",
+          "gate": "must beat L3 on frozen golden set"
+        },
+        {
+          "level": "L5",
+          "method": "PREFERENCE_DPO",
+          "gate": "must beat L4 on preference/safety metrics"
+        },
+        {
+          "level": "L6",
+          "method": "RL_RLHF_RLAIF",
+          "gate": "only with explicit reward design, safety eval and statistically meaningful gain"
+        }
+      ],
+      "metrics": {
+        "quality": [
+          "task_success",
+          "groundedness",
+          "factuality",
+          "instruction_following",
+          "routing_accuracy",
+          "abstention_quality"
+        ],
+        "rag": [
+          "retrieval_recall_at_k",
+          "retrieval_precision_at_k",
+          "citation_coverage",
+          "context_relevance"
+        ],
+        "safety": [
+          "policy_violation_rate",
+          "prompt_injection_resistance",
+          "secret_exposure_rate",
+          "unsafe_tool_request_rate"
+        ],
+        "operations": [
+          "latency_p50",
+          "latency_p95",
+          "tokens_per_second",
+          "memory_peak",
+          "failure_rate"
+        ],
+        "economics": [
+          "tokens_per_task",
+          "cost_per_task",
+          "quality_per_cost"
+        ]
+      },
+      "required_datasets": [
+        "DS-FATHER-GOLDEN-001",
+        "DS-FATHER-REGRESSION-001",
+        "DS-FATHER-ADVERSARIAL-001",
+        "DS-FATHER-PREFERENCE-001 future"
+      ],
+      "gates": [
+        "G-FATHER-LLM-BASELINE",
+        "G-FATHER-LLM-RAG",
+        "G-FATHER-LLM-AGENT",
+        "G-FATHER-LLM-SECURITY",
+        "G-FATHER-LLM-TRAINING",
+        "G-FATHER-LLM-ACCEPTANCE",
+        "G-FATHER-LLM-CERTIFY"
+      ],
+      "ownership": {
+        "required": true,
+        "track": [
+          "base model/license",
+          "dataset source/license",
+          "human contributions",
+          "agent contributions",
+          "prompt versions",
+          "training config",
+          "code commits",
+          "artifact hashes",
+          "evaluation evidence"
+        ]
+      },
+      "security": {
+        "mandatory": true,
+        "principles": [
+          "least privilege",
+          "data minimization",
+          "secret isolation",
+          "prompt injection defense",
+          "tool allowlist",
+          "adversarial regression",
+          "no production without security acceptance"
+        ]
+      },
+      "dossier": "models/father-llm-001/dossier/c00-c99.json",
+      "model_card": "models/father-llm-001/model-card.json",
+      "system_prompt": "models/father-llm-001/system-prompt.md",
+      "golden_set": "models/father-llm-001/datasets/golden-v0.json",
+      "adversarial_set": "models/father-llm-001/datasets/adversarial-v0.json"
+    }
+  ]
+}
