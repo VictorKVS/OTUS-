@@ -719,27 +719,247 @@
         "prompt/model/component versions",
         "source/license refs"
       ]
+    },
+    {
+      "id": "BLK-ARCHITECT",
+      "name": "FATHER Architect",
+      "category": "AGENT",
+      "status": "GPT_EMULATED_READY",
+      "source": "KIT-FATHER-ARCHITECT",
+      "agent_id": "FTH-AG-ARC-001",
+      "description": "Преобразует аналитический пакет и требования в архитектуру, contracts, ADR и Development Pack.",
+      "inputs": [
+        "analytics_bundle",
+        "requirements",
+        "constraints"
+      ],
+      "outputs": [
+        "HLD",
+        "LLD",
+        "ADR",
+        "Development Pack"
+      ],
+      "config": [
+        "architecture depth",
+        "NFR profile",
+        "integration policy",
+        "technology constraints"
+      ],
+      "tools": [
+        "diagrammer",
+        "document_reader",
+        "registry_reader",
+        "contract_validator",
+        "technology_radar"
+      ],
+      "metrics": [
+        "requirements coverage",
+        "ADR completeness",
+        "contract consistency",
+        "NFR coverage"
+      ],
+      "tests": [
+        "architecture review",
+        "contract validation",
+        "traceability check"
+      ],
+      "evidence": [
+        "REQ→ARCH links",
+        "ADR ids",
+        "architecture review record"
+      ],
+      "security": [
+        "security-by-design review",
+        "trust boundaries"
+      ],
+      "ownership": [
+        "architect agent id",
+        "ADR authorship",
+        "architecture version"
+      ]
+    },
+    {
+      "id": "BLK-PROGRAMMER",
+      "name": "FATHER Programmer / CODEX",
+      "category": "AGENT",
+      "status": "GPT_EMULATED_READY",
+      "source": "KIT-FATHER-PROGRAMMER",
+      "agent_id": "FTH-AG-DEV-001",
+      "description": "Реализует утверждённый Development Pack, не меняя молча требования и архитектуру.",
+      "inputs": [
+        "Development Pack",
+        "component BOM",
+        "contracts"
+      ],
+      "outputs": [
+        "source code",
+        "config",
+        "unit tests",
+        "implementation trace"
+      ],
+      "config": [
+        "language/runtime",
+        "repository",
+        "branch policy",
+        "coding standard"
+      ],
+      "tools": [
+        "git",
+        "tests",
+        "linters",
+        "schema_validator",
+        "container_build",
+        "CI"
+      ],
+      "metrics": [
+        "test pass rate",
+        "requirements implemented",
+        "defect density",
+        "build success"
+      ],
+      "tests": [
+        "unit tests",
+        "contract tests",
+        "lint/static checks",
+        "build"
+      ],
+      "evidence": [
+        "commit ids",
+        "test reports",
+        "REQ→CODE links"
+      ],
+      "security": [
+        "secure coding",
+        "secret scanning"
+      ],
+      "ownership": [
+        "programmer agent id",
+        "commit authorship",
+        "code signature/style marker"
+      ]
+    },
+    {
+      "id": "BLK-DEVOPS",
+      "name": "DevOps / SRE",
+      "category": "AGENT",
+      "status": "DESIGN",
+      "source": "KIT-DEVOPS-SRE",
+      "agent_id": "FTH-AG-SRE-001",
+      "description": "Собирает воспроизводимую среду, delivery, observability, rollback и runtime evidence.",
+      "inputs": [
+        "verified build",
+        "environment profile"
+      ],
+      "outputs": [
+        "deployment package",
+        "telemetry",
+        "runbook",
+        "rollback evidence"
+      ],
+      "config": [
+        "environment",
+        "container/K8s",
+        "CI/CD",
+        "SLO",
+        "rollback"
+      ],
+      "tools": [
+        "docker",
+        "kubernetes",
+        "CI",
+        "GitOps",
+        "telemetry"
+      ],
+      "metrics": [
+        "deployment success",
+        "availability",
+        "latency",
+        "rollback time",
+        "SLO compliance"
+      ],
+      "tests": [
+        "pipeline",
+        "smoke",
+        "rollback",
+        "telemetry"
+      ],
+      "evidence": [
+        "build digest",
+        "deployment trace",
+        "environment report"
+      ],
+      "security": [
+        "least privilege",
+        "secret management"
+      ],
+      "ownership": [
+        "environment version",
+        "deployment actor",
+        "release id"
+      ]
+    },
+    {
+      "id": "BLK-OSINT",
+      "name": "OSINT Lead",
+      "category": "AGENT",
+      "status": "GPT_EMULATED_READY",
+      "source": "KIT-OSINT-LEAD",
+      "agent_id": "FTH-AG-OSINT-001",
+      "description": "Подключаемая ветка внешнего поиска и проверки фактов по открытым источникам.",
+      "inputs": [
+        "research task",
+        "entities",
+        "scope"
+      ],
+      "outputs": [
+        "source-backed findings",
+        "entity graph",
+        "verification bundle"
+      ],
+      "config": [
+        "scope",
+        "source classes",
+        "depth",
+        "freshness"
+      ],
+      "tools": [
+        "web_search",
+        "DNS_RDAP",
+        "public_code_search",
+        "metadata_tools",
+        "graph",
+        "archive_tools"
+      ],
+      "metrics": [
+        "source coverage",
+        "verification rate",
+        "false-positive rate",
+        "freshness"
+      ],
+      "tests": [
+        "source provenance",
+        "cross-check",
+        "scope compliance"
+      ],
+      "evidence": [
+        "URLs/source ids",
+        "finding trace",
+        "verification records"
+      ],
+      "security": [
+        "authorized lawful OSINT"
+      ],
+      "ownership": [
+        "OSINT agent id",
+        "source provenance",
+        "finding version"
+      ]
     }
   ],
   "project_template": {
     "id": "TPL-TELEGRAM-TOPIC-ASSISTANT",
     "name": "Telegram Topic Assistant · MVP",
     "task": "В Telegram AI приветствует пользователя, принимает тему, ALINA готовит тему/prompt/mini-RAG, выбранный агент ведёт разговор, система измеряет качество и при необходимости отвечает голосом.",
-    "graph": [
-      "BLK-TASK-INPUT",
-      "BLK-FACTORY-CONTROLLER",
-      "BLK-CONNECTIVITY-CHECK",
-      "BLK-TELEGRAM-CHANNEL",
-      "BLK-ALINA",
-      "BLK-KNOWLEDGE-RAG",
-      "BLK-AGENT-SELECTOR",
-      "BLK-MODEL-ROUTER",
-      "BLK-PROMPT-RUN",
-      "BLK-METRICS-LAB",
-      "BLK-SECURITY",
-      "BLK-VOICE-TTS",
-      "BLK-EVIDENCE-IP"
-    ],
     "gates": [
       "G-PLAN",
       "G-CONNECTIVITY",
@@ -748,6 +968,26 @@
       "G-EVAL",
       "G-SECURITY",
       "G-ACCEPT"
+    ],
+    "build_lane": [
+      "BLK-TASK-INPUT",
+      "BLK-FACTORY-CONTROLLER",
+      "BLK-ALINA",
+      "BLK-ARCHITECT",
+      "BLK-PROGRAMMER",
+      "BLK-METRICS-LAB",
+      "BLK-SECURITY",
+      "BLK-DEVOPS",
+      "BLK-EVIDENCE-IP"
+    ],
+    "runtime_graph": [
+      "BLK-CONNECTIVITY-CHECK",
+      "BLK-TELEGRAM-CHANNEL",
+      "BLK-KNOWLEDGE-RAG",
+      "BLK-AGENT-SELECTOR",
+      "BLK-MODEL-ROUTER",
+      "BLK-PROMPT-RUN",
+      "BLK-VOICE-TTS"
     ]
   }
 }
