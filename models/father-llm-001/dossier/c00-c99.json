@@ -13,7 +13,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "INTAKE",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C01",
@@ -23,7 +34,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "BUSINESS",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C02",
@@ -33,7 +55,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "REQUIREMENTS_RISKS",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C03",
@@ -43,7 +76,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "DELIVERY_STRATEGY",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C04",
@@ -53,7 +97,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "HLD_C4",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C05",
@@ -63,7 +118,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "LLD_API",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C06",
@@ -73,7 +139,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "RAG_KNOWLEDGE",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C07",
@@ -83,7 +160,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "AGENTS",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C08",
@@ -93,7 +181,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "ADR",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C09",
@@ -103,7 +202,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "ARCHITECTURE_REVIEW",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C10",
@@ -113,7 +223,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "GOVERNANCE",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C11",
@@ -123,7 +244,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "INTEGRATIONS",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C12",
@@ -133,7 +265,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "DATA",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C13",
@@ -143,7 +286,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "EVALUATION",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C14",
@@ -153,7 +307,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "SECURITY",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C15",
@@ -163,7 +328,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "OBSERVABILITY",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C16",
@@ -173,7 +349,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "SIZING",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C17",
@@ -183,7 +370,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "LLM_INFRASTRUCTURE",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C18",
@@ -193,7 +391,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "IAC_CICD_DEVSECOPS",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C19",
@@ -203,7 +412,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "MLOPS",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C20",
@@ -213,7 +433,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "PRODUCTION_RELEASE",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C21",
@@ -223,7 +454,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "HA_DR_ARCHITECTURE",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C22",
@@ -233,7 +475,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "RUNTIME_RELIABILITY",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C23",
@@ -243,7 +496,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "EVENT_DRIVEN_ARCHITECTURE",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C24",
@@ -253,7 +517,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "HIGH_LOAD_LOW_LATENCY",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C25",
@@ -263,7 +538,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "HYBRID_MULTI_CLOUD",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C26",
@@ -273,7 +559,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "MULTI_TENANCY",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C27",
@@ -283,7 +580,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "PRIVACY_PRESERVING",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C28",
@@ -293,7 +601,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "FINOPS",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C29",
@@ -303,7 +622,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "TECH_RADAR_EVOLUTION",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C30",
@@ -313,7 +643,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "ETHICAL_AI_GOVERNANCE",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C31",
@@ -323,7 +664,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "PROJECT_PASSPORT",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C32",
@@ -333,7 +685,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "DOSSIER_INDEX",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C33",
@@ -343,7 +706,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "TRACEABILITY_MATRIX",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C34",
@@ -353,7 +727,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "SOURCE_REGISTER",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C35",
@@ -363,7 +748,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "DECISION_ADR_INDEX",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C36",
@@ -373,7 +769,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "RISK_DEBT_REGISTER",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C37",
@@ -383,7 +790,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "CHANGE_CONTROL",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C38",
@@ -393,7 +811,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "COMPATIBILITY_MATRIX",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C39",
@@ -403,7 +832,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "KNOWN_LIMITATIONS",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C40",
@@ -413,7 +853,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "COMMON_K0",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C41",
@@ -423,7 +874,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "SPECIALIST_K1",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C42",
@@ -433,7 +895,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "PROJECT_K2",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C43",
@@ -443,7 +916,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "KNOWLEDGE_ROUTER",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C44",
@@ -453,7 +937,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "SKILL_TREE",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C45",
@@ -463,7 +958,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "TRAINING_PROGRAM",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C46",
@@ -473,7 +979,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "EXAMS_GRADUATION",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C47",
@@ -483,7 +1000,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "MEMORY_POLICY",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C48",
@@ -493,7 +1021,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "EXPERIENCE_MODEL",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C49",
@@ -503,7 +1042,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "KNOWLEDGE_UPDATE",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C50",
@@ -513,7 +1063,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "AGENT_KIT",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C51",
@@ -523,7 +1084,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "AGENT_IDENTITY",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C52",
@@ -533,7 +1105,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "PROMPT_INSTRUCTION_POLICY",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C53",
@@ -543,7 +1126,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "MODEL_ROUTING",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C54",
@@ -553,7 +1147,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "TOOLS_MCP",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C55",
@@ -563,7 +1168,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "WORKFLOW_ORCHESTRATION",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C56",
@@ -573,7 +1189,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "CHANNEL_GATEWAY",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C57",
@@ -583,7 +1210,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "STATE_EVENT_MODEL",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C58",
@@ -593,7 +1231,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "PERMISSIONS_GUARDRAILS",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C59",
@@ -603,7 +1252,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "AGENT_VIRTUALIZATION",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C60",
@@ -613,7 +1273,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "DATASET_CENTER",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C61",
@@ -623,7 +1294,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "GOLDEN_SET",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C62",
@@ -633,7 +1315,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "REGRESSION_SET",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C63",
@@ -643,7 +1336,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "ADVERSARIAL_SET",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C64",
@@ -653,7 +1357,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "BENCHMARKS",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C65",
@@ -663,7 +1378,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "ABN_EXPERIMENTS",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C66",
@@ -673,7 +1399,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "EVALUATOR_CALIBRATION",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C67",
@@ -683,7 +1420,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "STATISTICAL_VALIDATION",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C68",
@@ -693,7 +1441,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "MULTI_LLM_TRIALS",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C69",
@@ -703,7 +1462,18 @@
       "owner": "UNASSIGNED",
       "abn_required": true,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "CHAMPION_CHALLENGER",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C70",
@@ -713,7 +1483,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "DEVELOPMENT_PACK",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C71",
@@ -723,7 +1504,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "PROGRAMMER_IMPLEMENTATION",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C72",
@@ -733,7 +1525,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "UNIT_TESTS",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C73",
@@ -743,7 +1546,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "CONTRACT_TESTS",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C74",
@@ -753,7 +1567,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "INTEGRATION_TESTS",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C75",
@@ -763,7 +1588,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "SYSTEM_E2E_TESTS",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C76",
@@ -773,7 +1609,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "SECURITY_TESTS",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C77",
@@ -783,7 +1630,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "PERFORMANCE_LOAD_CHAOS",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C78",
@@ -793,7 +1651,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "ACCEPTANCE",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C79",
@@ -803,7 +1672,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "RELEASE_CANDIDATE",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C80",
@@ -813,7 +1693,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "BUILD_ARTIFACT",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C81",
@@ -823,7 +1714,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "CONTAINERIZATION",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C82",
@@ -833,7 +1735,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "KUBERNETES",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C83",
@@ -843,7 +1756,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "CI_PIPELINE",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C84",
@@ -853,7 +1777,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "CD_GITOPS",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C85",
@@ -863,7 +1798,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "ENVIRONMENT_MATRIX",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C86",
@@ -873,7 +1819,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "TELEMETRY_TRACING",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C87",
@@ -883,7 +1840,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "SLI_SLO",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C88",
@@ -893,7 +1861,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "INCIDENT_RUNBOOK",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C89",
@@ -903,7 +1882,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "BACKUP_ROLLBACK_DR",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C90",
@@ -913,7 +1903,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "CERTIFICATION",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C91",
@@ -923,7 +1924,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "ZOO_PROMOTION",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C92",
@@ -933,7 +1945,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "DEPLOYMENT",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C93",
@@ -943,7 +1966,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "CANARY_PROGRESSIVE_DELIVERY",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C94",
@@ -953,7 +1987,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "PRODUCTION_MONITORING",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C95",
@@ -963,7 +2008,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "FEEDBACK_INTAKE",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C96",
@@ -973,7 +2029,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "RCA_LESSONS_LEARNED",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C97",
@@ -983,7 +2050,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "KNOWLEDGE_SKILL_UPDATE",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C98",
@@ -993,7 +2071,18 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "NEXT_VERSION_CHANGE_REQUEST",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     },
     {
       "code": "C99",
@@ -1003,7 +2092,33 @@
       "owner": "UNASSIGNED",
       "abn_required": false,
       "security_required": true,
-      "ownership_required": true
+      "ownership_required": true,
+      "name": "ARCHIVE_AAR_CLOSEOUT",
+      "input": [],
+      "requirements": [],
+      "contracts": [],
+      "baseline": null,
+      "variants_abn": [],
+      "metrics": [],
+      "tests": [],
+      "security_controls": [],
+      "ownership_provenance": [],
+      "output": []
     }
+  ],
+  "universal_stage_contract": [
+    "input",
+    "requirements",
+    "security_class",
+    "contracts",
+    "baseline",
+    "variants_abn",
+    "metrics",
+    "tests",
+    "evidence",
+    "ownership_provenance",
+    "security_acceptance",
+    "gate",
+    "output"
   ]
 }
