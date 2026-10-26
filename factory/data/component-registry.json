@@ -271,6 +271,96 @@
       ],
       "next_promotion_gate": "G-CMP-TELEGRAM-EXTRACT",
       "promotion_condition": "Extract transport adapter into central reusable runtime and prove text+voice E2E independently of Voice Bridge product."
+    },
+    {
+      "component_id": "FTH-CMP-RAG-001",
+      "name": "FATHER Knowledge / RAG",
+      "family": "KNOWLEDGE_RETRIEVAL",
+      "version": "0.1.0",
+      "status": "CANDIDATE",
+      "validation_scope": "MULTIPLE_PROTOTYPE_SOURCES_NOT_YET_CANONICAL_RUNTIME",
+      "certification_status": "NOT_CERTIFIED",
+      "reuse_state": "EXTRACTION_REQUIRED",
+      "purpose": "Reusable knowledge retrieval contract from controlled chunks/Topic Packs to ranked context with citations.",
+      "source_context": {
+        "origins": [
+          "lesson 13 local RAG demo: Qdrant + Ollama + hybrid lexical/vector retrieval",
+          "FATHER_VOICE_BRIDGE Assistant MVP: primitive Topic Pack retrieval"
+        ],
+        "canonicalization_rule": "preserve one retrieval contract while allowing SIMPLE_LEXICAL and HYBRID_QDRANT profiles"
+      },
+      "contract": {
+        "input": [
+          "query",
+          "knowledge pack/chunks",
+          "retrieval profile",
+          "top_k",
+          "optional threshold"
+        ],
+        "output": [
+          "ranked chunks",
+          "scores",
+          "citations",
+          "context bundle",
+          "no-answer signal"
+        ],
+        "errors": [
+          "knowledge unavailable",
+          "index unavailable",
+          "embedding provider unavailable",
+          "no relevant context"
+        ]
+      },
+      "capabilities": [
+        "CONTROLLED_RETRIEVAL",
+        "TOP_K",
+        "HYBRID_RETRIEVAL",
+        "CITATION_BUNDLE",
+        "NO_ANSWER_SIGNAL",
+        "KNOWLEDGE_VERSION_TRACE"
+      ],
+      "dependencies": [
+        "knowledge registry",
+        "retrieval profile runtime",
+        "optional Qdrant/Ollama"
+      ],
+      "evidence": [],
+      "tests_required_for_certification": [
+        "golden query set",
+        "known answer",
+        "known no-answer",
+        "source conflict",
+        "reindex repeatability",
+        "top-k regression"
+      ],
+      "security_profile": [
+        "knowledge access scope",
+        "no unauthorized cross-project retrieval",
+        "source provenance required"
+      ],
+      "observability": [
+        "retrieval profile",
+        "query id",
+        "chunk ids",
+        "scores",
+        "latency",
+        "no-answer"
+      ],
+      "compatible_workshops": [
+        "W30",
+        "W40",
+        "W50",
+        "W60"
+      ],
+      "compatible_domains": [
+        "ANALYTICS",
+        "OSINT",
+        "SECURITY",
+        "KNOWLEDGE",
+        "GENERAL_AGENT_UI"
+      ],
+      "next_promotion_gate": "G-CMP-RAG-EXTRACT",
+      "promotion_condition": "Extract a central runtime/API, freeze retrieval schema and prove primitive + Qdrant profiles against golden set."
     }
   ]
 }
