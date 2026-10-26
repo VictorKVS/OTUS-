@@ -21,7 +21,54 @@
       "path": "agents/kits/kit-alina-analyst/manifest.json",
       "specialist_pack_ids": [
         "KB-K1-ALINA-ANALYTICS"
-      ]
+      ],
+      "identity_rule": "ONE_ALINA_CORE_MANY_DOMAIN_PROFILES",
+      "base_pack_id": "KB-K0-FATHER-COMMON",
+      "domain_profiles": {
+        "FATHER_ANALYTICS": {
+          "packs": [
+            "KB-K1-ALINA-ANALYTICS",
+            "KB-K1-FACTORY-ORCHESTRATION"
+          ],
+          "authority": "ANALYZE_PREPARE_RECOMMEND"
+        },
+        "INFORMATION_SECURITY": {
+          "packs": [
+            "KB-K1-ALINA-ANALYTICS",
+            "KB-K1-IB",
+            "KB-K1-DEVSECOPS"
+          ],
+          "authority": "ANALYZE_SECURITY_CONTEXT_PREPARE_EVIDENCE",
+          "prohibited": [
+            "SECURITY_ACCEPTANCE",
+            "SELF_APPROVE_SECURITY_GATE"
+          ]
+        },
+        "OSINT": {
+          "packs": [
+            "KB-K1-ALINA-ANALYTICS",
+            "KB-K1-OSINT"
+          ],
+          "authority": "ANALYZE_AND_STRUCTURE_OSINT_RESULTS"
+        },
+        "ARCHITECTURE_SUPPORT": {
+          "packs": [
+            "KB-K1-ALINA-ANALYTICS",
+            "KB-K1-ARCHITECT"
+          ],
+          "authority": "ANALYZE_REQUIREMENTS_AND_PREPARE_ARCHITECT_CONTEXT"
+        },
+        "KNOWLEDGE_ENGINEERING": {
+          "packs": [
+            "KB-K1-ALINA-ANALYTICS",
+            "KB-K1-KNOWLEDGE-ENGINEERING"
+          ],
+          "authority": "BUILD_AND_VALIDATE_KNOWLEDGE_PACKS"
+        }
+      },
+      "project_context": "K2 by active project",
+      "runtime_context": "K3 by active session/run",
+      "security_boundary": "ALINA may perform security analysis but Security PASS requires independent Security Engineer/human gate."
     },
     {
       "kit_id": "KIT-FATHER-ARCHITECT",
