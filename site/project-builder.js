@@ -1,5 +1,5 @@
 const $=s=>document.querySelector(s);
-let DATA=null,RULES=null,selected=null,currentTab='config';
+let DATA=null,RULES=null,AGENT_REGISTRY=null,MODEL_REGISTRY=null,selected=null,currentTab='config';
 const STORAGE_KEY='father.project-builder.state.v1';
 const esc=v=>String(v??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
@@ -114,17 +114,43 @@ function cfgFor(id){
   STATE.configs[id]??={config:{},selections:{}};
   return STATE.configs[id];
 }
+function renderCandidateConfig(cfg){
+  if(selected.id==='BLK-AGENT-SELECTOR' && AGENT_REGISTRY){
+    cfg.agent_candidates??={};
+    const cards=(AGENT_REGISTRY.kits||[]).map(a=>{
+      const checked=cfg.agent_candidates[a.kit_id]===true;
+      return '<label class="candidate-row"><input type="checkbox" data-agent-candidate="'+esc(a.kit_id)+'" '+(checked?'checked':'')+'><span><b>'+esc(a.name)+'</b><small>'+esc(a.agent_id)+' · '+esc(a.status)+' · '+esc((a.specialist_pack_ids||[]).join(' + '))+'</small></span></label>';
+    }).join('');
+    return '<div class="candidate-box"><div class="candidate-title">AGENT ZOO · candidates for A/B/N</div>'+cards+'</div>';
+  }
+  if(selected.id==='BLK-MODEL-ROUTER' && MODEL_REGISTRY){
+    cfg.model_candidates??={};
+    const cards=(MODEL_REGISTRY.models||[]).map(m=>{
+      const checked=cfg.model_candidates[m.model_id]===true;
+      return '<label class="candidate-row"><input type="checkbox" data-model-candidate="'+esc(m.model_id)+'" '+(checked?'checked':'')+'><span><b>'+esc(m.name)+'</b><small>'+esc(m.kind)+' · '+esc(m.status)+' · installed: '+esc(m.installed_status)+'</small></span></label>';
+    }).join('');
+    return '<div class="candidate-box"><div class="candidate-title">MODEL ZOO · documented candidates</div>'+cards+'</div>';
+  }
+  return '';
+}
+function bindCandidateConfig(cfg){
+  document.querySelectorAll('[data-agent-candidate]').forEach(inp=>inp.onchange=()=>{cfg.agent_candidates[inp.dataset.agentCandidate]=inp.checked;persist()});
+  document.querySelectorAll('[data-model-candidate]').forEach(inp=>inp.onchange=()=>{cfg.model_candidates[inp.dataset.modelCandidate]=inp.checked;persist()});
+}
 function renderInspectTab(){
   if(!selected)return;
   document.querySelectorAll('#inspectTabs button').forEach(x=>x.classList.toggle('active',x.dataset.tab===currentTab));
   const rows=selected[TABS[currentTab]]||[];
   const cfg=cfgFor(selected.id);
   if(currentTab==='config'){
-    $('#inspectTabBody').innerHTML=rows.map((x,i)=>{
+    const special=renderCandidateConfig(cfg);
+    const generic=rows.map((x,i)=>{
       const val=cfg.config[x]||'';
       return '<div class="inspect-config-row"><label>'+esc(x)+'</label><input data-config-key="'+esc(x)+'" value="'+esc(val)+'" placeholder="значение / policy / profile"><small>'+String(i+1).padStart(2,'0')+'</small></div>';
-    }).join('')||'<p class="muted">Нет параметров.</p>';
+    }).join('');
+    $('#inspectTabBody').innerHTML=special+generic || '<p class="muted">Нет параметров.</p>';
     document.querySelectorAll('[data-config-key]').forEach(inp=>inp.oninput=()=>{cfg.config[inp.dataset.configKey]=inp.value;persist()});
+    bindCandidateConfig(cfg);
   }else{
     cfg.selections[currentTab]??={};
     $('#inspectTabBody').innerHTML=rows.map((x,i)=>{
@@ -187,11 +213,13 @@ function exportState(){
 }
 
 async function init(){
-  const [dr,rr]=await Promise.all([
+  const [dr,rr,ar,mr]=await Promise.all([
     fetch('./data/father-builder-blocks.json',{cache:'no-store'}),
-    fetch('./data/father-composition-rules.json',{cache:'no-store'})
+    fetch('./data/father-composition-rules.json',{cache:'no-store'}),
+    fetch('../factory/data/agent-kit-registry.json',{cache:'no-store'}),
+    fetch('../factory/data/model-registry.json',{cache:'no-store'})
   ]);
-  DATA=await dr.json(); RULES=await rr.json();
+  DATA=await dr.json(); RULES=await rr.json(); AGENT_REGISTRY=await ar.json(); MODEL_REGISTRY=await mr.json();
   const cats=[...new Set(DATA.blocks.map(x=>x.category))];
   $('#categoryFilter').innerHTML='<option value="ALL">Все категории</option>'+cats.map(x=>'<option>'+x+'</option>').join('');
   restore();
