@@ -278,9 +278,9 @@
       "family": "KNOWLEDGE_RETRIEVAL",
       "version": "0.1.0",
       "status": "CANDIDATE",
-      "validation_scope": "MULTIPLE_PROTOTYPE_SOURCES_NOT_YET_CANONICAL_RUNTIME",
+      "validation_scope": "LAYERED_LEXICAL_BASELINE",
       "certification_status": "NOT_CERTIFIED",
-      "reuse_state": "EXTRACTION_REQUIRED",
+      "reuse_state": "PRODUCT_SCOPED_CANDIDATE",
       "purpose": "Reusable knowledge retrieval contract from controlled chunks/Topic Packs to ranked context with citations.",
       "source_context": {
         "origins": [
@@ -324,7 +324,14 @@
         "retrieval profile runtime",
         "optional Qdrant/Ollama"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+          "type": "CI_LAYERED_BASELINE",
+          "result": "PASS",
+          "scope": "K0/K1/K2/K3 retrieval + security regression"
+        }
+      ],
       "tests_required_for_certification": [
         "golden query set",
         "known answer",
@@ -360,7 +367,15 @@
         "GENERAL_AGENT_UI"
       ],
       "next_promotion_gate": "G-CMP-RAG-EXTRACT",
-      "promotion_condition": "Extract a central runtime/API, freeze retrieval schema and prove primitive + Qdrant profiles against golden set."
+      "promotion_condition": "Extract a central runtime/API, freeze retrieval schema and prove primitive + Qdrant profiles against golden set.",
+      "metrics": {
+        "layered_retrieval": {
+          "champion": "LAYERED_TOP_K_3",
+          "hit_rate": 1,
+          "mrr": 0.9167,
+          "cases": 6
+        }
+      }
     },
     {
       "component_id": "FTH-CMP-AVATAR-SHELL-001",
@@ -558,9 +573,9 @@
       "evidence": [
         {
           "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
-          "type": "CI_PRODUCT_BASELINE",
+          "type": "CI_LAYERED_BASELINE",
           "result": "PASS",
-          "scope": "baseline guard rules only"
+          "scope": "K0/K1/K2/K3 retrieval + security regression"
         }
       ],
       "security_profile": [
@@ -568,8 +583,70 @@
         "independent Security acceptance mandatory",
         "adversarial regression required"
       ],
-      "truth_rule": "Baseline guard PASS is not Security acceptance.",
-      "next_promotion_gate": "G-CMP-SECURITY-GUARD-VALIDATE"
+      "truth_rule": "Baseline guard PASS is not independent Security acceptance.",
+      "next_promotion_gate": "G-CMP-SECURITY-GUARD-VALIDATE",
+      "metrics": {
+        "security_regression": {
+          "cases": 8,
+          "accuracy": 1,
+          "blocked_recall": 1,
+          "benign_pass_rate": 1
+        }
+      }
+    },
+    {
+      "component_id": "FTH-CMP-KNOWLEDGE-ROUTER-001",
+      "name": "FATHER Layered Knowledge Router",
+      "family": "KNOWLEDGE_ROUTING",
+      "version": "0.1.0",
+      "status": "CANDIDATE",
+      "validation_scope": "K0_K1_K2_K3_DETERMINISTIC_BASELINE",
+      "certification_status": "NOT_CERTIFIED",
+      "reuse_state": "PRODUCT_SCOPED_CANDIDATE",
+      "purpose": "Builds one runtime knowledge pack from common K0, domain K1, active-project K2 and ephemeral K3 context.",
+      "source_context": {
+        "repository": "VictorKVS/FATHER_VOICE_BRIDGE",
+        "implementation": "father_knowledge_router_v01.py",
+        "reference_product": "REF-FATHER-ASSISTANT-001"
+      },
+      "contract": {
+        "input": [
+          "domain_profile",
+          "query",
+          "optional project graph",
+          "optional run id"
+        ],
+        "output": [
+          "knowledge layers",
+          "retrieved chunks",
+          "grounding context"
+        ],
+        "errors": [
+          "unknown profile falls back to DEFAULT"
+        ]
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+          "type": "CI_LAYERED_BASELINE",
+          "result": "PASS",
+          "scope": "K0/K1/K2/K3 retrieval + security regression"
+        }
+      ],
+      "metrics": {
+        "layered_retrieval": {
+          "champion": "LAYERED_TOP_K_3",
+          "hit_rate": 1,
+          "mrr": 0.9167,
+          "cases": 6
+        }
+      },
+      "security_profile": [
+        "project/run context remains explicit",
+        "no silent profile duplication",
+        "no gate approval"
+      ],
+      "next_promotion_gate": "G-CMP-KNOWLEDGE-ROUTER-VALIDATE"
     }
   ]
 }
