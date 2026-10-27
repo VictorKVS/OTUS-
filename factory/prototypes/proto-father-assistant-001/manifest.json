@@ -3,7 +3,7 @@
   "prototype_id": "PROTO-FATHER-ASSISTANT-001",
   "name": "FATHER Reference Assistant Prototype",
   "version": "0.1.0",
-  "status": "WORKING_SKELETON",
+  "status": "WORKING_PROTOTYPE_CI_VALIDATED_LIVE_PENDING",
   "objective": "One-screen demonstrator of the FATHER production spine using the already assembled REF-FATHER-ASSISTANT-001 without duplicating runtime logic.",
   "product_id": "REF-FATHER-ASSISTANT-001",
   "release_id": "FATHER-V0.1-FIRST-APPROXIMATION",
@@ -56,9 +56,12 @@
     "FTH-CMP-AVATAR-SHELL-001"
   ],
   "current_evidence": {
-    "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
-    "ci_tests_passed": 73,
+    "evidence_id": "EV-PROTO-FATHER-ASSISTANT-001",
+    "product_evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+    "github_actions_run_id": 40501193969,
+    "tests_passed": 74,
     "unified_e2e_dry_check": "PASS",
+    "prototype_js": "PASS",
     "layered_knowledge_champion": "LAYERED_TOP_K_3",
     "security_regression_accuracy": 1
   },
@@ -76,5 +79,11 @@
     "Optional adapter contract success does not imply live runtime validation.",
     "Security baseline regression does not grant independent Security acceptance.",
     "No evidence means no promotion."
-  ]
+  ],
+  "runtime_entrypoint": {
+    "launcher": "START_FATHER_PROTOTYPE.ps1",
+    "url": "http://127.0.0.1:8088/assets/prototype.html",
+    "default_mode": "DRY",
+    "live_mode": "EXPLICIT_TOGGLE"
+  }
 }
