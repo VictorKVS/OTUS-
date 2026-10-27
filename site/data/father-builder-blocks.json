@@ -86,7 +86,7 @@
       "id": "BLK-FACTORY-CONTROLLER",
       "name": "FATHER Factory Controller",
       "category": "ORCHESTRATION",
-      "status": "DESIGN",
+      "status": "EXPERIMENTAL",
       "source": "KIT-FACTORY-CONTROLLER",
       "agent_id": "FTH-AG-FCT-001",
       "description": "Разбирает задачу, читает реестры, предлагает граф блоков и управляет gate/status truth.",
@@ -134,7 +134,8 @@
         "graph author",
         "decision provenance",
         "versioned composition"
-      ]
+      ],
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001"
     },
     {
       "id": "BLK-CONNECTIVITY-CHECK",
@@ -359,7 +360,7 @@
       "id": "BLK-AGENT-SELECTOR",
       "name": "Agent Selector / Zoo",
       "category": "ORCHESTRATION",
-      "status": "DESIGN",
+      "status": "CANDIDATE",
       "source": "Agent Kit Registry",
       "description": "Выбирает один или несколько Agent Kits по задаче; позволяет отправить кандидатов в LAB на сравнительные метрики.",
       "inputs": [
@@ -403,13 +404,14 @@
       "ownership": [
         "agent kit/version",
         "selection decision provenance"
-      ]
+      ],
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001"
     },
     {
       "id": "BLK-MODEL-ROUTER",
       "name": "Model Router",
       "category": "MODEL_RUNTIME",
-      "status": "DESIGN",
+      "status": "CANDIDATE",
       "source": "router-managed policy in Agent Kits",
       "description": "Выбирает LLM/runtime для выбранного агента и позволяет сравнивать несколько моделей.",
       "inputs": [
@@ -454,7 +456,8 @@
       "ownership": [
         "model/provider license ref",
         "configuration version"
-      ]
+      ],
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001"
     },
     {
       "id": "BLK-PROMPT-RUN",
@@ -1059,7 +1062,7 @@
       "id": "BLK-FATHER-OPERATOR",
       "name": "FATHER Operator",
       "category": "AGENT",
-      "status": "DESIGN",
+      "status": "EXPERIMENTAL",
       "source": "KIT-FATHER-OPERATOR",
       "agent_id": "FTH-AG-OPR-001",
       "description": "Единый разговорный помощник фабрики. Понимает запрос, отвечает на простые производственные вопросы, читает контекст проекта и маршрутизирует сложные вопросы к специализированным агентам.",
@@ -1129,7 +1132,8 @@
         "CT-RUN",
         "CT-EVIDENCE",
         "CT-OWNERSHIP"
-      ]
+      ],
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001"
     },
     {
       "id": "BLK-AVATAR-SHELL",
