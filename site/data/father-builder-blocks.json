@@ -573,10 +573,10 @@
       "id": "BLK-SECURITY",
       "name": "Security / Guardrails",
       "category": "SECURITY",
-      "status": "DESIGN",
+      "status": "EXPERIMENTAL",
       "source": "KIT-SECURITY-ENGINEER",
       "agent_id": "FTH-AG-SEC-001",
-      "description": "Threat model, IAM, secrets, policy, security acceptance and cross-block checks.",
+      "description": "Experimental independent Security review baseline. Produces PASS_CANDIDATE/BLOCKED only; final Security acceptance remains human-gated.",
       "inputs": [
         "project_graph",
         "configs",
@@ -621,7 +621,8 @@
       "ownership": [
         "security reviewer",
         "policy version"
-      ]
+      ],
+      "evidence_id": "EV-PROTO-READINESS-SECURITY-001"
     },
     {
       "id": "BLK-VOICE-TTS",
