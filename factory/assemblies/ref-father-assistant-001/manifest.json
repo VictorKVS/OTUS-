@@ -3,7 +3,7 @@
   "assembly_id": "ASM-REF-FATHER-ASSISTANT-001",
   "product_id": "REF-FATHER-ASSISTANT-001",
   "version": "0.1.0",
-  "status": "ASSEMBLED_DRY_RUN_VALIDATED",
+  "status": "ASSEMBLED_LAYERED_DRY_RUN_VALIDATED",
   "objective": "First minimal FATHER-built LLM system proving reusable block assembly before channel/voice/avatar expansion.",
   "product_runtime": [
     "BLK-TASK-INPUT",
@@ -77,8 +77,8 @@
   "validation": {
     "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
     "runtime_repository": "VictorKVS/FATHER_VOICE_BRIDGE",
-    "github_actions_run_id": 40493333108,
-    "tests_passed": 52,
+    "github_actions_run_id": 40495762033,
+    "tests_passed": 61,
     "dry_run": "PASS",
     "k0_lab": {
       "lab_id": "LAB-REF-FATHER-ASSISTANT-K0-001",
@@ -90,6 +90,18 @@
     },
     "live_llm": "PENDING",
     "independent_security_acceptance": "PENDING",
-    "production_ready": false
+    "production_ready": false,
+    "layered_knowledge_lab": {
+      "lab_id": "LAB-REF-FATHER-LAYERED-001",
+      "champion": "LAYERED_TOP_K_3",
+      "hit_rate": 1,
+      "mrr": 0.9167,
+      "cases": 6
+    },
+    "security_regression": {
+      "lab_id": "LAB-REF-FATHER-SECURITY-001",
+      "cases": 8,
+      "accuracy": 1
+    }
   }
 }
