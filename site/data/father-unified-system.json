@@ -1,0 +1,477 @@
+{
+  "schema_version": "father-unified-system.v1",
+  "status": "CANONICAL_DESIGN",
+  "principle": "ONE_BASE_ONE_FACTORY_MANY_DOMAIN_BRANCHES",
+  "definition": "FATHER transforms input information into a verified product through common workshops. Domain tabs are overlays on the same production system, not separate platforms.",
+  "common_base": {
+    "analytical_core": "ALINA / FATHER Analytical Core",
+    "common_knowledge": "K0 Common Knowledge",
+    "dossier": "C00-C99 Controlled Dossier",
+    "lab": "FATHER LAB",
+    "operations": "DevOps / Environments",
+    "regulations": [
+      "Factory regulation",
+      "Workshop regulation",
+      "Product profile / tailoring"
+    ],
+    "laws": [
+      "NO_REGULATION_NO_PROCESS",
+      "NO_TEST_NO_CLAIM_OF_QUALITY",
+      "NO_EVIDENCE_NO_PROMOTION",
+      "NO_ACCEPTANCE_NO_RELEASE"
+    ],
+    "contracts": "factory/data/contract-registry.json",
+    "provenance_innovation": "factory/data/innovation-provenance-registry.json",
+    "pro_gate": "G-PRO-IP-PROVENANCE",
+    "pro_rule": "PRO/PATENT_CANDIDATE/COMMERCIAL_RELEASE require versioned contracts, provenance, rights/license review, analogue search, decomposition comparison and independent review."
+  },
+  "flow": {
+    "ingress": "INPUT",
+    "workshops": [
+      {
+        "id": "W00",
+        "name": "INTAKE",
+        "purpose": "Register and classify incoming work."
+      },
+      {
+        "id": "W10",
+        "name": "ANALYSIS",
+        "purpose": "Transform raw information into requirements, facts, risks and traceability."
+      },
+      {
+        "id": "W20",
+        "name": "ARCHITECTURE",
+        "purpose": "Transform validated requirements into architecture and Development Pack."
+      },
+      {
+        "id": "W30",
+        "name": "KNOWLEDGE_DATA",
+        "purpose": "Prepare governed knowledge, data, datasets and contracts."
+      },
+      {
+        "id": "W40",
+        "name": "AGENT_COMPONENT_ENGINEERING",
+        "purpose": "Select REUSE/ADAPT/NEW components, Agent Kits, models and tools."
+      },
+      {
+        "id": "W50",
+        "name": "IMPLEMENTATION",
+        "purpose": "Produce code/configuration from approved design."
+      },
+      {
+        "id": "W60",
+        "name": "QA_SECURITY_LAB",
+        "purpose": "Independently prove functional, quality and security properties."
+      },
+      {
+        "id": "W70",
+        "name": "DEVOPS_ENVIRONMENTS",
+        "purpose": "Build, package, deploy and operate with evidence."
+      },
+      {
+        "id": "W80",
+        "name": "ACCEPTANCE_CERTIFICATION",
+        "purpose": "Evaluate full evidence bundle and authorize promotion."
+      },
+      {
+        "id": "W90",
+        "name": "OUTPUT_DELIVERY",
+        "purpose": "Deliver product plus complete controlled technical dossier."
+      }
+    ],
+    "egress": "OUTPUT_BUNDLE",
+    "feedback": "OUTPUT / EXPERIENCE → ANALYTICS → LAB → CHANGE REQUEST → K0/K1/K2 / BLOCK LIBRARY"
+  },
+  "domain_branches": [
+    {
+      "id": "analytics",
+      "tab": "Аналитика",
+      "status": "ACTIVE_CORE",
+      "agent_family": "ALINA",
+      "role": "Shared analytical processing core for all domains.",
+      "overlay": "KB-K1-ALINA-ANALYTICS",
+      "input": [
+        "raw documents",
+        "requirements",
+        "events",
+        "data",
+        "external findings"
+      ],
+      "output": [
+        "facts",
+        "entities",
+        "relations",
+        "risks",
+        "hypotheses",
+        "contradictions",
+        "evidence bundle"
+      ],
+      "feeds": [
+        "osint",
+        "security",
+        "pentest",
+        "legal",
+        "engineering",
+        "architecture"
+      ],
+      "workshop_participation": {
+        "W00": "SUPPORT",
+        "W10": "OWNER",
+        "W20": "SUPPORT",
+        "W30": "SUPPORT",
+        "W40": "SUPPORT",
+        "W50": "ADVISORY",
+        "W60": "SUPPORT",
+        "W70": "ADVISORY",
+        "W80": "SUPPORT",
+        "W90": "SUPPORT"
+      },
+      "common_contract": "INPUT → ANALYTICAL CORE → DOMAIN K1/K2 → WORKSHOP ARTIFACTS → TESTS → EVIDENCE → GATE → NEXT"
+    },
+    {
+      "id": "osint",
+      "tab": "OSINT",
+      "status": "ACTIVE_DESIGN",
+      "agent_family": "OSINT",
+      "role": "External information and attack-surface intelligence built on the common analytical core.",
+      "overlay": "KB-K1-OSINT",
+      "input": [
+        "analytics bundle",
+        "public sources",
+        "internet infrastructure",
+        "media/social sources"
+      ],
+      "output": [
+        "source-backed findings",
+        "entity graphs",
+        "infrastructure map",
+        "external risk signals"
+      ],
+      "feeds": [
+        "analytics",
+        "security",
+        "pentest",
+        "architecture"
+      ],
+      "workshop_participation": {
+        "W00": "SUPPORT",
+        "W10": "SPECIALIST",
+        "W20": "SUPPORT",
+        "W30": "CONSUMER_PRODUCER",
+        "W40": "SPECIALIST",
+        "W50": "ADVISORY",
+        "W60": "EVIDENCE",
+        "W70": "NONE",
+        "W80": "SUPPORT",
+        "W90": "OUTPUT"
+      },
+      "common_contract": "INPUT → ANALYTICAL CORE → DOMAIN K1/K2 → WORKSHOP ARTIFACTS → TESTS → EVIDENCE → GATE → NEXT"
+    },
+    {
+      "id": "security",
+      "tab": "ИБ",
+      "status": "DESIGN",
+      "agent_family": "SECURITY",
+      "role": "Security engineering, controls, risk and compliance.",
+      "overlay": "KB-K1-IB",
+      "input": [
+        "analytics bundle",
+        "architecture",
+        "assets",
+        "regulatory sources",
+        "OSINT findings"
+      ],
+      "output": [
+        "threat model",
+        "controls",
+        "security requirements",
+        "risk register",
+        "security evidence"
+      ],
+      "feeds": [
+        "analytics",
+        "pentest",
+        "devsecops",
+        "architecture"
+      ],
+      "workshop_participation": {
+        "W00": "ADVISORY",
+        "W10": "SPECIALIST",
+        "W20": "REVIEW",
+        "W30": "CONSUMER",
+        "W40": "REVIEW",
+        "W50": "REVIEW",
+        "W60": "OWNER",
+        "W70": "REVIEW",
+        "W80": "APPROVER",
+        "W90": "EVIDENCE"
+      },
+      "common_contract": "INPUT → ANALYTICAL CORE → DOMAIN K1/K2 → WORKSHOP ARTIFACTS → TESTS → EVIDENCE → GATE → NEXT"
+    },
+    {
+      "id": "pentest",
+      "tab": "Pentest",
+      "status": "DESIGN",
+      "agent_family": "PENTEST",
+      "role": "Authorized security testing and remediation verification.",
+      "overlay": "KB-K1-PENTEST",
+      "input": [
+        "approved scope",
+        "security model",
+        "OSINT surface map",
+        "test plan"
+      ],
+      "output": [
+        "validated findings",
+        "evidence",
+        "retest results",
+        "coverage report"
+      ],
+      "feeds": [
+        "analytics",
+        "security",
+        "lab"
+      ],
+      "workshop_participation": {
+        "W00": "NONE",
+        "W10": "SUPPORT",
+        "W20": "ADVISORY",
+        "W30": "CONSUMER",
+        "W40": "SPECIALIST",
+        "W50": "NONE",
+        "W60": "SPECIALIST",
+        "W70": "LAB_DEPENDENT",
+        "W80": "EVIDENCE",
+        "W90": "REPORT"
+      },
+      "common_contract": "INPUT → ANALYTICAL CORE → DOMAIN K1/K2 → WORKSHOP ARTIFACTS → TESTS → EVIDENCE → GATE → NEXT"
+    },
+    {
+      "id": "devsecops",
+      "tab": "DevSecOps",
+      "status": "DESIGN",
+      "agent_family": "DEVSECOPS",
+      "role": "Secure delivery, CI/CD, supply chain and policy as code.",
+      "overlay": "KB-K1-DEVSECOPS",
+      "input": [
+        "architecture",
+        "security controls",
+        "code",
+        "environment profile"
+      ],
+      "output": [
+        "pipeline controls",
+        "build evidence",
+        "deployment evidence",
+        "policy results"
+      ],
+      "feeds": [
+        "analytics",
+        "security",
+        "operations"
+      ],
+      "workshop_participation": {
+        "W00": "NONE",
+        "W10": "ADVISORY",
+        "W20": "REVIEW",
+        "W30": "CONSUMER",
+        "W40": "SPECIALIST",
+        "W50": "SUPPORT",
+        "W60": "SPECIALIST",
+        "W70": "OWNER",
+        "W80": "EVIDENCE",
+        "W90": "RUNBOOK"
+      },
+      "common_contract": "INPUT → ANALYTICAL CORE → DOMAIN K1/K2 → WORKSHOP ARTIFACTS → TESTS → EVIDENCE → GATE → NEXT"
+    },
+    {
+      "id": "knowledge",
+      "tab": "Knowledge",
+      "status": "DESIGN",
+      "agent_family": "KNOWLEDGE",
+      "role": "Source governance, ingestion, ontology, RAG and knowledge publishing.",
+      "overlay": "KB-K1-KNOWLEDGE-ENGINEERING",
+      "input": [
+        "sources",
+        "analytics output",
+        "project documents"
+      ],
+      "output": [
+        "K0/K1/K2 packages",
+        "source registry",
+        "datasets",
+        "knowledge graph"
+      ],
+      "feeds": [
+        "analytics",
+        "osint",
+        "security",
+        "legal",
+        "engineering",
+        "architecture"
+      ],
+      "workshop_participation": {
+        "W00": "SUPPORT",
+        "W10": "SUPPORT",
+        "W20": "ADVISORY",
+        "W30": "OWNER",
+        "W40": "SUPPORT",
+        "W50": "SUPPORT",
+        "W60": "VALIDATION",
+        "W70": "ADVISORY",
+        "W80": "EVIDENCE",
+        "W90": "PACKAGE"
+      },
+      "common_contract": "INPUT → ANALYTICAL CORE → DOMAIN K1/K2 → WORKSHOP ARTIFACTS → TESTS → EVIDENCE → GATE → NEXT"
+    },
+    {
+      "id": "legal",
+      "tab": "Legal",
+      "status": "PLANNED",
+      "agent_family": "LEGAL",
+      "role": "Legal and regulatory interpretation as a domain overlay on analytical core.",
+      "overlay": "KB-K1-LEGAL",
+      "input": [
+        "analytics bundle",
+        "regulatory sources",
+        "project facts"
+      ],
+      "output": [
+        "legal positions",
+        "obligations",
+        "responsibility map",
+        "evidence references"
+      ],
+      "feeds": [
+        "analytics",
+        "security",
+        "architecture"
+      ],
+      "workshop_participation": {
+        "W00": "ADVISORY",
+        "W10": "SPECIALIST",
+        "W20": "REVIEW",
+        "W30": "CONSUMER_PRODUCER",
+        "W40": "ADVISORY",
+        "W50": "NONE",
+        "W60": "COMPLIANCE",
+        "W70": "NONE",
+        "W80": "APPROVER",
+        "W90": "LEGAL_PACKAGE"
+      },
+      "common_contract": "INPUT → ANALYTICAL CORE → DOMAIN K1/K2 → WORKSHOP ARTIFACTS → TESTS → EVIDENCE → GATE → NEXT"
+    },
+    {
+      "id": "engineering",
+      "tab": "Engineering",
+      "status": "PLANNED",
+      "agent_family": "ENGINEERING",
+      "role": "Technical engineering analysis for physical/electronic/robotic systems.",
+      "overlay": "KB-K1-ENGINEERING",
+      "input": [
+        "analytics bundle",
+        "technical documents",
+        "measurements",
+        "constraints"
+      ],
+      "output": [
+        "engineering model",
+        "requirements",
+        "calculations",
+        "design evidence"
+      ],
+      "feeds": [
+        "analytics",
+        "architecture"
+      ],
+      "workshop_participation": {
+        "W00": "SUPPORT",
+        "W10": "SPECIALIST",
+        "W20": "SPECIALIST",
+        "W30": "CONSUMER_PRODUCER",
+        "W40": "SPECIALIST",
+        "W50": "SUPPORT",
+        "W60": "TEST",
+        "W70": "ADVISORY",
+        "W80": "ACCEPTANCE",
+        "W90": "ENGINEERING_PACKAGE"
+      },
+      "common_contract": "INPUT → ANALYTICAL CORE → DOMAIN K1/K2 → WORKSHOP ARTIFACTS → TESTS → EVIDENCE → GATE → NEXT"
+    },
+    {
+      "id": "architecture",
+      "tab": "Архитектура",
+      "status": "ACTIVE",
+      "agent_family": "FATHER_ARCHITECT",
+      "role": "Transforms validated domain outputs into system architecture and Development Pack.",
+      "overlay": "KB-K1-ARCHITECT",
+      "input": [
+        "analytics bundle",
+        "domain findings",
+        "requirements",
+        "constraints"
+      ],
+      "output": [
+        "HLD",
+        "LLD",
+        "ADR",
+        "contracts",
+        "Development Pack"
+      ],
+      "feeds": [
+        "implementation",
+        "security",
+        "devsecops"
+      ],
+      "workshop_participation": {
+        "W00": "SUPPORT",
+        "W10": "CONSUMER",
+        "W20": "OWNER",
+        "W30": "CONSUMER",
+        "W40": "OWNER",
+        "W50": "HANDOFF",
+        "W60": "REVIEW",
+        "W70": "REVIEW",
+        "W80": "SUPPORT",
+        "W90": "ARCH_PACKAGE"
+      },
+      "common_contract": "INPUT → ANALYTICAL CORE → DOMAIN K1/K2 → WORKSHOP ARTIFACTS → TESTS → EVIDENCE → GATE → NEXT"
+    }
+  ],
+  "agent_rule": "Agent = worker/role implementation inside a workshop. Agent is never equal to the factory or branch.",
+  "knowledge_rule": "DOMAIN = K0 Common + shared Analytical Core + K1 specialization + optional K2 project context.",
+  "dossier_rule": "C00-C99 is the controlled dossier index. Workshops consume and produce multiple Cxx artifacts.",
+  "certification_rule": "No release without regulation, tests, evidence and acceptance.",
+  "registries": {
+    "knowledge_registry": "factory/data/knowledge-registry-v2.json",
+    "agent_kit_registry": "factory/data/agent-kit-registry.json",
+    "manufacturing_model": "factory/data/factory-manufacturing-model.json",
+    "field_model": "site/data/father-field.json"
+  },
+  "current_known_k1": [
+    "KB-K1-ALINA-ANALYTICS",
+    "KB-K1-OSINT",
+    "KB-K1-ARCHITECT",
+    "KB-K1-PROGRAMMER",
+    "KB-K1-IB",
+    "KB-K1-DEVSECOPS",
+    "KB-K1-KNOWLEDGE-ENGINEERING",
+    "KB-K1-QUALITY-EVAL",
+    "KB-K1-OPS-SRE",
+    "KB-K1-FACTORY-ORCHESTRATION",
+    "KB-K1-COMMUNICATION-BRIDGE",
+    "KB-K1-PENTEST"
+  ],
+  "current_agent_kits": [
+    "KIT-ALINA-ANALYST",
+    "KIT-FATHER-ARCHITECT",
+    "KIT-FATHER-PROGRAMMER",
+    "KIT-KNOWLEDGE-ENGINEER",
+    "KIT-QA-EVALUATOR",
+    "KIT-SECURITY-ENGINEER",
+    "KIT-DEVOPS-SRE",
+    "KIT-FACTORY-CONTROLLER",
+    "KIT-OSINT-LEAD",
+    "KIT-TELEGRAM-VOICE-BRIDGE"
+  ]
+}

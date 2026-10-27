@@ -1,0 +1,107 @@
+{
+  "schema_version": "father-factory-manufacturing-model.v1",
+  "status": "CANONICAL_ARCHITECTURE",
+  "definition": "Information-engineering factory that transforms input information into a verified project/product.",
+  "laws": [
+    "NO_REGULATION_NO_PROCESS",
+    "NO_TEST_NO_CLAIM_OF_QUALITY",
+    "NO_EVIDENCE_NO_PROMOTION",
+    "NO_ACCEPTANCE_NO_RELEASE"
+  ],
+  "universal_workshop_contract": [
+    "INPUT",
+    "REGULATION",
+    "RESPONSIBLE_ROLE",
+    "PROCESS",
+    "TOOLS_MODELS_KNOWLEDGE",
+    "ARTIFACTS",
+    "TESTS_VALIDATION",
+    "EVIDENCE",
+    "GATE",
+    "OUTPUT",
+    "NEXT_WORKSHOP"
+  ],
+  "workshops": [
+    {
+      "id": "W00",
+      "name": "INTAKE",
+      "purpose": "Register and classify incoming work."
+    },
+    {
+      "id": "W10",
+      "name": "ANALYSIS",
+      "purpose": "Transform raw information into requirements, facts, risks and traceability."
+    },
+    {
+      "id": "W20",
+      "name": "ARCHITECTURE",
+      "purpose": "Transform validated requirements into architecture and Development Pack."
+    },
+    {
+      "id": "W30",
+      "name": "KNOWLEDGE_DATA",
+      "purpose": "Prepare governed knowledge, data, datasets and contracts."
+    },
+    {
+      "id": "W40",
+      "name": "AGENT_COMPONENT_ENGINEERING",
+      "purpose": "Select REUSE/ADAPT/NEW components, Agent Kits, models and tools."
+    },
+    {
+      "id": "W50",
+      "name": "IMPLEMENTATION",
+      "purpose": "Produce code/configuration from approved design."
+    },
+    {
+      "id": "W60",
+      "name": "QA_SECURITY_LAB",
+      "purpose": "Independently prove functional, quality and security properties."
+    },
+    {
+      "id": "W70",
+      "name": "DEVOPS_ENVIRONMENTS",
+      "purpose": "Build, package, deploy and operate with evidence."
+    },
+    {
+      "id": "W80",
+      "name": "ACCEPTANCE_CERTIFICATION",
+      "purpose": "Evaluate full evidence bundle and authorize promotion."
+    },
+    {
+      "id": "W90",
+      "name": "OUTPUT_DELIVERY",
+      "purpose": "Deliver product plus complete controlled technical dossier."
+    }
+  ],
+  "input_types": [
+    "IDEA",
+    "BUSINESS_TASK",
+    "TECHNICAL_SPEC",
+    "DOCUMENTS",
+    "REGULATORY_SOURCES",
+    "DATA",
+    "SOURCE_CODE",
+    "EXISTING_SYSTEM",
+    "INCIDENT",
+    "MODERNIZATION_REQUEST",
+    "PREVIOUS_VERSION"
+  ],
+  "output_bundle": [
+    "PRODUCT",
+    "SOURCE_CODE",
+    "ARCHITECTURE",
+    "CONTROLLED_DOCUMENTS",
+    "KNOWLEDGE_PROFILE",
+    "TESTS",
+    "SECURITY_RESULTS",
+    "LAB_RESULTS",
+    "TRACE_EVIDENCE",
+    "BUILD_DEPLOYMENT",
+    "RUNBOOKS",
+    "CERTIFICATION_STATUS",
+    "KNOWN_LIMITATIONS",
+    "FEEDBACK_CHANGE_LOOP"
+  ],
+  "role_rule": "Agents are workers/equipment inside workshops; they are not the factory.",
+  "c00_c99_rule": "C00-C99 indexes controlled product dossier areas; workshops may consume/produce multiple Cxx artifacts."
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "father://trace/telegram-voice-bridge/v1",
+  "title": "Telegram Voice Bridge Trace Event",
+  "type": "object",
+  "required": [
+    "trace_id",
+    "event_id",
+    "timestamp",
+    "agent_id",
+    "event",
+    "status",
+    "metadata"
+  ],
+  "properties": {
+    "trace_id": {
+      "type": "string"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "agent_id": {
+      "const": "FTH-AG-VBR-001"
+    },
+    "event": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "START",
+        "PASS",
+        "WARN",
+        "FAIL"
+      ]
+    },
+    "duration_ms": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "metadata": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

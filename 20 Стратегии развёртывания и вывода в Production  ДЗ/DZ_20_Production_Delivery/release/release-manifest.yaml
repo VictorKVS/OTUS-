@@ -1,0 +1,45 @@
+schema_version: father-release.v1
+release_id: REL-2026-10-DZ20-001
+status: candidate
+
+application:
+  name: father-ai-service
+  image: registry.example/father-ai-service@sha256:REPLACE_WITH_IMMUTABLE_DIGEST
+  git_commit: REPLACE_WITH_COMMIT_SHA
+
+model:
+  registry_uri: registry://father-models/assistant
+  version: "candidate-v1"
+  artifact_digest: REPLACE_WITH_MODEL_DIGEST
+
+rag:
+  index_id: father-knowledge
+  index_version: "candidate-v1"
+  embedding_profile: "embedding-profile-v1"
+
+prompt:
+  version: "prompt-v1"
+
+configuration:
+  version: "config-v1"
+
+schema:
+  contract_version: "api-schema-v1"
+  migration_strategy: "backward-compatible-or-tested-rollback"
+
+feature_flags:
+  profile_version: "flags-v1"
+
+deployment:
+  strategy: canary
+  stages_percent: [1, 5, 100]
+
+evidence:
+  unit_tests: pending
+  e2e_tests: pending
+  ai_eval: pending
+  security_gate: pending
+  sbom: pending
+  load_test: pending
+  canary_analysis: pending
+  rollback_drill: pending

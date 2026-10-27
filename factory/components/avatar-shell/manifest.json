@@ -1,0 +1,77 @@
+{
+  "schema_version": "father-component.v1",
+  "component_id": "FTH-CMP-AVATAR-SHELL-001",
+  "name": "FATHER Primitive Avatar Shell",
+  "family": "HUMAN_INTERFACE",
+  "version": "0.1.0",
+  "status": "DESIGN",
+  "reuse_state": "READY_TO_IMPLEMENT",
+  "certification_status": "NOT_CERTIFIED",
+  "purpose": "Replaceable front-end shell for one FATHER conversational avatar. Starts as static image + states + text/voice controls; later replaced by interactive video.",
+  "contract": {
+    "input": [
+      "operator response text",
+      "operator state",
+      "optional audio",
+      "session status"
+    ],
+    "output": [
+      "visual state",
+      "rendered response",
+      "user text/voice event"
+    ],
+    "errors": [
+      "audio unavailable",
+      "microphone unavailable",
+      "renderer failure"
+    ]
+  },
+  "capabilities": [
+    "STATIC_AVATAR",
+    "STATE_INDICATION",
+    "TEXT_CHAT_UI",
+    "VOICE_INPUT_TRIGGER",
+    "TTS_PLAYBACK",
+    "FUTURE_VIDEO_ADAPTER"
+  ],
+  "config": [
+    "avatar asset",
+    "display name",
+    "state animation",
+    "voice profile",
+    "caption mode",
+    "video adapter future"
+  ],
+  "metrics": [
+    "render success",
+    "interaction latency",
+    "voice playback success",
+    "UI error rate"
+  ],
+  "tests_required": [
+    "static render",
+    "state transitions",
+    "text roundtrip",
+    "TTS playback",
+    "microphone unavailable fallback"
+  ],
+  "evidence": [
+    "UI build version",
+    "asset hash",
+    "state transition trace",
+    "TTS trace_id"
+  ],
+  "security_profile": [
+    "no secrets in client",
+    "no hidden privileged actions",
+    "privacy-safe transcript handling"
+  ],
+  "compatible_workshops": [
+    "W40",
+    "W50",
+    "W60",
+    "W70"
+  ],
+  "next_promotion_gate": "G-CMP-AVATAR-VALIDATE",
+  "promotion_condition": "Implement static shell and prove text + TTS + state transitions in one end-to-end session."
+}

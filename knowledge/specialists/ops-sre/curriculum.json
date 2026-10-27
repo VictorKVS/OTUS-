@@ -1,0 +1,101 @@
+{
+  "schema_version": "father-specialist-curriculum.v1",
+  "knowledge_pack_id": "KB-K1-OPS-SRE",
+  "version": "0.1.0",
+  "prerequisite": "G-K0-GRADUATION",
+  "modules": [
+    {
+      "id": "SRE-M01",
+      "name": "Containers & Runtime",
+      "skills": [
+        "images",
+        "registries",
+        "resources",
+        "health"
+      ]
+    },
+    {
+      "id": "SRE-M02",
+      "name": "Kubernetes",
+      "skills": [
+        "workloads",
+        "services",
+        "RBAC",
+        "NetworkPolicy",
+        "storage"
+      ]
+    },
+    {
+      "id": "SRE-M03",
+      "name": "CI/CD & GitOps",
+      "skills": [
+        "build",
+        "promotion",
+        "desired state",
+        "rollback"
+      ]
+    },
+    {
+      "id": "SRE-M04",
+      "name": "Observability",
+      "skills": [
+        "logs",
+        "metrics",
+        "traces",
+        "correlation"
+      ]
+    },
+    {
+      "id": "SRE-M05",
+      "name": "SLI/SLO",
+      "skills": [
+        "availability",
+        "latency",
+        "errors",
+        "error budgets"
+      ]
+    },
+    {
+      "id": "SRE-M06",
+      "name": "Reliability",
+      "skills": [
+        "HA",
+        "DR",
+        "backup",
+        "restore",
+        "failure drills"
+      ]
+    },
+    {
+      "id": "SRE-M07",
+      "name": "Capacity & FinOps",
+      "skills": [
+        "requests/limits",
+        "capacity",
+        "cost",
+        "utilization"
+      ]
+    },
+    {
+      "id": "SRE-M08",
+      "name": "Incidents",
+      "skills": [
+        "triage",
+        "containment",
+        "restore",
+        "RCA",
+        "regression"
+      ]
+    }
+  ],
+  "graduation_gate": {
+    "id": "G-K1-OPS-SRE-GRADUATION",
+    "rules": [
+      "K0_pass",
+      "module_assessments_pass",
+      "golden_cases_pass",
+      "evidence_quality_pass",
+      "regression_pass"
+    ]
+  }
+}

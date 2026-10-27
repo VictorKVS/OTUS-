@@ -1,0 +1,154 @@
+{
+  "schema_version": "father-assembly-manifest.v1",
+  "assembly_id": "ASM-REF-FATHER-ASSISTANT-001",
+  "product_id": "REF-FATHER-ASSISTANT-001",
+  "version": "0.1.0",
+  "status": "E2E_DRY_CHECK_PASS_LIVE_PENDING",
+  "objective": "First minimal FATHER-built LLM system proving reusable block assembly before channel/voice/avatar expansion.",
+  "product_runtime": [
+    "BLK-TASK-INPUT",
+    "BLK-FATHER-OPERATOR",
+    "BLK-AGENT-SELECTOR",
+    "BLK-ALINA",
+    "BLK-KNOWLEDGE-RAG",
+    "BLK-MODEL-ROUTER",
+    "BLK-PROMPT-RUN"
+  ],
+  "control_plane": [
+    "BLK-METRICS-LAB",
+    "BLK-SECURITY",
+    "BLK-EVIDENCE-IP"
+  ],
+  "factory_build_lane": [
+    "BLK-TASK-INPUT",
+    "BLK-FACTORY-CONTROLLER",
+    "BLK-ALINA",
+    "BLK-ARCHITECT",
+    "BLK-PROGRAMMER",
+    "BLK-METRICS-LAB",
+    "BLK-SECURITY",
+    "BLK-EVIDENCE-IP"
+  ],
+  "excluded_v01": [
+    "BLK-CONNECTIVITY-CHECK",
+    "BLK-TELEGRAM-CHANNEL",
+    "BLK-AVATAR-SHELL",
+    "BLK-VOICE-TTS",
+    "BLK-DEVOPS",
+    "BLK-OSINT"
+  ],
+  "bindings": {
+    "analytical_agent": "FTH-AG-ANL-001",
+    "analytical_identity_rule": "ONE_ALINA_CORE_MANY_DOMAIN_PROFILES",
+    "model_system": "MDL-FATHER-CORE-001",
+    "common_knowledge": "KB-K0-FATHER-COMMON",
+    "specialist_knowledge": "K1 by route",
+    "project_context": "K2",
+    "runtime_context": "K3"
+  },
+  "gates": {
+    "functional": "G-ASM-FUNCTIONAL",
+    "lab": "G-ASM-LAB",
+    "security": "G-ASM-SECURITY",
+    "ownership": "G-ASM-OWNERSHIP",
+    "acceptance": "G-ASM-ACCEPTANCE"
+  },
+  "acceptance": {
+    "required": [
+      "task accepted",
+      "route selected",
+      "K0/K1/K2/K3 context recorded",
+      "model system invoked or explicitly BLOCKED",
+      "answer/result captured",
+      "LAB record created",
+      "Security state explicit",
+      "ownership/provenance trace created",
+      "evidence bundle created"
+    ],
+    "production_requires": [
+      "functional PASS",
+      "LAB PASS",
+      "Security PASS",
+      "Ownership PASS",
+      "Acceptance PASS"
+    ]
+  },
+  "truth_rule": "Assembly presence does not promote block maturity. Every block retains registry status until its own gate passes.",
+  "validation": {
+    "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+    "runtime_repository": "VictorKVS/FATHER_VOICE_BRIDGE",
+    "github_actions_run_id": 40497097526,
+    "tests_passed": 70,
+    "dry_run": "PASS",
+    "k0_lab": {
+      "lab_id": "LAB-REF-FATHER-ASSISTANT-K0-001",
+      "status": "PASS_BASELINE",
+      "champion": "TOP_K_1",
+      "hit_rate": 1,
+      "mrr": 1,
+      "scope": "K0 lexical retrieval only"
+    },
+    "live_llm": "PENDING",
+    "independent_security_acceptance": "PENDING",
+    "production_ready": false,
+    "layered_knowledge_lab": {
+      "lab_id": "LAB-REF-FATHER-LAYERED-001",
+      "champion": "LAYERED_TOP_K_3",
+      "hit_rate": 1,
+      "mrr": 0.9167,
+      "cases": 6
+    },
+    "security_regression": {
+      "lab_id": "LAB-REF-FATHER-SECURITY-001",
+      "cases": 8,
+      "accuracy": 1
+    },
+    "ui_channel_contracts": {
+      "telegram": "PASS_CONTRACT",
+      "avatar": "PASS_CONTRACT",
+      "tts": "PASS_CONTRACT",
+      "avatar_js_syntax": "PASS"
+    },
+    "mission_control_run_id": 40497097588,
+    "live_telegram": "PENDING",
+    "live_tts_provider": "PENDING_CURRENT_MACHINE",
+    "live_avatar_session": "PENDING",
+    "unified_e2e": {
+      "github_actions_run_id": 40497744473,
+      "tests_passed": 73,
+      "mode": "DRY_CHECK",
+      "core": "PASS",
+      "knowledge": "PASS",
+      "security_baseline": "PASS",
+      "avatar": "PASS",
+      "telegram": "PASS_CONTRACT",
+      "tts": "PASS_CONTRACT",
+      "decision": "DRY_CHECK_PASS_LIVE_PENDING",
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001"
+    }
+  },
+  "optional_adapters": {
+    "telegram": {
+      "component_id": "FTH-CMP-TELEGRAM-CHANNEL-001",
+      "status": "CONTRACT_VALIDATED_LIVE_PENDING",
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+      "implementation": "father_telegram_adapter_v01.py"
+    },
+    "voice_tts": {
+      "component_id": "FTH-CMP-VOICE-TTS-001",
+      "status": "VALIDATED_COMPONENT_BOUND_LIVE_PROVIDER_PENDING",
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+      "implementation": "father_tts_adapter_v01.py"
+    },
+    "avatar": {
+      "component_id": "FTH-CMP-AVATAR-SHELL-001",
+      "status": "EXPERIMENTAL_PRODUCT_BOUND",
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+      "implementation": [
+        "site/avatar.html",
+        "site/avatar.css",
+        "site/avatar.js"
+      ]
+    }
+  }
+}

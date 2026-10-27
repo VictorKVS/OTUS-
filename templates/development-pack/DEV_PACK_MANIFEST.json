@@ -1,0 +1,50 @@
+{
+  "schema_version": "father-dev-pack-manifest.v1",
+  "pack_id": "DEV-PACK-TEMPLATE",
+  "project_id": "PROJECT-ID",
+  "task_id": "TASK-ID",
+  "version": "0.1.0",
+  "status": "template",
+  "analyst_signoff": {
+    "status": "pending",
+    "by": null,
+    "at": null
+  },
+  "architect_signoff": {
+    "status": "pending",
+    "by": null,
+    "at": null
+  },
+  "pre_dev_gate": {
+    "status": "not_run",
+    "validator_version": "1.0.0",
+    "report": "PRE_DEV_VALIDATION_REPORT.md"
+  },
+  "requirement_ids": [],
+  "related_adr_ids": [],
+  "api_version": "0.1.0",
+  "schema_version_ref": "0.1.0",
+  "security_classification": "TBD",
+  "critical_open_questions": [],
+  "required_documents": [
+    "DEV_PACK_MANIFEST.json",
+    "DEV_TASK.md",
+    "REQUIREMENTS_SLICE.yaml",
+    "ACCEPTANCE_CRITERIA.md",
+    "LLD_COMPONENT.md",
+    "SEQUENCE.md",
+    "openapi.yaml",
+    "schemas/*.schema.json",
+    "DATA_MODEL_SLICE.md",
+    "SECURITY_CONSTRAINTS.md",
+    "OBSERVABILITY_REQUIREMENTS.md",
+    "QUALITY_GATES.yaml",
+    "TEST_PLAN.md",
+    "CONFIG_CONTRACT.yaml",
+    "MIGRATION_PLAN.md",
+    "ROLLBACK_PLAN.md",
+    "RELATED_ADR.md",
+    "TRACEABILITY_SLICE.json",
+    "PRE_DEV_VALIDATION_REPORT.md"
+  ]
+}

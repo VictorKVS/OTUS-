@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Lesson 11 — Integrations from Classic to AI Standards</title>
+<desc id="desc">Integration architecture using contracts, synchronous APIs, message brokers, ETL, adapters, reliability controls, security and observability, with separate MCP, AI Gateway and model artifact responsibilities.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061018"/><stop offset="1" stop-color="#19152f"/></linearGradient><style>.t{font-family:Segoe UI,Arial,sans-serif;fill:#eef7ff}.m{fill:#91a9ba}.h{font-weight:700}.box{fill:#0d1a25;stroke:#29495d;stroke-width:2}.cyan{stroke:#4ed9ff}.vio{stroke:#9b83ff}.green{stroke:#63e6a5}.amber{stroke:#ffbd65}.red{stroke:#ff7474}.mono{font-family:Consolas,monospace}</style></defs>
+<rect width="1600" height="1000" rx="28" fill="url(#bg)"/>
+<text x="70" y="70" class="t h" font-size="34">LESSON 11 · Integration Architecture</text>
+<text x="70" y="108" class="m mono" font-size="15">CONTRACT → PATTERN → ADAPTER → RELIABILITY → SECURITY / OBSERVABILITY</text>
+
+<rect x="70" y="165" width="280" height="150" rx="20" class="box cyan"/><text x="100" y="205" class="t h" font-size="18">PRODUCER / CLIENT</text><text x="100" y="240" class="m" font-size="13">business system · AI service</text><text x="100" y="268" class="m" font-size="13">agent · legacy system</text>
+<rect x="410" y="165" width="280" height="150" rx="20" class="box vio"/><text x="440" y="205" class="t h" font-size="18">CONTRACT</text><text x="440" y="240" class="m" font-size="13">API / message schema</text><text x="440" y="268" class="m" font-size="13">version · errors</text>
+<rect x="750" y="165" width="360" height="150" rx="20" class="box amber"/><text x="780" y="205" class="t h" font-size="18">INTEGRATION PATTERN</text><text x="780" y="240" class="m" font-size="13">HTTP/gRPC · Broker · ETL</text><text x="780" y="268" class="m" font-size="13">A2A / MCP when semantics fit</text>
+<rect x="1170" y="165" width="360" height="150" rx="20" class="box green"/><text x="1200" y="205" class="t h" font-size="18">ADAPTER / TARGET</text><text x="1200" y="240" class="m" font-size="13">legacy anti-corruption layer</text><text x="1200" y="268" class="m" font-size="13">AI / enterprise target</text>
+<path d="M350 240H410M690 240H750M1110 240H1170" stroke="#4ed9ff" stroke-width="5"/>
+
+<text x="70" y="390" class="t h" font-size="20">RELIABILITY ENVELOPE</text>
+<rect x="70" y="430" width="280" height="150" rx="20" class="box red"/><text x="100" y="470" class="t h" font-size="17">TIMEOUT / RETRY</text><text x="100" y="503" class="m" font-size="13">bounded retries</text><text x="100" y="530" class="m" font-size="13">backoff · circuit breaker</text>
+<rect x="390" y="430" width="280" height="150" rx="20" class="box red"/><text x="420" y="470" class="t h" font-size="17">DLQ</text><text x="420" y="503" class="m" font-size="13">failed messages</text><text x="420" y="530" class="m" font-size="13">replay / investigation</text>
+<rect x="710" y="430" width="280" height="150" rx="20" class="box red"/><text x="740" y="470" class="t h" font-size="17">IDEMPOTENCY</text><text x="740" y="503" class="m" font-size="13">duplicate suppression</text><text x="740" y="530" class="m" font-size="13">safe retries</text>
+<rect x="1030" y="430" width="230" height="150" rx="20" class="box cyan"/><text x="1060" y="470" class="t h" font-size="17">OBS</text><text x="1060" y="503" class="m" font-size="13">trace · correlation ID</text><text x="1060" y="530" class="m" font-size="13">outcome / latency</text>
+<rect x="1300" y="430" width="230" height="150" rx="20" class="box vio"/><text x="1330" y="470" class="t h" font-size="17">SECURITY</text><text x="1330" y="503" class="m" font-size="13">identity · policy</text><text x="1330" y="530" class="m" font-size="13">least privilege</text>
+
+<text x="70" y="665" class="t h" font-size="20">FATHER PRODUCTION RESPONSIBILITIES</text>
+<rect x="70" y="705" width="200" height="135" rx="18" class="box vio"/><text x="95" y="744" class="t h" font-size="15">FTH-API-001</text><text x="95" y="775" class="m" font-size="12">Contract Registry</text>
+<rect x="290" y="705" width="220" height="135" rx="18" class="box cyan"/><text x="315" y="744" class="t h" font-size="15">FTH-IGR-001</text><text x="315" y="775" class="m" font-size="12">Integration Runtime</text>
+<rect x="530" y="705" width="200" height="135" rx="18" class="box green"/><text x="555" y="744" class="t h" font-size="15">FTH-MCP-001</text><text x="555" y="775" class="m" font-size="12">MCP Gateway</text>
+<rect x="750" y="705" width="200" height="135" rx="18" class="box amber"/><text x="775" y="744" class="t h" font-size="15">FTH-GTW-001</text><text x="775" y="775" class="m" font-size="12">AI Gateway</text>
+<rect x="970" y="705" width="200" height="135" rx="18" class="box cyan"/><text x="995" y="744" class="t h" font-size="15">FTH-OBS-001</text><text x="995" y="775" class="m" font-size="12">Observability</text>
+<rect x="1190" y="705" width="200" height="135" rx="18" class="box vio"/><text x="1215" y="744" class="t h" font-size="15">FTH-POL-001</text><text x="1215" y="775" class="m" font-size="12">Policy / Security</text>
+<rect x="1410" y="705" width="120" height="135" rx="18" class="box green"/><text x="1425" y="744" class="t h" font-size="14">MODEL</text><text x="1425" y="775" class="m" font-size="11">ONNX</text>
+
+<text x="70" y="915" class="m" font-size="14">RULE: MCP ≠ universal API replacement · ONNX ≠ transport protocol · reliability and identity are part of the integration contract.</text>
+</svg>

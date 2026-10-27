@@ -1,0 +1,1263 @@
+{
+  "schema_version": "father-project-builder-blocks.v1",
+  "status": "CANONICAL_DESIGN",
+  "block_contract": [
+    "identity",
+    "status",
+    "inputs",
+    "outputs",
+    "config",
+    "tools",
+    "metrics",
+    "tests",
+    "evidence",
+    "security",
+    "ownership",
+    "dependencies"
+  ],
+  "categories": [
+    "INPUT_CHANNEL",
+    "CONNECTIVITY",
+    "ORCHESTRATION",
+    "AGENT",
+    "KNOWLEDGE_RAG",
+    "MODEL_RUNTIME",
+    "PROMPT_RUN",
+    "TOOLS",
+    "EVALUATION",
+    "SECURITY",
+    "EVIDENCE_IP",
+    "OUTPUT_CHANNEL",
+    "INNOVATION_PROVENANCE",
+    "AVATAR_INTERFACE"
+  ],
+  "blocks": [
+    {
+      "id": "BLK-TASK-INPUT",
+      "name": "Task / Prompt Input",
+      "category": "INPUT_CHANNEL",
+      "status": "DESIGN_READY",
+      "source": "FATHER Builder",
+      "description": "Общая задача пользователя: текст/голос, цель, ограничения, ожидаемый результат.",
+      "inputs": [
+        "text",
+        "voice transcript",
+        "files/references"
+      ],
+      "outputs": [
+        "normalized_task"
+      ],
+      "config": [
+        "task type",
+        "priority",
+        "language",
+        "privacy",
+        "expected output"
+      ],
+      "tools": [
+        "web UI",
+        "future Telegram/voice ingress"
+      ],
+      "metrics": [
+        "intake completeness",
+        "ambiguity count",
+        "clarification count"
+      ],
+      "tests": [
+        "required field validation",
+        "task normalization"
+      ],
+      "evidence": [
+        "task id",
+        "input hash",
+        "timestamp"
+      ],
+      "security": [
+        "content classification",
+        "PII flag"
+      ],
+      "ownership": [
+        "author/user",
+        "project id",
+        "input provenance"
+      ]
+    },
+    {
+      "id": "BLK-FACTORY-CONTROLLER",
+      "name": "FATHER Factory Controller",
+      "category": "ORCHESTRATION",
+      "status": "EXPERIMENTAL",
+      "source": "KIT-FACTORY-CONTROLLER",
+      "agent_id": "FTH-AG-FCT-001",
+      "description": "Разбирает задачу, читает реестры, предлагает граф блоков и управляет gate/status truth.",
+      "inputs": [
+        "normalized_task",
+        "registries"
+      ],
+      "outputs": [
+        "project_graph",
+        "routing_plan",
+        "missing_blocks"
+      ],
+      "config": [
+        "allowed workshops",
+        "auto/manual routing",
+        "promotion policy"
+      ],
+      "tools": [
+        "agent_registry",
+        "knowledge_registry",
+        "component_registry",
+        "gate_engine",
+        "workflow_engine"
+      ],
+      "metrics": [
+        "routing accuracy",
+        "invalid block rate",
+        "human override rate",
+        "gate violations"
+      ],
+      "tests": [
+        "registry-only composition",
+        "unknown block fail-closed"
+      ],
+      "evidence": [
+        "composition decision",
+        "block versions",
+        "routing trace"
+      ],
+      "security": [
+        "least privilege",
+        "cannot fabricate PASS"
+      ],
+      "ownership": [
+        "graph author",
+        "decision provenance",
+        "versioned composition"
+      ],
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001"
+    },
+    {
+      "id": "BLK-CONNECTIVITY-CHECK",
+      "name": "Connectivity / VPN Check",
+      "category": "CONNECTIVITY",
+      "status": "DESIGN",
+      "source": "FTH-CMP-CONNECTIVITY-001",
+      "description": "Pre-flight блок прямого/proxy/VPN-маршрута. Реализация TCP/HTTPS проверки есть; локальная runtime-валидация ещё требуется.",
+      "inputs": [
+        "target endpoints",
+        "network profile"
+      ],
+      "outputs": [
+        "connectivity_status",
+        "route_profile"
+      ],
+      "config": [
+        "endpoints",
+        "proxy",
+        "VPN mode",
+        "timeouts",
+        "fail-open/closed"
+      ],
+      "tools": [
+        "FTH-CMP-CONNECTIVITY-001",
+        "TCP/HTTPS checks",
+        "proxy route check"
+      ],
+      "metrics": [
+        "availability",
+        "latency",
+        "failure rate",
+        "route changes"
+      ],
+      "tests": [
+        "Telegram HTTPS check",
+        "provider endpoint check",
+        "proxy bypass negative test"
+      ],
+      "evidence": [
+        "father-connectivity-evidence.v1 report",
+        "timestamped endpoint results",
+        "route profile"
+      ],
+      "security": [
+        "no credential leakage",
+        "fail closed where required"
+      ],
+      "ownership": [
+        "environment id",
+        "network profile version",
+        "evidence signer"
+      ]
+    },
+    {
+      "id": "BLK-TELEGRAM-CHANNEL",
+      "name": "Telegram Channel",
+      "category": "INPUT_CHANNEL",
+      "status": "EXPERIMENTAL",
+      "source": "FTH-CMP-TELEGRAM-CHANNEL-001",
+      "agent_id": "FTH-AG-VBR-001",
+      "description": "Telegram transport extracted from Voice Bridge reference product; central reusable runtime extraction is still in progress.",
+      "inputs": [
+        "Telegram text/voice"
+      ],
+      "outputs": [
+        "normalized text",
+        "voice/file metadata",
+        "Telegram response"
+      ],
+      "config": [
+        "bot token secret ref",
+        "allowed chats",
+        "media lifecycle",
+        "content capture"
+      ],
+      "tools": [
+        "telegram_bot_api",
+        "aiogram/native adapter"
+      ],
+      "metrics": [
+        "delivery success",
+        "message latency",
+        "API error rate"
+      ],
+      "tests": [
+        "send/receive text",
+        "voice file handling",
+        "unauthorized chat"
+      ],
+      "evidence": [
+        "trace_id",
+        "message metadata"
+      ],
+      "security": [
+        "secret isolation",
+        "chat allowlist",
+        "privacy trace"
+      ],
+      "ownership": [
+        "bot/project owner",
+        "message provenance"
+      ],
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001"
+    },
+    {
+      "id": "BLK-ALINA",
+      "name": "ALINA Analyst",
+      "category": "AGENT",
+      "status": "GPT_EMULATED_READY",
+      "source": "KIT-ALINA-ANALYST",
+      "agent_id": "FTH-AG-ANL-001",
+      "description": "Анализирует задачу, готовит тему, prompt, знания, факты, сущности, гипотезы и evidence bundle.",
+      "inputs": [
+        "normalized_task",
+        "sources"
+      ],
+      "outputs": [
+        "analytics_bundle",
+        "topic_pack",
+        "knowledge_request"
+      ],
+      "config": [
+        "role mode",
+        "depth",
+        "source policy",
+        "confidence threshold",
+        "teaching mode"
+      ],
+      "tools": [
+        "document_parser",
+        "search",
+        "RAG",
+        "knowledge_graph",
+        "citation_engine",
+        "evaluation"
+      ],
+      "metrics": [
+        "source coverage",
+        "citation completeness",
+        "contradiction rate",
+        "confidence",
+        "task relevance"
+      ],
+      "tests": [
+        "source traceability",
+        "hallucination/abstention",
+        "topic pack quality"
+      ],
+      "evidence": [
+        "citations",
+        "analysis trace",
+        "topic pack version"
+      ],
+      "security": [
+        "evidence-first",
+        "no silent invention"
+      ],
+      "ownership": [
+        "ALINA agent id",
+        "prompt version",
+        "source provenance"
+      ]
+    },
+    {
+      "id": "BLK-KNOWLEDGE-RAG",
+      "name": "Knowledge / RAG",
+      "category": "KNOWLEDGE_RAG",
+      "status": "CANDIDATE",
+      "source": "FTH-CMP-RAG-001",
+      "description": "Единый контракт retrieval: для первого MVP SIMPLE_LEXICAL, затем HYBRID_QDRANT. Реализации есть, но центральный runtime ещё надо извлечь.",
+      "inputs": [
+        "sources",
+        "topic_pack",
+        "query"
+      ],
+      "outputs": [
+        "retrieved_chunks",
+        "citations",
+        "context_bundle"
+      ],
+      "config": [
+        "knowledge layers",
+        "top_k",
+        "retrieval policy",
+        "chunking",
+        "citation policy",
+        "freshness"
+      ],
+      "tools": [
+        "knowledge_registry",
+        "retrieval",
+        "future vector DB"
+      ],
+      "metrics": [
+        "recall@k",
+        "precision@k",
+        "grounding",
+        "citation coverage",
+        "no-answer rate"
+      ],
+      "tests": [
+        "golden query set",
+        "missing-answer abstention",
+        "source conflict"
+      ],
+      "evidence": [
+        "chunk ids",
+        "scores",
+        "source versions"
+      ],
+      "security": [
+        "access scope",
+        "source permissions"
+      ],
+      "ownership": [
+        "knowledge pack ids",
+        "dataset/version",
+        "source licenses/provenance"
+      ]
+    },
+    {
+      "id": "BLK-AGENT-SELECTOR",
+      "name": "Agent Selector / Zoo",
+      "category": "ORCHESTRATION",
+      "status": "CANDIDATE",
+      "source": "Agent Kit Registry",
+      "description": "Выбирает один или несколько Agent Kits по задаче; позволяет отправить кандидатов в LAB на сравнительные метрики.",
+      "inputs": [
+        "task capability requirements",
+        "agent registry"
+      ],
+      "outputs": [
+        "candidate_agents",
+        "selected_agent"
+      ],
+      "config": [
+        "allowed families",
+        "status floor",
+        "cost/quality bias",
+        "manual override"
+      ],
+      "tools": [
+        "agent_registry",
+        "LAB"
+      ],
+      "metrics": [
+        "selection quality",
+        "task success",
+        "cost",
+        "latency",
+        "human preference"
+      ],
+      "tests": [
+        "capability match",
+        "status truth",
+        "fallback selection"
+      ],
+      "evidence": [
+        "candidate list",
+        "selection rationale",
+        "versions"
+      ],
+      "security": [
+        "permission profile match"
+      ],
+      "ownership": [
+        "agent kit/version",
+        "selection decision provenance"
+      ],
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001"
+    },
+    {
+      "id": "BLK-MODEL-ROUTER",
+      "name": "Model Router",
+      "category": "MODEL_RUNTIME",
+      "status": "CANDIDATE",
+      "source": "router-managed policy in Agent Kits",
+      "description": "Выбирает LLM/runtime для выбранного агента и позволяет сравнивать несколько моделей.",
+      "inputs": [
+        "agent request",
+        "model policy"
+      ],
+      "outputs": [
+        "model response",
+        "model trace"
+      ],
+      "config": [
+        "models",
+        "temperature",
+        "context",
+        "fallback",
+        "cost ceiling"
+      ],
+      "tools": [
+        "LLM providers",
+        "local models"
+      ],
+      "metrics": [
+        "quality",
+        "latency",
+        "tokens",
+        "cost",
+        "failure rate"
+      ],
+      "tests": [
+        "multi-model A/B",
+        "fallback",
+        "timeout"
+      ],
+      "evidence": [
+        "model id/version",
+        "parameters",
+        "request trace"
+      ],
+      "security": [
+        "provider/data policy"
+      ],
+      "ownership": [
+        "model/provider license ref",
+        "configuration version"
+      ],
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001"
+    },
+    {
+      "id": "BLK-PROMPT-RUN",
+      "name": "Prompt / Run",
+      "category": "PROMPT_RUN",
+      "status": "DESIGN_READY",
+      "source": "FATHER run contract",
+      "description": "Версионированный prompt + runtime parameters + запуск одного прогона.",
+      "inputs": [
+        "task",
+        "context",
+        "agent",
+        "model"
+      ],
+      "outputs": [
+        "run_result",
+        "trace"
+      ],
+      "config": [
+        "system prompt",
+        "task prompt",
+        "parameters",
+        "tool policy"
+      ],
+      "tools": [
+        "prompt registry",
+        "runtime"
+      ],
+      "metrics": [
+        "task score",
+        "latency",
+        "tokens",
+        "tool calls"
+      ],
+      "tests": [
+        "prompt regression",
+        "schema output validation"
+      ],
+      "evidence": [
+        "prompt hash/version",
+        "run_id",
+        "parameters"
+      ],
+      "security": [
+        "prompt injection checks",
+        "tool allowlist"
+      ],
+      "ownership": [
+        "prompt author",
+        "prompt hash",
+        "commit/version"
+      ]
+    },
+    {
+      "id": "BLK-METRICS-LAB",
+      "name": "Metrics / FATHER LAB",
+      "category": "EVALUATION",
+      "status": "DESIGN",
+      "source": "KIT-QA-EVALUATOR + FATHER LAB",
+      "agent_id": "FTH-AG-QA-001",
+      "description": "Выбирает метрики для каждого компонента и проекта; A/B/N, regression, champion/challenger.",
+      "inputs": [
+        "runs",
+        "expected criteria",
+        "traces"
+      ],
+      "outputs": [
+        "scores",
+        "findings",
+        "promotion recommendation"
+      ],
+      "config": [
+        "metric set",
+        "thresholds",
+        "datasets",
+        "judge model",
+        "statistical policy"
+      ],
+      "tools": [
+        "evaluation_harness",
+        "dataset_registry",
+        "trace_reader",
+        "reporter"
+      ],
+      "metrics": [
+        "pass rate",
+        "quality score",
+        "regression delta",
+        "false positives",
+        "cost/latency"
+      ],
+      "tests": [
+        "evaluator calibration",
+        "frozen criteria",
+        "repeatability"
+      ],
+      "evidence": [
+        "evaluation run",
+        "dataset version",
+        "metric definitions"
+      ],
+      "security": [
+        "independent review"
+      ],
+      "ownership": [
+        "metric version",
+        "dataset provenance",
+        "evaluator identity"
+      ]
+    },
+    {
+      "id": "BLK-SECURITY",
+      "name": "Security / Guardrails",
+      "category": "SECURITY",
+      "status": "EXPERIMENTAL",
+      "source": "KIT-SECURITY-ENGINEER",
+      "agent_id": "FTH-AG-SEC-001",
+      "description": "Experimental independent Security review baseline. Produces PASS_CANDIDATE/BLOCKED only; final Security acceptance remains human-gated.",
+      "inputs": [
+        "project_graph",
+        "configs",
+        "traces"
+      ],
+      "outputs": [
+        "security_findings",
+        "controls",
+        "gate decision input"
+      ],
+      "config": [
+        "risk profile",
+        "secret policy",
+        "data class",
+        "tool permissions"
+      ],
+      "tools": [
+        "security_scanners",
+        "SBOM",
+        "policy_checker",
+        "trace_reader"
+      ],
+      "metrics": [
+        "critical findings",
+        "policy compliance",
+        "secret exposure",
+        "attack surface"
+      ],
+      "tests": [
+        "SAST/SCA/IaC",
+        "permission review",
+        "negative tests"
+      ],
+      "evidence": [
+        "security report",
+        "SBOM",
+        "policy results"
+      ],
+      "security": [
+        "itself independent"
+      ],
+      "ownership": [
+        "security reviewer",
+        "policy version"
+      ],
+      "evidence_id": "EV-PROTO-READINESS-SECURITY-001"
+    },
+    {
+      "id": "BLK-VOICE-TTS",
+      "name": "Voice / TTS",
+      "category": "OUTPUT_CHANNEL",
+      "status": "VALIDATED",
+      "source": "FTH-CMP-VOICE-TTS-001",
+      "description": "Готовый к повторному использованию TTS/voice profile block.",
+      "inputs": [
+        "UTF-8 text",
+        "voice profile"
+      ],
+      "outputs": [
+        "speech audio",
+        "status",
+        "trace"
+      ],
+      "config": [
+        "provider",
+        "voice",
+        "speed/style",
+        "temporary media lifecycle"
+      ],
+      "tools": [
+        "TTS runtime",
+        "local HTTP service"
+      ],
+      "metrics": [
+        "generation success",
+        "latency",
+        "audio duration",
+        "provider errors"
+      ],
+      "tests": [
+        "TTS smoke",
+        "voice profile regression",
+        "failure path"
+      ],
+      "evidence": [
+        "EV-VOICE-LOCAL-001",
+        "trace_id"
+      ],
+      "security": [
+        "secrets outside client",
+        "temporary audio cleanup"
+      ],
+      "ownership": [
+        "component id/version",
+        "voice/provider rights",
+        "output provenance"
+      ],
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001"
+    },
+    {
+      "id": "BLK-EVIDENCE-IP",
+      "name": "Evidence / Ownership",
+      "category": "EVIDENCE_IP",
+      "status": "DESIGN_READY",
+      "source": "FATHER control plane",
+      "description": "Сквозной слой доказательности и прав собственности: кто, чем, из чего и какой версией создал результат.",
+      "inputs": [
+        "all block traces/artifacts"
+      ],
+      "outputs": [
+        "evidence_ledger",
+        "ownership_manifest",
+        "provenance_chain"
+      ],
+      "config": [
+        "evidence level",
+        "signing",
+        "hashing",
+        "license policy",
+        "retention"
+      ],
+      "tools": [
+        "git",
+        "hashing",
+        "trace center",
+        "dossier"
+      ],
+      "metrics": [
+        "evidence completeness",
+        "unowned artifact count",
+        "trace gaps",
+        "license gaps"
+      ],
+      "tests": [
+        "artifact hash consistency",
+        "trace completeness",
+        "license/provenance presence"
+      ],
+      "evidence": [
+        "EV-* ledger",
+        "commit ids",
+        "artifact hashes"
+      ],
+      "security": [
+        "tamper evidence",
+        "restricted metadata"
+      ],
+      "ownership": [
+        "author/agent ids",
+        "prompt/model/component versions",
+        "source/license refs"
+      ]
+    },
+    {
+      "id": "BLK-ARCHITECT",
+      "name": "FATHER Architect",
+      "category": "AGENT",
+      "status": "GPT_EMULATED_READY",
+      "source": "KIT-FATHER-ARCHITECT",
+      "agent_id": "FTH-AG-ARC-001",
+      "description": "Преобразует аналитический пакет и требования в архитектуру, contracts, ADR и Development Pack.",
+      "inputs": [
+        "analytics_bundle",
+        "requirements",
+        "constraints"
+      ],
+      "outputs": [
+        "HLD",
+        "LLD",
+        "ADR",
+        "Development Pack"
+      ],
+      "config": [
+        "architecture depth",
+        "NFR profile",
+        "integration policy",
+        "technology constraints"
+      ],
+      "tools": [
+        "diagrammer",
+        "document_reader",
+        "registry_reader",
+        "contract_validator",
+        "technology_radar"
+      ],
+      "metrics": [
+        "requirements coverage",
+        "ADR completeness",
+        "contract consistency",
+        "NFR coverage"
+      ],
+      "tests": [
+        "architecture review",
+        "contract validation",
+        "traceability check"
+      ],
+      "evidence": [
+        "REQ→ARCH links",
+        "ADR ids",
+        "architecture review record"
+      ],
+      "security": [
+        "security-by-design review",
+        "trust boundaries"
+      ],
+      "ownership": [
+        "architect agent id",
+        "ADR authorship",
+        "architecture version"
+      ]
+    },
+    {
+      "id": "BLK-PROGRAMMER",
+      "name": "FATHER Programmer / CODEX",
+      "category": "AGENT",
+      "status": "GPT_EMULATED_READY",
+      "source": "KIT-FATHER-PROGRAMMER",
+      "agent_id": "FTH-AG-DEV-001",
+      "description": "Реализует утверждённый Development Pack, не меняя молча требования и архитектуру.",
+      "inputs": [
+        "Development Pack",
+        "component BOM",
+        "contracts"
+      ],
+      "outputs": [
+        "source code",
+        "config",
+        "unit tests",
+        "implementation trace"
+      ],
+      "config": [
+        "language/runtime",
+        "repository",
+        "branch policy",
+        "coding standard"
+      ],
+      "tools": [
+        "git",
+        "tests",
+        "linters",
+        "schema_validator",
+        "container_build",
+        "CI"
+      ],
+      "metrics": [
+        "test pass rate",
+        "requirements implemented",
+        "defect density",
+        "build success"
+      ],
+      "tests": [
+        "unit tests",
+        "contract tests",
+        "lint/static checks",
+        "build"
+      ],
+      "evidence": [
+        "commit ids",
+        "test reports",
+        "REQ→CODE links"
+      ],
+      "security": [
+        "secure coding",
+        "secret scanning"
+      ],
+      "ownership": [
+        "programmer agent id",
+        "commit authorship",
+        "code signature/style marker"
+      ]
+    },
+    {
+      "id": "BLK-DEVOPS",
+      "name": "DevOps / SRE",
+      "category": "AGENT",
+      "status": "DESIGN",
+      "source": "KIT-DEVOPS-SRE",
+      "agent_id": "FTH-AG-SRE-001",
+      "description": "Собирает воспроизводимую среду, delivery, observability, rollback и runtime evidence.",
+      "inputs": [
+        "verified build",
+        "environment profile"
+      ],
+      "outputs": [
+        "deployment package",
+        "telemetry",
+        "runbook",
+        "rollback evidence"
+      ],
+      "config": [
+        "environment",
+        "container/K8s",
+        "CI/CD",
+        "SLO",
+        "rollback"
+      ],
+      "tools": [
+        "docker",
+        "kubernetes",
+        "CI",
+        "GitOps",
+        "telemetry"
+      ],
+      "metrics": [
+        "deployment success",
+        "availability",
+        "latency",
+        "rollback time",
+        "SLO compliance"
+      ],
+      "tests": [
+        "pipeline",
+        "smoke",
+        "rollback",
+        "telemetry"
+      ],
+      "evidence": [
+        "build digest",
+        "deployment trace",
+        "environment report"
+      ],
+      "security": [
+        "least privilege",
+        "secret management"
+      ],
+      "ownership": [
+        "environment version",
+        "deployment actor",
+        "release id"
+      ]
+    },
+    {
+      "id": "BLK-OSINT",
+      "name": "OSINT Lead",
+      "category": "AGENT",
+      "status": "GPT_EMULATED_READY",
+      "source": "KIT-OSINT-LEAD",
+      "agent_id": "FTH-AG-OSINT-001",
+      "description": "Подключаемая ветка внешнего поиска и проверки фактов по открытым источникам.",
+      "inputs": [
+        "research task",
+        "entities",
+        "scope"
+      ],
+      "outputs": [
+        "source-backed findings",
+        "entity graph",
+        "verification bundle"
+      ],
+      "config": [
+        "scope",
+        "source classes",
+        "depth",
+        "freshness"
+      ],
+      "tools": [
+        "web_search",
+        "DNS_RDAP",
+        "public_code_search",
+        "metadata_tools",
+        "graph",
+        "archive_tools"
+      ],
+      "metrics": [
+        "source coverage",
+        "verification rate",
+        "false-positive rate",
+        "freshness"
+      ],
+      "tests": [
+        "source provenance",
+        "cross-check",
+        "scope compliance"
+      ],
+      "evidence": [
+        "URLs/source ids",
+        "finding trace",
+        "verification records"
+      ],
+      "security": [
+        "authorized lawful OSINT"
+      ],
+      "ownership": [
+        "OSINT agent id",
+        "source provenance",
+        "finding version"
+      ]
+    },
+    {
+      "id": "BLK-INNOVATION-PROVENANCE",
+      "name": "Innovation / Provenance Review",
+      "category": "INNOVATION_PROVENANCE",
+      "status": "DESIGN_READY",
+      "source": "FATHER Innovation & Provenance Control",
+      "description": "Проверяет происхождение, встроенные контракты, права/лицензии, известные аналоги и альтернативные декомпозиции; формирует scoped novelty delta без ложного заявления о патентной новизне.",
+      "inputs": [
+        "project graph",
+        "architecture/contracts",
+        "source/license registry",
+        "candidate analogue systems/robots",
+        "artifact provenance"
+      ],
+      "outputs": [
+        "contract coverage report",
+        "ownership bundle",
+        "analogue search log",
+        "decomposition comparison",
+        "novelty delta",
+        "PRO gate input"
+      ],
+      "config": [
+        "mode: STANDARD / PRO / PATENT_CANDIDATE",
+        "analogue search scope",
+        "decomposition taxonomy",
+        "minimum analogue count",
+        "license policy",
+        "independent reviewer"
+      ],
+      "tools": [
+        "contract registry",
+        "OSINT/search",
+        "public technical docs",
+        "patent/paper/manual search adapters future",
+        "graph comparator",
+        "hashing/git",
+        "evidence ledger"
+      ],
+      "metrics": [
+        "contract coverage",
+        "provenance completeness",
+        "analogue coverage",
+        "license gaps",
+        "unresolved novelty hypotheses",
+        "independent review coverage"
+      ],
+      "tests": [
+        "contract completeness",
+        "artifact hash consistency",
+        "source/license presence",
+        "analogue decomposition consistency",
+        "novelty claim challenge",
+        "independent cross-check"
+      ],
+      "evidence": [
+        "PROVENANCE.json",
+        "OWNERSHIP.md",
+        "CHECKSUMS.sha256",
+        "SBOM.json",
+        "analogue search log",
+        "decomposition graphs",
+        "novelty delta record",
+        "review decision"
+      ],
+      "security": [
+        "do not expose restricted design data during public search",
+        "redact secrets",
+        "separate public prior-art corpus from private project data"
+      ],
+      "ownership": [
+        "human contribution",
+        "agent contribution",
+        "prompt/model/tool versions",
+        "source assets/licenses",
+        "commit/build ids",
+        "artifact hashes",
+        "claim scope"
+      ],
+      "contracts": [
+        "CT-IO",
+        "CT-ROLE",
+        "CT-DATA",
+        "CT-RUN",
+        "CT-EVIDENCE",
+        "CT-OWNERSHIP"
+      ],
+      "prior_art": [
+        "known comparable systems/robots",
+        "alternative decompositions",
+        "public architectures",
+        "manuals/specifications",
+        "papers/patents where available"
+      ],
+      "pro_gate": "G-PRO-IP-PROVENANCE"
+    },
+    {
+      "id": "BLK-FATHER-OPERATOR",
+      "name": "FATHER Operator",
+      "category": "AGENT",
+      "status": "EXPERIMENTAL",
+      "source": "KIT-FATHER-OPERATOR",
+      "agent_id": "FTH-AG-OPR-001",
+      "description": "Единый разговорный помощник фабрики. Понимает запрос, отвечает на простые производственные вопросы, читает контекст проекта и маршрутизирует сложные вопросы к специализированным агентам.",
+      "inputs": [
+        "user message",
+        "project context",
+        "retrieved knowledge",
+        "specialist results"
+      ],
+      "outputs": [
+        "assistant response",
+        "normalized task",
+        "handoff request",
+        "routing decision"
+      ],
+      "config": [
+        "persona",
+        "dialogue policy",
+        "answer depth",
+        "handoff policy",
+        "project context scope"
+      ],
+      "tools": [
+        "factory registry reader",
+        "project graph reader",
+        "knowledge router",
+        "agent registry",
+        "trace/evidence reader",
+        "model router"
+      ],
+      "metrics": [
+        "intent classification accuracy",
+        "routing accuracy",
+        "grounded answer rate",
+        "handoff correctness",
+        "latency",
+        "user correction rate"
+      ],
+      "tests": [
+        "factory FAQ golden set",
+        "routing cases",
+        "unknown question abstention",
+        "specialist handoff"
+      ],
+      "evidence": [
+        "operator agent id",
+        "prompt version",
+        "model id",
+        "knowledge refs",
+        "routing trace"
+      ],
+      "security": [
+        "no gate self-approval",
+        "least privilege",
+        "no fabricated readiness"
+      ],
+      "ownership": [
+        "operator kit/version",
+        "prompt hash",
+        "model version",
+        "source provenance"
+      ],
+      "contracts": [
+        "CT-IO",
+        "CT-ROLE",
+        "CT-DATA",
+        "CT-RUN",
+        "CT-EVIDENCE",
+        "CT-OWNERSHIP"
+      ],
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001"
+    },
+    {
+      "id": "BLK-AVATAR-SHELL",
+      "name": "Primitive Avatar Shell",
+      "category": "AVATAR_INTERFACE",
+      "status": "EXPERIMENTAL",
+      "source": "FTH-CMP-AVATAR-SHELL-001",
+      "description": "Primitive Avatar Shell bound to REF-FATHER-ASSISTANT-001 product API and canonical TTS contract; live text+voice session still pending.",
+      "inputs": [
+        "operator response text",
+        "operator state",
+        "optional audio",
+        "session status"
+      ],
+      "outputs": [
+        "rendered avatar state",
+        "user text/voice event",
+        "audio playback result"
+      ],
+      "config": [
+        "avatar asset",
+        "display name",
+        "state animation",
+        "caption mode",
+        "voice profile",
+        "future video adapter"
+      ],
+      "tools": [
+        "web UI",
+        "microphone trigger",
+        "FTH-CMP-VOICE-TTS-001",
+        "future video avatar adapter"
+      ],
+      "metrics": [
+        "render success",
+        "interaction latency",
+        "TTS playback success",
+        "UI error rate"
+      ],
+      "tests": [
+        "static render",
+        "IDLE/LISTENING/THINKING/RESPONDING transitions",
+        "text roundtrip",
+        "TTS playback",
+        "microphone fallback"
+      ],
+      "evidence": [
+        "avatar build version",
+        "asset hash",
+        "state trace",
+        "TTS trace_id"
+      ],
+      "security": [
+        "no secrets in client",
+        "privacy-safe transcript handling"
+      ],
+      "ownership": [
+        "avatar component/version",
+        "asset provenance",
+        "voice/provider rights"
+      ],
+      "contracts": [
+        "CT-IO",
+        "CT-RUN",
+        "CT-EVIDENCE",
+        "CT-OWNERSHIP"
+      ],
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001"
+    }
+  ],
+  "project_template": {
+    "id": "TPL-TELEGRAM-TOPIC-ASSISTANT",
+    "name": "Telegram Topic Assistant · MVP",
+    "task": "В Telegram AI приветствует пользователя, принимает тему, ALINA готовит тему/prompt/mini-RAG, выбранный агент ведёт разговор, система измеряет качество и при необходимости отвечает голосом.",
+    "gates": [
+      "G-PLAN",
+      "G-CONNECTIVITY",
+      "G-KNOWLEDGE",
+      "G-RUN",
+      "G-EVAL",
+      "G-SECURITY",
+      "G-ACCEPT"
+    ],
+    "build_lane": [
+      "BLK-TASK-INPUT",
+      "BLK-FACTORY-CONTROLLER",
+      "BLK-ALINA",
+      "BLK-ARCHITECT",
+      "BLK-INNOVATION-PROVENANCE",
+      "BLK-PROGRAMMER",
+      "BLK-METRICS-LAB",
+      "BLK-SECURITY",
+      "BLK-DEVOPS",
+      "BLK-EVIDENCE-IP"
+    ],
+    "runtime_graph": [
+      "BLK-CONNECTIVITY-CHECK",
+      "BLK-TELEGRAM-CHANNEL",
+      "BLK-AVATAR-SHELL",
+      "BLK-FATHER-OPERATOR",
+      "BLK-KNOWLEDGE-RAG",
+      "BLK-AGENT-SELECTOR",
+      "BLK-MODEL-ROUTER",
+      "BLK-PROMPT-RUN",
+      "BLK-VOICE-TTS"
+    ],
+    "project_modes": {
+      "MVP": {
+        "ip_provenance": "ADVISORY",
+        "required_gate": null
+      },
+      "PRO": {
+        "ip_provenance": "REQUIRED",
+        "required_gate": "G-PRO-IP-PROVENANCE"
+      },
+      "PATENT_CANDIDATE": {
+        "ip_provenance": "REQUIRED",
+        "required_gate": "G-PRO-IP-PROVENANCE"
+      }
+    },
+    "avatar": "FTH-AV-001",
+    "operator": "FTH-AG-OPR-001"
+  }
+}

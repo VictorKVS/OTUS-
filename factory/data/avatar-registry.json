@@ -1,0 +1,61 @@
+{
+  "schema_version": "father-avatar-registry.v1",
+  "status": "ACTIVE_BUILD",
+  "principle": "AVATAR_IS_INTERFACE_NOT_MODEL",
+  "architecture": {
+    "avatar_shell": "visual/persona interaction shell",
+    "operator_agent": "role, dialogue policy, routing and production assistance",
+    "llm": "replaceable reasoning/generation runtime selected by Model Router",
+    "knowledge": "K0/K1/K2 + project context via RAG",
+    "voice": "STT/TTS components",
+    "controller": "FATHER project/workshop routing and gate truth"
+  },
+  "avatars": [
+    {
+      "avatar_id": "FTH-AV-001",
+      "name": "FATHER Operator",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "mode": "PRIMITIVE_STATIC",
+      "purpose": "Single conversational face of the FATHER factory for production questions, task intake, explanation and routing.",
+      "interface": {
+        "input": [
+          "text",
+          "microphone/voice transcript",
+          "future Telegram voice"
+        ],
+        "output": [
+          "text response",
+          "TTS audio",
+          "static avatar state"
+        ],
+        "states": [
+          "IDLE",
+          "LISTENING",
+          "THINKING",
+          "RESPONDING",
+          "HANDOFF",
+          "BLOCKED"
+        ]
+      },
+      "operator_agent": "FTH-AG-OPR-001",
+      "model_binding": "MODEL_ROUTER",
+      "knowledge_binding": [
+        "KB-K0-FATHER-COMMON",
+        "project K2 context",
+        "domain K1 by routed specialist"
+      ],
+      "voice_binding": [
+        "FTH-CMP-VOICE-TTS-001",
+        "STT component TBD"
+      ],
+      "upgrade_path": [
+        "STATIC_IMAGE",
+        "ANIMATED_2D",
+        "LIPSYNC",
+        "INTERACTIVE_VIDEO_AVATAR"
+      ],
+      "truth_rule": "Changing the visual avatar must not change the operator agent contract, knowledge contract or routing logic."
+    }
+  ]
+}

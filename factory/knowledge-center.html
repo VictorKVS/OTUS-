@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FATHER Knowledge Center</title>
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="stylesheet" href="./styles.css">
+<style>
+.kgrid,.profiles,.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.kcard,.profile,.pack{border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#0e1a24,#0a141c);padding:15px}.kcard h3,.profile h3,.pack h3{font-size:14px;margin:8px 0}.kcard p,.profile p,.pack p{font-size:10px;color:var(--muted);line-height:1.5}.layer{font:9px Consolas;color:var(--cyan)}.flow2{display:flex;gap:7px;overflow:auto;padding:10px 0}.node{min-width:145px;border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:10px}.node b{font-size:10px}.node small{display:block;color:var(--muted);margin-top:5px}.ok{color:var(--green)}.planned{color:var(--amber)}.routes{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.route{padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--panel);font-size:10px}.route code{color:var(--cyan)}@media(max-width:1000px){.kgrid,.profiles,.packs,.routes{grid-template-columns:1fr 1fr}}@media(max-width:650px){.kgrid,.profiles,.packs,.routes{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top"><div class="brand">FATHER KNOWLEDGE<small>Common Core · Specialist Packs · Project Context</small></div><nav class="nav"><a href="../site/index.html">FATHER</a><a href="../site/unified-system.html">Единая система</a><a href="./index.html">Factory</a><a href="./lab.html">Lab</a><a href="./agent-kits.html">Agent Kits</a><a href="#layers">Layers</a><a href="#packs">Specialists</a><a href="#profiles">Agent Profiles</a><a href="#router">Router</a><a href="../docs/FATHER_KNOWLEDGE_ARCHITECTURE.md">Standard ↗</a></nav></header>
+<main>
+<section class="hero"><div class="eyebrow">Cognitive platform</div><h1>Общая школа → <span>профессиональная специализация</span></h1><p>Все профессиональные агенты FATHER наследуют один K0 Common Knowledge Core. Специализация добавляется через K1 Specialist Knowledge Pack. K2 Project Context подключается как изолированный overlay. Skills, Memory и Experience остаются отдельными системами.</p><div class="kpis" id="stats"></div></section>
+<section class="section" id="layers"><div class="eyebrow">Knowledge layers</div><h2>Три слоя знаний</h2><div class="kgrid" id="layersGrid"></div></section>
+<section class="section" id="packs"><div class="eyebrow">Specialist packs</div><h2>Профессиональные базы</h2><div class="packs" id="packsGrid"></div></section>
+<section class="section" id="profiles"><div class="eyebrow">Agent knowledge profiles</div><h2>Кто что наследует</h2><div class="profiles" id="profilesGrid"></div></section>
+<section class="section" id="router"><div class="eyebrow">Knowledge Router</div><h2>Маршрут доказательного контекста</h2><div class="flow2" id="routerFlow"></div><div class="routes" id="policies" style="margin-top:16px"></div></section>
+<section class="section"><div class="eyebrow">Separation</div><h2>Knowledge ≠ Skills ≠ Memory ≠ Experience</h2><div class="kgrid" id="separateGrid"></div></section>
+</main>
+<footer><span>FATHER Knowledge Center</span><span>K0 + K1 + optional K2 → Evidence Bundle → Agent</span></footer>
+<script src="./knowledge-center.js"></script>
+</body></html>

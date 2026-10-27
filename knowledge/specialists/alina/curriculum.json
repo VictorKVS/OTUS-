@@ -1,0 +1,100 @@
+{
+  "schema_version": "father-specialist-curriculum.v1",
+  "knowledge_pack_id": "KB-K1-ALINA-ANALYTICS",
+  "version": "0.1.0",
+  "prerequisite": "G-K0-GRADUATION",
+  "modules": [
+    {
+      "id": "A-M01",
+      "name": "Source Analysis",
+      "skills": [
+        "authority",
+        "freshness",
+        "bias",
+        "source comparison"
+      ]
+    },
+    {
+      "id": "A-M02",
+      "name": "Document Analysis",
+      "skills": [
+        "structure",
+        "claims",
+        "requirements",
+        "cross-document comparison"
+      ]
+    },
+    {
+      "id": "A-M03",
+      "name": "Fact / Entity / Relation Extraction",
+      "skills": [
+        "facts",
+        "entities",
+        "relations",
+        "events",
+        "graph-ready outputs"
+      ]
+    },
+    {
+      "id": "A-M04",
+      "name": "Evidence & Contradictions",
+      "skills": [
+        "evidence chain",
+        "conflict detection",
+        "version conflict",
+        "confidence"
+      ]
+    },
+    {
+      "id": "A-M05",
+      "name": "Hypothesis & Verification",
+      "skills": [
+        "hypothesis generation",
+        "verification plan",
+        "falsification",
+        "uncertainty"
+      ]
+    },
+    {
+      "id": "A-M06",
+      "name": "Causal / Timeline Analysis",
+      "skills": [
+        "timeline",
+        "causal chain",
+        "alternative explanations"
+      ]
+    },
+    {
+      "id": "A-M07",
+      "name": "Analytical Writing",
+      "skills": [
+        "brief",
+        "report",
+        "decision memo",
+        "evidence-backed conclusions"
+      ]
+    },
+    {
+      "id": "A-M08",
+      "name": "Research & Experiment Design",
+      "skills": [
+        "baseline",
+        "A/B/N",
+        "dataset",
+        "evaluator",
+        "regression",
+        "promotion decision"
+      ]
+    }
+  ],
+  "graduation_gate": {
+    "id": "G-K1-ALINA-GRADUATION",
+    "rules": [
+      "K0_pass",
+      "golden_cases_pass",
+      "contradiction_suite_pass",
+      "evidence_quality_pass",
+      "research_experiment_pass"
+    ]
+  }
+}

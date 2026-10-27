@@ -1,0 +1,134 @@
+{
+  "schema_version": "father-common-core-curriculum.v1",
+  "knowledge_pack_id": "KB-K0-FATHER-COMMON",
+  "version": "0.1.0",
+  "purpose": "Shared foundational school for every FATHER professional agent.",
+  "modules": [
+    {
+      "id": "K0-M01",
+      "name": "Sources & Provenance",
+      "outcomes": [
+        "distinguish source/fact/claim/inference",
+        "retain exact source/version references",
+        "detect missing provenance"
+      ],
+      "assessment": [
+        "source classification",
+        "citation linkage",
+        "conflicting source case"
+      ]
+    },
+    {
+      "id": "K0-M02",
+      "name": "Document Literacy",
+      "outcomes": [
+        "read structured documents",
+        "identify sections/tables/requirements",
+        "track document versions and supersession"
+      ],
+      "assessment": [
+        "document decomposition",
+        "version comparison",
+        "missing section detection"
+      ]
+    },
+    {
+      "id": "K0-M03",
+      "name": "Analytical Foundations",
+      "outcomes": [
+        "extract facts/entities/relations/events",
+        "separate evidence from hypothesis",
+        "detect contradictions and uncertainty"
+      ],
+      "assessment": [
+        "fact extraction",
+        "entity/relation graph",
+        "contradiction case",
+        "confidence justification"
+      ]
+    },
+    {
+      "id": "K0-M04",
+      "name": "Requirements & Traceability",
+      "outcomes": [
+        "understand BUS/FR/NFR",
+        "link acceptance and risks",
+        "trace requirement to decision/test/evidence"
+      ],
+      "assessment": [
+        "requirements classification",
+        "traceability chain",
+        "orphan detection"
+      ]
+    },
+    {
+      "id": "K0-M05",
+      "name": "AI/RAG/Agent Fundamentals",
+      "outcomes": [
+        "understand model/prompt/RAG/tool/workflow roles",
+        "distinguish knowledge from memory",
+        "know evaluator and experiment concepts"
+      ],
+      "assessment": [
+        "architecture mapping",
+        "RAG failure analysis",
+        "agent trajectory reading"
+      ]
+    },
+    {
+      "id": "K0-M06",
+      "name": "Evidence-driven Communication",
+      "outcomes": [
+        "write structured outputs",
+        "cite evidence",
+        "state uncertainty",
+        "abstain when evidence is insufficient"
+      ],
+      "assessment": [
+        "analytical memo",
+        "unsupported claim detection",
+        "abstention case"
+      ]
+    },
+    {
+      "id": "K0-M07",
+      "name": "Security & Permissions",
+      "outcomes": [
+        "respect access scopes",
+        "handle secrets/PII safely",
+        "understand tool permissions and audit"
+      ],
+      "assessment": [
+        "permission boundary",
+        "secret handling",
+        "unsafe tool request"
+      ]
+    },
+    {
+      "id": "K0-M08",
+      "name": "FATHER Engineering Standard",
+      "outcomes": [
+        "follow agent lifecycle",
+        "understand Development Pack",
+        "use LAB/DevOps/certification gates",
+        "preserve evidence"
+      ],
+      "assessment": [
+        "lifecycle routing",
+        "gate decision",
+        "document dossier completeness"
+      ]
+    }
+  ],
+  "graduation_gate": {
+    "id": "G-K0-GRADUATION",
+    "required": true,
+    "rules": [
+      "all_module_assessments_pass",
+      "critical_source_errors=0",
+      "critical_security_errors=0",
+      "traceability_case_pass",
+      "evidence_grounding_case_pass"
+    ]
+  }
+}

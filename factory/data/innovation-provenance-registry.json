@@ -1,0 +1,147 @@
+{
+  "schema_version": "father-innovation-provenance.v1",
+  "status": "CANONICAL_DESIGN",
+  "purpose": "Engineering provenance, ownership evidence, prior-art/analogue comparison and decomposition-delta tracking.",
+  "disclaimer": "This system supports engineering evidence and prior-art review; it does not by itself establish legal patentability, inventorship or exclusive rights.",
+  "evidence_layers": [
+    {
+      "id": "IP-E1",
+      "name": "Artifact Identity",
+      "items": [
+        "stable artifact id",
+        "version",
+        "SHA-256",
+        "timestamp",
+        "repository/commit",
+        "build/release id"
+      ]
+    },
+    {
+      "id": "IP-E2",
+      "name": "Contribution Provenance",
+      "items": [
+        "human contributor",
+        "agent id",
+        "prompt version/hash",
+        "model id/version",
+        "tool versions",
+        "source inputs"
+      ]
+    },
+    {
+      "id": "IP-E3",
+      "name": "Rights & Licenses",
+      "items": [
+        "source license",
+        "model/provider terms reference",
+        "dataset rights",
+        "third-party component license",
+        "generated asset rights note"
+      ]
+    },
+    {
+      "id": "IP-E4",
+      "name": "Design Decision History",
+      "items": [
+        "requirements",
+        "architecture",
+        "ADR",
+        "alternatives rejected",
+        "tests",
+        "review decisions"
+      ]
+    },
+    {
+      "id": "IP-E5",
+      "name": "Prior Art / Analogue Search",
+      "items": [
+        "known systems/robots",
+        "public architectures",
+        "papers/patents/manuals/product docs",
+        "source links",
+        "search date",
+        "search scope"
+      ]
+    },
+    {
+      "id": "IP-E6",
+      "name": "Decomposition Comparison",
+      "items": [
+        "our decomposition graph",
+        "analogue decomposition graph",
+        "common blocks",
+        "different blocks",
+        "different contracts",
+        "different orchestration",
+        "different metrics/safety"
+      ]
+    },
+    {
+      "id": "IP-E7",
+      "name": "Novelty Delta",
+      "items": [
+        "claimed new combination",
+        "claimed new block",
+        "claimed new contract",
+        "claimed new workflow",
+        "claimed measurable effect",
+        "supporting evidence"
+      ]
+    },
+    {
+      "id": "IP-E8",
+      "name": "Independent Verification",
+      "items": [
+        "reviewer",
+        "reproduction",
+        "cross-check",
+        "conflict log",
+        "decision status"
+      ]
+    }
+  ],
+  "analogue_method": {
+    "steps": [
+      "normalize target product into functions/capabilities",
+      "decompose our design into blocks/contracts/interfaces",
+      "find known comparable products/robots/systems",
+      "decompose each analogue using the same taxonomy",
+      "align blocks by function rather than by vendor names",
+      "compare interfaces/contracts and orchestration",
+      "compare failure modes/tests/metrics",
+      "record inherited/common elements",
+      "record adapted elements",
+      "record candidate novelty deltas",
+      "challenge each novelty claim with another search",
+      "keep unresolved claims as HYPOTHESIS, never as PROVEN_INVENTION"
+    ],
+    "statuses": [
+      "KNOWN",
+      "COMMON_PATTERN",
+      "REUSED",
+      "ADAPTED",
+      "NOVELTY_HYPOTHESIS",
+      "DIFFERENTIATED",
+      "CONFLICTED",
+      "UNVERIFIED"
+    ]
+  },
+  "pro_gate": {
+    "id": "G-PRO-IP-PROVENANCE",
+    "mandatory_for": [
+      "PRO_MODE",
+      "PATENT_CANDIDATE",
+      "COMMERCIAL_RELEASE",
+      "EXTERNAL_DEMO_WITH_OWNERSHIP_CLAIMS"
+    ],
+    "pass_requires": [
+      "complete provenance chain",
+      "license/rights review",
+      "versioned contracts",
+      "analogue search log",
+      "decomposition comparison",
+      "novelty claims explicitly scoped",
+      "independent review"
+    ]
+  }
+}

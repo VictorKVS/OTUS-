@@ -1,0 +1,34 @@
+name: FATHER Site Document Pack
+
+on:
+  push:
+    paths:
+      - 'site/**'
+      - 'factory/**'
+      - 'docs/site/**'
+      - 'docs/SITE_DOCUMENTATION_STANDARD.md'
+      - 'tools/generate_site_document_pack.py'
+      - 'tools/validate_site_document_pack.py'
+      - '.github/workflows/father-site-document-pack.yml'
+  pull_request:
+    paths:
+      - 'site/**'
+      - 'factory/**'
+      - 'docs/site/**'
+      - 'docs/SITE_DOCUMENTATION_STANDARD.md'
+      - 'tools/generate_site_document_pack.py'
+      - 'tools/validate_site_document_pack.py'
+  workflow_dispatch:
+
+jobs:
+  site-document-pack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check missing site documents
+        run: python tools/generate_site_document_pack.py --check
+      - name: Validate controlled site documents
+        run: python tools/validate_site_document_pack.py

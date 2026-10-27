@@ -1,0 +1,30 @@
+{
+  "id": "KB-K1-OSINT",
+  "name": "OSINT Specialist Pack",
+  "version": "0.1.0",
+  "status": "DESIGN",
+  "layer": "K1",
+  "family": "OSINT",
+  "depends_on": [
+    "KB-K0-FATHER-COMMON",
+    "KB-K1-ALINA-ANALYTICS"
+  ],
+  "topics": [
+    "internet architecture",
+    "DNS",
+    "WHOIS/RDAP",
+    "IP/ASN/BGP",
+    "TLS",
+    "web",
+    "search",
+    "social",
+    "Telegram",
+    "GeoINT",
+    "image metadata",
+    "archives",
+    "Git intelligence",
+    "threat intelligence"
+  ],
+  "skill_tree": "OSINT_SKILLS",
+  "provenance_required": true
+}

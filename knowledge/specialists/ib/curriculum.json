@@ -1,0 +1,98 @@
+{
+  "schema_version": "father-specialist-curriculum.v1",
+  "knowledge_pack_id": "KB-K1-IB",
+  "version": "0.1.0",
+  "prerequisite": "G-K0-GRADUATION",
+  "modules": [
+    {
+      "id": "IB-M01",
+      "name": "Security Foundations",
+      "skills": [
+        "CIA",
+        "assets",
+        "threats",
+        "controls"
+      ]
+    },
+    {
+      "id": "IB-M02",
+      "name": "Risk",
+      "skills": [
+        "likelihood",
+        "impact",
+        "treatment",
+        "acceptance"
+      ]
+    },
+    {
+      "id": "IB-M03",
+      "name": "Threat Modeling",
+      "skills": [
+        "assets",
+        "trust boundaries",
+        "abuse cases",
+        "controls"
+      ]
+    },
+    {
+      "id": "IB-M04",
+      "name": "IAM & Secrets",
+      "skills": [
+        "identity",
+        "RBAC",
+        "least privilege",
+        "rotation"
+      ]
+    },
+    {
+      "id": "IB-M05",
+      "name": "Data Protection",
+      "skills": [
+        "classification",
+        "PII",
+        "DLP",
+        "retention"
+      ]
+    },
+    {
+      "id": "IB-M06",
+      "name": "Monitoring & Detection",
+      "skills": [
+        "logs",
+        "SIEM",
+        "alerts",
+        "evidence"
+      ]
+    },
+    {
+      "id": "IB-M07",
+      "name": "Incident Response",
+      "skills": [
+        "triage",
+        "containment",
+        "RCA",
+        "lessons"
+      ]
+    },
+    {
+      "id": "IB-M08",
+      "name": "Security Assurance",
+      "skills": [
+        "tests",
+        "audit",
+        "exceptions",
+        "acceptance"
+      ]
+    }
+  ],
+  "graduation_gate": {
+    "id": "G-K1-IB-GRADUATION",
+    "rules": [
+      "K0_pass",
+      "module_assessments_pass",
+      "golden_cases_pass",
+      "evidence_quality_pass",
+      "regression_pass"
+    ]
+  }
+}

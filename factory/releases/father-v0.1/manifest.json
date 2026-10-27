@@ -1,0 +1,221 @@
+{
+  "schema_version": "father-release-manifest.v1",
+  "release_id": "FATHER-V0.1-FIRST-APPROXIMATION",
+  "version": "0.1.0",
+  "status": "FIRST_APPROXIMATION_E2E_DRY_PASS_LIVE_PENDING",
+  "objective": "Prove one coherent FATHER skeleton for building controlled LLM systems before visual polish or broad feature expansion.",
+  "constitution": [
+    "NO TEST -> NO QUALITY CLAIM",
+    "NO EVIDENCE -> NO PROMOTION",
+    "NO OWNERSHIP TRACE -> NO COMMERCIAL RELEASE",
+    "NO SECURITY ACCEPTANCE -> NO PRODUCTION",
+    "NO COMPONENT IS READY UNTIL ITS OPERATION IS PROVEN INSIDE THE FINAL PRODUCT"
+  ],
+  "spine": {
+    "flow": [
+      "TASK_INPUT",
+      "FATHER_OPERATOR",
+      "PROJECT_COMPOSER",
+      "ALINA_ANALYTICAL_CORE",
+      "KNOWLEDGE_K0_K1_K2_K3",
+      "MDL-FATHER-CORE-001",
+      "AGENT_MODEL_ROUTING",
+      "PROMPT_RUN",
+      "FATHER_LAB",
+      "SECURITY_GATE",
+      "EVIDENCE_OWNERSHIP",
+      "RESULT"
+    ],
+    "workshops": [
+      "W00",
+      "W10",
+      "W20",
+      "W30",
+      "W40",
+      "W50",
+      "W60",
+      "W70",
+      "W80",
+      "W90"
+    ],
+    "dossier": "C00-C99",
+    "universal_contract": [
+      "ID_VERSION_OWNER",
+      "INPUT",
+      "REQUIREMENTS",
+      "SECURITY_CLASS",
+      "CONTRACTS",
+      "BASELINE",
+      "A_B_N",
+      "METRICS",
+      "TESTS",
+      "EVIDENCE",
+      "OWNERSHIP_PROVENANCE",
+      "SECURITY_ACCEPTANCE",
+      "GATE",
+      "OUTPUT",
+      "FEEDBACK_NEXT_VERSION"
+    ]
+  },
+  "core_agents": [
+    {
+      "agent_id": "FTH-AG-OPR-001",
+      "role": "single conversational/factory entry",
+      "status": "DESIGN"
+    },
+    {
+      "agent_id": "FTH-AG-ANL-001",
+      "role": "shared ALINA analytical core",
+      "status": "GPT_EMULATED_READY",
+      "identity_rule": "ONE_ALINA_CORE_MANY_DOMAIN_PROFILES"
+    },
+    {
+      "agent_id": "FTH-AG-ARC-001",
+      "role": "architecture",
+      "status": "GPT_EMULATED_READY"
+    },
+    {
+      "agent_id": "FTH-AG-DEV-001",
+      "role": "implementation",
+      "status": "GPT_EMULATED_READY"
+    },
+    {
+      "agent_id": "FTH-AG-QA-001",
+      "role": "evaluation/LAB",
+      "status": "DESIGN"
+    },
+    {
+      "agent_id": "FTH-AG-SEC-001",
+      "role": "independent security acceptance",
+      "status": "DESIGN"
+    },
+    {
+      "agent_id": "FTH-AG-SRE-001",
+      "role": "runtime/deployment",
+      "status": "DESIGN"
+    }
+  ],
+  "model_system": {
+    "model_id": "MDL-FATHER-CORE-001",
+    "status": "DESIGN_BASELINE",
+    "base_selection": "A/B/N required",
+    "candidates": [
+      "MDL-QWEN3-06B-Q8",
+      "MDL-QWEN3-4B-Q4KM",
+      "MDL-QWEN3-8B-Q4KM"
+    ],
+    "optimization_ladder": [
+      "SYSTEM_PROMPT",
+      "RAG",
+      "TOOLS_AGENT_ROUTING",
+      "SFT_LORA",
+      "PREFERENCE_DPO",
+      "RL_RLHF_RLAIF"
+    ]
+  },
+  "knowledge": {
+    "common": "KB-K0-FATHER-COMMON",
+    "specialist": "K1 by role/domain",
+    "project": "K2",
+    "runtime": "K3",
+    "rule": "One analytical core; specialization through knowledge/skills/tools/permissions, not duplicate identities."
+  },
+  "lab": {
+    "mandatory": true,
+    "loop": [
+      "BASELINE",
+      "HYPOTHESIS",
+      "A/B/N",
+      "METRICS",
+      "EVIDENCE",
+      "REGRESSION",
+      "SECURITY",
+      "CHAMPION_CHALLENGER"
+    ],
+    "datasets": [
+      "DS-FATHER-GOLDEN-001",
+      "DS-FATHER-REGRESSION-001",
+      "DS-FATHER-ADVERSARIAL-001"
+    ]
+  },
+  "cross_cutting": {
+    "security": {
+      "mandatory": true,
+      "independent_acceptance": true,
+      "rule": "Functional PASS != Security PASS"
+    },
+    "ownership": {
+      "mandatory": true,
+      "rule": "Every artifact must retain human/agent/model/prompt/source/license/commit/hash/test/evidence provenance."
+    },
+    "evidence": {
+      "mandatory": true,
+      "rule": "Every promotion decision must reference machine- or human-verifiable evidence."
+    },
+    "metrics": {
+      "mandatory": true,
+      "rule": "Every meaningful alternative is compared against a baseline using declared metrics."
+    }
+  },
+  "reusable_component_policy": {
+    "promotion": [
+      "DESIGN",
+      "EXPERIMENTAL",
+      "CANDIDATE",
+      "VALIDATED",
+      "CERTIFIED",
+      "PRODUCTION"
+    ],
+    "missing_component": "NEW_BLOCK_REQUIRED / HUMAN_ENGINEERING_REQUIRED",
+    "library_entry_requires": [
+      "contract",
+      "tests",
+      "evidence",
+      "security profile",
+      "ownership provenance",
+      "compatibility",
+      "reproducible reuse"
+    ]
+  },
+  "first_reference_product": {
+    "id": "REF-FATHER-ASSISTANT-001",
+    "description": "Simple controlled assistant using Operator + shared ALINA + RAG + FATHER Core LLM; optional Telegram/voice/avatar adapters.",
+    "acceptance": [
+      "task accepted",
+      "project graph composed",
+      "ALINA/domain profile selected",
+      "knowledge context attached",
+      "model system invoked or truthfully BLOCKED if unavailable",
+      "result returned",
+      "LAB/evaluation record created",
+      "security state explicit",
+      "ownership/evidence record created"
+    ]
+  },
+  "non_goals_v01": [
+    "visual polish",
+    "interactive video avatar",
+    "autonomous security approval",
+    "claiming trained/custom model before LAB evidence",
+    "full autonomous C00-C99 completion"
+  ],
+  "promotion_to_v02": [
+    "reference product local E2E PASS",
+    "FATHER Core candidate benchmark executed",
+    "at least one RAG profile validated",
+    "Security gate implementation exists",
+    "evidence bundle reproducible",
+    "second product reuses at least two validated components"
+  ],
+  "validation": {
+    "status": "REPOSITORY_SPINE_PASS",
+    "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+    "runtime_repository": "VictorKVS/FATHER_VOICE_BRIDGE",
+    "github_actions_run_id": 40497744473,
+    "tests_passed": 73,
+    "local_live_gates_pending": true,
+    "unified_product_e2e": "DRY_CHECK_PASS",
+    "first_reference_product": "REF-FATHER-ASSISTANT-001",
+    "production_ready": false
+  }
+}

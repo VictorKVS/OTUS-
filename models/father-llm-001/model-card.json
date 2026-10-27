@@ -1,0 +1,33 @@
+{
+  "schema_version": "father-model-card.v1",
+  "model_id": "MDL-FATHER-CORE-001",
+  "version": "0.1.0",
+  "status": "DESIGN_BASELINE",
+  "intended_use": [
+    "FATHER Operator reasoning",
+    "factory navigation and project-context reasoning",
+    "grounded engineering assistance",
+    "specialist agent runtime through role-specific K1 packs"
+  ],
+  "out_of_scope": [
+    "autonomous production promotion without human/evidence gates",
+    "claiming legal ownership or patentability",
+    "unrestricted tool execution",
+    "ungrounded high-stakes decisions"
+  ],
+  "base_model_status": "NOT_SELECTED_BY_LAB_YET",
+  "candidate_policy": "A/B/N between registered local candidates before champion selection.",
+  "knowledge_layers": [
+    "K0 common",
+    "K1 specialist",
+    "K2 project",
+    "K3 session/runtime"
+  ],
+  "training_status": {
+    "pretraining": "NOT_PERFORMED_BY_FATHER",
+    "sft_lora": "NOT_STARTED",
+    "preference_dpo": "NOT_STARTED",
+    "rl": "NOT_STARTED"
+  },
+  "acceptance_rule": "No training stage may be promoted unless it beats the previous champion on frozen quality, safety and regression criteria without unacceptable cost/latency regression."
+}

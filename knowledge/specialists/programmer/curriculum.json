@@ -1,0 +1,102 @@
+{
+  "schema_version": "father-specialist-curriculum.v1",
+  "knowledge_pack_id": "KB-K1-PROGRAMMER",
+  "version": "0.1.0",
+  "prerequisite": "G-K0-GRADUATION",
+  "modules": [
+    {
+      "id": "PR-M01",
+      "name": "Development Pack Reading",
+      "skills": [
+        "REQ/AC/ADR trace",
+        "ambiguity finding",
+        "implementation planning"
+      ]
+    },
+    {
+      "id": "PR-M02",
+      "name": "Python & Service Engineering",
+      "skills": [
+        "modules",
+        "typing",
+        "errors",
+        "async",
+        "API service patterns"
+      ]
+    },
+    {
+      "id": "PR-M03",
+      "name": "Contracts & Schemas",
+      "skills": [
+        "OpenAPI",
+        "JSON Schema",
+        "backward compatibility",
+        "validation"
+      ]
+    },
+    {
+      "id": "PR-M04",
+      "name": "Testing",
+      "skills": [
+        "unit",
+        "integration",
+        "contract",
+        "negative",
+        "regression"
+      ]
+    },
+    {
+      "id": "PR-M05",
+      "name": "Data & Migrations",
+      "skills": [
+        "SQL",
+        "migration",
+        "rollback",
+        "consistency"
+      ]
+    },
+    {
+      "id": "PR-M06",
+      "name": "Telemetry & Operability",
+      "skills": [
+        "logs",
+        "metrics",
+        "traces",
+        "health",
+        "correlation"
+      ]
+    },
+    {
+      "id": "PR-M07",
+      "name": "Secure Coding / DevSecOps",
+      "skills": [
+        "secrets",
+        "dependency hygiene",
+        "SAST/SCA findings",
+        "container basics"
+      ]
+    },
+    {
+      "id": "PR-M08",
+      "name": "Git / PR / Evidence",
+      "skills": [
+        "commits",
+        "PR",
+        "changelog",
+        "implementation evidence",
+        "traceability"
+      ]
+    }
+  ],
+  "graduation_gate": {
+    "id": "G-K1-PROGRAMMER-GRADUATION",
+    "rules": [
+      "K0_pass",
+      "implementation_case_pass",
+      "tests_pass",
+      "contract_case_pass",
+      "traceability_pass",
+      "security_case_pass"
+    ]
+  }
+}

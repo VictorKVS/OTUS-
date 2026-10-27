@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+<title id="title">Lesson 17 — LLM Inference Optimization</title>
+<desc id="desc">Model and SLO are converted into VRAM budget, quantization profile, inference engine and batching setup, validated by benchmark, then mapped to a GPU instance, cost per token and inference gate.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061018"/><stop offset="1" stop-color="#17142d"/></linearGradient><style>.t{font-family:Segoe UI,Arial,sans-serif;fill:#eef7ff}.m{fill:#91a9ba}.h{font-weight:700}.box{fill:#0d1a25;stroke:#29495d;stroke-width:2}.cyan{stroke:#4ed9ff}.vio{stroke:#9b83ff}.green{stroke:#63e6a5}.amber{stroke:#ffbd65}.red{stroke:#ff7474}.mono{font-family:Consolas,monospace}</style></defs>
+<rect width="1600" height="980" rx="28" fill="url(#bg)"/>
+<text x="70" y="70" class="t h" font-size="34">LESSON 17 · LLM Inference Engineering</text>
+<text x="70" y="108" class="m mono" font-size="15">VRAM → QUANTIZATION → ENGINE → BATCHING → BENCHMARK → GPU → COST</text>
+
+<rect x="70" y="165" width="260" height="135" rx="18" class="box cyan"/><text x="100" y="205" class="t h" font-size="17">MODEL + SLO</text><text x="100" y="240" class="m" font-size="13">params · context · p95</text>
+<rect x="380" y="165" width="260" height="135" rx="18" class="box vio"/><text x="410" y="205" class="t h" font-size="17">VRAM BUDGET</text><text x="410" y="240" class="m" font-size="13">weights · KV · workspace</text>
+<rect x="690" y="165" width="260" height="135" rx="18" class="box green"/><text x="720" y="205" class="t h" font-size="17">QUANTIZATION</text><text x="720" y="240" class="m" font-size="13">precision ↔ quality</text>
+<rect x="1000" y="165" width="260" height="135" rx="18" class="box amber"/><text x="1030" y="205" class="t h" font-size="17">ENGINE</text><text x="1030" y="240" class="m" font-size="13">FlashAttention · vLLM</text>
+<rect x="1310" y="165" width="220" height="135" rx="18" class="box red"/><text x="1340" y="205" class="t h" font-size="17">BATCHING</text><text x="1340" y="240" class="m" font-size="13">continuous</text>
+<path d="M330 232H380M640 232H690M950 232H1000M1260 232H1310" stroke="#4ed9ff" stroke-width="5"/>
+
+<text x="70" y="385" class="t h" font-size="20">MEASURE, DO NOT GUESS</text>
+<rect x="70" y="425" width="300" height="170" rx="20" class="box cyan"/><text x="100" y="465" class="t h" font-size="17">TTFT / LATENCY</text><text x="100" y="500" class="m" font-size="13">queue · prefill · decode</text><text x="100" y="528" class="m" font-size="13">p50 / p95 / p99</text>
+<rect x="410" y="425" width="300" height="170" rx="20" class="box green"/><text x="440" y="465" class="t h" font-size="17">THROUGHPUT</text><text x="440" y="500" class="m" font-size="13">tokens/sec · req/sec</text><text x="440" y="528" class="m" font-size="13">batch / concurrency</text>
+<rect x="750" y="425" width="300" height="170" rx="20" class="box vio"/><text x="780" y="465" class="t h" font-size="17">GPU / VRAM</text><text x="780" y="500" class="m" font-size="13">utilization · headroom</text><text x="780" y="528" class="m" font-size="13">OOM / fragmentation</text>
+<rect x="1090" y="425" width="440" height="170" rx="20" class="box red"/><text x="1120" y="465" class="t h" font-size="17">QUALITY REGRESSION</text><text x="1120" y="500" class="m" font-size="13">quantized candidate vs baseline</text><text x="1120" y="528" class="m" font-size="13">eval gate before release</text>
+
+<text x="70" y="670" class="t h" font-size="20">PLACEMENT &amp; ECONOMICS</text>
+<rect x="70" y="710" width="320" height="145" rx="18" class="box amber"/><text x="100" y="750" class="t h" font-size="17">GPU INSTANCE</text><text x="100" y="784" class="m" font-size="13">provider / GPU / memory</text>
+<rect x="440" y="710" width="320" height="145" rx="18" class="box cyan"/><text x="470" y="750" class="t h" font-size="17">BENCHMARK</text><text x="470" y="784" class="m" font-size="13">same workload / same dataset</text>
+<rect x="810" y="710" width="320" height="145" rx="18" class="box vio"/><text x="840" y="750" class="t h" font-size="17">COST / TOKEN</text><text x="840" y="784" class="m" font-size="13">cost / 1M tokens · task</text>
+<rect x="1180" y="710" width="350" height="145" rx="18" class="box green"/><text x="1210" y="750" class="t h" font-size="17">INFERENCE GATE</text><text x="1210" y="784" class="m" font-size="13">quality + SLO + capacity + cost</text>
+<path d="M390 782H440M760 782H810M1130 782H1180" stroke="#ffbd65" stroke-width="5"/>
+
+<text x="70" y="925" class="m" font-size="14">RULE: no GPU SKU is “optimal” without a reproducible workload, quality check and cost-normalized benchmark.</text>
+</svg>

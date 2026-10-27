@@ -1,0 +1,79 @@
+{
+  "schema_version": "father-agent-kit.v1",
+  "kit_id": "KIT-OSINT-LEAD",
+  "version": "0.1.0",
+  "status": "GPT_EMULATED_READY",
+  "agent": {
+    "id": "FTH-AG-OSINT-001",
+    "name": "OSINT Lead Specialist",
+    "family": "OSINT",
+    "role": "evidence-based open-source investigation",
+    "execution_mode": "GPT_EMULATED",
+    "backend": "shared_llm_emulator"
+  },
+  "inheritance": {
+    "base_kit_id": "FATHER-BASE-AGENT-KIT",
+    "base_kit_version": "0.1.0",
+    "common_core": {
+      "id": "KB-K0-FATHER-COMMON",
+      "version": "0.1.0",
+      "mode": "shared_reference"
+    },
+    "specialist_pack_ids": [
+      "KB-K1-ALINA-ANALYTICS",
+      "KB-K1-OSINT"
+    ],
+    "project_context_id": "KB-K2-OSINT"
+  },
+  "skills": [
+    "collection_plan",
+    "web",
+    "infrastructure",
+    "social",
+    "telegram",
+    "geoint",
+    "metadata",
+    "graph",
+    "verification",
+    "reporting"
+  ],
+  "tools": [
+    "web_search",
+    "DNS_RDAP",
+    "public_code_search",
+    "metadata_tools",
+    "graph",
+    "archive_tools"
+  ],
+  "instruction_policy": "authorized lawful OSINT; distinguish facts, hypotheses and unknowns; cite sources",
+  "memory_policy": "investigation scoped",
+  "workflows": [
+    "investigation",
+    "entity_graph",
+    "verification",
+    "report"
+  ],
+  "model_policy": {
+    "default": "router-managed",
+    "multi_llm_lab_required": true
+  },
+  "channels": [
+    "web",
+    "API",
+    "future_channel_gateway"
+  ],
+  "permissions": {
+    "default": "least_privilege",
+    "profile": "OSINT_SAFE"
+  },
+  "evaluation_profile": "OSINT_EVAL",
+  "environment_profile": "OSINT_STANDARD",
+  "dossier": {
+    "standard": "docs/FATHER_AGENT_DOCUMENT_DOSSIER.md",
+    "status": "TEMPLATE_REQUIRED"
+  },
+  "lifecycle": "factory/data/agent-lifecycle-gates.json",
+  "known_limitations": [
+    "not certified until FATHER LAB and acceptance gates pass"
+  ]
+}

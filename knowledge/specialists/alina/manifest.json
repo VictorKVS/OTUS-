@@ -1,0 +1,24 @@
+{
+  "id": "KB-K1-ALINA-ANALYTICS",
+  "name": "Analytical Specialist Pack",
+  "version": "0.1.0",
+  "status": "DESIGN",
+  "layer": "K1",
+  "family": "ALINA",
+  "depends_on": [
+    "KB-K0-FATHER-COMMON"
+  ],
+  "topics": [
+    "source analysis",
+    "document analysis",
+    "fact extraction",
+    "entity relation extraction",
+    "evidence",
+    "contradictions",
+    "hypotheses",
+    "causal analysis",
+    "report synthesis"
+  ],
+  "skill_tree": "ALINA_ANALYTICAL_SKILLS",
+  "provenance_required": true
+}

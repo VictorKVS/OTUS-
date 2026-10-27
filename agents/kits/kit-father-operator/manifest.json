@@ -1,0 +1,67 @@
+{
+  "kit_id": "KIT-FATHER-OPERATOR",
+  "agent_id": "FTH-AG-OPR-001",
+  "name": "FATHER Operator / Production Assistant",
+  "family": "factory-operations",
+  "status": "DESIGN",
+  "base_pack_id": "KB-K0-FATHER-COMMON",
+  "specialist_pack_ids": [
+    "KB-K1-FACTORY-ORCHESTRATION",
+    "KB-K1-COMMUNICATION-BRIDGE"
+  ],
+  "project_pack_ids": [],
+  "inheritance": [
+    "K0",
+    "K1",
+    "K2 optional"
+  ],
+  "capabilities": [
+    "task intake",
+    "production navigation",
+    "project status explanation",
+    "block/workshop explanation",
+    "specialist routing",
+    "knowledge-backed conversation",
+    "handoff to ALINA/Architect/Programmer/OSINT/QA/Security/DevOps"
+  ],
+  "tools": [
+    "factory registry reader",
+    "component registry",
+    "agent registry",
+    "knowledge router",
+    "project graph reader",
+    "trace/evidence reader",
+    "model router"
+  ],
+  "permissions": [
+    "read project state",
+    "read registries",
+    "create normalized task proposal",
+    "recommend routing",
+    "request specialist handoff"
+  ],
+  "prohibited": [
+    "self-approve gates",
+    "claim production readiness without evidence",
+    "silently alter requirements",
+    "invent unavailable components"
+  ],
+  "metrics": [
+    "intent classification accuracy",
+    "routing accuracy",
+    "answer groundedness",
+    "task completion assistance",
+    "handoff correctness",
+    "latency",
+    "user correction rate"
+  ],
+  "knowledge_policy": {
+    "common": "KB-K0-FATHER-COMMON",
+    "specialist": [
+      "KB-K1-FACTORY-ORCHESTRATION",
+      "KB-K1-COMMUNICATION-BRIDGE"
+    ],
+    "project": "K2 loaded only for active project",
+    "rule": "Operator answers simple factory questions directly; specialist questions are routed to domain agents."
+  }
+}

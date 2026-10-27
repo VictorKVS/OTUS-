@@ -1,0 +1,96 @@
+{
+  "schema_version": "father-component.v1",
+  "component_id": "FTH-CMP-CONNECTIVITY-001",
+  "name": "FATHER Connectivity / Route Check",
+  "family": "NETWORK_CONNECTIVITY",
+  "version": "0.1.0",
+  "status": "DESIGN",
+  "reuse_state": "NOT_READY",
+  "certification_status": "NOT_CERTIFIED",
+  "purpose": "Pre-flight connectivity block for Telegram/API/provider dependencies with explicit proxy/VPN route profile and evidence report.",
+  "contract": {
+    "input": [
+      "endpoint list",
+      "network profile",
+      "optional proxy URL",
+      "timeouts"
+    ],
+    "output": [
+      "per-endpoint TCP/HTTPS status",
+      "selected route profile",
+      "aggregate PASS/FAIL",
+      "JSON evidence report"
+    ],
+    "errors": [
+      "DNS failure",
+      "TCP timeout/refused",
+      "TLS/HTTPS failure",
+      "proxy route failure"
+    ]
+  },
+  "capabilities": [
+    "TCP_CONNECTIVITY_CHECK",
+    "HTTPS_CONNECTIVITY_CHECK",
+    "PROXY_ROUTE_CHECK",
+    "FAIL_CLOSED_PREFLIGHT",
+    "JSON_EVIDENCE_REPORT"
+  ],
+  "config": {
+    "default_endpoints": [
+      {
+        "id": "telegram-api",
+        "host": "api.telegram.org",
+        "port": 443,
+        "url": "https://api.telegram.org"
+      },
+      {
+        "id": "telegram-web",
+        "host": "web.telegram.org",
+        "port": 443,
+        "url": "https://web.telegram.org"
+      }
+    ],
+    "proxy_env": [
+      "HTTPS_PROXY",
+      "HTTP_PROXY",
+      "ALL_PROXY"
+    ],
+    "timeout_seconds": 8,
+    "policy": "critical endpoint failure blocks dependent channel"
+  },
+  "metrics": [
+    "availability",
+    "tcp_latency_ms",
+    "https_latency_ms",
+    "failure_rate",
+    "route_changes"
+  ],
+  "tests_required": [
+    "known reachable endpoint",
+    "known closed port negative test",
+    "proxy enabled/disabled comparison",
+    "Telegram API endpoint",
+    "provider endpoint when configured"
+  ],
+  "evidence": [
+    "timestamp",
+    "endpoint",
+    "route profile",
+    "result",
+    "latency",
+    "error category"
+  ],
+  "security_profile": [
+    "never log tokens/credentials",
+    "proxy credentials redacted",
+    "no arbitrary command execution",
+    "endpoint allowlist in product profile"
+  ],
+  "compatible_workshops": [
+    "W40",
+    "W60",
+    "W70"
+  ],
+  "next_promotion_gate": "G-CMP-CONNECTIVITY-VALIDATE",
+  "promotion_condition": "Run locally in target environment, capture evidence, repeat under direct/proxy route where applicable."
+}

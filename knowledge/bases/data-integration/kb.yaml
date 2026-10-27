@@ -1,0 +1,20 @@
+knowledge_base:
+  id: KB-DATA
+  name: "Data & Integration KB"
+  status: scaffold
+  maturity: M0
+  class: canonical
+ownership:
+  write_owner: "Data/Integration Architect"
+  direct_agent_write: false
+retrieval:
+  enabled: true
+  project_filter_required: true
+  provenance_required: true
+  citations_required: true
+versioning:
+  required: true
+  superseded_hidden_by_default: true
+storage:
+  backend: TBD
+  collection: TBD

@@ -1,0 +1,85 @@
+{
+  "id": "KB-K0-FATHER-COMMON",
+  "name": "FATHER Common Knowledge Core",
+  "version": "0.1.0",
+  "status": "BASELINED-DESIGN",
+  "layer": "K0",
+  "scope": "all_agents",
+  "modules": [
+    {
+      "id": "K0-DOC",
+      "name": "Documents & Sources",
+      "topics": [
+        "source registry",
+        "document structure",
+        "versioning",
+        "provenance",
+        "citations"
+      ]
+    },
+    {
+      "id": "K0-ANA",
+      "name": "Analytical Foundations",
+      "topics": [
+        "facts",
+        "claims",
+        "entities",
+        "relations",
+        "events",
+        "contradictions",
+        "hypotheses",
+        "confidence"
+      ]
+    },
+    {
+      "id": "K0-REQ",
+      "name": "Requirements & Traceability",
+      "topics": [
+        "BUS/FR/NFR",
+        "acceptance",
+        "risk",
+        "ADR links",
+        "traceability"
+      ]
+    },
+    {
+      "id": "K0-AI",
+      "name": "AI Engineering Basics",
+      "topics": [
+        "LLM",
+        "RAG",
+        "agents",
+        "tools",
+        "workflows",
+        "evaluation",
+        "model routing"
+      ]
+    },
+    {
+      "id": "K0-SAFE",
+      "name": "Safety & Evidence",
+      "topics": [
+        "grounding",
+        "anti-hallucination",
+        "uncertainty",
+        "abstention",
+        "permissions",
+        "audit"
+      ]
+    },
+    {
+      "id": "K0-FTH",
+      "name": "FATHER Standards",
+      "topics": [
+        "agent lifecycle",
+        "document dossier",
+        "development pack",
+        "LAB",
+        "DevOps gates",
+        "certification"
+      ]
+    }
+  ],
+  "provenance_required": true,
+  "mutation_policy": "change_request + LAB regression + staged rollout"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "KB-K1-QUALITY-EVAL",
+  "name": "QA & AI Evaluation Specialist Pack",
+  "version": "0.1.0",
+  "status": "DESIGN",
+  "layer": "K1",
+  "family": "QUALITY",
+  "depends_on": [
+    "KB-K0-FATHER-COMMON",
+    "KB-K1-ALINA-ANALYTICS"
+  ],
+  "topics": [
+    "test design",
+    "golden datasets",
+    "regression",
+    "AI evaluation",
+    "LLM judge calibration",
+    "statistical comparison",
+    "failure taxonomy",
+    "quality gates",
+    "evidence"
+  ],
+  "skill_tree": "QUALITY_EVAL_SKILLS",
+  "provenance_required": true
+}

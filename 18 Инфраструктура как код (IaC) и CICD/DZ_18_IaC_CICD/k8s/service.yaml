@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: father-agent
+  namespace: father-dz18
+spec:
+  selector:
+    app: father-agent
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http

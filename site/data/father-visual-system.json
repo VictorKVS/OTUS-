@@ -1,0 +1,232 @@
+{
+  "schema_version": "father-visual-system.v1",
+  "status": "CANONICAL_DESIGN",
+  "name": "FATHER Visual System",
+  "principles": [
+    "ENGINEERING_FIRST",
+    "ONE_SHELL_MANY_WORKSPACES",
+    "STATUS_MUST_BE_TRUTHFUL",
+    "ACTION_REQUIRES_EVIDENCE",
+    "DENSE_BUT_READABLE",
+    "NO_DECORATIVE_DASHBOARD_THEATRE"
+  ],
+  "tokens": {
+    "colors": {
+      "bg": "#061019",
+      "bg_deep": "#030A10",
+      "panel": "#09141C",
+      "panel_2": "#0C1923",
+      "line": "#203542",
+      "line_strong": "#2C4D5F",
+      "text": "#E6F1F7",
+      "muted": "#85A0B1",
+      "muted_2": "#597285",
+      "cyan": "#31C8F4",
+      "green": "#55E69C",
+      "amber": "#FFC857",
+      "red": "#FF7676",
+      "violet": "#B9A2FF"
+    },
+    "typography": {
+      "ui": "Inter, Segoe UI, Arial, sans-serif",
+      "mono": "Consolas, JetBrains Mono, monospace",
+      "hero": "clamp(56px, 7vw, 104px)",
+      "h2": "clamp(30px, 3.6vw, 48px)",
+      "body": "12px–18px",
+      "meta": "8px–11px uppercase/mono"
+    },
+    "geometry": {
+      "shell_max": "1480px",
+      "header_height": "60px",
+      "section_y": "56px",
+      "card_radius": "10px–14px",
+      "button_radius": "8px–10px",
+      "grid_gap": "10px–14px"
+    }
+  },
+  "status_model": [
+    {
+      "id": "PRODUCTION",
+      "tone": "green"
+    },
+    {
+      "id": "CERTIFIED",
+      "tone": "green"
+    },
+    {
+      "id": "VALIDATED",
+      "tone": "green"
+    },
+    {
+      "id": "CANDIDATE",
+      "tone": "cyan"
+    },
+    {
+      "id": "EXPERIMENTAL",
+      "tone": "amber"
+    },
+    {
+      "id": "DESIGN",
+      "tone": "amber"
+    },
+    {
+      "id": "PLANNED",
+      "tone": "muted"
+    },
+    {
+      "id": "BLOCKED",
+      "tone": "red"
+    },
+    {
+      "id": "FAILED",
+      "tone": "red"
+    }
+  ],
+  "shell": {
+    "header": [
+      "FATHER brand",
+      "Global navigation",
+      "Current project/status"
+    ],
+    "primary_nav": [
+      "Главная",
+      "Единая система",
+      "Factory",
+      "Analytical Core",
+      "LAB",
+      "Knowledge",
+      "Agents",
+      "Trace",
+      "Dossier"
+    ],
+    "workspace_rule": "Internal modules keep same shell and return to central FATHER."
+  },
+  "homepage": [
+    "Hero: mission + current product status",
+    "System Centers",
+    "FATHER Field domain tabs",
+    "Main Factory W00-W90",
+    "Current Product on Conveyor",
+    "Evidence / Gates / LAB",
+    "Recent system activity"
+  ],
+  "domain_page": [
+    "Domain identity",
+    "Common base inherited",
+    "K1/K2 overlay",
+    "Inputs / Outputs",
+    "Workshop participation",
+    "Agents / tools",
+    "Tests / evidence",
+    "Current tasks"
+  ],
+  "workshop_page": [
+    "Workshop identity Wxx",
+    "Input",
+    "Regulations",
+    "Responsible roles",
+    "Process",
+    "Artifacts",
+    "Tests",
+    "Evidence",
+    "Gate",
+    "Output"
+  ],
+  "components": [
+    "Topbar",
+    "Hero",
+    "Status panel",
+    "Domain tabs",
+    "Workshop lane",
+    "Center cards",
+    "Metric strips",
+    "Evidence rows",
+    "Gate chips",
+    "Action buttons",
+    "Dossier cells",
+    "Trace timeline",
+    "Empty/error/loading states"
+  ],
+  "reference_synthesis": {
+    "source": "user-provided visual references",
+    "archetypes": [
+      {
+        "id": "R1_INFOGRAPHIC_CARDS",
+        "use_for": [
+          "Model Zoo",
+          "Agent Zoo",
+          "Knowledge packs",
+          "Capability catalogs"
+        ],
+        "traits": [
+          "dark navy base",
+          "cyan structural borders",
+          "amber numbering/accent",
+          "diagram inside card",
+          "short engineering explanation"
+        ],
+        "avoid": [
+          "poster-only layout",
+          "marketing slogans replacing status data"
+        ]
+      },
+      {
+        "id": "R2_MISSION_CONTROL",
+        "use_for": [
+          "Main dashboard",
+          "Current product",
+          "Factory execution",
+          "Operational status"
+        ],
+        "traits": [
+          "dark control-room shell",
+          "left navigation",
+          "central process flow",
+          "cyan active path",
+          "red/amber incidents",
+          "dense operational metrics"
+        ],
+        "avoid": [
+          "fake realtime metrics",
+          "decorative alerts",
+          "status without evidence"
+        ]
+      },
+      {
+        "id": "R3_LAYERED_ARCHITECTURE",
+        "use_for": [
+          "Unified System",
+          "Architecture map",
+          "Knowledge/Analytics/Automation layers",
+          "Workshop overview"
+        ],
+        "traits": [
+          "stacked transparent layers",
+          "glowing connectors",
+          "layer-specific accent",
+          "clear vertical dependency",
+          "workstation metaphor"
+        ],
+        "avoid": [
+          "3D decoration without readable contracts",
+          "layers with no input/output definition"
+        ]
+      }
+    ],
+    "homepage_composition": [
+      "Mission-control shell",
+      "Central live conveyor",
+      "Current product card",
+      "Domain/Zoo cards",
+      "Layered system architecture",
+      "Evidence and gate strip"
+    ],
+    "accent_policy": {
+      "cyan": "active flow / current / structural connections",
+      "amber": "classification / numbering / design-review attention",
+      "green": "validated / accepted / healthy",
+      "red": "blocked / failed / incident",
+      "violet": "AI/model/reasoning layer only when semantically useful"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+schema_version: father-canary-policy.v2
+strategy: canary
+stable_release_ref: previous-approved-release
+candidate_release_ref: REL-2026-10-DZ20-001
+
+progressive_delivery:
+  gitops_controller: Argo CD
+  rollout_controller: Argo Rollouts
+  traffic_router: configurable
+  analysis_provider: Prometheus_or_equivalent
+
+stages:
+  - traffic_percent: 1
+    observation:
+      min_samples: CALCULATED_FROM_GATE_POWER_OR_CONFIDENCE
+      min_wall_clock: CALIBRATED_FROM_RUNTIME_PROFILE
+    action_on_pass: continue
+  - traffic_percent: 5
+    observation:
+      min_samples: CALCULATED_FROM_GATE_POWER_OR_CONFIDENCE
+      min_wall_clock: CALIBRATED_FROM_RUNTIME_PROFILE
+    action_on_pass: continue
+  - traffic_percent: 100
+    action_on_pass: promote
+
+blocking_gates:
+  availability_errors:
+    rule: service_SLO_and_stable_comparison
+  latency:
+    rule: compare_candidate_vs_stable_with_predefined_NFR_and_confidence
+  ai_quality:
+    rule: versioned_golden_set_regression_with_confidence
+  security:
+    critical_events_allowed: 0
+    confirmed_data_leak_events_allowed: 0
+  cost:
+    rule: approved_unit_economics_budget
+  saturation:
+    rule: capacity_policy
+
+sample_time_formula:
+  expression: T_sample = N_required / (RPS * traffic_share)
+  note: also cover warm-up/cache/load-cycle variability when material
+
+on_failure:
+  route_traffic_percent_to_stable: 100
+  abort_rollout: true
+  revert_complete_release_bundle: true
+  preserve_evidence: true
+  open_rca: true
+
+notes:
+  - Canary percentages 1, 5 and 100 are required by OTUS Lesson 20.
+  - Numeric production thresholds must come from SLO/NFR, controlled evidence and real baseline.
+  - Argo CD reconciles desired state; Argo Rollouts or equivalent controls progressive delivery and traffic weighting.

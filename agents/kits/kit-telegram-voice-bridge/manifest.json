@@ -1,0 +1,76 @@
+{
+  "schema_version": "father-agent-kit.v1",
+  "kit_id": "KIT-TELEGRAM-VOICE-BRIDGE",
+  "version": "0.1.0",
+  "status": "EXPERIMENTAL",
+  "agent": {
+    "id": "FTH-AG-VBR-001",
+    "name": "Telegram Voice Bridge",
+    "family": "COMMUNICATION",
+    "role": "Telegram text↔speech conversion bridge",
+    "execution_mode": "NATIVE_RUNTIME",
+    "backend": "python_aiogram"
+  },
+  "inheritance": {
+    "base_kit_id": "FATHER-BASE-AGENT-KIT",
+    "base_kit_version": "0.1.0",
+    "common_core": {
+      "id": "KB-K0-FATHER-COMMON",
+      "version": "0.1.0",
+      "mode": "shared_reference"
+    },
+    "specialist_pack_ids": [
+      "KB-K1-COMMUNICATION-BRIDGE"
+    ],
+    "project_context_id": "KB-K2-FATHER"
+  },
+  "skills": [
+    "telegram_receive",
+    "route_text_voice",
+    "tts",
+    "stt",
+    "send_voice",
+    "send_text",
+    "trace_run",
+    "error_report"
+  ],
+  "tools": [
+    "telegram_bot_api",
+    "edge_tts",
+    "faster_whisper"
+  ],
+  "instruction_policy": "No LLM reasoning. Deterministic media bridge: text->TTS->voice; voice->STT->text.",
+  "memory_policy": "stateless per message; trace metadata only; content capture disabled by default",
+  "workflows": [
+    "telegram_text_to_voice",
+    "telegram_voice_to_text"
+  ],
+  "model_policy": {
+    "default": "no_llm",
+    "stt": "faster-whisper",
+    "tts": "edge-tts",
+    "multi_llm_lab_required": false
+  },
+  "channels": [
+    "telegram_bot"
+  ],
+  "permissions": {
+    "default": "least_privilege",
+    "profile": "TELEGRAM_MEDIA_BRIDGE"
+  },
+  "evaluation_profile": "VOICE_BRIDGE_EVAL",
+  "environment_profile": "LOCAL_DEV_THEN_CONTAINER",
+  "dossier": {
+    "standard": "docs/FATHER_AGENT_DOCUMENT_DOSSIER.md",
+    "index_path": "agents/kits/kit-telegram-voice-bridge/dossier/DOSSIER_INDEX.json",
+    "status": "DESIGN_IMPLEMENTED_TEST_PENDING"
+  },
+  "lifecycle": "factory/data/agent-lifecycle-gates.json",
+  "trace_contract": "agents/runtime/telegram-voice-bridge/trace.schema.json",
+  "known_limitations": [
+    "requires Telegram Bot token",
+    "edge-tts requires network access",
+    "STT model download/storage required before offline transcription",
+    "not certified until LAB and acceptance gates pass"
+  ]
+}

@@ -1,0 +1,21 @@
+profile:
+  id: FTH-AG-ARC-001-RAG
+  status: scaffold
+  enabled: true
+retrieval:
+  mode: hybrid
+  top_k: 8
+  reranker: true
+  citations_required: true
+  provenance_required: true
+filters:
+  project_id: required
+  allowed_document_status: [baselined, approved, verified]
+  raw_sources_allowed: false
+  deny_superseded_by_default: true
+fallback:
+  on_empty: return_gap
+  on_conflict: return_conflict_finding
+evaluation:
+  retrieval_metrics: [precision_at_k, recall_at_k, mrr]
+  answer_checks: [grounding, citation_presence]

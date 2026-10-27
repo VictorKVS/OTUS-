@@ -1,0 +1,821 @@
+{
+  "schema_version": "father-combat-template.v2",
+  "status": "CANONICAL_DESIGN",
+  "legacy_recovered_range": "C00-C20",
+  "reconstructed_range": "C21-C99",
+  "stage_contract": [
+    "INPUT",
+    "DEPENDENCIES",
+    "PROCESS",
+    "ARTIFACTS",
+    "VALIDATION",
+    "EVIDENCE",
+    "GATE",
+    "FAIL_ACTION",
+    "OUTPUT",
+    "NEXT"
+  ],
+  "rule": "NO EVIDENCE -> NO PROMOTION",
+  "stages": [
+    {
+      "code": "C00",
+      "name": "INTAKE",
+      "origin": "legacy",
+      "directory": "C00_INTAKE",
+      "gate": "G-C00",
+      "next": "C01"
+    },
+    {
+      "code": "C01",
+      "name": "BUSINESS",
+      "origin": "legacy",
+      "directory": "C01_BUSINESS",
+      "gate": "G-C01",
+      "next": "C02"
+    },
+    {
+      "code": "C02",
+      "name": "REQUIREMENTS_RISKS",
+      "origin": "legacy",
+      "directory": "C02_REQUIREMENTS_RISKS",
+      "gate": "G-C02",
+      "next": "C03"
+    },
+    {
+      "code": "C03",
+      "name": "DELIVERY_STRATEGY",
+      "origin": "legacy",
+      "directory": "C03_DELIVERY_STRATEGY",
+      "gate": "G-C03",
+      "next": "C04"
+    },
+    {
+      "code": "C04",
+      "name": "HLD_C4",
+      "origin": "legacy",
+      "directory": "C04_HLD_C4",
+      "gate": "G-C04",
+      "next": "C05"
+    },
+    {
+      "code": "C05",
+      "name": "LLD_API",
+      "origin": "legacy",
+      "directory": "C05_LLD_API",
+      "gate": "G-C05",
+      "next": "C06"
+    },
+    {
+      "code": "C06",
+      "name": "RAG_KNOWLEDGE",
+      "origin": "legacy",
+      "directory": "C06_RAG_KNOWLEDGE",
+      "gate": "G-C06",
+      "next": "C07"
+    },
+    {
+      "code": "C07",
+      "name": "AGENTS",
+      "origin": "legacy",
+      "directory": "C07_AGENTS",
+      "gate": "G-C07",
+      "next": "C08"
+    },
+    {
+      "code": "C08",
+      "name": "ADR",
+      "origin": "legacy",
+      "directory": "C08_ADR",
+      "gate": "G-C08",
+      "next": "C09"
+    },
+    {
+      "code": "C09",
+      "name": "ARCHITECTURE_REVIEW",
+      "origin": "legacy",
+      "directory": "C09_ARCHITECTURE_REVIEW",
+      "gate": "G-C09",
+      "next": "C10"
+    },
+    {
+      "code": "C10",
+      "name": "GOVERNANCE",
+      "origin": "legacy",
+      "directory": "C10_GOVERNANCE",
+      "gate": "G-C10",
+      "next": "C11"
+    },
+    {
+      "code": "C11",
+      "name": "INTEGRATIONS",
+      "origin": "legacy",
+      "directory": "C11_INTEGRATIONS",
+      "gate": "G-C11",
+      "next": "C12"
+    },
+    {
+      "code": "C12",
+      "name": "DATA",
+      "origin": "legacy",
+      "directory": "C12_DATA",
+      "gate": "G-C12",
+      "next": "C13"
+    },
+    {
+      "code": "C13",
+      "name": "EVALUATION",
+      "origin": "legacy",
+      "directory": "C13_EVALUATION",
+      "gate": "G-C13",
+      "next": "C14"
+    },
+    {
+      "code": "C14",
+      "name": "SECURITY",
+      "origin": "legacy",
+      "directory": "C14_SECURITY",
+      "gate": "G-C14",
+      "next": "C15"
+    },
+    {
+      "code": "C15",
+      "name": "OBSERVABILITY",
+      "origin": "legacy",
+      "directory": "C15_OBSERVABILITY",
+      "gate": "G-C15",
+      "next": "C16"
+    },
+    {
+      "code": "C16",
+      "name": "SIZING",
+      "origin": "legacy",
+      "directory": "C16_SIZING",
+      "gate": "G-C16",
+      "next": "C17"
+    },
+    {
+      "code": "C17",
+      "name": "LLM_INFRASTRUCTURE",
+      "origin": "legacy",
+      "directory": "C17_LLM_INFRASTRUCTURE",
+      "gate": "G-C17",
+      "next": "C18"
+    },
+    {
+      "code": "C18",
+      "name": "IAC_CICD_DEVSECOPS",
+      "origin": "legacy",
+      "directory": "C18_IAC_CICD_DEVSECOPS",
+      "gate": "G-C18",
+      "next": "C19"
+    },
+    {
+      "code": "C19",
+      "name": "MLOPS",
+      "origin": "legacy",
+      "directory": "C19_MLOPS",
+      "gate": "G-C19",
+      "next": "C20"
+    },
+    {
+      "code": "C20",
+      "name": "PRODUCTION_RELEASE",
+      "origin": "legacy",
+      "directory": "C20_PRODUCTION_RELEASE",
+      "gate": "G-C20",
+      "next": "C21"
+    },
+    {
+      "code": "C21",
+      "name": "HA_DR_ARCHITECTURE",
+      "origin": "v2",
+      "directory": "C21_HA_DR_ARCHITECTURE",
+      "gate": "G-C21",
+      "next": "C22"
+    },
+    {
+      "code": "C22",
+      "name": "RUNTIME_RELIABILITY",
+      "origin": "v2",
+      "directory": "C22_RUNTIME_RELIABILITY",
+      "gate": "G-C22",
+      "next": "C23"
+    },
+    {
+      "code": "C23",
+      "name": "EVENT_DRIVEN_ARCHITECTURE",
+      "origin": "v2",
+      "directory": "C23_EVENT_DRIVEN_ARCHITECTURE",
+      "gate": "G-C23",
+      "next": "C24"
+    },
+    {
+      "code": "C24",
+      "name": "HIGH_LOAD_LOW_LATENCY",
+      "origin": "v2",
+      "directory": "C24_HIGH_LOAD_LOW_LATENCY",
+      "gate": "G-C24",
+      "next": "C25"
+    },
+    {
+      "code": "C25",
+      "name": "HYBRID_MULTI_CLOUD",
+      "origin": "v2",
+      "directory": "C25_HYBRID_MULTI_CLOUD",
+      "gate": "G-C25",
+      "next": "C26"
+    },
+    {
+      "code": "C26",
+      "name": "MULTI_TENANCY",
+      "origin": "v2",
+      "directory": "C26_MULTI_TENANCY",
+      "gate": "G-C26",
+      "next": "C27"
+    },
+    {
+      "code": "C27",
+      "name": "PRIVACY_PRESERVING",
+      "origin": "v2",
+      "directory": "C27_PRIVACY_PRESERVING",
+      "gate": "G-C27",
+      "next": "C28"
+    },
+    {
+      "code": "C28",
+      "name": "FINOPS",
+      "origin": "v2",
+      "directory": "C28_FINOPS",
+      "gate": "G-C28",
+      "next": "C29"
+    },
+    {
+      "code": "C29",
+      "name": "TECH_RADAR_EVOLUTION",
+      "origin": "v2",
+      "directory": "C29_TECH_RADAR_EVOLUTION",
+      "gate": "G-C29",
+      "next": "C30"
+    },
+    {
+      "code": "C30",
+      "name": "ETHICAL_AI_GOVERNANCE",
+      "origin": "v2",
+      "directory": "C30_ETHICAL_AI_GOVERNANCE",
+      "gate": "G-C30",
+      "next": "C31"
+    },
+    {
+      "code": "C31",
+      "name": "PROJECT_PASSPORT",
+      "origin": "v2",
+      "directory": "C31_PROJECT_PASSPORT",
+      "gate": "G-C31",
+      "next": "C32"
+    },
+    {
+      "code": "C32",
+      "name": "DOSSIER_INDEX",
+      "origin": "v2",
+      "directory": "C32_DOSSIER_INDEX",
+      "gate": "G-C32",
+      "next": "C33"
+    },
+    {
+      "code": "C33",
+      "name": "TRACEABILITY_MATRIX",
+      "origin": "v2",
+      "directory": "C33_TRACEABILITY_MATRIX",
+      "gate": "G-C33",
+      "next": "C34"
+    },
+    {
+      "code": "C34",
+      "name": "SOURCE_REGISTER",
+      "origin": "v2",
+      "directory": "C34_SOURCE_REGISTER",
+      "gate": "G-C34",
+      "next": "C35"
+    },
+    {
+      "code": "C35",
+      "name": "DECISION_ADR_INDEX",
+      "origin": "v2",
+      "directory": "C35_DECISION_ADR_INDEX",
+      "gate": "G-C35",
+      "next": "C36"
+    },
+    {
+      "code": "C36",
+      "name": "RISK_DEBT_REGISTER",
+      "origin": "v2",
+      "directory": "C36_RISK_DEBT_REGISTER",
+      "gate": "G-C36",
+      "next": "C37"
+    },
+    {
+      "code": "C37",
+      "name": "CHANGE_CONTROL",
+      "origin": "v2",
+      "directory": "C37_CHANGE_CONTROL",
+      "gate": "G-C37",
+      "next": "C38"
+    },
+    {
+      "code": "C38",
+      "name": "COMPATIBILITY_MATRIX",
+      "origin": "v2",
+      "directory": "C38_COMPATIBILITY_MATRIX",
+      "gate": "G-C38",
+      "next": "C39"
+    },
+    {
+      "code": "C39",
+      "name": "KNOWN_LIMITATIONS",
+      "origin": "v2",
+      "directory": "C39_KNOWN_LIMITATIONS",
+      "gate": "G-C39",
+      "next": "C40"
+    },
+    {
+      "code": "C40",
+      "name": "COMMON_K0",
+      "origin": "v2",
+      "directory": "C40_COMMON_K0",
+      "gate": "G-C40",
+      "next": "C41"
+    },
+    {
+      "code": "C41",
+      "name": "SPECIALIST_K1",
+      "origin": "v2",
+      "directory": "C41_SPECIALIST_K1",
+      "gate": "G-C41",
+      "next": "C42"
+    },
+    {
+      "code": "C42",
+      "name": "PROJECT_K2",
+      "origin": "v2",
+      "directory": "C42_PROJECT_K2",
+      "gate": "G-C42",
+      "next": "C43"
+    },
+    {
+      "code": "C43",
+      "name": "KNOWLEDGE_ROUTER",
+      "origin": "v2",
+      "directory": "C43_KNOWLEDGE_ROUTER",
+      "gate": "G-C43",
+      "next": "C44"
+    },
+    {
+      "code": "C44",
+      "name": "SKILL_TREE",
+      "origin": "v2",
+      "directory": "C44_SKILL_TREE",
+      "gate": "G-C44",
+      "next": "C45"
+    },
+    {
+      "code": "C45",
+      "name": "TRAINING_PROGRAM",
+      "origin": "v2",
+      "directory": "C45_TRAINING_PROGRAM",
+      "gate": "G-C45",
+      "next": "C46"
+    },
+    {
+      "code": "C46",
+      "name": "EXAMS_GRADUATION",
+      "origin": "v2",
+      "directory": "C46_EXAMS_GRADUATION",
+      "gate": "G-C46",
+      "next": "C47"
+    },
+    {
+      "code": "C47",
+      "name": "MEMORY_POLICY",
+      "origin": "v2",
+      "directory": "C47_MEMORY_POLICY",
+      "gate": "G-C47",
+      "next": "C48"
+    },
+    {
+      "code": "C48",
+      "name": "EXPERIENCE_MODEL",
+      "origin": "v2",
+      "directory": "C48_EXPERIENCE_MODEL",
+      "gate": "G-C48",
+      "next": "C49"
+    },
+    {
+      "code": "C49",
+      "name": "KNOWLEDGE_UPDATE",
+      "origin": "v2",
+      "directory": "C49_KNOWLEDGE_UPDATE",
+      "gate": "G-C49",
+      "next": "C50"
+    },
+    {
+      "code": "C50",
+      "name": "AGENT_KIT",
+      "origin": "v2",
+      "directory": "C50_AGENT_KIT",
+      "gate": "G-C50",
+      "next": "C51"
+    },
+    {
+      "code": "C51",
+      "name": "AGENT_IDENTITY",
+      "origin": "v2",
+      "directory": "C51_AGENT_IDENTITY",
+      "gate": "G-C51",
+      "next": "C52"
+    },
+    {
+      "code": "C52",
+      "name": "PROMPT_INSTRUCTION_POLICY",
+      "origin": "v2",
+      "directory": "C52_PROMPT_INSTRUCTION_POLICY",
+      "gate": "G-C52",
+      "next": "C53"
+    },
+    {
+      "code": "C53",
+      "name": "MODEL_ROUTING",
+      "origin": "v2",
+      "directory": "C53_MODEL_ROUTING",
+      "gate": "G-C53",
+      "next": "C54"
+    },
+    {
+      "code": "C54",
+      "name": "TOOLS_MCP",
+      "origin": "v2",
+      "directory": "C54_TOOLS_MCP",
+      "gate": "G-C54",
+      "next": "C55"
+    },
+    {
+      "code": "C55",
+      "name": "WORKFLOW_ORCHESTRATION",
+      "origin": "v2",
+      "directory": "C55_WORKFLOW_ORCHESTRATION",
+      "gate": "G-C55",
+      "next": "C56"
+    },
+    {
+      "code": "C56",
+      "name": "CHANNEL_GATEWAY",
+      "origin": "v2",
+      "directory": "C56_CHANNEL_GATEWAY",
+      "gate": "G-C56",
+      "next": "C57"
+    },
+    {
+      "code": "C57",
+      "name": "STATE_EVENT_MODEL",
+      "origin": "v2",
+      "directory": "C57_STATE_EVENT_MODEL",
+      "gate": "G-C57",
+      "next": "C58"
+    },
+    {
+      "code": "C58",
+      "name": "PERMISSIONS_GUARDRAILS",
+      "origin": "v2",
+      "directory": "C58_PERMISSIONS_GUARDRAILS",
+      "gate": "G-C58",
+      "next": "C59"
+    },
+    {
+      "code": "C59",
+      "name": "AGENT_VIRTUALIZATION",
+      "origin": "v2",
+      "directory": "C59_AGENT_VIRTUALIZATION",
+      "gate": "G-C59",
+      "next": "C60"
+    },
+    {
+      "code": "C60",
+      "name": "DATASET_CENTER",
+      "origin": "v2",
+      "directory": "C60_DATASET_CENTER",
+      "gate": "G-C60",
+      "next": "C61"
+    },
+    {
+      "code": "C61",
+      "name": "GOLDEN_SET",
+      "origin": "v2",
+      "directory": "C61_GOLDEN_SET",
+      "gate": "G-C61",
+      "next": "C62"
+    },
+    {
+      "code": "C62",
+      "name": "REGRESSION_SET",
+      "origin": "v2",
+      "directory": "C62_REGRESSION_SET",
+      "gate": "G-C62",
+      "next": "C63"
+    },
+    {
+      "code": "C63",
+      "name": "ADVERSARIAL_SET",
+      "origin": "v2",
+      "directory": "C63_ADVERSARIAL_SET",
+      "gate": "G-C63",
+      "next": "C64"
+    },
+    {
+      "code": "C64",
+      "name": "BENCHMARKS",
+      "origin": "v2",
+      "directory": "C64_BENCHMARKS",
+      "gate": "G-C64",
+      "next": "C65"
+    },
+    {
+      "code": "C65",
+      "name": "ABN_EXPERIMENTS",
+      "origin": "v2",
+      "directory": "C65_ABN_EXPERIMENTS",
+      "gate": "G-C65",
+      "next": "C66"
+    },
+    {
+      "code": "C66",
+      "name": "EVALUATOR_CALIBRATION",
+      "origin": "v2",
+      "directory": "C66_EVALUATOR_CALIBRATION",
+      "gate": "G-C66",
+      "next": "C67"
+    },
+    {
+      "code": "C67",
+      "name": "STATISTICAL_VALIDATION",
+      "origin": "v2",
+      "directory": "C67_STATISTICAL_VALIDATION",
+      "gate": "G-C67",
+      "next": "C68"
+    },
+    {
+      "code": "C68",
+      "name": "MULTI_LLM_TRIALS",
+      "origin": "v2",
+      "directory": "C68_MULTI_LLM_TRIALS",
+      "gate": "G-C68",
+      "next": "C69"
+    },
+    {
+      "code": "C69",
+      "name": "CHAMPION_CHALLENGER",
+      "origin": "v2",
+      "directory": "C69_CHAMPION_CHALLENGER",
+      "gate": "G-C69",
+      "next": "C70"
+    },
+    {
+      "code": "C70",
+      "name": "DEVELOPMENT_PACK",
+      "origin": "v2",
+      "directory": "C70_DEVELOPMENT_PACK",
+      "gate": "G-C70",
+      "next": "C71"
+    },
+    {
+      "code": "C71",
+      "name": "PROGRAMMER_IMPLEMENTATION",
+      "origin": "v2",
+      "directory": "C71_PROGRAMMER_IMPLEMENTATION",
+      "gate": "G-C71",
+      "next": "C72"
+    },
+    {
+      "code": "C72",
+      "name": "UNIT_TESTS",
+      "origin": "v2",
+      "directory": "C72_UNIT_TESTS",
+      "gate": "G-C72",
+      "next": "C73"
+    },
+    {
+      "code": "C73",
+      "name": "CONTRACT_TESTS",
+      "origin": "v2",
+      "directory": "C73_CONTRACT_TESTS",
+      "gate": "G-C73",
+      "next": "C74"
+    },
+    {
+      "code": "C74",
+      "name": "INTEGRATION_TESTS",
+      "origin": "v2",
+      "directory": "C74_INTEGRATION_TESTS",
+      "gate": "G-C74",
+      "next": "C75"
+    },
+    {
+      "code": "C75",
+      "name": "SYSTEM_E2E_TESTS",
+      "origin": "v2",
+      "directory": "C75_SYSTEM_E2E_TESTS",
+      "gate": "G-C75",
+      "next": "C76"
+    },
+    {
+      "code": "C76",
+      "name": "SECURITY_TESTS",
+      "origin": "v2",
+      "directory": "C76_SECURITY_TESTS",
+      "gate": "G-C76",
+      "next": "C77"
+    },
+    {
+      "code": "C77",
+      "name": "PERFORMANCE_LOAD_CHAOS",
+      "origin": "v2",
+      "directory": "C77_PERFORMANCE_LOAD_CHAOS",
+      "gate": "G-C77",
+      "next": "C78"
+    },
+    {
+      "code": "C78",
+      "name": "ACCEPTANCE",
+      "origin": "v2",
+      "directory": "C78_ACCEPTANCE",
+      "gate": "G-C78",
+      "next": "C79"
+    },
+    {
+      "code": "C79",
+      "name": "RELEASE_CANDIDATE",
+      "origin": "v2",
+      "directory": "C79_RELEASE_CANDIDATE",
+      "gate": "G-C79",
+      "next": "C80"
+    },
+    {
+      "code": "C80",
+      "name": "BUILD_ARTIFACT",
+      "origin": "v2",
+      "directory": "C80_BUILD_ARTIFACT",
+      "gate": "G-C80",
+      "next": "C81"
+    },
+    {
+      "code": "C81",
+      "name": "CONTAINERIZATION",
+      "origin": "v2",
+      "directory": "C81_CONTAINERIZATION",
+      "gate": "G-C81",
+      "next": "C82"
+    },
+    {
+      "code": "C82",
+      "name": "KUBERNETES",
+      "origin": "v2",
+      "directory": "C82_KUBERNETES",
+      "gate": "G-C82",
+      "next": "C83"
+    },
+    {
+      "code": "C83",
+      "name": "CI_PIPELINE",
+      "origin": "v2",
+      "directory": "C83_CI_PIPELINE",
+      "gate": "G-C83",
+      "next": "C84"
+    },
+    {
+      "code": "C84",
+      "name": "CD_GITOPS",
+      "origin": "v2",
+      "directory": "C84_CD_GITOPS",
+      "gate": "G-C84",
+      "next": "C85"
+    },
+    {
+      "code": "C85",
+      "name": "ENVIRONMENT_MATRIX",
+      "origin": "v2",
+      "directory": "C85_ENVIRONMENT_MATRIX",
+      "gate": "G-C85",
+      "next": "C86"
+    },
+    {
+      "code": "C86",
+      "name": "TELEMETRY_TRACING",
+      "origin": "v2",
+      "directory": "C86_TELEMETRY_TRACING",
+      "gate": "G-C86",
+      "next": "C87"
+    },
+    {
+      "code": "C87",
+      "name": "SLI_SLO",
+      "origin": "v2",
+      "directory": "C87_SLI_SLO",
+      "gate": "G-C87",
+      "next": "C88"
+    },
+    {
+      "code": "C88",
+      "name": "INCIDENT_RUNBOOK",
+      "origin": "v2",
+      "directory": "C88_INCIDENT_RUNBOOK",
+      "gate": "G-C88",
+      "next": "C89"
+    },
+    {
+      "code": "C89",
+      "name": "BACKUP_ROLLBACK_DR",
+      "origin": "v2",
+      "directory": "C89_BACKUP_ROLLBACK_DR",
+      "gate": "G-C89",
+      "next": "C90"
+    },
+    {
+      "code": "C90",
+      "name": "CERTIFICATION",
+      "origin": "v2",
+      "directory": "C90_CERTIFICATION",
+      "gate": "G-C90",
+      "next": "C91"
+    },
+    {
+      "code": "C91",
+      "name": "ZOO_PROMOTION",
+      "origin": "v2",
+      "directory": "C91_ZOO_PROMOTION",
+      "gate": "G-C91",
+      "next": "C92"
+    },
+    {
+      "code": "C92",
+      "name": "DEPLOYMENT",
+      "origin": "v2",
+      "directory": "C92_DEPLOYMENT",
+      "gate": "G-C92",
+      "next": "C93"
+    },
+    {
+      "code": "C93",
+      "name": "CANARY_PROGRESSIVE_DELIVERY",
+      "origin": "v2",
+      "directory": "C93_CANARY_PROGRESSIVE_DELIVERY",
+      "gate": "G-C93",
+      "next": "C94"
+    },
+    {
+      "code": "C94",
+      "name": "PRODUCTION_MONITORING",
+      "origin": "v2",
+      "directory": "C94_PRODUCTION_MONITORING",
+      "gate": "G-C94",
+      "next": "C95"
+    },
+    {
+      "code": "C95",
+      "name": "FEEDBACK_INTAKE",
+      "origin": "v2",
+      "directory": "C95_FEEDBACK_INTAKE",
+      "gate": "G-C95",
+      "next": "C96"
+    },
+    {
+      "code": "C96",
+      "name": "RCA_LESSONS_LEARNED",
+      "origin": "v2",
+      "directory": "C96_RCA_LESSONS_LEARNED",
+      "gate": "G-C96",
+      "next": "C97"
+    },
+    {
+      "code": "C97",
+      "name": "KNOWLEDGE_SKILL_UPDATE",
+      "origin": "v2",
+      "directory": "C97_KNOWLEDGE_SKILL_UPDATE",
+      "gate": "G-C97",
+      "next": "C98"
+    },
+    {
+      "code": "C98",
+      "name": "NEXT_VERSION_CHANGE_REQUEST",
+      "origin": "v2",
+      "directory": "C98_NEXT_VERSION_CHANGE_REQUEST",
+      "gate": "G-C98",
+      "next": "C99"
+    },
+    {
+      "code": "C99",
+      "name": "ARCHIVE_AAR_CLOSEOUT",
+      "origin": "v2",
+      "directory": "C99_ARCHIVE_AAR_CLOSEOUT",
+      "gate": "G-C99",
+      "next": null
+    }
+  ]
+}

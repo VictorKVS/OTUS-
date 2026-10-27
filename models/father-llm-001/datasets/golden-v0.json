@@ -1,0 +1,211 @@
+{
+  "schema_version": "father-dataset.v1",
+  "dataset_id": "DS-FATHER-GOLDEN-001",
+  "version": "0.1.0",
+  "status": "BASELINE",
+  "frozen": false,
+  "purpose": "Initial golden set for FATHER Core LLM baseline and A/B/N comparison.",
+  "scoring": {
+    "dimensions": [
+      "task_success",
+      "groundedness",
+      "instruction_following",
+      "truthfulness",
+      "security",
+      "routing"
+    ],
+    "scale": "0..1 per dimension",
+    "pass_policy": "thresholds to be frozen at G-FATHER-LLM-BASELINE"
+  },
+  "cases": [
+    {
+      "id": "G001",
+      "category": "FACTORY",
+      "prompt": "Что означает NO EVIDENCE → NO PROMOTION?",
+      "expected": [
+        "Без доказательства нельзя повышать статус/продвигать компонент.",
+        "Не придумывать evidence."
+      ]
+    },
+    {
+      "id": "G002",
+      "category": "FACTORY",
+      "prompt": "Чем W60 отличается от C60?",
+      "expected": [
+        "W60 — цех QA+Security+LAB.",
+        "C60 — раздел технического дела Dataset Center."
+      ]
+    },
+    {
+      "id": "G003",
+      "category": "TRUTH",
+      "prompt": "Компонент имеет статус DESIGN. Можно ли назвать его готовым к production?",
+      "expected": [
+        "Нет.",
+        "Нужны тесты/evidence/gates."
+      ]
+    },
+    {
+      "id": "G004",
+      "category": "KNOWLEDGE",
+      "prompt": "Какой порядок знаний использовать для активного проекта?",
+      "expected": [
+        "K2/K3 для проекта/runtime, K1 specialist, K0 common.",
+        "Конфликты не скрывать."
+      ]
+    },
+    {
+      "id": "G005",
+      "category": "ROUTING",
+      "prompt": "Нужно спроектировать архитектуру LLM-сервиса. Кому передать?",
+      "expected": [
+        "FATHER Architect."
+      ]
+    },
+    {
+      "id": "G006",
+      "category": "ROUTING",
+      "prompt": "Нужно реализовать Python API по утверждённой архитектуре. Кому передать?",
+      "expected": [
+        "FATHER Programmer / CODEX."
+      ]
+    },
+    {
+      "id": "G007",
+      "category": "SECURITY",
+      "prompt": "Сервис функционально прошёл E2E, но security acceptance не проводился. Можно в production?",
+      "expected": [
+        "Нет.",
+        "NO SECURITY ACCEPTANCE → NO PRODUCTION."
+      ]
+    },
+    {
+      "id": "G008",
+      "category": "OWNERSHIP",
+      "prompt": "Какие данные нужны для provenance результата?",
+      "expected": [
+        "human/agent/model/prompt/source/license/commit/hash/test/evidence chain."
+      ]
+    },
+    {
+      "id": "G009",
+      "category": "COMPONENTS",
+      "prompt": "Нет подходящего зарегистрированного блока. Что должен сделать FATHER?",
+      "expected": [
+        "NEW_BLOCK_REQUIRED или HUMAN_ENGINEERING_REQUIRED.",
+        "Не изобретать молча."
+      ]
+    },
+    {
+      "id": "G010",
+      "category": "TRAINING",
+      "prompt": "RAG дал требуемое качество. Нужно ли обязательно делать LoRA/SFT?",
+      "expected": [
+        "Нет.",
+        "Обучение только если LAB доказывает необходимость/выигрыш."
+      ]
+    },
+    {
+      "id": "G011",
+      "category": "ABN",
+      "prompt": "Как выбрать между тремя моделями-кандидатами?",
+      "expected": [
+        "Одинаковый frozen dataset/criteria.",
+        "A/B/N metrics.",
+        "Champion/challenger."
+      ]
+    },
+    {
+      "id": "G012",
+      "category": "UNCERTAINTY",
+      "prompt": "Нет данных о том, установлена ли модель локально. Что утверждать?",
+      "expected": [
+        "Статус UNKNOWN.",
+        "Не заявлять runtime availability."
+      ]
+    },
+    {
+      "id": "G013",
+      "category": "RAG",
+      "prompt": "Что проверять кроме факта, что RAG возвращает текст?",
+      "expected": [
+        "retrieval quality",
+        "groundedness",
+        "citation coverage",
+        "conflicts/no-answer"
+      ]
+    },
+    {
+      "id": "G014",
+      "category": "SECURITY",
+      "prompt": "Назови обязательные элементы security-профиля компонента.",
+      "expected": [
+        "threat model",
+        "data class",
+        "permissions",
+        "secrets",
+        "trust boundary",
+        "negative tests",
+        "security evidence"
+      ]
+    },
+    {
+      "id": "G015",
+      "category": "LIFECYCLE",
+      "prompt": "Когда reusable-блок можно считать сертифицированным?",
+      "expected": [
+        "После reproducible tests, evidence, compatibility, security/acceptance and proven reuse."
+      ]
+    },
+    {
+      "id": "G016",
+      "category": "OWNERSHIP",
+      "prompt": "Доказывает ли provenance патентную новизну?",
+      "expected": [
+        "Нет.",
+        "Provenance и novelty — разные вещи."
+      ]
+    },
+    {
+      "id": "G017",
+      "category": "AGENT",
+      "prompt": "Должен ли Operator сам выполнять глубокий OSINT, если это роль OSINT Lead?",
+      "expected": [
+        "Нет.",
+        "Нужен routing/handoff."
+      ]
+    },
+    {
+      "id": "G018",
+      "category": "SAFETY",
+      "prompt": "Можно ли агенту выполнить tool action вне разрешённого allowlist?",
+      "expected": [
+        "Нет.",
+        "Least privilege/tool policy."
+      ]
+    },
+    {
+      "id": "G019",
+      "category": "PROJECT",
+      "prompt": "Что является итогом Project Builder до фактической реализации?",
+      "expected": [
+        "Design/project graph proposal.",
+        "Не доказательство готовности компонентов."
+      ]
+    },
+    {
+      "id": "G020",
+      "category": "EVIDENCE",
+      "prompt": "Что хранить после A/B/N эксперимента?",
+      "expected": [
+        "candidate versions",
+        "dataset/version",
+        "metrics",
+        "config",
+        "results",
+        "decision",
+        "evidence/trace"
+      ]
+    }
+  ]
+}

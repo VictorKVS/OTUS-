@@ -1,0 +1,242 @@
+{
+  "schema_version": "father-agent-kit-registry.v1",
+  "status": "DESIGN_IMPLEMENTATION",
+  "base_kit": {
+    "id": "FATHER-BASE-AGENT-KIT",
+    "version": "0.1.0",
+    "path": "agents/base/father-agent-base/manifest.json"
+  },
+  "common_knowledge": {
+    "id": "KB-K0-FATHER-COMMON",
+    "version": "0.1.0",
+    "mode": "shared_reference"
+  },
+  "kits": [
+    {
+      "kit_id": "KIT-ALINA-ANALYST",
+      "agent_id": "FTH-AG-ANL-001",
+      "name": "ALINA Analyst / Researcher / Teacher",
+      "family": "ALINA",
+      "status": "GPT_EMULATED_READY",
+      "path": "agents/kits/kit-alina-analyst/manifest.json",
+      "specialist_pack_ids": [
+        "KB-K1-ALINA-ANALYTICS"
+      ],
+      "identity_rule": "ONE_ALINA_CORE_MANY_DOMAIN_PROFILES",
+      "base_pack_id": "KB-K0-FATHER-COMMON",
+      "domain_profiles": {
+        "FATHER_ANALYTICS": {
+          "packs": [
+            "KB-K1-ALINA-ANALYTICS",
+            "KB-K1-FACTORY-ORCHESTRATION"
+          ],
+          "authority": "ANALYZE_PREPARE_RECOMMEND"
+        },
+        "INFORMATION_SECURITY": {
+          "packs": [
+            "KB-K1-ALINA-ANALYTICS",
+            "KB-K1-IB",
+            "KB-K1-DEVSECOPS"
+          ],
+          "authority": "ANALYZE_SECURITY_CONTEXT_PREPARE_EVIDENCE",
+          "prohibited": [
+            "SECURITY_ACCEPTANCE",
+            "SELF_APPROVE_SECURITY_GATE"
+          ]
+        },
+        "OSINT": {
+          "packs": [
+            "KB-K1-ALINA-ANALYTICS",
+            "KB-K1-OSINT"
+          ],
+          "authority": "ANALYZE_AND_STRUCTURE_OSINT_RESULTS"
+        },
+        "ARCHITECTURE_SUPPORT": {
+          "packs": [
+            "KB-K1-ALINA-ANALYTICS",
+            "KB-K1-ARCHITECT"
+          ],
+          "authority": "ANALYZE_REQUIREMENTS_AND_PREPARE_ARCHITECT_CONTEXT"
+        },
+        "KNOWLEDGE_ENGINEERING": {
+          "packs": [
+            "KB-K1-ALINA-ANALYTICS",
+            "KB-K1-KNOWLEDGE-ENGINEERING"
+          ],
+          "authority": "BUILD_AND_VALIDATE_KNOWLEDGE_PACKS"
+        }
+      },
+      "project_context": "K2 by active project",
+      "runtime_context": "K3 by active session/run",
+      "security_boundary": "ALINA may perform security analysis but Security PASS requires independent Security Engineer/human gate."
+    },
+    {
+      "kit_id": "KIT-FATHER-ARCHITECT",
+      "agent_id": "FTH-AG-ARC-001",
+      "name": "FATHER Architect",
+      "family": "FATHER_ARCHITECT",
+      "status": "GPT_EMULATED_READY",
+      "path": "agents/kits/kit-father-architect/manifest.json",
+      "specialist_pack_ids": [
+        "KB-K1-ARCHITECT"
+      ]
+    },
+    {
+      "kit_id": "KIT-FATHER-PROGRAMMER",
+      "agent_id": "FTH-AG-DEV-001",
+      "name": "FATHER Programmer / CODEX",
+      "family": "FATHER_CODEX",
+      "status": "GPT_EMULATED_READY",
+      "path": "agents/kits/kit-father-programmer/manifest.json",
+      "specialist_pack_ids": [
+        "KB-K1-PROGRAMMER"
+      ]
+    },
+    {
+      "kit_id": "KIT-KNOWLEDGE-ENGINEER",
+      "agent_id": "FTH-AG-KNW-001",
+      "name": "FATHER Knowledge Engineer / Curator",
+      "family": "KNOWLEDGE",
+      "status": "DESIGN",
+      "path": "agents/kits/kit-knowledge-engineer/manifest.json",
+      "specialist_pack_ids": [
+        "KB-K1-KNOWLEDGE-ENGINEERING"
+      ]
+    },
+    {
+      "kit_id": "KIT-QA-EVALUATOR",
+      "agent_id": "FTH-AG-QA-001",
+      "name": "FATHER QA / AI Evaluator",
+      "family": "QUALITY",
+      "status": "DESIGN",
+      "path": "agents/kits/kit-qa-evaluator/manifest.json",
+      "specialist_pack_ids": [
+        "KB-K1-QUALITY-EVAL"
+      ]
+    },
+    {
+      "kit_id": "KIT-SECURITY-ENGINEER",
+      "agent_id": "FTH-AG-SEC-001",
+      "name": "FATHER Security / DevSecOps Engineer",
+      "family": "SECURITY",
+      "status": "EXPERIMENTAL",
+      "path": "agents/kits/kit-security-engineer/manifest.json",
+      "specialist_pack_ids": [
+        "KB-K1-IB",
+        "KB-K1-DEVSECOPS"
+      ],
+      "implementation": {
+        "repository": "VictorKVS/FATHER_VOICE_BRIDGE",
+        "path": "father_security_review_v01.py",
+        "evidence_id": "EV-PROTO-READINESS-SECURITY-001",
+        "scope": "deterministic independent review baseline over product evidence and security regression"
+      },
+      "permissions": [
+        "review product evidence",
+        "produce PASS_CANDIDATE or BLOCKED"
+      ],
+      "prohibited": [
+        "self-grant final Security acceptance",
+        "authorize production without human gate"
+      ],
+      "truth_rule": "Experimental Security Engineer may produce PASS_CANDIDATE only; final Security acceptance is human-gated."
+    },
+    {
+      "kit_id": "KIT-DEVOPS-SRE",
+      "agent_id": "FTH-AG-SRE-001",
+      "name": "FATHER DevOps / SRE",
+      "family": "DEVOPS_SRE",
+      "status": "DESIGN",
+      "path": "agents/kits/kit-devops-sre/manifest.json",
+      "specialist_pack_ids": [
+        "KB-K1-DEVSECOPS",
+        "KB-K1-OPS-SRE"
+      ]
+    },
+    {
+      "kit_id": "KIT-FACTORY-CONTROLLER",
+      "agent_id": "FTH-AG-FCT-001",
+      "name": "FATHER Factory Controller",
+      "family": "FATHER_FACTORY",
+      "status": "EXPERIMENTAL",
+      "path": "agents/kits/kit-factory-controller/manifest.json",
+      "specialist_pack_ids": [
+        "KB-K1-FACTORY-ORCHESTRATION"
+      ],
+      "implementation": {
+        "repository": "VictorKVS/FATHER_VOICE_BRIDGE",
+        "path": "father_factory_controller.py",
+        "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+        "scope": "deterministic planning baseline"
+      }
+    },
+    {
+      "kit_id": "KIT-OSINT-LEAD",
+      "agent_id": "FTH-AG-OSINT-001",
+      "name": "OSINT Lead Specialist",
+      "family": "OSINT",
+      "status": "GPT_EMULATED_READY",
+      "path": "agents/kits/kit-osint-lead/manifest.json",
+      "specialist_pack_ids": [
+        "KB-K1-ALINA-ANALYTICS",
+        "KB-K1-OSINT"
+      ]
+    },
+    {
+      "kit_id": "KIT-TELEGRAM-VOICE-BRIDGE",
+      "agent_id": "FTH-AG-VBR-001",
+      "name": "Telegram Voice Bridge",
+      "family": "COMMUNICATION",
+      "status": "EXPERIMENTAL",
+      "path": "agents/kits/kit-telegram-voice-bridge/manifest.json",
+      "specialist_pack_ids": [
+        "KB-K1-COMMUNICATION-BRIDGE"
+      ]
+    },
+    {
+      "kit_id": "KIT-FATHER-OPERATOR",
+      "agent_id": "FTH-AG-OPR-001",
+      "name": "FATHER Operator / Production Assistant",
+      "family": "factory-operations",
+      "status": "EXPERIMENTAL",
+      "base_pack_id": "KB-K0-FATHER-COMMON",
+      "specialist_pack_ids": [
+        "KB-K1-FACTORY-ORCHESTRATION",
+        "KB-K1-COMMUNICATION-BRIDGE"
+      ],
+      "project_pack_ids": [],
+      "inheritance": [
+        "K0",
+        "K1",
+        "K2 optional"
+      ],
+      "tools": [
+        "factory registry reader",
+        "component registry",
+        "agent registry",
+        "knowledge router",
+        "project graph reader",
+        "trace/evidence reader",
+        "model router"
+      ],
+      "permissions": [
+        "read project state",
+        "read registries",
+        "create normalized task proposal",
+        "recommend routing",
+        "request specialist handoff"
+      ],
+      "implementation": {
+        "repository": "VictorKVS/FATHER_VOICE_BRIDGE",
+        "paths": [
+          "control_center.py",
+          "father_reference_product_v01.py"
+        ],
+        "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+        "scope": "dry-run/API routing baseline; live local LLM pending"
+      }
+    }
+  ],
+  "creation_rule": "new agent must inherit base kit + compatible K0 + at least one K1 for professional role",
+  "certification_rule": "manifest does not imply certification; LAB + acceptance + certificate required"
+}

@@ -1,0 +1,638 @@
+{
+  "schema_version": "father-knowledge-registry.v2",
+  "status": "DESIGN_IMPLEMENTATION",
+  "common_core": {
+    "id": "KB-K0-FATHER-COMMON",
+    "name": "FATHER Common Knowledge Core",
+    "version": "0.1.0",
+    "status": "BASELINED-DESIGN",
+    "scope": "all_agents",
+    "modules": [
+      {
+        "id": "K0-DOC",
+        "name": "Documents & Sources",
+        "topics": [
+          "source registry",
+          "document structure",
+          "versioning",
+          "provenance",
+          "citations"
+        ]
+      },
+      {
+        "id": "K0-ANA",
+        "name": "Analytical Foundations",
+        "topics": [
+          "facts",
+          "claims",
+          "entities",
+          "relations",
+          "events",
+          "contradictions",
+          "hypotheses",
+          "confidence"
+        ]
+      },
+      {
+        "id": "K0-REQ",
+        "name": "Requirements & Traceability",
+        "topics": [
+          "BUS/FR/NFR",
+          "acceptance",
+          "risk",
+          "ADR links",
+          "traceability"
+        ]
+      },
+      {
+        "id": "K0-AI",
+        "name": "AI Engineering Basics",
+        "topics": [
+          "LLM",
+          "RAG",
+          "agents",
+          "tools",
+          "workflows",
+          "evaluation",
+          "model routing"
+        ]
+      },
+      {
+        "id": "K0-SAFE",
+        "name": "Safety & Evidence",
+        "topics": [
+          "grounding",
+          "anti-hallucination",
+          "uncertainty",
+          "abstention",
+          "permissions",
+          "audit"
+        ]
+      },
+      {
+        "id": "K0-FTH",
+        "name": "FATHER Standards",
+        "topics": [
+          "agent lifecycle",
+          "document dossier",
+          "development pack",
+          "LAB",
+          "DevOps gates",
+          "certification"
+        ]
+      }
+    ],
+    "mutation_policy": "change_request + LAB regression + staged rollout",
+    "retrieval_policy": "evidence_first_hybrid",
+    "citation_policy": "provenance_required",
+    "conflict_policy": "surface_conflict_do_not_silently_overwrite",
+    "manifest_path": "knowledge/common-core/manifest.json",
+    "curriculum_path": "knowledge/common-core/curriculum.json"
+  },
+  "specialist_packs": [
+    {
+      "id": "KB-K1-ALINA-ANALYTICS",
+      "family": "ALINA",
+      "name": "Analytical Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "source analysis",
+        "document analysis",
+        "fact extraction",
+        "entity relation extraction",
+        "evidence",
+        "contradictions",
+        "hypotheses",
+        "causal analysis",
+        "report synthesis"
+      ],
+      "skill_tree": "ALINA_ANALYTICAL_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON"
+      ],
+      "manifest_path": "knowledge/specialists/alina/manifest.json",
+      "curriculum_path": "knowledge/specialists/alina/curriculum.json"
+    },
+    {
+      "id": "KB-K1-OSINT",
+      "family": "OSINT",
+      "name": "OSINT Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "internet architecture",
+        "DNS",
+        "WHOIS/RDAP",
+        "IP/ASN/BGP",
+        "TLS",
+        "web",
+        "search",
+        "social",
+        "Telegram",
+        "GeoINT",
+        "image metadata",
+        "archives",
+        "Git intelligence",
+        "threat intelligence"
+      ],
+      "skill_tree": "OSINT_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON",
+        "KB-K1-ALINA-ANALYTICS"
+      ],
+      "manifest_path": "knowledge/specialists/osint/manifest.json",
+      "curriculum_path": "knowledge/specialists/osint/curriculum.json"
+    },
+    {
+      "id": "KB-K1-ARCHITECT",
+      "family": "FATHER_ARCHITECT",
+      "name": "Architecture Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "requirements to architecture",
+        "C4",
+        "LLD",
+        "ADR",
+        "trade-offs",
+        "integration",
+        "data",
+        "NFR",
+        "reliability",
+        "security architecture",
+        "FinOps"
+      ],
+      "skill_tree": "ARCHITECT_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON"
+      ],
+      "manifest_path": "knowledge/specialists/architect/manifest.json",
+      "curriculum_path": "knowledge/specialists/architect/curriculum.json"
+    },
+    {
+      "id": "KB-K1-PROGRAMMER",
+      "family": "FATHER_CODEX",
+      "name": "Software Engineering Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "implementation planning",
+        "Python",
+        "API contracts",
+        "schemas",
+        "testing",
+        "CI",
+        "containers",
+        "telemetry",
+        "secure coding",
+        "traceability in code"
+      ],
+      "skill_tree": "PROGRAMMER_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON"
+      ],
+      "manifest_path": "knowledge/specialists/programmer/manifest.json",
+      "curriculum_path": "knowledge/specialists/programmer/curriculum.json"
+    },
+    {
+      "id": "KB-K1-IB",
+      "family": "IB",
+      "name": "Information Security Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "security engineering",
+        "risk",
+        "regulatory",
+        "threat modeling",
+        "controls",
+        "monitoring",
+        "incident response"
+      ],
+      "skill_tree": "IB_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON"
+      ],
+      "manifest_path": "knowledge/specialists/ib/manifest.json",
+      "curriculum_path": "knowledge/specialists/ib/curriculum.json"
+    },
+    {
+      "id": "KB-K1-DEVSECOPS",
+      "family": "DEVSECOPS",
+      "name": "DevSecOps Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "CI/CD",
+        "GitOps",
+        "containers",
+        "Kubernetes",
+        "SAST",
+        "SCA",
+        "secrets",
+        "IaC",
+        "policy as code",
+        "supply chain"
+      ],
+      "skill_tree": "DEVSECOPS_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON"
+      ],
+      "manifest_path": "knowledge/specialists/devsecops/manifest.json",
+      "curriculum_path": "knowledge/specialists/devsecops/curriculum.json"
+    },
+    {
+      "id": "KB-K1-KNOWLEDGE-ENGINEERING",
+      "family": "KNOWLEDGE",
+      "name": "Knowledge Engineering Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "source registry",
+        "ingestion",
+        "normalization",
+        "document structure",
+        "chunking",
+        "metadata",
+        "provenance",
+        "deduplication",
+        "ontology",
+        "knowledge graph",
+        "controlled publish"
+      ],
+      "skill_tree": "KNOWLEDGE_ENGINEERING_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON"
+      ],
+      "manifest_path": "knowledge/specialists/knowledge-engineer/manifest.json",
+      "curriculum_path": "knowledge/specialists/knowledge-engineer/curriculum.json"
+    },
+    {
+      "id": "KB-K1-QUALITY-EVAL",
+      "family": "QUALITY",
+      "name": "QA & AI Evaluation Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "test design",
+        "golden datasets",
+        "regression",
+        "AI evaluation",
+        "LLM judge calibration",
+        "statistical comparison",
+        "failure taxonomy",
+        "quality gates",
+        "evidence"
+      ],
+      "skill_tree": "QUALITY_EVAL_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON",
+        "KB-K1-ALINA-ANALYTICS"
+      ],
+      "manifest_path": "knowledge/specialists/quality-evaluator/manifest.json",
+      "curriculum_path": "knowledge/specialists/quality-evaluator/curriculum.json"
+    },
+    {
+      "id": "KB-K1-OPS-SRE",
+      "family": "DEVOPS_SRE",
+      "name": "Operations & SRE Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "containers",
+        "Kubernetes",
+        "CI/CD",
+        "GitOps",
+        "observability",
+        "SLI/SLO",
+        "capacity",
+        "HA/DR",
+        "rollback",
+        "incident management",
+        "FinOps"
+      ],
+      "skill_tree": "OPS_SRE_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON",
+        "KB-K1-DEVSECOPS"
+      ],
+      "manifest_path": "knowledge/specialists/ops-sre/manifest.json",
+      "curriculum_path": "knowledge/specialists/ops-sre/curriculum.json"
+    },
+    {
+      "id": "KB-K1-FACTORY-ORCHESTRATION",
+      "family": "FATHER_FACTORY",
+      "name": "Factory Orchestration Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "agent lifecycle",
+        "capability routing",
+        "block registry",
+        "Zoo",
+        "gates",
+        "evidence",
+        "workflow orchestration",
+        "status truth",
+        "certification routing"
+      ],
+      "skill_tree": "FACTORY_ORCHESTRATION_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON",
+        "KB-K1-ARCHITECT",
+        "KB-K1-ALINA-ANALYTICS"
+      ],
+      "manifest_path": "knowledge/specialists/factory-controller/manifest.json",
+      "curriculum_path": "knowledge/specialists/factory-controller/curriculum.json"
+    },
+    {
+      "id": "KB-K1-COMMUNICATION-BRIDGE",
+      "family": "COMMUNICATION",
+      "name": "Telegram & Speech Bridge Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "Telegram Bot API",
+        "message routing",
+        "text normalization",
+        "voice messages",
+        "file download",
+        "speech to text",
+        "text to speech",
+        "media lifecycle",
+        "error handling",
+        "privacy-safe tracing"
+      ],
+      "skill_tree": "COMMUNICATION_BRIDGE_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON"
+      ],
+      "manifest_path": "knowledge/specialists/communication-bridge/manifest.json",
+      "curriculum_path": "knowledge/specialists/communication-bridge/curriculum.json"
+    },
+    {
+      "id": "KB-K1-PENTEST",
+      "family": "PENTEST",
+      "name": "Authorized Pentest Specialist Pack",
+      "version": "0.1.0",
+      "status": "DESIGN",
+      "topics": [
+        "rules of engagement",
+        "scope control",
+        "asset inventory",
+        "attack surface analysis",
+        "vulnerability assessment",
+        "web/API testing methodology",
+        "network/service testing methodology",
+        "identity/directory testing methodology",
+        "cloud/container testing methodology",
+        "evidence handling",
+        "severity and risk",
+        "reporting and remediation verification",
+        "safe lab operations"
+      ],
+      "skill_tree": "PENTEST_SKILLS",
+      "depends_on": [
+        "KB-K0-FATHER-COMMON",
+        "KB-K1-IB",
+        "KB-K1-DEVSECOPS"
+      ],
+      "manifest_path": "knowledge/specialists/pentest/manifest.json",
+      "curriculum_path": "knowledge/specialists/pentest/curriculum.json"
+    }
+  ],
+  "project_contexts": [
+    {
+      "id": "KB-K2-FATHER",
+      "name": "FATHER Platform Context",
+      "status": "ACTIVE",
+      "scope": "project",
+      "access_policy": "father_team"
+    },
+    {
+      "id": "KB-K2-OSINT",
+      "name": "OSINT Project Context",
+      "status": "ACTIVE",
+      "scope": "project",
+      "access_policy": "osint_project"
+    },
+    {
+      "id": "KB-K2-ALINA",
+      "name": "ALINA Project Context",
+      "status": "ACTIVE",
+      "scope": "project",
+      "access_policy": "alina_project"
+    },
+    {
+      "id": "KB-K2-CYBERED-PT",
+      "name": "CyberED Pentest Training Context",
+      "status": "DESIGN",
+      "scope": "authorized_lab_project",
+      "access_policy": "cybered_pentest_lab_only"
+    }
+  ],
+  "agent_profiles": [
+    {
+      "agent_id": "FTH-AG-ANL-001",
+      "name": "ALINA Analyst",
+      "family": "ALINA",
+      "common_core_id": "KB-K0-FATHER-COMMON",
+      "common_core_version": "0.1.0",
+      "specialist_pack_ids": [
+        "KB-K1-ALINA-ANALYTICS"
+      ],
+      "specialist_pack_versions": [
+        "0.1.0"
+      ],
+      "project_context_id": "KB-K2-ALINA",
+      "retrieval_policy": "K0+K1+K2 evidence-first",
+      "access_policy": "role_and_project_scoped",
+      "citation_provenance_policy": "required",
+      "freshness_policy": "source_type_aware",
+      "conflict_policy": "surface_and_escalate"
+    },
+    {
+      "agent_id": "FTH-AG-OSINT-001",
+      "name": "OSINT Lead",
+      "family": "OSINT",
+      "common_core_id": "KB-K0-FATHER-COMMON",
+      "common_core_version": "0.1.0",
+      "specialist_pack_ids": [
+        "KB-K1-ALINA-ANALYTICS",
+        "KB-K1-OSINT"
+      ],
+      "specialist_pack_versions": [
+        "0.1.0",
+        "0.1.0"
+      ],
+      "project_context_id": "KB-K2-OSINT",
+      "retrieval_policy": "K0+analytics+OSINT+K2 evidence-first",
+      "access_policy": "role_and_project_scoped",
+      "citation_provenance_policy": "required",
+      "freshness_policy": "internet_and_source_type_aware",
+      "conflict_policy": "surface_and_verify"
+    },
+    {
+      "agent_id": "FTH-AG-ARC-001",
+      "name": "FATHER Architect",
+      "family": "FATHER_ARCHITECT",
+      "common_core_id": "KB-K0-FATHER-COMMON",
+      "common_core_version": "0.1.0",
+      "specialist_pack_ids": [
+        "KB-K1-ARCHITECT"
+      ],
+      "specialist_pack_versions": [
+        "0.1.0"
+      ],
+      "project_context_id": "KB-K2-FATHER",
+      "retrieval_policy": "K0+architecture+project",
+      "access_policy": "father_team",
+      "citation_provenance_policy": "required",
+      "freshness_policy": "architecture_version_aware",
+      "conflict_policy": "ADR_or_escalate"
+    },
+    {
+      "agent_id": "FTH-AG-DEV-001",
+      "name": "FATHER Programmer / CODEX",
+      "family": "FATHER_CODEX",
+      "common_core_id": "KB-K0-FATHER-COMMON",
+      "common_core_version": "0.1.0",
+      "specialist_pack_ids": [
+        "KB-K1-PROGRAMMER"
+      ],
+      "specialist_pack_versions": [
+        "0.1.0"
+      ],
+      "project_context_id": "KB-K2-FATHER",
+      "retrieval_policy": "K0+software_engineering+validated_dev_pack",
+      "access_policy": "implementation_scope_only",
+      "citation_provenance_policy": "REQ_AC_ADR_trace_required",
+      "freshness_policy": "repo_commit_and_contract_version_aware",
+      "conflict_policy": "return_structured_finding"
+    },
+    {
+      "agent_id": "FTH-AG-KNW-001",
+      "name": "FATHER Knowledge Engineer / Curator",
+      "family": "KNOWLEDGE",
+      "specialist_pack_ids": [
+        "KB-K1-KNOWLEDGE-ENGINEERING"
+      ],
+      "specialist_pack_versions": [
+        "0.1.0"
+      ],
+      "project_context_id": "KB-K2-FATHER",
+      "retrieval_policy": "K0+knowledge_engineering+project evidence-first",
+      "access_policy": "controlled_publish_scoped",
+      "citation_provenance_policy": "mandatory_lineage",
+      "freshness_policy": "source_and_version_aware",
+      "conflict_policy": "quarantine_and_review",
+      "common_core_id": "KB-K0-FATHER-COMMON",
+      "common_core_version": "0.1.0"
+    },
+    {
+      "agent_id": "FTH-AG-QA-001",
+      "name": "FATHER QA / AI Evaluator",
+      "family": "QUALITY",
+      "specialist_pack_ids": [
+        "KB-K1-QUALITY-EVAL"
+      ],
+      "specialist_pack_versions": [
+        "0.1.0"
+      ],
+      "project_context_id": "KB-K2-FATHER",
+      "retrieval_policy": "K0+quality_eval+frozen_test_context",
+      "access_policy": "independent_review_scoped",
+      "citation_provenance_policy": "evidence_required",
+      "freshness_policy": "test_version_aware",
+      "conflict_policy": "report_do_not_resolve_silently",
+      "common_core_id": "KB-K0-FATHER-COMMON",
+      "common_core_version": "0.1.0"
+    },
+    {
+      "agent_id": "FTH-AG-SEC-001",
+      "name": "FATHER Security / DevSecOps Engineer",
+      "family": "SECURITY",
+      "specialist_pack_ids": [
+        "KB-K1-IB",
+        "KB-K1-DEVSECOPS"
+      ],
+      "specialist_pack_versions": [
+        "0.1.0",
+        "0.1.0"
+      ],
+      "project_context_id": "KB-K2-FATHER",
+      "retrieval_policy": "K0+IB+DevSecOps+project",
+      "access_policy": "security_review_scoped",
+      "citation_provenance_policy": "security_evidence_required",
+      "freshness_policy": "policy_and_tool_version_aware",
+      "conflict_policy": "escalate_to_security_owner",
+      "common_core_id": "KB-K0-FATHER-COMMON",
+      "common_core_version": "0.1.0"
+    },
+    {
+      "agent_id": "FTH-AG-SRE-001",
+      "name": "FATHER DevOps / SRE",
+      "family": "DEVOPS_SRE",
+      "specialist_pack_ids": [
+        "KB-K1-DEVSECOPS",
+        "KB-K1-OPS-SRE"
+      ],
+      "specialist_pack_versions": [
+        "0.1.0",
+        "0.1.0"
+      ],
+      "project_context_id": "KB-K2-FATHER",
+      "retrieval_policy": "K0+DevSecOps+SRE+environment",
+      "access_policy": "operations_scoped",
+      "citation_provenance_policy": "config_commit_evidence_required",
+      "freshness_policy": "environment_release_aware",
+      "conflict_policy": "desired_state_wins_or_escalate",
+      "common_core_id": "KB-K0-FATHER-COMMON",
+      "common_core_version": "0.1.0"
+    },
+    {
+      "agent_id": "FTH-AG-FCT-001",
+      "name": "FATHER Factory Controller",
+      "family": "FATHER_FACTORY",
+      "specialist_pack_ids": [
+        "KB-K1-FACTORY-ORCHESTRATION"
+      ],
+      "specialist_pack_versions": [
+        "0.1.0"
+      ],
+      "project_context_id": "KB-K2-FATHER",
+      "retrieval_policy": "K0+factory_orchestration+registries",
+      "access_policy": "control_plane_scoped",
+      "citation_provenance_policy": "registry_and_gate_evidence_required",
+      "freshness_policy": "registry_version_aware",
+      "conflict_policy": "BLOCK_and_route_to_owner",
+      "common_core_id": "KB-K0-FATHER-COMMON",
+      "common_core_version": "0.1.0"
+    },
+    {
+      "agent_id": "FTH-AG-VBR-001",
+      "name": "Telegram Voice Bridge",
+      "family": "COMMUNICATION",
+      "common_core_id": "KB-K0-FATHER-COMMON",
+      "common_core_version": "0.1.0",
+      "specialist_pack_ids": [
+        "KB-K1-COMMUNICATION-BRIDGE"
+      ],
+      "specialist_pack_versions": [
+        "0.1.0"
+      ],
+      "project_context_id": "KB-K2-FATHER",
+      "retrieval_policy": "K0+communication_bridge; no RAG required for direct conversion",
+      "access_policy": "telegram_chat_scoped",
+      "citation_provenance_policy": "trace_id_required",
+      "freshness_policy": "runtime_and_dependency_version_aware",
+      "conflict_policy": "fail_closed_and_report"
+    }
+  ],
+  "separate_systems": {
+    "skills": "capability/competency state; not stored as factual KB",
+    "memory": "case/session/project history; scoped and mutable",
+    "experience": "reviewed lessons from completed work; promotes into KB only through change control"
+  }
+}

@@ -1,0 +1,33 @@
+agent:
+  id: FTH-AG-ARC-001
+  name: "Solution / AI Architect"
+  status: scaffold
+  maturity: M0
+  stages: [A2, A3, V3, O1]
+  owner: FATHER Agent Zoo
+role: "Проверяет реализуемость, формирует C4/LLD/ADR, интерфейсы, AI architecture и architecture conformance."
+contracts:
+  prompt: ./prompt.md
+  rag: ./rag.yaml
+  knowledge: ./knowledge.yaml
+inputs:
+  project_id: required
+  stage_context: required
+  artifact_refs: required
+outputs:
+  status: required
+  artifact_refs: required
+  findings: required
+  next_owner: required
+tools:
+  - c4
+  - adr
+  - openapi
+  - diagram
+gates:
+  obey_stage_gate: true
+  no_silent_baseline_change: true
+observability:
+  trace_id: required
+  agent_id_tag: required
+  artifact_refs_log: required

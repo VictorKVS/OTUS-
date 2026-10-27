@@ -1,0 +1,138 @@
+{
+  "schema_version": "father-model-registry.v1",
+  "status": "ACTIVE_BUILD",
+  "truth_rule": "DOCUMENTED_IN_REPO does not imply currently installed or runtime-validated on the target machine.",
+  "models": [
+    {
+      "model_id": "MDL-QWEN3-4B-Q4KM",
+      "name": "Qwen3 4B GGUF Q4_K_M",
+      "kind": "CHAT_LLM",
+      "provider_runtime": "Ollama / OpenAI-compatible",
+      "reference": "hf.co/Qwen/Qwen3-4B-GGUF:Q4_K_M",
+      "status": "DOCUMENTED_IN_REPO",
+      "installed_status": "UNKNOWN",
+      "use_cases": [
+        "RAG chat",
+        "controlled agent",
+        "general local reasoning"
+      ],
+      "metrics": [
+        "task quality",
+        "latency",
+        "tokens/sec",
+        "memory",
+        "failure rate",
+        "cost"
+      ]
+    },
+    {
+      "model_id": "MDL-QWEN3-06B-Q8",
+      "name": "Qwen3 0.6B GGUF Q8_0",
+      "kind": "CHAT_LLM",
+      "provider_runtime": "Ollama / OpenAI-compatible",
+      "reference": "hf.co/Qwen/Qwen3-0.6B-GGUF:Q8_0",
+      "status": "DOCUMENTED_ALTERNATIVE",
+      "installed_status": "UNKNOWN",
+      "use_cases": [
+        "responsive low-resource fallback"
+      ],
+      "metrics": [
+        "task quality",
+        "latency",
+        "tokens/sec",
+        "memory",
+        "failure rate"
+      ]
+    },
+    {
+      "model_id": "MDL-QWEN3-8B-Q4KM",
+      "name": "Qwen3 8B GGUF Q4_K_M",
+      "kind": "CHAT_LLM",
+      "provider_runtime": "Ollama / OpenAI-compatible",
+      "reference": "hf.co/Qwen/Qwen3-8B-GGUF:Q4_K_M",
+      "status": "DOCUMENTED_ALTERNATIVE",
+      "installed_status": "UNKNOWN",
+      "use_cases": [
+        "higher-quality local candidate"
+      ],
+      "metrics": [
+        "task quality",
+        "latency",
+        "tokens/sec",
+        "memory",
+        "failure rate"
+      ]
+    },
+    {
+      "model_id": "MDL-NOMIC-EMBED",
+      "name": "nomic-embed-text",
+      "kind": "EMBEDDING",
+      "provider_runtime": "Ollama",
+      "reference": "nomic-embed-text",
+      "status": "DOCUMENTED_IN_REPO",
+      "installed_status": "UNKNOWN",
+      "use_cases": [
+        "RAG embeddings",
+        "hybrid Qdrant retrieval"
+      ],
+      "metrics": [
+        "retrieval quality",
+        "embedding latency",
+        "vector dimension",
+        "failure rate"
+      ]
+    },
+    {
+      "model_id": "MDL-FATHER-CORE-001",
+      "name": "FATHER Core LLM",
+      "kind": "CONTROLLED_LLM_SYSTEM",
+      "provider_runtime": "Model Router / OpenAI-compatible local runtime",
+      "reference": "models/father-llm-001/model-card.json",
+      "status": "DESIGN_BASELINE",
+      "installed_status": "PROFILE_ONLY_BASE_MODEL_UNKNOWN",
+      "base_model_selection": "LAB_REQUIRED",
+      "base_candidates": [
+        "MDL-QWEN3-06B-Q8",
+        "MDL-QWEN3-4B-Q4KM",
+        "MDL-QWEN3-8B-Q4KM"
+      ],
+      "knowledge": [
+        "KB-K0-FATHER-COMMON",
+        "K1 specialist by role",
+        "K2 project",
+        "K3 runtime/session"
+      ],
+      "optimization_ladder": [
+        "SYSTEM_PROMPT",
+        "RAG",
+        "TOOLS_AGENT_ROUTING",
+        "SFT_LORA",
+        "PREFERENCE_DPO",
+        "RL_RLHF_RLAIF"
+      ],
+      "required_eval": [
+        "DS-FATHER-GOLDEN-001",
+        "DS-FATHER-ADVERSARIAL-001"
+      ],
+      "security_gate": "G-FATHER-LLM-SECURITY",
+      "acceptance_gate": "G-FATHER-LLM-ACCEPTANCE",
+      "use_cases": [
+        "FATHER Operator",
+        "agent reasoning core",
+        "grounded engineering assistance"
+      ],
+      "metrics": [
+        "task success",
+        "groundedness",
+        "routing accuracy",
+        "abstention quality",
+        "security violation rate",
+        "latency",
+        "tokens/sec",
+        "memory",
+        "cost"
+      ]
+    }
+  ],
+  "promotion_rule": "A model becomes VALIDATED for a product profile only after local runtime evidence + benchmark/evaluation results are recorded."
+}

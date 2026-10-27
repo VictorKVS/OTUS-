@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Lesson 03 — PoC to Production</title>
+<desc id="desc">Visual roadmap from business need through Demo, PoC, MVP, Production Readiness and Production with decision gates, risk reduction and value evidence.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061018"/><stop offset="1" stop-color="#18152f"/></linearGradient>
+  <linearGradient id="road" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#4ed9ff"/><stop offset=".5" stop-color="#9b83ff"/><stop offset="1" stop-color="#63e6a5"/></linearGradient>
+  <style>.t{font-family:Segoe UI,Arial,sans-serif;fill:#eef7ff}.m{fill:#91a9ba}.h{font-weight:700}.box{fill:#0d1a25;stroke:#29495d;stroke-width:2}.cyan{stroke:#4ed9ff}.vio{stroke:#9b83ff}.green{stroke:#63e6a5}.amber{stroke:#ffbd65}.red{stroke:#ff7474}.mono{font-family:Consolas,monospace}</style>
+</defs>
+<rect width="1600" height="1000" rx="28" fill="url(#bg)"/>
+<text x="70" y="70" class="t h" font-size="34">LESSON 03 · From PoC to Production</text>
+<text x="70" y="108" class="m mono" font-size="15">DELIVER VALUE · BURN DOWN UNCERTAINTY · REQUIRE EVIDENCE AT EVERY GATE</text>
+
+<path d="M120 300 H1480" stroke="url(#road)" stroke-width="8" stroke-linecap="round"/>
+
+<rect x="70" y="205" width="190" height="190" rx="22" class="box cyan"/>
+<text x="100" y="245" class="t h" font-size="18">BUSINESS NEED</text>
+<text x="100" y="280" class="m" font-size="13">problem</text>
+<text x="100" y="307" class="m" font-size="13">target value</text>
+<text x="100" y="334" class="m" font-size="13">constraints</text>
+
+<rect x="300" y="205" width="190" height="190" rx="22" class="box cyan"/>
+<text x="330" y="245" class="t h" font-size="18">DEMO</text>
+<text x="330" y="280" class="m" font-size="13">look &amp; feel</text>
+<text x="330" y="307" class="m" font-size="13">cheap facade</text>
+<text x="330" y="334" class="m" font-size="13">not feasibility proof</text>
+
+<rect x="530" y="205" width="190" height="190" rx="22" class="box vio"/>
+<text x="560" y="245" class="t h" font-size="18">PoC</text>
+<text x="560" y="280" class="m" font-size="13">technical hypothesis</text>
+<text x="560" y="307" class="m" font-size="13">data challenge / EDA</text>
+<text x="560" y="334" class="m" font-size="13">feasibility evidence</text>
+
+<polygon points="770,210 855,300 770,390 685,300" fill="#151b2c" stroke="#ffbd65" stroke-width="3"/>
+<text x="731" y="290" class="t h" font-size="15">TECH</text>
+<text x="730" y="318" class="t h" font-size="15">GATE</text>
+
+<rect x="895" y="205" width="190" height="190" rx="22" class="box vio"/>
+<text x="925" y="245" class="t h" font-size="18">MVP</text>
+<text x="925" y="280" class="m" font-size="13">real users</text>
+<text x="925" y="307" class="m" font-size="13">minimum scope</text>
+<text x="925" y="334" class="m" font-size="13">market/value proof</text>
+
+<polygon points="1135,210 1220,300 1135,390 1050,300" fill="#151b2c" stroke="#ffbd65" stroke-width="3"/>
+<text x="1090" y="290" class="t h" font-size="15">VALUE</text>
+<text x="1094" y="318" class="t h" font-size="15">GATE</text>
+
+<rect x="1260" y="205" width="270" height="190" rx="22" class="box green"/>
+<text x="1290" y="245" class="t h" font-size="18">PRODUCTION</text>
+<text x="1290" y="280" class="m" font-size="13">readiness → release</text>
+<text x="1290" y="307" class="m" font-size="13">Dev / Test / Prod</text>
+<text x="1290" y="334" class="m" font-size="13">scale · operate · support</text>
+
+<text x="70" y="465" class="t h" font-size="20">WHAT CHANGES AT EVERY GATE</text>
+<rect x="70" y="505" width="275" height="150" rx="18" class="box cyan"/>
+<text x="100" y="544" class="t h" font-size="16">VALUE / DoD</text>
+<text x="100" y="575" class="m" font-size="13">success criteria</text><text x="100" y="602" class="m" font-size="13">evidence</text>
+
+<rect x="375" y="505" width="275" height="150" rx="18" class="box red"/>
+<text x="405" y="544" class="t h" font-size="16">RISK</text>
+<text x="405" y="575" class="m" font-size="13">probability / impact</text><text x="405" y="602" class="m" font-size="13">scenario / mitigation</text>
+
+<rect x="680" y="505" width="275" height="150" rx="18" class="box amber"/>
+<text x="710" y="544" class="t h" font-size="16">CONTRACT</text>
+<text x="710" y="575" class="m" font-size="13">T&amp;M / FP / hybrid</text><text x="710" y="602" class="m" font-size="13">change rules</text>
+
+<rect x="985" y="505" width="275" height="150" rx="18" class="box vio"/>
+<text x="1015" y="544" class="t h" font-size="16">PLAN / SCOPE</text>
+<text x="1015" y="575" class="m" font-size="13">roadmap</text><text x="1015" y="602" class="m" font-size="13">estimate / resources</text>
+
+<rect x="1290" y="505" width="240" height="150" rx="18" class="box green"/>
+<text x="1320" y="544" class="t h" font-size="16">COST / TCO</text>
+<text x="1320" y="575" class="m" font-size="13">budget</text><text x="1320" y="602" class="m" font-size="13">unit economics</text>
+
+<text x="70" y="730" class="t h" font-size="20">FATHER PRODUCTION</text>
+<rect x="70" y="770" width="265" height="125" rx="18" class="box cyan"/><text x="96" y="810" class="t h" font-size="16">FTH-VAL-001</text><text x="96" y="841" class="m" font-size="12">Value Delivery / Gates</text>
+<rect x="365" y="770" width="265" height="125" rx="18" class="box vio"/><text x="391" y="810" class="t h" font-size="16">FTH-EST-001</text><text x="391" y="841" class="m" font-size="12">Estimation / Planning</text>
+<rect x="660" y="770" width="265" height="125" rx="18" class="box red"/><text x="686" y="810" class="t h" font-size="16">FTH-RSK-001</text><text x="686" y="841" class="m" font-size="12">Risk / Change Control</text>
+<rect x="955" y="770" width="265" height="125" rx="18" class="box amber"/><text x="981" y="810" class="t h" font-size="16">FTH-FIN-001</text><text x="981" y="841" class="m" font-size="12">FinOps / Cost</text>
+<rect x="1250" y="770" width="280" height="125" rx="18" class="box green"/><text x="1276" y="810" class="t h" font-size="16">FTH-DLV-001</text><text x="1276" y="841" class="m" font-size="12">Delivery / Release</text>
+
+<text x="70" y="950" class="m" font-size="14">GATE = evidence-based decision: GO · CHANGE · STOP. Successful PoC is not Production readiness.</text>
+</svg>

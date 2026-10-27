@@ -1,0 +1,4042 @@
+schema_version: father-knowledge-polygon.v1
+title: FATHER Knowledge Polygon
+reference_project: KPOL-001/SAIKA-001
+phase_model: OTUS-0-20
+status_model:
+  - NOT_ASSESSED
+  - DESIGN
+  - LAB
+  - VALIDATED
+  - PROD
+evidence_provenance:
+  - COURSE
+  - SOURCE
+  - LAB
+  - PROD
+projects:
+  - id: KPOL-001
+    name: "FATHER / Architect OS"
+    domain: core-platform
+    location: "G:\\1\\OTUS / VictorKVS/OTUS-"
+    portfolio_status: ACTIVE
+    role: "Главный архитектурный конвейер и место сборки знаний."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-002
+    name: "FATHER Engineering Competency Lab"
+    domain: education-lab
+    location: "FATHER-Engineering-Competency-Lab"
+    portfolio_status: ACTIVE
+    role: "Полигон инженерных компетенций и практических кейсов."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-003
+    name: "Knowledge Core / Knowledge Factory"
+    domain: knowledge
+    location: "KNOWLEDGE_CORE / knowledge factory"
+    portfolio_status: ACTIVE
+    role: "Нормализация, provenance, KB/RAG, knowledge lifecycle."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-004
+    name: "Automation Control Center"
+    domain: automation
+    location: "FATHER-Automation-Control-Center"
+    portfolio_status: ACTIVE
+    role: "Автоматизация исполнения и операционный контроль."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-005
+    name: "OSINT_deepseek"
+    domain: osint
+    location: "OSINT_deepseek_poc"
+    portfolio_status: ACTIVE_NO_TOUCH
+    role: "OSINT-агент и поставщик evidence для Knowledge Factory."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-006
+    name: "SecGraph"
+    domain: security
+    location: "SecGraph"
+    portfolio_status: ACTIVE
+    role: "Threat modeling + OSINT + pentest + document engine."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-007
+    name: "UAG / Universal Agent"
+    domain: agents
+    location: "UAG / Polygon / AI-SOC"
+    portfolio_status: ACTIVE
+    role: "Универсальный агентный runtime и supervisor patterns."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-008
+    name: "Model Zoo / Agent Zoo"
+    domain: platform-ai
+    location: "FATHER Model Zoo / Agent Zoo"
+    portfolio_status: ACTIVE
+    role: "Реестр моделей/агентов, маршрутизация и совместимость."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-009
+    name: "Alina Knowledge Worker / Analyst"
+    domain: knowledge-agent
+    location: "alina-knowledge-worker"
+    portfolio_status: ACTIVE
+    role: "Аналитик знаний: ingestion → understanding → graph → KB."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-010
+    name: "Makar Frontend Factory"
+    domain: frontend
+    location: "VictorKVS/Makar-Frontend-Factory"
+    portfolio_status: ACTIVE
+    role: "Frontend/creative engineering и reusable visual systems."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-011
+    name: "BOOKCRAFT / Creative Production Studio"
+    domain: creative
+    location: "G:\\1\\BOOKCRAFT-SITE"
+    portfolio_status: ACTIVE
+    role: "Configuration-driven creative production engine."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-012
+    name: "MindForge Studio"
+    domain: visual-ai
+    location: "MindForge Studio"
+    portfolio_status: ACTIVE
+    role: "Visual AI pipeline, generation, consistency and QC."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-013
+    name: "father-quant-lab"
+    domain: quant
+    location: "father-quant-lab"
+    portfolio_status: ACTIVE
+    role: "Количественные эксперименты и модели."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-014
+    name: "father-media-lab"
+    domain: media
+    location: "father-media-lab"
+    portfolio_status: ACTIVE
+    role: "Медиа-пайплайны и мультимодальные эксперименты."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-015
+    name: "Local LLMs"
+    domain: local-llm
+    location: "G:\\1\\Local LLMs"
+    portfolio_status: ACTIVE
+    role: "Локальные модели, inference, benchmarking and serving."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-016
+    name: "Vibe Coding Router"
+    domain: dev
+    location: "Vibe-coding-router"
+    portfolio_status: ACTIVE
+    role: "Интеграции, runtime UI/API, provider routing и учебные DZ."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-017
+    name: "DZ18 External Service / Image Lab"
+    domain: integration
+    location: "Vibe-coding-router/DZ_18. Integration with external services"
+    portfolio_status: ACTIVE
+    role: "Полигон внешних AI-сервисов, media/persona/runtime integration."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-018
+    name: "CyberED / Security KB"
+    domain: security-education
+    location: "VictorKVS/CyberED / G:\\1\\CyberED -IB"
+    portfolio_status: ACTIVE
+    role: "ИБ-инженерия, аудит, regulatory knowledge and pentest tracks."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-019
+    name: "Regulatory Twin / Alina-lawyer"
+    domain: regulatory
+    location: "FATHER regulatory contour"
+    portfolio_status: DESIGN
+    role: "Нормативные требования, применимость, ответственность, controls."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-020
+    name: "DevSecOps Factory"
+    domain: devsecops
+    location: "FATHER DevSecOps target"
+    portfolio_status: DESIGN
+    role: "Reusable delivery-security blocks and release gates."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-021
+    name: "Story / Narrative Engine"
+    domain: narrative
+    location: "Vibe-coding-router Story Engine"
+    portfolio_status: ACTIVE
+    role: "Canon, state, continuity, structured story production."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-022
+    name: "AI Product Architect"
+    domain: product
+    location: "AI-Product-Architect"
+    portfolio_status: DESIGN
+    role: "Product/architecture synthesis and decision support."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+  - id: KPOL-023
+    name: "PX00 / FATHER legacy core"
+    domain: core-legacy
+    location: "PX00"
+    portfolio_status: ACTIVE_NO_TOUCH
+    role: "Исторический/активный контур; только картирование, без изменений."
+    phases:
+      "00":
+        code: IDEA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "01":
+        code: BUSINESS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "02":
+        code: REQ_RISK
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "03":
+        code: VALUE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "04":
+        code: HLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "05":
+        code: LLD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "06":
+        code: RAG
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "07":
+        code: AGENT
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "08":
+        code: ADR
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "09":
+        code: REVIEW
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "10":
+        code: GOV
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "11":
+        code: INTEGRATION
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "12":
+        code: DATA
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "13":
+        code: EVAL
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "14":
+        code: SECURITY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "15":
+        code: OBS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "16":
+        code: SIZING
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "17":
+        code: INFERENCE
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "18":
+        code: DELIVERY
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "19":
+        code: MLOPS
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+      "20":
+        code: PROD
+        applicability: NOT_ASSESSED
+        status: NOT_ASSESSED
+        artifacts: []
+        evidence: []
+        gaps: []
+        reusable_output: []
+
