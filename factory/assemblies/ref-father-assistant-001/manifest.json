@@ -103,5 +103,13 @@
       "cases": 8,
       "accuracy": 1
     }
+  },
+  "optional_adapters": {
+    "telegram": {
+      "component_id": "FTH-CMP-TELEGRAM-CHANNEL-001",
+      "status": "CONTRACT_VALIDATED_LIVE_PENDING",
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+      "implementation": "father_telegram_adapter_v01.py"
+    }
   }
 }
