@@ -119,12 +119,27 @@
       "agent_id": "FTH-AG-SEC-001",
       "name": "FATHER Security / DevSecOps Engineer",
       "family": "SECURITY",
-      "status": "DESIGN",
+      "status": "EXPERIMENTAL",
       "path": "agents/kits/kit-security-engineer/manifest.json",
       "specialist_pack_ids": [
         "KB-K1-IB",
         "KB-K1-DEVSECOPS"
-      ]
+      ],
+      "implementation": {
+        "repository": "VictorKVS/FATHER_VOICE_BRIDGE",
+        "path": "father_security_review_v01.py",
+        "evidence_id": "EV-PROTO-READINESS-SECURITY-001",
+        "scope": "deterministic independent review baseline over product evidence and security regression"
+      },
+      "permissions": [
+        "review product evidence",
+        "produce PASS_CANDIDATE or BLOCKED"
+      ],
+      "prohibited": [
+        "self-grant final Security acceptance",
+        "authorize production without human gate"
+      ],
+      "truth_rule": "Experimental Security Engineer may produce PASS_CANDIDATE only; final Security acceptance is human-gated."
     },
     {
       "kit_id": "KIT-DEVOPS-SRE",
