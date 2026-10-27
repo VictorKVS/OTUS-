@@ -185,7 +185,16 @@
             "promote to production"
           ]
         }
-      }
+      },
+      "model_lab": {
+        "component_id": "FTH-CMP-MODEL-LAB-001",
+        "lab_id": "LAB-FATHER-MODEL-001",
+        "status": "CANDIDATE",
+        "selection_rule": "A/B/N available local candidates -> provisional leader -> C66 evaluator calibration -> C67 statistical validation -> C69 champion/challenger",
+        "evidence_id": "EV-PROTO-MODEL-LAB-001",
+        "promotion_authorized": false
+      },
+      "base_model_selection": "MODEL_LAB_REQUIRED"
     }
   ]
 }
