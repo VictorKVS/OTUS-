@@ -143,11 +143,17 @@
       "agent_id": "FTH-AG-FCT-001",
       "name": "FATHER Factory Controller",
       "family": "FATHER_FACTORY",
-      "status": "DESIGN",
+      "status": "EXPERIMENTAL",
       "path": "agents/kits/kit-factory-controller/manifest.json",
       "specialist_pack_ids": [
         "KB-K1-FACTORY-ORCHESTRATION"
-      ]
+      ],
+      "implementation": {
+        "repository": "VictorKVS/FATHER_VOICE_BRIDGE",
+        "path": "father_factory_controller.py",
+        "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+        "scope": "deterministic planning baseline"
+      }
     },
     {
       "kit_id": "KIT-OSINT-LEAD",
@@ -177,7 +183,7 @@
       "agent_id": "FTH-AG-OPR-001",
       "name": "FATHER Operator / Production Assistant",
       "family": "factory-operations",
-      "status": "DESIGN",
+      "status": "EXPERIMENTAL",
       "base_pack_id": "KB-K0-FATHER-COMMON",
       "specialist_pack_ids": [
         "KB-K1-FACTORY-ORCHESTRATION",
@@ -204,7 +210,16 @@
         "create normalized task proposal",
         "recommend routing",
         "request specialist handoff"
-      ]
+      ],
+      "implementation": {
+        "repository": "VictorKVS/FATHER_VOICE_BRIDGE",
+        "paths": [
+          "control_center.py",
+          "father_reference_product_v01.py"
+        ],
+        "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+        "scope": "dry-run/API routing baseline; live local LLM pending"
+      }
     }
   ],
   "creation_rule": "new agent must inherit base kit + compatible K0 + at least one K1 for professional role",
