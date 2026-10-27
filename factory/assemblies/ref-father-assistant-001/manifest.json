@@ -1,0 +1,77 @@
+{
+  "schema_version": "father-assembly-manifest.v1",
+  "assembly_id": "ASM-REF-FATHER-ASSISTANT-001",
+  "product_id": "REF-FATHER-ASSISTANT-001",
+  "version": "0.1.0",
+  "status": "ASSEMBLY_BASELINE",
+  "objective": "First minimal FATHER-built LLM system proving reusable block assembly before channel/voice/avatar expansion.",
+  "product_runtime": [
+    "BLK-TASK-INPUT",
+    "BLK-FATHER-OPERATOR",
+    "BLK-AGENT-SELECTOR",
+    "BLK-ALINA",
+    "BLK-KNOWLEDGE-RAG",
+    "BLK-MODEL-ROUTER",
+    "BLK-PROMPT-RUN"
+  ],
+  "control_plane": [
+    "BLK-METRICS-LAB",
+    "BLK-SECURITY",
+    "BLK-EVIDENCE-IP"
+  ],
+  "factory_build_lane": [
+    "BLK-TASK-INPUT",
+    "BLK-FACTORY-CONTROLLER",
+    "BLK-ALINA",
+    "BLK-ARCHITECT",
+    "BLK-PROGRAMMER",
+    "BLK-METRICS-LAB",
+    "BLK-SECURITY",
+    "BLK-EVIDENCE-IP"
+  ],
+  "excluded_v01": [
+    "BLK-CONNECTIVITY-CHECK",
+    "BLK-TELEGRAM-CHANNEL",
+    "BLK-AVATAR-SHELL",
+    "BLK-VOICE-TTS",
+    "BLK-DEVOPS",
+    "BLK-OSINT"
+  ],
+  "bindings": {
+    "analytical_agent": "FTH-AG-ANL-001",
+    "analytical_identity_rule": "ONE_ALINA_CORE_MANY_DOMAIN_PROFILES",
+    "model_system": "MDL-FATHER-CORE-001",
+    "common_knowledge": "KB-K0-FATHER-COMMON",
+    "specialist_knowledge": "K1 by route",
+    "project_context": "K2",
+    "runtime_context": "K3"
+  },
+  "gates": {
+    "functional": "G-ASM-FUNCTIONAL",
+    "lab": "G-ASM-LAB",
+    "security": "G-ASM-SECURITY",
+    "ownership": "G-ASM-OWNERSHIP",
+    "acceptance": "G-ASM-ACCEPTANCE"
+  },
+  "acceptance": {
+    "required": [
+      "task accepted",
+      "route selected",
+      "K0/K1/K2/K3 context recorded",
+      "model system invoked or explicitly BLOCKED",
+      "answer/result captured",
+      "LAB record created",
+      "Security state explicit",
+      "ownership/provenance trace created",
+      "evidence bundle created"
+    ],
+    "production_requires": [
+      "functional PASS",
+      "LAB PASS",
+      "Security PASS",
+      "Ownership PASS",
+      "Acceptance PASS"
+    ]
+  },
+  "truth_rule": "Assembly presence does not promote block maturity. Every block retains registry status until its own gate passes."
+}
