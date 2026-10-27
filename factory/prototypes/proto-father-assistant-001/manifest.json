@@ -3,7 +3,7 @@
   "prototype_id": "PROTO-FATHER-ASSISTANT-001",
   "name": "FATHER Reference Assistant Prototype",
   "version": "0.1.0",
-  "status": "WORKING_PROTOTYPE_CROSS_CUTTING_BASELINE_PASS_LIVE_PENDING",
+  "status": "WORKING_PROTOTYPE_LIVE_READINESS_VALIDATED_LOCAL_RUNTIME_PENDING",
   "objective": "One-screen demonstrator of the FATHER production spine using the already assembled REF-FATHER-ASSISTANT-001 without duplicating runtime logic.",
   "product_id": "REF-FATHER-ASSISTANT-001",
   "release_id": "FATHER-V0.1-FIRST-APPROXIMATION",
@@ -67,8 +67,8 @@
   "current_evidence": {
     "evidence_id": "EV-PROTO-FATHER-ASSISTANT-001",
     "product_evidence_id": "EV-REF-FATHER-ASSISTANT-001",
-    "github_actions_run_id": 40505737296,
-    "tests_passed": 89,
+    "github_actions_run_id": 40509307112,
+    "tests_passed": 93,
     "unified_e2e_dry_check": "PASS",
     "prototype_js": "PASS",
     "layered_knowledge_champion": "LAYERED_TOP_K_3",
@@ -80,7 +80,8 @@
     "training_gate_evidence_id": "EV-PROTO-TRAINING-GATE-001",
     "training_gate": "PASS_CONTRACT",
     "provenance_evidence_id": "EV-PROTO-PROVENANCE-001",
-    "provenance_e2e": "PASS"
+    "provenance_e2e": "PASS",
+    "live_preflight_contract": "PASS"
   },
   "gates": {
     "prototype_contract": "PASS_BASELINE",
@@ -88,7 +89,7 @@
     "local_live_tts": "PENDING",
     "live_telegram": "PENDING",
     "live_avatar_session": "PENDING",
-    "independent_security_acceptance": "HUMAN_APPROVAL_REQUIRED",
+    "independent_security_acceptance": "PENDING",
     "production_acceptance": "BLOCKED",
     "local_readiness_contract": "PASS_BASELINE",
     "independent_security_review": "PASS_CANDIDATE",
@@ -101,7 +102,8 @@
     "provenance_fingerprint": "PASS_BASELINE",
     "provenance_e2e": "PASS",
     "legal_ownership": "SEPARATE_REVIEW_REQUIRED",
-    "patent_novelty": "SEPARATE_REVIEW_REQUIRED"
+    "patent_novelty": "SEPARATE_REVIEW_REQUIRED",
+    "live_readiness_tooling": "PASS"
   },
   "truth_rules": [
     "Prototype success does not imply production readiness.",
@@ -113,7 +115,10 @@
     "launcher": "START_FATHER_PROTOTYPE.ps1",
     "url": "http://127.0.0.1:8088/assets/prototype.html",
     "default_mode": "DRY",
-    "live_mode": "EXPLICIT_TOGGLE"
+    "live_mode": "EXPLICIT_TOGGLE",
+    "preflight_api": "GET /api/prototype/preflight",
+    "diagnostic": "father_live_preflight_v01.py",
+    "repair_launcher": "PREPARE_FATHER_LIVE.ps1 -Repair"
   },
   "local_bootstrap": "PREPARE_FATHER_LOCAL.ps1",
   "cross_cutting_baseline": {
