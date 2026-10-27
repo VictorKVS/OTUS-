@@ -679,6 +679,57 @@
         "no gate approval"
       ],
       "next_promotion_gate": "G-CMP-KNOWLEDGE-ROUTER-VALIDATE"
+    },
+    {
+      "component_id": "FTH-CMP-MODEL-LAB-001",
+      "name": "FATHER Model LAB",
+      "family": "MODEL_EVALUATION",
+      "version": "0.1.0",
+      "status": "CANDIDATE",
+      "validation_scope": "CONTRACT_AND_FAIL_CLOSED_SELECTION",
+      "certification_status": "NOT_CERTIFIED",
+      "reuse_state": "PROTOTYPE_BOUND_CANDIDATE",
+      "purpose": "Discovers configured local model candidates, evaluates available candidates on Golden/adversarial subsets, and emits a provisional leader without granting promotion.",
+      "source_context": {
+        "repository": "VictorKVS/FATHER_VOICE_BRIDGE",
+        "implementation": "father_model_lab_v01.py",
+        "bound_prototype": "PROTO-FATHER-ASSISTANT-001"
+      },
+      "contract": {
+        "input": [
+          "configured candidates A/B/C",
+          "local OpenAI-compatible model inventory",
+          "evaluation snapshot"
+        ],
+        "output": [
+          "candidate results",
+          "provisional leader",
+          "comparison readiness",
+          "evidence"
+        ],
+        "errors": [
+          "no runtime",
+          "no configured available model",
+          "single candidate baseline only",
+          "failed model execution"
+        ]
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-PROTO-MODEL-LAB-001",
+          "type": "CI_MODEL_LAB_CONTRACT",
+          "result": "PASS",
+          "scope": "fail-closed behavior and provisional leader rules; no local candidate benchmark"
+        }
+      ],
+      "security_profile": [
+        "no autonomous model installation",
+        "no promotion authorization",
+        "adversarial subset included in evaluation",
+        "final model promotion requires calibrated evaluator/statistical validation"
+      ],
+      "truth_rule": "Provisional leader is not a champion and does not authorize production.",
+      "next_promotion_gate": "G-MODEL-LAB-LIVE-ABN"
     }
   ]
 }
