@@ -194,7 +194,23 @@
         "evidence_id": "EV-PROTO-MODEL-LAB-001",
         "promotion_authorized": false
       },
-      "base_model_selection": "MODEL_LAB_REQUIRED"
+      "base_model_selection": "MODEL_LAB_REQUIRED",
+      "training_gate": {
+        "component_id": "FTH-CMP-TRAINING-GATE-001",
+        "gate_id": "G-FATHER-TRAINING-001",
+        "status": "CANDIDATE",
+        "current_decision": "STAY_L1_L3_OPTIMIZE_PROMPT_RAG_TOOLS",
+        "training_authorized": false,
+        "evidence_id": "EV-PROTO-TRAINING-GATE-001",
+        "escalation_order": [
+          "L1_SYSTEM_PROMPT",
+          "L2_RAG",
+          "L3_TOOLS_AGENT_ROUTING",
+          "L4_SFT_LORA",
+          "L5_DPO_PREFERENCE",
+          "L6_RL_RLHF_RLAIF"
+        ]
+      }
     }
   ]
 }
