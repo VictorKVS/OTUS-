@@ -730,6 +730,58 @@
       ],
       "truth_rule": "Provisional leader is not a champion and does not authorize production.",
       "next_promotion_gate": "G-MODEL-LAB-LIVE-ABN"
+    },
+    {
+      "component_id": "FTH-CMP-TRAINING-GATE-001",
+      "name": "FATHER Training Decision Gate",
+      "family": "MODEL_TRAINING_GOVERNANCE",
+      "version": "0.1.0",
+      "status": "CANDIDATE",
+      "validation_scope": "DECISION_CONTRACT_FAIL_CLOSED",
+      "certification_status": "NOT_CERTIFIED",
+      "reuse_state": "PROTOTYPE_BOUND_CANDIDATE",
+      "purpose": "Controls escalation from Prompt/RAG/Tools to SFT/LoRA, DPO and RL/RLHF/RLAIF only when evidence prerequisites are satisfied.",
+      "source_context": {
+        "repository": "VictorKVS/FATHER_VOICE_BRIDGE",
+        "implementation": "father_training_gate_v01.py",
+        "bound_prototype": "PROTO-FATHER-ASSISTANT-001"
+      },
+      "contract": {
+        "input": [
+          "model lab evidence",
+          "golden/adversarial datasets",
+          "evaluator/statistical readiness",
+          "training datasets/provenance"
+        ],
+        "output": [
+          "allowed levels",
+          "blocked levels",
+          "next required prerequisites",
+          "training_authorized"
+        ],
+        "errors": [
+          "missing live baseline",
+          "uncalibrated evaluator",
+          "missing data provenance",
+          "missing reward/sandbox controls"
+        ]
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-PROTO-TRAINING-GATE-001",
+          "type": "CI_TRAINING_GATE_CONTRACT",
+          "result": "PASS",
+          "scope": "decision ladder only; no weight training performed"
+        }
+      ],
+      "security_profile": [
+        "training_authorized defaults false",
+        "SFT/LoRA blocked without provenance-safe data and C66/C67",
+        "DPO blocked without preference data",
+        "RL blocked without reward policy, isolated environment and human/security gates"
+      ],
+      "truth_rule": "Training gate approval is not model certification; current decision remains Prompt/RAG/Tools optimization.",
+      "next_promotion_gate": "G-TRAINING-GATE-LIVE-EVIDENCE"
     }
   ]
 }
