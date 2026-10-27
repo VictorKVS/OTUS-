@@ -437,6 +437,139 @@
       ],
       "next_promotion_gate": "G-CMP-AVATAR-VALIDATE",
       "promotion_condition": "Prove one complete text+voice session with static shell and state trace."
+    },
+    {
+      "component_id": "FTH-CMP-AGENT-SELECTOR-001",
+      "name": "FATHER Agent Selector Baseline",
+      "family": "ORCHESTRATION",
+      "version": "0.1.0",
+      "status": "CANDIDATE",
+      "validation_scope": "REPOSITORY_CI_BASELINE",
+      "certification_status": "NOT_CERTIFIED",
+      "reuse_state": "PRODUCT_SCOPED_CANDIDATE",
+      "purpose": "Deterministic routing adapter from user/task intent to registered FATHER agent identity and domain profile.",
+      "source_context": {
+        "repository": "VictorKVS/FATHER_VOICE_BRIDGE",
+        "implementation": "father_agent_selector.py",
+        "reference_product": "REF-FATHER-ASSISTANT-001"
+      },
+      "contract": {
+        "input": [
+          "UTF-8 message"
+        ],
+        "output": [
+          "agent_id",
+          "route_id",
+          "domain_profile",
+          "execution_mode",
+          "reason"
+        ],
+        "errors": [
+          "empty/unsupported intent falls back to Operator"
+        ]
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+          "type": "CI_PRODUCT_BASELINE",
+          "result": "PASS",
+          "scope": "dry-run/reference product"
+        }
+      ],
+      "security_profile": [
+        "no autonomous permission escalation",
+        "returns route only",
+        "does not approve gates"
+      ],
+      "next_promotion_gate": "G-CMP-AGENT-SELECTOR-VALIDATE"
+    },
+    {
+      "component_id": "FTH-CMP-MODEL-ROUTER-001",
+      "name": "FATHER Model Router Baseline",
+      "family": "MODEL_RUNTIME",
+      "version": "0.1.0",
+      "status": "CANDIDATE",
+      "validation_scope": "REPOSITORY_CI_BASELINE",
+      "certification_status": "NOT_CERTIFIED",
+      "reuse_state": "PRODUCT_SCOPED_CANDIDATE",
+      "purpose": "Config-driven mapping from FATHER model-system role to a configured local runtime model without claiming installation.",
+      "source_context": {
+        "repository": "VictorKVS/FATHER_VOICE_BRIDGE",
+        "implementation": "father_model_router.py",
+        "reference_product": "REF-FATHER-ASSISTANT-001"
+      },
+      "contract": {
+        "input": [
+          "task_class",
+          "environment model bindings"
+        ],
+        "output": [
+          "model_system_id",
+          "selected_runtime_model",
+          "base_url",
+          "selection_status"
+        ],
+        "errors": [
+          "runtime model unavailable remains unproven until live call"
+        ]
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+          "type": "CI_PRODUCT_BASELINE",
+          "result": "PASS",
+          "scope": "configuration/routing only"
+        }
+      ],
+      "security_profile": [
+        "no secret output",
+        "no installation claim",
+        "no autonomous model download"
+      ],
+      "next_promotion_gate": "G-CMP-MODEL-ROUTER-VALIDATE"
+    },
+    {
+      "component_id": "FTH-CMP-SECURITY-GUARD-001",
+      "name": "FATHER Security Guard Baseline",
+      "family": "SECURITY_GUARDRAIL",
+      "version": "0.1.0",
+      "status": "CANDIDATE",
+      "validation_scope": "BASELINE_INPUT_GUARD_ONLY",
+      "certification_status": "NOT_CERTIFIED",
+      "reuse_state": "PRODUCT_SCOPED_CANDIDATE",
+      "purpose": "Fail-closed baseline input guard for obvious evidence fabrication, secret exfiltration, self-approval and policy-bypass requests.",
+      "source_context": {
+        "repository": "VictorKVS/FATHER_VOICE_BRIDGE",
+        "implementation": "father_security_v01.py",
+        "reference_product": "REF-FATHER-ASSISTANT-001"
+      },
+      "contract": {
+        "input": [
+          "UTF-8 user message"
+        ],
+        "output": [
+          "PASS_BASELINE or BLOCKED",
+          "matched rule ids"
+        ],
+        "errors": [
+          "unknown attacks may pass baseline and require independent security testing"
+        ]
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+          "type": "CI_PRODUCT_BASELINE",
+          "result": "PASS",
+          "scope": "baseline guard rules only"
+        }
+      ],
+      "security_profile": [
+        "does not grant Security PASS",
+        "independent Security acceptance mandatory",
+        "adversarial regression required"
+      ],
+      "truth_rule": "Baseline guard PASS is not Security acceptance.",
+      "next_promotion_gate": "G-CMP-SECURITY-GUARD-VALIDATE"
     }
   ]
 }
