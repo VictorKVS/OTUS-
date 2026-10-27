@@ -782,6 +782,57 @@
       ],
       "truth_rule": "Training gate approval is not model certification; current decision remains Prompt/RAG/Tools optimization.",
       "next_promotion_gate": "G-TRAINING-GATE-LIVE-EVIDENCE"
+    },
+    {
+      "component_id": "FTH-CMP-PROVENANCE-FINGERPRINT-001",
+      "name": "FATHER Provenance Fingerprint",
+      "family": "EVIDENCE_OWNERSHIP",
+      "version": "0.1.0",
+      "status": "CANDIDATE",
+      "validation_scope": "PRODUCT_RUN_AND_UNIFIED_E2E",
+      "certification_status": "NOT_CERTIFIED",
+      "reuse_state": "PROTOTYPE_BOUND_CANDIDATE",
+      "purpose": "Creates deterministic SHA-256 identity for a product-run trace across product, assembly source, agent, model and K0/K1/K2/K3 context.",
+      "source_context": {
+        "repository": "VictorKVS/FATHER_VOICE_BRIDGE",
+        "implementation": "father_provenance_v01.py",
+        "bound_product": "REF-FATHER-ASSISTANT-001",
+        "bound_prototype": "PROTO-FATHER-ASSISTANT-001"
+      },
+      "contract": {
+        "input": [
+          "product run",
+          "assembly source SHA",
+          "agent/domain",
+          "model binding",
+          "knowledge layers",
+          "evidence id"
+        ],
+        "output": [
+          "provenance status",
+          "SHA-256 fingerprint",
+          "canonical trace payload",
+          "missing fields"
+        ],
+        "errors": [
+          "incomplete trace -> BLOCKED_INCOMPLETE_TRACE"
+        ]
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-PROTO-PROVENANCE-001",
+          "type": "CI_PROVENANCE_E2E",
+          "result": "PASS",
+          "scope": "deterministic fingerprint + unified E2E provenance gate"
+        }
+      ],
+      "security_profile": [
+        "fingerprint does not prove legal ownership",
+        "fingerprint does not prove patent novelty",
+        "incomplete source/agent/model/context trace blocks ownership gate"
+      ],
+      "truth_rule": "Fingerprint proves trace identity/integrity only; legal ownership and novelty require separate evidence and review.",
+      "next_promotion_gate": "G-PROVENANCE-CROSS-PRODUCT-REUSE"
     }
   ]
 }
