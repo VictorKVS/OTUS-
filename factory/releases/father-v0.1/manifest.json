@@ -2,7 +2,7 @@
   "schema_version": "father-release-manifest.v1",
   "release_id": "FATHER-V0.1-FIRST-APPROXIMATION",
   "version": "0.1.0",
-  "status": "FIRST_APPROXIMATION",
+  "status": "FIRST_APPROXIMATION_E2E_DRY_PASS_LIVE_PENDING",
   "objective": "Prove one coherent FATHER skeleton for building controlled LLM systems before visual polish or broad feature expansion.",
   "constitution": [
     "NO TEST -> NO QUALITY CLAIM",
@@ -209,10 +209,13 @@
   ],
   "validation": {
     "status": "REPOSITORY_SPINE_PASS",
-    "evidence_id": "EV-FATHER-V01-FIRST-APPROXIMATION",
+    "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
     "runtime_repository": "VictorKVS/FATHER_VOICE_BRIDGE",
-    "github_actions_run_id": 40391361133,
-    "tests_passed": 39,
-    "local_live_gates_pending": true
+    "github_actions_run_id": 40497744473,
+    "tests_passed": 73,
+    "local_live_gates_pending": true,
+    "unified_product_e2e": "DRY_CHECK_PASS",
+    "first_reference_product": "REF-FATHER-ASSISTANT-001",
+    "production_ready": false
   }
 }
