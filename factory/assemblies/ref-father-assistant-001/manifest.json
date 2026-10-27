@@ -3,7 +3,7 @@
   "assembly_id": "ASM-REF-FATHER-ASSISTANT-001",
   "product_id": "REF-FATHER-ASSISTANT-001",
   "version": "0.1.0",
-  "status": "ASSEMBLED_LAYERED_DRY_RUN_VALIDATED",
+  "status": "ASSEMBLED_UI_CHANNEL_CONTRACTS_VALIDATED_LIVE_PENDING",
   "objective": "First minimal FATHER-built LLM system proving reusable block assembly before channel/voice/avatar expansion.",
   "product_runtime": [
     "BLK-TASK-INPUT",
@@ -77,8 +77,8 @@
   "validation": {
     "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
     "runtime_repository": "VictorKVS/FATHER_VOICE_BRIDGE",
-    "github_actions_run_id": 40495762033,
-    "tests_passed": 61,
+    "github_actions_run_id": 40497097526,
+    "tests_passed": 70,
     "dry_run": "PASS",
     "k0_lab": {
       "lab_id": "LAB-REF-FATHER-ASSISTANT-K0-001",
@@ -102,7 +102,17 @@
       "lab_id": "LAB-REF-FATHER-SECURITY-001",
       "cases": 8,
       "accuracy": 1
-    }
+    },
+    "ui_channel_contracts": {
+      "telegram": "PASS_CONTRACT",
+      "avatar": "PASS_CONTRACT",
+      "tts": "PASS_CONTRACT",
+      "avatar_js_syntax": "PASS"
+    },
+    "mission_control_run_id": 40497097588,
+    "live_telegram": "PENDING",
+    "live_tts_provider": "PENDING_CURRENT_MACHINE",
+    "live_avatar_session": "PENDING"
   },
   "optional_adapters": {
     "telegram": {
@@ -110,6 +120,22 @@
       "status": "CONTRACT_VALIDATED_LIVE_PENDING",
       "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
       "implementation": "father_telegram_adapter_v01.py"
+    },
+    "voice_tts": {
+      "component_id": "FTH-CMP-VOICE-TTS-001",
+      "status": "VALIDATED_COMPONENT_BOUND_LIVE_PROVIDER_PENDING",
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+      "implementation": "father_tts_adapter_v01.py"
+    },
+    "avatar": {
+      "component_id": "FTH-CMP-AVATAR-SHELL-001",
+      "status": "EXPERIMENTAL_PRODUCT_BOUND",
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+      "implementation": [
+        "site/avatar.html",
+        "site/avatar.css",
+        "site/avatar.js"
+      ]
     }
   }
 }
