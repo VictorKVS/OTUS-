@@ -3,7 +3,7 @@
   "prototype_id": "PROTO-FATHER-ASSISTANT-001",
   "name": "FATHER Reference Assistant Prototype",
   "version": "0.1.0",
-  "status": "WORKING_PROTOTYPE_READINESS_SECURITY_REVIEW_VALIDATED_LIVE_PENDING",
+  "status": "WORKING_PROTOTYPE_MODEL_LAB_READY_LIVE_PENDING",
   "objective": "One-screen demonstrator of the FATHER production spine using the already assembled REF-FATHER-ASSISTANT-001 without duplicating runtime logic.",
   "product_id": "REF-FATHER-ASSISTANT-001",
   "release_id": "FATHER-V0.1-FIRST-APPROXIMATION",
@@ -29,7 +29,10 @@
     "LAB metrics",
     "Security state",
     "Evidence trace",
-    "optional adapter state"
+    "optional adapter state",
+    "local readiness",
+    "independent Security review",
+    "Model LAB A/B/N"
   ],
   "runtime_contracts": {
     "state": "GET /api/prototype/state",
@@ -37,7 +40,8 @@
     "e2e": "POST /api/prototype/e2e",
     "tts": "POST /api/product/ref-father-assistant/tts",
     "readiness": "GET /api/prototype/readiness",
-    "security_review": "POST /api/prototype/security-review"
+    "security_review": "POST /api/prototype/security-review",
+    "model_lab": "GET/POST /api/prototype/model-lab"
   },
   "core_blocks": [
     "BLK-TASK-INPUT",
@@ -60,14 +64,16 @@
   "current_evidence": {
     "evidence_id": "EV-PROTO-FATHER-ASSISTANT-001",
     "product_evidence_id": "EV-REF-FATHER-ASSISTANT-001",
-    "github_actions_run_id": 40502505457,
-    "tests_passed": 78,
+    "github_actions_run_id": 40503396537,
+    "tests_passed": 82,
     "unified_e2e_dry_check": "PASS",
     "prototype_js": "PASS",
     "layered_knowledge_champion": "LAYERED_TOP_K_3",
     "security_regression_accuracy": 1,
     "readiness_security_evidence_id": "EV-PROTO-READINESS-SECURITY-001",
-    "independent_security_review": "PASS_CANDIDATE"
+    "independent_security_review": "PASS_CANDIDATE",
+    "model_lab_evidence_id": "EV-PROTO-MODEL-LAB-001",
+    "model_lab_contract": "PASS"
   },
   "gates": {
     "prototype_contract": "PASS_BASELINE",
@@ -78,7 +84,10 @@
     "independent_security_acceptance": "HUMAN_APPROVAL_REQUIRED",
     "production_acceptance": "BLOCKED",
     "local_readiness_contract": "PASS_BASELINE",
-    "independent_security_review": "PASS_CANDIDATE"
+    "independent_security_review": "PASS_CANDIDATE",
+    "model_lab_contract": "PASS_BASELINE",
+    "model_abn_live": "PENDING_LOCAL_CANDIDATES",
+    "model_promotion": "BLOCKED_PENDING_C66_C67"
   },
   "truth_rules": [
     "Prototype success does not imply production readiness.",
