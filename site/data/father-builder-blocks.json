@@ -238,7 +238,8 @@
       "ownership": [
         "bot/project owner",
         "message provenance"
-      ]
+      ],
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001"
     },
     {
       "id": "BLK-ALINA",
@@ -671,7 +672,8 @@
         "component id/version",
         "voice/provider rights",
         "output provenance"
-      ]
+      ],
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001"
     },
     {
       "id": "BLK-EVIDENCE-IP",
@@ -1139,9 +1141,9 @@
       "id": "BLK-AVATAR-SHELL",
       "name": "Primitive Avatar Shell",
       "category": "AVATAR_INTERFACE",
-      "status": "DESIGN",
+      "status": "EXPERIMENTAL",
       "source": "FTH-CMP-AVATAR-SHELL-001",
-      "description": "Заменяемая оболочка единого аватара: статичный образ, состояния слушает/думает/отвечает, текстовый чат, микрофон и воспроизведение TTS. Позже заменяется видео-аватаром без изменения мозга.",
+      "description": "Primitive Avatar Shell bound to REF-FATHER-ASSISTANT-001 product API and canonical TTS contract; live text+voice session still pending.",
       "inputs": [
         "operator response text",
         "operator state",
@@ -1200,7 +1202,8 @@
         "CT-RUN",
         "CT-EVIDENCE",
         "CT-OWNERSHIP"
-      ]
+      ],
+      "evidence_id": "EV-REF-FATHER-ASSISTANT-001"
     }
   ],
   "project_template": {
