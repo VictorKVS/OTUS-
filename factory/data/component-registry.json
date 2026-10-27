@@ -60,6 +60,13 @@
           "result": "PASS",
           "description": "Local voice lab page loaded successfully and TTS request was received by the running service; user confirmed the voice flow works.",
           "scope": "local integration only"
+        },
+        {
+          "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+          "type": "CI_PRODUCT_BINDING",
+          "result": "PASS",
+          "description": "Canonical TTS adapter/API bound to REF-FATHER-ASSISTANT-001 and Avatar; CI confirms contract and fallback behavior.",
+          "scope": "contract/product integration; CI provider runtime unavailable"
         }
       ],
       "tests_required_for_certification": [
@@ -392,14 +399,21 @@
       "name": "FATHER Primitive Avatar Shell",
       "family": "HUMAN_INTERFACE",
       "version": "0.1.0",
-      "status": "DESIGN",
-      "validation_scope": "IMPLEMENTATION_PENDING",
+      "status": "EXPERIMENTAL",
+      "validation_scope": "PRODUCT_API_TTS_CONTRACT",
       "certification_status": "NOT_CERTIFIED",
-      "reuse_state": "READY_TO_IMPLEMENT",
+      "reuse_state": "REFERENCE_PRODUCT_BOUND",
       "purpose": "Replaceable static avatar UI shell for text/voice interaction; future video avatar adapter without changing operator agent or LLM contract.",
       "source_context": {
         "origin": "FATHER Project Builder avatar design",
-        "implementation_location": "factory/components/avatar-shell"
+        "implementation_location": "factory/components/avatar-shell",
+        "runtime_repository": "VictorKVS/FATHER_VOICE_BRIDGE",
+        "implementation": [
+          "site/avatar.html",
+          "site/avatar.css",
+          "site/avatar.js"
+        ],
+        "bound_product": "REF-FATHER-ASSISTANT-001"
       },
       "contract": {
         "input": [
@@ -432,7 +446,15 @@
         "voice component optional",
         "STT component future"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+          "type": "CI_UI_PRODUCT_CONTRACT",
+          "result": "PASS",
+          "description": "Avatar shell calls reference product API, canonical TTS API, and passes JavaScript syntax/contract tests.",
+          "scope": "UI/product/TTS contract; live text+voice session pending"
+        }
+      ],
       "tests_required_for_certification": [
         "static render",
         "state transitions",
@@ -461,7 +483,7 @@
         "GENERAL_AGENT_UI"
       ],
       "next_promotion_gate": "G-CMP-AVATAR-VALIDATE",
-      "promotion_condition": "Prove one complete text+voice session with static shell and state trace."
+      "promotion_condition": "Prove one complete live text+voice session with state trace and canonical TTS audio."
     },
     {
       "component_id": "FTH-CMP-AGENT-SELECTOR-001",
