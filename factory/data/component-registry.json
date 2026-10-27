@@ -193,15 +193,18 @@
       "family": "CHANNEL_GATEWAY",
       "version": "0.1.0",
       "status": "EXPERIMENTAL",
-      "validation_scope": "REFERENCE_PRODUCT_RUNTIME_NOT_YET_CENTRALIZED",
+      "validation_scope": "TRANSPORT_CONTRACT_VALIDATED_LIVE_PENDING",
       "certification_status": "NOT_CERTIFIED",
-      "reuse_state": "EXTRACTION_IN_PROGRESS",
+      "reuse_state": "REFERENCE_PRODUCT_ADAPTER",
       "purpose": "Reusable Telegram Bot ingress/egress channel separated from higher-level agent reasoning and voice processing.",
       "source_context": {
         "origin": "FATHER_VOICE_BRIDGE reference product",
         "source_repository": "VictorKVS/FATHER_VOICE_BRIDGE",
         "source_agent_kit": "KIT-TELEGRAM-VOICE-BRIDGE",
-        "extraction_rule": "channel transport must remain independent from ALINA/LLM/RAG/TTS logic"
+        "extraction_rule": "channel transport must remain independent from ALINA/LLM/RAG/TTS logic",
+        "implementation": "father_telegram_adapter_v01.py",
+        "runtime_repository": "VictorKVS/FATHER_VOICE_BRIDGE",
+        "bound_product": "REF-FATHER-ASSISTANT-001"
       },
       "contract": {
         "input": [
@@ -235,7 +238,14 @@
         "secret reference",
         "network route"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "evidence_id": "EV-REF-FATHER-ASSISTANT-001",
+          "type": "CI_TRANSPORT_CONTRACT",
+          "result": "PASS",
+          "scope": "update normalization, product binding, blocked-state rendering; no live Telegram network"
+        }
+      ],
       "tests_required_for_certification": [
         "text receive/send",
         "voice metadata/download",
