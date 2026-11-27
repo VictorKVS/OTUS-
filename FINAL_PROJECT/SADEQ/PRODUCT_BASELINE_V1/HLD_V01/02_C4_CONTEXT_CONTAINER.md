@@ -29,3 +29,8 @@
 
 ## Decisions to postpone
 Microservice vs modular monolith, Kafka vs PostgreSQL outbox, Qdrant+Neo4j capacity, model server runtime, GPU node count, API autoscale, DR SLA. These require benchmark or hard separation constraints. C4 diagrams show conceptual containers, **not deployed pods**.
+
+## Визуальная модель C4 / интеграции
+![SADEQ — C4 Context/Container, обзор](../../../IDEA_PLUS_REBASELINE_V03/diagrams/VIS-03_C4_CONTEXT_CONTAINER.svg)
+
+[Открыть векторную схему](../../../IDEA_PLUS_REBASELINE_V03/diagrams/VIS-03_C4_CONTEXT_CONTAINER.svg). Картинка — **обзор логической структуры**. Подробные связи и официальная C4-схема — по исходникам [c4_context.mmd](diagrams/c4_context.mmd), [c4_container.mmd](diagrams/c4_container.mmd); требования P0/P1 определяются актуальной IDEA+ v0.3.
