@@ -1,0 +1,47 @@
+flowchart LR
+  subgraph USER["Business / data owner"]
+    U0["Define object and allowed outcome"] --> U1["Authorize sources and policies"]
+    U2{"Approve this exact action?"}
+    U3["Review result / feedback"]
+  end
+  subgraph SOURCES["Authorized source systems"]
+    S1["ERP / files / event stream"] --> S2["Send signed / authenticated message"]
+    S3["Provide execution receipt"]
+  end
+  subgraph UAA["SADEQ UAA business agent"]
+    A1["B01: validate source, operation, closed schema"] --> A2{"valid?"}
+    A2 -- no --> ABORT["DENY + trace"]
+    A2 -- yes --> A3["B02: dedupe and resolve object"]
+    A3 --> A4{"unique object?"}
+    A4 -- no --> WAIT["REVIEW_REQUIRED, no auto-merge"]
+    A4 -- yes --> A5["Append event and replay state"]
+    A5 --> A6{"Rule detects actionable change?"}
+    A6 -- no --> COMPLETE["Save / close"]
+    A6 -- yes --> A7["B03: ACL-bounded graph/vector evidence"]
+    A7 --> A8["B04: deterministic calculation + LLM explanation"]
+    A8 --> A9["Create bounded action proposal and evidence"]
+    A9 --> A10["B05: policy + semantic impact + qualification"]
+    A10 --> A11{"DENY / APPROVAL / ALLOW"}
+    A11 -- DENY --> ABORT
+    A11 -- APPROVAL --> U2
+    U2 -- no --> ABORT
+    U2 -- yes --> A12["Revalidate action hash, object version, policy"]
+    A11 -- ALLOW --> A12
+    A12 --> A13{"current authorization valid?"}
+    A13 -- no --> ABORT
+    A13 -- yes --> A14["UAG tool executor: idempotent action"]
+    A14 --> A15["Verify receipt + actual business outcome"]
+    A15 --> U3
+    U3 --> A16["Append approved feedback & audit evidence"]
+  end
+  subgraph SEC["Independent security / qualification"]
+    SEC1["SEC-01/02: threat matrix at IDEA+"] --> SEC2["SEC-04: runtime deterministic policy"]
+    SEC2 --> SEC3["SEC-05 POLYGON: qualification and requalification"]
+    SEC3 --> SEC4["SEC-06: monitoring / revoke"]
+  end
+  U1 --> S1
+  S2 --> A1
+  A14 --> S3 --> A15
+  SEC2 -. policy .-> A10
+  SEC3 -. qualified version .-> A10
+  SEC4 -. revoke .-> A13
