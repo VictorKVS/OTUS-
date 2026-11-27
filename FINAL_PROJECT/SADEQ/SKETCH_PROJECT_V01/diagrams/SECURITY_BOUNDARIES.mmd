@@ -1,0 +1,44 @@
+flowchart LR
+  subgraph Z0["Z0: Employee workstations"]
+    U["Authenticated Operator / Approver"]
+  end
+  subgraph Z1["Z1: Ingress and identity"]
+    API["B01 / FastAPI / Closed contracts"]
+  end
+  subgraph Z2["Z2: UAA and local AI"]
+    AG["B04 / Orchestration"]
+    LLM["Local Ollama / no credentials"]
+  end
+  subgraph Z3["Z3: Evidence and source ownership"]
+    DB[("PostgreSQL Events / State")]
+    Q[("Qdrant + approved source refs")]
+  end
+  subgraph Z5["Z5: Separate action control"]
+    P{"Deterministic UAG"}
+    APR["Action bound human approval"]
+  end
+  subgraph Z7["Z7: External test-only corporate APIs"]
+    ITSM["Mock ITSM scoped API"]
+  end
+  subgraph Z6["Z6: Independent qualification"]
+    EX["POLYGON / immutable tests"]
+    EV[("Evidence ledger")]
+  end
+  U --> API
+  API --> AG
+  AG --> LLM
+  AG --> DB
+  AG --> Q
+  AG -->|"Draft proposal / no credentials"| P
+  P -->|"Approval required"| APR
+  APR -->|"Approved action hash"| P
+  P -->|"Allowlisted token"| ITSM
+  P -->|"DENY"| EV
+  EX -. "Test candidate" .-> AG
+  EX --> EV
+  classDef trusted fill:#14334b,stroke:#52d9cf,color:#fff;
+  classDef control fill:#143b3f,stroke:#7bedd1,color:#fff;
+  classDef independent fill:#332751,stroke:#a996ff,color:#fff;
+  class AG,API,Q,DB,LLM trusted;
+  class P,APR,ITSM control;
+  class EX,EV independent;
