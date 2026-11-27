@@ -69,7 +69,32 @@
 | US-08 | Архитектор объясняет tradeoff | ADR с альтернативами и измерениями |
 
 ## 8. Бизнес-схема
+
+![SADEQ / FATHER — корпоративная бизнес-схема обработки заявки: 5 этапов, ALG-01…ALG-12, ветви отказа, RAG, UAG и проверка результата](diagrams/SADEQ_BUSINESS_FLOW_V03.svg)
+
+> **Рисунок IDEA-BPM-01 — Основной бизнес-процесс SADEQ UAA (обзорная архитектурная инфографика, версия 0.3).**  
+> [Открыть схему отдельно в полном размере](diagrams/SADEQ_BUSINESS_FLOW_V03.svg). Статус: **спроектировано / не квалифицировано**. Фирменная визуализация не является формальной BPMN 2.0 или схемой алгоритма по ГОСТ 19.701-90.
+
+**Машинно-проверяемая последовательность (текстовая альтернативная версия):**  
 `Authenticated ticket/document → ALG-01 validate → ALG-02 dedupe → ALG-03 object identity → ALG-04 event append → ALG-05 state → ALG-06 trigger → ALG-07 evidence retrieval → ALG-08 hypotheses → ALG-09 forecast if supported (else NOT_AVAILABLE) → ALG-10 policy-bound proposal → ALG-11 authorization/human → tool → ALG-12 authoritative verification → audit/review`.
+
+**Ветки бизнес-решений:** `REJECT` — запрет при нарушении контракта; `REVIEW_REQUIRED` — неоднозначный объект; `NO_ACTION` — нет значимого события; `ABSTAIN` — недостаточно фактов; `NOT_AVAILABLE` — нет обоснованного прогноза; `APPROVAL_REQUIRED` — действие ждёт уполномоченного человека; `MISMATCH` — результат инструмента не подтверждён бизнес-системой. Все решения, за исключением оформления объяснения, проверяются детерминированными контролями.
+
+### 8.1. Дополнительная визуализация для IDEA+ (план)
+| ID | Иллюстрация | Что доказывает / поясняет | Приоритет |
+|---|---|---|---|
+| VIS-01 | Бизнес-процесс с ролями, BPMN/swimlanes | Кто действует: пользователь, UAA, UAG, согласующий, ITSM, POLYGON; где границы ответственности | P0 |
+| VIS-02 | AS-IS → TO-BE, ценностная цепочка | Как меняется работа с обращением, без выдуманных процентов экономии | P0 |
+| VIS-03 | C4 System Context + Container | Где система, интеграции, локальная LLM и хранилища; отсутствует внешний LLM API | P0 |
+| VIS-04 | Схема доверия, угроз и UAG | User→Agent→Tool→Object, ACL, prompt injection, DENY, human gate | P0 |
+| VIS-05 | RAG pipeline, provenance и graph paths | Документ→чанк→индекс→запрос→доказательство→ответ, различие P0/P1 | P0/P1 |
+| VIS-06 | Диаграмма последовательности одного запроса | Обмен конкретными контрактами FLOW/API/ALG и обработка ошибок | P0 |
+| VIS-07 | Матрица трассировки и quality gates | IDEA→FR→ALG→THR→TEST→EVI→POLYGON, что готово и что ещё нет | P0 |
+| VIS-08 | Архитектура данных и состояний | Object/Event/Postgres/Qdrant/Neo4j/checkpoint; где Source of Truth | P1 |
+| VIS-09 | Путь MVP P0→P1→P2 / OTUS | Границы первого работающего кейса, полного OTUS и исследовательского расширения | P0 |
+| VIS-10 | Модель затрат, GPU sizing и рисков | Только измеренные данные и явно помеченные сценарии | После baseline |
+
+**Стандарт визуального оформления:** единый SADEQ/FATHER navy/cyan/violet, читаемые названия, номер рисунка и версия, источники/трассировка, статус фактических доказательств, редактируемый SVG/Mermaid или BPMN-исходник, проверка ошибок и доступность подписи. Официальный документ по ГОСТ выпускается в отдельной проверенной форме, а не заменяется инфографикой.
 
 ## 9. Нефункциональные свойства и риски
 **Security:** strict ACL, source provenance, prompt injection refusal, offline. **Reliability:** replay and idempotency. **Observability:** p95, TTFT, tokens/s, peak VRAM, trace/metrics; числа устанавливаем на baseline и измеряем. **Maintainability:** typed APIs, ADR, human commits, signed releases, SBOM and documented change control. **Data:** synthetic, rights-cleared, retention documented. **Risks:** cross-tenant leak, hallucination, wrong tool action, denial by local GPU, graph-index quality; threat matrix grows from IDEA+.
