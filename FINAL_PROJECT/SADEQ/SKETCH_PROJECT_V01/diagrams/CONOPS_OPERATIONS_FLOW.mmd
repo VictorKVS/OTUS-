@@ -1,0 +1,25 @@
+flowchart LR
+  U["Инженер ITSM L1/L2"] -->|"INC-001 / authenticated"| B01["B01: Closed Schema / Identity"]
+  B01 -->|"ValidatedObservation"| B02["B02: Object / Event / State"]
+  B02 -->|"StateVersion"| B04["B04: LangGraph Agent"]
+  KB["Approved SOP / KB"] --> B03["B03: ACL RAG / Evidence"]
+  B04 -->|"AuthorizedEvidenceQuery"| B03
+  B03 -->|"Source cited evidence"| B04
+  B04 -->|"ActionProposal only"| B05{"B05: UAG Policy"}
+  B05 -->|"DENY or ABSTAIN"| AUD["Audit / Review"]
+  B05 -->|"APPROVAL_REQUIRED"| H["Approver: exact action digest"]
+  H -->|"Approve / reject"| B05
+  B05 -->|"Allowed + recheck"| T["Scoped mock-ITSM adapter"]
+  T --> I[("Synthetic ITSM Ticket")]
+  I -->|"Authoritative read-after-write"| V["ALG-12: Verify postcondition"]
+  V -->|"VERIFIED / MISMATCH"| AUD
+  P["B07: Independent POLYGON"] -. "Tests exact build" .-> B04
+  P -. "Qualification evidence" .-> AUD
+  O["B08: Trace / Observability"] -.-> B01
+  O -.-> V
+  classDef gate fill:#103d4b,color:#fff,stroke:#42e3d2,stroke-width:2px;
+  classDef core fill:#173454,color:#fff,stroke:#79afff;
+  classDef qa fill:#32234d,color:#fff,stroke:#ac94ff;
+  class B01,B02,B03,B04,B08 core;
+  class B05,H,V gate;
+  class P qa;
