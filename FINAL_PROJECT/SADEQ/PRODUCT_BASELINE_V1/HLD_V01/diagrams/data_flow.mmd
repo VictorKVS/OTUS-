@@ -1,0 +1,20 @@
+flowchart TD
+  In["Approved channels and documents"] --> Auth{"B01: schema + identity + recipient"}
+  Auth -- REJECT --> Stop["STOP + redacted audit"]
+  Auth -- ACCEPT --> Obj["B02: resolve object"]
+  Obj --> EVT["Append observation / event / state"]
+  EVT --> Intelligence["B04: analyze state"]
+  Intelligence --> KB["B03: authorized GraphRAG"]
+  KB --> Intelligence
+  Intelligence --> Proposal["Action proposal with provenance"]
+  Proposal --> Gate{"B05: policy + impact + qualification"}
+  Gate -- DENY/REVIEW --> Stop
+  Gate -- HUMAN --> Human{"Human approves same action hash/object version?"}
+  Human -- NO/TIMEOUT --> Stop
+  Human -- YES --> Execute["Scoped Tool Gateway: revalidate + execute"]
+  Gate -- ALLOW_BOUNDED --> Execute
+  Execute --> EVT
+  QA["B07: independent POLYGON"] -.-> Gate
+  Factory["B06: Agent Factory"] --> QA
+  Ops["B08: Operations and audit"] -.-> Gate
+  Ops -.-> EVT
