@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "request_id": "REQ-001",
+  "source_system": "mock-itsm",
+  "external_ticket_id": "INC-001",
+  "kind": "INCIDENT",
+  "service_key": "SVC-X",
+  "priority": "P2",
+  "summary": "Синтетический сервис SVC-X не отвечает",
+  "description": "Тестовое обращение в изолированном mock ITSM, без ПДн.",
+  "observed_at": "2026-11-28T09:00:00+03:00",
+  "indicators": [
+    {
+      "code": "HTTP_STATUS",
+      "value": "503"
+    },
+    {
+      "code": "SERVICE_HEALTH",
+      "value": "DOWN"
+    }
+  ]
+}
