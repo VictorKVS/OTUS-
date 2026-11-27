@@ -28,3 +28,6 @@ P0 = actual running local service desk assistant (RAG, tool, human approval, sec
 
 ## Эскизный проект и операционная концепция
 [ЭП V0.1: ConOps, UC, HLD, ADR, traceability](../SKETCH_PROJECT_V01/README.md) — первая рабочая редакция, не утверждено заказчиком, испытания NOT_RUN.
+
+## Технический проект — первые исполняемые спецификации
+[TP-001 Contract Pack](../TECHNICAL_PROJECT_V01/README.md): 4 JSON Schema, проект объектно-событийной модели, UAG/action recovery и тестовый набор. Это дизайн контрактов; код и tests не квалифицированы.
