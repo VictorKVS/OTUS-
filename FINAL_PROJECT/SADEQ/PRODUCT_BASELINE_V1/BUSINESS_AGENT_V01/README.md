@@ -28,6 +28,6 @@ B01/B02/B03/B04/B05 — функциональные блоки, а не обя�
 [05_ALGORITHMS_DETAILED_SPECIFICATION.md](05_ALGORITHMS_DETAILED_SPECIFICATION.md) — все 12 алгоритмов: шаги обработки, границы AI/non-AI, поля входа/выхода, ошибки, тесты, роль безопасности и linkage к SEDA. **Документировано, тесты не запускались.**
 
 ## Корпоративные визуализации процесса
-![SADEQ — дорожки бизнес-процесса, участники](../../../IDEA_PLUS_REBASELINE_V03/diagrams/VIS-01_SWIMLANES.svg)
+![SADEQ — дорожки бизнес-процесса, участники](../../IDEA_PLUS_REBASELINE_V03/diagrams/VIS-01_SWIMLANES.svg)
 
-[Бизнес-схема с 12 алгоритмами](../../../IDEA_PLUS_REBASELINE_V03/diagrams/SADEQ_BUSINESS_FLOW_V03.svg) · [Sequence](../../../IDEA_PLUS_REBASELINE_V03/diagrams/VIS-06_SEQUENCE.svg) · [Evidence RAG](../../../IDEA_PLUS_REBASELINE_V03/diagrams/VIS-05_RAG_GRAPHRAG.svg). Все изображения — **обзорные**, для формальной BPMN/ГОСТ схемы исходники должны быть приведены к стандарту и проверены.
+[Бизнес-схема с 12 алгоритмами](../../IDEA_PLUS_REBASELINE_V03/diagrams/SADEQ_BUSINESS_FLOW_V03.svg) · [Sequence](../../IDEA_PLUS_REBASELINE_V03/diagrams/VIS-06_SEQUENCE.svg) · [Evidence RAG](../../IDEA_PLUS_REBASELINE_V03/diagrams/VIS-05_RAG_GRAPHRAG.svg). Все изображения — **обзорные**, для формальной BPMN/ГОСТ схемы исходники должны быть приведены к стандарту и проверены.
