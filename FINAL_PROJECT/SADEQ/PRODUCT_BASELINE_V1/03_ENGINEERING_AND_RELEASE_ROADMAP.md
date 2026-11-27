@@ -38,3 +38,6 @@ G1 1–3 BUS; G2 4–7 ARCH/KB/Agents; G3 8–10 ADR/CTO debt; G4 11–15 API/Da
 
 ## Evidence hierarchy
 Not built → Source exists → Tests source present → Tests executed → integration reproduced → independent qualification → human-approved release. No jump between steps.
+
+## Secure SDLC с угрозами и испытаниями
+Каждая фаза R0–R11 дополнена требованиями [13 security gates и 100 угроз](SECURE_SDLC_TOP100_V1/SECURE_SDLC_ROADMAP.md). Они не заменяют дорожную карту продукта, а задают независимые ограничения для переходов. G00–G12 security gates и R0–R11 delivery phases — разные оси трассировки.
