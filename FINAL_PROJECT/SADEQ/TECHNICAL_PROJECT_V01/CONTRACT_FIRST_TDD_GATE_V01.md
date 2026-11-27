@@ -31,3 +31,6 @@ For next release: author all planned negative tests before endpoint implementati
 - ZIP folder `SADEQ_CONTRACT_FIRST_TDD_V01` should be extracted **as a sibling** of `SADEQ_MVP_P0_SLICE_001` on Windows. This is a TDD suite, not a second API.
 - The earlier prototype is DEMO ONLY; local success is not proof of production authentication, encryption, endpoint security or policy qualification.
 - The executable tests currently target the first 5 high-priority deficits; the complete TP-005 threat matrix is still planned, NOT_RUN.
+
+## Новый порядок: ПМИ перед TDD
+[ПМИ-001](../TEST_ENGINEERING_V01/PMI-001_PROGRAM_AND_METHODS.md) и [заполненный пример API-001](../TEST_ENGINEERING_V01/PMI-002_CASE_API001_TENANT_ISOLATION.md) являются проектной нормативно-методической основой до следующей итерации кода. Предварительные локальные 4 PASS / 5 FAIL — не приёмочные протоколы и не POLYGON evidence.
