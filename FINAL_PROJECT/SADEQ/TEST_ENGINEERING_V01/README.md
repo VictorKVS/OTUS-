@@ -29,3 +29,6 @@
 [ТЗ 0.3](../IDEA_PLUS_REBASELINE_V03/02_TECHNICAL_ASSIGNMENT_GOST_34_602.md) · [TP-005 Contract Strict](../TECHNICAL_PROJECT_V01/TP-005_CONTRACT_STRICT_SECURITY_STANDARD.md) · [предыдущий TDD реестр](../TECHNICAL_PROJECT_V01/CONTRACT_FIRST_TDD_GATE_V01.md)
 
 **Следующий gate:** review ПМИ-001 и ПМИ-002, затем exact acceptance fixtures, test harness, контроль технической среды, запуск и независимый protocol. 
+
+## Практическая ценность для корпоративных собеседований
+[SADEQ — карта компетенций и доказательств инженера](../CAREER_EVIDENCE_V01.md) связывает бизнес-проблемы, API/security-решения, ожидаемые артефакты, вопросы интервью и честные статусы DESIGN/IMPLEMENTED/TESTED/QUALIFIED.
