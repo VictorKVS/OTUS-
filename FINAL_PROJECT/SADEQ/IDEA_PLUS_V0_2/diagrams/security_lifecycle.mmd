@@ -1,0 +1,29 @@
+flowchart TD
+  S([Business need]) --> A[SEC-01 Security Architect: classify data and risk]
+  A --> G1{Risk acceptable?}
+  G1 -- No --> STOP1([Reject scope / revise])
+  G1 -- Yes --> B[SEC-02 Threat modeling: DFD / STRIDE]
+  B --> C[Implementation]
+  C --> D[SEC-03 DevSecOps: scan code / dependencies / SBOM]
+  D --> G2{Critical findings?}
+  G2 -- Yes --> C
+  G2 -- No --> E[SEC-05 Independent Qualification: test + evidence]
+  E --> G3{Qualified?}
+  G3 -- No --> C
+  G3 -- Yes --> H[Human release approval]
+  H --> G4{Approved?}
+  G4 -- No --> STOP2([Do not release])
+  G4 -- Yes --> I[Deploy]
+  I --> J[SEC-04 Runtime Policy: validate each action]
+  J --> G5{Decision?}
+  G5 -- DENY / BLOCK --> STOP3([Audit; no tool execution])
+  G5 -- APPROVAL_REQUIRED --> K[Human action approval]
+  K --> G6{Approved?}
+  G6 -- No / Timeout --> STOP3
+  G6 -- Yes --> L[Execute allowed tool]
+  G5 -- ALLOW --> L
+  L --> M[SEC-06 Security Monitoring]
+  M --> G7{Incident / drift?}
+  G7 -- Yes --> N[Revoke trust; contain; requalify]
+  N --> E
+  G7 -- No --> J
