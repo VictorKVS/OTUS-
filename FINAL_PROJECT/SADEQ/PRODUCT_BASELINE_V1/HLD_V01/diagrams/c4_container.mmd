@@ -1,0 +1,15 @@
+flowchart TB
+  Src["Authorized Sources"] --> Edge["CT-01 Web/API Edge"]
+  Edge --> Gwy["CT-02 Integration Gateway"]
+  Gwy --> UAA["CT-03 UAA Runtime"]
+  UAA <--> Pol["CT-04 Policy & Human Approval"]
+  UAA <--> K["CT-05 Knowledge & Evidence"]
+  UAA --> Store[("CT-08 PostgreSQL / Qdrant / Neo4j / Objects")]
+  K --> Store
+  UAA <--> GPU["CT-09 Local LLM GPU Serving"]
+  Factory["CT-06 Agent Factory"] --> QA["CT-07 Independent POLYGON"]
+  QA -->|qualification evidence| Pol
+  Pol -->|authorized bounded tool execution| Gwy
+  Ops["CT-10 Monitoring / Audit"] -.-> UAA
+  Ops -.-> Pol
+  Ops -.-> QA
