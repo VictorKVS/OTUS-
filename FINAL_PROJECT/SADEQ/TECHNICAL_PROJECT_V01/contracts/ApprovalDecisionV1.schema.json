@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sadeq:schema:ApprovalDecisionV1",
+  "title": "ApprovalDecisionV1",
+  "description": "Trusted approval endpoint binds decision to exact canonical proposal and authoritative state. Identity from authenticated session, not request body.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "proposal_id",
+    "proposal_sha256",
+    "decision",
+    "reason",
+    "approved_state_version"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "proposal_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "proposal_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "decision": {
+      "enum": [
+        "APPROVE",
+        "REJECT"
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 300
+    },
+    "approved_state_version": {
+      "type": "integer",
+      "minimum": 1
+    }
+  }
+}
