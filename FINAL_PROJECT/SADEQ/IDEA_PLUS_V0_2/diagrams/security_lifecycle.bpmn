@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_SADEQ_SEC" targetNamespace="https://sadeq.example/schema/bpmn">
+  <bpmn:process id="SADEQ_Security_Lifecycle" name="SADEQ Secure Agent Delivery and Operation" isExecutable="false">
+    <bpmn:laneSet id="Security_Lanes">
+      <bpmn:lane id="Lane_Risk" name="Security Architect / Business Risk Owner">
+        <bpmn:flowNodeRef>Start_Requirement</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Classify</bpmn:flowNodeRef><bpmn:flowNodeRef>Gateway_Risk</bpmn:flowNodeRef><bpmn:flowNodeRef>End_RejectScope</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Threat" name="Threat Modeling Specialist">
+        <bpmn:flowNodeRef>Task_ThreatModel</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Dev" name="Software Engineering and DevSecOps">
+        <bpmn:flowNodeRef>Task_Implement</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_CIScan</bpmn:flowNodeRef><bpmn:flowNodeRef>Gateway_Findings</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Exam" name="Independent Security Qualification">
+        <bpmn:flowNodeRef>Task_Qualify</bpmn:flowNodeRef><bpmn:flowNodeRef>Gateway_Qualified</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Approval" name="Human Release / Action Approver">
+        <bpmn:flowNodeRef>Task_ReleaseApproval</bpmn:flowNodeRef><bpmn:flowNodeRef>Gateway_Release</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_ActionApproval</bpmn:flowNodeRef><bpmn:flowNodeRef>Gateway_ActionApproved</bpmn:flowNodeRef><bpmn:flowNodeRef>End_NoRelease</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Runtime" name="Runtime Security Policy Service">
+        <bpmn:flowNodeRef>Task_Deploy</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_CheckPolicy</bpmn:flowNodeRef><bpmn:flowNodeRef>Gateway_Policy</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Execute</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Deny</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Monitor" name="Security Monitoring / Incident Response">
+        <bpmn:flowNodeRef>Task_Monitor</bpmn:flowNodeRef><bpmn:flowNodeRef>Gateway_Incident</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Revoke</bpmn:flowNodeRef><bpmn:flowNodeRef>End_Observed</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start_Requirement" name="Business request"/>
+    <bpmn:task id="Task_Classify" name="Assess business risk and security requirements"/>
+    <bpmn:exclusiveGateway id="Gateway_Risk" name="Acceptable risk?" default="F_Risk_No"/>
+    <bpmn:endEvent id="End_RejectScope" name="Revise or reject scope"/>
+    <bpmn:task id="Task_ThreatModel" name="STRIDE and data flow threat model"/>
+    <bpmn:task id="Task_Implement" name="Implement / remediate component"/>
+    <bpmn:task id="Task_CIScan" name="DevSecOps scan code and supply chain"/>
+    <bpmn:exclusiveGateway id="Gateway_Findings" name="Critical findings?" default="F_Findings_Yes"/>
+    <bpmn:task id="Task_Qualify" name="Independent security qualification"/>
+    <bpmn:exclusiveGateway id="Gateway_Qualified" name="Qualified?" default="F_Qual_No"/>
+    <bpmn:userTask id="Task_ReleaseApproval" name="Approve version release"/>
+    <bpmn:exclusiveGateway id="Gateway_Release" name="Release approved?" default="F_Release_No"/>
+    <bpmn:endEvent id="End_NoRelease" name="No release"/>
+    <bpmn:task id="Task_Deploy" name="Deploy approved version"/>
+    <bpmn:serviceTask id="Task_CheckPolicy" name="Check tool authorization (fail closed)"/>
+    <bpmn:exclusiveGateway id="Gateway_Policy" name="Policy decision?" default="F_Policy_Deny"/>
+    <bpmn:userTask id="Task_ActionApproval" name="Approve action"/>
+    <bpmn:exclusiveGateway id="Gateway_ActionApproved" name="Action approved?" default="F_Action_No"/>
+    <bpmn:endEvent id="End_Deny" name="Audit and block; no tool execution"/>
+    <bpmn:serviceTask id="Task_Execute" name="Execute allowlisted tool"/>
+    <bpmn:task id="Task_Monitor" name="Observe metrics and incidents"/>
+    <bpmn:exclusiveGateway id="Gateway_Incident" name="Incident or drift?" default="F_NoIncident"/>
+    <bpmn:task id="Task_Revoke" name="Revoke, contain and request requalification"/>
+    <bpmn:endEvent id="End_Observed" name="Monitoring observation completed"/>
+    <bpmn:sequenceFlow id="F_Start" sourceRef="Start_Requirement" targetRef="Task_Classify"/>
+    <bpmn:sequenceFlow id="F_Classify" sourceRef="Task_Classify" targetRef="Gateway_Risk"/>
+    <bpmn:sequenceFlow id="F_Risk_No" sourceRef="Gateway_Risk" targetRef="End_RejectScope"/>
+    <bpmn:sequenceFlow id="F_Risk_Yes" sourceRef="Gateway_Risk" targetRef="Task_ThreatModel"><bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${riskAccepted}</bpmn:conditionExpression></bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F_Threat" sourceRef="Task_ThreatModel" targetRef="Task_Implement"/>
+    <bpmn:sequenceFlow id="F_Implement" sourceRef="Task_Implement" targetRef="Task_CIScan"/>
+    <bpmn:sequenceFlow id="F_Scan" sourceRef="Task_CIScan" targetRef="Gateway_Findings"/>
+    <bpmn:sequenceFlow id="F_Findings_Yes" sourceRef="Gateway_Findings" targetRef="Task_Implement"/>
+    <bpmn:sequenceFlow id="F_Findings_No" sourceRef="Gateway_Findings" targetRef="Task_Qualify"><bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${criticalFindings == 0}</bpmn:conditionExpression></bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F_Qual" sourceRef="Task_Qualify" targetRef="Gateway_Qualified"/>
+    <bpmn:sequenceFlow id="F_Qual_No" sourceRef="Gateway_Qualified" targetRef="Task_Implement"/>
+    <bpmn:sequenceFlow id="F_Qual_Yes" sourceRef="Gateway_Qualified" targetRef="Task_ReleaseApproval"><bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${qualified}</bpmn:conditionExpression></bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F_ReleaseReq" sourceRef="Task_ReleaseApproval" targetRef="Gateway_Release"/>
+    <bpmn:sequenceFlow id="F_Release_No" sourceRef="Gateway_Release" targetRef="End_NoRelease"/>
+    <bpmn:sequenceFlow id="F_Release_Yes" sourceRef="Gateway_Release" targetRef="Task_Deploy"><bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${releaseApproved}</bpmn:conditionExpression></bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F_Deploy" sourceRef="Task_Deploy" targetRef="Task_CheckPolicy"/>
+    <bpmn:sequenceFlow id="F_PolicyCheck" sourceRef="Task_CheckPolicy" targetRef="Gateway_Policy"/>
+    <bpmn:sequenceFlow id="F_Policy_Deny" sourceRef="Gateway_Policy" targetRef="End_Deny"/>
+    <bpmn:sequenceFlow id="F_Policy_Approval" sourceRef="Gateway_Policy" targetRef="Task_ActionApproval"><bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${policyDecision == 'APPROVAL_REQUIRED'}</bpmn:conditionExpression></bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F_Policy_Allow" sourceRef="Gateway_Policy" targetRef="Task_Execute"><bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${policyDecision == 'ALLOW'}</bpmn:conditionExpression></bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F_ApprovalRequest" sourceRef="Task_ActionApproval" targetRef="Gateway_ActionApproved"/>
+    <bpmn:sequenceFlow id="F_Action_No" sourceRef="Gateway_ActionApproved" targetRef="End_Deny"/>
+    <bpmn:sequenceFlow id="F_Action_Yes" sourceRef="Gateway_ActionApproved" targetRef="Task_Execute"><bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${actionApproved}</bpmn:conditionExpression></bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F_Executed" sourceRef="Task_Execute" targetRef="Task_Monitor"/>
+    <bpmn:sequenceFlow id="F_Monitored" sourceRef="Task_Monitor" targetRef="Gateway_Incident"/>
+    <bpmn:sequenceFlow id="F_NoIncident" sourceRef="Gateway_Incident" targetRef="End_Observed"/>
+    <bpmn:sequenceFlow id="F_Incident" sourceRef="Gateway_Incident" targetRef="Task_Revoke"><bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${incidentOrDrift}</bpmn:conditionExpression></bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F_Requal" sourceRef="Task_Revoke" targetRef="Task_Qualify"/>
+  </bpmn:process>
+</bpmn:definitions>
