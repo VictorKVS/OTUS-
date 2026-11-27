@@ -15,3 +15,6 @@ P0 = actual running local service desk assistant (RAG, tool, human approval, sec
 
 ## Formality
 ГОСТ 34.602 layout used for content; no title block signatures, formal contract numbering or actual customer acceptance. PDF/DOCX typeset derivative does not by itself prove certification/compliance. No deployed product/test evidence asserted.
+
+## Visual architecture / figures
+[IDEA+ with 11 embedded figures](01_IDEA_PLUS_REBASELINE.md) · [Business flow](diagrams/SADEQ_BUSINESS_FLOW_V03.svg) · [C4](diagrams/VIS-03_C4_CONTEXT_CONTAINER.svg) · [Zero Trust / UAG](diagrams/VIS-04_ZERO_TRUST_UAG.svg) · [RAG](diagrams/VIS-05_RAG_GRAPHRAG.svg) · [Traceability](diagrams/VIS-07_TRACEABILITY_GATES.svg). All SVG images are vector source, DESIGN, NOT QUALIFIED; official BPMN/ГОСТ deliverables separate.
