@@ -25,3 +25,6 @@ P0 = actual running local service desk assistant (RAG, tool, human approval, sec
 
 ## Visual architecture / figures
 [IDEA+ with 11 embedded figures](01_IDEA_PLUS_REBASELINE.md) · [Business flow](diagrams/SADEQ_BUSINESS_FLOW_V03.svg) · [C4](diagrams/VIS-03_C4_CONTEXT_CONTAINER.svg) · [Zero Trust / UAG](diagrams/VIS-04_ZERO_TRUST_UAG.svg) · [RAG](diagrams/VIS-05_RAG_GRAPHRAG.svg) · [Traceability](diagrams/VIS-07_TRACEABILITY_GATES.svg). All SVG images are vector source, DESIGN, NOT QUALIFIED; official BPMN/ГОСТ deliverables separate.
+
+## Эскизный проект и операционная концепция
+[ЭП V0.1: ConOps, UC, HLD, ADR, traceability](../SKETCH_PROJECT_V01/README.md) — первая рабочая редакция, не утверждено заказчиком, испытания NOT_RUN.
