@@ -1,0 +1,12 @@
+flowchart LR
+ S["Mock ITSM Incident / untrusted JSON"] --> G["B01 Auth + strict InboundIncidentV1"]
+ G -->|"REJECT"| X["Audit denied no side effects"]
+ G -->|"FLOW-02 ValidatedObservationV1 trusted producer"| O["B02 Tenant/Object/Event state"]
+ O -->|"StateVersion"| A["B04 LangGraph + approved Evidence"]
+ A -->|"FLOW-06 ActionProposalV1 no credential"| P{"B05 deterministic UAG"}
+ P -->|"DENY"| X
+ P -->|"FLOW-07 ApprovalDecisionV1"| H["Trusted approver"]
+ H -->|"Exact digest / identity"| P
+ P -->|"FLOW-08 scoped call TBD"| T["Mock ITSM API"]
+ T -->|"FLOW-09 authoritative read TBD"| V["ALG-12 Verify state"]
+ V --> E["Audit + POLYGON evidence"]
