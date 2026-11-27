@@ -1,0 +1,105 @@
+# Conceptual illustration ONLY — image, secrets, backing services not yet shipped.
+# DO NOT APPLY to production until policies, signatures, and network controls verified.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sadeq
+  labels:
+    pod-security.kubernetes.io/enforce: restricted
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sadeq-api
+  namespace: sadeq
+automountServiceAccountToken: false
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sadeq-api-config
+  namespace: sadeq
+data:
+  LOG_LEVEL: "INFO"
+  API_PORT: "8000"
+  POLICY_MODE: "ENFORCE"
+  # This is not a secret and cannot grant privileges.
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sadeq-api
+  namespace: sadeq
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: sadeq-api}
+  template:
+    metadata:
+      labels: {app: sadeq-api}
+    spec:
+      serviceAccountName: sadeq-api
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        seccompProfile: {type: RuntimeDefault}
+      containers:
+      - name: api
+        image: registry.internal.example/sadeq/api:0.1.0 # Placeholder, not an existing image.
+        imagePullPolicy: IfNotPresent
+        envFrom:
+        - configMapRef: {name: sadeq-api-config}
+        ports:
+        - name: http
+          containerPort: 8000
+        startupProbe:
+          httpGet: {path: /health/startup, port: http}
+          failureThreshold: 30
+          periodSeconds: 5
+        readinessProbe:
+          httpGet: {path: /health/ready, port: http}
+          periodSeconds: 10
+        livenessProbe:
+          httpGet: {path: /health/live, port: http}
+          periodSeconds: 20
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop: ["ALL"]
+        resources:
+          requests: {cpu: 100m, memory: 128Mi}
+          limits: {cpu: "1", memory: 512Mi}
+        volumeMounts:
+        - name: tmp
+          mountPath: /tmp
+      volumes:
+      - name: tmp
+        emptyDir: {sizeLimit: 64Mi}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sadeq-api
+  namespace: sadeq
+spec:
+  selector: {app: sadeq-api}
+  ports:
+  - port: 8000
+    targetPort: http
+  type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: sadeq-api-default-deny
+  namespace: sadeq
+spec:
+  podSelector:
+    matchLabels: {app: sadeq-api}
+  policyTypes: [Ingress, Egress]
+  ingress: []
+  egress: []
+# Intentionally zero ingress/egress. Functional flow needs explicit reviewed
+# narrow permit policies (policy service, DB, DNS if needed) and a supporting CNI.
