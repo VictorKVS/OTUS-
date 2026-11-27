@@ -1,0 +1,21 @@
+flowchart TB
+  User["Business User / Channels"] --> GW["Ingress / API Gateway + Auth"]
+  GW --> Policy["SEC-04 Identity & Policy, deterministic"]
+  Policy --> API["Stateless FastAPI pods (HPA)"]
+  API --> ORCH["Stateless UAA/LangGraph workers"]
+  ORCH --> RET["Evidence Retriever / ACL filter"]
+  RET --> Q[(Qdrant vectors)]
+  RET --> G[(Neo4j graph)]
+  ORCH --> P[(Postgres events and checkpoints)]
+  ORCH --> LLM["Local GPU LLM serving (separate node pool)"]
+  ORCH --> Proposal["Action proposal"]
+  Proposal --> Policy
+  Policy --> Approver["Human approval for writes"]
+  Approver --> Tool["Internal tool gateway / allowlisted"]
+  Tool --> P
+  API --> OBS["SEC-06 OTel / Audit / Metrics"]
+  ORCH --> OBS
+  Policy --> OBS
+  Examiner["SEC-05 Independent Qualification"] --> Policy
+  Examiner --> OBS
+  Devsec["SEC-03 CI/CD SBOM / Signed images"] -. "reviewed artifact" .-> API
