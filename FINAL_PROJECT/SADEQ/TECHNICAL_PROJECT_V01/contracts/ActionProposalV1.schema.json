@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sadeq:schema:ActionProposalV1",
+  "title": "ActionProposalV1",
+  "description": "Proposal only. No credentials, no arbitrary shell or tool endpoint.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "proposal_id",
+    "tenant_id",
+    "target_ticket_id",
+    "object_state_version",
+    "tool_name",
+    "arguments",
+    "expected_postcondition",
+    "evidence_refs",
+    "reason",
+    "expires_at"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "proposal_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "tenant_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_-]{2,40}$"
+    },
+    "target_ticket_id": {
+      "type": "string",
+      "pattern": "^[A-Z]+-[0-9]{1,10}$"
+    },
+    "object_state_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "tool_name": {
+      "const": "mock_itsm.update_ticket_status"
+    },
+    "arguments": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "new_status"
+      ],
+      "properties": {
+        "new_status": {
+          "enum": [
+            "IN_PROGRESS",
+            "WAITING_FOR_SUPPORT"
+          ]
+        }
+      }
+    },
+    "expected_postcondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "IN_PROGRESS",
+            "WAITING_FOR_SUPPORT"
+          ]
+        }
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_id",
+          "chunk_id",
+          "source_sha256"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "chunk_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "source_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 600
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
