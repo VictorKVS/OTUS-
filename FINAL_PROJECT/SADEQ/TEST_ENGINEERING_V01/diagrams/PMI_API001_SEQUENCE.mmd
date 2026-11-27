@@ -1,0 +1,20 @@
+sequenceDiagram
+    autonumber
+    actor Tester as Испытатель (tenant A)
+    participant API as B01 / Authenticated API
+    participant IDP as Test IdP
+    participant B02 as B02 / Object Store
+    participant UAG as B05 / UAG
+    participant ITSM as Mock ITSM
+    participant AUD as Audit/Evidence
+    Tester->>API: GET tenant-B/INC-001 + valid A token + spoofed header B
+    API->>IDP: Validate signature, issuer, audience, expiry
+    IDP-->>API: Verified subject A, tenant A
+    API->>UAG: Authorize subject A to read B ticket
+    UAG-->>API: DENY
+    API->>AUD: Redacted denial trace
+    API-->>Tester: 403 or policy-masked 404 (freeze exact endpoint contract)
+    Note over B02,ITSM: No cross-tenant reads or mutations / no tool effects
+    Tester->>API: POST InboundIncidentV1 with tenant_id=tenant-b
+    API-->>Tester: 422 closed schema reject before any storage
+    API->>AUD: Rejection trace (no secret body)
