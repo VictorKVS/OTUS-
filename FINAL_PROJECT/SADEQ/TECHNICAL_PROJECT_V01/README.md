@@ -29,3 +29,6 @@
 - Один корпус синтетических заявок без реальных ПДн, секретов и открытых внешних AI API.
 
 **Требует review:** контрактные схемы не становятся production-ready без настоящего JSON Schema validator, код-ревью, adversarial regression и тестового end-to-end evidence.
+
+## Обязательный усиленный стандарт контрактов (SECURITY BASELINE)
+[TP-005 / FATHER-CSSC-001 — Двусторонний Contract-Strict Security Standard](TP-005_CONTRACT_STRICT_SECURITY_STANDARD.md) — **не только JSON-schema**, но 22 поля обязательств/запретов/полномочий/бюджетов, 18 security invariants, OWASP/NIST/OAuth, threat-to-test. [Шаблон каждого контракта](templates/CONTRACT_SECURITY_TEMPLATE.md), [матрица негативных API-тестов](tests/TP005_API_SECURITY_TEST_MATRIX.md). Существующие 4 схемы — **не полноценные утверждённые API-контракты**: response, UAG policy and authorized tool call schemas остаются незаполненными и блокируют заморозку доверенных интерфейсов.
