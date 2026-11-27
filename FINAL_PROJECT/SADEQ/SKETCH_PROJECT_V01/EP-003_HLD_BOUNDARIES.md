@@ -53,3 +53,5 @@ PostgreSQL stores canonical objects/events/receipts, checkpoint references, auth
 HLD can proceed to LLD when: business scenario and owners assigned or simulated, B01–B08 interfaces agreed, threat model has trust boundaries, API types frozen, acceptable deployment topology evaluated, and all P0 requirements link to a test.
 
 [Pre-existing broader HLD](../PRODUCT_BASELINE_V1/HLD_V01/02_C4_CONTEXT_CONTAINER.md) remains architecture research source; this document refines P0 scoping.
+## Базовые контрактные ограничения следующего этапа
+B01–B08 должны соблюдать [FATHER-CSSC-001](../TECHNICAL_PROJECT_V01/TP-005_CONTRACT_STRICT_SECURITY_STANDARD.md) с двусторонними обязательствами, явными MUST NOT, service identity + resource/field authorization, bounded consumption, запретом неразрешённого tool call, failure recovery и тестами на каждое ограничение. Описания FLOW без security паспорта считаются **неполными**.
