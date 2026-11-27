@@ -1,0 +1,507 @@
+openapi: 3.1.0
+info:
+  title: SADEQ Universal Adaptive Agent API
+  version: 0.1.0
+  description: >-
+    Contract-first offline/on-prem API; design specification, not implemented.
+    Agent-generated requests never authorize their own execution.
+servers:
+  - url: https://sadeq.internal.example/api/v1
+    description: Illustrative private deployment URL only
+tags:
+  - name: Observations
+  - name: Objects
+  - name: Knowledge
+  - name: Agents
+  - name: Actions
+  - name: Qualification
+security:
+  - bearerAuth: []
+paths:
+  /observations:
+    post:
+      tags: [Observations]
+      summary: Accept an immutable observation from an authorized channel
+      operationId: createObservation
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationInput'
+      responses:
+        '202':
+          description: Accepted for validated asynchronous processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationReceipt'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /objects/{objectId}:
+    get:
+      tags: [Objects]
+      operationId: getObject
+      summary: Retrieve authorized object state
+      parameters:
+        - $ref: '#/components/parameters/ObjectId'
+      responses:
+        '200':
+          description: Current object state and provenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectState'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /objects/{objectId}/events:
+    get:
+      tags: [Objects]
+      operationId: listObjectEvents
+      summary: List authorized events for one object
+      parameters:
+        - $ref: '#/components/parameters/ObjectId'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 30
+      responses:
+        '200':
+          description: Visible event history
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [items]
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Event'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /knowledge/query:
+    post:
+      tags: [Knowledge]
+      operationId: queryKnowledge
+      summary: Query evidence-linked, policy-filtered GraphRAG
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [question]
+              properties:
+                question:
+                  type: string
+                  minLength: 1
+                  maxLength: 4000
+      responses:
+        '200':
+          description: Grounded result or explicit abstention
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeResult'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /agents/profiles:
+    post:
+      tags: [Agents]
+      operationId: createAgentProfile
+      summary: Register a proposed profile, without activation privileges
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AgentProfileInput'
+      responses:
+        '201':
+          description: Unqualified draft profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentProfile'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /agents/{agentId}/runs:
+    post:
+      tags: [Agents]
+      operationId: startAgentRun
+      summary: Start bounded authorized work, not arbitrary tool execution
+      parameters:
+        - $ref: '#/components/parameters/AgentId'
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [goal]
+              properties:
+                goal:
+                  type: string
+                  minLength: 1
+                  maxLength: 4000
+      responses:
+        '202':
+          description: Run queued
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RunReceipt'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /actions/proposals:
+    post:
+      tags: [Actions]
+      operationId: proposeAction
+      summary: Prepare an action for policy evaluation; does not execute it
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActionProposalInput'
+      responses:
+        '201':
+          description: Proposal created; tool not executed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionProposal'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /actions/proposals/{proposalId}/approve:
+    post:
+      tags: [Actions]
+      operationId: approveActionProposal
+      summary: Human-only approval; separate internal tool service later checks policy
+      description: Requires explicit human approval permission. Agent tokens are not permitted.
+      parameters:
+        - name: proposalId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [decision]
+              properties:
+                decision:
+                  type: string
+                  enum: [APPROVE, REJECT]
+                note:
+                  type: string
+                  maxLength: 2000
+      responses:
+        '200':
+          description: Decision recorded, not proof of tool execution
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionProposal'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /qualification/records/{agentId}:
+    get:
+      tags: [Qualification]
+      operationId: listQualificationRecords
+      summary: Retrieve qualification history for an authorized agent
+      parameters:
+        - $ref: '#/components/parameters/AgentId'
+      responses:
+        '200':
+          description: Qualification records
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [items]
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/QualificationRecord'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    ObjectId:
+      name: objectId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    AgentId:
+      name: agentId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      required: true
+      schema:
+        type: string
+        minLength: 8
+        maxLength: 128
+  responses:
+    BadRequest:
+      description: Invalid request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Unauthorized:
+      description: Authentication required
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Forbidden:
+      description: Insufficient permission
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Conflict:
+      description: Idempotency conflict or incompatible resource state
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    NotFound:
+      description: Resource absent or hidden by authorization rules
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+  schemas:
+    ObservationInput:
+      type: object
+      additionalProperties: false
+      required: [source_id, external_key, observed_at, kind, payload]
+      properties:
+        source_id:
+          type: string
+          maxLength: 128
+        external_key:
+          type: string
+          maxLength: 256
+        observed_at:
+          type: string
+          format: date-time
+        kind:
+          type: string
+          maxLength: 128
+        payload:
+          type: object
+        evidence_refs:
+          type: array
+          items:
+            type: string
+    ObservationReceipt:
+      type: object
+      required: [observation_id, status, trace_id]
+      properties:
+        observation_id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [ACCEPTED]
+        trace_id:
+          type: string
+    ObjectState:
+      type: object
+      required: [object_id, object_type, state, updated_at]
+      properties:
+        object_id:
+          type: string
+          format: uuid
+        object_type:
+          type: string
+        state:
+          type: object
+        updated_at:
+          type: string
+          format: date-time
+        source_refs:
+          type: array
+          items:
+            type: string
+    Event:
+      type: object
+      required: [event_id, object_id, event_type, event_time, observation_refs]
+      properties:
+        event_id:
+          type: string
+          format: uuid
+        object_id:
+          type: string
+          format: uuid
+        event_type:
+          type: string
+        event_time:
+          type: string
+          format: date-time
+        observation_refs:
+          type: array
+          items:
+            type: string
+    KnowledgeResult:
+      type: object
+      required: [status, citations]
+      properties:
+        status:
+          type: string
+          enum: [ANSWERED, ABSTAIN, REVIEW_REQUIRED]
+        answer:
+          type: string
+        citations:
+          type: array
+          items:
+            type: string
+        graph_path_refs:
+          type: array
+          items:
+            type: string
+    AgentProfileInput:
+      type: object
+      additionalProperties: false
+      required: [name, domain, ontology_version, policy_version]
+      properties:
+        name:
+          type: string
+        domain:
+          type: string
+        ontology_version:
+          type: string
+        policy_version:
+          type: string
+    AgentProfile:
+      allOf:
+        - $ref: '#/components/schemas/AgentProfileInput'
+        - type: object
+          required: [agent_id, status]
+          properties:
+            agent_id:
+              type: string
+              format: uuid
+            status:
+              type: string
+              enum: [DRAFT, IN_QUALIFICATION, QUALIFIED, REVOKED]
+    RunReceipt:
+      type: object
+      required: [run_id, status]
+      properties:
+        run_id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [QUEUED]
+    ActionProposalInput:
+      type: object
+      additionalProperties: false
+      required: [agent_id, object_id, action_type, rationale, evidence_refs]
+      properties:
+        agent_id:
+          type: string
+          format: uuid
+        object_id:
+          type: string
+          format: uuid
+        action_type:
+          type: string
+        rationale:
+          type: string
+          maxLength: 4000
+        evidence_refs:
+          type: array
+          items:
+            type: string
+    ActionProposal:
+      allOf:
+        - $ref: '#/components/schemas/ActionProposalInput'
+        - type: object
+          required: [proposal_id, status]
+          properties:
+            proposal_id:
+              type: string
+              format: uuid
+            status:
+              type: string
+              enum: [PROPOSED, APPROVAL_REQUIRED, APPROVED, REJECTED, BLOCKED, EXPIRED]
+    QualificationRecord:
+      type: object
+      required: [agent_id, artifact_sha256, qualification_state, examiner_id]
+      properties:
+        agent_id:
+          type: string
+          format: uuid
+        artifact_sha256:
+          type: string
+          minLength: 64
+          maxLength: 64
+        qualification_state:
+          type: string
+          enum: [T0, T1, T2, T3, T4]
+        examiner_id:
+          type: string
+        evaluated_at:
+          type: string
+          format: date-time
+    Problem:
+      type: object
+      required: [type, title, status]
+      properties:
+        type:
+          type: string
+          format: uri
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+        trace_id:
+          type: string
