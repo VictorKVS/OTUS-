@@ -4,7 +4,7 @@
 | IDEA+ phase | Артефакт | Status |
 |---|---|---|
 | P0 IDEA_CONTRACT | сформулировано назначение, границы, requirements | DOCUMENTED |
-| P1 INTERNAL_SCOUT | список потенциальных компонентов | PARTIAL — actual code/test/commit audit missing |
+| P1 INTERNAL_SCOUT | [выборочный code-aware reuse audit](09_P1_REUSE_AUDIT.md), 9 кандидатов | PARTIAL — source files checked, tests not executed, runtime/licenses unqualified |
 | P2 WORLD_SCOUT | candidates & known algorithms | PARTIAL — benchmark/licensing review incomplete |
 | P3 BUILD/BUY/REUSE | trade-off outline | PROPOSED — evidence insufficient |
 | P4 COMPOSITION_BLUEPRINT | proposed C4/typed contracts/segmentation | DESIGN BASELINE |
@@ -17,7 +17,7 @@
 **ДА: идея оформлена по структуре IDEA+ и существует как версия в GitHub. НЕТ: IDEA+ ещё не прошла полный factual-feasibility gate, поэтому нельзя утверждать GO на промышленную разработку.** Разрешён управляемый технический PoC с ограниченными затратами и явными stop rules.
 
 ## Следующий операционный этап
-1. Confirm source repositories and inventory existing components; record commit SHA, licenses, contract tests and reuse evidence.
+1. Finish inspected component inventory and run tests in isolated environment; record pinned repository commit SHAs, licenses, contract tests and reuse evidence.
 2. Confirm model / datasets licenses and offline loading; collect model-specific safety evals.
 3. Benchmark object merge, graph+vector retrieval, time/state reconstruction and User-B denial.
 4. Pilot agent 001 and another domain; measure hours, accepted outcomes and failures.
