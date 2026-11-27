@@ -59,3 +59,6 @@ BUS-xxx → REQ-xxx → NFR-xxx → RISK-xxx → ADR-xxx → CMP-xxx
   → API/DATA-xxx → CTRL-xxx → TEST-xxx → SLO-xxx → COST-xxx → REL-xxx
 ```
 Каждая запись должна иметь owner, status (PROPOSED/TESTED/APPROVED), commit SHA, evidence path и date. Нет evidence → NOT_QUALIFIED.
+
+## Привязка шести ролей безопасности к урокам
+SEC-01: уроки 01–05, 08–09, 14, 25–28, 30; SEC-02: 04–05, 08–09, 11–14, 21–27; SEC-03: 10–11, 14, 18–20, 22, 29; SEC-04: 07, 11–15, 23, 26, 30–31; SEC-05: 09, 13–14, 17, 19–20, 24, 30; SEC-06: 15, 20–21, 23–24, 26, 28–30. Подробная схема и RACI: [BA-SEC-001](13_SECURITY_ROLES_BUSINESS_ANALYSIS.md).
