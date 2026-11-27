@@ -36,3 +36,6 @@ Incident taxonomy, drift & false-positive/false-negative rates, policy violation
 
 ## Runtime controls
 Deny by default, least privilege, trace IDs, step/token budgets, safety timeout, idempotent execution, separation duties, external evaluator not controlled by candidate agent, audit-retention policy.
+
+## Separation of duties and business-process mapping (TS-SEC-001)
+Роли [SEC-01…SEC-06](13_SECURITY_ROLES_BUSINESS_ANALYSIS.md) сопоставлены lifecycle в [BPMN 2.0](diagrams/security_lifecycle.bpmn), акторам [UML](diagrams/security_use_cases.puml) и формальным решениям [DMN](diagrams/security_decision_table.md). Квалификация агентной версии не может проводиться только самим проверяемым агентом. Отказ/тайм-аут human approval — обязательная ветвь STOP. Перевод статуса T0→T4 требует evidence и допуска ответственного человека, а не модели.
