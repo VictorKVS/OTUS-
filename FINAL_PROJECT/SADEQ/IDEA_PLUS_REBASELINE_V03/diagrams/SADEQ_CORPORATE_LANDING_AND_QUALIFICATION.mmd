@@ -1,0 +1,23 @@
+flowchart TB
+ subgraph CORP["Корпоративный внутренний контур / цель — IT Service Desk"]
+  USERS["Инженер L1/L2 / согласующий"] --> EDGE["Web UI / API Gateway / Trusted Identity"]
+  EDGE --> UAA["UAA — LangGraph + ALG01...12"]
+  UAA --> KB["Knowledge Service / RAG + Qdrant"]
+  UAA --> EVT[("PostgreSQL Objects / Events / State")]
+  KB --> DOCS[("Approved SOP / KB / Catalog / Provenance")]
+  UAA --> LLM["Local LLM / Ollama (no cloud)"]
+  UAA --> POLICY{"UAG deterministic policy"}
+  POLICY -->|DENY| AUDIT["Audit / Incident"]
+  POLICY -->|human approval + recheck| TOOL["Scoped Mock ITSM Adapter"]
+  TOOL --> ITS["Synthetic Service Desk"]
+  ITS --> VERIFY["Authoritative outcome check"]
+  VERIFY --> EVT
+  VERIFY --> AUDIT
+ end
+ subgraph Q["Изолированное независимое испытание"]
+  DATA["Train/Validation/Heldout manifests"] --> POLY["POLYGON Security + AI Eval"]
+  POLY --> EVI[("Evidence + Hashes + Review")]
+ end
+ DOCS -. corpus approval .-> DATA
+ UAA -. immutable candidate .-> POLY
+ EVI -. qualification signal only .-> POLICY
