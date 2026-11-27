@@ -20,3 +20,10 @@
 
 ## Отгрузка редактируемых документов
 Отдельный архив `SADEQ_PRODUCT_FULL_DOCUMENTATION_V1_2026.zip` передан в текущей беседе; **SHA-256**: `1f2dfd7d265d3ca6ef35778688eee11b67b9969165c2691a6ed62abfc6cffe15`. Содержит DOCX/PDF master dossier, PPTX/PDF новую дорожную презентацию, две предыдущие презентации DRAFT, документы IDEA+/Business/Trust, предыдущие модели, таблицу FinOps и архив предыдущей версии. **Архив не загружен в GitHub**; отдельные девять продуктовых Markdown доступны в этой директории, обновлённые BPMN/UML/DMN — в IDEA_PLUS_V0_2/diagrams. В архиве есть список SHA-256 его файлов.
+
+## Kubernetes / Twelve-Factor Design (27.11.2026)
+- [Тwelve-Factor App x SADEQ / K8s: матрица, deployment, ADR, тесты и YAML](K8S_12_FACTOR_V01/README.md).
+- [Все 12 факторов и доказательства](K8S_12_FACTOR_V01/01_TWELVE_FACTOR_MAPPING.md).
+- [Kubernetes архитектура](K8S_12_FACTOR_V01/02_KUBERNETES_ARCHITECTURE.md).
+- [Тесты и дорожная карта](K8S_12_FACTOR_V01/03_IMPLEMENTATION_ROADMAP_AND_TESTS.md).
+**Статус:** проект, не исполнявшиеся манифесты, NOT_QUALIFIED; Kubernetes optional for MVP, mandatory architecture analysis for production scalability.
