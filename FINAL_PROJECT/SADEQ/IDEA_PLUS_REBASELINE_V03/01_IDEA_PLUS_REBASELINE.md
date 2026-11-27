@@ -172,6 +172,9 @@
 
 P0 PASS только при работающем полном маршруте и сохранённых независимых evidence в целевой лаборатории. При незакрытом критичном тесте или несанкционированном tool call — NO-GO. При невозможности достижения качества RAG — пересмотреть retrieval, не «улучшать» отчёт. Product-market fit не заявляем до реальных интервью и пилотов.
 
+### 10.1. Сопоставление с мировой практикой
+[Аналитическая справка SADEQ-ANALOG-001 о международных и российских аналогах](08_WORLD_ANALOGS_AND_BENCHMARKS.md) содержит опубликованные кейсы ServiceNow, Moveworks/Broadcom, Microsoft mobilezone Supporto, Salesforce, Atlassian, а также российского рынка Naumen и Yandex AI Studio. **Цифры в ней относятся к продуктам и кейсам источников, не к SADEQ.** Отличительные свойства SADEQ (строгие контракты, автономная политика UAG, независимый POLYGON, on-prem) пока только проектируются; их конкурентная полезность должна быть доказана сравнительными испытаниями.
+
 ## 11. Обоснование научно-инженерного выбора
 - Gough/Bryant/Auburn *Mastering API Architecture*: C4, ADR, OpenAPI, contract tests.
 - Suhas Pai *Designing Large Language Model Applications*: embedding/retrieval/reranking/GraphRAG.
