@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sadeq:schema:InboundIncidentV1",
+  "title": "InboundIncidentV1",
+  "description": "Untrusted customer content; identity/tenant obtained from authenticated context only.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_id",
+    "source_system",
+    "external_ticket_id",
+    "kind",
+    "service_key",
+    "priority",
+    "summary",
+    "observed_at"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{3,64}$"
+    },
+    "source_system": {
+      "const": "mock-itsm"
+    },
+    "external_ticket_id": {
+      "type": "string",
+      "pattern": "^[A-Z]+-[0-9]{1,10}$"
+    },
+    "kind": {
+      "enum": [
+        "INCIDENT",
+        "SERVICE_REQUEST"
+      ]
+    },
+    "service_key": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_-]{1,31}$"
+    },
+    "priority": {
+      "enum": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 4,
+      "maxLength": 512
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 4096
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "indicators": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "value"
+        ],
+        "properties": {
+          "code": {
+            "enum": [
+              "HTTP_STATUS",
+              "SERVICE_HEALTH",
+              "ERROR_CODE"
+            ]
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        }
+      }
+    }
+  }
+}
