@@ -23,3 +23,6 @@ B01/B02/B03/B04/B05 — функциональные блоки, а не обя�
 
 ## Источники внутри проекта
 [IDEA+](../../IDEA_PLUS_V0_2/01_IDEA_CONTRACT.md) · [PRD](../02_PRD_REQUIREMENTS_ACCEPTANCE.md) · [HLD](../HLD_V01/README.md) · [SEDA](../ENGINEERING_ALGORITHM_V1/README.md) · [THREAT MATRIX](../SECURE_SDLC_TOP100_V1/THREAT_MATRIX_LIFECYCLE_POLICY.md).
+
+## Детальная теория и проектирование алгоритмов
+[05_ALGORITHMS_DETAILED_SPECIFICATION.md](05_ALGORITHMS_DETAILED_SPECIFICATION.md) — все 12 алгоритмов: шаги обработки, границы AI/non-AI, поля входа/выхода, ошибки, тесты, роль безопасности и linkage к SEDA. **Документировано, тесты не запускались.**
