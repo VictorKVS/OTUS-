@@ -1,0 +1,11 @@
+flowchart LR
+  User["Business User"] -->|authorized inquiry / feedback| SADEQ["SADEQ Platform + UAA"]
+  Owner["Data Owner / Security"] -->|scope, data rights, policies| SADEQ
+  Approver["Human Approver"] -->|bounded action approval| SADEQ
+  Examiner["Independent Examiner"] -->|exam / release recommendation| SADEQ
+  Ops["Operations / SOC"] -->|revoke / incident response| SADEQ
+  Sources["Approved local ERP / CRM / MIS, documents and event channels"] -->|contracted source events| SADEQ
+  SADEQ -->|verified status or allowed bounded action| Sources
+  subgraph OFFLINE["Isolated on-prem boundary (no cloud model API)"]
+    SADEQ
+  end
