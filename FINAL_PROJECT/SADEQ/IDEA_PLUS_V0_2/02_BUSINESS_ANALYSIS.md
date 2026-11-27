@@ -37,3 +37,9 @@
 
 ## Перед архитектурной приёмкой
 Нужны интервью с заказчиками, текущие измерения AS-IS, подтверждённые baseline costs, согласованный value stream и список функций, за которые заказчик готов платить. Без них ROI остаётся моделированием.
+
+## BA-SEC-001 — сквозная безопасность и шесть ролей (версия 0.4)
+- [Бизнес-модель безопасности, RACI, экономические и квалификационные ворота](13_SECURITY_ROLES_BUSINESS_ANALYSIS.md).
+- [BPMN 2.0 lifecycle, XML с дорожками и переходами](diagrams/security_lifecycle.bpmn) — семантическая модель без BPMN-DI координат; перед импортом в визуальный BPMN-редактор требуется визуальная раскладка и проверка.
+- [UML Use Case, PlantUML](diagrams/security_use_cases.puml); [DMN decision table](diagrams/security_decision_table.md); [Mermaid workflow](diagrams/security_lifecycle.mmd).
+SEC-01 подключается в IDEA+; SEC-02 в архитектуре; SEC-03 в CI/CD; SEC-05 независим до выпуска; SEC-04 работает до каждого действия; SEC-06 отвечает за мониторинг. Отказ согласующего или тайм-аут ведут к STOP без исполнения.
