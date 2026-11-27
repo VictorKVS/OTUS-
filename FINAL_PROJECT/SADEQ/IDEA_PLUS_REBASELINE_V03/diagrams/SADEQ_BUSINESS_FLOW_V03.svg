@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1490" viewBox="0 0 2400 1490" role="img" aria-labelledby="title desc">
+<title id="title">SADEQ — бизнес-схема работы корпоративного AI-агента</title><desc id="desc">Пять последовательных этапов: вход и контроль, события и состояние, знания и анализ, решение и действие, проверка и аудит. ALG-01 по ALG-12. Предусмотрены ветви отказа, согласования и независимой квалификации.</desc>
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#071020"/><stop offset=".54" stop-color="#101e36"/><stop offset="1" stop-color="#090d24"/></linearGradient>
+<linearGradient id="card" x2=".9" y2="1"><stop stop-color="#20375a"/><stop offset="1" stop-color="#10243d"/></linearGradient>
+<linearGradient id="head" x2="1"><stop stop-color="#64b9ff"/><stop offset=".6" stop-color="#62f0e0"/><stop offset="1" stop-color="#c4b3ff"/></linearGradient>
+<pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse"><path d="M46 0H0V46" fill="none" stroke="#4a7ca0" stroke-opacity=".12"/></pattern>
+<filter id="glow"><feGaussianBlur stdDeviation="7"/></filter><filter id="shadow" x="-20%" y="-40%" width="140%" height="180%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#000" flood-opacity=".32"/></filter>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#d7ecff"/></marker>
+<marker id="down" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#66eadd"/></marker>
+<style>text{font-family:Inter,Arial,sans-serif}.small{font-size:24px;fill:#a8bed5}.head{font-size:33px;fill:#e8f8ff;font-weight:750;letter-spacing:1px}.id{font-size:27px;font-weight:850;fill:#70f3ed}.label{font-size:29px;font-weight:650;fill:#f0f7ff}.note{font-size:23px;fill:#bcd1e4}.tag{font-size:21px;font-weight:650;fill:#bcd5ee}</style>
+</defs>
+<rect width="2400" height="1490" fill="url(#bg)"/><rect width="2400" height="1490" fill="url(#grid)"/>
+<circle cx="2100" cy="60" r="470" fill="#1c5b97" opacity=".11"/><circle cx="190" cy="1370" r="370" fill="#477cf9" opacity=".08"/>
+<text x="90" y="80" font-size="32" letter-spacing="5" font-weight="850" fill="#6ceee7">SADEQ  /  FATHER</text>
+<text x="90" y="152" font-size="62" font-weight="850" fill="url(#head)">Корпоративный AI-агент: бизнес-процесс</text>
+<text x="92" y="203" font-size="27" fill="#b1c5de">IDEA+ 0.3  ·  Enterprise Operations Copilot  ·  ALG-01…ALG-12  ·  DESIGN / NOT QUALIFIED</text>
+<path d="M90 228H2310" stroke="#3f83b4" stroke-width="2" opacity=".55"/><rect x="88" y="272" width="2224" height="190" rx="23" fill="#11213a" fill-opacity=".88" stroke="#2ee9eb" stroke-opacity=".53" stroke-width="2" filter="url(#shadow)"/>
+<rect x="109" y="287" width="90" height="51" rx="13" fill="#2ee9eb" fill-opacity=".19" stroke="#2ee9eb" stroke-width="1.5"/>
+<text x="154" y="322" text-anchor="middle" font-size="30" font-weight="850" fill="#2ee9eb">01</text>
+<text class="head" x="220" y="324">ВХОД И КОНТРОЛЬ</text>
+<text class="note" x="111" y="443">Невалидный пакет → REJECT · повтор → прежняя квитанция</text><rect x="580" y="290" width="541.3333333333334" height="113" rx="17" fill="url(#card)" stroke="#2ee9eb" stroke-opacity=".8" stroke-width="2"/>
+<text class="id" x="604" y="332">ВХОД</text>
+<text class="label" x="604" y="374">Заявка / документ</text><path d="M1124.3333333333335 349H1137.3333333333335" fill="none" stroke="#d7ecff" stroke-width="4" marker-end="url(#arr)"/><rect x="1143.3333333333335" y="290" width="541.3333333333334" height="113" rx="17" fill="url(#card)" stroke="#2ee9eb" stroke-opacity=".8" stroke-width="2"/>
+<text class="id" x="1167.3333333333335" y="332">ALG-01</text>
+<text class="label" x="1167.3333333333335" y="374">Проверка сообщения</text><path d="M1687.666666666667 349H1700.666666666667" fill="none" stroke="#d7ecff" stroke-width="4" marker-end="url(#arr)"/><rect x="1706.6666666666667" y="290" width="541.3333333333334" height="113" rx="17" fill="url(#card)" stroke="#2ee9eb" stroke-opacity=".8" stroke-width="2"/>
+<text class="id" x="1730.6666666666667" y="332">ALG-02</text>
+<text class="label" x="1730.6666666666667" y="374">Дедупликация</text><path d="M2270 402V484H2230" fill="none" stroke="#68ede5" stroke-width="4" stroke-dasharray="9 8" marker-end="url(#down)"/><rect x="88" y="488" width="2224" height="190" rx="23" fill="#11213a" fill-opacity=".88" stroke="#64b1ff" stroke-opacity=".53" stroke-width="2" filter="url(#shadow)"/>
+<rect x="109" y="503" width="90" height="51" rx="13" fill="#64b1ff" fill-opacity=".19" stroke="#64b1ff" stroke-width="1.5"/>
+<text x="154" y="538" text-anchor="middle" font-size="30" font-weight="850" fill="#64b1ff">02</text>
+<text class="head" x="220" y="540">СОБЫТИЯ И СОСТОЯНИЕ</text>
+<text class="note" x="111" y="659">Неоднозначный объект → REVIEW_REQUIRED · без изменения → NO_ACTION</text><rect x="580" y="506" width="400.5" height="113" rx="17" fill="url(#card)" stroke="#64b1ff" stroke-opacity=".8" stroke-width="2"/>
+<text class="id" x="604" y="548">ALG-03</text>
+<text class="label" x="604" y="590">Идентификация объекта</text><path d="M983.5 565H996.5" fill="none" stroke="#d7ecff" stroke-width="4" marker-end="url(#arr)"/><rect x="1002.5" y="506" width="400.5" height="113" rx="17" fill="url(#card)" stroke="#64b1ff" stroke-opacity=".8" stroke-width="2"/>
+<text class="id" x="1026.5" y="548">ALG-04</text>
+<text class="label" x="1026.5" y="590">Регистрация события</text><path d="M1406 565H1419" fill="none" stroke="#d7ecff" stroke-width="4" marker-end="url(#arr)"/><rect x="1425" y="506" width="400.5" height="113" rx="17" fill="url(#card)" stroke="#64b1ff" stroke-opacity=".8" stroke-width="2"/>
+<text class="id" x="1449" y="548">ALG-05</text>
+<text class="label" x="1449" y="590">Расчёт состояния</text><path d="M1828.5 565H1841.5" fill="none" stroke="#d7ecff" stroke-width="4" marker-end="url(#arr)"/><rect x="1847.5" y="506" width="400.5" height="113" rx="17" fill="url(#card)" stroke="#64b1ff" stroke-opacity=".8" stroke-width="2"/>
+<text class="id" x="1871.5" y="548">ALG-06</text>
+<text class="label" x="1871.5" y="590">Триггер изменения</text><path d="M2270 618V700H2230" fill="none" stroke="#68ede5" stroke-width="4" stroke-dasharray="9 8" marker-end="url(#down)"/><rect x="88" y="704" width="2224" height="190" rx="23" fill="#11213a" fill-opacity=".88" stroke="#b19bff" stroke-opacity=".53" stroke-width="2" filter="url(#shadow)"/>
+<rect x="109" y="719" width="90" height="51" rx="13" fill="#b19bff" fill-opacity=".19" stroke="#b19bff" stroke-width="1.5"/>
+<text x="154" y="754" text-anchor="middle" font-size="30" font-weight="850" fill="#b19bff">03</text>
+<text class="head" x="220" y="756">ЗНАНИЯ И АНАЛИЗ</text>
+<text class="note" x="111" y="875">Без подтверждённых фактов → ABSTAIN · прогноз необязателен для P0</text><rect x="580" y="722" width="541.3333333333334" height="113" rx="17" fill="url(#card)" stroke="#b19bff" stroke-opacity=".8" stroke-width="2"/>
+<text class="id" x="604" y="764">ALG-07</text>
+<text class="label" x="604" y="806">RAG / источники</text><path d="M1124.3333333333335 781H1137.3333333333335" fill="none" stroke="#d7ecff" stroke-width="4" marker-end="url(#arr)"/><rect x="1143.3333333333335" y="722" width="541.3333333333334" height="113" rx="17" fill="url(#card)" stroke="#b19bff" stroke-opacity=".8" stroke-width="2"/>
+<text class="id" x="1167.3333333333335" y="764">ALG-08</text>
+<text class="label" x="1167.3333333333335" y="806">Гипотезы и причины</text><path d="M1687.666666666667 781H1700.666666666667" fill="none" stroke="#d7ecff" stroke-width="4" marker-end="url(#arr)"/><rect x="1706.6666666666667" y="722" width="541.3333333333334" height="113" rx="17" fill="url(#card)" stroke="#b19bff" stroke-opacity=".8" stroke-width="2"/>
+<text class="id" x="1730.6666666666667" y="764">ALG-09</text>
+<text class="label" x="1730.6666666666667" y="806">Прогноз / N/A</text><path d="M2270 834V916H2230" fill="none" stroke="#68ede5" stroke-width="4" stroke-dasharray="9 8" marker-end="url(#down)"/><rect x="88" y="920" width="2224" height="190" rx="23" fill="#11213a" fill-opacity=".88" stroke="#45e0cb" stroke-opacity=".53" stroke-width="2" filter="url(#shadow)"/>
+<rect x="109" y="935" width="90" height="51" rx="13" fill="#45e0cb" fill-opacity=".19" stroke="#45e0cb" stroke-width="1.5"/>
+<text x="154" y="970" text-anchor="middle" font-size="30" font-weight="850" fill="#45e0cb">04</text>
+<text class="head" x="220" y="972">РЕШЕНИЕ И ДЕЙСТВИЕ</text>
+<text class="note" x="111" y="1091">UAG: DENY / APPROVAL_REQUIRED / ALLOW · перед исполнением → recheck</text><rect x="580" y="938" width="541.3333333333334" height="113" rx="17" fill="url(#card)" stroke="#45e0cb" stroke-opacity=".8" stroke-width="2"/>
+<text class="id" x="604" y="980">ALG-10</text>
+<text class="label" x="604" y="1022">Предложение действия</text><path d="M1124.3333333333335 997H1137.3333333333335" fill="none" stroke="#d7ecff" stroke-width="4" marker-end="url(#arr)"/><rect x="1143.3333333333335" y="938" width="541.3333333333334" height="113" rx="17" fill="url(#card)" stroke="#45e0cb" stroke-opacity=".8" stroke-width="2"/>
+<text class="id" x="1167.3333333333335" y="980">ALG-11</text>
+<text class="label" x="1167.3333333333335" y="1022">Политики / согласование</text><path d="M1687.666666666667 997H1700.666666666667" fill="none" stroke="#d7ecff" stroke-width="4" marker-end="url(#arr)"/><rect x="1706.6666666666667" y="938" width="541.3333333333334" height="113" rx="17" fill="url(#card)" stroke="#45e0cb" stroke-opacity=".8" stroke-width="2"/>
+<text class="id" x="1730.6666666666667" y="980">TOOL</text>
+<text class="label" x="1730.6666666666667" y="1022">Разрешённое исполнение</text><path d="M2270 1050V1132H2230" fill="none" stroke="#68ede5" stroke-width="4" stroke-dasharray="9 8" marker-end="url(#down)"/><rect x="88" y="1136" width="2224" height="190" rx="23" fill="#11213a" fill-opacity=".88" stroke="#98bfff" stroke-opacity=".53" stroke-width="2" filter="url(#shadow)"/>
+<rect x="109" y="1151" width="90" height="51" rx="13" fill="#98bfff" fill-opacity=".19" stroke="#98bfff" stroke-width="1.5"/>
+<text x="154" y="1186" text-anchor="middle" font-size="30" font-weight="850" fill="#98bfff">05</text>
+<text class="head" x="220" y="1188">ПРОВЕРКА И АУДИТ</text>
+<text class="note" x="111" y="1307">Не совпало → MISMATCH / INCIDENT · нет реальных тестов → NOT_QUALIFIED</text><rect x="580" y="1154" width="541.3333333333334" height="113" rx="17" fill="url(#card)" stroke="#98bfff" stroke-opacity=".8" stroke-width="2"/>
+<text class="id" x="604" y="1196">ALG-12</text>
+<text class="label" x="604" y="1238">Сверка результата</text><path d="M1124.3333333333335 1213H1137.3333333333335" fill="none" stroke="#d7ecff" stroke-width="4" marker-end="url(#arr)"/><rect x="1143.3333333333335" y="1154" width="541.3333333333334" height="113" rx="17" fill="url(#card)" stroke="#98bfff" stroke-opacity=".8" stroke-width="2"/>
+<text class="id" x="1167.3333333333335" y="1196">AUDIT</text>
+<text class="label" x="1167.3333333333335" y="1238">Событие / трасса</text><path d="M1687.666666666667 1213H1700.666666666667" fill="none" stroke="#d7ecff" stroke-width="4" marker-end="url(#arr)"/><rect x="1706.6666666666667" y="1154" width="541.3333333333334" height="113" rx="17" fill="url(#card)" stroke="#98bfff" stroke-opacity=".8" stroke-width="2"/>
+<text class="id" x="1730.6666666666667" y="1196">POLYGON</text>
+<text class="label" x="1730.6666666666667" y="1238">Независимая оценка</text><rect x="88" y="1340" width="2224" height="106" rx="25" fill="#0d2137" stroke="#53b5d8" stroke-opacity=".6" stroke-width="2"/>
+<text x="137" y="1393" font-size="25" font-weight="750" fill="#55f4e8">СТАНДАРТ:</text>
+<text x="330" y="1393" class="tag">Contract-Strict</text><text x="690" y="1393" class="tag">Offline / On-Prem</text><text x="1100" y="1393" class="tag">Human-in-the-Loop</text><text x="1578" y="1393" class="tag">Evidence &amp; Traceability</text>
+<text x="137" y="1428" class="small" font-size="20">Векторная обзорная схема. Нормативные BPMN/ГОСТ 19.701 выполняются и проверяются отдельно.</text>
+</svg>
