@@ -1,0 +1,37 @@
+sequenceDiagram
+  autonumber
+  actor C as Client
+  participant G as API Gateway / Auth
+  participant O as Observation Service
+  participant S as Event and State Store
+  participant A as UAA Orchestrator
+  participant K as GraphRAG
+  participant P as Policy Engine
+  actor H as Human Approver
+  participant T as Tool Gateway
+  C->>G: POST observation /api/v1/observations
+  G->>G: Validate identity + tenant + scope + quota
+  G->>O: authorized observation
+  O->>S: idempotent write + provenance
+  S-->>O: observation_id
+  O-->>C: 202 receipt
+  A->>S: retrieve authorized events / state
+  A->>K: retrieve graph and source evidence (ACL filtered)
+  K-->>A: citations + graph paths
+  A->>P: evaluate proposed action, trust level, evidence
+  alt DENY / REVIEW_REQUIRED
+    P-->>A: block; append audit
+  else APPROVAL_REQUIRED
+    P-->>H: request human approval
+    alt rejected or expired
+      H-->>P: deny
+      P-->>A: block
+    else approved
+      H-->>P: approved
+      P->>T: bounded authenticated service invocation
+      T-->>S: append execution outcome
+    end
+  else ALLOW_BOUNDED
+    P->>T: authorized low-risk tool invocation
+    T-->>S: append execution outcome
+  end
