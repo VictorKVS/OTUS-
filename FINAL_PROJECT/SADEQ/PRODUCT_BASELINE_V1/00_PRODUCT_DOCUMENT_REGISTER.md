@@ -30,3 +30,6 @@
 
 ## Secure SDLC + TOP-100 Threats (27.11.2026)
 [Полная программа 13 фаз G00–G12, 100 угроз и CSV](SECURE_SDLC_TOP100_V1/README.md). Проектный gap-analysis, основанный на NIST SSDF, AI RMF, OWASP, MITRE ATLAS, SLSA и Kubernetes. Не считать угрозы закрытыми без независимых тестов.
+
+## Верхнеуровневая архитектура HLD v0.1 (27.11.2026)
+[HLD / архитектура по C4 и API-first](HLD_V01/README.md), [список желаемого и ограничений](HLD_V01/01_DRIVERS_AND_CONSTRAINTS.md), [C4 контекст и контейнеры](HLD_V01/02_C4_CONTEXT_CONTAINER.md), [8 логических блоков](HLD_V01/03_BLOCK_CATALOG.md), [трассировка требований/угроз](HLD_V01/04_TRACEABILITY_AND_DECISIONS.md), [ADR](HLD_V01/ADR-HLD-001.md); [три редактируемые Mermaid схемы](HLD_V01/diagrams/c4_context.mmd). Статус: PROPOSED, без независимого архитектурного signoff и исполнения.
