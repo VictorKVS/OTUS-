@@ -28,3 +28,6 @@ Record test code commit, dataset SHA, schema files SHA, dependencies, Python ver
 
 ## 4. Next development gate
 P0 contract freeze demands runnable validator, actual tests of all four schemas, strict HTTP decoder and verified auth-context, then transactional event store + mock ITSM, then end-to-end and POLYGON.
+
+## Обязательный security negative-suite gate
+[TP005 API Security Test Matrix](tests/TP005_API_SECURITY_TEST_MATRIX.md) включает OWASP API1–API10 + AI-specific prompt injection / RAG tenant ACL / TOCTOU / retries / examiner tampering. Существующий `pytest` проверяет **только часть структурных свойств**; не подтверждает уровень API security, OIDC/OAuth, TLS, rate limits, isolation, POLICY или POLYGON. До полных тестов все статусы NOT_RUN.
