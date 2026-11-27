@@ -1,0 +1,19 @@
+flowchart TB
+  A["ТЗ / Contract / Sources"] --> B["Постановка / пределы применимости"]
+  B --> C["Test Environment & initial states"]
+  C --> D["Sequence / state diagrams"]
+  D --> E["Programme: test matrix + thresholds"]
+  E --> F["Method: exact steps + evidence"]
+  F --> R{"Reviewer approves? "}
+  R -->|No| B
+  R -->|Yes| G["Implement test code / fixture"]
+  G --> H["Run isolated tests"]
+  H --> I{"Results complete?"}
+  I -->|Evidence missing| J["INCONCLUSIVE / BLOCKED"]
+  I -->|Violation| K["FAIL + incident"]
+  I -->|All assertions| L["PASS for this TEST-ID"]
+  L --> P["Independent POLYGON / version-specific"]
+  P --> Q["Human release decision"]
+  J --> H
+  K --> M["Code correction + new version"]
+  M --> H
