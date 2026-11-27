@@ -33,3 +33,6 @@ Metrics: failed ACL, policy denials, ungrounded claims, drift, false positives/n
 
 ## Independent acceptance
 Test user B secret; injection via retrieved material; human reject; expired qualification; tampered evidence; ambiguous civilian object; offline egress; restore/failover; adverse feedback. PASS does not imply universal safety; findings require requalification and stop triggers.
+
+## Новый полный каталог угроз
+[TOP-100 реестр](SECURE_SDLC_TOP100_V1/TOP_100_THREATS.md) (100 сценариев, защитные меры, негативные тесты, SEC роли и этапы), [CSV](SECURE_SDLC_TOP100_V1/TOP_100_THREATS.csv) и [Secure SDLC 13 фаз](SECURE_SDLC_TOP100_V1/SECURE_SDLC_ROADMAP.md). В исходной матрице приоритета 81 P0 / 19 P1; это гипотезы, их severity и остаточный риск предстоит согласовать. Допуски не заявлены.
