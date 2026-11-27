@@ -2,6 +2,12 @@
 **Дата:** 2026-11-27 · **Status:** DRAFT / PROPOSED · **Goal:** shift from broad agent factory to one demonstrable safe corporate AI agent without abandoning universal architecture.
 
 ## Start here
+
+- [05 Целевое корпоративное размещение агента (Z0–Z7)](05_ENTERPRISE_DEPLOYMENT_HORIZON.md)
+- [06 Корпус знаний, алгоритмы и учебная программа L0–L8](06_AGENT_KNOWLEDGE_CURRICULUM.md)
+- [07 План испытаний и независимая квалификация Q00–Q11](07_AGENT_TRAINING_AND_QUALIFICATION.md)
+- [Схема корпоративного включения и квалификации](diagrams/SADEQ_CORPORATE_LANDING_AND_QUALIFICATION.mmd)
+
 - [01 IDEA+ — паспорт новой идеи](01_IDEA_PLUS_REBASELINE.md)
 - [02 Техническое задание по ГОСТ 34.602-2020](02_TECHNICAL_ASSIGNMENT_GOST_34_602.md)
 - [03 Матрица FR-NEW-01…20 и приёмки](03_REQUIREMENTS_ACCEPTANCE_MATRIX.md)
