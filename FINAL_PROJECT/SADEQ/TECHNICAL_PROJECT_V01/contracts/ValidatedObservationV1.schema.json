@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sadeq:schema:ValidatedObservationV1",
+  "title": "ValidatedObservationV1",
+  "description": "Internal only; created by trusted ingress after auth/schema verification. Do not expose it as an external submit schema.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "tenant_id",
+    "principal_id",
+    "source_system",
+    "external_ticket_id",
+    "object_key",
+    "event_id",
+    "idempotency_key",
+    "observed_at",
+    "source_sha256",
+    "trace_id"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "tenant_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_-]{2,40}$"
+    },
+    "principal_id": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 80
+    },
+    "source_system": {
+      "const": "mock-itsm"
+    },
+    "external_ticket_id": {
+      "type": "string",
+      "pattern": "^[A-Z]+-[0-9]{1,10}$"
+    },
+    "object_key": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_-]{1,31}$"
+    },
+    "event_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "idempotency_key": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "trace_id": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 64
+    }
+  }
+}
