@@ -55,3 +55,6 @@ Control Plane owns identities, state transitions, planners, policy, action autho
 
 ## Design concerns
 GraphRAG is not a vector search renamed: it must follow relation graph paths and cite source chunks. Entity resolution cannot merge unrelated tenants. Event replay needs ordering, dedupe and idempotent side effects. Predictive computations must use reproducible algorithms and backtesting; LLM can explain but must not invent metrics. Continuous learning requires change approval and versioned data.
+
+## Independent security roles (ADD-SEC-001)
+См. [бизнес-архитектура шести ролей](13_SECURITY_ROLES_BUSINESS_ANALYSIS.md), [BPMN](diagrams/security_lifecycle.bpmn), [UML](diagrams/security_use_cases.puml), [DMN](diagrams/security_decision_table.md). Все шесть ролей — функции, не шесть отдельных LLM. В Control Plane отдельный policy decision point (SEC-04) и независимый Qualification Plane (SEC-05). SEC-06 мониторит runtime, отзыв допуска и инциденты. SEC-01 и SEC-02 работают до выбора API и deployment, SEC-03 на сборке. Prompt не имеет authority повышать права, менять правила или разрешать опасный tool call.
