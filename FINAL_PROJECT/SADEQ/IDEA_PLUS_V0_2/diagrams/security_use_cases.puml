@@ -1,0 +1,42 @@
+@startuml
+title SADEQ — UML Use Case: Security Roles (PROPOSED)
+left to right direction
+skinparam packageStyle rectangle
+actor "Business Sponsor" as Sponsor
+actor "Security Architect" as Architect
+actor "Threat Modeler" as Threat
+actor "DevSecOps Specialist" as DevSec
+actor "Runtime Policy Service" as Runtime
+actor "Independent Examiner" as Examiner
+actor "Human Approver" as Approver
+actor "SOC / Security Monitor" as SOC
+actor "Business User" as User
+rectangle "SADEQ — Engineering and Agent Lifecycle" {
+  usecase "Accept Business Risk" as U1
+  usecase "Define Security Requirements" as U2
+  usecase "Model Threats" as U3
+  usecase "Scan Code and Supply Chain" as U4
+  usecase "Authorize Each Tool Action" as U5
+  usecase "Evaluate Agent Version" as U6
+  usecase "Approve Release" as U7
+  usecase "Monitor and Investigate" as U8
+  usecase "Revoke Trust / Stop Agent" as U9
+  usecase "Receive Verified Result" as U10
+}
+Sponsor -- U1
+Architect -- U2
+Threat -- U3
+DevSec -- U4
+Runtime -- U5
+Examiner -- U6
+Approver -- U7
+SOC -- U8
+SOC -- U9
+User -- U10
+U7 ..> U6 : <<include>>
+U9 ..> U5 : <<extend>>
+note right of U5
+Deterministic enforcement outside LLM;
+fail closed; human approval on consequential writes
+end note
+@enduml
