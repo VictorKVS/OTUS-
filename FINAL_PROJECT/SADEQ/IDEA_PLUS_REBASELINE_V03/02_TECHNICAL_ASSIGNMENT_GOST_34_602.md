@@ -106,3 +106,6 @@
 ### Лист согласования
 **Разработчик:** TBD signature/date; **Заказчик:** NOT_ASSIGNED; **Архитектор ИБ:** REVIEW_REQUIRED; **Руководитель испытаний:** NOT_ASSIGNED.  
 **Изменения:** новая базовая конфигурация проекта IDEA+0.3 / TZ0.3, replaces planning focus of previous v0.2 without deleting historical files.
+
+### Приложение Б. Обзорные архитектурные иллюстрации (справочно)
+Встроенная [IDEA+ с визуализациями](01_IDEA_PLUS_REBASELINE.md) содержит 11 рисунков, в том числе [AS-IS → TO-BE](diagrams/VIS-02_AS_IS_TO_BE.svg), [C4](diagrams/VIS-03_C4_CONTEXT_CONTAINER.svg), [UAG/Zero Trust](diagrams/VIS-04_ZERO_TRUST_UAG.svg), [RAG/GraphRAG](diagrams/VIS-05_RAG_GRAPHRAG.svg), [потоки данных](diagrams/VIS-08_DATA_EVENTS.svg), [дорожную карту](diagrams/VIS-09_MVP_ROADMAP.svg). Схемы иллюстрируют проектные решения и сами по себе не подтверждают выполнение требований или соблюдение графических форм ГОСТ. При расхождении приоритет имеет текст согласованного ТЗ.
