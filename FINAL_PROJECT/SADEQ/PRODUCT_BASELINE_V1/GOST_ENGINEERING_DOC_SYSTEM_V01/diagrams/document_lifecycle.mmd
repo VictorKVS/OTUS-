@@ -1,0 +1,19 @@
+flowchart TD
+ I["IDEA+ / initial threat register"] --> C["Concept and viability"]
+ C --> T["Technical Assignment / GOST 34.602"]
+ T --> EP["Sketch Design / C4/BPMN/DFD"]
+ EP --> TP["Technical Project / B01..08 & ALG01..12"]
+ TP --> RD["Working software documentation / ESPD"]
+ RD --> QA["Tests / GOST 19.301 & 34.603 + POLYGON"]
+ QA --> PR["Pilot operation"]
+ PR --> A{"Formal customer acceptance?"}
+ A -- no --> FIX["Defect / change request / risk reopening"]
+ FIX --> TP
+ A -- yes --> OPS["Operations, maintenance, risk review"]
+ OPS --> CHANGE{"Change model/API/data/tools/infra?"}
+ CHANGE -- yes --> FIX
+ CHANGE -- no --> OPS
+ THR["Single threat register since IDEA+"] -.-> I
+ THR -.-> TP
+ THR -.-> QA
+ THR -.-> OPS
