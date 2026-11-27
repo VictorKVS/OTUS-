@@ -1,0 +1,19 @@
+flowchart TD
+  I["IDEA+ / business and system requirements"] --> D["01 Define task and measurable result"]
+  D --> C["02 Hard constraints, assets, risk matrix"]
+  C --> B["03 C4 decomposition and owner"]
+  B --> S["04 Library search: book, method, chapter and applicability"]
+  S --> G{"Verified prior art?"}
+  G -- No --> R["Research task / source and test gap"]
+  R --> S
+  G -- Yes --> A["05 Baseline + alternatives"]
+  A --> H{"06 Hard constraints pass?"}
+  H -- No --> A
+  H -- Yes --> E["07 Measure fair benchmark / uncertain = NOT_MEASURED"]
+  E --> ADR["08 Architecture Decision Record"]
+  ADR --> CT["09 ALG + CMP + FLOW + API + SECURITY contracts"]
+  CT --> DEV["10 Controlled implementation"]
+  DEV --> TEST["11 Functional + adversarial + independent POLYGON"]
+  TEST --> Q{"Qualified and approved by human?"}
+  Q -- No --> FIX["Revise design and update threat matrix"] --> ADR
+  Q -- Yes --> REL["12 Release, monitor, retrigger on change"]
