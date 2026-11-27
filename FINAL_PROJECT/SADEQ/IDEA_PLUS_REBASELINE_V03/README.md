@@ -1,6 +1,7 @@
 # IDEA+ REBASELINE V0.3 · SADEQ Enterprise Operations Copilot
 **Дата:** 2026-11-27 · **Status:** DRAFT / PROPOSED · **Goal:** shift from broad agent factory to one demonstrable safe corporate AI agent without abandoning universal architecture.
 
+- [08 Мировые и российские аналоги / проверяемые KPI и конкурирующие решения](08_WORLD_ANALOGS_AND_BENCHMARKS.md) — справка рядом с ТЗ, ссылки на первоисточники; достижения аналогов не приписываются SADEQ.
 ## Start here
 
 - [05 Целевое корпоративное размещение агента (Z0–Z7)](05_ENTERPRISE_DEPLOYMENT_HORIZON.md)
