@@ -27,3 +27,6 @@
 - [Kubernetes архитектура](K8S_12_FACTOR_V01/02_KUBERNETES_ARCHITECTURE.md).
 - [Тесты и дорожная карта](K8S_12_FACTOR_V01/03_IMPLEMENTATION_ROADMAP_AND_TESTS.md).
 **Статус:** проект, не исполнявшиеся манифесты, NOT_QUALIFIED; Kubernetes optional for MVP, mandatory architecture analysis for production scalability.
+
+## Secure SDLC + TOP-100 Threats (27.11.2026)
+[Полная программа 13 фаз G00–G12, 100 угроз и CSV](SECURE_SDLC_TOP100_V1/README.md). Проектный gap-analysis, основанный на NIST SSDF, AI RMF, OWASP, MITRE ATLAS, SLSA и Kubernetes. Не считать угрозы закрытыми без независимых тестов.
