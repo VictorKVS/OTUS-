@@ -34,3 +34,6 @@
 
 ## 5. Implementation interfaces
 First endpoint `POST /incidents`. Later `POST /documents`, `POST /queries`, `POST /proposals/{id}/decision`, `GET /audit/{trace_id}`. All are tentative until published OpenAPI 3.1 and component owner review.
+
+## Security hardening обязательное к применению
+Этот документ и 4 существующие JSON-schema — **первичный structural skeleton**, не завершённый security contract. Все FLOW-01/02/06/07/08/09 оформляются по [FATHER-CSSC-001](TP-005_CONTRACT_STRICT_SECURITY_STANDARD.md), обязательно с указанием MUST и MUST NOT, service + end-user-to-resource authorization, error/response schema, max GPU/token budgets, Fuzz/negative tests и независимого evidence. Если любое поле безопасности пусто — **REVIEW_REQUIRED**, никаких production или QUALIFIED утверждений.
