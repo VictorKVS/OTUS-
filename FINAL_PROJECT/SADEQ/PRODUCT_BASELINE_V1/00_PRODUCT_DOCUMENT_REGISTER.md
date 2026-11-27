@@ -45,3 +45,6 @@
 
 ## Карьерная флагманская презентация SADEQ/FATHER (27.11.2026)
 [Флагманский портфолио-пакет](../../FLAGSHIP_PORTFOLIO_V01/README.md), [HTML-страница для демонстрации](../../FLAGSHIP_PORTFOLIO_V01/index.html), [достоверный кейс для резюме и выступления](../../FLAGSHIP_PORTFOLIO_V01/RESUME_CASE_RU.md), [корпоративная дизайн-система](../../FLAGSHIP_PORTFOLIO_V01/VISUAL_AND_EVIDENCE_STANDARD.md). Статус архитектурное R&D, не production, claims ограничены проверенными GitHub артефактами.
+
+## Новая базовая IDEA+ и ТЗ 0.3 (27.11.2026)
+**[IDEA+ REBASELINE V0.3](../../IDEA_PLUS_REBASELINE_V03/README.md)** — [новый паспорт идеи](../../IDEA_PLUS_REBASELINE_V03/01_IDEA_PLUS_REBASELINE.md), [ТЗ по ГОСТ 34.602-2020](../../IDEA_PLUS_REBASELINE_V03/02_TECHNICAL_ASSIGNMENT_GOST_34_602.md), [20 требований и приёмка](../../IDEA_PLUS_REBASELINE_V03/03_REQUIREMENTS_ACCEPTANCE_MATRIX.md), [матрица пересмотра v0.2→v0.3](../../IDEA_PLUS_REBASELINE_V03/04_CHANGE_IMPACT_V02_TO_V03.md). Новая фазировка: P0 работающий Operations Copilot, P1 обязательное расширение OTUS (GraphRAG, 3 профиля, K8s, TCO), P2 исследования. Старые проектные документы сохранены, применимы только после impact review. Статус PROJECT / NOT APPROVED.
