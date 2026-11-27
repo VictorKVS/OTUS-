@@ -33,3 +33,6 @@
 
 ## Верхнеуровневая архитектура HLD v0.1 (27.11.2026)
 [HLD / архитектура по C4 и API-first](HLD_V01/README.md), [список желаемого и ограничений](HLD_V01/01_DRIVERS_AND_CONSTRAINTS.md), [C4 контекст и контейнеры](HLD_V01/02_C4_CONTEXT_CONTAINER.md), [8 логических блоков](HLD_V01/03_BLOCK_CATALOG.md), [трассировка требований/угроз](HLD_V01/04_TRACEABILITY_AND_DECISIONS.md), [ADR](HLD_V01/ADR-HLD-001.md); [три редактируемые Mermaid схемы](HLD_V01/diagrams/c4_context.mmd). Статус: PROPOSED, без независимого архитектурного signoff и исполнения.
+
+## SEDA-001: книжно-обоснованный алгоритм проектирования (27.11.2026)
+[SEDA-001 — общий пакет](ENGINEERING_ALGORITHM_V1/README.md), [12 этапов инженерного выбора](ENGINEERING_ALGORITHM_V1/01_ENGINEERING_DESIGN_ALGORITHM.md), [источники и проверенные темы](ENGINEERING_ALGORITHM_V1/02_BOOKS_AND_PROVENANCE.md), [матрица выбора алгоритмов и ADR](ENGINEERING_ALGORITHM_V1/03_DECISION_MATRIX_AND_ADR.md), [первый пример B01/B02](ENGINEERING_ALGORITHM_V1/04_EXAMPLE_B01_B02.md), [обязательный протокол агента-программиста](ENGINEERING_ALGORITHM_V1/05_ENGINEER_AGENT_PROTOCOL.md). **Не путать этот новый двенадцатишаговый инженерный процесс с историческими «12 правилами FATHER» или Twelve-Factor.** Статус PROPOSED / implementation evidence not available.
