@@ -1,0 +1,11 @@
+# ADR-K8S-012 — Adopt Twelve-Factor for SADEQ service design
+- **Decision:** Adopt 12factor.net Twelve-Factor App as a baseline for service boundaries and release engineering. Add agent-specific requirements for externalized persistent state, deterministic policy, GraphRAG evidence and independently earned trust.
+- **Status:** PROPOSED; date 2026-11-27.
+- **Context:** SADEQ requires local on-prem demo, Kubernetes deployment option, multi-agent specialization, scale and controls without an LLM self-approving actions.
+- **Alternative A:** one stateful Python process with local SQLite and in-process cache — fastest proof, but poor independent scaling and recoverability.
+- **Alternative B (selected for design):** modular stateless API/UAA and persistent backing services; Compose for local development, K8s for cluster-based production.
+- **Alternative C:** fully distributed microservices + GPU pool from MVP start — high operations and GPU cost; no evidence it's needed yet.
+- **Tradeoffs:** external DB and queuing adds latency, cost, schema migrations, and partial failures; gains restartability, independent scale, audit.
+- **Consequences:** idempotency key, checkpoint schema migrations, retries with authorization revalidation, durable audit, startup/shutdown tests, no external egress.
+- **Review gate:** benchmark equal workloads and cost before moving to K8s cluster; secure production admission depends on independent QA.
+- **Reference:** https://12factor.net/
